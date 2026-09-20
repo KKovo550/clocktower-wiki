@@ -472,6 +472,7 @@ document.getElementById('grid').addEventListener('keydown',function(e){
   if(e.target.matches('.card')&&(e.key==='Enter'||e.key===' ')){e.preventDefault();e.target.click();}
 });
 document.addEventListener('error',function(e){
+  if(e.target.id==='artPreview')return;
   if(e.target.tagName==='IMG'){var p=document.createElement('span');p.className='ph';p.textContent='◈';p.setAttribute('aria-label','暂无图标');e.target.replaceWith(p);}
 },true);
 

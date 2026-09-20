@@ -1,0 +1,18 @@
+#artDialog{width:min(1180px,96vw);max-width:1180px;max-height:94vh;padding:0;border:1px solid #d8e1ee;border-radius:20px;background:#f7f9fc;color:#1b2c44;box-shadow:0 24px 80px #12233b40}
+#artDialog::backdrop{background:#12233b80;backdrop-filter:blur(5px)}
+#artDialog .art-header{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:24px 28px;border-bottom:1px solid #dce4ef;background:white}
+#artDialog h2{margin:4px 0;font-size:25px;border:0}#artDialog p{margin:6px 0;line-height:1.6}
+#artDialog .art-eyebrow{font-size:11px;letter-spacing:2px;color:#51719d;font-weight:700}
+#artDialog .art-workspace{display:grid;grid-template-columns:290px minmax(0,1fr);gap:24px;padding:24px}
+#artDialog .art-controls{display:flex;flex-direction:column;gap:14px;min-width:0}
+#artDialog label{display:flex;flex-direction:column;gap:7px;font-size:13px;color:#465b78}
+#artDialog input,#artDialog select{box-sizing:border-box;min-width:0;width:100%;padding:10px;border:1px solid #cedaeb;border-radius:9px;background:white;font:inherit;color:#1b2c44}
+#artDialog .art-pair{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+#artDialog .art-note,#artStatus{font-size:12px;color:#5c708c;line-height:1.7}
+#artDialog .art-canvas{padding:20px;min-width:0;align-self:start;background:#e7ecf4;border-radius:14px;min-height:300px}
+#artPreview{display:block;width:100%;height:auto;box-shadow:0 8px 28px #15273d26;border-radius:8px}
+#artPreview:not([src]){visibility:hidden}
+#artDialog .art-downloads{display:flex;gap:8px;flex-wrap:wrap}
+#artDialog .btn{font:inherit;padding:9px 13px;border:1px solid #cbd8e9;border-radius:9px;background:#fff;color:#274b76;cursor:pointer}#artDialog .btn.pri{background:#285da9;color:#fff;border-color:#285da9}#artDialog .btn:focus-visible{outline:3px solid #92baff;outline-offset:2px}
+#artDialog button:disabled{opacity:.5;cursor:wait}
+@media(max-width:700px){#artDialog .art-workspace{grid-template-columns:1fr;padding:16px;gap:16px}#artDialog .art-header{padding:16px}#artDialog .art-canvas{padding:10px}#artDialog .art-controls{gap:10px}}
