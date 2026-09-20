@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>毒爆 Toxblast - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">毒爆 Toxblast<span class="ns-badge">奥德赛</span></h1>
+    <div class="tagline">来自钟楼百科 · 摘自《奥德赛 Odyssey》百科 · 爪牙</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#夜晚行动顺序">夜晚行动顺序</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#游玩与对抗技巧">游玩与对抗技巧</a></li><li class="lvl2"><a href="#出现剧本">出现剧本</a></li><li class="lvl2"><a href="#整体设计">整体设计</a></li><li class="lvl2"><a href="#创意来源">创意来源</a></li><li class="lvl2"><a href="#图标画师">图标画师</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E6%AF%92%E7%88%86">查找包含此角色的剧本 →</a></p><div class="charinfo"><div class="charinfo-img"><a href="../files/%E6%96%87%E4%BB%B6_%E6%AF%92%E7%88%86.png.html"><img alt="毒爆 Toxblast" data-source-image="../images/%E6%AF%92%E7%88%86.png" src="../assets/media/毒爆.preview.webp" width="600" height="600" decoding="async"></a></div><div class="charinfo-meta"><div class="row"><span class="k">角色类型</span><span class="v"><a href="../pages/%E7%88%AA%E7%89%99.html" title="爪牙">爪牙</a></span></div><div class="row"><span class="k">英文名</span><span class="v">Toxblast</span></div><div class="row"><span class="k">角色ID</span><span class="v">111</span></div><div class="row"><span class="k">角色归属</span><span class="v">角色拓展包《奥德赛》</span></div><div class="row"><span class="k">能力标签</span><span class="v"><a href="../pages/%E4%B8%AD%E6%AF%92.html" title="中毒">中毒</a>、<a href="../pages/%E9%82%BB%E8%BF%91.html" title="邻近">邻近</a>、<a href="../pages/%E5%A4%84%E5%86%B3.html" title="处决">处决</a></span></div><div class="row"><span class="k">角色定位</span><span class="v">中毒爪牙</span></div><div class="row"><span class="k">发布日期</span><span class="v">2026.7.4</span></div><div class="row"><span class="k">角色授权</span><span class="v">开放（任意剧本创作皆可使用，不要改能力）</span></div><div class="row"><span class="k">出处</span><span class="v"><a class="external" href="https://www.yuque.com/u48069482/taiyi" target="_blank" rel="noopener">《奥德赛 Odyssey》百科</a></span></div></div></div><h2 id="背景故事">背景故事</h2>
+<p><em>"他的皮肤下流淌着我的杰作！那些美妙的化合物！绞索一紧，它们就会从他的七窍和伤口喷涌而出，像一场绚烂的烟花雨。落在你们的脸上，渗进你的肺里。美极了，不是吗？"</em></p>
+<h2 id="角色简介"><span style="color:rgb(64, 64, 64);">角色简介</span></h2>
+<p>与被处决的玩家邻近的镇民会中毒。</p>
+<h2 id="角色能力">角色能力</h2>
+<div class="callout callout-info">
+<p>当有玩家被处决时，与他邻近的两名镇民中毒直到明天黄昏。如果白天没人被处决，所有镇民中毒直到明天黄昏。</p>
+</div>
+<h2 id="范例">范例</h2>
+<ul>
+<li>第一个白天，没有玩家被处决，所有镇民中毒了。</li>
+<li>第一个白天，贵族被处决但没有死亡。离贵族最近的镇民是坐在他旁边的占卜师和共情者，占卜师和共情者中毒了。</li>
+<li>第三个白天，男爵死于处决。离他最近的镇民是死亡的贵族和死亡国王，死亡的贵族和死亡国王中毒了。</li>
+</ul>
+<h2 id="运作方式">运作方式</h2>
+<p>当有玩家被处决时，立即找到该玩家顺时针方向与逆时针方向上最近的两名镇民，并在他们的角色标记旁放置“中毒”提示标记，他们从现在开始中毒。然后移除昨天放置的所有“中毒”提示标记。</p>
+<p>每个黄昏，如果今天白天没有玩家被处决，在毒爆的角色标记旁放置“中毒”提示标记——这代表所有镇民中毒。然后移除昨天放置的所有“中毒”提示标记。</p>
+<h2 id="夜晚行动顺序">夜晚行动顺序</h2>
+<ul>
+<li>首个夜晚</li>
+<ul>
+<li>夜序数值：/</li>
+<li>前位角色：/</li>
+<li>行动提示：/</li>
+</ul>
+<li>其他夜晚</li>
+<ul>
+<li>夜序数值：/</li>
+<li>前位角色：/</li>
+<li>行动提示：/</li>
+</ul>
+</ul>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>中毒*2</li>
+<ul>
+<li>放置时机：有玩家被处决时或白天结束时但当天没有玩家被处决。</li>
+<li>放置条件：有玩家被处决时，放置在与该玩家邻近的两名镇民的角色标记旁。白天结束时但当天没有玩家被处决，放置在毒爆的角色标记旁。</li>
+<li>移除时机：毒爆死亡或离场时，每个黄昏时。</li>
+</ul>
+</ul>
+<h2 id="规则细节">规则细节</h2>
+<ul>
+<li>如果有玩家被处决但没有玩家死亡，依然会有玩家因毒爆中毒。</li>
+<li>如果同一个白天有多名玩家被处决，每次都会有2名镇民中毒。</li>
+<li>如果因毒爆中毒的镇民变成了其他角色，他依然会中毒。</li>
+<li>有玩家被处决时，中毒的镇民是在毒爆顺时针与逆时针方向上距离最近的两名镇民（会略过所有不是镇民的玩家），不论死活。</li>
+</ul>
+<h2 id="游玩与对抗技巧">游玩与对抗技巧</h2>
+<ul>
+<li>如果你是毒爆。注意每天的处决，找到因你中毒的镇民是哪些，他们会失去能力或是得知错误的信息，你可以提前判断并编造一些迎合他们信息的谎言，让他们的能力看起来像是正常的。</li>
+<li>如果你是其他邪恶玩家。毒爆拥有非常强的不在场威慑，不管毒爆是否在场，你都可以利用毒爆在场，导致死于处决的玩家身边的镇民中毒这一点去合理地解释一些事情。</li>
+<li>如果你是善良玩家。合理地安排每天的处决，注意毒爆的毒可能会在哪些玩家身上。如果与死于处决的玩家邻座的玩家不是镇民，那么毒爆的毒就会跳过这些玩家从而毒到更远距离上的玩家，不要忽视这一点。</li>
+</ul>
+<h2 id="出现剧本">出现剧本</h2>
+<ul>
+<li><em>暂无</em></li>
+</ul>
+<h2 id="整体设计">整体设计</h2>
+<ul>
+<li>太一</li>
+</ul>
+<h2 id="创意来源">创意来源</h2>
+<ul>
+<li>太一</li>
+</ul>
+<h2 id="图标画师">图标画师</h2>
+<ul>
+<li>Lei.</li>
+</ul></div>
+    <div class="page-meta">最后修改于 2026-09-08T05:15:16.000Z，编辑者 <b>未知</b> ｜ 页面 3,323 字节 ｜ <a href="https://www.yuque.com/u48069482/taiyi/tc4pey83xzvlfb1h" target="_blank" rel="noopener">查看原页面</a></div>
+    <div class="backlinks"><b>链入此页的页面（1）</b><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">奥德赛 Odyssey</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>魔鬼代言人 - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">魔鬼代言人</h1>
+    <div class="tagline">来自钟楼百科</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#提示与技巧">提示与技巧</a></li><li class="lvl2"><a href="#对抗魔鬼代言人">对抗魔鬼代言人</a></li><li class="lvl2"><a href="#角色信息">角色信息</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E9%AD%94%E9%AC%BC%E4%BB%A3%E8%A8%80%E4%BA%BA">查找包含此角色的剧本 →</a></p><p><a href="../pages/%E9%AD%94%E9%AC%BC%E4%BB%A3%E8%A8%80%E4%BA%BA.html" class="image-link" title="魔鬼代言人"><img alt="Devilsadvocate.png" style="width:200px" class="" loading="lazy" data-source-image="../images/Devilsadvocate.png" src="../assets/media/Devilsadvocate.preview.webp" width="600" height="600" decoding="async"></a></p>
+<h2 id="背景故事">背景故事</h2>
+<p><em>“如果异议被驳回，我的委托人将进行无罪申辩，理由是控方不遵守法规第27章B条——针对动词进行非正确或误导性的词形变化。昨晚有九名陪审团成员死亡，这个事实只不过是表面证据，正如威尔斯诉图勒案所开创的先例，这是无罪释放的进一步理由。”</em></p>
+<h2 id="角色能力">角色能力</h2>
+<p><strong>每个夜晚，你要选择一名存活的玩家（与上个夜晚不同）：如果明天白天他被处决，他不会死亡。</strong></p>
+<h2 id="角色简介">角色简介</h2>
+<p>魔鬼代言人能在处决中拯救玩家。</p>
+<ul>
+<li>每个夜晚，魔鬼代言人需要选择一名存活的玩家，保护他不会因处决而死亡。在下一个白天，如果该玩家被处决，处决会成功但该玩家依然存活。</li>
+</ul>
+<ul>
+<li>魔鬼代言人不能连续两个夜晚选择同一名玩家，无论该玩家是否从处决中被救出，并且魔鬼代言人也不能选择被当作死亡的僵怖。</li>
+</ul>
+<h2 id="范例">范例</h2>
+<p>在夜晚，<a href="../pages/%E9%AD%94%E9%AC%BC%E4%BB%A3%E8%A8%80%E4%BA%BA.html" title="魔鬼代言人">魔鬼代言人</a>保护了自己。在下一个白天，<a href="../pages/%E9%AD%94%E9%AC%BC%E4%BB%A3%E8%A8%80%E4%BA%BA.html" title="魔鬼代言人">魔鬼代言人</a>被处决但依然存活。</p>
+<p><a href="../pages/%E9%AD%94%E9%AC%BC%E4%BB%A3%E8%A8%80%E4%BA%BA.html" title="魔鬼代言人">魔鬼代言人</a>保护了<a href="../pages/%E5%83%B5%E6%80%96.html" title="僵怖">僵怖</a>。<a href="../pages/%E5%83%B5%E6%80%96.html" title="僵怖">僵怖</a>被处决但依然存活，因此其生命标记不翻面。在下一个白天，<a href="../pages/%E5%83%B5%E6%80%96.html" title="僵怖">僵怖</a>再次被处决，并且被当作已死亡。</p>
+<p><a href="../pages/%E9%AD%94%E9%AC%BC%E4%BB%A3%E8%A8%80%E4%BA%BA.html" title="魔鬼代言人">魔鬼代言人</a>保护了<a href="../pages/%E6%95%99%E7%88%B6.html" title="教父">教父</a>。<a href="../pages/%E6%95%99%E7%88%B6.html" title="教父">教父</a>被处决但依然存活。之后，<a href="../pages/%E9%AD%94%E9%AC%BC%E4%BB%A3%E8%A8%80%E4%BA%BA.html" title="魔鬼代言人">魔鬼代言人</a>保护了<a href="../pages/%E4%BF%AE%E8%A1%A5%E5%8C%A0.html" title="修补匠">修补匠</a>。<a href="../pages/%E4%BF%AE%E8%A1%A5%E5%8C%A0.html" title="修补匠">修补匠</a>被处决，但是由于<a href="../pages/%E4%BF%AE%E8%A1%A5%E5%8C%A0.html" title="修补匠">修补匠</a>的能力，说书人还是杀死了<a href="../pages/%E4%BF%AE%E8%A1%A5%E5%8C%A0.html" title="修补匠">修补匠</a>。（注：此时说书人宣布的是修补匠被处决，然后死亡，但并没有说明死亡原因，因此可能会被其他玩家误以为修补匠是死于处决）之后，<a href="../pages/%E9%AD%94%E9%AC%BC%E4%BB%A3%E8%A8%80%E4%BA%BA.html" title="魔鬼代言人">魔鬼代言人</a>保护了<a href="../pages/%E6%9C%88%E4%B9%8B%E5%AD%90.html" title="月之子">月之子</a>，并且<a href="../pages/%E6%B3%95%E5%AE%98.html" title="法官">法官</a>强制让本次处决成功——处决被执行，但<a href="../pages/%E6%9C%88%E4%B9%8B%E5%AD%90.html" title="月之子">月之子</a>依然存活。</p>
+<h2 id="运作方式">运作方式</h2>
+<p>每个夜晚，唤醒魔鬼代言人。让魔鬼代言人指向任意一名玩家。如果魔鬼代言人选择了他上一夜曾选择的玩家或已死亡的玩家，提醒他更换目标。让魔鬼代言人重新入睡。将“处决不死”提示标记放置到该玩家的角色标记旁。</p>
+<p>如果标有“处决不死”的玩家被处决，宣布该玩家被处决但依然存活。（不要说明原因。）</p>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>处决不死</li>
+</ul>
+<p>放置时机：在魔鬼代言人行动并选择了玩家后放置。</p>
+<p>放置条件：在魔鬼代言人选择的玩家角色标记旁放置。魔鬼代言人不能选择已经放置有“处决不死”标记的玩家。如果魔鬼代言人醉酒中毒，该标记不会有任何效果，但你仍然需要放置该标记，用于提示在下一夜让魔鬼代言人不能选择今夜选择的这名玩家。在魔典中将提示标记倒置，代表该提示标记没有任何效果，仅用于标记该玩家被魔鬼代言人选择过。</p>
+<p>移除时机：在魔鬼代言人选择了下一个目标后，或魔鬼代言人死亡或离场时。</p>
+<h2 id="规则细节">规则细节</h2>
+<p>无</p>
+<h2 id="提示与技巧">提示与技巧</h2>
+<ul>
+<li><a href="../pages/%E9%AD%94%E9%AC%BC%E4%BB%A3%E8%A8%80%E4%BA%BA.html" title="魔鬼代言人">魔鬼代言人</a>会干扰流程，即使被处决成功，也让被提名的玩家存活。可想而知，一个时机敏锐的聪明玩家，可以利用这个能力，严重破坏善良阵营猎杀恶魔的能力！</li>
+</ul>
+<ul>
+<li>保护你的恶魔——如果你认为他们可能被处决！因为你的保护不能连续两次对同一个玩家起作用，所以选择恶魔的时机非常重要——如果你在血腥的一天让恶魔孤立无援，那你和你的队伍可能会为此付出代价！密切关注善良团队、他们的信息以及他们的怀疑导向。</li>
+</ul>
+<ul>
+<li>如果你能活到最后一天，就做好保护你的恶魔的准备。（注意此时<a href="../pages/%E5%90%9F%E6%B8%B8%E8%AF%97%E4%BA%BA.html" title="吟游诗人">吟游诗人</a>或<a href="../pages/%E6%97%85%E5%BA%97%E8%80%81%E6%9D%BF.html" title="旅店老板">旅店老板</a>如果活着——他们可能会处决你，然后以这种方式打断恶魔的能力，从而在最后一刻推翻你们。）</li>
+</ul>
+<ul>
+<li>保护自己和其他爪牙。尽管保护恶魔才是你的头等大事，但活着的邪恶玩家越多越好！如果您有一个<a href="../pages/%E4%B8%BB%E8%B0%8B.html" title="主谋">主谋</a>尤其如此，只有在其他一切都失败时他们才能幸存下来，或者甚至只是一个还没有刺伤任何人的<a href="../pages/%E5%88%BA%E5%AE%A2.html" title="刺客">刺客</a>，他才会受益。就像恶魔一样，注意善良团队怀疑谁，并尝试用他们的目标来确定你授予谁免疫处决的机会。</li>
+</ul>
+<ul>
+<li>保护你认为会被处决的善良玩家——这样做的好处是让这些玩家看起来非常可疑，特别是如果善良阵营已经知道（或怀疑）你在游戏中。虽然其他能力可以让一名善良玩家免于被执行，但那你适时的拯救加上一个耳语动作或只是因为偏执的善良玩家思维会让他们怀疑那些可怜的笨蛋。</li>
+</ul>
+<ul>
+<li>您可以使用您的能力来模仿防止处决的善良角色能力 - 例如，<a href="../pages/%E8%8C%B6%E8%89%BA%E5%B8%88.html" title="茶艺师">茶艺师</a>、<a href="../pages/%E6%B0%B4%E6%89%8B.html" title="水手">水手</a>或<a href="../pages/%E5%92%8C%E5%B9%B3%E4%B8%BB%E4%B9%89%E8%80%85.html" title="和平主义者">和平主义者</a>。在所有这些伪装中，<a href="../pages/%E5%92%8C%E5%B9%B3%E4%B8%BB%E4%B9%89%E8%80%85.html" title="和平主义者">和平主义者</a>是最简单的伪装，因为它的能力是随机的，所以善良团队不能尝试通过连续两次处决同一个玩家来“测试”你——但如果你认为你可以侥幸逃脱，你的虚张声势会显得格外稳固！</li>
+</ul>
+<h2 id="对抗魔鬼代言人">对抗魔鬼代言人</h2>
+<p>当你要对抗魔鬼代言人的时候，这里有几件事你应该记住：</p>
+<ul>
+<li>当玩家被处决但没有死亡时，尽你所能确定原因。游戏中可能有<a href="../pages/%E8%8C%B6%E8%89%BA%E5%B8%88.html" title="茶艺师">茶艺师</a>或<a href="../pages/%E5%92%8C%E5%B9%B3%E4%B8%BB%E4%B9%89%E8%80%85.html" title="和平主义者">和平主义者</a>，或者被处决的玩家可能是<a href="../pages/%E5%BC%84%E8%87%A3.html" title="弄臣">弄臣</a>或<a href="../pages/%E6%B0%B4%E6%89%8B.html" title="水手">水手</a>。如果你认为被处决的玩家是好人，你可以让他们活着，但如果你认为玩家是邪恶的并受到<a href="../pages/%E9%AD%94%E9%AC%BC%E4%BB%A3%E8%A8%80%E4%BA%BA.html" title="魔鬼代言人">魔鬼代言人</a>的保护，那么稍后再处决他们。</li>
+</ul>
+<ul>
+<li>连续两次处决可疑的玩家。由于<a href="../pages/%E9%AD%94%E9%AC%BC%E4%BB%A3%E8%A8%80%E4%BA%BA.html" title="魔鬼代言人">魔鬼代言人</a>不能连续两次保护同一个玩家，如果玩家在今天的处决中幸存下来，明天杀死他们是规避棘手的<a href="../pages/%E9%AD%94%E9%AC%BC%E4%BB%A3%E8%A8%80%E4%BA%BA.html" title="魔鬼代言人">魔鬼代言人</a>的可靠方法。</li>
+</ul>
+<ul>
+<li>如果您认为某人是邪恶的并且非常强烈地引导大家处决那个玩家，请等待一天并在明天处决该玩家。<a href="../pages/%E9%AD%94%E9%AC%BC%E4%BB%A3%E8%A8%80%E4%BA%BA.html" title="魔鬼代言人">魔鬼代言人</a>希望你处决受他们保护的玩家，所以如果你注意哪些玩家正在努力引导特定玩家被处决，你可以避免他们的能力生效，同时仍然处决你想要的玩家。</li>
+</ul>
+<ul>
+<li>一旦你发现有<a href="../pages/%E9%AD%94%E9%AC%BC%E4%BB%A3%E8%A8%80%E4%BA%BA.html" title="魔鬼代言人">魔鬼代言人</a>在场，立即处决他们！虽然你可以忽略其他一些爪牙，但<a href="../pages/%E9%AD%94%E9%AC%BC%E4%BB%A3%E8%A8%80%E4%BA%BA.html" title="魔鬼代言人">魔鬼代言人</a>却不能。例如，如果你知道<a href="../pages/%E7%94%B7%E7%88%B5.html" title="男爵">男爵</a>是谁，你可能最好将注意力集中在其他玩家身上，并让<a href="../pages/%E7%94%B7%E7%88%B5.html" title="男爵">男爵</a>继续活着。或者，如果你确定了哪个玩家是<a href="../pages/%E5%88%BA%E5%AE%A2.html" title="刺客">刺客</a>，你可以把他晾着，然后全力以赴处决恶魔。然而，<a href="../pages/%E9%AD%94%E9%AC%BC%E4%BB%A3%E8%A8%80%E4%BA%BA.html" title="魔鬼代言人">魔鬼代言人</a>真的，真的，无论如何都要死去才能获胜。如果可能的话，在将注意力集中在恶魔身上之前处决<a href="../pages/%E9%AD%94%E9%AC%BC%E4%BB%A3%E8%A8%80%E4%BA%BA.html" title="魔鬼代言人">魔鬼代言人</a>。</li>
+</ul>
+<h2 id="角色信息">角色信息</h2>
+<ul>
+<li>英文名：Devil's Advocate</li>
+</ul>
+<ul>
+<li>所属剧本：<a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html" title="黯月初升">黯月初升</a></li>
+</ul>
+<ul>
+<li>角色类型：<a href="../pages/%E7%88%AA%E7%89%99.html" title="爪牙">爪牙</a></li>
+</ul>
+<ul>
+<li>角色能力类型：<a href="../pages/%E5%A4%84%E5%86%B3.html" title="处决">处决</a>、<a href="../pages/%E5%85%8D%E6%AD%BB.html" title="免死">免死</a></li>
+</ul>
+<p><em>其他称呼（非官方，仅方便索引用）：魔鬼拥护者、拥魔者、魔鬼律师</em></p></div>
+    <div class="page-meta">最后修改于 2024-12-05T10:46:35Z，编辑者 <b>HuaQu</b> ｜ 页面 6,999 字节 ｜ <a href="https://clocktower-wiki.gstonegames.com/index.php?title=%E9%AD%94%E9%AC%BC%E4%BB%A3%E8%A8%80%E4%BA%BA" target="_blank" rel="noopener">查看原页面</a> ｜ <div class="comment">编辑摘要：/* 规则细节 */</div></div>
+    <div class="backlinks"><b>链入此页的页面（60）</b><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a><a href="../pages/%E6%B0%B4%E6%89%8B.html">水手</a><a href="../pages/%E6%97%85%E5%BA%97%E8%80%81%E6%9D%BF.html">旅店老板</a><a href="../pages/%E8%B5%8C%E5%BE%92.html">赌徒</a><a href="../pages/%E4%BE%8D%E8%87%A3.html">侍臣</a><a href="../pages/%E5%90%9F%E6%B8%B8%E8%AF%97%E4%BA%BA.html">吟游诗人</a><a href="../pages/%E8%8C%B6%E8%89%BA%E5%B8%88.html">茶艺师</a><a href="../pages/%E5%A4%84%E5%86%B3.html">处决</a><a href="../pages/%E5%B7%A5%E7%A8%8B%E5%B8%88.html">工程师</a><a href="../pages/%E4%BC%A0%E6%95%99%E5%A3%AB.html">传教士</a><a href="../pages/%E7%81%B5%E8%A8%80%E5%B8%88.html">灵言师</a><a href="../pages/%E7%B2%BE%E7%A5%9E%E7%97%85%E6%82%A3%E8%80%85.html">精神病患者</a><a href="../pages/%E5%86%9B%E5%9B%A2.html">军团</a><a href="../pages/%E5%B0%8F%E6%80%AA%E5%AE%9D.html">小怪宝</a><a href="../pages/%E5%85%8D%E6%AD%BB.html">免死</a><a href="../pages/%E8%B4%9E%E6%B4%81%E8%80%85.html">贞洁者</a><a href="../pages/%E5%92%8C%E5%B9%B3%E4%B8%BB%E4%B9%89%E8%80%85.html">和平主义者</a><a href="../pages/%E5%BC%84%E8%87%A3.html">弄臣</a><a href="../pages/%E6%9C%88%E4%B9%8B%E5%AD%90.html">月之子</a><a href="../pages/%E6%95%99%E7%88%B6.html">教父</a><a href="../pages/%E9%AD%94%E9%AC%BC%E4%BB%A3%E8%A8%80%E4%BA%BA.html">魔鬼代言人</a><a href="../pages/%E4%B8%BB%E8%B0%8B.html">主谋</a><a href="../pages/%E6%99%AE%E5%8D%A1.html">普卡</a><a href="../pages/%E7%88%AA%E7%89%99.html">爪牙</a><a href="../pages/%E5%AD%A6%E5%BE%92.html">学徒</a><a href="../pages/%E5%A5%B3%E8%88%8D%E7%9B%91.html">女舍监</a><a href="../pages/%E5%9C%A3%E6%B4%81%E4%B9%8B%E9%AD%82.html">圣洁之魂</a><a href="../pages/%E5%8F%AA%E6%89%8B%E9%81%AE%E5%A4%A9.html">只手遮天</a><a href="../pages/%E6%B2%B8%E5%8F%8D%E7%9B%88%E5%A4%A9.html">沸反盈天</a><a href="../pages/%E5%8D%8A%E4%BB%99.html">半仙</a><a href="../pages/%E6%88%8F%E5%AD%90.html">戏子</a><a href="../pages/%E6%9B%B4%E6%8D%A2%E9%80%89%E6%8B%A9%E7%9B%AE%E6%A0%87.html">更换选择目标</a><a href="../pages/%E5%A4%9C%E6%99%9A%E8%A1%8C%E5%8A%A8%E9%A1%BA%E5%BA%8F%E4%B8%80%E8%A7%88.html">夜晚行动顺序一览</a><a href="../pages/%E5%B8%BD%E5%8C%A0.html">帽匠</a><a href="../pages/%E7%AC%AC%E4%B8%80%E5%B1%8A%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A%E5%89%A7%E6%9C%AC%E5%88%9B%E4%BD%9C%E5%A4%A7%E8%B5%9B.html">第一届华灯初上剧本创作大赛</a><a href="../pages/%E5%8D%A1%E6%89%8E%E5%8A%9B.html">卡扎力</a><a href="../pages/%E4%BA%BA%E9%97%B4%E6%9A%97%E6%9C%88%E5%A4%9C.html">人间暗月夜</a><a href="../pages/%E9%AA%91%E8%99%8E%E7%94%9F%E6%AD%BB%E8%A1%8C.html">骑虎生死行</a><a href="../pages/%E8%A1%8C%E6%88%90%E4%B8%8B%E5%AD%A4%E4%B9%A1.html">行成下孤乡</a><a href="../pages/%E8%8E%AB%E8%A8%80%E4%B8%89%E5%8D%83%E6%AD%BB.html">莫言三千死</a><a href="../pages/%E9%B8%A3%E9%A3%8E%E5%99%AC%E5%90%8E%E6%B5%AA.html">鸣风噬后浪</a><a href="../pages/%E5%B9%BB%E5%BD%B1%E7%94%BB%E5%AE%89%E5%8D%B1.html">幻影画安危</a><a href="../pages/%E8%B0%9C%E6%A2%A6%E5%BE%85%E6%AD%8C%E8%88%9E.html">谜梦待歌舞</a><a href="../pages/%E5%BC%82%E5%9C%B0%E4%BC%97%E6%AC%A2%E6%9D%A5.html">异地众欢来</a><a href="../pages/%E9%A3%8E%E8%B5%B7%E7%BB%88%E7%9B%B8%E8%AF%86.html">风起终相识</a><a href="../pages/%E6%8E%AE%E5%AE%A2.html">掮客</a><a href="../pages/%E7%99%BD%E7%8B%90%E8%A1%8C%E4%B8%9B%E9%87%8C.html">白狐行丛里</a><a href="../pages/%E9%9B%86%E5%90%8E%E4%BA%BA%E4%B9%8B%E8%A8%80.html">集后人之言</a><a href="../pages/%E5%8D%83%E9%9D%A2%E4%BC%97%E5%8D%B1%E7%84%89.html">千面众危焉</a><a href="../pages/%E5%AF%B9%E5%A2%9F%E9%9A%BE%E6%AC%A2%E9%B8%A3.html">对墟难欢鸣</a><a href="../pages/%E8%B5%A6%E4%BB%A4%E6%89%BF%E6%97%A8.html">赦令承旨</a><a href="../pages/%E5%8D%81%E4%B8%89%E8%A1%8C.html">十三行</a><a href="../pages/%E8%A7%84%E5%88%99%E8%B0%83%E6%95%B4%E6%8F%90%E5%89%8D%E5%85%AC%E7%A4%BA.html">规则调整提前公示</a><a href="../pages/%E6%88%8F%E5%AD%90%EF%BC%88%E6%94%B9%EF%BC%89.html">戏子（改）</a><a href="../pages/%E9%94%99%E4%BD%8D%E6%97%B6%E7%A9%BA.html">错位时空</a><a href="../pages/%E9%98%B4%E9%98%B3%E9%9A%BE%E8%BE%A8.html">阴阳难辨</a><a href="../pages/%E5%A7%91%E8%8E%B7%E9%B8%9F.html">姑获鸟</a><a href="../pages/%E6%97%A0%E5%90%8D%E6%97%85%E5%AE%A2.html">无名旅客</a><a href="../pages/%E5%8F%8C%E5%AD%90%E7%85%9E%E6%98%9F.html">双子煞星</a><a href="../pages/%E5%A4%A9%E6%89%8D%E5%9C%A8%E5%B7%A6.html">天才在左</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

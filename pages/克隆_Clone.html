@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>克隆 Clone - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">克隆 Clone<span class="ns-badge">奥德赛</span></h1>
+    <div class="tagline">来自钟楼百科 · 摘自《奥德赛 Odyssey》百科 · 爪牙</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#夜晚行动顺序">夜晚行动顺序</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#游玩与对抗技巧">游玩与对抗技巧</a></li><li class="lvl2"><a href="#整体设计">整体设计</a></li><li class="lvl2"><a href="#创意来源">创意来源</a></li><li class="lvl2"><a href="#图标画师">图标画师</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E5%85%8B%E9%9A%86">查找包含此角色的剧本 →</a></p><div class="charinfo"><div class="charinfo-img"><a href="../files/%E6%96%87%E4%BB%B6_%E5%85%8B%E9%9A%86.png.html"><img alt="克隆 Clone" data-source-image="../images/%E5%85%8B%E9%9A%86.png" src="../assets/media/克隆.preview.webp" width="600" height="600" decoding="async"></a></div><div class="charinfo-meta"><div class="row"><span class="k">角色类型</span><span class="v"><a href="../pages/%E7%88%AA%E7%89%99.html" title="爪牙">爪牙</a></span></div><div class="row"><span class="k">英文名</span><span class="v">Clone</span></div><div class="row"><span class="k">角色ID</span><span class="v">056</span></div><div class="row"><span class="k">角色归属</span><span class="v">角色拓展包《奥德赛》</span></div><div class="row"><span class="k">能力标签</span><span class="v"><a href="../pages/%E9%A2%9D%E5%A4%96%E6%AD%BB%E4%BA%A1.html" title="额外死亡">额外死亡</a>、<a href="../pages/%E8%A7%92%E8%89%B2%E5%8F%98%E5%8C%96.html" title="角色变化">角色变化</a>、<a href="../pages/%E9%99%90%E6%AC%A1%E8%83%BD%E5%8A%9B.html" title="限次能力">限次能力</a></span></div><div class="row"><span class="k">角色授权</span><span class="v">开放（任意剧本创作可用，不要修改能力）</span></div><div class="row"><span class="k">出处</span><span class="v"><a class="external" href="https://www.yuque.com/u48069482/taiyi" target="_blank" rel="noopener">《奥德赛 Odyssey》百科</a></span></div></div></div><p><a href="../files/%E6%96%87%E4%BB%B6_%E5%85%8B%E9%9A%86.png.html" class="image-link" title="文件:克隆.png"><img alt="克隆.png" style="width:240px" class="" loading="lazy" data-source-image="../images/%E5%85%8B%E9%9A%86.png" src="../assets/media/克隆.preview.webp" width="600" height="600" decoding="async"></a></p>
+<h2 id="背景故事">背景故事</h2>
+<p>_“__<span style="color:rgb(15, 17, 21);">侵入、吸收、重塑。一切的关键，在于那段名为 DNA 的密码。或者用这个时代的愚昧说法，我该叫它——灵魂？</span>__”_</p>
+<h2 id="角色简介"><span style="color:rgb(64, 64, 64);">角色简介</span></h2>
+<p>克隆会杀死玩家并成为他们的复制体。</p>
+<h2 id="角色能力">角色能力</h2>
+<div class="callout callout-info">
+<p>每局游戏限一次，在夜晚时*，你可以选择一名玩家：他死亡，且你变成他的角色。</p>
+</div>
+<h2 id="范例">范例</h2>
+<ul>
+<li>第二个夜晚，克隆选择了占卜师玩家，占卜师死亡，克隆变成了占卜师。</li>
+<li>第二个夜晚，克隆选择了魔像玩家，魔像死亡，克隆变成了魔像。下一个白天，新的魔像提名了占卜师，占卜师死亡。</li>
+<li>第四个夜晚，克隆选择了涡流玩家，涡流死亡，克隆变成了涡流。涡流在当晚已经行动过了，所以新的涡流不会再被唤醒。</li>
+<li>第四个夜晚，克隆选择了被旅店老板保护的圣徒玩家。圣徒没有死亡，克隆也没有变成圣徒。</li>
+<li>第四个夜晚，克隆选择了死亡的方古。方古无法再次死亡，克隆也没有变成方古。</li>
+</ul>
+<h2 id="运作方式">运作方式</h2>
+<p>除首夜外的每个夜晚，唤醒克隆。他可以摇头不使用能力或者指向任意一名玩家。如果该玩家可以被杀死，标记该玩家死亡，且将克隆变为该玩家的角色，依次向克隆展示“你是”信息标记、他的新角色标记，然后让他重新入睡。如果该玩家无法被克隆杀死，让克隆重新入睡。如果克隆使用了能力，在后续的夜晚不需要再唤醒克隆。</p>
+<h2 id="夜晚行动顺序">夜晚行动顺序</h2>
+<ul>
+<li>首个夜晚</li>
+<ul>
+<li>夜序数值：/</li>
+<li>前位角色：/</li>
+<li>行动提示：/</li>
+</ul>
+<li>其他夜晚</li>
+<ul>
+<li>夜序数值：8710</li>
+<li>前位角色：教父</li>
+<li>行动提示：让他选择一名玩家。</li>
+</ul>
+</ul>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>失去能力</li>
+<ul>
+<li>放置时机：在克隆夜晚行动时选择使用能力，并选择了一名玩家后放置。</li>
+<li>放置条件：只要克隆选择了玩家，不论克隆是否醉酒中毒，都会将此标记放置在克隆角色标记旁。</li>
+<li>移除时机：克隆死亡或离场时。</li>
+</ul>
+<li>死亡</li>
+<ul>
+<li>放置时机：在克隆夜晚行动时选择使用能力，并选择了一个玩家后放置。</li>
+<li>放置条件：克隆选择的玩家当前存活且克隆可以杀死该玩家，且克隆未醉酒中毒，那么在该玩家的角色标记旁放置，用以提醒说书人在黎明时分宣布当晚的死亡玩家。</li>
+<li>移除时机：在黎明时宣布死亡玩家后，说书人可以任由自己方便来进行移除。</li>
+</ul>
+</ul>
+<h2 id="规则细节">规则细节</h2>
+<ul>
+<li>如果克隆攻击了一名玩家但没有导致那名玩家死亡（包括攻击死亡玩家），克隆的角色不会发生变化。</li>
+<li>克隆变成新的角色后，从当晚开始，克隆会如同该角色一样正常使用新角色的能力。</li>
+<li>如果克隆杀死了恶魔，游戏不会因为恶魔死亡而结束，因为克隆变成了新的恶魔。</li>
+<li>如果克隆杀死并变成了恶魔，他在当晚不会再因恶魔的能力被唤醒。因为克隆的行动顺序在恶魔之后，恶魔已经进行过行动了。</li>
+<li>克隆不可以选择旅行者玩家（旅行者隔绝原则）。</li>
+</ul>
+<h2 id="游玩与对抗技巧">游玩与对抗技巧</h2>
+<ul>
+<li>如果你是克隆，你可以用你的能力杀死重要的角色。或是用你造成死亡的能力伪装为其他角色，比如造谣者或赌徒。</li>
+<li>如果你是克隆，你可以通过你变成的新角色去判断你杀死的玩家是什么角色。</li>
+<li>如果你是克隆，杀死恶魔可以让你变为新的恶魔。转移恶魔位置，是你能力的重要用途。</li>
+<li>如果你是克隆，你可以通过杀死玩家以夺得他的能力。比如杀死一名投毒者，然后每晚投毒。或是杀死一名舞蛇人以便随时与恶魔交换。或是杀死一名贞洁者，蓄谋浪费好人们一个处决机会。</li>
+<li>如果你是一名善良玩家，注意克隆可以杀死恶魔并成为新的恶魔，从而改变恶魔位置。如果夜晚异常多死，且死掉的是你们重要的怀疑对象。他有可能是克隆杀死的恶魔。</li>
+<li>如果你是一名善良玩家，如果夜晚异常多死的玩家中，包含一些能力会对局势带来较大影响的角色，比如贞洁者、造谣者等。可能是克隆杀死并夺取了他们的能力。提防克隆使用新的能力对局势带来更大的破坏。</li>
+</ul>
+<h2 id="整体设计">整体设计</h2>
+<ul>
+<li>太一</li>
+</ul>
+<h2 id="创意来源">创意来源</h2>
+<ul>
+<li>太一</li>
+</ul>
+<h2 id="图标画师">图标画师</h2>
+<ul>
+<li>Lei.</li>
+</ul></div>
+    <div class="page-meta">最后修改于 2026-08-16T13:54:15.000Z，编辑者 <b>未知</b> ｜ 页面 4,488 字节 ｜ <a href="https://www.yuque.com/u48069482/taiyi/dkaidebg39lz0fgz" target="_blank" rel="noopener">查看原页面</a></div>
+    <div class="backlinks"><b>链入此页的页面（1）</b><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">奥德赛 Odyssey</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

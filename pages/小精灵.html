@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>小精灵 - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">小精灵</h1>
+    <div class="tagline">来自钟楼百科</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#提示与技巧">提示与技巧</a></li><li class="lvl2"><a href="#伪装成小精灵">伪装成小精灵</a></li><li class="lvl2"><a href="#角色信息">角色信息</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E5%B0%8F%E7%B2%BE%E7%81%B5">查找包含此角色的剧本 →</a></p><p><a href="../pages/%E5%B0%8F%E7%B2%BE%E7%81%B5.html" class="image-link" title="小精灵"><img alt="Pixie.png" style="width:200px" class="" loading="lazy" data-source-image="../images/Pixie.png" src="../assets/media/Pixie.preview.webp" width="600" height="600" decoding="async"></a></p>
+<h2 id="背景故事">背景故事</h2>
+<p><em>“绕着花园转圈圈，女孩跑得疯癫癫。男孩树上荡秋千，</em></p>
+<p><em>小精灵在谁心间？淑女微笑小镇边，贵族抡斧树长眠。</em></p>
+<p><em>容貌相似难分辨，谜底揭晓圣光现：小精灵呀是神仙。”</em></p>
+<h2 id="角色能力">角色能力</h2>
+<p><strong>在你的首个夜晚，你会得知一个在场的镇民角色。如果你“疯狂”地证明你是该角色，当他死亡时你获得该角色的能力。</strong></p>
+<h2 id="角色简介">角色简介</h2>
+<p>小精灵会假装成与别人相同的角色。</p>
+<ul>
+<li>在首个夜晚，小精灵会得知一个在场的镇民角色。由说书人来决定他得知的是哪个镇民角色。小精灵不会知道哪名玩家是这个角色。</li>
+</ul>
+<ul>
+<li>如果小精灵假装他是这个镇民，他会在对应的镇民玩家死亡时获得这个镇民角色的能力。他可以只在某天里声称自己是这个角色，也可以每天都假装自己是这个角色，或者指责那个镇民玩家说他是骗子——由说书人来判断小精灵是否有尝试在“疯狂”地证明自己是这个角色。</li>
+</ul>
+<ul>
+<li>当那个镇民玩家死亡时，小精灵不会得知这一信息，也不会被告知自己获得了新的能力。他可能会由于自己在夜晚被唤醒并获得信息或是被要求选择玩家，从而间接得知自己获得了能力。</li>
+</ul>
+<ul>
+<li>如果小精灵得知的角色所对应的玩家他的角色发生了变化，并随后死亡，小精灵会获得他得知的那个角色的能力，而非那名玩家死亡时的角色的能力。</li>
+</ul>
+<h2 id="范例">范例</h2>
+<p>小米是<a href="../pages/%E5%B0%8F%E7%B2%BE%E7%81%B5.html" title="小精灵">小精灵</a>，得知<a href="../pages/%E5%B0%86%E5%86%9B.html" title="将军">将军</a>在场。在三天时间里，小米一直声称<a href="../pages/%E5%B0%86%E5%86%9B.html" title="将军">将军</a>玩家在说谎，因为她才是<a href="../pages/%E5%B0%86%E5%86%9B.html" title="将军">将军</a>。<a href="../pages/%E5%B0%86%E5%86%9B.html" title="将军">将军</a>玩家被处决。当晚，小米获得了<a href="../pages/%E5%B0%86%E5%86%9B.html" title="将军">将军</a>的能力，并且从现在起每个夜晚都会开始获得信息。</p>
+<p>道哥是<a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a>并以为自己是<a href="../pages/%E5%B0%8F%E7%B2%BE%E7%81%B5.html" title="小精灵">小精灵</a>。他得知<a href="../pages/%E5%8D%8A%E5%85%BD%E4%BA%BA.html" title="半兽人">半兽人</a>在场。实际上<a href="../pages/%E5%8D%8A%E5%85%BD%E4%BA%BA.html" title="半兽人">半兽人</a>不在场，但<a href="../pages/%E6%81%90%E6%83%A7%E4%B9%8B%E7%81%B5.html" title="恐惧之灵">恐惧之灵</a>伪装成了<a href="../pages/%E5%8D%8A%E5%85%BD%E4%BA%BA.html" title="半兽人">半兽人</a>。随后<a href="../pages/%E6%81%90%E6%83%A7%E4%B9%8B%E7%81%B5.html" title="恐惧之灵">恐惧之灵</a>死亡。说书人假装道哥获得了<a href="../pages/%E5%8D%8A%E5%85%BD%E4%BA%BA.html" title="半兽人">半兽人</a>的能力，每个夜晚都唤醒他并让他选择一名存活玩家。这些被选择的玩家不会死亡，因为道哥没有获得<a href="../pages/%E5%8D%8A%E5%85%BD%E4%BA%BA.html" title="半兽人">半兽人</a>的能力。</p>
+<p>在第一个白天，<a href="../pages/%E5%B0%8F%E7%B2%BE%E7%81%B5.html" title="小精灵">小精灵</a>玩家声称自己是<a href="../pages/%E5%A3%AB%E5%85%B5.html" title="士兵">士兵</a>。真正的<a href="../pages/%E5%A3%AB%E5%85%B5.html" title="士兵">士兵</a>也声称自己是<a href="../pages/%E5%A3%AB%E5%85%B5.html" title="士兵">士兵</a>。<a href="../pages/%E5%B0%8F%E7%B2%BE%E7%81%B5.html" title="小精灵">小精灵</a>玩家对此没有进行争辩。当<a href="../pages/%E5%A3%AB%E5%85%B5.html" title="士兵">士兵</a>死亡时，<a href="../pages/%E5%B0%8F%E7%B2%BE%E7%81%B5.html" title="小精灵">小精灵</a>玩家没有获得<a href="../pages/%E5%A3%AB%E5%85%B5.html" title="士兵">士兵</a>的能力，因为说书人认为<a href="../pages/%E5%B0%8F%E7%B2%BE%E7%81%B5.html" title="小精灵">小精灵</a>玩家没有“疯狂”地证明自己是<a href="../pages/%E5%A3%AB%E5%85%B5.html" title="士兵">士兵</a>。</p>
+<h2 id="运作方式">运作方式</h2>
+<p>在为首个夜晚做准备时，将小精灵的“疯狂”标记放置在一个镇民角色标记旁。</p>
+<p>在首个夜晚，唤醒小精灵。对他展示标记了“疯狂”的镇民角色标记。让小精灵重新入睡。</p>
+<p>如果标记了“疯狂”的玩家死亡，并且你认为小精灵玩家曾足够“疯狂”地证明自己是这个角色，那么使用“获得能力”标记替换“疯狂”标记。小精灵现在获得了这个镇民的能力，并且会在这个镇民的夜晚行动顺序时机被唤醒以使用能力。</p>
+<p>有关小精灵以及疯狂机制的更多设计理念，请参考阅读：<a href="../pages/%E7%96%AF%E7%8B%82%E8%A7%84%E5%88%99%E5%A6%82%E4%BD%95%E8%BF%90%E4%BD%9C%EF%BC%9F%E2%80%94%E2%80%94%E7%96%AF%E7%8B%82%E7%9A%84%E5%B0%8F%E7%B2%BE%E7%81%B5.html" title="疯狂规则如何运作？——疯狂的小精灵">疯狂规则如何运作？——疯狂的小精灵</a></p>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>疯狂&amp;获得能力</li>
+</ul>
+<p>放置时机：在为首个夜晚做准备时。</p>
+<p>放置条件：将“疯狂”提示标记放置在一个在场的镇民角色或能被当作镇民角色的角色标记旁。</p>
+<p>替换时机：标记了“疯狂”的玩家死亡时，且说书人判断小精灵曾“疯狂”地证明自己是这个角色，则用“获得能力”标记替换“疯狂”标记。</p>
+<p>移除时机：疯狂标记会在小精灵死亡或离场时移除。获得能力标记会在小精灵离场时移除。</p>
+<h2 id="规则细节">规则细节</h2>
+<ul>
+<li>如果小精灵在得知信息时，因为醉酒中毒等原因导致得知了错误信息时，仍然会正常将他的“疯狂”标记放置在一名镇民玩家的角色标记旁。只要小精灵在那名玩家死亡时清醒健康，且说书人判断他足够疯狂，便能获得他所得知的那个镇民角色的能力（不一定是标记了“疯狂”的那名玩家的角色能力，小精灵可以以此获得一个不在场的镇民角色能力）。</li>
+</ul>
+<h2 id="提示与技巧">提示与技巧</h2>
+<ul>
+<li>尽可能地为你所得知在场的镇民疯狂。宣称你是那个角色。给出那个角色应当给出的信息。宣称使用了你的能力。宣称，大声并且反复地宣称，另一名玩家在说谎。有必要的话用任何手段杀死他们。一旦做到这一切，你就能获得那个角色的能力——这完全值得！</li>
+</ul>
+<ul>
+<li>从第一天，第一分钟开始就为这个临摹角色疯狂，并在接下来的每天中都继续演下去。这将在说服团队你是这个角色这件事上起重要作用，并且可以让说书人明白你的疯狂。</li>
+</ul>
+<ul>
+<li>在几天内完全不要对你的临摹角色彻底疯狂。不要提任何关于角色的事。然后，在你认为可以处决这名玩家时，对此角色疯狂。如果说书人看到你“已经”疯狂于临摹角色，并且你的疯狂促使临摹角色被处决，他们很可能会给予你小精灵的疯狂奖励——当此玩家死亡时获得此玩家的能力。</li>
+</ul>
+<ul>
+<li>一旦你获得了临摹角色的能力，你就可以安全地作为小精灵公开现身。你现在已经锁定住了这个新能力，所以你可以随意地使用它。并让临摹角色（以及团队）知道你一直都是小精灵。对那位被你当成替罪羊的倒霉善良玩家进行一些道歉也是很有必要的。;)</li>
+</ul>
+<ul>
+<li>如果你承认你是小精灵，那将被当作“没有对你的临摹角色疯狂”，并且几乎肯定会导致你无法获得临摹的能力。最好别这样说。</li>
+</ul>
+<ul>
+<li>如果你可以与被临摹的玩家进行一次私聊，并告诉他们你是小精灵，那么他们可能会同意处决自己。但是要注意……如果说书人无意中听到你宣称是小精灵，那么你不再“疯狂”并不会获得角色能力。类似地，如果你告知的玩家是邪恶的，然后转而告诉说书人你说了什么，那么你不再“疯狂”并不会获得角色能力。</li>
+</ul>
+<ul>
+<li>疯狂时要先发制人。说书人希望看到你做出真诚的努力来说服团队你是一个你并不是的角色。</li>
+</ul>
+<ul>
+<li>在第一天基于你将扮演的角色调整你的小精灵策略。如果你被展示了<a href="../pages/%E8%B0%83%E6%9F%A5%E5%91%98.html" title="调查员">调查员</a>那么就尽快杀死他们，这样你们两个就都能尽早获得你们的信息。如果你被展示了<a href="../pages/%E9%80%81%E8%91%AC%E8%80%85.html" title="送葬者">送葬者</a>，那么就等到他得知了至少一名被处决玩家的角色后（再尝试杀了他），这样你们两个就都能证实信息并互相信任。如果你被展示了<a href="../pages/%E8%B4%A4%E8%80%85.html" title="贤者">贤者</a>，那就先伪装成不同的角色，然后再转为<a href="../pages/%E8%B4%A4%E8%80%85.html" title="贤者">贤者</a>，让你的<a href="../pages/%E8%B4%A4%E8%80%85.html" title="贤者">贤者</a>伪装看起来变得可信。小精灵的策略数量和可用的角色一样多。</li>
+</ul>
+<ul>
+<li>你知道一个角色在场，但并不知道哪名玩家是。当他们死后，你有能力确定他们是他们宣称的角色。如果一名玩家死亡，而你没有获得临摹的能力，那么死亡的人并不是你知道的角色。真正的你知道的在场角色仍然存活。</li>
+</ul>
+<ul>
+<li>别忘记限次能力角色与进场能力角色，比如<a href="../pages/%E5%A5%B3%E8%A3%81%E7%BC%9D.html" title="女裁缝">女裁缝</a>或<a href="../pages/%E5%9B%BE%E4%B9%A6%E7%AE%A1%E7%90%86%E5%91%98.html" title="图书管理员">图书管理员</a>可能已经使用了他们的能力。通过处决他们（假设你已经成功地对他们的角色“疯狂”），你不仅能确认他们是他们所宣称的角色，还能再次使用他们的能力，获得新的信息。</li>
+</ul>
+<ul>
+<li>你可以测试小精灵看看他们是否在说真话。如果你是小精灵宣称的角色，但你还没有透露你是谁，保持沉默并尽力让自己被杀。当你死后，小精灵将获得新的能力，因此小精灵应当会大声说出这件事。如果你死亡，但那名宣称是小精灵的玩家并没有宣称获得了新能力，那他们很可能不是小精灵因为他们不知道你已经死亡。</li>
+</ul>
+<ul>
+<li>当小精灵在剧本中时，不要太过怀疑宣称同一角色的两名玩家。只要他们把角色玩得好，就很可能是两名善良玩家。当然邪恶玩家知道这一点，并可能会以伪装来对峙。无论这两名玩家都是善良的（并且其中之一是小精灵）还是其中有一名邪恶玩家在对峙，可能最好还是处决其中一名玩家。希望你们能处决掉邪恶玩家或是那个能给予小精灵额外能力的善良玩家。</li>
+</ul>
+<ul>
+<li>在游戏早期就说你是小精灵，故意排除你获得能力的可能性，也仍然能帮上忙。你在游戏开始时就知道一个特定的善良角色在场。这是有用的信息。告诉团队你知道的能帮助确认那名玩家是善良的。团队会知道你是小精灵，因此在这局游戏中没必要再去疯狂。</li>
+</ul>
+<h2 id="伪装成小精灵">伪装成小精灵</h2>
+<ul>
+<li>你是一个陷入尴尬对峙宣称的爪牙吗？伪装成<a href="../pages/%E8%8C%B6%E8%89%BA%E5%B8%88.html" title="茶艺师">茶艺师</a>，但你邻近的善良玩家刚刚死亡，而另一位<a href="../pages/%E8%8C%B6%E8%89%BA%E5%B8%88.html" title="茶艺师">茶艺师</a>宣称她有一位愤怒的祖母支持他们？别苦恼，只要悄悄走到他们身旁，然后在他们耳旁甜腻软语：“嗨，我其实是小精灵！”镇民们通常会非常乐意得知有一个小精灵与他们对峙，因为这证明了他们（角色）存在并为他们的意外死亡提供了一个备用方案——依靠这点从你的失误中恢复并保持让善良阵营揣测，但希望他们能站在你这边更久一些。</li>
+</ul>
+<ul>
+<li>如果你陷入了尴尬的境地，那么小精灵就会是你的伟大福音，但你也可以从一开始就计划成为一个小精灵。选择一个你怀疑在场的镇民然后去小镇上！如果你选择的镇民确实在场，他们可能会在某个时刻与你联系，但你也可以以此说服大家一个其实不在场的特定角色在场，或通过“证明”他们一定在场来为邪恶玩家的伪装提供可信度！当你感受到了游戏的节奏时，故意以小精灵疯狂的方式强势现身给了你许多手段来操作。</li>
+</ul>
+<ul>
+<li>选择一名明显的善良玩家并以小精灵伪装来与其宣称同一角色将会使得其他玩家相信那个人也相信你。相反，支持一名邪恶玩家的伪装将帮助他看起来更可靠，但如果你们其中一人被抓出来，你们两个就会被当作邪恶搭档。</li>
+</ul>
+<ul>
+<li>如果小镇不信任顽皮的小精灵，利用这一点故意作为小精灵现身并将自己与一名其他玩家绑定。如果团队怀疑你是邪恶的，那么与你重复宣称的那个倒霉鬼会看起来像是共谋。</li>
+</ul>
+<ul>
+<li>秘密地向其他玩家透露你是小精灵，以此赢取他们的信任来延长你的寿命。保持小精灵的存活是有价值的，因此那些玩家一定知道你的宣称意味着他们需要在其他人试图处决你时介入。毕竟，你也不用害怕打破疯狂的后果！</li>
+</ul>
+<ul>
+<li>你伪装成小精灵，但一个真正的小精灵刚刚现身？不要有太大的压力！对峙的小精灵为善良阵营创造了一个真正的难题，你们每个都由你们的能力与宣称被绑在了另一名玩家身上，因而待解之结不仅是你们那一个才是真正的小精灵，还有你们到底是一对共谋的邪恶玩家还是一名邪恶残忍的邪恶玩家腐化了一名无辜的善良玩家！大量的噪音与混乱让小镇失去了恶魔的线索。</li>
+</ul>
+<ul>
+<li>如果你的镇民死亡，你作为“小精灵”将获得他们的能力并扮演他们（除非你“打破了疯狂”）。确保你知道人们开始向你索取信息时能力的生效情况。知道你的镇民的死亡时间也很有好处——如果你是<a href="../pages/%E5%8D%A0%E5%8D%9C%E5%B8%88.html" title="占卜师">占卜师</a>小精灵而前任<a href="../pages/%E5%8D%A0%E5%8D%9C%E5%B8%88.html" title="占卜师">占卜师</a>两天前死亡了，那你应当有两个晚上的信息！</li>
+</ul>
+<ul>
+<li>如果恶魔的三个伪装之一是小精灵，那你会有许多玩法选择。</li>
+<ul>
+<li>你可以用小精灵伪装，通过“确认”一名在场角色来支持你自己的合理性。</li>
+<li>或者，你可以将其与你的一个伪装结合，在你和一名邪恶盟友之间制造虚假的不和，并在你们其中之一死亡时“解决”这个不和。</li>
+<li>最后，如果你运气够好，你会发现你宣称你“看到”了一个不在场的角色，这实际上提供了你一个自由且额外的伪装。</li>
+</ul>
+</ul>
+<ul>
+<li>如果小精灵确实在场，他们不太可能在游戏早期就作为小精灵现身。如果你能辨别出他是谁并确保他和他看到的角色都不死亡，你会发现你可以宣称自己是小精灵而真正的小精灵则被迫保持沉默来维持他们的疯狂。当他们最终宣告他们才是真正的小精灵时，他们不得不面对艰难的战斗来取代你成为“正统”小精灵。</li>
+</ul>
+<h2 id="角色信息">角色信息</h2>
+<ul>
+<li>英文名：Pixie</li>
+</ul>
+<ul>
+<li>所属剧本：<a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html" title="实验性角色">实验性角色</a>、<a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html" title="暗流涌动">暗流涌动</a>卡牌版</li>
+</ul>
+<ul>
+<li>角色类型：<a href="../pages/%E9%95%87%E6%B0%91.html" title="镇民">镇民</a></li>
+</ul>
+<ul>
+<li>角色能力类型：<a href="../pages/%E8%8E%B7%E5%8F%96%E4%BF%A1%E6%81%AF.html" title="获取信息">获取信息</a>、<a href="../pages/%E8%BF%9B%E5%9C%BA%E8%83%BD%E5%8A%9B.html" title="进场能力">进场能力</a>、<a href="../pages/%E7%96%AF%E7%8B%82.html" title="疯狂">疯狂</a>、<a href="../pages/%E8%8E%B7%E5%BE%97%E8%83%BD%E5%8A%9B.html" title="获得能力">获得能力</a>、<a href="../pages/%E6%AD%BB%E4%BA%A1%E8%A7%A6%E5%8F%91%E8%83%BD%E5%8A%9B.html" title="死亡触发能力">死亡触发能力</a></li>
+</ul></div>
+    <div class="page-meta">最后修改于 2026-08-17T23:30:01Z，编辑者 <b>Zack</b> ｜ 页面 12,890 字节 ｜ <a href="https://clocktower-wiki.gstonegames.com/index.php?title=%E5%B0%8F%E7%B2%BE%E7%81%B5" target="_blank" rel="noopener">查看原页面</a> ｜ <div class="comment">编辑摘要：/* 提示标记 */</div></div>
+    <div class="backlinks"><b>链入此页的页面（44）</b><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a><a href="../pages/%E7%96%AF%E7%8B%82%E8%A7%84%E5%88%99%E5%A6%82%E4%BD%95%E8%BF%90%E4%BD%9C%EF%BC%9F%E2%80%94%E2%80%94%E7%96%AF%E7%8B%82%E7%9A%84%E5%B0%8F%E7%B2%BE%E7%81%B5.html">疯狂规则如何运作？——疯狂的小精灵</a><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a><a href="../pages/%E5%86%9C%E5%A4%AB.html">农夫</a><a href="../pages/%E5%9B%BD%E7%8E%8B.html">国王</a><a href="../pages/%E5%AE%88%E5%A4%9C%E4%BA%BA.html">守夜人</a><a href="../pages/%E5%B0%8F%E7%B2%BE%E7%81%B5.html">小精灵</a><a href="../pages/%E7%BD%82%E7%B2%9F%E7%A7%8D%E6%A4%8D%E8%80%85.html">罂粟种植者</a><a href="../pages/%E5%91%8A%E5%AF%86%E8%80%85.html">告密者</a><a href="../pages/%E6%9A%B4%E4%B9%B1.html">暴乱</a><a href="../pages/%E7%96%AF%E7%8B%82.html">疯狂</a><a href="../pages/%E8%8E%B7%E5%BE%97%E8%83%BD%E5%8A%9B.html">获得能力</a><a href="../pages/%E8%BF%9B%E5%9C%BA%E8%83%BD%E5%8A%9B.html">进场能力</a><a href="../pages/%E8%8E%B7%E5%8F%96%E4%BF%A1%E6%81%AF.html">获取信息</a><a href="../pages/%E6%AD%BB%E4%BA%A1%E8%A7%A6%E5%8F%91%E8%83%BD%E5%8A%9B.html">死亡触发能力</a><a href="../pages/%E9%95%87%E6%B0%91.html">镇民</a><a href="../pages/%E5%93%AA%E4%BA%9B%E6%98%AF%E2%80%9C%E5%8F%AF%E4%BB%A5%E4%BD%86%E4%B8%8D%E5%BB%BA%E8%AE%AE%E2%80%9D.html">哪些是“可以但不建议”</a><a href="../pages/%E8%A1%97%E5%A4%B4%E9%A3%8E%E7%90%B4%E6%89%8B.html">街头风琴手</a><a href="../pages/%E6%84%9A%E8%80%85%E6%AC%A2%E5%AE%B4.html">愚者欢宴</a><a href="../pages/%E6%B2%B8%E5%8F%8D%E7%9B%88%E5%A4%A9.html">沸反盈天</a><a href="../pages/%E5%A4%9C%E6%99%9A%E8%A1%8C%E5%8A%A8%E9%A1%BA%E5%BA%8F%E4%B8%80%E8%A7%88.html">夜晚行动顺序一览</a><a href="../pages/%E9%AA%91%E8%99%8E%E7%94%9F%E6%AD%BB%E8%A1%8C.html">骑虎生死行</a><a href="../pages/%E8%8E%AB%E8%A8%80%E4%B8%89%E5%8D%83%E6%AD%BB.html">莫言三千死</a><a href="../pages/%E9%B8%A3%E9%A3%8E%E5%99%AC%E5%90%8E%E6%B5%AA.html">鸣风噬后浪</a><a href="../pages/%E5%B9%BB%E5%BD%B1%E7%94%BB%E5%AE%89%E5%8D%B1.html">幻影画安危</a><a href="../pages/%E8%B0%9C%E6%A2%A6%E5%BE%85%E6%AD%8C%E8%88%9E.html">谜梦待歌舞</a><a href="../pages/%E9%A3%8E%E4%BA%91%E5%AD%B0%E6%88%8F%E8%A8%80.html">风云孰戏言</a><a href="../pages/%E6%97%A0%E4%BD%95%E6%9C%89%E4%B9%8B%E4%B9%A1.html">无何有之乡</a><a href="../pages/%E7%99%BD%E7%8B%90%E8%A1%8C%E4%B8%9B%E9%87%8C.html">白狐行丛里</a><a href="../pages/%E4%BE%A0%E4%BA%91%E6%95%88%E8%89%AF%E5%85%9A.html">侠云效良党</a><a href="../pages/%E5%8D%83%E9%9D%A2%E4%BC%97%E5%8D%B1%E7%84%89.html">千面众危焉</a><a href="../pages/%E5%AF%B9%E5%A2%9F%E9%9A%BE%E6%AC%A2%E9%B8%A3.html">对墟难欢鸣</a><a href="../pages/%E8%8E%AB%E9%80%86%E4%B9%8B%E4%BA%A4.html">莫逆之交</a><a href="../pages/%E9%9D%99%E5%80%99%E4%BD%B3%E9%9F%B3.html">静候佳音</a><a href="../pages/%E7%A7%89%E5%85%AC%E5%8A%9E%E4%BA%8B.html">秉公办事</a><a href="../pages/%E4%BA%8B%E6%95%85%E9%99%90%E5%9C%BA.html">事故限场</a><a href="../pages/%E5%86%B2%E5%8A%A8%E6%B6%88%E8%B4%B9.html">冲动消费</a><a href="../pages/%E8%BD%AE%E5%88%B0%E4%BD%A0%E4%BA%86.html">轮到你了</a><a href="../pages/%E5%85%AC%E4%B8%BB.html">公主</a><a href="../pages/%E6%97%A0%E5%90%8D%E6%97%85%E5%AE%A2.html">无名旅客</a><a href="../pages/%E7%8B%A1%E5%85%94%E4%B8%89%E7%AA%9F.html">狡兔三窟</a><a href="../pages/%E5%86%A5%E6%B2%B3%E9%82%AA%E6%B8%A1.html">冥河邪渡</a><a href="../pages/%E5%A4%A9%E6%89%8D%E5%9C%A8%E5%B7%A6.html">天才在左</a><a href="../pages/%E6%9D%AD%E5%84%BF%E9%A3%8E.html">杭儿风</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

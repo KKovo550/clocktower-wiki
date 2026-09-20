@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>调香师 Perfumer - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">调香师 Perfumer<span class="ns-badge">奥德赛</span></h1>
+    <div class="tagline">来自钟楼百科 · 摘自《奥德赛 Odyssey》百科 · 镇民</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#夜晚行动顺序">夜晚行动顺序</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#游玩与对抗技巧">游玩与对抗技巧</a></li><li class="lvl2"><a href="#伪装成该角色">伪装成该角色</a></li><li class="lvl2"><a href="#出现剧本">出现剧本</a></li><li class="lvl2"><a href="#整体设计">整体设计</a></li><li class="lvl2"><a href="#创意来源">创意来源</a></li><li class="lvl2"><a href="#图标画师">图标画师</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E8%B0%83%E9%A6%99%E5%B8%88">查找包含此角色的剧本 →</a></p><div class="charinfo"><div class="charinfo-img"><a href="../files/%E6%96%87%E4%BB%B6_%E8%B0%83%E9%A6%99%E5%B8%88.png.html"><img alt="调香师 Perfumer" data-source-image="../images/%E8%B0%83%E9%A6%99%E5%B8%88.png" src="../assets/media/调香师.preview.webp" width="600" height="600" decoding="async"></a></div><div class="charinfo-meta"><div class="row"><span class="k">角色类型</span><span class="v"><a href="../pages/%E9%95%87%E6%B0%91.html" title="镇民">镇民</a></span></div><div class="row"><span class="k">英文名</span><span class="v">Perfumer</span></div><div class="row"><span class="k">角色ID</span><span class="v">023</span></div><div class="row"><span class="k">角色归属</span><span class="v">角色拓展包《奥德赛》</span></div><div class="row"><span class="k">能力标签</span><span class="v"><a href="../pages/%E6%9A%B4%E9%9C%B2%E8%A7%92%E8%89%B2.html" title="暴露角色">暴露角色</a>、<a href="../pages/%E9%99%90%E6%AC%A1%E8%83%BD%E5%8A%9B.html" title="限次能力">限次能力</a></span></div><div class="row"><span class="k">角色授权</span><span class="v">开放（任意剧本创作可用，不要修改能力）</span></div><div class="row"><span class="k">出处</span><span class="v"><a class="external" href="https://www.yuque.com/u48069482/taiyi" target="_blank" rel="noopener">《奥德赛 Odyssey》百科</a></span></div></div></div><p><a href="../files/%E6%96%87%E4%BB%B6_%E8%B0%83%E9%A6%99%E5%B8%88.png.html" class="image-link" title="文件:调香师.png"><img alt="调香师.png" style="width:240px" class="" loading="lazy" data-source-image="../images/%E8%B0%83%E9%A6%99%E5%B8%88.png" src="../assets/media/调香师.preview.webp" width="600" height="600" decoding="async"></a></p>
+<h2 id="背景故事">背景故事</h2>
+<p><em>"今夜的香水我准备了两种：一种如情书般坦白，另一种...（突然靠近）像捕兽夹上的玫瑰。亲爱的，你猜你闻到的是哪一种？"</em></p>
+<h2 id="角色简介"><span style="color:rgb(64, 64, 64);">角色简介</span></h2>
+<p>调香师通过不同的方式来证明自己或是攻击其他玩家。</p>
+<h2 id="角色能力">角色能力</h2>
+<div class="callout callout-info">
+<p>每局游戏限一次，在夜晚时，你可以选择一名玩家或一个邪恶角色：他会得知调香师在场。</p>
+</div>
+<h2 id="范例">范例</h2>
+<ul>
+<li>调香师在第一个夜晚选择了1号玩家，1号玩家得知了调香师在场。</li>
+<li>调香师在第一个夜晚选择了哥布林，哥布林是1号玩家，1号玩家得知了调香师在场。</li>
+<li>调香师在第一个夜晚选择了哥布林，哥布林不在场，没有玩家得知调香师在场。</li>
+</ul>
+<h2 id="运作方式">运作方式</h2>
+<p>每个夜晚，唤醒调香师。如果她摇头不使用能力，让她重新入睡。如果她指向了一名玩家或一个邪恶角色，让她重新入睡，并唤醒被她选择的玩家或被她选择角色的玩家，对其展示“该角色的能力对你生效”提示标记、调香师的角色标记，随后让该玩家重新入睡。将“失去能力”提示标记放置在调香师角色标记旁。在此后的夜晚中，不要再唤醒调香师。</p>
+<p>如果调香师在选择玩家时醉酒中毒，在让她重新入睡后，不要唤醒她选择的玩家，并仍然使用“失去能力”标记调香师，因为她使用了自己的“每局游戏限一次”的能力。</p>
+<h2 id="夜晚行动顺序">夜晚行动顺序</h2>
+<ul>
+<li>首个夜晚</li>
+<ul>
+<li>夜序数值：10710</li>
+<li>前位角色：守夜人</li>
+<li>行动提示：让她选择一名玩家或一个角色。</li>
+</ul>
+<li>其他夜晚</li>
+<ul>
+<li>夜序数值：13410</li>
+<li>前位角色：守夜人</li>
+<li>行动提示：让她选择一名玩家或一个角色。</li>
+</ul>
+</ul>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>失去能力</li>
+<ul>
+<li>放置时机：在调香师夜晚行动时选择使用能力，并选择了一名玩家或一个角色后。</li>
+<li>放置条件：只要调香师选择了一名玩家或一个邪恶角色，不论调香师是否醉酒中毒，都会将此标记放置在调香师角色标记旁。</li>
+<li>移除时机：调香师死亡或离场时。</li>
+</ul>
+</ul>
+<h2 id="规则细节">规则细节</h2>
+<ul>
+<li>如果调香师选择了一名不在场角色，没有人会得知调香师在场，调香师依然会失去能力。</li>
+<li>如果调香师选择了玩偶，且玩偶在场，让玩偶玩家得知调香师在场，但不要以任何方式透露他们是玩偶。</li>
+<li>善良的玩偶也是邪恶角色，如果调香师选择了玩偶，说书人可以选择让一名善良的玩偶得知调香师在场。</li>
+<li>如果调香师选择的角色同时存在多个，由说书人选择其中一个让其得知调香师在场。</li>
+<li>调香师不可以选择旅行者玩家（旅行者隔绝原则）。</li>
+<li><strong>信息格式：</strong>“调香师在场”或在唤醒玩家后向其出示调香师角色标记。</li>
+<li><strong>错误（虚假）信息格式：</strong>该角色没有错误信息格式（基于官方“通用简化原则”）。涡流及类似角色不会影响调香师的能力，无论调香师选择的是玩家还是角色。</li>
+</ul>
+<h2 id="游玩与对抗技巧">游玩与对抗技巧</h2>
+<ul>
+<li>不要主动去找你选择的玩家，等待他主动报出调香师在场。因为当邪恶玩家得知调香师在场时，他无法分辨你选择的是玩家还是邪恶角色。所以邪恶玩家得知调香师在场后一般不敢主动报出（做贼心虚）。如果你主动去找他，那么他就能几乎肯定你选择的是玩家，他就能无压力的说自己得知调香师在场了。</li>
+<li>选择一名你信任的玩家使用你的能力，他报出调香师在场后，他可以佐证你的确是一个调香师。</li>
+<li>选择一个你不信任的玩家使用你的能力，如果他迟迟没有报出调香师在场，那么他非常有可能是个邪恶玩家，正在做贼心虚。</li>
+<li>选择一个邪恶角色，然后等待鱼儿上钩。如果有玩家声称他得知了调香师在场，那么你几乎就能肯定他就是你选择的那个邪恶角色。</li>
+</ul>
+<h2 id="伪装成该角色">伪装成该角色</h2>
+<ul>
+<li>如果你是男爵或者哥布林这类不那么畏惧死亡的爪牙，你可以声称自己选择了一名玩家，而他却否则自己得知了调香师在场，这样你就可以攻击他是一名做贼心虚的邪恶玩家，从而引导大家处决他；</li>
+<li>你可以与你的邪恶队友唱双簧，你一个声称自己是调香师，一个声称自己得知了调香师在场，从而互相证实你们都是善良的；</li>
+<li>如果你有一个哥布林队友，你可以先让他声称得知调香师在场，然后你说你是调香师并且选择的是某个恶魔或红唇女郎，伪装为你钓鱼成功的场景。从而引导大家处决哥布林，这样即使哥布林公开声称自己是哥布林，大家也会认为他只是一个在做垂死挣扎的非哥布林玩家。</li>
+</ul>
+<h2 id="出现剧本">出现剧本</h2>
+<ul>
+<li>宝宝巴士、仲夏夜之梦</li>
+</ul>
+<h2 id="整体设计">整体设计</h2>
+<ul>
+<li>太一</li>
+</ul>
+<h2 id="创意来源">创意来源</h2>
+<ul>
+<li>太一</li>
+</ul>
+<h2 id="图标画师">图标画师</h2>
+<ul>
+<li>Lei.</li>
+</ul></div>
+    <div class="page-meta">最后修改于 2026-09-09T17:26:24.000Z，编辑者 <b>未知</b> ｜ 页面 5,000 字节 ｜ <a href="https://www.yuque.com/u48069482/taiyi/agu79aggl44s7b93" target="_blank" rel="noopener">查看原页面</a></div>
+    <div class="backlinks"><b>链入此页的页面（1）</b><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">奥德赛 Odyssey</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

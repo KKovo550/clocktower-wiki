@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>沙巴洛斯 - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">沙巴洛斯</h1>
+    <div class="tagline">来自钟楼百科</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#提示与技巧">提示与技巧</a></li><li class="lvl2"><a href="#对抗沙巴洛斯">对抗沙巴洛斯</a></li><li class="lvl2"><a href="#角色信息">角色信息</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E6%B2%99%E5%B7%B4%E6%B4%9B%E6%96%AF">查找包含此角色的剧本 →</a></p><p><a href="../pages/%E6%B2%99%E5%B7%B4%E6%B4%9B%E6%96%AF.html" class="image-link" title="沙巴洛斯"><img alt="Shabaloth.png" style="width:200px" class="" loading="lazy" data-source-image="../images/Shabaloth.png" src="../assets/media/Shabaloth.preview.webp" width="600" height="600" decoding="async"></a></p>
+<h2 id="背景故事">背景故事</h2>
+<p><em>“布嘞啦嘎，福塔啊啊嘎，呐姆姆啊塔噶！呐什，噶姆塔姆什，呐哟咯咯发咯咯咯咯咯咯嘎，哈什嗝呵！”</em></p>
+<h2 id="角色能力">角色能力</h2>
+<p><strong>每个夜晚*，你要选择两名玩家：他们死亡。</strong></p>
+<p><strong>你上个夜晚选择过且当前死亡的玩家之一可能会被你反刍。</strong></p>
+<h2 id="角色简介">角色简介</h2>
+<p>沙巴洛斯每个夜晚能够吞食两名玩家，但是可能会在下一个夜晚将其中一名吐出来。</p>
+<ul>
+<li>不同于其他恶魔，沙巴洛斯每个夜晚会攻击两次。在攻击后的下一个夜晚，说书人可以决定让沙巴洛斯攻击过的两名玩家其中之一重获新生。</li>
+</ul>
+<ul>
+<li>被复活的玩家可以是在存活状态下被沙巴洛斯攻击的玩家，也可以是在死亡状态下被沙巴洛斯攻击的玩家。</li>
+</ul>
+<ul>
+<li>因反刍而复活的玩家重新获得自己的能力，即使是已经使用过的“每局游戏限一次”的能力也会重新获得。如果有“在你的首个夜晚”的能力，玩家可以再次使用该能力。</li>
+</ul>
+<h2 id="范例">范例</h2>
+<p><a href="../pages/%E6%B2%99%E5%B7%B4%E6%B4%9B%E6%96%AF.html" title="沙巴洛斯">沙巴洛斯</a>攻击了<a href="../pages/%E9%80%A0%E8%B0%A3%E8%80%85.html" title="造谣者">造谣者</a>，然后是<a href="../pages/%E8%B5%8C%E5%BE%92.html" title="赌徒">赌徒</a>。<a href="../pages/%E9%80%A0%E8%B0%A3%E8%80%85.html" title="造谣者">造谣者</a>死亡，但是<a href="../pages/%E8%B5%8C%E5%BE%92.html" title="赌徒">赌徒</a>由于受到<a href="../pages/%E6%97%85%E5%BA%97%E8%80%81%E6%9D%BF.html" title="旅店老板">旅店老板</a>的保护，依然存活。</p>
+<p><a href="../pages/%E6%B2%99%E5%B7%B4%E6%B4%9B%E6%96%AF.html" title="沙巴洛斯">沙巴洛斯</a>攻击了存活的<a href="../pages/%E4%BE%8D%E8%87%A3.html" title="侍臣">侍臣</a>和已死亡的<a href="../pages/%E9%A9%B1%E9%AD%94%E4%BA%BA.html" title="驱魔人">驱魔人</a>。<a href="../pages/%E4%BE%8D%E8%87%A3.html" title="侍臣">侍臣</a>死亡。在下一个夜晚，说书人决定让<a href="../pages/%E9%A9%B1%E9%AD%94%E4%BA%BA.html" title="驱魔人">驱魔人</a>复活。<a href="../pages/%E9%A9%B1%E9%AD%94%E4%BA%BA.html" title="驱魔人">驱魔人</a>当晚不会行动——因为正常情况下<a href="../pages/%E9%A9%B1%E9%AD%94%E4%BA%BA.html" title="驱魔人">驱魔人</a>在<a href="../pages/%E6%B2%99%E5%B7%B4%E6%B4%9B%E6%96%AF.html" title="沙巴洛斯">沙巴洛斯</a>之前行动。</p>
+<p><a href="../pages/%E6%B2%99%E5%B7%B4%E6%B4%9B%E6%96%AF.html" title="沙巴洛斯">沙巴洛斯</a>攻击了<a href="../pages/%E8%8C%B6%E8%89%BA%E5%B8%88.html" title="茶艺师">茶艺师</a>的邻近玩家，然后是<a href="../pages/%E8%8C%B6%E8%89%BA%E5%B8%88.html" title="茶艺师">茶艺师</a>。<a href="../pages/%E8%8C%B6%E8%89%BA%E5%B8%88.html" title="茶艺师">茶艺师</a>的邻近玩家受到<a href="../pages/%E8%8C%B6%E8%89%BA%E5%B8%88.html" title="茶艺师">茶艺师</a>的保护，没有死亡，但是紧接着<a href="../pages/%E8%8C%B6%E8%89%BA%E5%B8%88.html" title="茶艺师">茶艺师</a>死亡了。</p>
+<h2 id="运作方式">运作方式</h2>
+<p>除了首个夜晚以外的每个夜晚，唤醒沙巴洛斯。让沙巴洛斯依次指向任意两名玩家，每次一名。让沙巴洛斯重新入睡。按照选择的顺序，每名所选玩家依次死亡——将“死亡”提示标记放置到这些玩家的角色标记旁。</p>
+<p>之后的每个夜晚，在唤醒沙巴洛斯前，你可以选择一个标有沙巴洛斯的“死亡”标记的角色，该角色再次变成存活——将“死亡”标记替换成沙巴洛斯的“复活”标记，并移除其帷幕标记。如果正常情况下该玩家会被唤醒，则在当晚的后续时段中照常唤醒。如果该玩家只在首个夜晚被唤醒，则现在就唤醒该玩家让他使用自己的能力。黎明时，在宣布哪些玩家死亡后，宣布哪些玩家复活了。（不要说明原因。）</p>
+<p>因为沙巴洛斯不能反刍自己——角色在死亡时没有能力——最好只是让沙巴洛斯偶尔进行反刍。每局游戏一次，或者两次，通常已经足够了。</p>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>死亡</li>
+</ul>
+<p>放置时机：在沙巴洛斯夜晚行动并选择了玩家后放置。</p>
+<p>放置条件：沙巴洛斯选择的玩家当前存活，且能被他杀死，且沙巴洛斯未醉酒中毒，那么在该玩家的角色标记旁放置，用以提醒说书人在黎明时分宣布当晚的死亡玩家。如果上述情况不满足，仍然需要放置该标记，但将该标记倒转放置，代表该提示标记没有任何效果，仅用于标记该玩家被沙巴洛斯选择过。（因为沙巴洛斯的能力是回溯型能力，需要判断上一个夜晚选择的玩家，而不判断该玩家是否由于受到了沙巴洛斯的攻击而导致死亡）</p>
+<p>移除时机：在下一个夜晚，轮到沙巴洛斯夜晚行动，说书人将其唤醒之前（用于处理沙巴洛斯的反刍结算，并在结算后移除）。或沙巴洛斯死亡或离场时移除。</p>
+<ul>
+<li>复活</li>
+</ul>
+<p>放置时机：在轮到沙巴洛斯夜晚行动，说书人将其唤醒之前。</p>
+<p>放置条件：由说书人决定，当前已经放置有沙巴洛斯的“死亡”标记（不论正常放置还是倒转放置），且已经死亡的玩家之一是否复活。如果沙巴洛斯当前醉酒中毒，无人复活，跳过此标记的放置步骤。如果说书人决定让满足上述条件的玩家之一复活，则在该玩家的角色标记旁放置，用以提醒说书人在黎明时分宣布当晚的复活玩家。</p>
+<p>移除时机：在黎明时宣布复活玩家后，说书人可以任由自己方便来进行移除。</p>
+<h2 id="规则细节">规则细节</h2>
+<ul>
+<li>关于沙巴洛斯造成的反刍所带来的首夜能力使用时机的疑问：在这三个官方剧本中，角色详解通常只用于解决剧本内的一些互动方式，如果将角色互动拉到全角色和混合剧本的维度，则需要使用到统一的规则。在黯月初升中，因为只会至多有一名恶魔在场，并且爪牙发起攻击的情形不太常见，所以在大部分情况下，你可以让反刍的角色在沙巴洛斯的行动结束后立即行动。然而如果是混合剧本，则需要综合考虑，选择更准确的，不会出错的处理方式进行游戏的主持。</li>
+</ul>
+<h2 id="提示与技巧">提示与技巧</h2>
+<ul>
+<li>强大的<a href="../pages/%E6%B2%99%E5%B7%B4%E6%B4%9B%E6%96%AF.html" title="沙巴洛斯">沙巴洛斯</a>因其残暴和持续性而成为<a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html" title="黯月初升">黯月初升</a>中最致命的恶魔。<a href="../pages/%E6%99%AE%E5%8D%A1.html" title="普卡">普卡</a>或<a href="../pages/%E5%83%B5%E6%80%96.html" title="僵怖">僵怖</a>都无法单独在一个晚上与您的多次击杀的速度相匹敌，虽然<a href="../pages/%E7%8F%80.html" title="珀">珀</a>可以在一个晚上将三名玩家淘汰出局，但由于他们需要休息，所以您依然是当之无愧的王。当他们怀疑你在游戏中时，善良阵营应该感到恐慌；只有被你吞噬的人意外复活时他们才会有机会对你发起反击！</li>
+</ul>
+<ul>
+<li>积极的杀戮，不要给善良阵营喘口气的机会。公平地说，你不是最……巧妙的恶魔，因为你没有伪装的机会。在美好的一天像哥斯拉一样在城镇中闯荡，吞噬任何阻止你伪装角色的人。如果你吃了它们，<a href="../pages/%E4%BE%8D%E5%A5%B3.html" title="侍女">侍女</a>不会发现你的虚张声势是假的。做一些聪明的选择，并密切关注哪些玩家在夜间受到保护，您可以用其他恶魔双倍效率结束这场比赛。</li>
+</ul>
+<ul>
+<li>或者，您可能想更低调的玩游戏。虽然你是一个可怕的、永远在饥饿的怪物，但这并不意味着你没有一点施展策略的机会。故意选择隐藏你的第二次杀戮可能会造成关于其他恶魔在场的混乱假象 - 如果他们无法确定是哪个恶魔在场，那么善良阵营总是会多疑，因为<a href="../pages/%E7%8F%80.html" title="珀">珀</a>可以通过休息来放松片刻。这对你很有帮助，因为对付其他恶魔的策略与对付你的策略大不相同，一旦你开始爆发杀戮的本性，可怜的善良阵营就会措手不及！它还可以帮助您躲避<a href="../pages/%E4%BE%8D%E8%87%A3.html" title="侍臣">侍臣</a>的三天痛饮（谁会留意任何关于恶魔是什么角色的相关消息）......直到你能找到它们并吃掉它们，无论如何。</li>
+</ul>
+<ul>
+<li>卑鄙的小镇处决了你的爪牙吗？只是为了处决一个想要吞噬他们所有人的饥饿恶魔吗？多么残忍！多么不公平！对他们来说幸运的是，你是你同类中独一无二的恶魔，因为你的唾液具有治疗作用。晚上吃掉你的爪牙的尸体，试着让它们起死回生。这会说书人的心血来潮……但也许他们会同情你，把你心爱的爪牙还给你，尤其是当邪恶阵营正在苦苦挣扎的时候。这还有一个额外的好处，就是让你的爪牙看起来像个善良角色，因为通常你只会反刍善良玩家。</li>
+</ul>
+<ul>
+<li>有时你的反刍会对你不利（或者说书人会认为你做得太好了），你会吐出一个善良玩家，让他们出乎意料地恢复生命。这可能会给你带来许多问题——比如，除非你声称自己是很难被信任的<a href="../pages/%E6%95%99%E6%8E%88.html" title="教授">教授</a>，否则这将证实你在游戏中，这可能是一个取决于你游戏策略的问题。更糟糕的是，重生的玩家很可能被认为是善良的，其他玩家会毫无疑问地信任他们。对付这种情况的最好方法几乎就是立即再次杀死他们，最好是在他们有机会利用他们的能力得到任何新信息之前。</li>
+</ul>
+<ul>
+<li>虚张声势，尽你所能传播虚假信息。<a href="../pages/%E6%B2%99%E5%B7%B4%E6%B4%9B%E6%96%AF.html" title="沙巴洛斯">沙巴洛斯</a>可能很快就会变得很明显在场，<a href="../pages/%E5%83%B5%E6%80%96.html" title="僵怖">僵怖</a>或<a href="../pages/%E6%99%AE%E5%8D%A1.html" title="普卡">普卡</a>能通过他们的角色能力破坏善良阵营的信息，但你没有这样的奢侈待遇。</li>
+</ul>
+<ul>
+<li>如果善良阵营不知道你在游戏中，你可以通过说服他们在只有4名玩家存活时不要处决，然后在当晚杀死2名玩家并将活着的玩家数量意外减少到2人来获胜. 如果你有一个没用过能力且还活着的刺客小弟，或者当晚可以说服愚蠢的<a href="../pages/%E9%80%A0%E8%B0%A3%E8%80%85.html" title="造谣者">造谣者</a>或<a href="../pages/%E8%B5%8C%E5%BE%92.html" title="赌徒">赌徒</a>使用能力，你甚至可以在有5或6名玩家还活着的情况下取得意外的胜利.</li>
+</ul>
+<h2 id="对抗沙巴洛斯">对抗沙巴洛斯</h2>
+<p>当你要对抗沙巴洛斯的时候，这里有几件事你应该记住：</p>
+<ul>
+<li><a href="../pages/%E6%B2%99%E5%B7%B4%E6%B4%9B%E6%96%AF.html" title="沙巴洛斯">沙巴洛斯</a>往往是一个明显的恶魔。当他们每晚杀戮两次时，您可以相当快地了解到哪个恶魔在游戏中。然而，由于<a href="../pages/%E6%B2%99%E5%B7%B4%E6%B4%9B%E6%96%AF.html" title="沙巴洛斯">沙巴洛斯</a>的杀伤力是普通恶魔的两倍，所以游戏很快就进入了最后一天。一旦你确定了<a href="../pages/%E6%B2%99%E5%B7%B4%E6%B4%9B%E6%96%AF.html" title="沙巴洛斯">沙巴洛斯</a>在游戏中，将注意力转向找出它是哪个玩家。像<a href="../pages/%E4%BE%8D%E8%87%A3.html" title="侍臣">侍臣</a>、<a href="../pages/%E9%A9%B1%E9%AD%94%E4%BA%BA.html" title="驱魔人">驱魔人</a>、<a href="../pages/%E4%BE%8D%E5%A5%B3.html" title="侍女">侍女</a>这样的角色可以直接帮助你做到这一点，这可能比一般通过像<a href="../pages/%E5%BC%84%E8%87%A3.html" title="弄臣">弄臣</a>、<a href="../pages/%E8%8C%B6%E8%89%BA%E5%B8%88.html" title="茶艺师">茶艺师</a>、<a href="../pages/%E5%92%8C%E5%B9%B3%E4%B8%BB%E4%B9%89%E8%80%85.html" title="和平主义者">和平主义者</a>和<a href="../pages/%E8%B5%8C%E5%BE%92.html" title="赌徒">赌徒</a>这样的角色能力来判断谁是邪恶玩家的策略更有效.</li>
+</ul>
+<ul>
+<li>如果一名玩家被反刍，这是个好消息。反刍的玩家必不会是<a href="../pages/%E6%B2%99%E5%B7%B4%E6%B4%9B%E6%96%AF.html" title="沙巴洛斯">沙巴洛斯</a>，通常还是个好人。有时爪牙会被反刍，但确实很少。因此，让反刍的玩家活着通常是个好主意，不要处决他们，并相信他们就是他们所说的那个人。</li>
+</ul>
+<ul>
+<li>在<a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html" title="暗流涌动">暗流涌动</a>和<a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html" title="梦殒春宵">梦殒春宵</a>中，当只剩下4名玩家时，善良阵营可能不会发起处决。由于恶魔只能杀死一名玩家，因此第二天仍会有3名玩家活着。然而，在<a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html" title="黯月初升">黯月初升</a>中，情况并非如此，因为夜间可能会发生额外的死亡。如果一个<a href="../pages/%E6%B2%99%E5%B7%B4%E6%B4%9B%E6%96%AF.html" title="沙巴洛斯">沙巴洛斯</a>在场，并且有4个（甚至5个，如果像<a href="../pages/%E5%88%BA%E5%AE%A2.html" title="刺客">刺客</a>或<a href="../pages/%E8%B5%8C%E5%BE%92.html" title="赌徒">赌徒</a>这样的角色还活着）玩家还活着并且今天没有人被处决，那么今晚邪恶就可以获胜。当一个<a href="../pages/%E6%B2%99%E5%B7%B4%E6%B4%9B%E6%96%AF.html" title="沙巴洛斯">沙巴洛斯</a>在场时，你会想要每天处决玩家，尤其是当4或5个玩家还活着的时候。</li>
+</ul>
+<h2 id="角色信息">角色信息</h2>
+<ul>
+<li>英文名：Shabaloth</li>
+</ul>
+<ul>
+<li>所属剧本：<a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html" title="黯月初升">黯月初升</a></li>
+</ul>
+<ul>
+<li>角色类型：<a href="../pages/%E6%81%B6%E9%AD%94.html" title="恶魔">恶魔</a></li>
+</ul>
+<ul>
+<li>角色能力类型：<a href="../pages/%E9%A2%9D%E5%A4%96%E6%AD%BB%E4%BA%A1.html" title="额外死亡">额外死亡</a>、<a href="../pages/%E5%A4%8D%E6%B4%BB.html" title="复活">复活</a>、<a href="../pages/%E5%9B%9E%E6%BA%AF%E5%9E%8B%E8%83%BD%E5%8A%9B.html" title="回溯型能力">回溯型能力</a></li>
+</ul>
+<p><em>其他称呼（非官方，仅方便索引用）：暴食者、巨颚、憎恶</em></p></div>
+    <div class="page-meta">最后修改于 2025-01-05T03:26:46Z，编辑者 <b>Zack</b> ｜ 页面 10,420 字节 ｜ <a href="https://clocktower-wiki.gstonegames.com/index.php?title=%E6%B2%99%E5%B7%B4%E6%B4%9B%E6%96%AF" target="_blank" rel="noopener">查看原页面</a> ｜ <div class="comment">编辑摘要：/* 提示与技巧 */</div></div>
+    <div class="backlinks"><b>链入此页的页面（51）</b><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a><a href="../pages/%E7%A5%96%E6%AF%8D.html">祖母</a><a href="../pages/%E6%B0%B4%E6%89%8B.html">水手</a><a href="../pages/%E4%BE%8D%E5%A5%B3.html">侍女</a><a href="../pages/%E9%A9%B1%E9%AD%94%E4%BA%BA.html">驱魔人</a><a href="../pages/%E9%80%A0%E8%B0%A3%E8%80%85.html">造谣者</a><a href="../pages/%E4%BE%8D%E8%87%A3.html">侍臣</a><a href="../pages/%E6%95%99%E6%8E%88.html">教授</a><a href="../pages/%E5%9B%9E%E6%BA%AF%E5%9E%8B%E8%83%BD%E5%8A%9B.html">回溯型能力</a><a href="../pages/%E9%A3%9F%E4%BA%BA%E6%97%8F.html">食人族</a><a href="../pages/%E5%94%B1%E8%AF%97%E7%94%B7%E5%AD%A9.html">唱诗男孩</a><a href="../pages/%E5%B7%A5%E7%A8%8B%E5%B8%88.html">工程师</a><a href="../pages/%E5%9B%BD%E7%8E%8B.html">国王</a><a href="../pages/%E7%BD%82%E7%B2%9F%E7%A7%8D%E6%A4%8D%E8%80%85.html">罂粟种植者</a><a href="../pages/%E8%90%BD%E9%9A%BE%E5%B0%91%E5%A5%B3.html">落难少女</a><a href="../pages/%E9%AD%94%E5%83%8F.html">魔像</a><a href="../pages/%E8%A7%A3%E8%B0%9C%E5%A4%A7%E5%B8%88.html">解谜大师</a><a href="../pages/%E9%A2%9D%E5%A4%96%E6%AD%BB%E4%BA%A1.html">额外死亡</a><a href="../pages/%E5%A4%8D%E6%B4%BB.html">复活</a><a href="../pages/%E5%83%A7%E4%BE%A3.html">僧侣</a><a href="../pages/%E5%BC%84%E8%87%A3.html">弄臣</a><a href="../pages/%E4%BF%AE%E8%A1%A5%E5%8C%A0.html">修补匠</a><a href="../pages/%E6%9C%88%E4%B9%8B%E5%AD%90.html">月之子</a><a href="../pages/%E8%8E%BD%E5%A4%AB.html">莽夫</a><a href="../pages/%E7%96%AF%E5%AD%90.html">疯子</a><a href="../pages/%E5%88%BA%E5%AE%A2.html">刺客</a><a href="../pages/%E4%B8%BB%E8%B0%8B.html">主谋</a><a href="../pages/%E5%83%B5%E6%80%96.html">僵怖</a><a href="../pages/%E6%99%AE%E5%8D%A1.html">普卡</a><a href="../pages/%E6%B2%99%E5%B7%B4%E6%B4%9B%E6%96%AF.html">沙巴洛斯</a><a href="../pages/%E7%8F%80.html">珀</a><a href="../pages/%E6%81%B6%E9%AD%94.html">恶魔</a><a href="../pages/%E6%B3%95%E5%AE%98.html">法官</a><a href="../pages/%E5%A4%B1%E8%B4%A5%E7%9A%84%E4%B8%8A%E5%B8%9D.html">失败的上帝</a><a href="../pages/%E6%88%8F%E5%AD%90.html">戏子</a><a href="../pages/%E5%A4%9C%E6%99%9A%E8%A1%8C%E5%8A%A8%E9%A1%BA%E5%BA%8F%E4%B8%80%E8%A7%88.html">夜晚行动顺序一览</a><a href="../pages/%E5%A5%A5%E8%B5%AB.html">奥赫</a><a href="../pages/%E8%A1%8C%E6%88%90%E4%B8%8B%E5%AD%A4%E4%B9%A1.html">行成下孤乡</a><a href="../pages/%E8%B0%9C%E6%A2%A6%E5%BE%85%E6%AD%8C%E8%88%9E.html">谜梦待歌舞</a><a href="../pages/%E5%BC%82%E5%9C%B0%E4%BC%97%E6%AC%A2%E6%9D%A5.html">异地众欢来</a><a href="../pages/%E9%A3%8E%E8%B5%B7%E7%BB%88%E7%9B%B8%E8%AF%86.html">风起终相识</a><a href="../pages/%E5%8D%83%E9%9D%A2%E4%BC%97%E5%8D%B1%E7%84%89.html">千面众危焉</a><a href="../pages/%E5%AF%B9%E5%A2%9F%E9%9A%BE%E6%AC%A2%E9%B8%A3.html">对墟难欢鸣</a><a href="../pages/%E5%87%B6%E8%AF%A1%E9%9A%BE%E8%BE%A8.html">凶诡难辨</a><a href="../pages/%E6%88%8F%E5%AD%90%EF%BC%88%E6%94%B9%EF%BC%89.html">戏子（改）</a><a href="../pages/%E9%81%93%E5%A3%AB.html">道士</a><a href="../pages/%E4%BA%8B%E6%95%85%E9%99%90%E5%9C%BA.html">事故限场</a><a href="../pages/%E6%98%BE%E6%88%91%E7%A5%9E%E9%80%9A.html">显我神通</a><a href="../pages/%E7%BF%BB%E4%BA%91%E8%A6%86%E9%9B%A8.html">翻云覆雨</a><a href="../pages/%E7%AC%91%E5%8C%A0.html">笑匠</a><a href="../pages/%E5%A4%A9%E6%89%8D%E5%9C%A8%E5%B7%A6.html">天才在左</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

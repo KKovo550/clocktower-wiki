@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>钟楼笔记：相克更新 - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">钟楼笔记：相克更新</h1>
+    <div class="tagline">来自钟楼百科</div>
+    
+    <div class="mw-parser-output"><p>（Form Jamie Mercado 2025年10月9日）</p>
+<p>几周前，在Cow &amp; Moon那张我们常坐的角落桌前，Steve盯着我笃定地说：“我想把所有的相克规则都重新整理一遍。”</p>
+<p>那时我们已经在角色设计的漩涡中摸爬滚打好几个星期，Steve脑子里堆满了新点子，几乎要溢出来了。这当然很好——但也有个不得不提的大前提：每设计出一个新角色，就必须确保它能和已有角色兼容，或者得加上一条特别说明，也就是“相克规则”（Jinx），来帮助玩家们搞清楚万一出了问题该怎么处理。</p>
+<p>正因如此，每出一个新角色，游戏的复杂度就会增加一分。而我们设计《染·钟楼谜团》时的初心，是让它对新玩家足够友好：说书人确实需要读完整本规则才能主持游戏，但玩家只需听一遍三分钟的规则概要、看一张纸上的简介，就可以开始一局精彩的博弈。</p>
+<p>回到相克规则本身——在和Steve一边头脑风暴一边设计新角色的过程中，我们开始思考，有没有可能把这些冲突处理得更简单、更好上手？以往的规则大多是“一对一”的特例，用来解决特定角色之间的问题。但我们想试试看，能不能用一条统一的规则模式来覆盖那些互动方式相似的角色组合。理论上来说，如果相似的问题可以用相似的方式解决，那么说书人需要记住的就不再是大量的个例规则，玩家理解起来也会更顺畅。</p>
+<p>不过这套新系统也有它的两大难点。第一，如果我们更倾向于制定能覆盖多种情况的通用规则，那每条规则就不可能为某个角色组合量身定做，灵活度会受到限制。第二，那些早已熟悉旧版相克规则的老玩家，可能需要重新适应新内容，还可能对自己喜欢的老规则被“重写”感到失望。尤其是那些围绕某些特定互动制作了自定义剧本的玩家，一旦规则变动，剧本可能“失效”，这确实令人沮丧。而更棘手的是，这次规则调整并不是因为“某条规则坏了需要修复”，而是我们发现，真正“出问题”的，是游戏整体的可理解性和可上手程度。</p>
+<p>和Steve一起合作的早期，我就明白了一件事：游戏设计中，很多时候你必须做出一些无法让所有人都满意的决定。你得清楚自己最看重的是什么。我们选择站在“让更多人能玩懂”这一边，即便这意味着不能再为每一种角色组合做出最酷最精细的规则。也正是在这样的原则下，我们决定重构整套相克规则系统。</p>
+<p>首先，Steve 和我意识到，我们得先弄清楚——到底是哪一类角色互动最容易触发相克规则？只有把这些情况分类清楚，后面的工作才能展开。于是，我们坐下来认真梳理，最后列出了以下几类常见的“相克类型”：</p>
+<ul>
+<li>角色变化</li>
+</ul>
+<ul>
+<li>规则解释</li>
+</ul>
+<ul>
+<li>邪恶阵营自动获胜</li>
+</ul>
+<ul>
+<li>邪恶阵营转变善良阵营</li>
+</ul>
+<ul>
+<li>不佳游戏体验</li>
+</ul>
+<ul>
+<li>善良阵营自动获胜</li>
+</ul>
+<ul>
+<li>查看魔典</li>
+</ul>
+<ul>
+<li>增添趣味</li>
+</ul>
+<ul>
+<li>失去能力</li>
+</ul>
+<ul>
+<li>夜晚没有死亡</li>
+</ul>
+<ul>
+<li>设置调整</li>
+</ul>
+<ul>
+<li>说书人决策</li>
+</ul>
+<ul>
+<li>独特机制</li>
+</ul>
+<p>（注：有些分类名听起来很直白，有些则是我们为了方便建表简化的缩写，比如 “夜晚没有死亡” 指的是那些不会造成夜晚死亡的角色，与那些能力在“夜晚死亡”时才触发的角色之间的互动；“查看魔典”则是指那些建立于“邪恶不掌握在场信息”设定的角色，与能看到魔典的角色之间的互动；“说书人决策类”则是指，那些冲突只有在说书人做了某个“本可以不做”的选择后才会发生的互动……等等。）</p>
+<p>有了分类之后，我们开始把历史上的每一组有相克规则的角色搭配，归到这些类别中。大多数组合很快就归好类了，但也有一些组合我和 Steve 的看法不一致，或者一个组合似乎能归到好几个类。我们互相争论、反复核对，最后你要是好奇我们具体怎么归类的，其实都可以在<a class="external" href="https://docs.google.com/spreadsheets/d/1r2D6hSD0utUfUzhHFEbERXG5vMN2rgFYEOO9JdRZqZQ/edit?gid=1614912698#gid=1614912698" target="_blank" rel="noopener">公开表格</a>中查到——我们把所有旧的相克规则、更新过的版本、以及最终归类结果都整理出来了。挺有趣的是，当我们把所有组合都归完类后，发现这些分类竟然正好全覆盖了所有相克组合。只剩两个分类最终没用上：“角色变化类”归类到“失去能力”和“不佳游戏体验”里了；而“独特机制类”，我们竟然没找到真正“独特到无法归类”的角色互动。</p>
+<p>接下来才是最关键的一步：回头检查每一条相克规则（包括我们想新增的一些），看看有没有更直观、通用的写法。我们基本是按角色来处理的——比如我们会列出所有与维齐尔存在冲突的角色，然后挨个对比这些规则，看看有没有相似的写法已经在同类问题里用过了。如果有，就思考能不能把那条规则扩展应用到更多角色上。这项工作一做就是好几天，几乎每天都是长时间会议（我们常去的 Enmore Road 印度餐厅已经记住我们的常点菜单了）。虽然目前这个版本我们已经比较满意，但也知道，还有优化空间。其中有几处改动，我们觉得既有趣也可能引发争议，下面就特别说说：</p>
+<p><strong>魔术师与军团：</strong>魔术师会和军团一同被唤醒，并可能被当作邪恶阵营。军团会知道魔术师是否在场，但不会得知具体是哪一名玩家。</p>
+<p>这最初是 Steve 提出来的，我当时一听就愣了：“如果我是魔术师”，我反驳，“我直接找齐所有好人，说我知道所有军团，请他们投票杀我，然后互相保护不就完了？谁还能阻止我们？”</p>
+<p>Steve 提了个反例：军团其实也可以用同样的方式操作。他们可以挑1–2个军团队友，再混上1–2个好人，然后假装自己是魔术师。这听上去确实挺疯狂的，但也可能带来新的骗术和博弈——比如你在非军团局里用“男爵”假装自己是魔术师，岂不妙哉？反正如果真的玩不转，我们还可以改回来。</p>
+<p><strong>数学家与酒鬼：</strong>数学家可能会得知酒鬼产生了错误信息或“能力未正常生效”。</p>
+<p>我们光是为了这个规则就争了整整两天。这里得先补点背景：Steve 最初设计数学家时，设想它是一个“错误追踪器”——能发现哪些能力没有正常生效。按这个设定，如果一个酒鬼的能力“故障”了（也就是说，行为表现和清醒状态时的角色不同），那数学家的数字就会上升。比如，一个酒鬼共情者身边两名善良玩家却看到“1”，那数学家那晚就会得出一个“1”。但由于卡面空间有限，加上其他角色的连带影响，最终上线时我们把酒鬼（和提线木偶 ）从“可被追踪的出错对象”里剔除了。</p>
+<p>最早的“数学家与疯子”的相克规则就是为了弥补这个缺口的：如果疯子选了一名玩家杀死，却没人死（因为真正的恶魔选了别人），那数学家那晚得知的信息就会增加1——因为疯子“故障了”，和他自己设想的能力不一致。照这个逻辑，把酒鬼和提线木偶也加进“故障监控”范围是说得通的。但实践中，这引发的问题比想象中多太多了。如果数学家必须得知每次酒鬼或提线木偶的信息出错或能力失效，那善良方就能推测出谁可能是酒鬼或提线木偶，从而大幅缩小身份范围。经过一番激烈争论，我们决定先试试看让数学家能在说书人判断下感知这些“故障”。如果效果不好，我们就撤销——那时候，“数学家与疯子”的那条规则也很可能会随之取消。</p>
+<p><strong>删除的相克规则</strong></p>
+<p>在提线木偶和卡扎力这两个角色的例子中，我们通过更新它们在历书中的说明，解决了原先依靠相克规则才能解释的问题。现在这两个角色的历书内容中，已经加入了以下补充说明：</p>
+<p>提线木偶：提线木偶不会因其他角色能力导致他确认自己是爪牙而被唤醒。例如：告密者，传教士，小怪宝，罂粟种植者，帽匠，落难少女等。</p>
+<p>卡扎力：卡扎力能够将他想要的任意玩家变成爪牙，无论该名玩家的角色能力如何，例如：士兵，莽夫，落难少女，国王等。</p>
+<h2 id="section"></h2>
+<p><strong>最后的几点想法（暂时的），按顺序说不上来，但这些是我们希望大家记住的核心原则：</strong></p>
+<ul>
+<li>如果一条相克规则涉及了某个在场角色的“能力使用方式”，那就默认这个角色需要“存活、清醒、健康”才能让这条规则对游戏产生影响。</li>
+</ul>
+<ul>
+<li>拿不准的时候，就看看这条能力到底是在帮助谁——如果是镇民，就该为善良阵营服务；如果是外来者、爪牙或恶魔，那就自然偏向邪恶方。</li>
+</ul>
+<ul>
+<li>如果还是不清楚，那就听说书人的。说书人是规则的最终裁定者。各位说书人，请在支持邪恶玩家伪装的同时，尽可能确保游戏公平有趣、张弛有度。</li>
+</ul>
+<ul>
+<li>最后永恒不变的信条：要以优雅的方式杀戮，也要以有尊严的方式死去。</li>
+</ul></div>
+    <div class="page-meta">最后修改于 2025-10-26T01:49:36Z，编辑者 <b>Zack</b> ｜ 页面 9,356 字节 ｜ <a href="https://clocktower-wiki.gstonegames.com/index.php?title=%E9%92%9F%E6%A5%BC%E7%AC%94%E8%AE%B0%EF%BC%9A%E7%9B%B8%E5%85%8B%E6%9B%B4%E6%96%B0" target="_blank" rel="noopener">查看原页面</a> ｜ <div class="comment">编辑摘要：创建页面，内容为“（Form Jamie Mercado 2025年10月9日）  几周前，在Cow &amp; Moon那张我们常坐的角落桌前，Steve盯着我笃定地说：“我想把所有的相克规则都重新整理一遍。”  那时我们已经在角色设计的漩涡中摸爬滚打好几个星期，Steve脑子里堆满了新点子，几乎要溢出来了。这当然很好——但也有个不得不提的大前提：每设计出一个新角色，就必须确保它能和已有角色兼容，…”</div></div>
+    <div class="backlinks"><b>链入此页的页面（1）</b><a href="../pages/%E9%A6%96%E9%A1%B5.html">首页</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>失忆者 - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">失忆者</h1>
+    <div class="tagline">来自钟楼百科</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#提示与技巧">提示与技巧</a></li><li class="lvl2"><a href="#伪装成失忆者">伪装成失忆者</a></li><li class="lvl2"><a href="#角色信息">角色信息</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E5%A4%B1%E5%BF%86%E8%80%85">查找包含此角色的剧本 →</a></p><p><a href="../pages/%E5%A4%B1%E5%BF%86%E8%80%85.html" class="image-link" title="失忆者"><img alt="Amnesiac.png" style="width:200px" class="" loading="lazy" data-source-image="../images/Amnesiac.png" src="../assets/media/Amnesiac.preview.webp" width="600" height="600" decoding="async"></a></p>
+<h2 id="背景故事">背景故事</h2>
+<p><em>“等下，你说了啥？谁？哦，没事了。等下，你说了啥？”</em></p>
+<h2 id="角色能力">角色能力</h2>
+<p><strong>你不知道你的能力是什么。每个白天你可以找说书人猜测一次，你会得知你的猜测有多准确。</strong></p>
+<h2 id="角色简介">角色简介</h2>
+<p>失忆者不会知道他的能力是什么。</p>
+<ul>
+<li>由说书人来决定失忆者的具体能力。这可以是来自《染·钟楼谜团》中现有角色的能力，也可以是与之相似的能力，或是完全原创的能力。</li>
+</ul>
+<ul>
+<li>失忆者可能会在夜晚的任意时刻被唤醒，以得知信息或者选择玩家。他的能力也可以是被动效果，无需失忆者玩家主动做出任何行动。</li>
+</ul>
+<ul>
+<li>每个白天，失忆者都可以私下拜访说书人，并猜测自己的能力是什么。说书人用以下方式回答失忆者的猜测：“无关”代表猜测与实际差距较大，“有关”代表猜测的方向正确，“接近”代表猜测的结果与实际能力较为接近，而“完美”代表猜测的结果与实际能力完全相符。</li>
+</ul>
+<ul>
+<li>失忆者的猜测可以是具体的，例如“我是否是在每个夜晚得知两名阵营相同的玩家？”，也可以是较为模糊的，例如“我的能力是否与已死亡的玩家有关？”。</li>
+</ul>
+<h2 id="范例">范例</h2>
+<p>每个夜晚，<a href="../pages/%E5%A4%B1%E5%BF%86%E8%80%85.html" title="失忆者">失忆者</a>均被唤醒且在说书人的提示下指向了两名玩家。在第一个夜晚，说书人对他点头。在第二个夜晚，说书人对他摇头。<a href="../pages/%E5%A4%B1%E5%BF%86%E8%80%85.html" title="失忆者">失忆者</a>猜测：“我的能力是能够得知我选择的这两名玩家均为爪牙？”说书人告诉他：“接近”，因为<a href="../pages/%E5%A4%B1%E5%BF%86%E8%80%85.html" title="失忆者">失忆者</a>的能力是得知这两名玩家之中是否有爪牙。</p>
+<p>每个夜晚，<a href="../pages/%E5%A4%B1%E5%BF%86%E8%80%85.html" title="失忆者">失忆者</a>均得知了一个数字。实际上，失忆者得知的是与他邻近的存活镇民玩家的数量。</p>
+<p>每个夜晚，<a href="../pages/%E5%A4%B1%E5%BF%86%E8%80%85.html" title="失忆者">失忆者</a>均被展示了一个角色标记。实际上，失忆者得知的是不在场的角色。</p>
+<h2 id="运作方式">运作方式</h2>
+<p>在进行游戏设置时，决定失忆者玩家的能力是什么。在游戏过程中，将那名玩家视作具有该能力一样，在需要的时候将他唤醒，在需要的时候提示他选择玩家，或者进行任何其他恰当的操作。如有需要，使用失忆者的“？”提示标记来进行标注。</p>
+<p>每个白天，失忆者都可以私下进行一次关于自身能力的猜测。使用“无关”、“有关”、“接近”、“完美”来回答他的猜测。</p>
+<p>在决定失忆者的能力时，让这一能力容易被猜测，这样失忆者就可以随着时间的推移而逐渐弄清楚他的能力具体是什么。每个夜晚得知一条信息，或以失忆者能够注意到的方式影响游戏的能力，都是关于失忆者能力的不错的主意。</p>
+<p>如果失忆者猜到了他的能力，但使用了与你预想不同的措辞，仍然应该告诉他猜对了。</p>
+<p>你可以让失忆者的能力比普通镇民的能力稍微强力一些。这是因为在不知道具体能力是什么的前提下，玩家需要更加努力才能从自己的能力中获益。</p>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>？</li>
+</ul>
+<p>失忆者的提示标记的放置时机与条件，以及何时移除，完全取决于说书人为失忆者决定的能力是什么。</p>
+<h2 id="规则细节">规则细节</h2>
+<ul>
+<li>失忆者的夜晚行动顺序并非要完全依照在线魔典的原定顺序。说书人应该根据自己为失忆者设定的能力的具体情况，来决定失忆者应该在什么顺序被唤醒。通常来说，如果失忆者的能力会造成醉酒/中毒，或是具有一些保护效果，或是在较早行动才能获得更多的收益时，应该让失忆者在夜晚靠前的顺序中被唤醒。如果失忆者的能力会得知一些信息，或是需要基于一些其他行动来被唤醒，或是在较晚行动才能获得更多的收益时，应该让失忆者在夜晚靠后的顺序中被唤醒。但需要注意的是，一旦你决定好失忆者的能力在夜晚的唤醒顺序时，就不应该再擅自改动，而是在每个夜晚都以这个顺序来将失忆者唤醒（当然，由于能力的不同，且同一剧本中其他角色首夜和非首夜的顺序差异，失忆者在首个夜晚的顺序可能会与其他夜晚有所不同）。</li>
+</ul>
+<h2 id="提示与技巧">提示与技巧</h2>
+<ul>
+<li>多数时候，失忆者的能力是获取信息的能力，但也并非绝对如此。失忆者的能力往往比一般的镇民能力更强大（因为存在无法猜中的风险），这让你的能力更显得有用，前提是你能猜测正确。</li>
+</ul>
+<ul>
+<li>当你拜访说书人进行猜测时，问题可以具体也可以宽泛，但是一般建议玩家从宽泛的问题入手，例如“我的能力与外来者有关吗？”，然后再层层深入，例如“我会得知我选择的玩家角色是否以L字母开头？”。</li>
+</ul>
+<ul>
+<li>大多数失忆者的能力会在夜晚唤醒你并让你选择一名玩家，尝试在每个夜晚选择不同的玩家，根据获得的不同结果推断自己的真实能力。</li>
+</ul>
+<ul>
+<li>在你猜测你的能力时，记得你的能力可能与游戏的任何机制相关联，例如：</li>
+<ul>
+<li>角色：是得知谁是特定角色吗？是得知谁是特定角色类型，例如外来者或爪牙吗？是得知角色名字是不是以特定的字母开头或结尾吗？是得知角色在剧本页面中的位置吗？</li>
+<li>效果：是让其他玩家醉酒吗？能公开选择玩家并对他产生什么效果吗？能在晚上向其他玩家提供信息吗？能改变或交换玩家的角色或阵营吗？能阻止或制造玩家的死亡吗？</li>
+<li>场面：是得知谁和谁相邻而坐吗？是得知谁和谁相对而坐吗？是得知谁今天提名了吗？是得知谁今天投票了吗？</li>
+<li>社交：是得知谁迈向胜利吗？是得知谁在撒谎吗？是得知谁的信息正确吗？</li>
+</ul>
+</ul>
+<ul>
+<li>随时向大家寻求帮助来揭示你的能力，如果你无法理解你获得的诸如1,3,1,2,1这样的信息代表什么，或许你的盟友可以。</li>
+</ul>
+<ul>
+<li>请记住，说书人一定是试图让你的能力可以很合理地被推理出来，如果你发现你的能力奇怪到开始让你怀疑说书人会不会将其作为你的能力，那就应该基于这一原则重新进行猜测。</li>
+</ul>
+<h2 id="伪装成失忆者">伪装成失忆者</h2>
+<ul>
+<li>当你开始伪装失忆者时，你其实并不需要有一个切实的能力，但是你很可能需要在游戏推进到终局时有一个完整的构想。</li>
+</ul>
+<ul>
+<li>当你伪装失忆者时，你可能需要伪造（本应在）晚上从说书人处获取的信息。这些信息可以包括：</li>
+<ul>
+<li>数字</li>
+<li>指向玩家</li>
+<li>是或否</li>
+<li>角色标记</li>
+<li>阵营手势（大拇指朝上还是朝下）</li>
+</ul>
+</ul>
+<ul>
+<li>切记每天都要去拜访说书人猜测你的能力，因为失忆者会这么做。记得说书人给失忆者对于能力猜测的线索如下。</li>
+<ul>
+<li>无关：你的猜测与你的能力完全无关。</li>
+<li>有关：你的猜测与你的能力有些关联。</li>
+<li>接近：你快要猜到你的能力了。</li>
+<li>正确：你已经猜出了你的能力。</li>
+</ul>
+</ul>
+<ul>
+<li>假装猜测你的能力。创造并破解一个伪造能力的过程能给予你的骗局无限空间。你可以在游戏进程中操作自己的能力来得到任何你想要的结论，比如质疑善良玩家，支持邪恶玩家或是让善良玩家质疑他们获得的信息。</li>
+</ul>
+<ul>
+<li>“尽早得知”和“稍晚得知”各有优劣。因为你在谎称能力，早些“弄清”你的能力意味着你可以更容易地散播谎言，但同时，过早地猜中会显得不切实际，可能会让其他玩家对你产生怀疑。</li>
+</ul>
+<ul>
+<li>假装一整局都“猜不出”你的真实能力！因为你自己也“不知道”自己的能力，所以也不必分享自己的信息，因为你没有信息。此外，你也可以伪装成一个比较愚笨的失忆者来博取在场玩家的同情。</li>
+</ul>
+<ul>
+<li>当你假装被“卡”在猜测能力的时候，邀请大家与你一起研究，猜测你的真实能力，这有助于将善良玩家的注意力从寻找邪恶玩家转移到帮助你猜测你的能力。毕竟，大部分的玩家都会觉得猜测能力是一件很有趣的事情。</li>
+</ul>
+<h2 id="角色信息">角色信息</h2>
+<ul>
+<li>英文名：Amnesiac</li>
+</ul>
+<ul>
+<li>所属剧本：<a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html" title="实验性角色">实验性角色</a>、<a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html" title="梦殒春宵">梦殒春宵</a>卡牌版</li>
+</ul>
+<ul>
+<li>角色类型：<a href="../pages/%E9%95%87%E6%B0%91.html" title="镇民">镇民</a></li>
+</ul>
+<ul>
+<li>角色能力类型：<a href="../pages/%E8%8E%B7%E5%BE%97%E8%83%BD%E5%8A%9B.html" title="获得能力">获得能力</a>、<a href="../pages/%E6%8B%9C%E8%AE%BF%E8%AF%B4%E4%B9%A6%E4%BA%BA.html" title="拜访说书人">拜访说书人</a>、<a href="../pages/%E8%8E%B7%E5%8F%96%E4%BF%A1%E6%81%AF.html" title="获取信息">获取信息</a></li>
+</ul></div>
+    <div class="page-meta">最后修改于 2026-05-24T15:44:03Z，编辑者 <b>Beiyu</b> ｜ 页面 8,316 字节 ｜ <a href="https://clocktower-wiki.gstonegames.com/index.php?title=%E5%A4%B1%E5%BF%86%E8%80%85" target="_blank" rel="noopener">查看原页面</a> ｜ <div class="comment">编辑摘要：/* 角色简介 */</div></div>
+    <div class="backlinks"><b>链入此页的页面（27）</b><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a><a href="../pages/%E5%A4%B1%E5%BF%86%E8%80%85.html">失忆者</a><a href="../pages/%E6%8B%9C%E8%AE%BF%E8%AF%B4%E4%B9%A6%E4%BA%BA.html">拜访说书人</a><a href="../pages/%E5%8D%8A%E5%85%BD%E4%BA%BA.html">半兽人</a><a href="../pages/%E5%91%8A%E5%AF%86%E8%80%85.html">告密者</a><a href="../pages/%E9%BB%91%E5%B8%AE.html">黑帮</a><a href="../pages/%E8%8E%B7%E5%BE%97%E8%83%BD%E5%8A%9B.html">获得能力</a><a href="../pages/%E8%8E%B7%E5%8F%96%E4%BF%A1%E6%81%AF.html">获取信息</a><a href="../pages/%E4%B8%AD%E6%AF%92.html">中毒</a><a href="../pages/%E9%95%87%E6%B0%91.html">镇民</a><a href="../pages/%E7%AA%83%E7%AA%83%E7%A7%81%E8%AF%AD.html">窃窃私语</a><a href="../pages/%E5%A4%9C%E6%99%9A%E8%A1%8C%E5%8A%A8%E9%A1%BA%E5%BA%8F%E4%B8%80%E8%A7%88.html">夜晚行动顺序一览</a><a href="../pages/%E8%A1%8C%E6%88%90%E4%B8%8B%E5%AD%A4%E4%B9%A1.html">行成下孤乡</a><a href="../pages/%E9%B8%A3%E9%A3%8E%E5%99%AC%E5%90%8E%E6%B5%AA.html">鸣风噬后浪</a><a href="../pages/%E5%B9%BB%E5%BD%B1%E7%94%BB%E5%AE%89%E5%8D%B1.html">幻影画安危</a><a href="../pages/%E8%B0%9C%E6%A2%A6%E5%BE%85%E6%AD%8C%E8%88%9E.html">谜梦待歌舞</a><a href="../pages/%E9%A3%8E%E4%BA%91%E5%AD%B0%E6%88%8F%E8%A8%80.html">风云孰戏言</a><a href="../pages/%E9%A3%8E%E8%B5%B7%E7%BB%88%E7%9B%B8%E8%AF%86.html">风起终相识</a><a href="../pages/%E7%99%BD%E7%8B%90%E8%A1%8C%E4%B8%9B%E9%87%8C.html">白狐行丛里</a><a href="../pages/%E5%8D%83%E9%9D%A2%E4%BC%97%E5%8D%B1%E7%84%89.html">千面众危焉</a><a href="../pages/%E5%AF%B9%E5%A2%9F%E9%9A%BE%E6%AC%A2%E9%B8%A3.html">对墟难欢鸣</a><a href="../pages/%E8%BD%AE%E5%88%B0%E4%BD%A0%E4%BA%86.html">轮到你了</a><a href="../pages/%E9%94%99%E4%BD%8D%E6%97%B6%E7%A9%BA.html">错位时空</a><a href="../pages/%E7%8B%A1%E5%85%94%E4%B8%89%E7%AA%9F.html">狡兔三窟</a><a href="../pages/%E5%86%A5%E6%B2%B3%E9%82%AA%E6%B8%A1.html">冥河邪渡</a><a href="../pages/%E4%B8%80%E5%BE%80%E5%B7%AB%E5%89%8D.html">一往巫前</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

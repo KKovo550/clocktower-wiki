@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>疯子 - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">疯子</h1>
+    <div class="tagline">来自钟楼百科</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#提示与技巧">提示与技巧</a></li><li class="lvl2"><a href="#伪装成疯子">伪装成疯子</a></li><li class="lvl2"><a href="#角色信息">角色信息</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E7%96%AF%E5%AD%90">查找包含此角色的剧本 →</a></p><p><a href="../pages/%E7%96%AF%E5%AD%90.html" class="image-link" title="疯子"><img alt="Lunatic.png" style="width:200px" class="" loading="lazy" data-source-image="../images/Lunatic.png" src="../assets/media/Lunatic.preview.webp" width="600" height="600" decoding="async"></a></p>
+<h2 id="背景故事">背景故事</h2>
+<p><em>“吾即是暗夜……没错吧？”</em></p>
+<h2 id="角色能力">角色能力</h2>
+<p><strong>你以为你是一个恶魔，但其实你不是。</strong></p>
+<p><strong>恶魔知道你是疯子以及你在每个夜晚选择了哪些玩家。</strong></p>
+<h2 id="角色简介">角色简介</h2>
+<p>疯子以为自己是恶魔。</p>
+<ul>
+<li>和酒鬼很相似，疯子不知道自己的真实角色和真实阵营。疯子每个夜晚都会被唤醒来发动攻击，就如同他是场上真正的恶魔，但是疯子的选择没有效果，因为他没有恶魔的能力。</li>
+</ul>
+<ul>
+<li>疯子会在首个夜晚被唤醒来得知三个不在场的角色，以及与当前游戏数量符合的爪牙，但是这些信息可能是错误的。</li>
+</ul>
+<ul>
+<li>真正的恶魔会知道疯子每个夜晚攻击了哪些玩家。</li>
+</ul>
+<h2 id="范例">范例</h2>
+<p><a href="../pages/%E7%96%AF%E5%AD%90.html" title="疯子">疯子</a>以为自己是<a href="../pages/%E6%B2%99%E5%B7%B4%E6%B4%9B%E6%96%AF.html" title="沙巴洛斯">沙巴洛斯</a>，每个夜晚被唤醒来选择两名玩家。他所选的玩家不会死亡。</p>
+<p><a href="../pages/%E7%96%AF%E5%AD%90.html" title="疯子">疯子</a>以为自己是<a href="../pages/%E5%83%B5%E6%80%96.html" title="僵怖">僵怖</a>，因为<a href="../pages/%E5%83%B5%E6%80%96.html" title="僵怖">僵怖</a>的能力导致他不会每个夜晚都被唤醒。真正的<a href="../pages/%E5%83%B5%E6%80%96.html" title="僵怖">僵怖</a>假装成了<a href="../pages/%E7%96%AF%E5%AD%90.html" title="疯子">疯子</a>的爪牙，且总是攻击<a href="../pages/%E7%96%AF%E5%AD%90.html" title="疯子">疯子</a>所选择的玩家，以维持住<a href="../pages/%E7%96%AF%E5%AD%90.html" title="疯子">疯子</a>就是恶魔的假象。</p>
+<h2 id="运作方式">运作方式</h2>
+<p>在设置游戏时，将疯子标记和恶魔标记都放入盲抽袋内。在所有标记都返还给你后，在魔典中将疯子和恶魔的角色标记交换位置。</p>
+<p>在首个夜晚，唤醒疯子，如同他是恶魔一般进行行动。向疯子展示“他们是你的爪牙”信息标记并指向若干名玩家，数量等同于在场的爪牙数量。（可以指向任何玩家，无论他们是不是爪牙。）向疯子展示任意三个善良角色标记作为他的“伪装”。（这些角色标记甚至可以是在场的角色。）</p>
+<p>在首个夜晚，唤醒恶魔。向恶魔展示“你是”信息标记，然后是他的恶魔角色标记。（这会告知他才是真正的恶魔。）向恶魔展示“这名玩家是”信息标记，然后是疯子角色标记，然后指向疯子玩家。</p>
+<p>每个夜晚，在恶魔被唤醒发动攻击前，唤醒疯子，如同他是恶魔一般进行行动。将“被选择”提示标记放置到疯子选择的每个角色标记旁，然后让疯子重新入睡。唤醒真正的恶魔，指向疯子玩家，向真正的恶魔展示疯子标记，然后指向疯子选择的玩家。接下来恶魔如常进行行动。</p>
+<p>你能够让疯子以为自己是与在场的恶魔所不同的另一种恶魔，只需在盲抽袋中放入两个恶魔标记，并在将标记收回魔典之后，将其中一个恶魔标记替换为疯子标记。</p>
+<p>在线上游戏中，你可以不依照实体的初始设置规则进行游戏设置，而是在任何情况下（疯子以为的恶魔与真恶魔同一种类或不同种类皆可）都向疯子和真恶魔发送恶魔角色标记。但如果你真的这样做，请在游戏开始时对所有玩家阐述角色发送方式与实体规则的区别。</p>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>被选择（共3枚）</li>
+</ul>
+<p>放置时机：在疯子夜晚行动并选择了玩家后。</p>
+<p>放置条件：根据疯子所以为的那种恶魔的行动方式，让疯子选择对应数量的玩家。在疯子所选择的这些玩家的角色标记旁各放置一个“被选择”标记，用以提示说书人在真恶魔行动前告知真恶魔疯子的选择目标。</p>
+<p>移除时机：在黎明时。（由于可能在中途会有新的恶魔产生，而疯子的能力是持续暴露型能力，为了保证所有的恶魔都能在当晚正确地接受到信息，最好是在黎明时再进行移除。）</p>
+<ul>
+<li>是疯子（仅线上魔典，实体没有此标记）</li>
+</ul>
+<p>与酒鬼的“是酒鬼”提示标记处理方法类似。</p>
+<h2 id="规则细节">规则细节</h2>
+<ul>
+<li>相克规则：</li>
+<ul>
+<li><a href="../pages/%E6%95%B0%E5%AD%A6%E5%AE%B6.html" title="数学家">数学家</a>：数学家会得知疯子是否攻击了与真正的恶魔不同的目标。</li>
+</ul>
+</ul>
+<ul>
+<li>相克规则（与华灯系列角色）：</li>
+<ul>
+<li><a href="../pages/%E6%88%8F%E5%AD%90%EF%BC%88%E6%94%B9%EF%BC%89.html" title="戏子（改）">戏子（改）</a>：疯子不会因为戏子（改）能力参与互认，也不会因为戏子（改）的能力醉酒。</li>
+</ul>
+</ul>
+<h2 id="提示与技巧">提示与技巧</h2>
+<ul>
+<li>抽出恶魔角色总是令人兴奋的体验：你将与善良阵营对战，晚上将他们杀死，白天则当着他们的面撒谎！你是镇上危险的祸害，威胁要把他们都撕成碎片！！....好吧，要么，要么你是<a href="../pages/%E7%96%AF%E5%AD%90.html" title="疯子">疯子</a>。</li>
+</ul>
+<ul>
+<li><a href="../pages/%E7%96%AF%E5%AD%90.html" title="疯子">疯子</a>是一个独特的外来者，欺骗善良玩家相信他们是在为邪恶而战，却发现实际与你认为的不符。幸运的是，你的邪恶叙述中的这些问题将帮助你确定你是否真的是邪恶的！在几乎所有情况下，最好假设您是正确的，并且只有真正开始怀疑您是否遇到了错误事情。例如：</li>
+<ul>
+<li>你杀死的玩家不会死，但其他人会。你是一名<a href="../pages/%E6%B2%99%E5%B7%B4%E6%B4%9B%E6%96%AF.html" title="沙巴洛斯">沙巴洛斯</a>，但由于某种原因，你的每晚的2次杀戮中只有1次发生。你是<a href="../pages/%E5%83%B5%E6%80%96.html" title="僵怖">僵怖</a>，但昨天有处决和杀戮。虽然真正的恶魔可以看到并尝试模仿你的杀戮选择，但《<a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html" title="黯月初升">黯月初升</a>》中的恶魔色彩丰富且多种多样——密切关注杀戮成功或失败的原因。是狡猾的<a href="../pages/%E6%97%85%E5%BA%97%E8%80%81%E6%9D%BF.html" title="旅店老板">旅店老板</a>占了你便宜，还是真正的恶魔不在乎你的妄想？</li>
+<li>与你的“爪牙”交谈。就像一个真正的恶魔一样，你会被告知与你一起的邪恶的玩家。如果他们是真正的爪牙，他们就会知道你是恶魔。但是，如果您是<a href="../pages/%E7%96%AF%E5%AD%90.html" title="疯子">疯子</a>……他们可能是任何人！镇民、其他外来者、真正恶魔的爪牙……密切关注你的邪恶队伍，看看他们的行为方式。如果他们支持你并与你合作，你可能没什么好害怕的。如果他们给你奇怪的表情，与你对抗，甚至直接告诉你他们不是你的爪牙，那么......这可能表明一切都与你的认知不符。</li>
+<li>像真正的恶魔一样，您还将收到三个不在游戏中的角色。如果你是<a href="../pages/%E7%96%AF%E5%AD%90.html" title="疯子">疯子</a>，你可以得知任何东西，并且通常会包括实际在游戏中的角色 - 暗示你的真实本性。如果您知道游戏中没有<a href="../pages/%E8%8C%B6%E8%89%BA%E5%B8%88.html" title="茶艺师">茶艺师</a>，然后坐在对面的<a href="../pages/%E8%8C%B6%E8%89%BA%E5%B8%88.html" title="茶艺师">茶艺师</a>证明了他们的角色（通过处决他们的一个邻居），那么可能是时候怀疑您的“邪恶”角色了。</li>
+<li>这似乎很明显，但如果你死了并且游戏继续进行，那么这表明你可能不是困扰这个城镇的恶魔。当然，请记住，如果您是<a href="../pages/%E5%83%B5%E6%80%96.html" title="僵怖">僵怖</a>，那您将获得额外的生命，而<a href="../pages/%E4%B8%BB%E8%B0%8B.html" title="主谋">主谋</a>会在您死亡的情况下强制游戏再继续一天。因此，根据游戏的特性，也许不要立即下结论。</li>
+</ul>
+</ul>
+<ul>
+<li>如果你得出了你是<a href="../pages/%E7%96%AF%E5%AD%90.html" title="疯子">疯子</a>的结论，不要绝望——这意味着你的真正目标已经暴露，是时候为善良阵营而战了。您可能在游戏的前半部分都认为自己是一个嗜血的恶魔，但这并不意味着您现在不能成为小镇的一员，用您的投票和声音来对抗潜伏在其中的真正邪恶恶魔。</li>
+</ul>
+<ul>
+<li>一旦你弄清楚了，不要马上出来——不仅善良阵营会倾向于怀疑并可能无论如何都会处决你，但如果邪恶阵营认为你受到束缚，你可以做很多事情让他们认为你仍然觉得自己是个疯子。例如，恶魔每天晚上都知道你选择去杀死谁——如果他们相信的选择，那么你可能会指向你怀疑实际上是邪恶的玩家。如果恶魔一直忠实地追随你直到那天晚上突然转向，那你可能已经打到了罪魁祸首，真正的邪恶恶魔。</li>
+</ul>
+<ul>
+<li>如果您认为自己是<a href="../pages/%E7%96%AF%E5%AD%90.html" title="疯子">疯子</a>，请尽快告诉团队。你越早停止意外地为邪恶的阵营效力，而开始为善良阵营效力，你就能越早将所有信息放在一起。当善良阵营认为你是<a href="../pages/%E7%96%AF%E5%AD%90.html" title="疯子">疯子</a>时，可以确定正确的外来者数量，并且可以逆转你之前放弃的任何虚假信息。</li>
+</ul>
+<h2 id="伪装成疯子">伪装成疯子</h2>
+<p>当你要伪装成疯子的时候，这里有几件事你应该记住：</p>
+<ul>
+<li>首先作为一个不同的角色虚张声势。在“弄清楚”你是个疯子之前，表现得像一个恶魔去行动一会。即使您选择的虚张声势复制了游戏中的善良角色，这也可以实现。毕竟......一个真正的<a href="../pages/%E7%96%AF%E5%AD%90.html" title="疯子">疯子</a>经常被展示到游戏中角色作为虚张声势。</li>
+</ul>
+<ul>
+<li>真诚是关键。虽然大多数其他角色可以冷淡地提供他们的信息，但<a href="../pages/%E7%96%AF%E5%AD%90.html" title="疯子">疯子</a>往往会有明显的情绪反应——“啊哈！” 那一刻——当他们发现自己是<a href="../pages/%E7%96%AF%E5%AD%90.html" title="疯子">疯子</a>的时候。对于某些人来说，这种情绪反应很难伪装，但你比这更有才华。你知道如何在你的话语中加上一点魅力，你知道它在让善良阵营相信你是善良的方面是多么有效。</li>
+</ul>
+<ul>
+<li>如果你以<a href="../pages/%E7%96%AF%E5%AD%90.html" title="疯子">疯子</a>的角色出现，那么善良阵营会想知道您得知的爪牙是哪些玩家。这是您需要事先考虑的事情 - 选择适当数量的善良玩家，并私下接近他们，问他们“你是我的爪牙吗？”。当他们说“不”时，他们会说“不”，因为他们是善良的玩家，当你后来成为<a href="../pages/%E7%96%AF%E5%AD%90.html" title="疯子">疯子</a>时，这会给你更多的可信度。</li>
+</ul>
+<ul>
+<li>另一种错误地声称自己是<a href="../pages/%E7%96%AF%E5%AD%90.html" title="疯子">疯子</a>的方法是，当你公开自己的角色时，将你的真实爪牙透露给其他人。告诉团队你私聊了你的（实际）爪牙，但他们声称不是你的爪牙……这使您确信自己是疯子。</li>
+</ul>
+<ul>
+<li>如果您声称自己是<a href="../pages/%E7%96%AF%E5%AD%90.html" title="疯子">疯子</a>，善良阵营可能想知道您在夜间试图攻击哪些玩家。你可以声称攻击了恶魔攻击过的同一个玩家，也可以声称攻击了不同的玩家。它是由你决定。</li>
+</ul>
+<ul>
+<li>如果你是爪牙。真正的恶魔为了确认自己是不是疯子而通过私聊找你确认，你可以告诉他你不是爪牙。如果恶魔的爪牙声称自己不是爪牙，那么恶魔将完全相信他们是疯子，并且他们告诉团队他们是善良的诚意将是显而易见的。毕竟，如果你真的相信自己是<a href="../pages/%E7%96%AF%E5%AD%90.html" title="疯子">疯子</a>，那么虚张声势并不难！你总是可以在游戏后期告诉恶魔真相，在他们说服善良阵营他们是<a href="../pages/%E7%96%AF%E5%AD%90.html" title="疯子">疯子</a>之后，这样他们就拥有了赢得胜利所需的所有信息。</li>
+</ul>
+<h2 id="角色信息">角色信息</h2>
+<ul>
+<li>英文名：Lunatic</li>
+</ul>
+<ul>
+<li>所属剧本：<a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html" title="黯月初升">黯月初升</a></li>
+</ul>
+<ul>
+<li>角色类型：<a href="../pages/%E5%A4%96%E6%9D%A5%E8%80%85.html" title="外来者">外来者</a></li>
+</ul>
+<ul>
+<li>角色能力类型：<a href="../pages/%E8%AE%A4%E7%9F%A5%E8%A6%86%E7%9B%96.html" title="认知覆盖">认知覆盖</a>、<a href="../pages/%E6%9A%B4%E9%9C%B2%E8%A7%92%E8%89%B2.html" title="暴露角色">暴露角色</a>、<a href="../pages/%E8%8E%B7%E5%8F%96%E4%BF%A1%E6%81%AF.html" title="获取信息">让他人获取信息</a></li>
+</ul>
+<p><em>其他称呼（非官方，仅方便索引用）：狂人</em></p></div>
+    <div class="page-meta">最后修改于 2026-07-20T10:16:33Z，编辑者 <b>Zack</b> ｜ 页面 10,280 字节 ｜ <a href="https://clocktower-wiki.gstonegames.com/index.php?title=%E7%96%AF%E5%AD%90" target="_blank" rel="noopener">查看原页面</a> ｜ <div class="comment">编辑摘要：/* 规则细节 */</div></div>
+    <div class="backlinks"><b>链入此页的页面（48）</b><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a><a href="../pages/%E6%95%99%E6%8E%88.html">教授</a><a href="../pages/%E6%9A%B4%E9%9C%B2%E8%A7%92%E8%89%B2.html">暴露角色</a><a href="../pages/%E6%97%A0%E7%A5%9E%E8%AE%BA%E8%80%85.html">无神论者</a><a href="../pages/%E9%A3%9F%E4%BA%BA%E6%97%8F.html">食人族</a><a href="../pages/%E5%9B%BD%E7%8E%8B.html">国王</a><a href="../pages/%E9%AD%94%E6%9C%AF%E5%B8%88.html">魔术师</a><a href="../pages/%E7%BD%82%E7%B2%9F%E7%A7%8D%E6%A4%8D%E8%80%85.html">罂粟种植者</a><a href="../pages/%E5%AF%A1%E5%A6%87.html">寡妇</a><a href="../pages/%E7%97%A2%E8%9B%AD.html">痢蛭</a><a href="../pages/%E6%95%B0%E5%AD%A6%E5%AE%B6.html">数学家</a><a href="../pages/%E8%8E%B7%E5%8F%96%E4%BF%A1%E6%81%AF.html">获取信息</a><a href="../pages/%E8%AE%A4%E7%9F%A5%E8%A6%86%E7%9B%96.html">认知覆盖</a><a href="../pages/%E8%AE%BE%E7%BD%AE%E8%B0%83%E6%95%B4.html">设置调整</a><a href="../pages/%E4%B8%AD%E6%AF%92.html">中毒</a><a href="../pages/%E5%92%8C%E5%B9%B3%E4%B8%BB%E4%B9%89%E8%80%85.html">和平主义者</a><a href="../pages/%E7%96%AF%E5%AD%90.html">疯子</a><a href="../pages/%E6%95%99%E7%88%B6.html">教父</a><a href="../pages/%E5%A4%96%E6%9D%A5%E8%80%85.html">外来者</a><a href="../pages/%E7%AA%83%E7%AA%83%E7%A7%81%E8%AF%AD.html">窃窃私语</a><a href="../pages/%E5%93%AA%E4%BA%9B%E6%98%AF%E2%80%9C%E5%8F%AF%E4%BB%A5%E4%BD%86%E4%B8%8D%E5%BB%BA%E8%AE%AE%E2%80%9D.html">哪些是“可以但不建议”</a><a href="../pages/%E5%A5%B3%E8%88%8D%E7%9B%91.html">女舍监</a><a href="../pages/%E9%AA%97%E4%BA%BA%E7%B2%BE.html">骗人精</a><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a><a href="../pages/%E5%8F%AA%E6%89%8B%E9%81%AE%E5%A4%A9.html">只手遮天</a><a href="../pages/%E6%82%9F%E9%81%93%E8%80%85.html">悟道者</a><a href="../pages/%E6%A2%BC%E6%9D%8C.html">梼杌</a><a href="../pages/%E5%A4%9C%E6%99%9A%E8%A1%8C%E5%8A%A8%E9%A1%BA%E5%BA%8F%E4%B8%80%E8%A7%88.html">夜晚行动顺序一览</a><a href="../pages/%E7%AC%AC%E4%B8%80%E5%B1%8A%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A%E5%89%A7%E6%9C%AC%E5%88%9B%E4%BD%9C%E5%A4%A7%E8%B5%9B.html">第一届华灯初上剧本创作大赛</a><a href="../pages/%E4%BA%BA%E9%97%B4%E6%9A%97%E6%9C%88%E5%A4%9C.html">人间暗月夜</a><a href="../pages/%E9%AA%91%E8%99%8E%E7%94%9F%E6%AD%BB%E8%A1%8C.html">骑虎生死行</a><a href="../pages/%E8%A1%8C%E6%88%90%E4%B8%8B%E5%AD%A4%E4%B9%A1.html">行成下孤乡</a><a href="../pages/%E5%B9%BB%E5%BD%B1%E7%94%BB%E5%AE%89%E5%8D%B1.html">幻影画安危</a><a href="../pages/%E8%B0%9C%E6%A2%A6%E5%BE%85%E6%AD%8C%E8%88%9E.html">谜梦待歌舞</a><a href="../pages/%E7%A7%BB%E8%8A%B1%E6%8E%A5%E6%9C%A8.html">移花接木</a><a href="../pages/%E7%99%BD%E7%8B%90%E8%A1%8C%E4%B8%9B%E9%87%8C.html">白狐行丛里</a><a href="../pages/%E4%BE%A0%E4%BA%91%E6%95%88%E8%89%AF%E5%85%9A.html">侠云效良党</a><a href="../pages/%E5%8D%83%E9%9D%A2%E4%BC%97%E5%8D%B1%E7%84%89.html">千面众危焉</a><a href="../pages/%E5%AF%B9%E5%A2%9F%E9%9A%BE%E6%AC%A2%E9%B8%A3.html">对墟难欢鸣</a><a href="../pages/%E6%88%8F%E5%AD%90%EF%BC%88%E6%94%B9%EF%BC%89.html">戏子（改）</a><a href="../pages/%E7%A7%89%E5%85%AC%E5%8A%9E%E4%BA%8B.html">秉公办事</a><a href="../pages/%E8%A6%81%E8%B5%A2%E4%BA%86%E5%90%97%EF%BC%9F.html">要赢了吗？</a><a href="../pages/%E6%9A%97%E5%BA%A6%E9%99%88%E4%BB%93.html">暗度陈仓</a><a href="../pages/%E7%BF%BB%E4%BA%91%E8%A6%86%E9%9B%A8.html">翻云覆雨</a><a href="../pages/%E6%8C%91%E7%81%AF%E7%9C%8B%E5%89%91.html">挑灯看剑</a><a href="../pages/%E6%97%A0%E5%90%8D%E6%97%85%E5%AE%A2.html">无名旅客</a><a href="../pages/%E5%AD%9F%E5%A9%86.html">孟婆</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

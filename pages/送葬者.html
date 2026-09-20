@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>送葬者 - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">送葬者</h1>
+    <div class="tagline">来自钟楼百科</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#提示与技巧">提示与技巧</a></li><li class="lvl2"><a href="#伪装成送葬者">伪装成送葬者</a></li><li class="lvl2"><a href="#角色信息">角色信息</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E9%80%81%E8%91%AC%E8%80%85">查找包含此角色的剧本 →</a></p><p><a href="../pages/%E9%80%81%E8%91%AC%E8%80%85.html" class="image-link" title="送葬者"><img alt="undertaker.png" style="width:200px" class="" loading="lazy" data-source-image="../images/Undertaker.png" src="../assets/media/Undertaker.preview.webp" width="600" height="600" decoding="async"></a></p>
+<h2 id="背景故事">背景故事</h2>
+<p><em>“嗯……看看我们发现了什么？左靴到足跟都有磨损，靴尖下还有些硝石屑。这是军人才会有的装束。”</em></p>
+<h2 id="角色能力">角色能力</h2>
+<p><strong>每个夜晚*，你会得知今天白天死于处决的玩家的角色。</strong></p>
+<h2 id="角色简介">角色简介</h2>
+<p>送葬者会得知当天因处决而死亡的角色。</p>
+<ul>
+<li>只有死于处决的玩家才会被送葬者得知是哪一种角色。在白天因为其他原因造成的死亡，例如枪手杀死的玩家，或对旅行者的流放，不算在内。</li>
+</ul>
+<ul>
+<li>送葬者会在除首个夜晚以外的每晚醒来，因为在首个夜晚之前不会有任何处决发生。</li>
+</ul>
+<ul>
+<li>如果当天没有玩家死亡，送葬者不会得知任何消息。说书人在夜晚时要么不唤醒送葬者，要么唤醒他但并不对他展示角色标记。</li>
+</ul>
+<ul>
+<li>如果酒鬼被处决，送葬者会被展示酒鬼标记，而非那名酒鬼玩家以为自己是的那个镇民标记。</li>
+</ul>
+<h2 id="范例">范例</h2>
+<p><a href="../pages/%E9%95%87%E9%95%BF.html" title="镇长">镇长</a>今天被处决。当晚，<a href="../pages/%E9%80%81%E8%91%AC%E8%80%85.html" title="送葬者">送葬者</a>被展示了<a href="../pages/%E9%95%87%E9%95%BF.html" title="镇长">镇长</a>标记。</p>
+<p>以为自己是<a href="../pages/%E8%B4%9E%E6%B4%81%E8%80%85.html" title="贞洁者">贞洁者</a>的<a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a>今天被处决。<a href="../pages/%E9%80%81%E8%91%AC%E8%80%85.html" title="送葬者">送葬者</a>被展示了<a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a>标记，因为<a href="../pages/%E9%80%81%E8%91%AC%E8%80%85.html" title="送葬者">送葬者</a>得知的是玩家实际角色，而不是玩家以为的那个角色。</p>
+<p><a href="../pages/%E9%97%B4%E8%B0%8D.html" title="间谍">间谍</a>被处决。两名旅行者被流放。在当晚，<a href="../pages/%E9%80%81%E8%91%AC%E8%80%85.html" title="送葬者">送葬者</a>被展示了<a href="../pages/%E7%AE%A1%E5%AE%B6.html" title="管家">管家</a>标记，因为此时<a href="../pages/%E9%97%B4%E8%B0%8D.html" title="间谍">间谍</a>被当作了<a href="../pages/%E7%AE%A1%E5%AE%B6.html" title="管家">管家</a>，且流放并不是处决。</p>
+<p>今天白天没有人被处决。当晚，<a href="../pages/%E9%80%81%E8%91%AC%E8%80%85.html" title="送葬者">送葬者</a>没有被唤醒。</p>
+<h2 id="运作方式">运作方式</h2>
+<p>如果一名玩家死于处决，将送葬者的“死于今日”提示标记放置在那名死亡玩家的角色标记旁。</p>
+<p>除首个夜晚以外的每个夜晚，如果当天有任何玩家死于处决，唤醒送葬者。向他展示被标记了“死于今日”的角色标记。让送葬者重新入睡。在说书人方便的时候，移除送葬者的提示标记。</p>
+<p>在《暗流涌动》里，每个白天只会有一场处决，且每次处决都会导致一名玩家死亡。在其他剧本中，每天可能会有多于一次的处决（在这种情形下由说书人决定向送葬者展示其中的哪一个角色标记），或发生了处决但并未导致死亡（在这种情形下送葬者不会得知任何消息）。</p>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>死于今日</li>
+</ul>
+<p>放置时机：在白天时，如果有人因处决而死亡，在该玩家的角色标记旁放置。</p>
+<p>放置条件：在因处决而死亡的玩家的角色标记旁放置，而不论此时送葬者是否醉酒中毒。</p>
+<p>移除时机：在送葬者获取信息后，说书人可以任由自己方便来进行移除。</p>
+<p>特殊说明：由于送葬者的能力为回溯型能力，因此如果送葬者在游戏中途产生，仍然要根据当前情况补放标记，而不是因为没有放置标记便不在夜晚告知送葬者信息。</p>
+<h2 id="规则细节">规则细节</h2>
+<ul>
+<li>如果白天无人被处决，或发生了处决但无人死亡，<a href="../pages/%E9%80%81%E8%91%AC%E8%80%85.html" title="送葬者">送葬者</a>可能不会被唤醒，也可能会被唤醒但不得知任何消息。说书人可以自行决定并提前告知玩家本场游戏将以何种方式运作。然而，不论是否唤醒<a href="../pages/%E9%80%81%E8%91%AC%E8%80%85.html" title="送葬者">送葬者</a>，都不应该对<a href="../pages/%E4%BE%8D%E5%A5%B3.html" title="侍女">侍女</a>获得的消息产生影响。（即：如果说书人决定不唤醒<a href="../pages/%E9%80%81%E8%91%AC%E8%80%85.html" title="送葬者">送葬者</a>，那么无论实际操作中是否唤醒<a href="../pages/%E9%80%81%E8%91%AC%E8%80%85.html" title="送葬者">送葬者</a>，<a href="../pages/%E4%BE%8D%E5%A5%B3.html" title="侍女">侍女</a>都不应探查到<a href="../pages/%E9%80%81%E8%91%AC%E8%80%85.html" title="送葬者">送葬者</a>被唤醒，反之亦然。）</li>
+</ul>
+<ul>
+<li>如果白天无人被处决，或发生了处决但无人死亡，但<a href="../pages/%E6%B6%A1%E6%B5%81.html" title="涡流">涡流</a>在场，<a href="../pages/%E9%80%81%E8%91%AC%E8%80%85.html" title="送葬者">送葬者</a>不会因此得知错误的信息。因为无人因处决而死，所以<a href="../pages/%E9%80%81%E8%91%AC%E8%80%85.html" title="送葬者">送葬者</a>不会因此获得信息，也就不会受到<a href="../pages/%E6%B6%A1%E6%B5%81.html" title="涡流">涡流</a>的影响。</li>
+</ul>
+<ul>
+<li>在夜晚因处决而死亡的玩家其角色不会被<a href="../pages/%E9%80%81%E8%91%AC%E8%80%85.html" title="送葬者">送葬者</a>得知。</li>
+</ul>
+<h2 id="提示与技巧">提示与技巧</h2>
+<ul>
+<li>被处决的玩家越多，你得到的信息就越多。尽可能多地促成处决将让你获益匪浅。善良阵营击杀邪恶阵营玩家的主要手段就是处决，因为邪恶阵营玩家基本不会死在晚上，因此每一次处决都是攻击恶魔的机会。即使你没有找到恶魔，你也至少要活到游戏的最后一天，这样你将会知道更多关于你队友以及其角色信息。</li>
+</ul>
+<ul>
+<li>你不会得知旅行者的角色。他们会因为流放而死亡，但不会因为处决而死亡。对于这一点来说唯一一个例外就是<a href="../pages/%E6%9B%BF%E7%BD%AA%E7%BE%8A.html" title="替罪羊">替罪羊</a>，因为他确实会因为他的角色能力被处决。然而，你不会得知他的阵营，只能得知他的角色，而他的角色人尽皆知。</li>
+</ul>
+<ul>
+<li>处决一个你不知道角色的人会让你声称自己是<a href="../pages/%E9%80%81%E8%91%AC%E8%80%85.html" title="送葬者">送葬者</a>这件事更可信。同样的，处决一个已经说了自己是什么角色的人会让你能够证实他之前说的话是否真实，因为你会知道他到底是不是他所说的这个角色。这两种方法都会让你的善良玩家队友相信你。</li>
+</ul>
+<ul>
+<li>早期比较适合的被处决的人选是像<a href="../pages/%E6%B4%97%E8%A1%A3%E5%A6%87.html" title="洗衣妇">洗衣妇</a>和<a href="../pages/%E5%9B%BE%E4%B9%A6%E7%AE%A1%E7%90%86%E5%91%98.html" title="图书管理员">图书管理员</a>之类的角色，因为你在确认了他们角色的同时也证实了其他善良阵营玩家的角色。</li>
+</ul>
+<ul>
+<li>太早暴露自己会增加你死亡或是中毒的风险。等到关键时刻再公布你的信息将会让你接收到的信息量最大化。不过还是要记得在游戏结束之前说出你的角色！</li>
+</ul>
+<ul>
+<li>如果你知道了一些关键信息（比如你查验到的是恶魔），早点说出自己的角色也是个不错的选择。</li>
+</ul>
+<ul>
+<li>如果你看到被处决的玩家是<a href="../pages/%E5%B0%8F%E6%81%B6%E9%AD%94.html" title="小恶魔">小恶魔</a>，现在场上大概率就是原来的<a href="../pages/%E7%BA%A2%E5%94%87%E5%A5%B3%E9%83%8E.html" title="红唇女郎">红唇女郎</a>接过了恶魔的接力棒。</li>
+</ul>
+<ul>
+<li>如果被处决的玩家是<a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a>，你将会看到<a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a>的角色标记，而不是他以为的镇民角色的标记。</li>
+</ul>
+<ul>
+<li>由于提名<a href="../pages/%E8%B4%9E%E6%B4%81%E8%80%85.html" title="贞洁者">贞洁者</a>而被处决的玩家也会触发你的能力，因此你也会在晚上知道他是谁。</li>
+</ul>
+<ul>
+<li>当心<a href="../pages/%E9%97%B4%E8%B0%8D.html" title="间谍">间谍</a>和<a href="../pages/%E9%99%8C%E5%AE%A2.html" title="陌客">陌客</a>！他们有可能相应地被你当做善良角色和邪恶角色，因为他们的能力在他们死后也依然生效。</li>
+</ul>
+<ul>
+<li>如果你认为有<a href="../pages/%E9%80%81%E8%91%AC%E8%80%85.html" title="送葬者">送葬者</a>在场，你可以通过某种方法测试一下。你可以撒谎说自己是某个其他角色，然后再让自己被处决。这样<a href="../pages/%E9%80%81%E8%91%AC%E8%80%85.html" title="送葬者">送葬者</a>将会知道你的真实角色，并且能够告诉团队你到底是谁，因而证实他之前说的就是真话。</li>
+</ul>
+<h2 id="伪装成送葬者">伪装成送葬者</h2>
+<p>当你要伪装成送葬者的时候，这里有几件事你应该记住：</p>
+<ul>
+<li>一个优秀的<a href="../pages/%E9%80%81%E8%91%AC%E8%80%85.html" title="送葬者">送葬者</a>会等几天再公布自己的角色。在你告诉别人你是<a href="../pages/%E9%80%81%E8%91%AC%E8%80%85.html" title="送葬者">送葬者</a>之前，你可以心安理得地安静几天，或者说自己是某个其他角色，然后将伪装<a href="../pages/%E9%80%81%E8%91%AC%E8%80%85.html" title="送葬者">送葬者</a>当作备用计划。</li>
+</ul>
+<ul>
+<li>证实一个好玩家的角色能够让你显得善良。为了这个策略能够成功，你需要提前知道他的角色是什么。如果你是<a href="../pages/%E9%97%B4%E8%B0%8D.html" title="间谍">间谍</a>，或者可以和<a href="../pages/%E9%97%B4%E8%B0%8D.html" title="间谍">间谍</a>交流，那你就可以对此更自信，因为你已经能得知所有人的角色了。</li>
+</ul>
+<ul>
+<li>如果一些关键玩家被处决的话，你能够通过声明他是爪牙或者恶魔的方式让他显得邪恶。这会有些冒险，因为那位玩家就会知道你是邪恶阵营的。这给你带来了获胜的可能性，因为剩下的玩家并不知道你在说谎。但实际上大多数时候善良阵营玩家被处决的数量要比邪恶阵营玩家多，因此最好谨慎地使用这个策略。</li>
+</ul>
+<ul>
+<li>如果另一个邪恶玩家死于处决，你可以随意说他是善良角色或是邪恶角色。如果你说他们是善良角色，你们两个的信息能够互相佐证，这会让你们两个看起来都更可信。如果你说他是个邪恶阵营玩家，他应该表现的更邪恶一点，并且公然暗示他确实邪恶。事实上，验出邪恶阵营能够让你看起来更像一个<a href="../pages/%E9%80%81%E8%91%AC%E8%80%85.html" title="送葬者">送葬者</a>。</li>
+</ul>
+<ul>
+<li>暗中诋毁一个被处决的镇民的更好方法是说你看到了<a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a>的角色标记。如果其他人相信你（特别是如果被处决的玩家相信你），那其他玩家就会假设这个人收到的任何信息都不太可信了。如果你不知道一位玩家的角色是什么，声明他是<a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a>是个隐藏真相的好方法。</li>
+</ul>
+<h2 id="角色信息">角色信息</h2>
+<ul>
+<li>英文名：Undertaker</li>
+</ul>
+<ul>
+<li>所属剧本：<a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html" title="暗流涌动">暗流涌动</a></li>
+</ul>
+<ul>
+<li>角色类型：<a href="../pages/%E9%95%87%E6%B0%91.html" title="镇民">镇民</a></li>
+</ul>
+<ul>
+<li>角色能力类型：<a href="../pages/%E8%8E%B7%E5%8F%96%E4%BF%A1%E6%81%AF.html" title="获取信息">获取信息</a>、<a href="../pages/%E5%A4%84%E5%86%B3.html" title="处决">处决</a>、<a href="../pages/%E5%9B%9E%E6%BA%AF%E5%9E%8B%E8%83%BD%E5%8A%9B.html" title="回溯型能力">回溯型能力</a></li>
+</ul>
+<ul>
+<li>角色背景相关：可怜的<a href="../pages/%E5%A3%AB%E5%85%B5.html" title="士兵">士兵</a>被大家处决了。或者也有可能是<a href="../pages/%E5%B0%86%E5%86%9B.html" title="将军">将军</a>。</li>
+</ul>
+<p><em>其他称呼（非官方，仅方便索引用）：掘墓人</em></p></div>
+    <div class="page-meta">最后修改于 2026-06-22T01:37:58Z，编辑者 <b>Zack</b> ｜ 页面 8,420 字节 ｜ <a href="https://clocktower-wiki.gstonegames.com/index.php?title=%E9%80%81%E8%91%AC%E8%80%85" target="_blank" rel="noopener">查看原页面</a> ｜ <div class="comment">编辑摘要：/* 角色简介 */</div></div>
+    <div class="backlinks"><b>链入此页的页面（68）</b><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a><a href="../pages/%E6%B4%97%E8%A1%A3%E5%A6%87.html">洗衣妇</a><a href="../pages/%E5%9B%BE%E4%B9%A6%E7%AE%A1%E7%90%86%E5%91%98.html">图书管理员</a><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a><a href="../pages/%E5%A4%84%E5%86%B3.html">处决</a><a href="../pages/%E5%9B%9E%E6%BA%AF%E5%9E%8B%E8%83%BD%E5%8A%9B.html">回溯型能力</a><a href="../pages/%E6%B0%94%E7%90%83%E9%A9%BE%E9%A9%B6%E5%91%98.html">气球驾驶员</a><a href="../pages/%E5%94%B1%E8%AF%97%E7%94%B7%E5%AD%A9.html">唱诗男孩</a><a href="../pages/%E5%BC%82%E6%95%99%E9%A2%86%E8%A2%96.html">异教领袖</a><a href="../pages/%E6%B8%94%E5%A4%AB.html">渔夫</a><a href="../pages/%E5%B0%86%E5%86%9B.html">将军</a><a href="../pages/%E5%B7%A1%E5%B1%B1%E4%BA%BA.html">巡山人</a><a href="../pages/%E8%B4%B5%E6%97%8F.html">贵族</a><a href="../pages/%E5%B0%8F%E7%B2%BE%E7%81%B5.html">小精灵</a><a href="../pages/%E8%90%BD%E9%9A%BE%E5%B0%91%E5%A5%B3.html">落难少女</a><a href="../pages/%E5%91%8A%E5%AF%86%E8%80%85.html">告密者</a><a href="../pages/%E7%82%B8%E5%BC%B9%E4%BA%BA.html">炸弹人</a><a href="../pages/%E5%93%A5%E5%B8%83%E6%9E%97.html">哥布林</a><a href="../pages/%E6%8F%90%E7%BA%BF%E6%9C%A8%E5%81%B6.html">提线木偶</a><a href="../pages/%E5%86%9B%E5%9B%A2.html">军团</a><a href="../pages/%E5%88%A9%E7%BB%B4%E5%9D%A6.html">利维坦</a><a href="../pages/%E5%85%B1%E6%83%85%E8%80%85.html">共情者</a><a href="../pages/%E8%8E%B7%E5%8F%96%E4%BF%A1%E6%81%AF.html">获取信息</a><a href="../pages/%E5%8D%A0%E5%8D%9C%E5%B8%88.html">占卜师</a><a href="../pages/%E9%80%81%E8%91%AC%E8%80%85.html">送葬者</a><a href="../pages/%E5%83%A7%E4%BE%A3.html">僧侣</a><a href="../pages/%E5%AE%88%E9%B8%A6%E4%BA%BA.html">守鸦人</a><a href="../pages/%E8%B4%9E%E6%B4%81%E8%80%85.html">贞洁者</a><a href="../pages/%E5%A3%AB%E5%85%B5.html">士兵</a><a href="../pages/%E9%85%92%E9%AC%BC.html">酒鬼</a><a href="../pages/%E9%99%8C%E5%AE%A2.html">陌客</a><a href="../pages/%E5%9C%A3%E5%BE%92.html">圣徒</a><a href="../pages/%E6%8A%95%E6%AF%92%E8%80%85.html">投毒者</a><a href="../pages/%E9%97%B4%E8%B0%8D.html">间谍</a><a href="../pages/%E7%BA%A2%E5%94%87%E5%A5%B3%E9%83%8E.html">红唇女郎</a><a href="../pages/%E7%94%B7%E7%88%B5.html">男爵</a><a href="../pages/%E5%B0%8F%E6%81%B6%E9%AD%94.html">小恶魔</a><a href="../pages/%E9%95%87%E6%B0%91.html">镇民</a><a href="../pages/%E6%9E%AA%E6%89%8B.html">枪手</a><a href="../pages/%E6%9B%BF%E7%BD%AA%E7%BE%8A.html">替罪羊</a><a href="../pages/%E4%B9%9E%E4%B8%90.html">乞丐</a><a href="../pages/%E5%A4%B1%E8%B4%A5%E7%9A%84%E4%B8%8A%E5%B8%9D.html">失败的上帝</a><a href="../pages/%E9%98%B4%E9%98%B3%E5%B8%88.html">阴阳师</a><a href="../pages/%E6%84%9A%E8%80%85%E6%AC%A2%E5%AE%B4.html">愚者欢宴</a><a href="../pages/%E9%AA%91%E5%A3%AB.html">骑士</a><a href="../pages/%E4%BA%8B%E5%8A%A1%E5%AE%98.html">事务官</a><a href="../pages/%E9%A5%95%E9%A4%AE.html">饕餮</a><a href="../pages/%E5%A4%9C%E6%99%9A%E8%A1%8C%E5%8A%A8%E9%A1%BA%E5%BA%8F%E4%B8%80%E8%A7%88.html">夜晚行动顺序一览</a><a href="../pages/%E4%BA%BA%E9%97%B4%E6%9A%97%E6%9C%88%E5%A4%9C.html">人间暗月夜</a><a href="../pages/%E8%8E%AB%E8%A8%80%E4%B8%89%E5%8D%83%E6%AD%BB.html">莫言三千死</a><a href="../pages/%E9%B8%A3%E9%A3%8E%E5%99%AC%E5%90%8E%E6%B5%AA.html">鸣风噬后浪</a><a href="../pages/%E5%B9%BB%E5%BD%B1%E7%94%BB%E5%AE%89%E5%8D%B1.html">幻影画安危</a><a href="../pages/%E9%A3%8E%E4%BA%91%E5%AD%B0%E6%88%8F%E8%A8%80.html">风云孰戏言</a><a href="../pages/%E5%AF%84%E6%A2%A6%E4%BB%96%E4%B9%A1.html">寄梦他乡</a><a href="../pages/%E9%9B%86%E5%90%8E%E4%BA%BA%E4%B9%8B%E8%A8%80.html">集后人之言</a><a href="../pages/%E4%BE%A0%E4%BA%91%E6%95%88%E8%89%AF%E5%85%9A.html">侠云效良党</a><a href="../pages/%E5%8D%83%E9%9D%A2%E4%BC%97%E5%8D%B1%E7%84%89.html">千面众危焉</a><a href="../pages/%E8%A7%84%E5%88%99%E8%B0%83%E6%95%B4%E6%8F%90%E5%89%8D%E5%85%AC%E7%A4%BA.html">规则调整提前公示</a><a href="../pages/%E8%8E%AB%E9%80%86%E4%B9%8B%E4%BA%A4.html">莫逆之交</a><a href="../pages/%E7%8B%AC%E5%8D%A0%E9%B3%8C%E5%A4%B4.html">独占鳌头</a><a href="../pages/%E4%BF%A1%E5%8F%A3%E9%9B%8C%E9%BB%84.html">信口雌黄</a><a href="../pages/%E6%8F%90%E5%88%91%E5%AE%98.html">提刑官</a><a href="../pages/%E5%86%B2%E5%8A%A8%E6%B6%88%E8%B4%B9.html">冲动消费</a><a href="../pages/%E6%98%BE%E6%88%91%E7%A5%9E%E9%80%9A.html">显我神通</a><a href="../pages/%E5%85%AC%E4%B8%BB.html">公主</a><a href="../pages/%E9%85%92%E4%BF%9D.html">酒保</a><a href="../pages/%E7%8B%A1%E5%85%94%E4%B8%89%E7%AA%9F.html">狡兔三窟</a><a href="../pages/%E6%B1%9F%E5%9F%8E%E5%90%AF.html">江城启</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

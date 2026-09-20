@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>狼孩 Wolfboy - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">狼孩 Wolfboy<span class="ns-badge">奥德赛</span></h1>
+    <div class="tagline">来自钟楼百科 · 摘自《奥德赛 Odyssey》百科 · 外来者</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#夜晚行动顺序">夜晚行动顺序</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#游玩与对抗技巧">游玩与对抗技巧</a></li><li class="lvl2"><a href="#伪装成该角色">伪装成该角色</a></li><li class="lvl2"><a href="#出现剧本">出现剧本</a></li><li class="lvl2"><a href="#整体设计">整体设计</a></li><li class="lvl2"><a href="#创意来源">创意来源</a></li><li class="lvl2"><a href="#图标画师">图标画师</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E7%8B%BC%E5%AD%A9">查找包含此角色的剧本 →</a></p><div class="charinfo"><div class="charinfo-img"><a href="../files/%E6%96%87%E4%BB%B6_%E7%8B%BC%E5%AD%A9.png.html"><img alt="狼孩 Wolfboy" data-source-image="../images/%E7%8B%BC%E5%AD%A9.png" src="../assets/media/狼孩.preview.webp" width="600" height="600" decoding="async"></a></div><div class="charinfo-meta"><div class="row"><span class="k">角色类型</span><span class="v"><a href="../pages/%E5%A4%96%E6%9D%A5%E8%80%85.html" title="外来者">外来者</a></span></div><div class="row"><span class="k">英文名</span><span class="v">Wolfboy</span></div><div class="row"><span class="k">角色ID</span><span class="v">027</span></div><div class="row"><span class="k">角色归属</span><span class="v">角色拓展包《奥德赛》</span></div><div class="row"><span class="k">能力标签</span><span class="v"><a href="../pages/%E6%AD%BB%E4%BA%A1%E8%A7%A6%E5%8F%91%E8%83%BD%E5%8A%9B.html" title="死亡触发能力">死亡触发能力</a>、<a href="../pages/%E8%A7%92%E8%89%B2%E5%8F%98%E5%8C%96.html" title="角色变化">角色变化</a>、<a href="../pages/%E8%AE%BE%E7%BD%AE%E8%B0%83%E6%95%B4.html" title="设置调整">设置调整</a></span></div><div class="row"><span class="k">角色定位</span><span class="v">入红外来者</span></div><div class="row"><span class="k">发布日期</span><span class="v">2026.6.18</span></div><div class="row"><span class="k">角色授权</span><span class="v">开放（任意剧本创作皆可使用，不要改能力）</span></div><div class="row"><span class="k">出处</span><span class="v"><a class="external" href="https://www.yuque.com/u48069482/taiyi" target="_blank" rel="noopener">《奥德赛 Odyssey》百科</a></span></div></div></div><h2 id="背景故事">背景故事</h2>
+<p><em>"你们管我们叫‘狼孩’，好像我们是一个群体。但我们从来不是。我们唯一的共同点是——都被小镇所抛弃，你们恨我们，我们也恨你们。狼群没有名字，我也没有名字。但将来恶魔会赐与我们中的某个人一个新名字，一个真正的名字。到那天，他会用这个名字敲开你们的每一扇门。"</em></p>
+<h2 id="角色简介"><span style="color:rgb(64, 64, 64);">角色简介</span></h2>
+<p>幸存的狼孩会变成邪恶的爪牙。</p>
+<h2 id="角色能力">角色能力</h2>
+<div class="callout callout-info">
+<p>当其他狼孩均死亡时，你变成邪恶的不在场爪牙。[可能有多个外来者是狼孩]</p>
+</div>
+<h2 id="范例">范例</h2>
+<ul>
+<li>12人局，2个外来者都是狼孩。第一个白天，一名狼孩死于处决，另一名狼孩立即变成了邪恶的投毒者。</li>
+<li>12人局，只有一名狼孩在场。狼孩无法变成邪恶的爪牙。</li>
+<li>12人局，男爵在场，4个外来者都是狼孩。其中3名狼孩死亡后，仅存的一名狼孩变成了邪恶的红唇女郎。</li>
+</ul>
+<h2 id="运作方式">运作方式</h2>
+<p>在初始设置时，将角色标记放入盲抽袋前，你可以把其他外来者角色标记替换为狼孩的角色标记。</p>
+<p>一名狼孩死亡时，如果场上只剩下一名存活的狼孩，将仅存的狼孩的角色标记替换为不在场的爪牙角色，并将他转变为邪恶。如果此时是白天，在入夜后第一时间告知该狼孩玩家。如果此时是夜晚，唤醒该狼孩玩家并告知他，他的角色以及阵营发生了什么变化。</p>
+<h2 id="夜晚行动顺序">夜晚行动顺序</h2>
+<ul>
+<li>首个夜晚</li>
+<ul>
+<li>夜序数值：/</li>
+<li>前位角色：/</li>
+<li>行动提示：/</li>
+</ul>
+<li>其他夜晚</li>
+<ul>
+<li>夜序数值：140</li>
+<li>前位角色：黄昏</li>
+<li>行动提示：如果狼孩在白天转变角色，唤醒他并告知他的角色及阵营变化。</li>
+</ul>
+</ul>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>无</li>
+</ul>
+<h2 id="规则细节">规则细节</h2>
+<ul>
+<li>狼孩的设置调整能力不会增减或减少外来者的数量。但是可能会导致多个外来者都是狼孩。</li>
+<li>狼孩的能力只有在其他狼孩死亡时才可能会被触发。所以如果只有一名狼孩在场，他的能力无论如何都不会被触发。</li>
+<li>狼孩的角色变化是在其他狼孩均死亡时立即发生的。狼孩的夜晚行动顺序仅用来提示说书人不要忘记唤醒白天变化的狼孩他的角色及阵营发生的变化。</li>
+<li>如果狼孩在夜晚时角色发生变化，立即唤醒他并告知他角色及阵营发生了什么变化。</li>
+<li>如果某些条件限制了狼孩的角色变化或阵营变化，那么狼孩只会转变可以转变的部分。比如所有爪牙角色均在场时，狼孩只会转变为邪恶阵营，而角色不会发生改变。如果狼孩无法转变为邪恶阵营（如受圣洁之魂限制），那么他只会变为不在场的爪牙角色。</li>
+</ul>
+<h2 id="游玩与对抗技巧">游玩与对抗技巧</h2>
+<ul>
+<li>如果你是狼孩。场上可能会有多名狼孩，也可能只会有你一名狼孩。如果其他外来者都已经死亡，但是你的角色并没有发生变化。那么场上只有你一名狼孩，你可以公开此信息。</li>
+<li>如果你是狼孩。如果你死亡了，最好立即公布你的角色。因为极有可能其他狼孩已经变成了邪恶的爪牙。</li>
+<li>如果你是狼孩。如果你变成了邪恶的爪牙，意味着所有其他狼孩都已经死亡了。现在开始尽可能的发挥你的破坏能力为邪恶阵营做出贡献。</li>
+<li>如果你是恶魔。攻击其他狼孩并保留一名狼孩！他会变成你得力的队友。</li>
+<li>如果你是爪牙。尽快搞清楚谁是狼孩，有多少名狼孩。有必要的话，你可以伪装为狼孩去套取其他玩家的信息。</li>
+</ul>
+<h2 id="伪装成该角色">伪装成该角色</h2>
+<ul>
+<li>狼孩往往不会在前期公开自己的角色。</li>
+<li>狼孩往往会在死亡后公开自己的角色。</li>
+<li>狼孩适合作为一个备用伪装。</li>
+<li>如果你死亡，你可以声称自己是一名狼孩，并攻击其他外来者玩家。</li>
+</ul>
+<h2 id="出现剧本">出现剧本</h2>
+<ul>
+<li><em>暂无</em></li>
+</ul>
+<h2 id="整体设计">整体设计</h2>
+<ul>
+<li>太一</li>
+</ul>
+<h2 id="创意来源">创意来源</h2>
+<ul>
+<li>太一</li>
+</ul>
+<h2 id="图标画师">图标画师</h2>
+<ul>
+<li>Lei.</li>
+</ul></div>
+    <div class="page-meta">最后修改于 2026-09-08T05:10:31.000Z，编辑者 <b>未知</b> ｜ 页面 3,984 字节 ｜ <a href="https://www.yuque.com/u48069482/taiyi/xwch0rgqrir90gyx" target="_blank" rel="noopener">查看原页面</a></div>
+    <div class="backlinks"><b>链入此页的页面（2）</b><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">奥德赛 Odyssey</a><a href="../pages/%E5%85%B6%E4%BB%96%EF%BC%88%E7%8E%A9%E5%AE%B6%EF%BC%89_Other_players.html">其他（玩家） Other players</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

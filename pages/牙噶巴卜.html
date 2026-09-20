@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>牙噶巴卜 - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">牙噶巴卜</h1>
+    <div class="tagline">来自钟楼百科</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#提示与技巧">提示与技巧</a></li><li class="lvl2"><a href="#对抗牙噶巴卜">对抗牙噶巴卜</a></li><li class="lvl2"><a href="#角色信息">角色信息</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E7%89%99%E5%99%B6%E5%B7%B4%E5%8D%9C">查找包含此角色的剧本 →</a></p><p><a href="../pages/%E7%89%99%E5%99%B6%E5%B7%B4%E5%8D%9C.html" class="image-link" title="牙噶巴卜"><img alt="Yaggababble.png" style="width:200px" class="" loading="lazy" data-source-image="../images/Yaggababble.png" src="../assets/media/Yaggababble.preview.webp" width="591" height="591" decoding="async"></a></p>
+<h2 id="背景故事">背景故事</h2>
+<p><em>“莫尔街的谋杀案？假的噶！</em></p>
+<p><em>巴斯克维尔的猎犬？假的噶！</em></p>
+<p><em>尼罗河上的惨案？假的噶！”</em></p>
+<h2 id="角色能力">角色能力</h2>
+<p><strong>在你的首个夜晚，你会得知一段秘密短语。每次你在白天公开说出这段短语，当天便可能会有一名玩家在这之后死亡。</strong></p>
+<h2 id="角色简介">角色简介</h2>
+<p>牙噶巴卜通过言语杀人。</p>
+<ul>
+<li>说书人提供给牙噶巴卜的短语可以是任意长度，但建议是2到5个字左右。</li>
+</ul>
+<ul>
+<li>如果牙噶巴卜说出了这段短语，说书人便可以在这之后，在下个黎明前的任意时机杀死一名玩家。</li>
+</ul>
+<ul>
+<li>牙噶巴卜无论是通过单独说出这段短语，或将它混杂在整句话里说出，都可以触发效果。</li>
+</ul>
+<ul>
+<li>牙噶巴卜可以在同一天多次说出这段短语。说书人可以因此杀死多名玩家。</li>
+</ul>
+<ul>
+<li>由说书人来决定牙噶巴卜的能力会让哪名玩家死亡。</li>
+</ul>
+<ul>
+<li>说书人可以选择只杀死少于牙噶巴卜说出短语的次数这一数量的玩家。</li>
+</ul>
+<ul>
+<li>在牙噶巴卜醉酒或中毒期间，玩家不会因为他的能力死亡，即使牙噶巴卜在说出短语时清醒健康。在牙噶巴卜清醒健康期间，玩家会因为他的能力死亡，即使在牙噶巴卜在说出短语时醉酒或中毒。</li>
+</ul>
+<ul>
+<li>只有极少数情况下，牙噶巴卜的能力才会让玩家在白天死亡。</li>
+</ul>
+<h2 id="范例">范例</h2>
+<p><a href="../pages/%E7%89%99%E5%99%B6%E5%B7%B4%E5%8D%9C.html" title="牙噶巴卜">牙噶巴卜</a>的秘密短语是“这很可疑”。他在第一个白天说了一次。当晚有一名玩家死亡。在下一个白天，他说出这段短语总共三次。当晚总共有三名玩家死亡。</p>
+<p><a href="../pages/%E7%89%99%E5%99%B6%E5%B7%B4%E5%8D%9C.html" title="牙噶巴卜">牙噶巴卜</a>在今天白天说出了秘密短语总共两次。<a href="../pages/%E5%A5%B3%E5%B7%AB.html" title="女巫">女巫</a>在场。<a href="../pages/%E5%BC%82%E7%AB%AF%E5%88%86%E5%AD%90.html" title="异端分子">异端分子</a>在发起提名时死亡了，即使他没有被<a href="../pages/%E5%A5%B3%E5%B7%AB.html" title="女巫">女巫</a>诅咒。<a href="../pages/%E9%AD%94%E5%83%8F.html" title="魔像">魔像</a>提名了恶魔，然后<a href="../pages/%E9%AD%94%E5%83%8F.html" title="魔像">魔像</a>也死亡了。这两名玩家都是被<a href="../pages/%E7%89%99%E5%99%B6%E5%B7%B4%E5%8D%9C.html" title="牙噶巴卜">牙噶巴卜</a>的能力杀死的。</p>
+<h2 id="运作方式">运作方式</h2>
+<p>在为首个夜晚做准备时，用纸条或手机便签或其他便捷的设备写下一段短语。</p>
+<p>在首个夜晚，唤醒牙噶巴卜，对他展示这段短语，然后让他重新入睡。</p>
+<p>每当牙噶巴卜在白天公开说出这段短语时，将一枚“死亡”提示标记放入魔典左侧的中央位置，用以提示你需要在今晚放置这个标记。</p>
+<p>每个夜晚，你需要选择是否将放入魔典中央的“死亡”提示标记放置在一名玩家的角色标记旁。如果你这么做，那么同时为放置了提示标记的角色标记上再放置帷幕标记。这些玩家死亡。</p>
+<p>尽量选择朴实的短语。如果恶魔获得的是不太常见的短语，他要么很容易被发现，要么就很少说出来。如果恶魔获得的是常见的短语，他可能会每天都把这句话说出来一次或者多次。</p>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>死亡</li>
+</ul>
+<p>放置时机：在牙噶巴卜说出他的秘密短语时。</p>
+<p>放置条件：不论牙噶巴卜是否醉酒中毒，都会将一枚标记放入魔典正中央。</p>
+<p>移动时机：在放置了标记之后，到下个黎明之前的任意时机，如果牙噶巴卜清醒健康，将这个标记移除或移动到任意一名存活玩家旁（如果该玩家能够被杀死）。</p>
+<p>移除时机：在放置标记的当天白天说书人决定使用牙噶巴卜的能力杀死一名玩家时，或在黎明时说书人宣布死亡玩家后，或牙噶巴卜死亡或离场时。</p>
+<h2 id="规则细节">规则细节</h2>
+<ul>
+<li>相克规则：</li>
+<ul>
+<li><a href="../pages/%E9%A9%B1%E9%AD%94%E4%BA%BA.html" title="驱魔人">驱魔人</a>：如果驱魔人选中了牙噶巴卜，那么牙噶巴卜在当晚无法造成死亡。</li>
+</ul>
+</ul>
+<ul>
+<li>相克规则（与华灯系列角色）：</li>
+<ul>
+<li><a href="../pages/%E6%88%8F%E5%AD%90.html" title="戏子">戏子</a>：在戏子存在于剧本中时，牙噶巴卜可以在游戏中任意时候向说书人示意自己“想要死亡”。不论他是否说过秘密短语，说书人都会在当晚杀死这名玩家。</li>
+<li><a href="../pages/%E6%88%8F%E5%AD%90%EF%BC%88%E6%94%B9%EF%BC%89.html" title="戏子（改）">戏子（改）</a>：在戏子（改）存在于剧本中时，牙噶巴卜可以在游戏中任意时候向说书人示意自己“想要死亡”。不论他是否说过秘密短语，说书人都会在当晚杀死这名玩家。</li>
+</ul>
+</ul>
+<h2 id="提示与技巧">提示与技巧</h2>
+<ul>
+<li>尽可能频繁地说出你的短语！这就是你的攻击方式，至少你可以每天都为你那大杀四方的能力补充弹药！</li>
+</ul>
+<ul>
+<li>注意每天只说出这段短语一次左右。你说出来的频率决定了你的短语的曝光程度，你肯定不愿意因为短语过于明显而让自己暴露了。每天一次是一个比较合适的参考次数，你依然有能力去伪装成是其他的恶魔在场。</li>
+</ul>
+<ul>
+<li>请确保在你说出短语的时候，能够被说书人听见。如果他没能听见，你的能力不会产生任何效果，但这仍然会让你的短语频繁地被其他人听到。</li>
+</ul>
+<ul>
+<li>跟你的爪牙们分享这段短语。他们能够帮助你创造适合说出这段短语的情形，让你在说出短语时显得更加自然，而非生硬。</li>
+</ul>
+<ul>
+<li>相信说书人会为你冒险多次说出短语给与相应的奖励。你可以尝试冒着被当做话痨的风险来获得额外的攻击次数，这会让游戏更快进入终局。</li>
+</ul>
+<ul>
+<li>如果说书人没有因为你多次说出短语而大开杀戒，这也不要紧。至少你可以每天只说一次短语，作为恶魔来说这样也足够有威慑力。</li>
+</ul>
+<ul>
+<li>你的爪牙们可以决定自己的口癖，并多次重复说出，这样在游戏后期会让他们看起来很像是恶魔。</li>
+</ul>
+<ul>
+<li>你可以趁有人出去私聊的时候说出短语。听到的人越少，大家就越难弄明白你究竟说了多少次短语。</li>
+</ul>
+<ul>
+<li>注意那些经常说出某个短语的善良玩家。看起来像牙噶巴卜的人越多，你自己的短语就能藏得越深。</li>
+</ul>
+<ul>
+<li>如果说书人给了你一个不太自然的短语，你不知道该如何把它放进你的发言里，那么你可以要求说书人给你换一个更加自然的短语。</li>
+</ul>
+<ul>
+<li>充满自信地说出短语。不要尝试用自己的方式重组短语再说出来，说书人不一定会网开一面让你用这种方式触发能力。</li>
+</ul>
+<ul>
+<li>将这段短语混进你的其他语义相近的发言中，这可以混淆视听，让其他人相信你正在真诚地发表自己的看法，而不是单纯地重复短语本身。</li>
+</ul>
+<ul>
+<li>挑选一个跟你的短语无关的短语作为你的口癖并频繁说出来。这会让你看起来像是一个在为牙噶巴卜打掩护的爪牙。</li>
+</ul>
+<ul>
+<li>尝试每次说出短语的时候，都使用不同的语气，强调不同的内容或以不同的节奏说出来。这会降低它的辨识度，让旁人听起来不像是同一段短语。</li>
+</ul>
+<h2 id="对抗牙噶巴卜">对抗牙噶巴卜</h2>
+<ul>
+<li>注意那些频繁重复的短语，并与恶魔在夜晚的杀戮情况进行对比。如果你对此抱有疑问，那么就值得处决那些重复说出短语的玩家以防万一，即使他们有可能是善良玩家。</li>
+</ul>
+<ul>
+<li>小心那些爪牙，他们可能会重复说出一些短语，来借此掩盖牙噶巴卜的短语。任何过于频繁地说出同一段话的玩家都应该受到怀疑！</li>
+</ul>
+<ul>
+<li>当说书人在认真聆听玩家的发言时，注意观察哪些玩家有刻意发言的冲动。牙噶巴卜会希望自己在说出短语时，说书人能够听到他的发言，所以会在说书人在场时有一定的发言欲望。</li>
+</ul>
+<h2 id="角色信息">角色信息</h2>
+<ul>
+<li>英文名：Yaggababble</li>
+</ul>
+<ul>
+<li>所属剧本：<a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html" title="实验性角色">实验性角色</a></li>
+</ul>
+<ul>
+<li>角色类型：<a href="../pages/%E6%81%B6%E9%AD%94.html" title="恶魔">恶魔</a></li>
+</ul>
+<ul>
+<li>角色能力类型：<a href="../pages/%E9%A2%9D%E5%A4%96%E6%AD%BB%E4%BA%A1.html" title="额外死亡">额外死亡</a>、<a href="../pages/%E5%9B%9E%E6%BA%AF%E5%9E%8B%E8%83%BD%E5%8A%9B.html" title="回溯型能力">回溯型能力</a>、<a href="../pages/%E8%BF%9B%E5%9C%BA%E8%83%BD%E5%8A%9B.html" title="进场能力">进场能力</a>、<a href="../pages/%E8%8E%B7%E5%8F%96%E4%BF%A1%E6%81%AF.html" title="获取信息">获取信息</a></li>
+</ul></div>
+    <div class="page-meta">最后修改于 2026-06-13T03:23:51Z，编辑者 <b>Zack</b> ｜ 页面 7,418 字节 ｜ <a href="https://clocktower-wiki.gstonegames.com/index.php?title=%E7%89%99%E5%99%B6%E5%B7%B4%E5%8D%9C" target="_blank" rel="noopener">查看原页面</a> ｜ <div class="comment">编辑摘要：/* 规则细节 */</div></div>
+    <div class="backlinks"><b>链入此页的页面（21）</b><a href="../pages/%E9%A9%B1%E9%AD%94%E4%BA%BA.html">驱魔人</a><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a><a href="../pages/%E5%9B%9E%E6%BA%AF%E5%9E%8B%E8%83%BD%E5%8A%9B.html">回溯型能力</a><a href="../pages/%E9%A2%9D%E5%A4%96%E6%AD%BB%E4%BA%A1.html">额外死亡</a><a href="../pages/%E8%BF%9B%E5%9C%BA%E8%83%BD%E5%8A%9B.html">进场能力</a><a href="../pages/%E8%8E%B7%E5%8F%96%E4%BF%A1%E6%81%AF.html">获取信息</a><a href="../pages/%E6%81%B6%E9%AD%94.html">恶魔</a><a href="../pages/%E5%A4%B1%E8%B4%A5%E7%9A%84%E4%B8%8A%E5%B8%9D.html">失败的上帝</a><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a><a href="../pages/%E6%88%8F%E5%AD%90.html">戏子</a><a href="../pages/%E5%A4%9C%E6%99%9A%E8%A1%8C%E5%8A%A8%E9%A1%BA%E5%BA%8F%E4%B8%80%E8%A7%88.html">夜晚行动顺序一览</a><a href="../pages/%E6%96%B0%E8%A7%92%E8%89%B2%E5%85%AC%E5%B8%83%E8%AE%A1%E5%88%92.html">新角色公布计划</a><a href="../pages/%E7%89%99%E5%99%B6%E5%B7%B4%E5%8D%9C.html">牙噶巴卜</a><a href="../pages/%E5%87%B6%E8%AF%A1%E9%9A%BE%E8%BE%A8.html">凶诡难辨</a><a href="../pages/%E9%95%BF%E5%A4%9C%E9%99%A9%E6%81%B6.html">长夜险恶</a><a href="../pages/%E7%8B%82%E7%83%AD%E8%80%85.html">狂热者</a><a href="../pages/%E4%BF%A1%E5%8F%A3%E9%9B%8C%E9%BB%84.html">信口雌黄</a><a href="../pages/%E6%88%8F%E5%AD%90%EF%BC%88%E6%94%B9%EF%BC%89.html">戏子（改）</a><a href="../pages/%E8%BD%AE%E5%88%B0%E4%BD%A0%E4%BA%86.html">轮到你了</a><a href="../pages/%E9%94%99%E4%BD%8D%E6%97%B6%E7%A9%BA.html">错位时空</a><a href="../pages/%E9%94%A6%E5%A4%9C%E6%9C%AA%E5%A4%AE.html">锦夜未央</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

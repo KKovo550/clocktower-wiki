@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>船长 Skipper - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">船长 Skipper<span class="ns-badge">奥德赛</span></h1>
+    <div class="tagline">来自钟楼百科 · 摘自《奥德赛 Odyssey》百科 · 镇民</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#夜晚行动顺序">夜晚行动顺序</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#游玩与对抗技巧">游玩与对抗技巧</a></li><li class="lvl2"><a href="#伪装成该角色">伪装成该角色</a></li><li class="lvl2"><a href="#出现剧本">出现剧本</a></li><li class="lvl2"><a href="#整体设计">整体设计</a></li><li class="lvl2"><a href="#创意来源">创意来源</a></li><li class="lvl2"><a href="#图标画师">图标画师</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E8%88%B9%E9%95%BF">查找包含此角色的剧本 →</a></p><div class="charinfo"><div class="charinfo-img"><a href="../files/%E6%96%87%E4%BB%B6_%E8%88%B9%E9%95%BF.png.html"><img alt="船长 Skipper" data-source-image="../images/%E8%88%B9%E9%95%BF.png" src="../assets/media/船长.preview.webp" width="600" height="600" decoding="async"></a></div><div class="charinfo-meta"><div class="row"><span class="k">角色类型</span><span class="v"><a href="../pages/%E9%95%87%E6%B0%91.html" title="镇民">镇民</a></span></div><div class="row"><span class="k">英文名</span><span class="v">Skipper</span></div><div class="row"><span class="k">角色ID</span><span class="v">048</span></div><div class="row"><span class="k">角色归属</span><span class="v">角色拓展包《奥德赛》</span></div><div class="row"><span class="k">能力标签</span><span class="v"><a href="../pages/%E5%A4%84%E5%86%B3.html" title="处决">处决</a>、<a href="../pages/%E8%8E%B7%E5%8F%96%E4%BF%A1%E6%81%AF.html" title="获取信息">获取信息</a>、<a href="../pages/%E9%86%89%E9%85%92.html" title="醉酒">醉酒</a></span></div><div class="row"><span class="k">角色定位</span><span class="v">持续信息</span></div><div class="row"><span class="k">发布日期</span><span class="v">2026.4.12</span></div><div class="row"><span class="k">角色授权</span><span class="v">开放（任意剧本创作可用，不要修改能力）</span></div><div class="row"><span class="k">出处</span><span class="v"><a class="external" href="https://www.yuque.com/u48069482/taiyi" target="_blank" rel="noopener">《奥德赛 Odyssey》百科</a></span></div></div></div><h2 id="背景故事">背景故事</h2>
+<p><em>"献给波塞冬的祭品，会让我的罗盘指向恶魔的藏身地，左或右，比海图更清晰。而献祭叛徒的代价是一杯神罚的苦酒。小伙子们，天亮前记得叫醒我！"</em></p>
+<h2 id="角色简介"><span style="color:rgb(64, 64, 64);">角色简介</span></h2>
+<p>船长通过处决玩家，逐步锁定恶魔。</p>
+<h2 id="角色能力">角色能力</h2>
+<div class="callout callout-info">
+<p><span style="color:rgb(64, 64, 64);">每个夜晚*，你会得知恶魔更接近当天被处决玩家的左侧还是右侧。如果邪恶玩家被处决，你醉酒直到下个黎明。</span></p>
+</div>
+<h2 id="范例">范例</h2>
+<ul>
+<li>第一个白天，一名善良玩家被处决。该玩家与恶魔之间坐着的玩家数量，左侧的要比右侧的更少。当晚，船长得知“左”。</li>
+<li>第一个白天，一名邪恶玩家被处决，船长醉酒。该玩家与恶魔之间坐着的玩家数量，左侧的要比右侧的更少。当晚，船长得知“右”。</li>
+<li>第一个白天，一名善良玩家被处决。该玩家与恶魔之间坐着的玩家数量，左侧的与右侧的一样多。当晚，船长得知“左”。</li>
+<li>第三个白天，善良玩家被处决。场上存在一个死亡的恶魔，一个存活的恶魔。死亡恶魔更接近被处决玩家的左边，存活恶魔更接近被处决玩家的右边。当晚，船长得知“右”。因为说书人选择了存活恶魔作为船长能力定位的恶魔。</li>
+<li>第三个白天，没有玩家被处决。当晚，船长没有被唤醒。</li>
+</ul>
+<h2 id="运作方式">运作方式</h2>
+<p>除首个夜晚以外的每个夜晚，唤醒船长。如果当天被处决的玩家（祭品）与恶魔之间坐着的玩家数量，左侧的要比右侧的更少。告知船长“左”（或举起左手）。如果当天被处决的玩家（祭品）与恶魔之间坐着的玩家数量，右侧的要比左侧的更少。告知船长“右”（或举起右手）。如果左侧的与右侧的玩家一样多，由说书人决定给出“左”还是“右”。</p>
+<p>有玩家被处决时，在被处决玩家的角色标记旁放置“祭品”提示标记。邪恶玩家被处决时，在船长角色标记旁放置“醉酒”提示标记。黎明时，先移除所有“醉酒”和“祭品”提示标记。</p>
+<h2 id="夜晚行动顺序">夜晚行动顺序</h2>
+<ul>
+<li>首个夜晚</li>
+<ul>
+<li>夜序数值：/</li>
+<li>前位角色：/</li>
+<li>行动提示：/</li>
+</ul>
+<li>其他夜晚</li>
+<ul>
+<li>夜序数值：11312</li>
+<li>前位角色：送葬者</li>
+<li>行动提示：告知他左或右。</li>
+</ul>
+</ul>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>祭品</li>
+<ul>
+<li>放置时机：有玩家被处决时。</li>
+<li>放置条件：放置在被处决玩家的角色标记旁。</li>
+<li>移除时机：黎明时，或船长死亡或离场时。</li>
+</ul>
+<li>醉酒</li>
+<ul>
+<li>放置时机：一名邪恶玩机被处决时。</li>
+<li>放置条件：放置在船长的角色标记旁。</li>
+<li>移除时机：黎明时，或船长死亡或离场时。</li>
+</ul>
+</ul>
+<h2 id="规则细节">规则细节</h2>
+<ul>
+<li>船长信息中的“左”、“右”指的是：被处决的玩家，面朝玩家围成的圆心，左手边或右手边。</li>
+<li>如果当天被处决的玩家与恶魔之间坐着的玩家数量，左侧的要比右侧的更少。船长会得知“左”。如果当天被处决的玩家与恶魔之间坐着的玩家数量，右侧的要比左侧的更少。船长会得知“右”。如果左侧的与右侧的玩家一样多，由说书人决定给出“左”还是“右”。</li>
+<li>船长的能力会计算被处决玩家与恶魔之间所有坐着的玩家（旅行者除外），包含死亡玩家。</li>
+<li>如果白天没有玩家被处决，船长不会被唤醒。如果同一天有多名玩家被处决，船长的能力以最后一名被处决的玩家为准。</li>
+<li>如果场上存在多名恶魔，由说书人决定船长的能力会定位哪一名恶魔。</li>
+<li>船长的能力会忽略旅行者玩家（旅行者隔绝原则）。</li>
+<li><strong>信息格式：</strong>“左”或“右”。线下游戏时可以是由说书人举起左手或举起右手代表“左”或“右”。</li>
+<li><strong>错误（虚假）信息格式：</strong>“左”是正确信息时，“右”就是错误信息。“右”是正确信息时，“左”就是错误信息。如果左侧的与右侧的玩家一样多，“左”和“右”都是错误信息。</li>
+</ul>
+<h2 id="游玩与对抗技巧">游玩与对抗技巧</h2>
+<ul>
+<li>如果你是船长。你每一次的信息都意味着你可以将大概一半的玩家从是恶魔中排除出去。对比你多次的信息，在被多次信息命中的玩家中寻找恶魔。</li>
+<li>如果你是船长。你必须“献祭”善良玩家，波塞冬才愿意给你指引。否则醉酒的你获得的信息将毫无意义。所以如果你认为被处决的玩家是邪恶的，那么你当晚获得的信息就毫无作用。反过来想，如果你的信息在某一晚明显出现了问题，那么当天被处决的就非常有可能是邪恶玩家。</li>
+<li>如果你是船长。如果你连续处决的都是相互邻近的玩家，那么你的信息收缩过程会非常的慢。如果你每次处决的玩家，都距离上一名被处决玩家较远，会更快的帮助你定位恶魔。</li>
+<li>如果你是恶魔。船长的信息非常强大，尽快解决掉他。如果你暂时无法杀死船长，派出邪恶玩家，让他们被处决，也能够很好地干扰船长的能力。</li>
+<li>如果你是恶魔。尽可能鼓动大家处决与上个被处决玩家邻近的玩家，这样会让船长的信息价值变得很低。看清自己与每天被处决玩家的相对位置，避免过快被船长找到。</li>
+</ul>
+<h2 id="伪装成该角色">伪装成该角色</h2>
+<ul>
+<li>如果你想伪装为船长，你要确保你的信息前后一致。如果你第一次的信息是表达“恶魔在左半边玩家当中”，第二次给出的信息却是表达“恶魔在右半边的玩家当中”。这会极大的降低你是船长的可信度。</li>
+<li>声称自己是船长，并对于处决谁发表一定的意见。声称听取你的意见能够更快的找到恶魔。</li>
+</ul>
+<h2 id="出现剧本">出现剧本</h2>
+<ul>
+<li><em>暂无</em></li>
+</ul>
+<h2 id="整体设计">整体设计</h2>
+<ul>
+<li>太一</li>
+</ul>
+<h2 id="创意来源">创意来源</h2>
+<ul>
+<li>太一</li>
+</ul>
+<h2 id="图标画师">图标画师</h2>
+<ul>
+<li>Lei.</li>
+</ul></div>
+    <div class="page-meta">最后修改于 2026-07-24T06:37:36.000Z，编辑者 <b>未知</b> ｜ 页面 5,937 字节 ｜ <a href="https://www.yuque.com/u48069482/taiyi/olb7os0oe0ozg1zv" target="_blank" rel="noopener">查看原页面</a></div>
+    <div class="backlinks"><b>链入此页的页面（1）</b><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">奥德赛 Odyssey</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

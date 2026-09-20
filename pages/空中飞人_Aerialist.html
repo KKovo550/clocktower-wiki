@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>空中飞人 Aerialist - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">空中飞人 Aerialist<span class="ns-badge">奥德赛</span></h1>
+    <div class="tagline">来自钟楼百科 · 摘自《奥德赛 Odyssey》百科 · 镇民</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#夜晚行动顺序">夜晚行动顺序</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#游玩与对抗技巧">游玩与对抗技巧</a></li><li class="lvl2"><a href="#伪装成该角色">伪装成该角色</a></li><li class="lvl2"><a href="#出现剧本">出现剧本</a></li><li class="lvl2"><a href="#整体设计">整体设计</a></li><li class="lvl2"><a href="#创意来源">创意来源</a></li><li class="lvl2"><a href="#图标画师">图标画师</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E7%A9%BA%E4%B8%AD%E9%A3%9E%E4%BA%BA">查找包含此角色的剧本 →</a></p><div class="charinfo"><div class="charinfo-img"><a href="../files/%E6%96%87%E4%BB%B6_%E7%A9%BA%E4%B8%AD%E9%A3%9E%E4%BA%BA.png.html"><img alt="空中飞人 Aerialist" data-source-image="../images/%E7%A9%BA%E4%B8%AD%E9%A3%9E%E4%BA%BA.png" src="../assets/media/空中飞人.preview.webp" width="600" height="600" decoding="async"></a></div><div class="charinfo-meta"><div class="row"><span class="k">角色类型</span><span class="v"><a href="../pages/%E9%95%87%E6%B0%91.html" title="镇民">镇民</a></span></div><div class="row"><span class="k">英文名</span><span class="v">Aerialist</span></div><div class="row"><span class="k">角色ID</span><span class="v">006</span></div><div class="row"><span class="k">角色归属</span><span class="v">角色拓展包《奥德赛》</span></div><div class="row"><span class="k">能力标签</span><span class="v"><a href="../pages/%E6%8F%90%E5%90%8D.html" title="提名">提名</a>、<a href="../pages/%E5%A4%84%E5%86%B3.html" title="处决">处决</a>、<a href="../pages/%E8%8E%B7%E5%8F%96%E4%BF%A1%E6%81%AF.html" title="获取信息">获取信息</a>、<a href="../pages/%E6%AD%BB%E4%BA%A1%E8%A7%A6%E5%8F%91%E8%83%BD%E5%8A%9B.html" title="死亡触发能力">死亡触发能力</a>、<a href="../pages/%E9%86%89%E9%85%92.html" title="醉酒">醉酒</a></span></div><div class="row"><span class="k">角色授权</span><span class="v">开放（任意剧本创作可用，不要修改能力）</span></div><div class="row"><span class="k">出处</span><span class="v"><a class="external" href="https://www.yuque.com/u48069482/taiyi" target="_blank" rel="noopener">《奥德赛 Odyssey》百科</a></span></div></div></div><p><a href="../files/%E6%96%87%E4%BB%B6_%E7%A9%BA%E4%B8%AD%E9%A3%9E%E4%BA%BA.png.html" class="image-link" title="文件:空中飞人.png"><img alt="空中飞人.png" style="width:240px" class="" loading="lazy" data-source-image="../images/%E7%A9%BA%E4%B8%AD%E9%A3%9E%E4%BA%BA.png" src="../assets/media/空中飞人.preview.webp" width="600" height="600" decoding="async"></a></p>
+<h2 id="背景故事">背景故事</h2>
+<p><em><span style="color:rgb(64, 64, 64);">“哈哈哈哈！你们闻到了吗？硫磺味的风在撕扯我的伞！听啊！胫骨断裂的节奏比死亡金属更带劲！等会被我的脑浆溅到衣服的观众当中，最难堪的那个就是恶魔！”</span></em></p>
+<h2 id="角色简介"><span style="color:rgb(64, 64, 64);">角色简介</span></h2>
+<p>空中飞人死亡后会得知角色类型不同的玩家。</p>
+<h2 id="角色能力">角色能力</h2>
+<div class="callout callout-info">
+<p>你死亡的当晚会知所有角色类型的玩家各一名。你死于善良玩家发起的提名处决或能力时，你醉酒。</p>
+</div>
+<h2 id="范例">范例</h2>
+<ul>
+<li>1号玩家（恶魔）提名并处决了空中飞人，当晚空中飞人被唤醒并得知1号玩家（恶魔）、2号玩家（爪牙）、3号玩家（外来者）、4号玩家（镇民）。</li>
+<li>1号玩家（善良的镇民）提名并处决了空中飞人，空中飞人醉酒了。当晚空中飞人被唤醒并得知1号玩家（镇民）、2号玩家（镇民）、3号玩家（外来者）、4号玩家（镇民）。</li>
+<li>场上没有外来者。第二个夜晚恶魔杀死了空中飞人，当晚空中飞人被唤醒并得知恶魔、爪牙、镇民玩家各一名。</li>
+<li>半兽人在第二个夜晚杀死了空中飞人，空中飞人醉酒了。当晚空中飞人被唤醒并得知4个镇民玩家。</li>
+</ul>
+<h2 id="运作方式">运作方式</h2>
+<p>空中飞人死亡时，如果他死于善良玩家发起的提名而导致的处决或是善良玩家的能力，在他的角色旁放置“醉酒”标记。当天晚上唤醒空中飞人，并告知他爪牙、恶魔、镇民、外来者玩家各一名（如果场上不存在某种角色类型的玩家则略去，只需要提供存在的角色类型）。如果他被放置了“醉酒”标记，你可以告知他正确信息，也可以告知他错误信息。</p>
+<h2 id="夜晚行动顺序">夜晚行动顺序</h2>
+<ul>
+<li>首个夜晚</li>
+<ul>
+<li>夜序数值：/</li>
+<li>前位角色：/</li>
+<li>行动提示：/</li>
+</ul>
+<li>其他夜晚</li>
+<ul>
+<li>夜序数值：9910</li>
+<li>前位角色：贤者</li>
+<li>行动提示：如果他死亡，唤醒他并告知他爪牙、恶魔、镇民、外来者玩家各一名。</li>
+</ul>
+</ul>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>醉酒</li>
+<ul>
+<li>放置时机：空中飞人死亡时。</li>
+<li>放置条件：空中飞人死于善良玩家发起的提名而导致的处决或善良玩家的能力。若此时空中飞人醉酒中毒，依然放置该标记。</li>
+<li>移除时机：空中飞人离场时。</li>
+</ul>
+</ul>
+<h2 id="规则细节">规则细节</h2>
+<ul>
+<li>如果给出信息时，场上没有某种类型的玩家，略去该类型玩家。</li>
+<li></li>
+<li>善良玩家的能力指的是善良玩家所持有的角色能力，不论该能力来自邪恶角色还是善良角色。善良玩家的能力包含善良的邪恶角色（善良的小恶魔），不包含邪恶的善良角色（邪恶的造谣者）。</li>
+<li>如果空中飞人因斯芬克斯能力提名并处决，视为被斯芬克斯提名并处决。</li>
+<li>空中飞人的“所有角色类型”不包括旅行者角色，空中飞人不会得知旅行者玩家（旅行者隔绝原则）。</li>
+<li><strong>信息格式：</strong>若干名玩家，如：1号玩家、2号玩家、3号玩家、4号玩家或小美、小帅、小张。</li>
+<li><strong>错误（虚假）信息格式：</strong>若干名玩家，如：1号玩家、2号玩家、3号玩家、4号玩家或小美、小帅、小张。但得知的玩家并非所有角色类型的玩家各一名。如：镇民镇民镇民外来者、镇民外来者爪牙爪牙、镇民爪牙恶魔（场上有外来者时）。</li>
+</ul>
+<h2 id="游玩与对抗技巧">游玩与对抗技巧</h2>
+<ul>
+<li>如果你是空中飞人。伪装为一个重要的镇民角色，诱导恶魔在夜晚杀死你。</li>
+<li>如果你是空中飞人。如果你们不知道处决谁或是你即将要被大家处决。在提名开始前公开你的角色，选择一名你认为是邪恶的玩家，要求他提名并处决你。一般大家都会支持如此做，善良玩家也会乐意来处决你。如果他拒绝了你，那么他非常有可能是一名邪恶玩家。</li>
+<li>如果你是空中飞人。不要公开你的角色，故意引诱或激怒一名你认为是邪恶的玩家来提名并处决你。给他一个出其不意。</li>
+<li>如果你是空中飞人。如果你经由处决而得到了信息，认真思考他是正确的还是错误的。</li>
+<li>如果你是空中飞人。如果你是死在夜晚而得到信息，那么你的信息非常有可能是正确的。</li>
+<li>如果你是空中飞人。好好分析你的信息，并共享给大家。找出最有可能是恶魔的那个并尝试处决他。</li>
+<li>如果你是空中飞人。如果涡流在场，那你的信息就会是错误的，它唯一的价值是它一定不是正确的。好好思考一下，或许说书人为你排除了一种关键的可能性！</li>
+</ul>
+<h2 id="伪装成该角色">伪装成该角色</h2>
+<ul>
+<li>空中飞人可以作为一个备用伪装，当你在伪装成其他重要镇民失败后，你可以声称自己其实是一个空中飞人，正在迷惑邪恶诱导恶魔杀死自己而帮助善良玩家。</li>
+<li>如果你是一个不那么重要的爪牙，你可以公开自己是空中飞人，要求一名玩家（可以是其他玩家，也可以是你的队友）提名并处决你。然后用信息去攻击其他玩家或是保护你的队友。</li>
+</ul>
+<h2 id="出现剧本">出现剧本</h2>
+<ul>
+<li>达芬奇密码、圆桌骑士团、仲夏夜之梦</li>
+</ul>
+<h2 id="整体设计">整体设计</h2>
+<ul>
+<li>太一</li>
+</ul>
+<h2 id="创意来源">创意来源</h2>
+<ul>
+<li>太一</li>
+</ul>
+<h2 id="图标画师">图标画师</h2>
+<ul>
+<li>Lei. &amp; 洛甜蕾</li>
+</ul></div>
+    <div class="page-meta">最后修改于 2026-07-23T19:49:52.000Z，编辑者 <b>未知</b> ｜ 页面 5,322 字节 ｜ <a href="https://www.yuque.com/u48069482/taiyi/pqc4q7fknxgnyy5h" target="_blank" rel="noopener">查看原页面</a></div>
+    <div class="backlinks"><b>链入此页的页面（1）</b><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">奥德赛 Odyssey</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>海之子 The Sea-born - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">海之子 The Sea-born<span class="ns-badge">奥德赛</span></h1>
+    <div class="tagline">来自钟楼百科 · 摘自《奥德赛 Odyssey》百科 · 恶魔</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#夜晚行动顺序">夜晚行动顺序</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#游玩与对抗技巧">游玩与对抗技巧</a></li><li class="lvl2"><a href="#出现剧本">出现剧本</a></li><li class="lvl2"><a href="#整体设计">整体设计</a></li><li class="lvl2"><a href="#创意来源">创意来源</a></li><li class="lvl2"><a href="#图标画师">图标画师</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E6%B5%B7%E4%B9%8B%E5%AD%90">查找包含此角色的剧本 →</a></p><div class="charinfo"><div class="charinfo-img"><a href="../files/%E6%96%87%E4%BB%B6_%E6%B5%B7%E4%B9%8B%E5%AD%90.png.html"><img alt="海之子 The Sea-born" data-source-image="../images/%E6%B5%B7%E4%B9%8B%E5%AD%90.png" src="../assets/media/海之子.preview.webp" width="600" height="600" decoding="async"></a></div><div class="charinfo-meta"><div class="row"><span class="k">角色类型</span><span class="v"><a href="../pages/%E6%81%B6%E9%AD%94.html" title="恶魔">恶魔</a></span></div><div class="row"><span class="k">英文名</span><span class="v">The Sea-born</span></div><div class="row"><span class="k">角色ID</span><span class="v">058</span></div><div class="row"><span class="k">角色归属</span><span class="v">角色拓展包《奥德赛》</span></div><div class="row"><span class="k">能力标签</span><span class="v"><a href="../pages/%E8%8E%B7%E5%BE%97%E8%83%BD%E5%8A%9B.html" title="获得能力">获得能力</a>、<a href="../pages/%E8%AE%BE%E7%BD%AE%E8%B0%83%E6%95%B4.html" title="设置调整">设置调整</a></span></div><div class="row"><span class="k">角色授权</span><span class="v">开放（任意剧本创作可用，不要修改能力）</span></div><div class="row"><span class="k">出处</span><span class="v"><a class="external" href="https://www.yuque.com/u48069482/taiyi" target="_blank" rel="noopener">《奥德赛 Odyssey》百科</a></span></div></div></div><h2 id="背景故事">背景故事</h2>
+<p><em>"我亲爱的孩子，你贵为海神波塞冬的血脉，我岂容那些肮脏卑贱的爪牙服侍你。当你枕着浪花安睡时，为父的三叉戟已搅翻整片爱琴海。那些胆敢在黎明前就出航的船，都被暴风雨所撕碎。当最后一位水手沉入海床，这静谧岂非为父最温柔的摇篮曲？"</em></p>
+<h2 id="角色简介"><span style="color:rgb(64, 64, 64);">角色简介</span></h2>
+<p>海之子没有爪牙，说书人会用爪牙的能力帮助他。</p>
+<h2 id="角色能力">角色能力</h2>
+<div class="callout callout-info">
+<p>每个夜晚*，你要选择一名玩家：他死亡。说书人决定自己拥有哪些爪牙的能力，并会尽可能地帮助你获胜。[无爪牙在场，任意数量外来者]</p>
+</div>
+<h2 id="范例">范例</h2>
+<ul>
+<li>第一个夜晚，海之子被说书人唤醒并得知三个伪装。说书人使用投毒者能力选择了占卜师，占卜师获得了错误的信息。第二个夜晚，海之子指向贵族，说书人摇头并指向占卜师，海之子采纳了建议选择了占卜师，占卜师死亡。第三个白天，海之子悄悄私下拜访了说书人，并获得了一些建议。</li>
+<li>第一个夜晚，说书人分别使用了投毒者、洗脑师的能力各选择了一名玩家。第二个夜晚，说书人分别使用了投毒者、洗脑师、刺客的能力各选择了一名玩家。</li>
+<li>第一个白天，海之子悄悄私下拜访了说书人，说书人告诉了他一些关于伪装和玩法的建议。</li>
+<li>海之子在场，场上的初始外来者数量与默认的多出一名。</li>
+</ul>
+<h2 id="运作方式">运作方式</h2>
+<p>在进行游戏设置时，将角色标记放入盲抽袋前，移除所有的爪牙角色标记，补充等量的镇民标记。然后你可以将任意数量的镇民标记替换为外来者标记。</p>
+<p>游戏开始前，你要决定本局游戏中你拥有哪些爪牙的能力。你在游戏过程中必须合理合规地使用你拥有的爪牙能力。</p>
+<p>游戏进行时，你需要在规则内尽可能地帮助或偏向海之子。</p>
+<p>除首个夜晚外的每个夜晚，唤醒海之子。让他指向一名玩家。为那名玩家放置“死亡”提示标记。</p>
+<h2 id="夜晚行动顺序">夜晚行动顺序</h2>
+<ul>
+<li>首个夜晚</li>
+<ul>
+<li>夜序数值：/</li>
+<li>前位角色：/</li>
+<li>行动提示：/</li>
+</ul>
+<li>其他夜晚</li>
+<ul>
+<li>夜序数值：5710</li>
+<li>前位角色：堤丰之首</li>
+<li>行动提示：让他选择一名玩家。</li>
+</ul>
+</ul>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>死亡</li>
+<ul>
+<li>放置时机：在海之子夜晚行动并选择了玩家后放置。</li>
+<li>放置条件：海之子选择的玩家当前存活，且能被海之子杀死，且海之子未醉酒中毒，那么在该玩家的角色标记旁放置，用以提醒说书人在黎明时分宣布当晚的死亡玩家。</li>
+<li>移除时机：在黎明时宣布死亡玩家后，说书人可以任由自己方便来进行移除。</li>
+</ul>
+</ul>
+<h2 id="规则细节">规则细节</h2>
+<ul>
+<li>海之子的设计理念是“说书人下场，与玩家智斗”。在海之子的对局中，你需要扮演疼爱儿子的海神波塞冬。作为真神，你是坚不可摧的。而你的好大儿海之子是你唯一的弱点，所以在规则内尽可能地照顾你的好大儿！</li>
+<li>在游戏进入首个夜晚之后，因为海之子的能力，你需要在本局游戏中丢弃“中立”立场，转而尽量帮助海之子获胜。但这并不意味着为了取胜使用极端手段，比如配板时故意不配置信息位，或是在游戏开始的几天就利用爪牙或镇民能力迅速杀光所有镇民。一场精心策划的精彩“智斗”远比不择手段的卑鄙取胜要来的更有意思，善良阵营也会输的心服口服。所以，尽可能地去创造精彩的对局。公正、大方、有风度地赢得游戏。</li>
+<li>你可以在夜晚或白天时的任意时间与海之子进行任何形式的交流，这是你的父爱，是海之子应得的。但不建议你透露过多的信息给海之子，比如直接给他看魔典，或是给他交代每名玩家的角色。没有必要做到这种程度，帮助他并不意味着事无巨细的向他汇报所有信息，保持你为父的威严，只要做到你认为可以的程度就行。</li>
+<li>你不可以打破规则，需要合理、合规地使用爪牙的能力。比如不可以多次使用限次能力。或是随意更改已经确定的选择，比如你利用投毒者选了贵族，但是随后占卜师选择了海之子。你不能临时更改投毒者能力的选择，这会被看作是作弊。</li>
+<li>海之子的能力可能会导致增加或减少初始外来者的情况。可能所有外来者都在场，也可能一个外来者都没有，也可能增加或减少一个外来者，也可能保持默认的外来者数量。</li>
+<li>海之子的能力不可以选择旅行者玩家（旅行者隔绝原则）。</li>
+</ul>
+<h2 id="游玩与对抗技巧">游玩与对抗技巧</h2>
+<ul>
+<li>如果你是海之子。说书人是你唯一的队友，他会尽可能地帮助你。有机会的话，在夜晚或白天尝试与他进行交流，听取他的建议。这会帮助你获得胜利。</li>
+<li>如果你是善良玩家。海之子没有爪牙，记住这一点。如果你发现场上似乎找不到邪恶玩家，考虑是海之子的可能性。</li>
+<li>如果你是善良玩家。你发现重要镇民总在游戏早期就死亡了，或是有超出爪牙数量的爪牙能力正在被使用。那你就应该警惕恶魔是海之子的可能性。</li>
+<li>如果恶魔是海之子，意味着场上的绝大多数玩家都是善良的。邪恶的说书人正在操弄着爪牙能力试图欺骗你们。你们会有足够的时间来寻找那唯一的邪恶玩家。</li>
+</ul>
+<h2 id="出现剧本">出现剧本</h2>
+<ul>
+<li><em>暂无</em></li>
+</ul>
+<h2 id="整体设计">整体设计</h2>
+<ul>
+<li>太一</li>
+</ul>
+<h2 id="创意来源">创意来源</h2>
+<ul>
+<li>太一</li>
+</ul>
+<h2 id="图标画师">图标画师</h2>
+<ul>
+<li>Lei.</li>
+</ul></div>
+    <div class="page-meta">最后修改于 2026-08-22T19:39:51.000Z，编辑者 <b>未知</b> ｜ 页面 5,608 字节 ｜ <a href="https://www.yuque.com/u48069482/taiyi/dtgoq8r7k0gio5x3" target="_blank" rel="noopener">查看原页面</a></div>
+    <div class="backlinks"><b>链入此页的页面（1）</b><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">奥德赛 Odyssey</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

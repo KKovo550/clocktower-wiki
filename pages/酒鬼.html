@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>酒鬼 - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">酒鬼</h1>
+    <div class="tagline">来自钟楼百科</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#提示与技巧">提示与技巧</a></li><li class="lvl2"><a href="#伪装成酒鬼">伪装成酒鬼</a></li><li class="lvl2"><a href="#角色信息">角色信息</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E9%85%92%E9%AC%BC">查找包含此角色的剧本 →</a></p><p><a href="../pages/%E9%85%92%E9%AC%BC.html" class="image-link" title="酒鬼"><img alt="drunk.png" style="width:200px" class="" loading="lazy" data-source-image="../images/Drunk.png" src="../assets/media/Drunk.preview.webp" width="600" height="600" decoding="async"></a></p>
+<h2 id="背景故事">背景故事</h2>
+<p><em>“我是个只在社交场合里~嗝儿~喝酒的人，亲爱的。</em></p>
+<p><em>但无可否认，我是一个非常~嗝儿~擅长社交的人。”</em></p>
+<p><em>（英文维基上的背景描述与角色详解中的不同，此处也一并贴出。见下）</em></p>
+<p><em>“这完全合乎~嗝儿~逻辑。我知道的是狄亚哈特小姐是个占卜师。狄亚哈特夫人则发誓詹金斯是她的管家。得出这样的推论非常~嗝儿~简单。”</em></p>
+<h2 id="角色能力">角色能力</h2>
+<p><strong>你不知道你是酒鬼。你以为你是一个镇民角色，但其实你不是。</strong></p>
+<h2 id="角色简介">角色简介</h2>
+<p>酒鬼以为自己是镇民，且对自己实际上是酒鬼一事毫不知情。</p>
+<ul>
+<li>在初始设置时，不会将酒鬼的角色标记放进盲抽袋中。作为替代，会有一个镇民的角色标记放进盲抽袋中，且抽到该角色标记的玩家会在整场游戏中秘密地成为酒鬼。说书人知道哪位镇民实际上是酒鬼，而酒鬼玩家无从得知。</li>
+</ul>
+<ul>
+<li>酒鬼没有任何能力。不论他获得的镇民标记是否会以某些方式影响游戏，酒鬼却无法使用这一镇民能力。然而，说书人会装作酒鬼玩家是他以为的那种镇民。如果那个镇民会在夜晚醒来，酒鬼同样会被唤醒并如同那个镇民的方式进行行动。如果那个镇民能够获取信息，说书人可以对酒鬼给出错误的信息作为替代——我们也建议说书人这样去做。</li>
+</ul>
+<h2 id="范例">范例</h2>
+<p>以为自己是<a href="../pages/%E5%A3%AB%E5%85%B5.html" title="士兵">士兵</a>的<a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a>被<a href="../pages/%E5%B0%8F%E6%81%B6%E9%AD%94.html" title="小恶魔">小恶魔</a>攻击。<a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a>死亡。</p>
+<p>以为自己是<a href="../pages/%E5%85%B1%E6%83%85%E8%80%85.html" title="共情者">共情者</a>的<a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a>被唤醒并得知了“0”，即使他与一位邪恶玩家相邻。在下一夜，他得知了“1”。</p>
+<p>以为自己是<a href="../pages/%E5%AE%88%E9%B8%A6%E4%BA%BA.html" title="守鸦人">守鸦人</a>的<a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a>在夜晚被杀死。他选择了<a href="../pages/%E5%9C%A3%E5%BE%92.html" title="圣徒">圣徒</a>，但得知这名玩家是<a href="../pages/%E6%8A%95%E6%AF%92%E8%80%85.html" title="投毒者">投毒者</a>。</p>
+<p><a href="../pages/%E5%8D%A0%E5%8D%9C%E5%B8%88.html" title="占卜师">占卜师</a>被处决。在当晚，以为自己是<a href="../pages/%E9%80%81%E8%91%AC%E8%80%85.html" title="送葬者">送葬者</a>的<a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a>，得知今天白天死亡的是<a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a>。</p>
+<h2 id="运作方式">运作方式</h2>
+<p>在游戏设置时，将角色标记放进盲抽袋之前，移除酒鬼标记并添加一枚额外的镇民角色标记。将酒鬼的“是酒鬼”提示标记放置进魔典中。将用于替换的镇民角色标记放进盲抽袋中，而不是酒鬼的角色标记。</p>
+<p>在为首个夜晚进行准备时，将酒鬼的“是酒鬼”提示标记放置在用于替换的那名镇民角色标记旁，用于提醒那名玩家的角色实际上是酒鬼。这名玩家现在是一名外来者，并且不再具有这个镇民的能力。（但他仍然以为自己是镇民。）</p>
+<p>在游戏过程中，以酒鬼的镇民角色来让酒鬼进行行动。（如果那个角色会在夜里行动，唤醒酒鬼让他进行行动。如果镇民的能力会获取信息，若你愿意，你可以对酒鬼给出错误的信息。参考规则书中的“醉酒与中毒”部分。）</p>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>是酒鬼</li>
+</ul>
+<p>放置时机：在为首个夜晚做准备时放置。</p>
+<p>放置条件：在将所有玩家的角色标记收回到魔典后，在其中一个镇民角色标记旁放置。</p>
+<p>移除时机：酒鬼离场时。</p>
+<h2 id="规则细节">规则细节</h2>
+<ul>
+<li>如果<a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a>醉酒或中毒，他不会有任何变化。属于<a href="../pages/%E8%AE%A4%E7%9F%A5%E8%A6%86%E7%9B%96.html" title="认知覆盖">认知覆盖</a>类的能力不会因为醉酒或中毒失效。一旦玩家成为了<a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a>这个角色，玩家会始终认为自己是镇民（除非玩家通过推理分析得出自己实际上是<a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a>）。</li>
+</ul>
+<ul>
+<li><a href="../pages/%E8%AE%A4%E7%9F%A5%E8%A6%86%E7%9B%96.html" title="认知覆盖">认知覆盖</a>类能力的角色只要还是这个角色，说书人就能对其进行合理的欺骗，但前提条件是需要让他持续认为自己是满足自己当前角色“认知范围”内的角色，且无法对“认知范围”以外的内容进行欺骗。例如，说书人无法欺骗一个未转变阵营的<a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a>说他的阵营发生了变化。但是，如果有邪恶玩家声称自己是<a href="../pages/%E5%86%9C%E5%A4%AB.html" title="农夫">农夫</a>且在夜晚死亡，说书人能够欺骗<a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a>并告诉他他变成了<a href="../pages/%E5%86%9C%E5%A4%AB.html" title="农夫">农夫</a>，因为<a href="../pages/%E5%86%9C%E5%A4%AB.html" title="农夫">农夫</a>仍然是一个镇民角色，这满足<a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a>的“认知范围”。</li>
+</ul>
+<ul>
+<li>特定角色互动：</li>
+<ul>
+<li><a href="../pages/%E5%92%96%E5%95%A1%E5%B8%88.html" title="咖啡师">咖啡师</a>：咖啡师的“清醒且健康”效果能够让能获取信息的<a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a>在生效期间内获得正确信息。</li>
+</ul>
+</ul>
+<ul>
+<li>相克规则：</li>
+<ul>
+<li><a href="../pages/%E6%95%B0%E5%AD%A6%E5%AE%B6.html" title="数学家">数学家</a>：数学家会得知酒鬼产生了错误信息或“能力未正常生效”。</li>
+<li><a href="../pages/%E7%A7%91%E5%AD%A6%E6%80%AA%E4%BA%BA.html" title="科学怪人">科学怪人</a>：恶魔不能获得酒鬼的能力。</li>
+</ul>
+</ul>
+<h2 id="提示与技巧">提示与技巧</h2>
+<ul>
+<li><a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a>永远不知道自己是<a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a>——他在游戏开始时就会获得一个镇民角色标记，在收到错误信息时也会表现得像个普通镇民一样。你只能在游戏进行过程中发现到底是不是<a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a>；如果你发现你收到了明显有误的信息，亦或是能力没有成功触发(例如<a href="../pages/%E5%A3%AB%E5%85%B5.html" title="士兵">士兵</a>死于夜晚)，你就需要注意了。</li>
+</ul>
+<ul>
+<li>确认<a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a>是否在场非常重要——这将让镇民知道是否需要仔细核对自己拿到的信息。一个最直观的用来确定场上是否有<a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a>的方法，就是看场上已知的外来者数量是否符合你的预期（如果比你想的多了，那场上可能存在<a href="../pages/%E7%94%B7%E7%88%B5.html" title="男爵">男爵</a>，而<a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a>也可能随之加入了游戏）。</li>
+</ul>
+<ul>
+<li>如果你怀疑<a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a>在场，那就需要尽快找到哪位镇民是<a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a>。每局游戏中最多存在一个<a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a>，因此知道酒鬼是谁能让你更谨慎地对待他的信息，这也意味着其他镇民能够相信自己得到的信息是真实且可靠的。</li>
+</ul>
+<ul>
+<li>像<a href="../pages/%E9%80%81%E8%91%AC%E8%80%85.html" title="送葬者">送葬者</a>和<a href="../pages/%E5%AE%88%E9%B8%A6%E4%BA%BA.html" title="守鸦人">守鸦人</a>这样的角色，是可以查验到<a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a>的实际角色的。你不会被他们当作你以为的那个镇民！这对于像<a href="../pages/%E8%B4%9E%E6%B4%81%E8%80%85.html" title="贞洁者">贞洁者</a>这样的角色也同样适用——<a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a>不会触发<a href="../pages/%E8%B4%9E%E6%B4%81%E8%80%85.html" title="贞洁者">贞洁者</a>的能力，因为<a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a>不是镇民而是外来者。</li>
+</ul>
+<ul>
+<li>如果你发现了你是<a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a>，尝试着逆向推理你所获取的信息。例如，如果你曾认为你是<a href="../pages/%E5%85%B1%E6%83%85%E8%80%85.html" title="共情者">共情者</a>并且获取到了信息"0"，你就要怀疑自己邻座中至少存在一名邪恶玩家。又或者，你曾以为自己是个<a href="../pages/%E8%B0%83%E6%9F%A5%E5%91%98.html" title="调查员">调查员</a>，你可以假设自己所得知的两名玩家都不是爪牙。</li>
+</ul>
+<ul>
+<li>时刻记得<a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a>会收到的是不可靠的信息，而不是绝对错误的信息。在大多数情况下，你会收到错误的信息，但是说书人偶尔也会告诉你正确的信息。（例如，<a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a><a href="../pages/%E5%AE%88%E9%B8%A6%E4%BA%BA.html" title="守鸦人">守鸦人</a>在死亡后选择查验自己的角色，说书人会告诉他，他是<a href="../pages/%E5%AE%88%E9%B8%A6%E4%BA%BA.html" title="守鸦人">守鸦人</a>。因为不论说其他什么答案，他都会意识到自己其实是个<a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a>。）当其他答案都能明显地证明你是个<a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a>时，说书人可能就会告诉你真的信息。</li>
+<ul>
+<li>然而，要记住像<a href="../pages/%E7%8C%8E%E6%89%8B.html" title="猎手">猎手</a>、<a href="../pages/%E5%83%A7%E4%BE%A3.html" title="僧侣">僧侣</a>、<a href="../pages/%E9%95%87%E9%95%BF.html" title="镇长">镇长</a>这样的角色，如果他们的真实角色是<a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a>的话，是无法影响游戏的。比如一个<a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a><a href="../pages/%E7%8C%8E%E6%89%8B.html" title="猎手">猎手</a>是无法杀死任何玩家的，他们的能力总是会无效。</li>
+</ul>
+</ul>
+<h2 id="伪装成酒鬼">伪装成酒鬼</h2>
+<p>当你要伪装成酒鬼的时候，这里有几件事你应该记住：</p>
+<ul>
+<li>在游戏开始的时候，伪装成一个具体的镇民角色，因为<a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a>在游戏开始的时候只会知道自己是个镇民角色。</li>
+</ul>
+<ul>
+<li>伪装成一个更被动地获取信息的角色，比如<a href="../pages/%E5%8D%A0%E5%8D%9C%E5%B8%88.html" title="占卜师">占卜师</a>、<a href="../pages/%E8%B0%83%E6%9F%A5%E5%91%98.html" title="调查员">调查员</a>、<a href="../pages/%E5%85%B1%E6%83%85%E8%80%85.html" title="共情者">共情者</a>、<a href="../pages/%E6%B4%97%E8%A1%A3%E5%A6%87.html" title="洗衣妇">洗衣妇</a>、<a href="../pages/%E9%80%81%E8%91%AC%E8%80%85.html" title="送葬者">送葬者</a>或者<a href="../pages/%E5%9B%BE%E4%B9%A6%E7%AE%A1%E7%90%86%E5%91%98.html" title="图书管理员">图书管理员</a>，然后故意给出显而易见的错误信息。如果你的信息很荒唐（比如声称两位都不是<a href="../pages/%E5%9C%A3%E5%BE%92.html" title="圣徒">圣徒</a>的玩家之中有一位<a href="../pages/%E5%9C%A3%E5%BE%92.html" title="圣徒">圣徒</a>），你看起来就会很像<a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a>。</li>
+</ul>
+<ul>
+<li>伪装成一个能力可能会失效的角色，当你的假能力失效时，表现得惊讶一点，并且提出自己是不是有是<a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a>的可能性。例如，伪装成一个<a href="../pages/%E5%83%A7%E4%BE%A3.html" title="僧侣">僧侣</a>然后说你保护的玩家不知道为什么竟然死了。伪装成一个<a href="../pages/%E5%A3%AB%E5%85%B5.html" title="士兵">士兵</a>然后在晚上杀死自己，或者让恶魔杀了你。伪装成<a href="../pages/%E7%8C%8E%E6%89%8B.html" title="猎手">猎手</a>或者去提名<a href="../pages/%E8%B4%9E%E6%B4%81%E8%80%85.html" title="贞洁者">贞洁者</a>，并且当角色能力没有造成影响的时候装得很吃惊。</li>
+</ul>
+<ul>
+<li>暗示<a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a>在场，并且带领大家找出他是谁。这会让他们从寻找恶魔的过程中分心，并且会不那么相信好人阵营的信息。</li>
+</ul>
+<ul>
+<li>暗示某位玩家可能是<a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a>。如果某位玩家有个能够摧毁你阵营的信息，这将非常有用。例如一个<a href="../pages/%E9%80%81%E8%91%AC%E8%80%85.html" title="送葬者">送葬者</a>说你是个死去的<a href="../pages/%E6%8A%95%E6%AF%92%E8%80%85.html" title="投毒者">投毒者</a>而你确实是的时候。</li>
+</ul>
+<ul>
+<li>如果场上公开声明的外来者数量适合你编故事的话，说服大家有<a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a>在场，或说服大家某位玩家是<a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a>是非常容易办到的。例如，在场上应该只有一个外来者的情况下，如果你说<a href="../pages/%E8%B4%9E%E6%B4%81%E8%80%85.html" title="贞洁者">贞洁者</a>是个<a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a>且真正的<a href="../pages/%E5%9C%A3%E5%BE%92.html" title="圣徒">圣徒</a>已经公布了自己的角色，那让<a href="../pages/%E8%B4%9E%E6%B4%81%E8%80%85.html" title="贞洁者">贞洁者</a>是<a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a>成立的条件就只能是<a href="../pages/%E5%9C%A3%E5%BE%92.html" title="圣徒">圣徒</a>在说谎。如果你或一个邪恶阵营队友伪装成一个外来者，那就更容易说服善良阵营玩家<a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a>是在场的，因为额外的外来者会让场面上看起来是有<a href="../pages/%E7%94%B7%E7%88%B5.html" title="男爵">男爵</a>的加入，这个角色可以让两名额外的外来者加入游戏。</li>
+</ul>
+<ul>
+<li>如果你想让邪恶队友支持你的<a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a>伪装，让他们声称自己是<a href="../pages/%E5%9B%BE%E4%B9%A6%E7%AE%A1%E7%90%86%E5%91%98.html" title="图书管理员">图书管理员</a>。<a href="../pages/%E5%AE%88%E9%B8%A6%E4%BA%BA.html" title="守鸦人">守鸦人</a>和<a href="../pages/%E9%80%81%E8%91%AC%E8%80%85.html" title="送葬者">送葬者</a>也行，但就是必须要有人死亡才能发挥作用。</li>
+</ul>
+<ul>
+<li>如果你想要在游戏后期伪装成<a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a>，并且觉得自己能成功，只要给出与你想让善良阵营相信的信息完全相反的内容就行了。例如你声称自己是个<a href="../pages/%E5%85%B1%E6%83%85%E8%80%85.html" title="共情者">共情者</a>，并且想要处决你的邻座，你开始就可以说你的邻座都是善良的——如果在后续大家开始相信你是<a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a>，他们就会假设你的邻座中至少有一个是邪恶的并且把他们两个都处决。</li>
+</ul>
+<h2 id="角色信息">角色信息</h2>
+<ul>
+<li>英文名：Drunk</li>
+</ul>
+<ul>
+<li>所属剧本：<a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html" title="暗流涌动">暗流涌动</a></li>
+</ul>
+<ul>
+<li>角色类型：<a href="../pages/%E5%A4%96%E6%9D%A5%E8%80%85.html" title="外来者">外来者</a></li>
+</ul>
+<ul>
+<li>角色能力类型：<a href="../pages/%E8%AE%A4%E7%9F%A5%E8%A6%86%E7%9B%96.html" title="认知覆盖">认知覆盖</a>、<a href="../pages/%E8%AE%BE%E7%BD%AE%E8%B0%83%E6%95%B4.html" title="设置调整">设置调整</a></li>
+</ul>
+<p><em>其他称呼（非官方，仅方便索引用）：醉鬼、醉汉</em></p></div>
+    <div class="page-meta">最后修改于 2026-07-20T10:16:40Z，编辑者 <b>Zack</b> ｜ 页面 9,844 字节 ｜ <a href="https://clocktower-wiki.gstonegames.com/index.php?title=%E9%85%92%E9%AC%BC" target="_blank" rel="noopener">查看原页面</a> ｜ <div class="comment">编辑摘要：/* 规则细节 */</div></div>
+    <div class="backlinks"><b>链入此页的页面（91）</b><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a><a href="../pages/%E6%B4%97%E8%A1%A3%E5%A6%87.html">洗衣妇</a><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a><a href="../pages/%E5%9B%BE%E4%B9%A6%E7%AE%A1%E7%90%86%E5%91%98.html">图书管理员</a><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a><a href="../pages/%E6%97%A0%E7%A5%9E%E8%AE%BA%E8%80%85.html">无神论者</a><a href="../pages/%E6%B0%94%E7%90%83%E9%A9%BE%E9%A9%B6%E5%91%98.html">气球驾驶员</a><a href="../pages/%E8%B5%8F%E9%87%91%E7%8C%8E%E4%BA%BA.html">赏金猎人</a><a href="../pages/%E9%A3%9F%E4%BA%BA%E6%97%8F.html">食人族</a><a href="../pages/%E5%9B%BD%E7%8E%8B.html">国王</a><a href="../pages/%E5%B0%8F%E7%B2%BE%E7%81%B5.html">小精灵</a><a href="../pages/%E7%BD%82%E7%B2%9F%E7%A7%8D%E6%A4%8D%E8%80%85.html">罂粟种植者</a><a href="../pages/%E6%8F%90%E7%BA%BF%E6%9C%A8%E5%81%B6.html">提线木偶</a><a href="../pages/%E6%95%B0%E5%AD%A6%E5%AE%B6.html">数学家</a><a href="../pages/%E5%85%B1%E6%83%85%E8%80%85.html">共情者</a><a href="../pages/%E8%AE%A4%E7%9F%A5%E8%A6%86%E7%9B%96.html">认知覆盖</a><a href="../pages/%E8%AE%BE%E7%BD%AE%E8%B0%83%E6%95%B4.html">设置调整</a><a href="../pages/%E5%8D%A0%E5%8D%9C%E5%B8%88.html">占卜师</a><a href="../pages/%E9%80%81%E8%91%AC%E8%80%85.html">送葬者</a><a href="../pages/%E5%AE%88%E9%B8%A6%E4%BA%BA.html">守鸦人</a><a href="../pages/%E8%B4%9E%E6%B4%81%E8%80%85.html">贞洁者</a><a href="../pages/%E5%A3%AB%E5%85%B5.html">士兵</a><a href="../pages/%E9%95%87%E9%95%BF.html">镇长</a><a href="../pages/%E9%85%92%E9%AC%BC.html">酒鬼</a><a href="../pages/%E5%9C%A3%E5%BE%92.html">圣徒</a><a href="../pages/%E9%97%B4%E8%B0%8D.html">间谍</a><a href="../pages/%E7%BA%A2%E5%94%87%E5%A5%B3%E9%83%8E.html">红唇女郎</a><a href="../pages/%E7%94%B7%E7%88%B5.html">男爵</a><a href="../pages/%E5%B0%8F%E6%81%B6%E9%AD%94.html">小恶魔</a><a href="../pages/%E5%A4%96%E6%9D%A5%E8%80%85.html">外来者</a><a href="../pages/%E6%97%A0%E4%B8%8A%E6%84%89%E6%82%A6.html">无上愉悦</a><a href="../pages/%E5%93%AA%E4%BA%9B%E6%98%AF%E2%80%9C%E5%8F%AF%E4%BB%A5%E4%BD%86%E4%B8%8D%E5%BB%BA%E8%AE%AE%E2%80%9D.html">哪些是“可以但不建议”</a><a href="../pages/%E5%92%96%E5%95%A1%E5%B8%88.html">咖啡师</a><a href="../pages/%E5%A4%B1%E8%B4%A5%E7%9A%84%E4%B8%8A%E5%B8%9D.html">失败的上帝</a><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a><a href="../pages/%E6%84%9A%E8%80%85%E6%AC%A2%E5%AE%B4.html">愚者欢宴</a><a href="../pages/%E5%A5%B3%E7%A5%AD%E5%8F%B8.html">女祭司</a><a href="../pages/%E6%82%9F%E9%81%93%E8%80%85.html">悟道者</a><a href="../pages/%E9%A5%95%E9%A4%AE.html">饕餮</a><a href="../pages/%E7%AC%AC%E4%B8%80%E5%B1%8A%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A%E5%89%A7%E6%9C%AC%E5%88%9B%E4%BD%9C%E5%A4%A7%E8%B5%9B.html">第一届华灯初上剧本创作大赛</a><a href="../pages/%E4%BA%BA%E9%97%B4%E6%9A%97%E6%9C%88%E5%A4%9C.html">人间暗月夜</a><a href="../pages/%E9%AA%91%E8%99%8E%E7%94%9F%E6%AD%BB%E8%A1%8C.html">骑虎生死行</a><a href="../pages/%E8%A1%8C%E6%88%90%E4%B8%8B%E5%AD%A4%E4%B9%A1.html">行成下孤乡</a><a href="../pages/%E8%8E%AB%E8%A8%80%E4%B8%89%E5%8D%83%E6%AD%BB.html">莫言三千死</a><a href="../pages/%E9%B8%A3%E9%A3%8E%E5%99%AC%E5%90%8E%E6%B5%AA.html">鸣风噬后浪</a><a href="../pages/%E5%B9%BB%E5%BD%B1%E7%94%BB%E5%AE%89%E5%8D%B1.html">幻影画安危</a><a href="../pages/%E8%B0%9C%E6%A2%A6%E5%BE%85%E6%AD%8C%E8%88%9E.html">谜梦待歌舞</a><a href="../pages/%E5%BC%82%E5%9C%B0%E4%BC%97%E6%AC%A2%E6%9D%A5.html">异地众欢来</a><a href="../pages/%E9%A3%8E%E4%BA%91%E5%AD%B0%E6%88%8F%E8%A8%80.html">风云孰戏言</a><a href="../pages/%E9%A3%8E%E8%B5%B7%E7%BB%88%E7%9B%B8%E8%AF%86.html">风起终相识</a><a href="../pages/%E6%97%A0%E4%BD%95%E6%9C%89%E4%B9%8B%E4%B9%A1.html">无何有之乡</a><a href="../pages/%E7%99%BD%E7%8B%90%E8%A1%8C%E4%B8%9B%E9%87%8C.html">白狐行丛里</a><a href="../pages/%E9%9B%86%E5%90%8E%E4%BA%BA%E4%B9%8B%E8%A8%80.html">集后人之言</a><a href="../pages/%E4%BE%A0%E4%BA%91%E6%95%88%E8%89%AF%E5%85%9A.html">侠云效良党</a><a href="../pages/%E5%8D%83%E9%9D%A2%E4%BC%97%E5%8D%B1%E7%84%89.html">千面众危焉</a><a href="../pages/%E5%AF%B9%E5%A2%9F%E9%9A%BE%E6%AC%A2%E9%B8%A3.html">对墟难欢鸣</a><a href="../pages/%E6%9E%AF%E6%9C%A8%E9%80%A2%E6%98%A5.html">枯木逢春</a><a href="../pages/%E8%8E%AB%E9%80%86%E4%B9%8B%E4%BA%A4.html">莫逆之交</a><a href="../pages/%E5%87%B6%E8%AF%A1%E9%9A%BE%E8%BE%A8.html">凶诡难辨</a><a href="../pages/%E9%95%BF%E5%A4%9C%E9%99%A9%E6%81%B6.html">长夜险恶</a><a href="../pages/%E9%9D%99%E5%80%99%E4%BD%B3%E9%9F%B3.html">静候佳音</a><a href="../pages/%E9%97%B2%E8%A8%80%E7%A2%8E%E8%AF%AD.html">闲言碎语</a><a href="../pages/%E7%8B%AC%E5%8D%A0%E9%B3%8C%E5%A4%B4.html">独占鳌头</a><a href="../pages/%E7%A7%91%E5%AD%A6%E6%80%AA%E4%BA%BA.html">科学怪人</a><a href="../pages/%E9%99%90.html">限</a><a href="../pages/%E4%B8%80%E9%99%90%E7%94%9F%E6%9C%BA.html">一限生机</a><a href="../pages/%E4%B8%8A%E5%B8%9D%E7%BC%BA%E5%B8%AD.html">上帝缺席</a><a href="../pages/%E7%A7%89%E5%85%AC%E5%8A%9E%E4%BA%8B.html">秉公办事</a><a href="../pages/%E6%9A%97%E5%BA%A6%E9%99%88%E4%BB%93.html">暗度陈仓</a><a href="../pages/%E6%97%A7%E6%97%A5%E7%86%9F%E8%AF%86.html">旧日熟识</a><a href="../pages/%E6%8F%90%E5%88%91%E5%AE%98.html">提刑官</a><a href="../pages/%E9%BB%91%E5%A4%9C%E9%97%AE%E7%99%BD%E5%A4%A9.html">黑夜问白天</a><a href="../pages/%E7%8C%8E%E5%B7%AB%E8%A1%8C%E5%8A%A8.html">猎巫行动</a><a href="../pages/%E6%98%BE%E6%88%91%E7%A5%9E%E9%80%9A.html">显我神通</a><a href="../pages/%E8%BD%AE%E5%88%B0%E4%BD%A0%E4%BA%86.html">轮到你了</a><a href="../pages/%E4%BA%A1%E7%81%B5%E8%AE%AE%E4%BC%9A.html">亡灵议会</a><a href="../pages/%E7%81%AF%E7%A5%9E%E5%A5%91%E7%BA%A6.html">灯神契约</a><a href="../pages/%E9%9A%90%E5%A3%AB.html">隐士</a><a href="../pages/%E7%BF%BB%E4%BA%91%E8%A6%86%E9%9B%A8.html">翻云覆雨</a><a href="../pages/%E4%B8%83%E6%AD%A5%E6%88%90%E8%AF%97.html">七步成诗</a><a href="../pages/%E5%B9%BD%E7%81%B5%E4%BE%A6%E6%8E%A2.html">幽灵侦探</a><a href="../pages/%E7%AC%91%E5%8C%A0.html">笑匠</a><a href="../pages/%E6%A2%A6%E5%9B%9E%E5%A4%A7%E5%94%90.html">梦回大唐</a><a href="../pages/%E6%95%99%E7%9A%87.html">教皇</a><a href="../pages/%E5%86%A5%E6%B2%B3%E9%82%AA%E6%B8%A1.html">冥河邪渡</a><a href="../pages/%E9%87%91%E6%88%88%E9%93%81%E9%A9%ACV2.0.html">金戈铁马V2.0</a><a href="../pages/%E6%B1%9F%E5%9F%8E%E5%90%AF.html">江城启</a><a href="../pages/%E6%B1%9F%E5%9F%8E%E5%86%B3.html">江城决</a><a href="../pages/%E6%98%8E%E4%BA%89%E6%9A%97%E6%96%97.html">明争暗斗</a><a href="../pages/%E6%9D%AD%E5%84%BF%E9%A3%8E.html">杭儿风</a><a href="../pages/%E5%AD%9F%E5%A9%86.html">孟婆</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

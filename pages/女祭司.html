@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>女祭司 - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">女祭司</h1>
+    <div class="tagline">来自钟楼百科</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#提示与技巧">提示与技巧</a></li><li class="lvl2"><a href="#伪装成女祭司">伪装成女祭司</a></li><li class="lvl2"><a href="#角色信息">角色信息</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E5%A5%B3%E7%A5%AD%E5%8F%B8">查找包含此角色的剧本 →</a></p><p><a href="../pages/%E5%A5%B3%E7%A5%AD%E5%8F%B8.html" class="image-link" title="女祭司"><img alt="Highpriestess.png" style="width:200px" class="" loading="lazy" data-source-image="../images/Highpriestess.png" src="../assets/media/Highpriestess.preview.webp" width="591" height="591" decoding="async"></a></p>
+<h2 id="背景故事">背景故事</h2>
+<p><em>“在人性的背后，存在着以人性为面具的生活。某些时候生活会摘下面具，以深刻的答案应对深刻的问题。”</em></p>
+<h2 id="角色能力">角色能力</h2>
+<p><strong>每个夜晚，你会得知一名说书人认为你最应该与其交流的玩家。</strong></p>
+<h2 id="角色简介">角色简介</h2>
+<p>女祭司凭借直觉行事。</p>
+<ul>
+<li>女祭司可以连续几个夜晚得知同一名玩家，也可以在每个夜晚都得知不同的玩家。</li>
+</ul>
+<ul>
+<li>她得知的玩家可以是存活玩家，也可以是死亡玩家。</li>
+</ul>
+<ul>
+<li>她得知的玩家可以是善良玩家，也可以是邪恶玩家。</li>
+</ul>
+<ul>
+<li>没有绝对的标准用于决定说书人究竟要给女祭司什么样的信息。说书人通过自己的判断来决定给出女祭司的信息内容，这取决于他认为给出什么样的信息能够对女祭司和善良阵营更加有利。这可能是因为某些玩家有重要信息但尚未公布，或是邪恶玩家的伪装一戳即破，或是有值得被信赖的玩家需要建立更强的信任，或是有善良玩家的推理出现了谬误，急需被纠正，或是其他各种各样的原因。</li>
+</ul>
+<h2 id="范例">范例</h2>
+<p>在首个夜晚，<a href="../pages/%E5%A5%B3%E7%A5%AD%E5%8F%B8.html" title="女祭司">女祭司</a>得知了小佳。小佳是<a href="../pages/%E5%8E%A8%E5%B8%88.html" title="厨师">厨师</a>且有有用的信息需要分享。在第二个夜晚，<a href="../pages/%E5%A5%B3%E7%A5%AD%E5%8F%B8.html" title="女祭司">女祭司</a>得知了小明。小明是<a href="../pages/%E5%93%A5%E5%B8%83%E6%9E%97.html" title="哥布林">哥布林</a>，但是说书人认为<a href="../pages/%E5%A5%B3%E7%A5%AD%E5%8F%B8.html" title="女祭司">女祭司</a>如果和小明交流并尽早发现小明是邪恶玩家会更容易获益。在第三个夜晚，<a href="../pages/%E5%A5%B3%E7%A5%AD%E5%8F%B8.html" title="女祭司">女祭司</a>得知了道哥。道哥是<a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a>，但是得知了错误信息，并且正对善良阵营造成不良的影响。</p>
+<p>连续三个夜晚，<a href="../pages/%E5%A5%B3%E7%A5%AD%E5%8F%B8.html" title="女祭司">女祭司</a>都得知了小美。小美是<a href="../pages/%E5%9C%A3%E5%BE%92.html" title="圣徒">圣徒</a>，但善良阵营正打算处决她。在最后一夜，<a href="../pages/%E5%A5%B3%E7%A5%AD%E5%8F%B8.html" title="女祭司">女祭司</a>得知了小莱，小莱是<a href="../pages/%E5%B0%8F%E6%81%B6%E9%AD%94.html" title="小恶魔">小恶魔</a>，他编造的谎话与好几个善良玩家的信息产生了冲突。</p>
+<h2 id="运作方式">运作方式</h2>
+<p>每个夜晚，唤醒女祭司。指向一名玩家。随后让女祭司重新入睡。</p>
+<h2 id="提示标记">提示标记</h2>
+<p>无</p>
+<h2 id="提示与技巧">提示与技巧</h2>
+<ul>
+<li>每天都尽快地与说书人指示的玩家交谈——说书人认为他对于你来说是最重要的交流对象，所以你应该立即与他联系以获得信任，并根据他的信息来决定你在首个白天的发言和行动。</li>
+</ul>
+<ul>
+<li>不要立即与你得知的玩家交谈。相反地，去观察他与谁交谈，看看你是否能从他的行为和互动中获得为什么需要与他交谈的线索。比如说，如果他特别希望与几名特定的玩家交谈，他可能是洗衣妇或占卜师，这个推测也许能够让你决定以什么方式接触他。或者，他可能看起来有些不知所措，直到与某些特定玩家交谈后才安心下来，那么他有可能是刚刚得到伪装的爪牙。</li>
+</ul>
+<ul>
+<li>告诉你得知的玩家，你是女祭司并且在昨晚得知的玩家是他，看看他能不能想到什么充分理由可能是他被你得知的原因。虽然你的信息可能非常模糊，但你得知的玩家有可能依据他的角色能力获得的信息来构建一条清晰的逻辑线，然后为你以及善良阵营提供更广阔的视野。 </li>
+</ul>
+<ul>
+<li>不要告诉你得知的玩家，你是女祭司。说书人也许不是想让你与那名玩家分享信息，而只是认为他可能对你有所帮助。</li>
+</ul>
+<ul>
+<li>在首个夜晚，你得知的玩家很可能要么就是已经获得信息的善良玩家，所以他能与你分享信息；要么就是一名爪牙玩家，所以你也许能够在他没有获得伪装时获得他的状态信息或者给他挖坑。</li>
+</ul>
+<ul>
+<li>随着游戏的进行，说书人很有可能会给你指出那些还没有完全分享自己信息的玩家，甚至是那些还没说出自己角色的玩家；或是给你指出死亡的玩家，他们需要得知你已经收集但是还没分享的其他信息；或是给你指出邪恶玩家，一旦他们陷入与你的对话，而不是与他们的邪恶队友或者是他们正在洗头的玩家，他们就无法推进邪恶阵营的游戏进度。</li>
+</ul>
+<ul>
+<li>在游戏后期，说书人很有可能会给你指出那些逻辑准确的善良玩家，以鼓励你把自己的思路转变到他们的思路上，并增强他们对于团队的信心；或是给你指出恶魔玩家，这样你就可以从他的论点中找出漏洞并进行反驳。</li>
+</ul>
+<ul>
+<li>如果善良阵营正在占据上风，说书人给你指出的玩家很有可能会加强你们的获胜策略。如果邪恶阵营正在占据上风，说书人给你指出的玩家会与你的信息相互矛盾，以此来试图引起你对不同观点的关注，进而鼓励你放弃之前你曾强烈支持的观点。你觉得游戏正在往对善良阵营有利的方向发展吗？随时运用上述观点去考虑你的信息！</li>
+</ul>
+<ul>
+<li>说书人是不是连续两次给你指出同一名玩家？很有可能是他想让你从对话中获得的信息而你没有获得，所以用开放的心态再尝试进行一次对话吧！</li>
+</ul>
+<ul>
+<li>归根结底，就算你没有弄清楚说书人为什么要给你指示那些特定玩家，女祭司仍然是具有强大增幅作用的角色。即使你每天做的事情只是与你得知的玩家交谈，并且一直都没弄清楚为什么这样做，与说书人推荐的玩家交谈这个行为只会对善良阵营有帮助。</li>
+</ul>
+<h2 id="伪装成女祭司">伪装成女祭司</h2>
+<ul>
+<li>声称自己得知了善良玩家，然后从一开始就支持他们的观点和信息。你在强化善良玩家信息的同时有可能会对你的阵营造成伤害，但你也因此收获了善良玩家对自己的大量信任，这有可能会带来回报。</li>
+</ul>
+<ul>
+<li>相反地，声称自己得知了一名善良玩家，但你与他的对话非常糟糕，因此你怀疑你得知的是一名还没有得到伪装或是发言不好的爪牙玩家</li>
+</ul>
+<ul>
+<li>声称得知了你的邪恶队友。这样你可以有一个很好的理由在首个白天与队友交谈，与他分享伪装及其他信息，并且开始计划如何进行游戏。你们只需要确保不管你的队友最后说了什么，都能有充分的理由说明为什么他会在首个夜晚被你得知。</li>
+</ul>
+<ul>
+<li>随意选择大概数量的你“得知”的玩家，并且在事后编造得知这些玩家的原因。但你在首夜的“信息”会是风险最高的选择——在还没有受到游戏展开方式或人们思考内容影响的情况下，首个夜晚女祭司得知的玩家，他的角色有可能是说书人最强烈推荐让大家知道的。所以你需要有充分理由去说明。</li>
+</ul>
+<ul>
+<li>始终准备一个备用方案，以防你需要与你“得知”的玩家对抗——如果他的信息过于强大，或是他已经将太多玩家划为值得信任的好人，也许你需要让大家开始怀疑，说书人让你得知这名玩家实际上是为了揭穿他的伪装，或者实际上他是酒鬼，而说书人向你展示这名玩家是为了鼓励你们发现这个问题。</li>
+</ul>
+<ul>
+<li>倾听对于伪装成女祭司来说是非常棒的游戏方式——你希望玩家向你提出一个可能是他会被你得知的原因，如果他提出的原因并不正确，你可以鼓励他往错误的方向继续思考，从而误导他的游戏策略。</li>
+</ul>
+<ul>
+<li>在玩家们公开自己的角色之后，你再去接触他们，从而让你可以做出明智的选择。因为你不想在游戏中期就被玩家发现自己是伪装，当他们回顾你在游戏早期的信息时，会质疑你为什么会在游戏开始的两个夜晚得知守鸦人和管家，说书人并没有充分理由鼓励女祭司与这些角色交谈。</li>
+</ul>
+<ul>
+<li>相比伪装成其他角色，伪装成女祭司更容易显得真实。你可以像真正的女祭司那样假装无知，在游戏中花费相当大一部分时间假装“不知道发生了什么”，这不仅让你看起来很像一名善良玩家那样在通常情况下都会感到迷惑，也能鼓励其他善良玩家试图帮助你找出你的信息与游戏局势的关联性，但这需要他们接受你的观点！</li>
+</ul>
+<ul>
+<li>对于邪恶玩家来说，女祭司是非常棒的伪装，可以让他们非常方便地扮演成另外一个角色。但对于善良玩家来说，女祭司同样是很棒的伪装，它让你具有非常有力的理由去找你需要进行交谈的特定玩家，而不必明确说明你为什么这样做。</li>
+</ul>
+<ul>
+<li>即使有玩家被大家一致认为很可能是邪恶的，特别是在他们死于处决之后，如果你去声称他们曾是你得知的玩家，这会是一种很好的方式让玩家们的共识偏离正轨。</li>
+</ul>
+<h2 id="角色信息">角色信息</h2>
+<ul>
+<li>英文名：High Priestess</li>
+</ul>
+<ul>
+<li>所属剧本：<a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html" title="实验性角色">实验性角色</a>、<a href="../pages/%E6%B2%B8%E5%8F%8D%E7%9B%88%E5%A4%A9.html" title="沸反盈天">沸反盈天</a>（快速上手剧本）</li>
+</ul>
+<ul>
+<li>角色类型：<a href="../pages/%E9%95%87%E6%B0%91.html" title="镇民">镇民</a></li>
+</ul>
+<ul>
+<li>角色能力类型：<a href="../pages/%E8%8E%B7%E5%8F%96%E4%BF%A1%E6%81%AF.html" title="获取信息">获取信息</a></li>
+</ul>
+<ul>
+<li>角色背景相关：女祭司的背景故事文字的原句来自于Dion Fortune的小说《Goat-foot God》。</li>
+</ul></div>
+    <div class="page-meta">最后修改于 2023-09-29T14:38:14Z，编辑者 <b>Little Black</b> ｜ 页面 8,823 字节 ｜ <a href="https://clocktower-wiki.gstonegames.com/index.php?title=%E5%A5%B3%E7%A5%AD%E5%8F%B8" target="_blank" rel="noopener">查看原页面</a></div>
+    <div class="backlinks"><b>链入此页的页面（23）</b><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a><a href="../pages/%E6%B0%94%E7%90%83%E9%A9%BE%E9%A9%B6%E5%91%98.html">气球驾驶员</a><a href="../pages/%E8%8E%B7%E5%8F%96%E4%BF%A1%E6%81%AF.html">获取信息</a><a href="../pages/%E9%95%87%E6%B0%91.html">镇民</a><a href="../pages/%E5%9B%AD%E4%B8%81.html">园丁</a><a href="../pages/%E5%A5%B3%E7%A5%AD%E5%8F%B8.html">女祭司</a><a href="../pages/%E6%B2%B8%E5%8F%8D%E7%9B%88%E5%A4%A9.html">沸反盈天</a><a href="../pages/%E5%A4%9C%E6%99%9A%E8%A1%8C%E5%8A%A8%E9%A1%BA%E5%BA%8F%E4%B8%80%E8%A7%88.html">夜晚行动顺序一览</a><a href="../pages/%E6%96%B0%E8%A7%92%E8%89%B2%E5%85%AC%E5%B8%83%E8%AE%A1%E5%88%92.html">新角色公布计划</a><a href="../pages/%E7%AC%AC%E4%B8%80%E5%B1%8A%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A%E5%89%A7%E6%9C%AC%E5%88%9B%E4%BD%9C%E5%A4%A7%E8%B5%9B.html">第一届华灯初上剧本创作大赛</a><a href="../pages/%E9%AA%91%E8%99%8E%E7%94%9F%E6%AD%BB%E8%A1%8C.html">骑虎生死行</a><a href="../pages/%E8%B0%9C%E6%A2%A6%E5%BE%85%E6%AD%8C%E8%88%9E.html">谜梦待歌舞</a><a href="../pages/%E9%A3%8E%E4%BA%91%E5%AD%B0%E6%88%8F%E8%A8%80.html">风云孰戏言</a><a href="../pages/%E6%97%A0%E4%BD%95%E6%9C%89%E4%B9%8B%E4%B9%A1.html">无何有之乡</a><a href="../pages/%E9%95%BF%E5%A4%9C%E9%99%A9%E6%81%B6.html">长夜险恶</a><a href="../pages/%E7%8B%82%E7%83%AD%E8%80%85.html">狂热者</a><a href="../pages/%E9%97%B2%E8%A8%80%E7%A2%8E%E8%AF%AD.html">闲言碎语</a><a href="../pages/%E5%86%B2%E5%8A%A8%E6%B6%88%E8%B4%B9.html">冲动消费</a><a href="../pages/%E8%BD%AE%E5%88%B0%E4%BD%A0%E4%BA%86.html">轮到你了</a><a href="../pages/%E5%B9%BD%E7%81%B5%E4%BE%A6%E6%8E%A2.html">幽灵侦探</a><a href="../pages/%E8%BF%9F%E8%A7%81%E5%88%86%E6%99%93.html">迟见分晓</a><a href="../pages/%E6%97%A0%E5%90%8D%E6%97%85%E5%AE%A2.html">无名旅客</a><a href="../pages/%E4%B8%80%E5%BE%80%E5%B7%AB%E5%89%8D.html">一往巫前</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

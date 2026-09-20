@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>和尚 - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">和尚</h1>
+    <div class="tagline">来自钟楼百科</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#角色信息">角色信息</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E5%92%8C%E5%B0%9A">查找包含此角色的剧本 →</a></p><p><a href="../pages/%E5%92%8C%E5%B0%9A.html" class="image-link" title="和尚"><img alt="Heshang.png" style="width:200px" class="" loading="lazy" data-source-image="../images/Heshang.png" src="../assets/media/Heshang.preview.webp" width="591" height="591" decoding="async"></a></p>
+<h2 id="背景故事">背景故事</h2>
+<p><em>“本来无一物，何处惹尘埃。”</em></p>
+<h2 id="角色能力">角色能力</h2>
+<p><strong>每个夜晚，当有邪恶玩家的能力首次选择或影响与你邻近的存活玩家时，改为此次能力不生效并持续至下个黎明，且你会得知你的能力被触发。</strong></p>
+<h2 id="角色简介">角色简介</h2>
+<p>和尚慈悲为怀，一视同仁地庇护着他周围的人。</p>
+<ul>
+<li>和尚的能力在每个夜晚都能且仅能触发一次。</li>
+</ul>
+<ul>
+<li>当邪恶玩家的能力选择了与和尚邻近的存活玩家，或者一项无需选择的能力在满足了条件而被触发，且会对与和尚邻近的存活玩家生效时，和尚会使邪恶玩家此次的能力不生效。这一效果跟使这名玩家“中毒/醉酒”相似。然而，如果某名邪恶玩家在同一个夜晚可以多次行动，和尚只能使其中一次效果无效，而除此以外的其他效果仍然会正常生效。</li>
+</ul>
+<ul>
+<li>如果邪恶玩家的能力是一项持续生效的能力，而非选择式或触发式的能力，和尚会使这项能力失效直至下个黎明。在下一个白天时，这项能力会再次生效。</li>
+</ul>
+<ul>
+<li>和尚只能在一项能力开始生效前阻止这项能力。他无法阻止已经生效的能力。</li>
+</ul>
+<ul>
+<li>一旦和尚的能力被成功触发，他会被唤醒，并得知自己的能力刚刚被触发了。和尚不会得知是哪名邪恶玩家的能力被他阻止了，也不会得知这项能力影响的是与他邻近的哪一名玩家。他只是单纯知道自己的能力被触发了。</li>
+</ul>
+<ul>
+<li>如果一项邪恶玩家的能力无法被阻止，那么和尚的能力不会因此被触发，和尚也不会得知自己的能力触发了。</li>
+</ul>
+<h2 id="范例">范例</h2>
+<p><a href="../pages/%E5%B0%8F%E6%81%B6%E9%AD%94.html" title="小恶魔">小恶魔</a>自杀了。与<a href="../pages/%E5%92%8C%E5%B0%9A.html" title="和尚">和尚</a>邻近的<a href="../pages/%E7%94%B7%E7%88%B5.html" title="男爵">男爵</a>受到<a href="../pages/%E5%92%8C%E5%B0%9A.html" title="和尚">和尚</a>的能力影响，无法变成<a href="../pages/%E5%B0%8F%E6%81%B6%E9%AD%94.html" title="小恶魔">小恶魔</a>。因为场上没有存活的恶魔，游戏结束，善良阵营获胜。</p>
+<p><a href="../pages/%E5%88%BA%E5%AE%A2.html" title="刺客">刺客</a>使用自己的能力攻击了与<a href="../pages/%E5%92%8C%E5%B0%9A.html" title="和尚">和尚</a>邻近的<a href="../pages/%E5%BC%84%E8%87%A3.html" title="弄臣">弄臣</a>。<a href="../pages/%E5%BC%84%E8%87%A3.html" title="弄臣">弄臣</a>死亡，且<a href="../pages/%E5%92%8C%E5%B0%9A.html" title="和尚">和尚</a>不会得知自己的能力被触发了。</p>
+<p>与<a href="../pages/%E5%92%8C%E5%B0%9A.html" title="和尚">和尚</a>间隔了<a href="../pages/%E5%93%B2%E5%AD%A6%E5%AE%B6.html" title="哲学家">哲学家</a>的<a href="../pages/%E8%88%9E%E8%9B%87%E4%BA%BA.html" title="舞蛇人">舞蛇人</a>选中了<a href="../pages/%E8%AF%BA-%E8%BE%BE%E9%B2%BA.html" title="诺-达鲺">诺-达鲺</a>，并与之交换了角色和阵营。<a href="../pages/%E5%92%8C%E5%B0%9A.html" title="和尚">和尚</a>的能力被触发，<a href="../pages/%E8%AF%BA-%E8%BE%BE%E9%B2%BA.html" title="诺-达鲺">诺-达鲺</a>邻近的两名镇民（包括<a href="../pages/%E5%93%B2%E5%AD%A6%E5%AE%B6.html" title="哲学家">哲学家</a>）没有因此中毒。<a href="../pages/%E8%AF%BA-%E8%BE%BE%E9%B2%BA.html" title="诺-达鲺">诺-达鲺</a>的中毒能力失效，但他仍然可以在当晚选择一名玩家攻击，并成功杀死那名玩家。在下个白天，<a href="../pages/%E8%AF%BA-%E8%BE%BE%E9%B2%BA.html" title="诺-达鲺">诺-达鲺</a>的中毒能力再次生效，<a href="../pages/%E5%93%B2%E5%AD%A6%E5%AE%B6.html" title="哲学家">哲学家</a>中毒。</p>
+<h2 id="运作方式">运作方式</h2>
+<p>在每个夜晚，如果有邪恶玩家的能力选择或即将影响与和尚邻近的存活玩家，且和尚的角色标记旁尚未放置“已生效”提示标记，那么这项能力无效。将和尚的“已生效”提示标记放置在和尚的角色标记旁。如果这项能力是一项非持续能力，能力直接失效，但邪恶玩家的其他能力仍然能正常使用。如果这项能力是一项持续能力，能力会在下一个白天重新生效。随后，唤醒和尚，对他展示和尚角色标记。让和尚重新入睡。</p>
+<p>在黎明时，移除“已生效”提示标记。</p>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>已生效</li>
+</ul>
+<p>放置时机：每个夜晚，与和尚邻近的存活玩家第一次被其他邪恶玩家使用能力影响或选择时。</p>
+<p>放置条件：放置在和尚的角色标记旁。如果和尚中毒醉酒，倒置该标记表示该标记没有效果，用于提示当晚和尚的能力已经触发过。</p>
+<p>移除时机：在黎明时，或和尚死亡或离场时。</p>
+<h2 id="规则细节">规则细节</h2>
+<ul>
+<li>如果和尚的能力使得一项“玩家让自身获得信息”的能力失效，其处理方式与醉酒中毒相似，该玩家仍然会获得信息，但信息可对可错。</li>
+</ul>
+<ul>
+<li>特定角色互动：</li>
+<ul>
+<li><a href="../pages/%E8%AF%BA-%E8%BE%BE%E9%B2%BA.html" title="诺-达鲺">诺-达鲺</a>：如果在游戏开始时，诺-达鲺的中毒影响了与和尚邻近的镇民，和尚的能力在首个夜晚不会触发。如果诺-达鲺在游戏中途的某个夜晚被创造并将要影响与和尚邻近的镇民，和尚的能力会被触发，诺-达鲺的中毒能力（包括让另一侧的镇民中毒）会在下个黎明才开始生效。</li>
+<li><a href="../pages/%E9%99%90.html" title="限">限</a>：如果限的能力让所有镇民中毒，和尚会因中毒而无法触发能力。</li>
+<li><a href="../pages/%E6%B7%B7%E6%B2%8C.html" title="混沌">混沌</a>：如果混沌的能力让所有善良玩家中毒，（善良的）和尚会因中毒而无法触发能力。</li>
+</ul>
+</ul>
+<ul>
+<li>相克规则：</li>
+<ul>
+<li><a href="../pages/%E5%88%A9%E7%BB%B4%E5%9D%A6.html" title="利维坦">利维坦</a>：如果利维坦提名并处决了与和尚邻近的其中一名存活玩家，善良阵营获胜。</li>
+<li><a href="../pages/%E6%9A%B4%E4%B9%B1.html" title="暴乱">暴乱</a>：如果暴乱提名并处决了与和尚邻近的其中一名存活玩家，善良阵营获胜。</li>
+</ul>
+</ul>
+<h2 id="角色信息">角色信息</h2>
+<ul>
+<li>英文名：Heshang</li>
+</ul>
+<ul>
+<li>所属角色合集：<a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html" title="华灯初上">华灯初上</a></li>
+</ul>
+<ul>
+<li>创意来源：Richard Black</li>
+</ul>
+<ul>
+<li>角色类型：镇民</li>
+</ul>
+<ul>
+<li>角色能力类型：<a href="../pages/%E8%83%BD%E5%8A%9B%E6%95%88%E6%9E%9C%E5%B9%B2%E6%89%B0.html" title="能力效果干扰">能力效果干扰</a>、<a href="../pages/%E5%BD%B1%E5%93%8D.html" title="影响">影响</a>、<a href="../pages/%E9%82%BB%E8%BF%91.html" title="邻近">邻近</a></li>
+</ul></div>
+    <div class="page-meta">最后修改于 2026-07-30T10:53:51Z，编辑者 <b>Zack</b> ｜ 页面 4,808 字节 ｜ <a href="https://clocktower-wiki.gstonegames.com/index.php?title=%E5%92%8C%E5%B0%9A" target="_blank" rel="noopener">查看原页面</a></div>
+    <div class="backlinks"><b>链入此页的页面（17）</b><a href="../pages/%E6%9A%B4%E4%B9%B1.html">暴乱</a><a href="../pages/%E5%88%A9%E7%BB%B4%E5%9D%A6.html">利维坦</a><a href="../pages/%E9%82%BB%E8%BF%91.html">邻近</a><a href="../pages/%E8%83%BD%E5%8A%9B%E6%95%88%E6%9E%9C%E5%B9%B2%E6%89%B0.html">能力效果干扰</a><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a><a href="../pages/%E5%8D%8A%E4%BB%99.html">半仙</a><a href="../pages/%E5%92%8C%E5%B0%9A.html">和尚</a><a href="../pages/%E7%AC%AC%E4%B8%80%E5%B1%8A%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A%E5%89%A7%E6%9C%AC%E5%88%9B%E4%BD%9C%E5%A4%A7%E8%B5%9B.html">第一届华灯初上剧本创作大赛</a><a href="../pages/%E5%B9%BB%E5%BD%B1%E7%94%BB%E5%AE%89%E5%8D%B1.html">幻影画安危</a><a href="../pages/%E5%BC%82%E5%9C%B0%E4%BC%97%E6%AC%A2%E6%9D%A5.html">异地众欢来</a><a href="../pages/%E9%A3%8E%E4%BA%91%E5%AD%B0%E6%88%8F%E8%A8%80.html">风云孰戏言</a><a href="../pages/%E9%A3%8E%E8%B5%B7%E7%BB%88%E7%9B%B8%E8%AF%86.html">风起终相识</a><a href="../pages/%E7%A7%BB%E8%8A%B1%E6%8E%A5%E6%9C%A8.html">移花接木</a><a href="../pages/%E5%BD%B1%E5%93%8D.html">影响</a><a href="../pages/%E5%8D%83%E9%9D%A2%E4%BC%97%E5%8D%B1%E7%84%89.html">千面众危焉</a><a href="../pages/%E5%8D%81%E4%B8%89%E8%A1%8C.html">十三行</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

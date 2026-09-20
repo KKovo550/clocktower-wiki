@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>猫猫合唱团 The Cat Chorus - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">猫猫合唱团 The Cat Chorus<span class="ns-badge">奥德赛</span></h1>
+    <div class="tagline">来自钟楼百科 · 摘自《奥德赛 Odyssey》百科 · 外来者</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#夜晚行动顺序">夜晚行动顺序</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#游玩与对抗技巧">游玩与对抗技巧</a></li><li class="lvl2"><a href="#伪装成该角色">伪装成该角色</a></li><li class="lvl2"><a href="#出现剧本">出现剧本</a></li><li class="lvl2"><a href="#整体设计">整体设计</a></li><li class="lvl2"><a href="#创意来源">创意来源</a></li><li class="lvl2"><a href="#图标画师">图标画师</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E7%8C%AB%E7%8C%AB%E5%90%88%E5%94%B1%E5%9B%A2">查找包含此角色的剧本 →</a></p><div class="charinfo"><div class="charinfo-img"><a href="../files/%E6%96%87%E4%BB%B6_%E7%8C%AB%E7%8C%AB%E5%90%88%E5%94%B1%E5%9B%A2.png.html"><img alt="猫猫合唱团 The Cat Chorus" data-source-image="../images/%E7%8C%AB%E7%8C%AB%E5%90%88%E5%94%B1%E5%9B%A2.png" src="../assets/media/猫猫合唱团.preview.webp" width="600" height="600" decoding="async"></a></div><div class="charinfo-meta"><div class="row"><span class="k">角色类型</span><span class="v"><a href="../pages/%E5%A4%96%E6%9D%A5%E8%80%85.html" title="外来者">外来者</a></span></div><div class="row"><span class="k">英文名</span><span class="v">The Cat Chorus</span></div><div class="row"><span class="k">角色ID</span><span class="v">044</span></div><div class="row"><span class="k">角色归属</span><span class="v">角色拓展包《奥德赛》</span></div><div class="row"><span class="k">能力标签</span><span class="v"><a href="../pages/%E9%86%89%E9%85%92.html" title="醉酒">醉酒</a>、<a href="../pages/%E8%BF%9B%E5%9C%BA%E8%83%BD%E5%8A%9B.html" title="进场能力">进场能力</a></span></div><div class="row"><span class="k">角色定位</span><span class="v">能力干扰外来者</span></div><div class="row"><span class="k">角色授权</span><span class="v">开放（任意剧本创作可用，不要修改能力）</span></div><div class="row"><span class="k">出处</span><span class="v"><a class="external" href="https://www.yuque.com/u48069482/taiyi" target="_blank" rel="noopener">《奥德赛 Odyssey》百科</a></span></div></div></div><h2 id="背景故事">背景故事</h2>
+<p><em><span style="color:rgb(15, 17, 21);">“警报！警报！猫猫合唱团正式接管今夜喵！重复，猫猫合唱团正式接管今夜喵！我们的任务是：带领大家狂欢到天亮喵！清醒点喵！跟着拍子，一起跺脚！一、二、三、四！喵！喵！喵！喵！”</span></em></p>
+<h2 id="角色简介"><span style="color:rgb(64, 64, 64);">角色简介</span></h2>
+<p>猫猫合唱团带来强劲的音乐，让镇民短暂地恢复清醒健康。</p>
+<h2 id="角色能力">角色能力</h2>
+<div class="callout callout-info">
+<p>一名玩家醉酒。在黄昏时，说书人可能会指定一首歌曲：如果玩家们成功合唱，所有镇民不受中毒醉酒影响，直到下个黄昏。</p>
+</div>
+<h2 id="范例">范例</h2>
+<ul>
+<li>占卜师因为猫猫合唱团醉酒了。第一个夜晚，占卜师得知了错误信息。第一个白天的处决完毕后（黄昏），说书人发言：“进入夜晚，今晚我们要举办一场音乐会！我要听《蓝莲哈》！”大部分玩家参与了合唱且效果较好，说书人宣布“演唱会取得了巨大的成功！”所有中毒醉酒的镇民不会受到中毒醉酒的影响，当晚因寡妇中毒的僧侣成功保护了一名被恶魔攻击的玩家，因猫猫合唱团醉酒的占卜师得到了正确信息。下一个黄昏，僧侣与占卜师的中毒醉酒再次开始生效。</li>
+<li>猫猫合唱团在场。第二个白天的处决完毕后（黄昏），说书人宣布进入夜晚并指定歌曲《时代少年团，我们喜欢你》，演唱效果糟糕，说书人宣布“演唱失败了！”。再下个黄昏，说书人指定歌曲《七里香》，大部分玩家参与了合唱且效果较好，说书人宣布“演唱会取得了巨大的成功！”所有中毒醉酒的镇民不会受到中毒醉酒的影响。</li>
+<li>第三个白天的处决完毕后（黄昏），说书人宣布进入夜晚并指定歌曲《毛毛歌》，大部分玩家参与了合唱且效果较好，说书人宣布“演唱会取得了巨大的成功！”。但其实猫猫合唱团并不在场，中毒醉酒的镇民依然受到中毒醉酒影响。</li>
+</ul>
+<h2 id="运作方式">运作方式</h2>
+<p>在为首个夜晚做准备时，选择任意一名玩家，并在这名玩家的角色标记旁放置猫猫合唱团的“喝大了！”提示标记。该玩家醉酒。</p>
+<p>在任意一个黄昏，你可以公开指定一首歌曲，然后等待玩家们几分钟，根据玩家们的合唱效果进行评判。如果你认为合唱成功，公开宣布“今晚的演唱会取得了巨大的成功！”或类似的发言，然后将“嗨起来！”提示标记放置在魔典中央——所有镇民的中毒醉酒效果会在下个黄昏之前暂时失去效果。如果你认为合唱失败了，公开宣布“演唱失败了！”或类似的发言。你可以在后续的黄昏中继续指定歌曲。</p>
+<h2 id="夜晚行动顺序">夜晚行动顺序</h2>
+<ul>
+<li>首个夜晚</li>
+<ul>
+<li>夜序数值：/</li>
+<li>前位角色：/</li>
+<li>行动提示：/</li>
+</ul>
+<li>其他夜晚</li>
+<ul>
+<li>夜序数值：/</li>
+<li>前位角色：/</li>
+<li>行动提示：/</li>
+</ul>
+</ul>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>喝大了！</li>
+<ul>
+<li>放置时机：在为首个夜晚做准备时。</li>
+<li>放置条件：任意一名玩家的角色标记旁。</li>
+<li>移除时机：在猫猫合唱团死亡或离场时。</li>
+</ul>
+<li>嗨起来！</li>
+<ul>
+<li>放置时机：在黄昏时。</li>
+<li>放置条件：你指定的歌曲被成功合唱时。</li>
+<li>移除时机：在黄昏时。</li>
+</ul>
+</ul>
+<h2 id="规则细节">规则细节</h2>
+<ul>
+<li>绝大多数情况下，猫猫合唱团会让一名镇民醉酒。</li>
+<li>少数情况下，猫猫合唱团会令自己醉酒。这种情况下，即使玩家们成功进行了合唱，中毒醉酒的镇民依旧会失去能力，因为猫猫合唱团并不具有能力。</li>
+<li>即使猫猫合唱团不在场，或在场的猫猫合唱团中毒、醉酒、死亡、失去能力。你也可以指定歌曲，特别是在有玩家声称自己是猫猫合唱团的情况下。</li>
+<li>猫猫合唱团的能力是令中毒醉酒的镇民暂时不受中毒醉酒影响，并不会直接移除这些效果（并没有恢复清醒健康）。在猫猫合唱团的能力结束后，镇民的中毒醉酒状态会重新发挥作用。你可以倒置中毒醉酒的提示标记，以代表这些效果暂时失效了。</li>
+<li>猫猫合唱团的第二条能力只会保护镇民玩家。</li>
+<li>猫猫合唱团的第二条能力无法影响除中毒醉酒外的负面效果，比如涡流的错误信息、互动干扰等。</li>
+<li>在指定歌曲后，留给玩家们几分钟以进行合唱。在合唱完毕且你宣布结果之后，再进行夜晚的行动。</li>
+<li>猫猫合唱团在死亡后会失去所有能力。因他醉酒的玩家会恢复清醒。</li>
+<li>不必太过于纠结于是否所有玩家都参与了合唱或演唱质量好坏，有的玩家天生腼腆。只要你认为“成功”，即可宣布合唱成功。身为说书人，如果游戏氛围过于冷淡，你需要积极调动大家的情绪。</li>
+<li>在夜晚让大家闭眼，会让玩家们更有勇气进行合唱。</li>
+<li>尽量指定大家耳熟能详的曲目，如果可以的话，尽量给大家准备伴奏。</li>
+<li>由说书人决定在哪个黄昏指定歌曲。</li>
+<li>一般在第一个白天的黄昏，或之后的黄昏指定歌曲。不要在首个夜晚就指定歌曲。</li>
+<li>出于角色强度考虑，一般每局游戏合唱成功一次后就不应再继续指定歌曲。如果合唱失败了，那么你可以在后续的黄昏继续指定歌曲。</li>
+<li>如果游戏氛围很好，玩家唱歌的热情很高，即使合唱成功，你也可以在后续的黄昏继续指定歌曲，但是要提前跟玩家说明，这之后的合唱不会再触发猫猫合唱团的能力（令镇民不受中毒醉酒影响）。</li>
+</ul>
+<h2 id="游玩与对抗技巧">游玩与对抗技巧</h2>
+<ul>
+<li>如果你是猫猫合唱团。记住，会有一名玩家因你而醉酒。</li>
+<li>如果你是猫猫合唱团。在你们成功合唱的那天晚上，一定不会有任何镇民受到中毒醉酒影响（除非你中毒醉酒），所以那晚的信息相当可信！</li>
+<li>如果你是猫猫合唱团。嗨起来！你的使命就是带领大家度过一个又一个狂欢的夜晚！闭上眼睛带领大家一起唱吧！别害羞！反正谁也看不见谁！</li>
+<li>如果你是恶魔。杀死猫猫合唱团，即使合唱成功，也没人会受到保护。但是这样的话，因为猫猫合唱团的死亡，原本因猫猫合唱团醉酒的玩家会恢复清醒。</li>
+</ul>
+<h2 id="伪装成该角色">伪装成该角色</h2>
+<ul>
+<li>在每个夜晚带领大家狂欢，这样会让其他玩家更加信服你是猫猫合唱团。</li>
+<li>如果你伪装为猫猫合唱团，就可以解释为啥一位镇民的信息在首个夜晚“不对劲”。他可以是因为你而醉酒了。</li>
+</ul>
+<h2 id="出现剧本">出现剧本</h2>
+<ul>
+<li><em>暂无</em></li>
+</ul>
+<h2 id="整体设计">整体设计</h2>
+<ul>
+<li>太一</li>
+</ul>
+<h2 id="创意来源">创意来源</h2>
+<ul>
+<li>太一</li>
+</ul>
+<h2 id="图标画师">图标画师</h2>
+<ul>
+<li>洛甜蕾</li>
+</ul></div>
+    <div class="page-meta">最后修改于 2026-09-08T05:10:44.000Z，编辑者 <b>未知</b> ｜ 页面 6,687 字节 ｜ <a href="https://www.yuque.com/u48069482/taiyi/rs5568i3pgqfyx9i" target="_blank" rel="noopener">查看原页面</a></div>
+    <div class="backlinks"><b>链入此页的页面（1）</b><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">奥德赛 Odyssey</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

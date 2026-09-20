@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>奸奇 Tzeentch - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">奸奇 Tzeentch<span class="ns-badge">奥德赛</span></h1>
+    <div class="tagline">来自钟楼百科 · 摘自《奥德赛 Odyssey》百科 · 恶魔</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#夜晚行动顺序">夜晚行动顺序</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#游玩与对抗技巧">游玩与对抗技巧</a></li><li class="lvl2"><a href="#出现剧本">出现剧本</a></li><li class="lvl2"><a href="#整体设计">整体设计</a></li><li class="lvl2"><a href="#创意来源">创意来源</a></li><li class="lvl2"><a href="#图标画师">图标画师</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E5%A5%B8%E5%A5%87">查找包含此角色的剧本 →</a></p><div class="charinfo"><div class="charinfo-img"><a href="../files/%E6%96%87%E4%BB%B6_%E5%A5%B8%E5%A5%87.png.html"><img alt="奸奇 Tzeentch" data-source-image="../images/%E5%A5%B8%E5%A5%87.png" src="../assets/media/奸奇.preview.webp" width="600" height="600" decoding="async"></a></div><div class="charinfo-meta"><div class="row"><span class="k">角色类型</span><span class="v"><a href="../pages/%E6%81%B6%E9%AD%94.html" title="恶魔">恶魔</a></span></div><div class="row"><span class="k">英文名</span><span class="v">Tzeentch</span></div><div class="row"><span class="k">角色ID</span><span class="v">065</span></div><div class="row"><span class="k">角色归属</span><span class="v">角色拓展包《奥德赛》</span></div><div class="row"><span class="k">能力标签</span><span class="v"><a href="../pages/%E8%8E%B7%E5%BE%97%E8%83%BD%E5%8A%9B.html" title="获得能力">获得能力</a></span></div><div class="row"><span class="k">角色定位</span><span class="v">能力增强型恶魔</span></div><div class="row"><span class="k">发布日期</span><span class="v">2026.5.11</span></div><div class="row"><span class="k">角色授权</span><span class="v">开放（任意剧本创作皆可使用，不要改能力）</span></div><div class="row"><span class="k">出处</span><span class="v"><a class="external" href="https://www.yuque.com/u48069482/taiyi" target="_blank" rel="noopener">《奥德赛 Odyssey》百科</a></span></div></div></div><h2 id="背景故事">背景故事</h2>
+<p><em>"不必费力辨认我的轮廓，此刻站在你面前的模样，下一秒便会消融扭曲。我精通一切伪装，我在人群里埋下无数虚假分身。所谓忠诚、立场、善恶，全是用来蒙蔽凡俗的外壳。我从不靠蛮力征服，我用智慧让盟友反目、让信念崩塌。永不停歇的变化才是唯一真实，而我，就是万变之主。"</em></p>
+<h2 id="角色简介"><span style="color:rgb(64, 64, 64);">角色简介</span></h2>
+<p>奸奇拥有完美的伪装。</p>
+<h2 id="角色能力">角色能力</h2>
+<div class="callout callout-info">
+<p>每个夜晚*，你要选择一名玩家：他死亡。当你得知恶魔信息时，会有更多的伪装，你要选择其中一个：你获得该角色的能力。</p>
+</div>
+<h2 id="范例">范例</h2>
+<ul>
+<li>第一个夜晚，奸奇得知的4个伪装分别是造谣者、筑梦师、旅店老板、圣徒。奸奇选择并获得了筑梦师的能力。当晚奸奇因为筑梦师的能力被唤醒并选择了占卜师玩家，奸奇得知“占卜师、男爵”。</li>
+<li>第一个夜晚，奸奇得知的6个伪装分别是造谣者、筑梦师、旅店老板、圣徒、魔像、洗衣妇。奸奇选择并获得了造谣者的能力。第一个白天，奸奇公开发表了一个正确的声明（造谣者能力）。当晚，奸奇被唤醒并攻击了一名玩家。随后，另一名玩家因为造谣者的能力死亡。</li>
+<li>第一个夜晚，奸奇得知的5个伪装分别是造谣者、筑梦师、魔像、国王、唱诗男孩。奸奇选择并获得了魔像的能力。第一个白天，奸奇提名了男爵玩家，男爵死亡。因为魔像的能力限制，奸奇无法在后续的游戏中再发起提名。</li>
+</ul>
+<h2 id="运作方式">运作方式</h2>
+<p>在首个夜晚，你要给予奸奇比普通恶魔更多的伪装角色，并让他从中挑选一个角色。然后将这个角色标记放到奸奇的角色标记旁，用以提示自己奸奇同时拥有这个角色的能力。按照奸奇具有这个角色的能力一样来进行运作。</p>
+<p>在除首个夜晚以外的每个夜晚，唤醒奸奇。让他指向任意一名玩家。那名玩家死亡——用“死亡”提示标记标记那名玩家。让奸奇重新入睡。</p>
+<h2 id="夜晚行动顺序">夜晚行动顺序</h2>
+<ul>
+<li>首个夜晚</li>
+<ul>
+<li>夜序数值：3001</li>
+<li>前位角色：恶魔信息</li>
+<li>行动提示：让他从三个伪装角色中挑选一个。</li>
+</ul>
+<li>其他夜晚</li>
+<ul>
+<li>夜序数值：4910</li>
+<li>前位角色：小恶魔</li>
+<li>行动提示：让他选择一名玩家。</li>
+</ul>
+</ul>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>死亡</li>
+<ul>
+<li>放置时机：在奸奇夜晚行动并选择了玩家后放置。</li>
+<li>放置条件：奸奇选择的玩家当前存活，且能被杀死，且奸奇未醉酒中毒，那么在该玩家的角色标记旁放置，用以提醒说书人在黎明时分宣布当晚的死亡玩家。</li>
+<li>移除时机：在黎明时宣布死亡玩家后，说书人可以任由自己方便来进行移除。</li>
+</ul>
+</ul>
+<h2 id="规则细节">规则细节</h2>
+<ul>
+<li>奸奇会在首个夜晚，得知恶魔信息时，得到额外的伪装角色。并且他要从所有伪装角色里选择一个。额外获得多少个伪装角色由说书人决定。伪装角色只能是不在场的镇民或外来者角色。</li>
+<li>如果奸奇中毒醉酒，不仅会失去奸奇本身的能力，也会失去因奸奇能力而获得的角色的能力。</li>
+<li>如果奸奇拥有的能力是死亡后触发或保留的能力，且奸奇死亡，那么奸奇会保留获得的这项能力，例如解谜大师。</li>
+<li>如果奸奇选择了一个会改变初始设置的能力（如气球驾驶员），该角色能力中改变初始设置的部分不会生效。</li>
+<li>在夜晚时，奸奇会额外在这个角色被唤醒的时机下被唤醒。</li>
+<li>如果奸奇在游戏中途被创造，因为奸奇不会获得恶魔信息，所以也无法获得伪装及其能力。</li>
+<li>奸奇的能力不可以选择旅行者玩家（旅行者隔绝原则）。</li>
+</ul>
+<h2 id="游玩与对抗技巧">游玩与对抗技巧</h2>
+<ul>
+<li>如果你是奸奇。你会获得额外的伪装！这给了你更多的操作空间。不要吝啬，将这些伪装分享给你的爪牙。</li>
+<li>如果你是奸奇。你可以完美地伪装为你的伪装角色，这是绝佳的优势。你可以如同真的筑梦师一样得知其他玩家的角色，也可以像真的造谣者一样造成额外死亡。优先选择那些可以让你“自证”的伪装角色！在你“自证”后，大家更容易相信你！</li>
+<li>如果你是奸奇。你可以不声称自己是你选择的那个伪装。而利用这个伪装的能力偷偷搞破坏。比如利用旅店老板的能力造成醉酒，或利用造谣者的能力造成额外死亡！</li>
+<li>如果你是善良玩家。小心地对待已经“自证”了的玩家。他们不一定就是“自证”的角色，还可能是奸奇！比如一个发动了能力的贞洁者或魔像，或者是一个已经发动过能力的守夜人。</li>
+<li>如果你是善良玩家。如果你想论证在场恶魔是奸奇，那么其他恶魔的能力就一定不会生效！因为其他恶魔不能与奸奇同时在场！所以如果你认为一名已经自证的玩家是奸奇，先想想看，没有其他恶魔能力在场的情况下，这是否能说的通。</li>
+</ul>
+<h2 id="出现剧本">出现剧本</h2>
+<ul>
+<li><em>暂无</em></li>
+</ul>
+<h2 id="整体设计">整体设计</h2>
+<ul>
+<li>太一</li>
+</ul>
+<h2 id="创意来源">创意来源</h2>
+<ul>
+<li>太一</li>
+</ul>
+<h2 id="图标画师">图标画师</h2>
+<ul>
+<li>Lei.</li>
+</ul></div>
+    <div class="page-meta">最后修改于 2026-09-08T05:16:07.000Z，编辑者 <b>未知</b> ｜ 页面 5,201 字节 ｜ <a href="https://www.yuque.com/u48069482/taiyi/mnx8aiyc2eesaka5" target="_blank" rel="noopener">查看原页面</a></div>
+    <div class="backlinks"><b>链入此页的页面（1）</b><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">奥德赛 Odyssey</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

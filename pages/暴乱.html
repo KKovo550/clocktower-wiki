@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>暴乱 - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">暴乱</h1>
+    <div class="tagline">来自钟楼百科</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#提示与技巧">提示与技巧</a></li><li class="lvl2"><a href="#对抗暴乱">对抗暴乱</a></li><li class="lvl2"><a href="#角色信息">角色信息</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E6%9A%B4%E4%B9%B1">查找包含此角色的剧本 →</a></p><p><a href="../pages/%E6%9A%B4%E4%B9%B1.html" class="image-link" title="暴乱"><img alt="Riot.png" style="width:200px" class="" loading="lazy" data-source-image="../images/Riot.png" src="../assets/media/Riot.preview.webp" width="600" height="600" decoding="async"></a></p>
+<h2 id="背景故事">背景故事</h2>
+<p><em>“革命万岁！我的革命！”（西班牙语）</em></p>
+<h2 id="角色能力">角色能力</h2>
+<p><strong>在第三个白天，所有爪牙会变成暴乱，当天被提名的玩家会立即死亡且必须再次提名一名存活的玩家。</strong></p>
+<h2 id="角色简介">角色简介</h2>
+<p>暴乱在恐慌中逐一杀死所有人。</p>
+<ul>
+<li>在第三天，每名被提名的玩家都会立即死亡。尽管他已经死亡，但他在今天必须再次提名。</li>
+</ul>
+<ul>
+<li>被提名的玩家必须立刻发起提名，或者放弃发起提名的机会。说书人倒数“3，2，1”让玩家知道他们需要迅速发起提名。如果他们没有这样做，说书人代替他进行提名。</li>
+</ul>
+<ul>
+<li>如果所有暴乱玩家死亡，善良阵营获胜。如果最后一个暴乱死亡，且只有两名玩家存活，他不能提名，且善良阵营获胜。</li>
+</ul>
+<ul>
+<li>如果第三天没有玩家发起提名，说书人会发起第一次提名。</li>
+</ul>
+<ul>
+<li>爪牙们可以在第三天的提名阶段开始时变成暴乱。</li>
+</ul>
+<h2 id="范例">范例</h2>
+<p>小艾提名了小博。小博死亡了并且提名了小八。小八死亡了并且提名了小明。小明死亡了并且提名了小茶。小茶死亡了。所有<a href="../pages/%E6%9A%B4%E4%B9%B1.html" title="暴乱">暴乱</a>都死亡了。善良阵营获胜。</p>
+<h2 id="运作方式">运作方式</h2>
+<p>在第一个白天，把“第一天”标记放置在魔典中央。在第二个白天，把“第二天”标记放置在魔典中央。在第三个白天，把“第三天”放置在魔典中央。</p>
+<p>在第三个夜晚，唤醒每个爪牙。向他展示“你是”信息标记和暴乱的角色标记，然后让他重新入睡。可以在此时或第三个白天，把所有爪牙角色标记替换成暴乱的角色标记。</p>
+<p>在第三天，每当一名玩家被提名时，这名玩家死亡。立即宣告他死亡并添加帷幕标记。告诉他必须再次提名。公开倒数“3... 2... 1...”，如果他在倒数结束前提名，为新的被提名者重复这个流程，直到所有暴乱死亡或只有两名玩家存活。宣布哪个阵营获胜。</p>
+<p>在第三天，如果没有玩家提名，或者被提名的玩家没有及时发起提名，由说书人来提名一名玩家——那名玩家死亡并且需要立刻发起提名。</p>
+<h2 id="提示标记">提示标记</h2>
+<p>第一天&amp;第二天&amp;第三天</p>
+<p>放置时机：暴乱在场，且游戏阶段进入到黎明时。</p>
+<p>放置条件：根据当前游戏进行的天数，将对应天数的提示标记放置在魔典中央。</p>
+<p>移除时机：在下一次进入黎明时移除当前放置的标记并进行替换。在暴乱死亡或离场时移除。</p>
+<h2 id="规则细节">规则细节</h2>
+<ul>
+<li>在第三个白天，如果已经提名过的玩家被提名，暴乱的能力取代了他不能提名两次的标准游戏规则，因此他可以再次提名。但是，玩家每天只能被提名一次的游戏规则仍然适用。</li>
+</ul>
+<ul>
+<li>在第三个白天，要求流放旅行者不会立即杀死他。暴乱只会影响提名，所以对旅行者的流放表决应该照常进行。暴乱提名链一旦开始就不应该被打断，因此只有提名开始之前可以流放旅行者。</li>
+</ul>
+<ul>
+<li>特定角色互动：</li>
+<ul>
+<li><a href="../pages/%E5%BC%84%E8%87%A3.html" title="弄臣">弄臣</a>：如果在第三天被提名，首次死亡时不会死亡，但仍然必须继续提名。（示例：“我提名弄臣玩家”，“玩家没有死亡，你要提名谁？3…2…1…”等等）</li>
+<li><a href="../pages/%E5%91%86%E7%93%9C.html" title="呆瓜">呆瓜</a>：暴乱游戏中在第三个白天是高压力下的快速选择，所以你应该让你的玩家知道，如果他作为呆瓜死去，他同样需要做出快速的选择（区别于通常让玩家们讨论呆瓜应该选择谁的情况）。我会宣布呆瓜已经死亡，然后开始正常的3 秒倒计时来获得暴乱提名，在此期间他应该声明自己是呆瓜并选择一名玩家，然后你作为说书人可以确认游戏结束或无事发生，然后重新开始暴乱提名的3秒倒计时。</li>
+<li><a href="../pages/%E5%B0%8F%E7%B2%BE%E7%81%B5.html" title="小精灵">小精灵</a>：可以在第三个白天获得他的新能力，并在他意识到自己拥有该能力之前让它生效。示例：当原始的茶艺师被提名（死亡）时，小精灵-茶艺师立即开始保护与之邻近的玩家。</li>
+<li><a href="../pages/%E8%A7%A3%E8%B0%9C%E5%A4%A7%E5%B8%88.html" title="解谜大师">解谜大师</a>：如果解谜大师在第三个白天成功猜出他的醉酒玩家，他会得知任意一名存活的暴乱玩家。</li>
+<li><a href="../pages/%E8%8C%B6%E8%89%BA%E5%B8%88.html" title="茶艺师">茶艺师</a>：如果与茶艺师邻近的两名存活的玩家是善良的，他们不会在第三个白天被提名时因为暴乱而死，但他们仍然需要立即再次发起提名。</li>
+</ul>
+</ul>
+<ul>
+<li>相克规则：</li>
+<ul>
+<li><a href="../pages/%E9%A9%B1%E9%AD%94%E4%BA%BA.html" title="驱魔人">驱魔人</a>：如果暴乱提名并处决了驱魔人上个夜晚选择的那名玩家，善良阵营获胜。</li>
+<li><a href="../pages/%E5%86%9C%E5%A4%AB.html" title="农夫">农夫</a>： 每个夜晚*，暴乱要选择一名存活的善良玩家（与之前的每个夜晚不同）：如果农夫被选择，他的能力生效但不会死亡。（建议在暴乱选择农夫/守鸦人/贤者并触发这些角色的能力后，这些角色失去能力）</li>
+<li><a href="../pages/%E7%A5%96%E6%AF%8D.html" title="祖母">祖母</a>：如果暴乱在场，孙子死于处决，邪恶阵营获胜。</li>
+<li><a href="../pages/%E6%97%85%E5%BA%97%E8%80%81%E6%9D%BF.html" title="旅店老板">旅店老板</a>：如果暴乱提名并处决了旅店老板上个夜晚保护的其中一名玩家，善良阵营获胜。</li>
+<li><a href="../pages/%E9%95%87%E9%95%BF.html" title="镇长">镇长</a>：镇长可以停止暴乱的提名链。如果他这样做了，并且场上只有一名暴乱存活，善良阵营获胜；否则，邪恶阵营获胜。</li>
+<li><a href="../pages/%E5%83%A7%E4%BE%A3.html" title="僧侣">僧侣</a>：如果暴乱提名并处决了僧侣上个夜晚保护的那名玩家，善良阵营获胜。</li>
+<li><a href="../pages/%E5%AE%88%E9%B8%A6%E4%BA%BA.html" title="守鸦人">守鸦人</a>：每个夜晚*，暴乱要选择一名存活的善良玩家（与之前的每个夜晚不同）：如果守鸦人被选择，他的能力生效但不会死亡。</li>
+<li><a href="../pages/%E8%B4%A4%E8%80%85.html" title="贤者">贤者</a>：每个夜晚*，暴乱要选择一名存活的善良玩家（与之前的每个夜晚不同）：如果贤者被选择，他的能力生效但不会死亡。</li>
+<li><a href="../pages/%E5%A3%AB%E5%85%B5.html" title="士兵">士兵</a>：如果暴乱提名并处决了士兵，善良阵营获胜。</li>
+<li><a href="../pages/%E5%9B%BD%E7%8E%8B.html" title="国王">国王</a>：如果暴乱在场，当至少一名玩家死亡时，国王每晚就会得知一个存活的角色。</li>
+<li><a href="../pages/%E6%8A%A5%E4%B8%A7%E5%A5%B3%E5%A6%96.html" title="报丧女妖">报丧女妖</a>：每个夜晚*，暴乱要选择一名存活的善良玩家（与之前的每个夜晚不同）：如果报丧女妖被选择，他死亡并能力生效。</li>
+<li><a href="../pages/%E6%97%A0%E7%A5%9E%E8%AE%BA%E8%80%85.html" title="无神论者">无神论者</a>：在暴乱的提名链中，如果说书人被提名，玩家要进行投票。如果说书人“即将被处决”，游戏结束；否则，说书人要重新发起提名。</li>
+</ul>
+</ul>
+<ul>
+<li>相克规则（与华灯系列角色）：</li>
+<ul>
+<li><a href="../pages/%E6%88%8F%E5%AD%90.html" title="戏子">戏子</a>：在戏子存在于剧本中时，暴乱可以在游戏中任意时候向说书人示意自己“想要死亡”。说书人会在当晚杀死这名玩家。</li>
+<li><a href="../pages/%E6%89%93%E6%9B%B4%E4%BA%BA.html" title="打更人">打更人</a>：如果暴乱提名并处决了打更人上个夜晚猜测的其中一名玩家，善良阵营获胜。</li>
+<li><a href="../pages/%E5%92%8C%E5%B0%9A.html" title="和尚">和尚</a>：如果暴乱提名并处决了与和尚邻近的其中一名存活玩家，善良阵营获胜。</li>
+<li><a href="../pages/%E6%88%8F%E5%AD%90%EF%BC%88%E6%94%B9%EF%BC%89.html" title="戏子（改）">戏子（改）</a>：互为克星的角色在同一时间里只能有其中一个角色在场。</li>
+<li><a href="../pages/%E7%8B%B8%E7%8C%AB.html" title="狸猫">狸猫</a>：每个夜晚*，暴乱要选择一名存活的善良玩家（与之前的每个夜晚不同）：如果“太子”被选择，他会与狸猫交换角色但不会死亡。</li>
+<li><a href="../pages/%E5%B7%A1%E5%AF%9F.html" title="巡察">巡察</a>：如果暴乱提名并处决了巡察上个夜晚保护的其中一名玩家，善良阵营获胜。</li>
+</ul>
+</ul>
+<h2 id="提示与技巧">提示与技巧</h2>
+<p>待更新</p>
+<h2 id="对抗暴乱">对抗暴乱</h2>
+<p>待更新</p>
+<h2 id="角色信息">角色信息</h2>
+<ul>
+<li>英文名：Riot</li>
+</ul>
+<ul>
+<li>所属剧本：<a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html" title="实验性角色">实验性角色</a>、<a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html" title="梦殒春宵">梦殒春宵</a>卡牌版</li>
+</ul>
+<ul>
+<li>角色类型：<a href="../pages/%E6%81%B6%E9%AD%94.html" title="恶魔">恶魔</a></li>
+</ul>
+<ul>
+<li>角色能力类型：<a href="../pages/%E6%8F%90%E5%90%8D.html" title="提名">提名</a>、<a href="../pages/%E9%A2%9D%E5%A4%96%E6%AD%BB%E4%BA%A1.html" title="额外死亡">额外死亡</a>、<a href="../pages/%E8%A7%92%E8%89%B2%E5%8F%98%E5%8C%96.html" title="角色变化">角色变化</a></li>
+</ul></div>
+    <div class="page-meta">最后修改于 2026-08-01T13:07:21Z，编辑者 <b>Beiyu</b> ｜ 页面 7,365 字节 ｜ <a href="https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9A%B4%E4%B9%B1" target="_blank" rel="noopener">查看原页面</a> ｜ <div class="comment">编辑摘要：/* 运作方式 */</div></div>
+    <div class="backlinks"><b>链入此页的页面（30）</b><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a><a href="../pages/%E7%A5%96%E6%AF%8D.html">祖母</a><a href="../pages/%E9%A9%B1%E9%AD%94%E4%BA%BA.html">驱魔人</a><a href="../pages/%E6%97%85%E5%BA%97%E8%80%81%E6%9D%BF.html">旅店老板</a><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a><a href="../pages/%E6%97%A0%E7%A5%9E%E8%AE%BA%E8%80%85.html">无神论者</a><a href="../pages/%E5%86%9C%E5%A4%AB.html">农夫</a><a href="../pages/%E5%9B%BD%E7%8E%8B.html">国王</a><a href="../pages/%E6%9A%B4%E4%B9%B1.html">暴乱</a><a href="../pages/%E9%A2%9D%E5%A4%96%E6%AD%BB%E4%BA%A1.html">额外死亡</a><a href="../pages/%E8%A7%92%E8%89%B2%E5%8F%98%E5%8C%96.html">角色变化</a><a href="../pages/%E6%8F%90%E5%90%8D.html">提名</a><a href="../pages/%E5%83%A7%E4%BE%A3.html">僧侣</a><a href="../pages/%E5%AE%88%E9%B8%A6%E4%BA%BA.html">守鸦人</a><a href="../pages/%E5%A3%AB%E5%85%B5.html">士兵</a><a href="../pages/%E9%95%87%E9%95%BF.html">镇长</a><a href="../pages/%E8%B4%A4%E8%80%85.html">贤者</a><a href="../pages/%E6%81%B6%E9%AD%94.html">恶魔</a><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a><a href="../pages/%E6%89%93%E6%9B%B4%E4%BA%BA.html">打更人</a><a href="../pages/%E5%92%8C%E5%B0%9A.html">和尚</a><a href="../pages/%E6%88%8F%E5%AD%90.html">戏子</a><a href="../pages/%E5%A4%9C%E6%99%9A%E8%A1%8C%E5%8A%A8%E9%A1%BA%E5%BA%8F%E4%B8%80%E8%A7%88.html">夜晚行动顺序一览</a><a href="../pages/%E7%AC%AC%E4%B8%80%E5%B1%8A%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A%E5%89%A7%E6%9C%AC%E5%88%9B%E4%BD%9C%E5%A4%A7%E8%B5%9B.html">第一届华灯初上剧本创作大赛</a><a href="../pages/%E5%AF%B9%E5%A2%9F%E9%9A%BE%E6%AC%A2%E9%B8%A3.html">对墟难欢鸣</a><a href="../pages/%E6%8A%A5%E4%B8%A7%E5%A5%B3%E5%A6%96.html">报丧女妖</a><a href="../pages/%E8%A7%84%E5%88%99%E8%B0%83%E6%95%B4%E6%8F%90%E5%89%8D%E5%85%AC%E7%A4%BA.html">规则调整提前公示</a><a href="../pages/%E6%88%8F%E5%AD%90%EF%BC%88%E6%94%B9%EF%BC%89.html">戏子（改）</a><a href="../pages/%E7%8B%B8%E7%8C%AB.html">狸猫</a><a href="../pages/%E5%B7%A1%E5%AF%9F.html">巡察</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

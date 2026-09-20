@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>圣徒 - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">圣徒</h1>
+    <div class="tagline">来自钟楼百科</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#提示与技巧">提示与技巧</a></li><li class="lvl2"><a href="#伪装成圣徒">伪装成圣徒</a></li><li class="lvl2"><a href="#角色信息">角色信息</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E5%9C%A3%E5%BE%92">查找包含此角色的剧本 →</a></p><p><a href="../pages/%E5%9C%A3%E5%BE%92.html" class="image-link" title="圣徒"><img alt="saint.png" style="width:200px" class="" loading="lazy" data-source-image="../images/Saint.png" src="../assets/media/Saint.preview.webp" width="600" height="600" decoding="async"></a></p>
+<h2 id="背景故事">背景故事</h2>
+<p><em>“智慧带来和平。耐心孕育智慧。</em></p>
+<p><em>无需惧怕，因为恐惧消散的那一天终将到来。</em></p>
+<p><em>让我们一同祈祷，愿我们愿景一致，共赴圣洁。”</em></p>
+<h2 id="角色能力">角色能力</h2>
+<p><strong>如果你死于处决，你的阵营落败。</strong></p>
+<h2 id="角色简介">角色简介</h2>
+<p>圣徒在被处决时会导致游戏结束。</p>
+<ul>
+<li>如果圣徒因处决而死亡，游戏结束。善良阵营落败，邪恶阵营获胜。</li>
+</ul>
+<ul>
+<li>如果圣徒因处决以外的任何方式死亡——例如被恶魔杀死——游戏仍会继续。</li>
+</ul>
+<h2 id="范例">范例</h2>
+<p>有七名玩家存活，且正处于提名流程中。<a href="../pages/%E5%9C%A3%E5%BE%92.html" title="圣徒">圣徒</a>获得了四票，即将被处决。紧接着，<a href="../pages/%E7%94%B7%E7%88%B5.html" title="男爵">男爵</a>被提名但仅获得了三票。没有其他的提名出现。<a href="../pages/%E5%9C%A3%E5%BE%92.html" title="圣徒">圣徒</a>被处决，且邪恶阵营获胜。</p>
+<p><a href="../pages/%E5%B0%8F%E6%81%B6%E9%AD%94.html" title="小恶魔">小恶魔</a>被提名，玩家们纷纷投票。<a href="../pages/%E6%9E%AA%E6%89%8B.html" title="枪手">枪手</a>杀死了参与投票的<a href="../pages/%E5%9C%A3%E5%BE%92.html" title="圣徒">圣徒</a>。<a href="../pages/%E5%9C%A3%E5%BE%92.html" title="圣徒">圣徒</a>死亡，但游戏继续。</p>
+<p><a href="../pages/%E5%9C%A3%E5%BE%92.html" title="圣徒">圣徒</a>被处决。然而，<a href="../pages/%E6%9B%BF%E7%BD%AA%E7%BE%8A.html" title="替罪羊">替罪羊</a>的能力被触发，因此<a href="../pages/%E6%9B%BF%E7%BD%AA%E7%BE%8A.html" title="替罪羊">替罪羊</a>代替<a href="../pages/%E5%9C%A3%E5%BE%92.html" title="圣徒">圣徒</a>被处决。游戏继续，因为<a href="../pages/%E5%9C%A3%E5%BE%92.html" title="圣徒">圣徒</a>没有死亡。</p>
+<h2 id="运作方式">运作方式</h2>
+<p>如果圣徒因处决而死亡，宣布游戏结束且邪恶阵营获胜。</p>
+<p>圣徒的能力中有特定的描述“你的阵营落败”。在《暗流涌动》里，这始终意味着“邪恶阵营获胜”，因为圣徒始终会是善良角色。在其他剧本中，可能会让角色改变阵营。如果一名邪恶的圣徒被处决，善良阵营获胜。</p>
+<h2 id="提示标记">提示标记</h2>
+<p>无</p>
+<h2 id="规则细节">规则细节</h2>
+<ul>
+<li>特定角色互动：</li>
+<ul>
+<li><a href="../pages/%E5%B0%8F%E6%80%AA%E5%AE%9D.html" title="小怪宝">小怪宝</a>：照看<a href="../pages/%E5%B0%8F%E6%80%AA%E5%AE%9D.html" title="小怪宝">小怪宝</a>的<a href="../pages/%E5%9C%A3%E5%BE%92.html" title="圣徒">圣徒</a>如果作为场上最后一名存活的恶魔被处决，善良阵营会获胜。</li>
+</ul>
+</ul>
+<h2 id="提示与技巧">提示与技巧</h2>
+<ul>
+<li>如果你死于处决，游戏结束，你的阵营失败。保证善良阵营知道你是<a href="../pages/%E5%9C%A3%E5%BE%92.html" title="圣徒">圣徒</a>！你可以在大街上喊！站在屋顶喊！告诉所有人你是<a href="../pages/%E5%9C%A3%E5%BE%92.html" title="圣徒">圣徒</a>！你必须被认为是个善良玩家，要不就完了。如果你被提名了，一定要大声喊出自己是<a href="../pages/%E5%9C%A3%E5%BE%92.html" title="圣徒">圣徒</a>……游戏的结局如何就看此时了。</li>
+</ul>
+<ul>
+<li>为了证明你是善良角色，你可以找其他善良玩家来查验你。杀死你和<a href="../pages/%E5%85%B1%E6%83%85%E8%80%85.html" title="共情者">共情者</a>之间的玩家可以让<a href="../pages/%E5%85%B1%E6%83%85%E8%80%85.html" title="共情者">共情者</a>得知你的阵营。说服<a href="../pages/%E5%8D%A0%E5%8D%9C%E5%B8%88.html" title="占卜师">占卜师</a>在晚上选择你来证明你不是恶魔。找到<a href="../pages/%E5%AE%88%E9%B8%A6%E4%BA%BA.html" title="守鸦人">守鸦人</a>让他选择你来确认你的角色。让<a href="../pages/%E7%8C%8E%E6%89%8B.html" title="猎手">猎手</a>尝试击杀你。恶魔通常在晚上不会想杀你，因此经常会有人问你的真实角色是什么。这时有几个能帮你作证的玩家将至关重要。</li>
+</ul>
+<ul>
+<li>还有另一种方法，你可以保持沉默或者伪装成一个对恶魔来说非常有吸引力的目标，像<a href="../pages/%E7%8C%8E%E6%89%8B.html" title="猎手">猎手</a>或是<a href="../pages/%E5%83%A7%E4%BE%A3.html" title="僧侣">僧侣</a>。如果你在晚上死了，你就能够规避掉白天被善良阵营意外处决的风险。</li>
+</ul>
+<ul>
+<li>找出场上存在哪些外来者。如果本来应该有两名外来者在场，且只有你和<a href="../pages/%E9%99%8C%E5%AE%A2.html" title="陌客">陌客</a>表露了自己是外来者，这种情况下即使你俩看起来都有点可疑，但善良阵营应该会相信你们都是善良玩家，因为外来者数量刚好能对得上。</li>
+</ul>
+<h2 id="伪装成圣徒">伪装成圣徒</h2>
+<p>当你要伪装成圣徒的时候，这里有几件事你应该记住：</p>
+<ul>
+<li>由于<a href="../pages/%E5%9C%A3%E5%BE%92.html" title="圣徒">圣徒</a>的特性，他可以算作是邪恶阵营在游戏中最好的伪装了。处决你的风险太大了，因此善良阵营经常会谨慎行事，而先把你放在一边。但这已不意味着你就绝对安全了；在最后一天，处决你和处决任意一个人风险都一样（因为如果没处决到恶魔，善良阵营一样会输掉游戏）。随着游戏的进行，你还是会被大家无数次怀疑。</li>
+</ul>
+<ul>
+<li>在一场没有<a href="../pages/%E7%94%B7%E7%88%B5.html" title="男爵">男爵</a>的游戏中伪装成<a href="../pages/%E5%9C%A3%E5%BE%92.html" title="圣徒">圣徒</a>会比较麻烦，因为你很容易就和其他的外来者发生争执。幸运的是，由于你的特性，处决你要比处决<a href="../pages/%E7%AE%A1%E5%AE%B6.html" title="管家">管家</a>或者<a href="../pages/%E9%99%8C%E5%AE%A2.html" title="陌客">陌客</a>要冒更大的风险；使用这点来干扰善良玩家的处决。</li>
+</ul>
+<ul>
+<li>游戏过程中你会被能力效果探查为邪恶阵营或角色。一个不错的反驳点就是因为你的<a href="../pages/%E5%9C%A3%E5%BE%92.html" title="圣徒">圣徒</a>角色导致说书人针对了你。例如，你可以说你是<a href="../pages/%E5%8D%A0%E5%8D%9C%E5%B8%88.html" title="占卜师">占卜师</a>的"干扰项"，或者<a href="../pages/%E5%85%B1%E6%83%85%E8%80%85.html" title="共情者">共情者</a>实际上是<a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a>所以才看错了你的阵营。</li>
+</ul>
+<ul>
+<li>善良玩家伪装成<a href="../pages/%E5%9C%A3%E5%BE%92.html" title="圣徒">圣徒</a>也大有好处！恶魔通常不会去杀<a href="../pages/%E5%9C%A3%E5%BE%92.html" title="圣徒">圣徒</a>因为他更希望<a href="../pages/%E5%9C%A3%E5%BE%92.html" title="圣徒">圣徒</a>在白天被处决。当你是<a href="../pages/%E5%85%B1%E6%83%85%E8%80%85.html" title="共情者">共情者</a>或者<a href="../pages/%E5%8D%A0%E5%8D%9C%E5%B8%88.html" title="占卜师">占卜师</a>的时候，利用这一点你可以活得更久。</li>
+</ul>
+<ul>
+<li>如果你被处决了且游戏没有结束，大家会立即发现你不是<a href="../pages/%E5%9C%A3%E5%BE%92.html" title="圣徒">圣徒</a>。准备好一个备用的伪装，例如<a href="../pages/%E9%99%8C%E5%AE%A2.html" title="陌客">陌客</a>之类，或者一个不想死的强大镇民（像<a href="../pages/%E9%80%81%E8%91%AC%E8%80%85.html" title="送葬者">送葬者</a>或者<a href="../pages/%E7%8C%8E%E6%89%8B.html" title="猎手">猎手</a>）。</li>
+</ul>
+<ul>
+<li>小心<a href="../pages/%E7%8C%8E%E6%89%8B.html" title="猎手">猎手</a>！<a href="../pages/%E5%9C%A3%E5%BE%92.html" title="圣徒">圣徒</a>通常是一个能够让你免于被处决的有效伪装，但如果<a href="../pages/%E7%8C%8E%E6%89%8B.html" title="猎手">猎手</a>在场，他会非常想试试你的成色，因为他的能力不会触发<a href="../pages/%E5%9C%A3%E5%BE%92.html" title="圣徒">圣徒</a>的失败条件。有一个不错的规避方法就是先让爪牙去伪装成<a href="../pages/%E5%9C%A3%E5%BE%92.html" title="圣徒">圣徒</a>，被<a href="../pages/%E7%8C%8E%E6%89%8B.html" title="猎手">猎手</a>攻击之后<a href="../pages/%E5%B0%8F%E6%81%B6%E9%AD%94.html" title="小恶魔">小恶魔</a>再把恶魔血脉传给这个爪牙。</li>
+</ul>
+<ul>
+<li>如果你被提名了，脱下之前所有的伪装然后说自己是<a href="../pages/%E5%9C%A3%E5%BE%92.html" title="圣徒">圣徒</a>。声称你之前所有的信息和角色都是一种引诱恶魔攻击你的策略。这通常会让善良阵营立刻停下对你的处决。</li>
+</ul>
+<h2 id="角色信息">角色信息</h2>
+<ul>
+<li>英文名：Saint</li>
+</ul>
+<ul>
+<li>所属剧本：<a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html" title="暗流涌动">暗流涌动</a></li>
+</ul>
+<ul>
+<li>角色类型：<a href="../pages/%E5%A4%96%E6%9D%A5%E8%80%85.html" title="外来者">外来者</a></li>
+</ul>
+<ul>
+<li>角色能力类型：<a href="../pages/%E5%A4%84%E5%86%B3.html" title="处决">处决</a>、<a href="../pages/%E7%89%B9%E6%AE%8A%E8%83%9C%E5%88%A9%E5%A4%B1%E8%B4%A5%E6%9D%A1%E4%BB%B6.html" title="特殊胜利失败条件">特殊胜利失败条件</a>、<a href="../pages/%E6%AD%BB%E4%BA%A1%E8%A7%A6%E5%8F%91%E8%83%BD%E5%8A%9B.html" title="死亡触发能力">死亡触发能力</a></li>
+</ul></div>
+    <div class="page-meta">最后修改于 2024-12-05T10:37:22Z，编辑者 <b>HuaQu</b> ｜ 页面 5,461 字节 ｜ <a href="https://clocktower-wiki.gstonegames.com/index.php?title=%E5%9C%A3%E5%BE%92" target="_blank" rel="noopener">查看原页面</a> ｜ <div class="comment">编辑摘要：/* 规则细节 */</div></div>
+    <div class="backlinks"><b>链入此页的页面（36）</b><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a><a href="../pages/%E5%9B%BE%E4%B9%A6%E7%AE%A1%E7%90%86%E5%91%98.html">图书管理员</a><a href="../pages/%E5%A4%84%E5%86%B3.html">处决</a><a href="../pages/%E6%97%A0%E7%A5%9E%E8%AE%BA%E8%80%85.html">无神论者</a><a href="../pages/%E6%B8%94%E5%A4%AB.html">渔夫</a><a href="../pages/%E8%B4%B5%E6%97%8F.html">贵族</a><a href="../pages/%E5%BC%82%E7%AB%AF%E5%88%86%E5%AD%90.html">异端分子</a><a href="../pages/%E6%94%BF%E5%AE%A2.html">政客</a><a href="../pages/%E5%91%8A%E5%AF%86%E8%80%85.html">告密者</a><a href="../pages/%E7%B2%BE%E7%A5%9E%E7%97%85%E6%82%A3%E8%80%85.html">精神病患者</a><a href="../pages/%E9%BB%91%E5%B8%AE.html">黑帮</a><a href="../pages/%E4%BA%92%E5%8A%A8%E5%B9%B2%E6%89%B0.html">互动干扰</a><a href="../pages/%E6%AD%BB%E4%BA%A1%E8%A7%A6%E5%8F%91%E8%83%BD%E5%8A%9B.html">死亡触发能力</a><a href="../pages/%E7%89%B9%E6%AE%8A%E8%83%9C%E5%88%A9%E5%A4%B1%E8%B4%A5%E6%9D%A1%E4%BB%B6.html">特殊胜利失败条件</a><a href="../pages/%E5%8D%A0%E5%8D%9C%E5%B8%88.html">占卜师</a><a href="../pages/%E7%8C%8E%E6%89%8B.html">猎手</a><a href="../pages/%E9%85%92%E9%AC%BC.html">酒鬼</a><a href="../pages/%E9%99%8C%E5%AE%A2.html">陌客</a><a href="../pages/%E5%9C%A3%E5%BE%92.html">圣徒</a><a href="../pages/%E6%8A%95%E6%AF%92%E8%80%85.html">投毒者</a><a href="../pages/%E7%94%B7%E7%88%B5.html">男爵</a><a href="../pages/%E5%B0%8F%E6%81%B6%E9%AD%94.html">小恶魔</a><a href="../pages/%E5%A4%96%E6%9D%A5%E8%80%85.html">外来者</a><a href="../pages/%E6%9E%AA%E6%89%8B.html">枪手</a><a href="../pages/%E5%93%A8%E5%85%B5.html">哨兵</a><a href="../pages/%E6%84%9A%E8%80%85%E6%AC%A2%E5%AE%B4.html">愚者欢宴</a><a href="../pages/%E5%A5%B3%E7%A5%AD%E5%8F%B8.html">女祭司</a><a href="../pages/%E4%BA%BA%E9%97%B4%E6%9A%97%E6%9C%88%E5%A4%9C.html">人间暗月夜</a><a href="../pages/%E8%A7%84%E5%88%99%E8%B0%83%E6%95%B4%E6%8F%90%E5%89%8D%E5%85%AC%E7%A4%BA.html">规则调整提前公示</a><a href="../pages/%E9%95%BF%E5%A4%9C%E9%99%A9%E6%81%B6.html">长夜险恶</a><a href="../pages/%E7%9F%A5%E5%BA%9C.html">知府</a><a href="../pages/%E9%9A%90%E5%A3%AB.html">隐士</a><a href="../pages/%E4%B8%83%E6%AD%A5%E6%88%90%E8%AF%97.html">七步成诗</a><a href="../pages/%E7%8B%A1%E5%85%94%E4%B8%89%E7%AA%9F.html">狡兔三窟</a><a href="../pages/%E5%A4%A9%E6%89%8D%E5%9C%A8%E5%B7%A6.html">天才在左</a><a href="../pages/%E6%B1%9F%E5%9F%8E%E5%90%AF.html">江城启</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

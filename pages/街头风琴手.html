@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>街头风琴手 - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">街头风琴手</h1>
+    <div class="tagline">来自钟楼百科</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#角色信息">角色信息</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E8%A1%97%E5%A4%B4%E9%A3%8E%E7%90%B4%E6%89%8B">查找包含此角色的剧本 →</a></p><p><a href="../pages/%E8%A1%97%E5%A4%B4%E9%A3%8E%E7%90%B4%E6%89%8B.html" class="image-link" title="街头风琴手"><img alt="Organgrinder.png" style="width:200px" class="" loading="lazy" data-source-image="../images/Organgrinder.png" src="../assets/media/Organgrinder.preview.webp" width="591" height="591" decoding="async"></a></p>
+<h2 id="背景故事">背景故事</h2>
+<p><em>“如果你想让别人听信你的花言巧语，那么就搭配上一段音乐吧。”</em></p>
+<p><em>（英文维基上的背景描述与角色详解中的不同，此处也一并贴出。见下）</em></p>
+<p><em>“曲柄划圆吱呀吱，舞步渐狂心渐痴。”</em></p>
+<h2 id="角色能力">角色能力</h2>
+<p><strong>所有玩家在投票时闭眼，且票数会秘密统计。</strong></p>
+<p><strong>每个夜晚，你要选择自己是否醉酒直到下个黄昏。</strong></p>
+<h2 id="角色简介">角色简介</h2>
+<p>街头风琴手会让投票秘密进行。</p>
+<ul>
+<li>当一名玩家被提名后，在投票时所有玩家都需要闭上眼睛。</li>
+</ul>
+<ul>
+<li>说书人在计票时不会大声唱票，也不会在一次投票结束时告诉大家有多少玩家投了票。</li>
+</ul>
+<ul>
+<li>说书人不会告诉大家某次提名是否导致了一名玩家“即将被处决”。</li>
+</ul>
+<ul>
+<li>在提名阶段结束后，说书人宣布了哪名玩家被处决，和正常一样。</li>
+</ul>
+<ul>
+<li>已死亡的玩家在有投票标记时能够如常投票，但仅限一次。他们的投票标记会在当天白天结束时被移除而不是在单次投票后立即被移除。</li>
+</ul>
+<ul>
+<li>如果街头风琴手醉酒，和正常情况一样，所有玩家睁眼投票。说书人无需对此进行额外说明，比如街头风琴手是否死亡或存活。当天夜晚，街头风琴手要再次选择自己醉酒或清醒。</li>
+</ul>
+<h2 id="范例">范例</h2>
+<p>有八名玩家存活。<a href="../pages/%E8%B4%B5%E6%97%8F.html" title="贵族">贵族</a>被提名了。所有玩家闭眼投票，<a href="../pages/%E8%B4%B5%E6%97%8F.html" title="贵族">贵族</a>获得了5票。<a href="../pages/%E5%B0%8F%E6%81%B6%E9%AD%94.html" title="小恶魔">小恶魔</a>被提名了。所有玩家闭眼投票，<a href="../pages/%E5%B0%8F%E6%81%B6%E9%AD%94.html" title="小恶魔">小恶魔</a>获得了7票。<a href="../pages/%E5%B0%8F%E7%B2%BE%E7%81%B5.html" title="小精灵">小精灵</a>被提名了。所有玩家闭眼投票，<a href="../pages/%E5%B0%8F%E7%B2%BE%E7%81%B5.html" title="小精灵">小精灵</a>获得了4票。在提名阶段结束时，说书人宣布道哥（<a href="../pages/%E5%B0%8F%E6%81%B6%E9%AD%94.html" title="小恶魔">小恶魔</a>的玩家）被处决并死亡，善良阵营获胜。</p>
+<h2 id="运作方式">运作方式</h2>
+<p>每个夜晚，唤醒街头风琴手点头或摇头。街头风琴手如果点头：放置“醉酒”提示标记；如果摇头：不放置“醉酒”提示标记。让街头风琴手重新入睡。</p>
+<p>当一名玩家被提名后开始投票时，如果街头风琴手是清醒的，要求所有玩家闭上双眼。如果有玩家询问原因，那么告诉他们街头风琴手在场。秘密无声地进行票数的统计。在那之后，不要告诉大家有多少玩家投了票，也不告诉大家被提名者是否“即将被处决”。如果被提名者有足够被处决的票数，标记那名玩家“即将被处决”。告诉所有玩家可以睁开眼睛了，并继续处理接下来可能会有的提名。</p>
+<p>当一天的所有提名都结束时，宣布当前被标记了“即将被处决”的玩家被处决（并死亡，或因为其他原因没有死亡）。</p>
+<p>黄昏时，移除街头风琴手的醉酒提示标记。</p>
+<p>玩家不允许使用任何手段或方式来决定谁来投票，例如触碰或是声响。投票必须是秘密进行的。</p>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>即将被处决</li>
+</ul>
+<p>放置时机：在一次提名的投票被统计，当前被提名者得票过半且是当天得票最多的玩家后。</p>
+<p>放置条件：放置在该玩家的角色标记旁。</p>
+<p>转移时机：当天有新的得票过半且得票超过被标记了“即将被处决”的玩家时，转移到新的即将被处决的玩家的角色标记旁。</p>
+<p>移除时机：当天有玩家得票与“即将被处决”的玩家得票相同时，或处决执行完毕。</p>
+<ul>
+<li>醉酒</li>
+</ul>
+<p>放置时机：在街头风琴手夜晚行动后。</p>
+<p>放置条件：在街头风琴手夜晚行动并点头后放置在街头风琴手的角色标记旁。若此时街头风琴手醉酒中毒，则不放置该标记。</p>
+<p>移除时机：在黄昏时，或街头风琴手死亡或离场时。</p>
+<h2 id="规则细节">规则细节</h2>
+<ul>
+<li>特定角色互动：</li>
+<ul>
+<li><a href="../pages/%E6%9E%AA%E6%89%8B.html" title="枪手">枪手</a>：因为说书人能够决定在游戏中有哪些旅行者可以出场并被玩家选择作为自己的旅行者角色，因此避免枪手在有街头风琴手的剧本中出场是应对这两个角色的奇怪互动的最好方式。</li>
+</ul>
+</ul>
+<ul>
+<li>相克规则：</li>
+<ul>
+<li><a href="../pages/%E7%AE%A1%E5%AE%B6.html" title="管家">管家</a>：如果街头风琴手使得玩家需要闭眼投票，管家可以自由举手投票，但只在他的主人投票时他的票才会被统计。</li>
+<li><a href="../pages/%E7%82%BC%E9%87%91%E6%9C%AF%E5%A3%AB.html" title="炼金术士">炼金术士</a>：如果炼金术士获得街头风琴手的能力，街头风琴手一定在场。如果炼金术士和街头风琴手都是清醒的，改为他们都醉酒。</li>
+</ul>
+</ul>
+<ul>
+<li>相克规则（与华灯系列角色）：</li>
+<ul>
+<li><a href="../pages/%E6%A2%BC%E6%9D%8C.html" title="梼杌">梼杌</a>：当梼杌被处决时，如果街头风琴手具有能力，说书人会宣布“无人被处决”。</li>
+</ul>
+</ul>
+<h2 id="角色信息">角色信息</h2>
+<ul>
+<li>英文名：Organ Grinder</li>
+</ul>
+<ul>
+<li>所属剧本：<a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html" title="实验性角色">实验性角色</a>、<a href="../pages/%E6%84%9A%E8%80%85%E6%AC%A2%E5%AE%B4.html" title="愚者欢宴">愚者欢宴</a>（快速上手剧本）</li>
+</ul>
+<ul>
+<li>角色类型：<a href="../pages/%E7%88%AA%E7%89%99.html" title="爪牙">爪牙</a></li>
+</ul>
+<ul>
+<li>角色能力类型：<a href="../pages/%E6%8A%95%E7%A5%A8.html" title="投票">投票</a>、<a href="../pages/%E6%9A%B4%E9%9C%B2%E8%A7%92%E8%89%B2.html" title="暴露角色">暴露角色</a>、<a href="../pages/%E9%86%89%E9%85%92.html" title="醉酒">醉酒</a></li>
+</ul>
+<ul>
+<li>角色背景相关：通常来说街头风琴手在表演的时候都会带着一只猴子，而“街头风琴手的猴子”在英语语境中的引申义为“被操控的人”，与之对应的“街头风琴手”则是“幕后操手”。这也是为什么街头风琴手的图标是一只猴子。</li>
+</ul></div>
+    <div class="page-meta">最后修改于 2026-06-09T08:54:01Z，编辑者 <b>Beiyu</b> ｜ 页面 5,020 字节 ｜ <a href="https://clocktower-wiki.gstonegames.com/index.php?title=%E8%A1%97%E5%A4%B4%E9%A3%8E%E7%90%B4%E6%89%8B" target="_blank" rel="noopener">查看原页面</a> ｜ <div class="comment">编辑摘要：/* 角色简介 */</div></div>
+    <div class="backlinks"><b>链入此页的页面（24）</b><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a><a href="../pages/%E7%82%BC%E9%87%91%E6%9C%AF%E5%A3%AB.html">炼金术士</a><a href="../pages/%E6%9A%B4%E9%9C%B2%E8%A7%92%E8%89%B2.html">暴露角色</a><a href="../pages/%E6%8A%95%E7%A5%A8.html">投票</a><a href="../pages/%E9%86%89%E9%85%92.html">醉酒</a><a href="../pages/%E7%AE%A1%E5%AE%B6.html">管家</a><a href="../pages/%E7%88%AA%E7%89%99.html">爪牙</a><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a><a href="../pages/%E8%A1%97%E5%A4%B4%E9%A3%8E%E7%90%B4%E6%89%8B.html">街头风琴手</a><a href="../pages/%E6%84%9A%E8%80%85%E6%AC%A2%E5%AE%B4.html">愚者欢宴</a><a href="../pages/%E7%98%9F%E7%96%AB%E5%8C%BB%E7%94%9F.html">瘟疫医生</a><a href="../pages/%E6%A2%BC%E6%9D%8C.html">梼杌</a><a href="../pages/%E5%A4%9C%E6%99%9A%E8%A1%8C%E5%8A%A8%E9%A1%BA%E5%BA%8F%E4%B8%80%E8%A7%88.html">夜晚行动顺序一览</a><a href="../pages/%E6%96%B0%E8%A7%92%E8%89%B2%E5%85%AC%E5%B8%83%E8%AE%A1%E5%88%92.html">新角色公布计划</a><a href="../pages/%E4%BF%AE%E8%A1%8C%E8%80%85.html">修行者</a><a href="../pages/%E7%AC%AC%E4%B8%80%E5%B1%8A%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A%E5%89%A7%E6%9C%AC%E5%88%9B%E4%BD%9C%E5%A4%A7%E8%B5%9B.html">第一届华灯初上剧本创作大赛</a><a href="../pages/%E5%8D%A1%E6%89%8E%E5%8A%9B.html">卡扎力</a><a href="../pages/%E9%AA%91%E8%99%8E%E7%94%9F%E6%AD%BB%E8%A1%8C.html">骑虎生死行</a><a href="../pages/%E8%A1%8C%E6%88%90%E4%B8%8B%E5%AD%A4%E4%B9%A1.html">行成下孤乡</a><a href="../pages/%E8%A7%84%E5%88%99%E8%B0%83%E6%95%B4%E6%8F%90%E5%89%8D%E5%85%AC%E7%A4%BA.html">规则调整提前公示</a><a href="../pages/%E5%A0%A4%E4%B8%B0%E4%B9%8B%E9%A6%96.html">堤丰之首</a><a href="../pages/%E5%B9%BD%E7%81%B5%E4%BE%A6%E6%8E%A2.html">幽灵侦探</a><a href="../pages/Q%E5%AE%9D.html">Q宝</a><a href="../pages/%E5%AE%A0%E5%A6%83.html">宠妃</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

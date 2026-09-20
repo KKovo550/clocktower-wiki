@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>农夫 - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">农夫</h1>
+    <div class="tagline">来自钟楼百科</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#提示与技巧">提示与技巧</a></li><li class="lvl2"><a href="#伪装成农夫">伪装成农夫</a></li><li class="lvl2"><a href="#角色信息">角色信息</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E5%86%9C%E5%A4%AB">查找包含此角色的剧本 →</a></p><p><a href="../pages/%E5%86%9C%E5%A4%AB.html" class="image-link" title="农夫"><img alt="Farmer.png" style="width:200px" class="" loading="lazy" data-source-image="../images/Farmer.png" src="../assets/media/Farmer.preview.webp" width="600" height="600" decoding="async"></a></p>
+<h2 id="背景故事">背景故事</h2>
+<p><em>“即使那些高高在上的人也需要吃东西。没有了我们，城市就会挨饿。”</em></p>
+<h2 id="角色能力">角色能力</h2>
+<p><strong>当你在夜晚死亡时，一名存活的善良玩家会变成农夫。</strong></p>
+<h2 id="角色简介">角色简介</h2>
+<p>农夫能够创造更多的农夫。</p>
+<ul>
+<li>如果一名农夫在夜晚死亡，会有另一名玩家变成农夫。</li>
+</ul>
+<ul>
+<li>只有善良玩家能够通过这种方式变成农夫。</li>
+</ul>
+<ul>
+<li>如果这名新的农夫也在夜晚死亡了，会再次有另一名农夫被创造出来。</li>
+</ul>
+<ul>
+<li>在白天死亡的农夫，例如因处决而死亡，无法创造新的农夫。</li>
+</ul>
+<ul>
+<li>已经转为邪恶阵营的农夫，例如受到灵言师的能力所影响，仍然可以创造新的农夫。然而已经转为邪恶阵营的镇民和外来者无法因为这种方式被变成农夫。</li>
+</ul>
+<ul>
+<li>农夫们之间不会互相认识，但是每名变成农夫的玩家都会得知他现在是农夫了。</li>
+</ul>
+<ul>
+<li>当一名玩家变成农夫后，他不再是原本的角色，也不再拥有那个角色的能力。所有与他原本能力相关的持续性效果都会立即终止。</li>
+</ul>
+<h2 id="范例">范例</h2>
+<p>小佳是<a href="../pages/%E5%86%9C%E5%A4%AB.html" title="农夫">农夫</a>，恶魔在夜晚杀死了他。小文是<a href="../pages/%E6%81%90%E6%83%A7%E4%B9%8B%E7%81%B5.html" title="恐惧之灵">恐惧之灵</a>，小美是<a href="../pages/%E7%82%BC%E9%87%91%E6%9C%AF%E5%A3%AB.html" title="炼金术士">炼金术士</a>。小美在当晚变成了<a href="../pages/%E5%86%9C%E5%A4%AB.html" title="农夫">农夫</a>。小文无法因此变成<a href="../pages/%E5%86%9C%E5%A4%AB.html" title="农夫">农夫</a>，因为他是邪恶玩家。</p>
+<p>在第二个夜晚，<a href="../pages/%E5%86%9C%E5%A4%AB.html" title="农夫">农夫</a>死亡。<a href="../pages/%E5%B0%8F%E7%B2%BE%E7%81%B5.html" title="小精灵">小精灵</a>变成了<a href="../pages/%E5%86%9C%E5%A4%AB.html" title="农夫">农夫</a>。在第三个夜晚，新的<a href="../pages/%E5%86%9C%E5%A4%AB.html" title="农夫">农夫</a>死亡，善良的<a href="../pages/%E5%BC%82%E7%AB%AF%E5%88%86%E5%AD%90.html" title="异端分子">异端分子</a>变成了<a href="../pages/%E5%86%9C%E5%A4%AB.html" title="农夫">农夫</a>。现在<a href="../pages/%E5%BC%82%E7%AB%AF%E5%88%86%E5%AD%90.html" title="异端分子">异端分子</a>和<a href="../pages/%E5%B0%8F%E7%B2%BE%E7%81%B5.html" title="小精灵">小精灵</a>都不在场了，并且有三名<a href="../pages/%E5%86%9C%E5%A4%AB.html" title="农夫">农夫</a>在场，其中两名已死亡。</p>
+<p><a href="../pages/%E5%86%9C%E5%A4%AB.html" title="农夫">农夫</a>在夜晚死亡。<a href="../pages/%E9%97%B4%E8%B0%8D.html" title="间谍">间谍</a>被当作了善良阵营，并因此变成了<a href="../pages/%E5%86%9C%E5%A4%AB.html" title="农夫">农夫</a>，但实际上他仍然保持为邪恶阵营不变。</p>
+<h2 id="运作方式">运作方式</h2>
+<p>如果农夫在夜晚死亡，唤醒一名存活的善良玩家。对他展示“你是”信息标记和农夫角色标记，然后让他重新入睡。用农夫角色标记替换他此前的角色标记。</p>
+<h2 id="提示标记">提示标记</h2>
+<p>无</p>
+<h2 id="规则细节">规则细节</h2>
+<ul>
+<li>存活且善良的玩家才会因农夫的能力变成农夫，所以在农夫行动顺序之前已经死亡的玩家或已经转变为邪恶阵营的玩家不会因农夫的能力变成农夫。</li>
+</ul>
+<ul>
+<li>特定角色互动：</li>
+<ul>
+<li><a href="../pages/%E9%A3%9F%E4%BA%BA%E6%97%8F.html" title="食人族">食人族</a>/<a href="../pages/%E5%93%B2%E5%AD%A6%E5%AE%B6.html" title="哲学家">哲学家</a>/<a href="../pages/%E5%B0%8F%E7%B2%BE%E7%81%B5.html" title="小精灵">小精灵</a>：如果获得农夫能力的玩家在夜晚死亡，他会让一个存活善良玩家变成农夫，而不是变成他原本实际的角色。</li>
+<li><a href="../pages/%E4%BE%8D%E5%A5%B3.html" title="侍女">侍女</a>：当晚如果一名玩家仅被唤醒告知角色变成农夫，他是因为之前农夫的能力被唤醒，所以不会被侍女探查。然而，如果当晚该玩家在变成农夫之前因自身能力醒来，尽管他现在拥有的是不同的能力，侍女仍会探查。</li>
+<li><a href="../pages/%E8%B5%8C%E5%BE%92.html" title="赌徒">赌徒</a>：如果赌徒已经赌错并死亡，他不能在当晚的晚些时候变成农夫，因为他已经死亡。</li>
+<li><a href="../pages/%E9%80%A0%E8%B0%A3%E8%80%85.html" title="造谣者">造谣者</a>：如果当晚造谣者在行动顺序之前变成农夫，没有玩家会因造谣者而死，因为造谣者这个角色离场了。然而，农夫可以因为造谣者的能力死亡后让造谣者自己变成农夫。</li>
+<li><a href="../pages/%E5%8D%8A%E5%85%BD%E4%BA%BA.html" title="半兽人">半兽人</a>：如果半兽人杀死农夫，然后变成农夫，当晚恶魔能够造成死亡，因为场上不再有半兽人能力阻止恶魔的杀戮。</li>
+<li><a href="../pages/%E6%95%B0%E5%AD%A6%E5%AE%B6.html" title="数学家">数学家</a>：玩家变成农夫并且不再能够使用他之前的能力，数学家不会检测。</li>
+<li><a href="../pages/%E9%95%87%E9%95%BF.html" title="镇长">镇长</a>：农夫可以代替镇长死亡，之后善良的镇长也可以变成农夫。</li>
+<li><a href="../pages/%E7%BD%82%E7%B2%9F%E7%A7%8D%E6%A4%8D%E8%80%85.html" title="罂粟种植者">罂粟种植者</a>：如果罂粟种植者变成农夫，邪恶阵营无法互认。</li>
+<li><a href="../pages/%E8%8E%BD%E5%A4%AB.html" title="莽夫">莽夫</a>：可以变成农夫。先前的农夫玩家没有使用自身能力选择莽夫，是说书人选择，所以莽夫不会导致之前的农夫醉酒。</li>
+<li><a href="../pages/%E9%97%B4%E8%B0%8D.html" title="间谍">间谍</a>：可以被当作善良玩家，变成农夫。</li>
+<li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html" title="旅行者">旅行者</a>：根据标准钟楼规则，旅行者不能改变角色，因此存活的善良旅行者无法变成农夫。</li>
+<li><a href="../pages/%E5%92%96%E5%95%A1%E5%B8%88.html" title="咖啡师">咖啡师</a>：如果当晚因为咖啡师导致农夫能力生效两次，农夫的死亡会导致两名存活善良玩家变成农夫。</li>
+</ul>
+</ul>
+<ul>
+<li>相克规则：</li>
+<ul>
+<li><a href="../pages/%E5%88%A9%E7%BB%B4%E5%9D%A6.html" title="利维坦">利维坦</a>：每个夜晚*，利维坦要选择一名存活玩家（与之前的每个夜晚不同）：如果农夫被选择，他的能力生效但不会死亡。</li>
+<li><a href="../pages/%E6%9A%B4%E4%B9%B1.html" title="暴乱">暴乱</a>：每个夜晚*，暴乱要选择一名存活玩家（与之前的每个夜晚不同）：如果农夫被选择，他的能力生效但不会死亡。</li>
+</ul>
+</ul>
+<h2 id="提示与技巧">提示与技巧</h2>
+<ul>
+<li>如果你在夜晚死亡，静静地等待某名玩家作为新任农夫搭讪你。</li>
+</ul>
+<ul>
+<li>农夫能够成为邪恶阵营的强力牢笼。如果你在夜晚变为农夫，联系最近死亡的玩家，告诉他们现在你是农夫。这种互动很难伪装，这意味着你们两个可以互相信任。</li>
+</ul>
+<ul>
+<li>如果你发觉你想活下来，作为农夫现身，公然激恶魔在夜晚杀死你。在夜晚没有其他死亡来源的游戏中尤其有效。这能够迷惑恶魔，让他们反复揣测你的动机。</li>
+</ul>
+<ul>
+<li>宣称自己是那些高优先级目标，例如<a href="../pages/%E8%B5%8F%E9%87%91%E7%8C%8E%E4%BA%BA.html" title="赏金猎人">赏金猎人</a>或是<a href="../pages/%E5%8D%A0%E5%8D%9C%E5%B8%88.html" title="占卜师">占卜师</a>，诱骗恶魔在夜晚杀死你。一旦你死亡并确认了新农夫是谁，就宣称你和他其实交换过（宣称的）角色，他们才是真正的高优先级目标，诱使恶魔也杀死他们。</li>
+</ul>
+<ul>
+<li>试着不要立刻公开现身，因为建立一个大的农夫团队比一个小的农夫团队要厉害得多。回溯这些信息（链）让新农夫能够获得你可以信任的确切信息。</li>
+</ul>
+<ul>
+<li>试着寻找一个高优先级目标并和他们交换（宣称的）角色，这样你可以作为一个优秀的目标在夜晚被杀，这也有助于保护其他玩家，尤其是当你是第一任农夫时。</li>
+</ul>
+<ul>
+<li>试着在游戏过程中和多数人交谈，这样使你看起来像是在传播关于邪恶阵营重要信息，这样能让你看起来是一个需要被灭口的高优先级目标。</li>
+</ul>
+<ul>
+<li>不惜代价避免处决，因为你的能力只在你死于夜晚时才能触发。</li>
+</ul>
+<ul>
+<li>在你确认了一批玩家已经转变为农夫时一起现身，并使用这些信息作为开始寻找邪恶玩家的基础。这是一个分辨你可以信任和不能信任的人的优秀策略。</li>
+</ul>
+<ul>
+<li>如果一个农夫链人数大于当前游戏设置中的邪恶玩家总数，这基本意味着你可以信任该农夫队伍中的所有人。</li>
+</ul>
+<ul>
+<li>让强力角色转变为农夫比试着让他们在夜晚存活能带来更多好处。不要因为害怕把强力角色转变为农夫而害怕在夜晚死亡。</li>
+</ul>
+<ul>
+<li>注意玩家在成为农夫之前的角色。如果他们是外来者，这可能是一个善良阵营做得不够好的线索，说书人正试图帮助他们。如果是一个游戏开始时能力的玩家或已经使用了能力的每场游戏限一次能力角色，这意味着游戏是均势。如果是一个强力角色，也许这意味着善良阵营即将获胜。</li>
+</ul>
+<h2 id="伪装成农夫">伪装成农夫</h2>
+<ul>
+<li>如果你打算隐秘行事，伪装成农夫可能是游戏后期一个不错的考虑。农夫不太可能很早现身，也很适合在你伪装的其他角色被识破后作为替代方案。</li>
+</ul>
+<ul>
+<li>在游戏前期告诉几个人你是农夫，然后让他们活到游戏后期，这样你就能将他们描绘成恶魔或是邪恶角色来解释你为什么没有死亡，这是非常强的邪恶伪装。</li>
+</ul>
+<ul>
+<li>如果一名邪恶玩家因为任何原因在夜晚死亡，你可以选择伪装成农夫。只需要接近他并悄悄告诉他们你要伪装成农夫，你在另一名邪恶玩家死亡的晚上成为了农夫。这个方法在和会杀死爪牙的恶魔例如<a href="../pages/%E4%BA%A1%E9%AA%A8%E9%AD%94.html" title="亡骨魔">亡骨魔</a>搭配时会尤其有效。</li>
+</ul>
+<ul>
+<li>作为农夫伪装可能会有些困难因为你需要与其他邪恶玩家合作。如果你因为种种原因在夜晚死亡，你可以自称是农夫。这位另一名邪恶玩家创造了自称是农夫与你呼应的机会。但是这并不意味着你被其他人信任，这只能确认你们是一伙的。</li>
+</ul>
+<ul>
+<li>伪装成农夫可能是对抗真农夫的一个好方法。如果你作为农夫现身，真正的农夫可能会被迫与你对质以防止你们的故事被相信。</li>
+</ul>
+<h2 id="角色信息">角色信息</h2>
+<ul>
+<li>英文名：Farmer</li>
+</ul>
+<ul>
+<li>所属剧本：<a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html" title="实验性角色">实验性角色</a>、<a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html" title="梦殒春宵">梦殒春宵</a>卡牌版</li>
+</ul>
+<ul>
+<li>角色类型：<a href="../pages/%E9%95%87%E6%B0%91.html" title="镇民">镇民</a></li>
+</ul>
+<ul>
+<li>角色能力类型：<a href="../pages/%E8%A7%92%E8%89%B2%E5%8F%98%E5%8C%96.html" title="角色变化">角色变化</a>、<a href="../pages/%E6%AD%BB%E4%BA%A1%E8%A7%A6%E5%8F%91%E8%83%BD%E5%8A%9B.html" title="死亡触发能力">死亡触发能力</a></li>
+</ul></div>
+    <div class="page-meta">最后修改于 2026-06-22T01:42:38Z，编辑者 <b>Zack</b> ｜ 页面 8,281 字节 ｜ <a href="https://clocktower-wiki.gstonegames.com/index.php?title=%E5%86%9C%E5%A4%AB" target="_blank" rel="noopener">查看原页面</a> ｜ <div class="comment">编辑摘要：/* 角色简介 */</div></div>
+    <div class="backlinks"><b>链入此页的页面（37）</b><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a><a href="../pages/%E6%B0%94%E7%90%83%E9%A9%BE%E9%A9%B6%E5%91%98.html">气球驾驶员</a><a href="../pages/%E5%8D%8A%E5%85%BD%E4%BA%BA.html">半兽人</a><a href="../pages/%E5%86%9C%E5%A4%AB.html">农夫</a><a href="../pages/%E7%BD%82%E7%B2%9F%E7%A7%8D%E6%A4%8D%E8%80%85.html">罂粟种植者</a><a href="../pages/%E5%93%88%E8%BF%AA%E5%AF%82%E4%BA%9A.html">哈迪寂亚</a><a href="../pages/%E6%9A%B4%E4%B9%B1.html">暴乱</a><a href="../pages/%E5%88%A9%E7%BB%B4%E5%9D%A6.html">利维坦</a><a href="../pages/%E7%97%A2%E8%9B%AD.html">痢蛭</a><a href="../pages/%E8%A7%92%E8%89%B2%E5%8F%98%E5%8C%96.html">角色变化</a><a href="../pages/%E6%AD%BB%E4%BA%A1%E8%A7%A6%E5%8F%91%E8%83%BD%E5%8A%9B.html">死亡触发能力</a><a href="../pages/%E9%85%92%E9%AC%BC.html">酒鬼</a><a href="../pages/%E6%9D%82%E8%80%8D%E8%89%BA%E4%BA%BA.html">杂耍艺人</a><a href="../pages/%E9%95%87%E6%B0%91.html">镇民</a><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a><a href="../pages/%E5%8F%AA%E6%89%8B%E9%81%AE%E5%A4%A9.html">只手遮天</a><a href="../pages/%E5%A4%9C%E6%99%9A%E8%A1%8C%E5%8A%A8%E9%A1%BA%E5%BA%8F%E4%B8%80%E8%A7%88.html">夜晚行动顺序一览</a><a href="../pages/%E4%BA%BA%E9%97%B4%E6%9A%97%E6%9C%88%E5%A4%9C.html">人间暗月夜</a><a href="../pages/%E9%AA%91%E8%99%8E%E7%94%9F%E6%AD%BB%E8%A1%8C.html">骑虎生死行</a><a href="../pages/%E8%8E%AB%E8%A8%80%E4%B8%89%E5%8D%83%E6%AD%BB.html">莫言三千死</a><a href="../pages/%E9%B8%A3%E9%A3%8E%E5%99%AC%E5%90%8E%E6%B5%AA.html">鸣风噬后浪</a><a href="../pages/%E9%A3%8E%E4%BA%91%E5%AD%B0%E6%88%8F%E8%A8%80.html">风云孰戏言</a><a href="../pages/%E6%97%A0%E4%BD%95%E6%9C%89%E4%B9%8B%E4%B9%A1.html">无何有之乡</a><a href="../pages/%E4%BE%A0%E4%BA%91%E6%95%88%E8%89%AF%E5%85%9A.html">侠云效良党</a><a href="../pages/%E5%AF%B9%E5%A2%9F%E9%9A%BE%E6%AC%A2%E9%B8%A3.html">对墟难欢鸣</a><a href="../pages/%E8%A7%84%E5%88%99%E8%B0%83%E6%95%B4%E6%8F%90%E5%89%8D%E5%85%AC%E7%A4%BA.html">规则调整提前公示</a><a href="../pages/%E7%8B%82%E7%83%AD%E8%80%85.html">狂热者</a><a href="../pages/%E9%97%B2%E8%A8%80%E7%A2%8E%E8%AF%AD.html">闲言碎语</a><a href="../pages/%E4%BF%A1%E5%8F%A3%E9%9B%8C%E9%BB%84.html">信口雌黄</a><a href="../pages/%E8%A6%81%E8%B5%A2%E4%BA%86%E5%90%97%EF%BC%9F.html">要赢了吗？</a><a href="../pages/%E4%BA%8B%E6%95%85%E9%99%90%E5%9C%BA.html">事故限场</a><a href="../pages/%E4%B8%83%E6%AD%A5%E6%88%90%E8%AF%97.html">七步成诗</a><a href="../pages/%E5%B9%BD%E7%81%B5%E4%BE%A6%E6%8E%A2.html">幽灵侦探</a><a href="../pages/%E5%86%A5%E6%B2%B3%E9%82%AA%E6%B8%A1.html">冥河邪渡</a><a href="../pages/%E4%B8%80%E5%BE%80%E5%B7%AB%E5%89%8D.html">一往巫前</a><a href="../pages/%E6%B1%9F%E5%9F%8E%E5%90%AF.html">江城启</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

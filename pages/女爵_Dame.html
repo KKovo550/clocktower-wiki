@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>女爵 Dame - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">女爵 Dame<span class="ns-badge">奥德赛</span></h1>
+    <div class="tagline">来自钟楼百科 · 摘自《奥德赛 Odyssey》百科 · 镇民</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#夜晚行动顺序">夜晚行动顺序</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#游玩与对抗技巧">游玩与对抗技巧</a></li><li class="lvl2"><a href="#伪装成该角色">伪装成该角色</a></li><li class="lvl2"><a href="#出现剧本">出现剧本</a></li><li class="lvl2"><a href="#整体设计">整体设计</a></li><li class="lvl2"><a href="#创意来源">创意来源</a></li><li class="lvl2"><a href="#图标画师">图标画师</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E5%A5%B3%E7%88%B5">查找包含此角色的剧本 →</a></p><div class="charinfo"><div class="charinfo-img"><a href="../files/%E6%96%87%E4%BB%B6_%E5%A5%B3%E7%88%B5.png.html"><img alt="女爵 Dame" data-source-image="../images/%E5%A5%B3%E7%88%B5.png" src="../assets/media/女爵.preview.webp" width="600" height="600" decoding="async"></a></div><div class="charinfo-meta"><div class="row"><span class="k">角色类型</span><span class="v"><a href="../pages/%E9%95%87%E6%B0%91.html" title="镇民">镇民</a></span></div><div class="row"><span class="k">英文名</span><span class="v">Dame</span></div><div class="row"><span class="k">角色ID</span><span class="v">093</span></div><div class="row"><span class="k">角色归属</span><span class="v">角色拓展包《奥德赛》</span></div><div class="row"><span class="k">能力标签</span><span class="v"><a href="../pages/%E8%8E%B7%E5%8F%96%E4%BF%A1%E6%81%AF.html" title="获取信息">获取信息</a>、<a href="../pages/%E9%86%89%E9%85%92.html" title="醉酒">醉酒</a></span></div><div class="row"><span class="k">角色定位</span><span class="v">持续信息镇民</span></div><div class="row"><span class="k">发布日期</span><span class="v">2026.6.9</span></div><div class="row"><span class="k">角色授权</span><span class="v">开放（任意剧本创作皆可使用，不要改能力）</span></div><div class="row"><span class="k">出处</span><span class="v"><a class="external" href="https://www.yuque.com/u48069482/taiyi" target="_blank" rel="noopener">《奥德赛 Odyssey》百科</a></span></div></div></div><h2 id="背景故事">背景故事</h2>
+<p>_"__<span style="color:rgb(64, 64, 64);">这世上有两种醉。第一种是喝了太多相同的酒，第二种是听了太多不同的谎话。第一种醉，睡一觉就过去了。第二种醉，会渗进你的骨头里。我几乎每天都在和不同的人喝，我知道第一种醉害不了我，但我也知道第二种醉了太多次，就醒不过来了。所以你看我现在到底是醉了，还是醒着？"</span>_</p>
+<h2 id="角色简介"><span style="color:rgb(64, 64, 64);">角色简介</span></h2>
+<p>女爵每晚能得知在场的角色，但她会从某一时间点开始醉酒。</p>
+<h2 id="角色能力">角色能力</h2>
+<div class="callout callout-info">
+<p>每个夜晚，你会得知一个在场的角色。当邪恶玩家死亡时，你醉酒。</p>
+</div>
+<h2 id="范例">范例</h2>
+<ul>
+<li>第一个夜晚，女爵得知了男爵。第二个夜晚，女爵得知了厨师。第三个夜晚，女爵得知了小恶魔。没有邪恶玩家死亡，男爵、厨师、小恶魔都是在场角色。</li>
+<li>第一个夜晚，女爵得知了男爵。第二个夜晚，男爵死亡，女爵开始醉酒，女爵得知了占卜师。第三个夜晚，女爵得知了圣徒。男爵在场，而占卜师和圣徒不在场。</li>
+<li>第一个夜晚，女爵得知了占卜师。第二个夜晚，男爵死亡，女爵开始醉酒，女爵得知了小恶魔。第三个夜晚，女爵得知了圣徒。占卜师、小恶魔在场，圣徒不在场。</li>
+</ul>
+<h2 id="运作方式">运作方式</h2>
+<p>每个夜晚，唤醒女爵并告知他一个在场的角色（可以是镇民、外来者、爪牙、恶魔中的任意一种角色）。然后让女爵重新入睡。</p>
+<p>当有邪恶玩家死亡时，在女爵的角色标记旁放置“醉酒”提示标记——她从现在开始醉酒。如果女爵已经因自身能力醉酒，则不需要重复放置。</p>
+<h2 id="夜晚行动顺序">夜晚行动顺序</h2>
+<ul>
+<li>首个夜晚</li>
+<ul>
+<li>夜序数值：8510</li>
+<li>前位角色：筑梦师</li>
+<li>行动提示：唤醒她并告知她一个在场角色。</li>
+</ul>
+<li>其他夜晚</li>
+<ul>
+<li>夜序数值：11510</li>
+<li>前位角色：筑梦师</li>
+<li>行动提示：唤醒她并告知她一个在场角色。</li>
+</ul>
+</ul>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>醉酒</li>
+<ul>
+<li>放置时机：邪恶玩家死亡时。</li>
+<li>放置条件：邪恶玩家死亡时，在女爵角色标记旁放置，无论女爵是否中毒醉酒。</li>
+<li>移除时机：女爵死亡或离场时。</li>
+</ul>
+</ul>
+<h2 id="规则细节">规则细节</h2>
+<ul>
+<li>女爵只会得知镇民、外来者、爪牙、恶魔角色。</li>
+<li>你可以告知女爵重复的角色，如果你认为有必要的话。</li>
+<li>建议交替给予女爵善良角色和邪恶角色。尽量不要一直给善良角色，特别是镇民，且是在女爵没有醉酒的前提下，因为这么做女爵的信息强度会超出预期。女爵得知不同角色的强度排行大概是镇民＞恶魔＞外来者＞爪牙。</li>
+<li>如果女爵醉酒，他可以得知在场角色，也可以得知不在场角色。</li>
+<li>如果女爵在因其他角色的能力中毒醉酒时邪恶玩家死亡，依然要放置女爵的“醉酒”提示标记。在女爵恢复清醒健康后会立即因为自身能力醉酒。</li>
+<li>如果女爵在游戏中途被创造，她不会因之前死亡的邪恶玩家醉酒。但她会在下一个邪恶玩家死亡时开始醉酒。</li>
+<li>女爵不会得知旅行者角色（旅行者隔绝原则）。</li>
+<li><strong>信息格式：</strong>一个在场的角色（如占卜师或男爵）。</li>
+<li><strong>错误（虚假）信息格式：</strong>一个不在场的角色（如占卜师或男爵）。</li>
+</ul>
+<h2 id="游玩与对抗技巧">游玩与对抗技巧</h2>
+<ul>
+<li>如果你是女爵。你在首个夜晚得知的角色一定在场，如果你得知的是善良角色，那么声称该角色的玩家就应该是个好人。</li>
+<li>如果你是女爵。越到游戏后期，你的信息可信度就越低。因为随着时间的推移，邪恶玩家死亡的概率就越大。</li>
+<li>如果你是女爵。如果清楚的知道某个邪恶玩家死亡了，那么从现在开始你的信息就不再具有价值了。</li>
+<li>如果你是邪恶玩家。如果你知道女爵在场，早点死亡也许不是个坏主意。以此干扰女爵的信息，误导善良阵营。</li>
+<li>如果你是恶魔。如果你知道女爵在场，不用惧怕她。你可以攻击她，或者尝试攻击自己的队友，可以让女爵醉酒，干扰女爵的信息，也是一个不错的选择。</li>
+</ul>
+<h2 id="伪装成该角色">伪装成该角色</h2>
+<ul>
+<li>如果你是爪牙。女爵是一个优良的伪装。故意报出看似不在场的角色可以攻击以前死亡的玩家中有邪恶玩家。</li>
+<li>如果你是恶魔。伪装为女爵的关键在于游戏前中期报出相对可信的在场角色，在游戏的中后期开始报出一些看似不在场的角色。这有利于让大家更信任你。</li>
+</ul>
+<h2 id="出现剧本">出现剧本</h2>
+<ul>
+<li><em>暂无</em></li>
+</ul>
+<h2 id="整体设计">整体设计</h2>
+<ul>
+<li>太一</li>
+</ul>
+<h2 id="创意来源">创意来源</h2>
+<ul>
+<li>太一</li>
+</ul>
+<h2 id="图标画师">图标画师</h2>
+<ul>
+<li>Lei.</li>
+</ul></div>
+    <div class="page-meta">最后修改于 2026-09-08T05:08:51.000Z，编辑者 <b>未知</b> ｜ 页面 4,713 字节 ｜ <a href="https://www.yuque.com/u48069482/taiyi/wiis9gzga4lhsu4g" target="_blank" rel="noopener">查看原页面</a></div>
+    <div class="backlinks"><b>链入此页的页面（1）</b><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">奥德赛 Odyssey</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>晓 Dawnyx - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">晓 Dawnyx<span class="ns-badge">奥德赛</span></h1>
+    <div class="tagline">来自钟楼百科 · 摘自《奥德赛 Odyssey》百科 · 爪牙</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#夜晚行动顺序">夜晚行动顺序</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#游玩与对抗技巧">游玩与对抗技巧</a></li><li class="lvl2"><a href="#整体设计">整体设计</a></li><li class="lvl2"><a href="#创意来源">创意来源</a></li><li class="lvl2"><a href="#图标画师">图标画师</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E6%99%93">查找包含此角色的剧本 →</a></p><div class="charinfo"><div class="charinfo-img"><a href="../files/%E6%96%87%E4%BB%B6_%E6%99%93.png.html"><img alt="晓 Dawnyx" data-source-image="../images/%E6%99%93.png" src="../assets/media/晓.preview.webp" width="600" height="600" decoding="async"></a></div><div class="charinfo-meta"><div class="row"><span class="k">角色类型</span><span class="v"><a href="../pages/%E7%88%AA%E7%89%99.html" title="爪牙">爪牙</a></span></div><div class="row"><span class="k">英文名</span><span class="v">Dawnyx</span></div><div class="row"><span class="k">角色ID</span><span class="v">083</span></div><div class="row"><span class="k">角色归属</span><span class="v">角色拓展包《奥德赛》</span></div><div class="row"><span class="k">能力标签</span><span class="v"><a href="../pages/%E5%A4%84%E5%86%B3.html" title="处决">处决</a>、<a href="../pages/%E8%8E%B7%E5%BE%97%E8%83%BD%E5%8A%9B.html" title="获得能力">获得能力</a></span></div><div class="row"><span class="k">角色定位</span><span class="v">保护爪牙</span></div><div class="row"><span class="k">发布日期</span><span class="v">2026.5.30</span></div><div class="row"><span class="k">角色授权</span><span class="v">开放（任意剧本创作皆可使用，不要改能力）</span></div><div class="row"><span class="k">出处</span><span class="v"><a class="external" href="https://www.yuque.com/u48069482/taiyi" target="_blank" rel="noopener">《奥德赛 Odyssey》百科</a></span></div></div></div><h2 id="背景故事">背景故事</h2>
+<p><em>"你们把黎明画成金色的，真温柔。我眼中的黎明是紫色的——淤血的颜色。那是夜被活活吸干时留下的淤青。恶魔就在这片淤青里苏醒，吸食破晓前最后一滴黑暗。你们以为光来了，邪魔就会退散？不。光来了，我才能看清你们的脸。现在，天亮了，游戏重新开始。"</em></p>
+<h2 id="角色简介"><span style="color:rgb(64, 64, 64);">角色简介</span></h2>
+<p>晓令死亡的恶魔在黎明时重获能力。</p>
+<h2 id="角色能力">角色能力</h2>
+<div class="callout callout-info">
+<p>善良阵营在你存活时无法获胜。死于处决的恶魔会在黎明时重获能力。</p>
+</div>
+<h2 id="范例">范例</h2>
+<ul>
+<li>第一个白天。小恶魔死于处决，因为晓的能力，游戏并没有结束。第二个夜晚，因为恶魔死亡，所以无人被杀死。黎明时，小恶魔重获能力。在之后的每个夜晚，小恶魔都进行了攻击。</li>
+<li>第一个白天。小恶魔死于处决，因为晓的能力，游戏并没有结束。第二个白天，晓死于处决，游戏结束。善良阵营获胜。</li>
+<li>只剩下4名存活玩家的白天，恶魔死于处决，因为晓存活，所有游戏没有结束。当晚，无人死亡。下一个白天，还剩3名存活玩家。一名善良玩家死于处决，只剩晓与另一名存活玩家。游戏结束，邪恶阵营获胜。</li>
+<li>只剩下3名存活玩家的白天，恶魔和晓都存活。说书人提前宣布邪恶阵营获胜。因为今天无论处决谁，都达成了邪恶阵营的获胜条件，而无法达成善良阵营的获胜条件。</li>
+</ul>
+<h2 id="运作方式">运作方式</h2>
+<p>只要晓存活并拥有能力，善良阵营就无法获胜。如果场上只剩下2名存活玩家，而此时善良阵营无法获胜，宣布邪恶阵营获胜。</p>
+<p>如果恶魔死于处决，继续进行游戏。在黎明时，在死于处决的恶魔角色标记旁放置“重获能力”提示标记——从现在开始，该恶魔每天将正常使用他的能力。</p>
+<h2 id="夜晚行动顺序">夜晚行动顺序</h2>
+<ul>
+<li>首个夜晚</li>
+<ul>
+<li>夜序数值：/</li>
+<li>前位角色：/</li>
+<li>行动提示：/</li>
+</ul>
+<li>其他夜晚</li>
+<ul>
+<li>夜序数值：/</li>
+<li>前位角色：/</li>
+<li>行动提示：/</li>
+</ul>
+</ul>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>重获能力</li>
+<ul>
+<li>放置时机：黎明时分</li>
+<li>放置条件：在死于处决的恶魔的角色标记旁放置。</li>
+<li>移除时机：晓死亡或离场时。</li>
+</ul>
+</ul>
+<h2 id="规则细节">规则细节</h2>
+<ul>
+<li>唯一存活的恶魔死于处决时，因为晓的能力，游戏不会结束，照常进行下去。</li>
+<li>只有晓存活时，善良阵营才无法获胜。如果晓死亡了但保留能力，善良阵营依然可以正常获胜。</li>
+<li>如果场上没有存活的恶魔，晓中毒醉酒、死亡或失去能力，立即结束游戏并宣布善良阵营获胜。因为此时没有阻止善良阵营获胜的因素了。</li>
+<li>如果晓在场，善良阵营就无法获胜。包括所有特殊胜利方式，比如戏法师、呆瓜、镇长等等。</li>
+<li>一般来说，只剩下3名存活玩家，且晓与恶魔同时存活时，可以提前宣布邪恶获胜。但如果剧本中存在善良可能获胜或有需要相互掩护的情况，请按流程将最后一天进行完毕。</li>
+<li>只有死于处决的恶魔才会因晓的能力重获能力，死于其他原因的不行。比如自杀或因其他角色能力导致的死亡无法触发晓的能力。</li>
+</ul>
+<h2 id="游玩与对抗技巧">游玩与对抗技巧</h2>
+<ul>
+<li>如果你是晓。尽可能活到最后，你比恶魔更重要。</li>
+<li>如果你是晓。一般情况下，如果你的能力被触发，当晚会是平安夜。想办法掩盖这件事情。</li>
+<li>如果你是晓。你不会被当做恶魔，这是你的优势。尽量扮演为一个存在感低的好人以存活到最后一天。</li>
+<li>如果你是善良玩家。晓的能力触发通常伴随着平安夜。如果你们认为恶魔已经死亡，尽快找到并处决晓。</li>
+<li>如果你是善良玩家。如果你发现了疑似晓的玩家，优先解决他。</li>
+</ul>
+<h2 id="整体设计">整体设计</h2>
+<ul>
+<li>太一</li>
+</ul>
+<h2 id="创意来源">创意来源</h2>
+<ul>
+<li>太一</li>
+</ul>
+<h2 id="图标画师">图标画师</h2>
+<ul>
+<li>Lei.</li>
+</ul></div>
+    <div class="page-meta">最后修改于 2026-09-08T05:14:24.000Z，编辑者 <b>未知</b> ｜ 页面 3,934 字节 ｜ <a href="https://www.yuque.com/u48069482/taiyi/lise7ywgz3wvn311" target="_blank" rel="noopener">查看原页面</a></div>
+    <div class="backlinks"><b>链入此页的页面（1）</b><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">奥德赛 Odyssey</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

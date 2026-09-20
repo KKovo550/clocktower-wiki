@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>独眼巨人 Cyclops - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">独眼巨人 Cyclops<span class="ns-badge">奥德赛</span></h1>
+    <div class="tagline">来自钟楼百科 · 摘自《奥德赛 Odyssey》百科 · 爪牙</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#夜晚行动顺序">夜晚行动顺序</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#游玩与对抗技巧">游玩与对抗技巧</a></li><li class="lvl2"><a href="#出现剧本">出现剧本</a></li><li class="lvl2"><a href="#整体设计">整体设计</a></li><li class="lvl2"><a href="#创意来源">创意来源</a></li><li class="lvl2"><a href="#图标画师">图标画师</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E7%8B%AC%E7%9C%BC%E5%B7%A8%E4%BA%BA">查找包含此角色的剧本 →</a></p><div class="charinfo"><div class="charinfo-img"><a href="../files/%E6%96%87%E4%BB%B6_%E7%8B%AC%E7%9C%BC%E5%B7%A8%E4%BA%BA.png.html"><img alt="独眼巨人 Cyclops" data-source-image="../images/%E7%8B%AC%E7%9C%BC%E5%B7%A8%E4%BA%BA.png" src="../assets/media/独眼巨人.preview.webp" width="600" height="600" decoding="async"></a></div><div class="charinfo-meta"><div class="row"><span class="k">角色类型</span><span class="v"><a href="../pages/%E7%88%AA%E7%89%99.html" title="爪牙">爪牙</a></span></div><div class="row"><span class="k">英文名</span><span class="v">Cyclops</span></div><div class="row"><span class="k">角色ID</span><span class="v">036</span></div><div class="row"><span class="k">角色归属</span><span class="v">角色拓展包《奥德赛》</span></div><div class="row"><span class="k">能力标签</span><span class="v">信息差爪牙</span></div><div class="row"><span class="k">角色授权</span><span class="v">开放（任意剧本创作可用，不要修改能力）</span></div><div class="row"><span class="k">出处</span><span class="v"><a class="external" href="https://www.yuque.com/u48069482/taiyi" target="_blank" rel="noopener">《奥德赛 Odyssey》百科</a></span></div></div></div><p><a href="../files/%E6%96%87%E4%BB%B6_%E7%8B%AC%E7%9C%BC%E5%B7%A8%E4%BA%BA.png.html" class="image-link" title="文件:独眼巨人.png"><img alt="独眼巨人.png" style="width:240px" class="" loading="lazy" data-source-image="../images/%E7%8B%AC%E7%9C%BC%E5%B7%A8%E4%BA%BA.png" src="../assets/media/独眼巨人.preview.webp" width="600" height="600" decoding="async"></a></p>
+<h2 id="背景故事">背景故事</h2>
+<p>_“__<span style="color:rgb(64, 64, 64);">俺就一只眼，但俺这只眼可好使了。你在屋里干啥，俺在山头上都看得清清楚楚。你别怪俺偷看，是主人让俺看的，俺只是听话。你昨晚睡觉前嘀咕的那句话，俺也听见了——俺耳朵也不差。</span>__”_</p>
+<h2 id="角色简介"><span style="color:rgb(64, 64, 64);">角色简介</span></h2>
+<p>独眼巨人每晚会查验其他玩家的角色。</p>
+<h2 id="角色能力">角色能力</h2>
+<div class="callout callout-info">
+<p>每个夜晚，你要选择一名玩家：你和恶魔会得知他是什么角色。如果你选中了外来者，他会得知独眼巨人在场。[+1外来者]</p>
+</div>
+<h2 id="范例">范例</h2>
+<ul>
+<li>独眼巨人在场，所以在场外来者数量比默认数量多了一名。第一个夜晚，独眼巨人选择了1号玩家女裁缝，独眼巨人和恶魔得知了1号玩家是女裁缝。第一个白天，恶魔声称自己是筑梦师，并且准确的报出了1号玩家是女裁缝。</li>
+<li>第一个夜晚，独眼巨人选择了1号玩家陌客，独眼巨人和恶魔得知了1号玩家是陌客。陌客得知了独眼巨人在场。</li>
+<li>第二个夜晚，独眼巨人选择了1号玩家贤者，独眼巨人和恶魔得知了1号玩家是贤者。当晚恶魔没有选择杀死贤者而选择了其他玩家。</li>
+</ul>
+<h2 id="运作方式">运作方式</h2>
+<p>在初始设置时，将角色标记放入盲抽袋前，把一个镇民角色标记替换为一个外来者角色标记。每个夜晚，唤醒独眼巨人，让他选择一名玩家，向独眼巨人展示该玩家的角色标记，然后让独眼巨人重新入睡。唤醒恶魔，向恶魔展示该玩家的角色标记，然后指向那名玩家，让恶魔重新入睡。如果当晚独眼巨人选择的是一名外来者，再唤醒该外来者，向他展示独眼巨人角色标记（或告知他独眼巨人在场），然后让这名玩家入睡。</p>
+<h2 id="夜晚行动顺序">夜晚行动顺序</h2>
+<ul>
+<li>首个夜晚</li>
+<ul>
+<li>夜序数值：5610</li>
+<li>前位角色：镜像双子</li>
+<li>行动提示：让他选择一名玩家。</li>
+</ul>
+<li>其他夜晚</li>
+<ul>
+<li>夜序数值：1420</li>
+<li>前位角色：投毒者</li>
+<li>行动提示：让他选择一名玩家。</li>
+</ul>
+</ul>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>无</li>
+</ul>
+<h2 id="规则细节">规则细节</h2>
+<ul>
+<li>你可以欺骗中毒醉酒的独眼巨人，给他错误的角色信息。但在独眼巨人中毒醉酒情况下，他无法再让恶魔收到信息，以及让外来者得知独眼巨人在场。</li>
+<li>如果是线下游玩，请先唤醒独眼巨人，让他选择并让他得知角色后让他先入睡，再唤醒恶魔告知恶魔哪一名玩家被独眼巨人选择了以及该玩家是什么角色。不要同时唤醒独眼巨人与恶魔。</li>
+<li>如果有多名恶魔在场，由说书人决定独眼巨人会与哪一名恶魔共享他的信息。</li>
+<li>当独眼巨人选中外来者时，在独眼巨人行动完毕后立即唤醒该外来者并告知他独眼巨人在场。</li>
+<li>独眼巨人不可以选择旅行者玩家（旅行者隔绝原则）。</li>
+</ul>
+<h2 id="游玩与对抗技巧">游玩与对抗技巧</h2>
+<ul>
+<li>优先查看那些看似是重要角色的玩家，掌握谁是重要角色是关键情报。</li>
+<li>优先查看那些高水平玩家的角色，确定他们的角色及立场有助于你对局势做出判断。</li>
+<li>避免查看那些疑似外来者的玩家，这样会暴露独眼巨人在场以及在场外来者数量。</li>
+<li>要记住你的情报会共享给恶魔，恶魔会根据你的情报去选择杀死哪些玩家。你和恶魔甚至不需要多做沟通，就可以打出默契的配合，这是你能力的强大之处。</li>
+<li>如果独眼巨人不在场，你可以公开声称自己是外来者，甚至可以声称得知了独眼巨人在场。如果善良真的相信独眼巨人在场，那么你大概率可以活到最后。副作用是如果善良玩家们确定了场上并不存在独眼巨人，那么你会立刻被当作是邪恶的。</li>
+<li>如果一名外来者声称独眼巨人在场，且外来者数量比默认数量多。那么只有2种情况，一种是独眼巨人的确在场，外来者都是好人（除奇美拉在场）。要么声称独眼巨人在场的外来者是邪恶的，独眼巨人并不在场。</li>
+<li>观察场上的外来者数量，如果比默认的多，那么即使没有外来者得知独眼巨人在场，独眼巨人也非常有可能存在。</li>
+</ul>
+<h2 id="出现剧本">出现剧本</h2>
+<ul>
+<li>仲夏夜之梦</li>
+</ul>
+<h2 id="整体设计">整体设计</h2>
+<ul>
+<li>太一</li>
+</ul>
+<h2 id="创意来源">创意来源</h2>
+<ul>
+<li>太一</li>
+</ul>
+<h2 id="图标画师">图标画师</h2>
+<ul>
+<li>Lei.</li>
+</ul></div>
+    <div class="page-meta">最后修改于 2026-07-31T06:32:36.000Z，编辑者 <b>未知</b> ｜ 页面 4,386 字节 ｜ <a href="https://www.yuque.com/u48069482/taiyi/qqbywgiaqfhy3gky" target="_blank" rel="noopener">查看原页面</a></div>
+    <div class="backlinks"><b>链入此页的页面（1）</b><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">奥德赛 Odyssey</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

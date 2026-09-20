@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>堤丰之首 - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content"><h1 class="page-title">堤丰之首</h1><div class="tagline">来自钟楼百科</div><div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E5%A0%A4%E4%B8%B0%E4%B9%8B%E9%A6%96">查找包含此角色的剧本 →</a></p><p><a href="../pages/%E5%A0%A4%E4%B8%B0%E4%B9%8B%E9%A6%96.html" title="堤丰之首"><img alt="Lordoftyphon.png" data-source-image="../images/sync_e36df8a460d9afdf4a28.png" src="../assets/media/sync_e36df8a460d9afdf4a28.preview.webp" width="200" height="200" decoding="async"></a>
+</p>
+<div class="toc" id="toc"><div class="toctitle"><h2 id="mw-toc-heading">目录</h2><span class="toctogglespan"></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#背景故事"><span class="tocnumber">1</span> <span class="toctext">背景故事</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#角色能力"><span class="tocnumber">2</span> <span class="toctext">角色能力</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#角色简介"><span class="tocnumber">3</span> <span class="toctext">角色简介</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#范例"><span class="tocnumber">4</span> <span class="toctext">范例</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#运作方式"><span class="tocnumber">5</span> <span class="toctext">运作方式</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#提示标记"><span class="tocnumber">6</span> <span class="toctext">提示标记</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#规则细节"><span class="tocnumber">7</span> <span class="toctext">规则细节</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#提示与技巧"><span class="tocnumber">8</span> <span class="toctext">提示与技巧</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="#对抗堤丰之首"><span class="tocnumber">9</span> <span class="toctext">对抗堤丰之首</span></a></li>
+<li class="toclevel-1 tocsection-10"><a href="#角色信息"><span class="tocnumber">10</span> <span class="toctext">角色信息</span></a></li>
+</ul>
+</div>
+
+<span id=".E8.83.8C.E6.99.AF.E6.95.85.E4.BA.8B"></span><h2 id="背景故事">背景故事</h2>
+<p><i>“在宇宙的阴影之中，被遗忘的角落里，星辰向虚空低声诉说着秘密，那些深邃的真理，仅是一瞥就能让肉体凡胎的心智崩溃瓦解。”</i>
+</p>
+<span id=".E8.A7.92.E8.89.B2.E8.83.BD.E5.8A.9B"></span><h2 id="角色能力">角色能力</h2>
+<p><b>每个夜晚*，你要选择一名玩家：他死亡。[邪恶角色全部邻座，你靠近正中，+1爪牙，-或+任意数量外来者]</b>
+</p>
+<span id=".E8.A7.92.E8.89.B2.E7.AE.80.E4.BB.8B"></span><h2 id="角色简介">角色简介</h2>
+<p>堤丰之首被爪牙围绕。
+</p>
+<ul><li>所有邪恶角色玩家全都连续相邻而坐。</li></ul>
+<ul><li>在游戏开始时，堤丰之首的左右两侧必须都要有邪恶角色玩家。他不能位于一连串邪恶角色玩家队列的两侧。</li></ul>
+<ul><li>邪恶阵营在游戏开始时有一名额外的爪牙。</li></ul>
+<ul><li>可能会有任意数量的外来者在场。</li></ul>
+<ul><li>与提线木偶相似，由说书人来决定哪名玩家在初始设置时成为爪牙。此外说书人还会决定爪牙的具体角色。</li></ul>
+<ul><li>如果堤丰之首在游戏中途被创造，则他无需与其他邪恶角色玩家的位置相邻。</li></ul>
+<span id=".E8.8C.83.E4.BE.8B"></span><h2 id="范例">范例</h2>
+<pre>在一局游戏中有两名爪牙：<a href="../pages/%E8%A1%97%E5%A4%B4%E9%A3%8E%E7%90%B4%E6%89%8B.html" title="街头风琴手">街头风琴手</a>和<a href="../pages/%E7%81%B5%E8%A8%80%E5%B8%88.html" title="灵言师">灵言师</a>。<a href="https://clocktower-wiki.gstonegames.com" class="mw-selflink selflink" rel="noopener" target="_blank">堤丰之首</a>位于他们中间，三人相邻而坐。外来者的数量没有出现异常。
+</pre>
+<pre><a href="../pages/%E7%BB%B4%E9%BD%90%E5%B0%94.html" title="维齐尔">维齐尔</a>与<a href="../pages/%E9%B9%B0%E8%BA%AB%E5%A5%B3%E5%A6%96.html" title="鹰身女妖">鹰身女妖</a>相邻，<a href="../pages/%E9%B9%B0%E8%BA%AB%E5%A5%B3%E5%A6%96.html" title="鹰身女妖">鹰身女妖</a>的另一侧则是<a href="https://clocktower-wiki.gstonegames.com" class="mw-selflink selflink" rel="noopener" target="_blank">堤丰之首</a>，而<a href="https://clocktower-wiki.gstonegames.com" class="mw-selflink selflink" rel="noopener" target="_blank">堤丰之首</a>的另一侧是<a href="../pages/%E5%93%A5%E5%B8%83%E6%9E%97.html" title="哥布林">哥布林</a>。本局为10人游戏，因为<a href="https://clocktower-wiki.gstonegames.com" class="mw-selflink selflink" rel="noopener" target="_blank">堤丰之首</a>的能力而使得有两名外来者在场。
+</pre>
+<pre><a href="../pages/%E6%81%90%E6%83%A7%E4%B9%8B%E7%81%B5.html" title="恐惧之灵">恐惧之灵</a>与<a href="../pages/%E7%82%B8%E5%BC%B9%E4%BA%BA.html" title="炸弹人">炸弹人</a>相邻，<a href="../pages/%E7%82%B8%E5%BC%B9%E4%BA%BA.html" title="炸弹人">炸弹人</a>的另一侧是<a href="https://clocktower-wiki.gstonegames.com" class="mw-selflink selflink" rel="noopener" target="_blank">堤丰之首</a>，<a href="https://clocktower-wiki.gstonegames.com" class="mw-selflink selflink" rel="noopener" target="_blank">堤丰之首</a>的另一侧是<a href="../pages/%E6%8A%95%E6%AF%92%E8%80%85.html" title="投毒者">投毒者</a>，<a href="../pages/%E6%8A%95%E6%AF%92%E8%80%85.html" title="投毒者">投毒者</a>的另一侧是<a href="../pages/%E4%B8%BB%E8%B0%8B.html" title="主谋">主谋</a>。本局为15人游戏，但没有外来者在场，因为<a href="https://clocktower-wiki.gstonegames.com" class="mw-selflink selflink" rel="noopener" target="_blank">堤丰之首</a>移除了一个外来者，而<a href="../pages/%E8%A7%A3%E8%B0%9C%E5%A4%A7%E5%B8%88.html" title="解谜大师">解谜大师</a>在首夜变成了<a href="../pages/%E7%82%B8%E5%BC%B9%E4%BA%BA.html" title="炸弹人">炸弹人</a>。
+</pre>
+<span id=".E8.BF.90.E4.BD.9C.E6.96.B9.E5.BC.8F"></span><h2 id="运作方式">运作方式</h2>
+<p>在进行游戏设置时，将角色标记放入盲抽袋前，移除所有的爪牙角色标记，并加入等量的镇民或外来者角色标记作为补充。
+</p><p>在首个夜晚，分别依次唤醒位于堤丰之首两侧的，等同于常规游戏爪牙数量加一的玩家。分别对这些玩家展示一个不同的爪牙角色标记和朝下的大拇指，再让他们重新入睡。再用展示给他们的爪牙角色标记替换魔典中这些玩家的善良角色标记。然后再如常进行爪牙信息和恶魔信息步骤。
+</p><p>在除首个夜晚以外的每个夜晚，唤醒堤丰之首。让他指向任意一名玩家。那名玩家死亡——用“死亡”提示标记标记那名玩家。让堤丰之首重新入睡。
+</p>
+<span id=".E6.8F.90.E7.A4.BA.E6.A0.87.E8.AE.B0"></span><h2 id="提示标记">提示标记</h2>
+<ul><li>死亡</li></ul>
+<p>放置时机：在堤丰之首夜晚行动并选择了玩家后放置。
+</p><p>放置条件：堤丰之首选择的玩家当前存活，且能被堤丰之首杀死，且堤丰之首未醉酒中毒，那么在该玩家的角色标记旁放置，用以提醒说书人在黎明时分宣布当晚的死亡玩家。
+</p><p>移除时机：在黎明时宣布死亡玩家后，说书人可以任由自己方便来进行移除。
+</p>
+<span id=".E8.A7.84.E5.88.99.E7.BB.86.E8.8A.82"></span><h2 id="规则细节">规则细节</h2>
+<ul><li>虽然在运作方式中没有提到，然而堤丰之首在设置时也可以移除一部分原有的外来者，并用对应数量的镇民进行替换。</li></ul>
+<ul><li>如果游戏因堤丰之首而导致有4名邪恶爪牙在场，那么堤丰之首可以不在这5名邪恶玩家的正中间（但不能位于一连串邪恶角色玩家队列的两侧）。</li></ul>
+<ul><li>相克规则：
+<ul><li><a href="../pages/%E5%8F%AC%E5%94%A4%E5%B8%88.html" title="召唤师">召唤师</a>：如果召唤师创造了堤丰之首，则堤丰之首必须与一名爪牙相邻，且堤丰之首另一侧的玩家会变成一个邪恶的爪牙。</li></ul></li></ul>
+<ul><li>相克规则（与华灯系列角色）：
+<ul><li><a href="../pages/%E6%88%8F%E5%AD%90.html" title="戏子">戏子</a>：堤丰之首和戏子不能在初始时同时在场。如果有角色能力能够使得善良玩家在第一个夜晚变成戏子，说书人会在这一效果生效之前先告知堤丰之首两侧的玩家是邪恶的爪牙。</li></ul></li></ul>
+<span id=".E6.8F.90.E7.A4.BA.E4.B8.8E.E6.8A.80.E5.B7.A7"></span><h2 id="提示与技巧">提示与技巧</h2>
+<ul><li>如果你是爪牙，直接使用你在游戏开始时抽到的角色作为伪装。如果善良阵营找出了一名邪恶玩家，并发现堤丰之首在场，他们就能找出整个邪恶团队。所以你必须看起来非常像是善良的。</li></ul>
+<ul><li>如果你是爪牙，并且开局抽到的角色是外来者，那么就使用恶魔的其中一个伪装。因为如果让善良阵营认为游戏中的外来者数量不合标准，这会指出堤丰之首在场。</li></ul>
+<ul><li>如果你是爪牙，并且你使用其他角色作为伪装，记得将你开局抽到的角色作为备用计划。</li></ul>
+<ul><li>藏起来！堤丰之首这种恶魔并不适合高风险高收益的玩法。谨慎考虑作为一个明跳出来的邪恶玩家所带来的后果。</li></ul>
+<ul><li>利用好额外爪牙带来的优势。额外增加一名爪牙意味着你们能以更多票数压倒善良阵营，并且能在游戏后期有更多存活的邪恶玩家。</li></ul>
+<ul><li>随时分析你们与善良阵营对票数的掌控能力对比。</li></ul>
+<ul><li>不要形成一致票型。如果一条线并排的玩家一起投票，善良阵营会发现邪恶玩家连座的位置，特别是有卖花女孩这样的角色可以监测投票信息的时候。</li></ul>
+<ul><li>利用邻座的优势来交换信息。在每个白天开始时随意闲聊！在夜晚时与邻座玩家窃窃私语！你们有着完美的座位优势来制定不间断的邪恶计划。</li></ul>
+<ul><li>注意那些正在观察你与邻座玩家交谈的玩家。将这些玩家诬陷为邪恶的，以此来转移其他人对于你及你的阵营的注意力。</li></ul>
+<ul><li>努力诋毁或是毒害那些有信息能够指向堤丰之首在场的玩家们。</li></ul>
+<ul><li>当善良玩家还没法确定邪恶玩家在哪里时，让那些离你较远的玩家看起来是邪恶的。比如声称自己是城镇公告员，然后在只有坐在你对面的某名玩家提名之后，声称自己得知有爪牙提名；或是声称自己是占卜师，声称从离自己较远的两名玩家中得知“是”。</li></ul>
+<ul><li>如果善良玩家正在锁定邪恶团队，你们就去诬陷你们这一排两头的那些善良玩家。</li></ul>
+<ul><li>如果有玩家认为不是堤丰之首在场，就让他们这样想！爪牙应该做坏事来分散善良玩家的注意力并保护恶魔。</li></ul>
+<ul><li>公开反对你的队友们，让你们看起来像是对立的阵营。</li></ul>
+<ul><li>如果你没有坐在整个邪恶阵营的两头，你可以选择一些离你们这排较远的善良玩家，与他们建立信任。</li></ul>
+<span id=".E5.AF.B9.E6.8A.97.E5.A0.A4.E4.B8.B0.E4.B9.8B.E9.A6.96"></span><h2 id="对抗堤丰之首">对抗堤丰之首</h2>
+<ul><li>注意玩家的投票票型。因为邪恶玩家们坐成一排，他们会为了最大化他们的控票力量而一同投票。</li></ul>
+<ul><li>找出一名邪恶玩家。如果你找出了一名邪恶的爪牙，并且排除了其他恶魔在场的可能性，这会让你们找出剩下的整个邪恶团队。</li></ul>
+<ul><li>找出善良玩家们，因为他们不可能与恶魔邻座——因为堤丰之首必须让邪恶玩家坐成一排，并让自己坐在靠近中间的位置，所以如果堤丰之首在场，恶魔在初始时总是与邪恶玩家邻座。</li></ul>
+<ul><li>分析出是哪个恶魔在场。</li></ul>
+<ul><li>注意有多少个爪牙能力正在生效。如果场上有额外的爪牙，那意味着堤丰之首在场。得知这一点会很有帮助。</li></ul>
+<ul><li>如果你找出了一名爪牙，或者认为你找到了，那就杀死他们两边的玩家。如果是堤丰之首在场，你这样做就能保证杀死了一名爪牙，或两名爪牙，或是杀死恶魔。</li></ul>
+<span id=".E8.A7.92.E8.89.B2.E4.BF.A1.E6.81.AF"></span><h2 id="角色信息">角色信息</h2>
+<ul><li>英文名：Lord of Typhon</li></ul>
+<ul><li>所属剧本：<a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html" title="实验性角色">实验性角色</a></li></ul>
+<ul><li>角色类型：<a href="../pages/%E6%81%B6%E9%AD%94.html" title="恶魔">恶魔</a></li></ul>
+<ul><li>角色能力类型：<a href="../pages/%E8%AE%BE%E7%BD%AE%E8%B0%83%E6%95%B4.html" title="设置调整">设置调整</a></li></ul>
+
+
+
+
+</div><div class="page-meta">同步于 2026-09-18T21:37:36Z ｜ 修订 6500 ｜ <a href="https://clocktower-wiki.gstonegames.com/index.php?title=%E5%A0%A4%E4%B8%B0%E4%B9%8B%E9%A6%96" target="_blank" rel="noopener">查看原页面</a></div></main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

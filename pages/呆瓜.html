@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>呆瓜 - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">呆瓜</h1>
+    <div class="tagline">来自钟楼百科</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#提示与技巧">提示与技巧</a></li><li class="lvl2"><a href="#伪装成呆瓜">伪装成呆瓜</a></li><li class="lvl2"><a href="#角色信息">角色信息</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E5%91%86%E7%93%9C">查找包含此角色的剧本 →</a></p><p><a href="../pages/%E5%91%86%E7%93%9C.html" class="image-link" title="呆瓜"><img alt="Klutz.png" style="width:200px" class="" loading="lazy" data-source-image="../images/Klutz.png" src="../assets/media/Klutz.preview.webp" width="600" height="600" decoding="async"></a></p>
+<h2 id="背景故事">背景故事</h2>
+<p><em>“哎哟！”</em></p>
+<h2 id="角色能力">角色能力</h2>
+<p><strong>当你得知你死亡时，你要公开选择一名存活的玩家：如果他是邪恶的，你的阵营落败。</strong></p>
+<h2 id="角色简介">角色简介</h2>
+<p>呆瓜可能会导致他的阵营突然落败，除非他很聪明。</p>
+<ul>
+<li>当呆瓜死亡时，他必须公开选择一名玩家。他可能需要花几分钟来做决定——毕竟，这是一个大决定，而且其他玩家可以向他提供建议，但最终决定始终由呆瓜来做出。如果他选择了一名邪恶玩家，那游戏就立即结束，善良阵营落败。如果他选择了一名善良玩家，无事发生，游戏继续。</li>
+</ul>
+<ul>
+<li>说书人没有义务提醒呆瓜公开表明自己的角色并选择一名玩家。呆瓜必须在他得知自己死亡后，尽快去这样做。故意不这样做会被认为是作弊。</li>
+</ul>
+<h2 id="范例">范例</h2>
+<p><a href="../pages/%E5%91%86%E7%93%9C.html" title="呆瓜">呆瓜</a>死于处决。经过一番争吵，<a href="../pages/%E5%91%86%E7%93%9C.html" title="呆瓜">呆瓜</a>选择了一名玩家，而该玩家是善良的<a href="../pages/%E5%A5%B3%E8%A3%81%E7%BC%9D.html" title="女裁缝">女裁缝</a>。夜幕降临，游戏继续。</p>
+<p>恶魔杀死了<a href="../pages/%E5%91%86%E7%93%9C.html" title="呆瓜">呆瓜</a>玩家小莱。当说书人在黎明宣布小莱死亡后，小莱说“所有人注意了，我是<a href="../pages/%E5%91%86%E7%93%9C.html" title="呆瓜">呆瓜</a>，”在讨论几分钟后，小莱公开选择了一名玩家，而该玩家是邪恶的恶魔，游戏立即结束，邪恶方获胜，而且笑得很大声。</p>
+<h2 id="运作方式">运作方式</h2>
+<p>当呆瓜玩家被宣布死亡时，他必须宣布他是呆瓜，然后选择一名存活玩家（给他足够的时间）。如果他选择了一名邪恶玩家，游戏结束，邪恶阵营获胜。如果他选择了一名善良玩家，游戏继续。</p>
+<p>在特殊情况下，当属于邪恶阵营的呆瓜选择了一名邪恶玩家也会导致游戏结束，并且改为善良阵营获胜。</p>
+<p>如果呆瓜玩家没有意识到他必须在死亡时选择一名玩家，私下提醒他。新手玩家可能不明白他的角色如何运作。</p>
+<h2 id="提示标记">提示标记</h2>
+<p>无</p>
+<h2 id="提示与技巧">提示与技巧</h2>
+<ul>
+<li>就像<a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html" title="梦殒春宵">梦殒春宵</a>中几乎所有的外来者一样，你应该尽可能地避免死亡。如果你使用不当你的能力，那非常糟糕，因为它可能会直接结束游戏，但是只有当你真正死亡的时候，它才会成为一个问题！</li>
+</ul>
+<ul>
+<li>如果好人团队举步维艰，你可以慷慨赴死，通过选择他们来确定一个人是善良阵营的。你的能力会产生非常强大的信息，但是这伴随着相当大的风险。确信某人是好人可以让你完全信任他们，这在这个剧本中是非常罕见的事情！和<a href="../pages/%E8%88%9E%E8%9B%87%E4%BA%BA.html" title="舞蛇人">舞蛇人</a>相似的是，你的能力也不会被<a href="../pages/%E6%B6%A1%E6%B5%81.html" title="涡流">涡流</a>干扰，这意味着就算你怀疑他存在场上，也不必担心你的信息会是虚假的。（<strong> 注意：</strong> 虽然这听起来非常有用，甚至很诱人，但是请记住，不够小心的选择你就会直接输掉这场游戏！）</li>
+</ul>
+<ul>
+<li>在你死亡之前，和其他玩家一起努力寻找一个你认为他是善良阵营的玩家，以防止你意外的死亡了。（在你死亡之前是否向这个玩家透露你的角色，这取决于你自己——如果你这么做，他们可能会在你们都活着的时候更倾向于信任你。如果你不这么做，你的选择会更令人惊讶，但是这会看起来你与那个玩家的勾结会更少。这一切都取决于团队目前的倾向。）</li>
+</ul>
+<ul>
+<li>不要选择一名和别人角色重复的玩家——在大多数情况下，角色重复意味着两个玩家中的一个是邪恶的，这给了你50%的机会去输掉这场游戏！这包括<a href="../pages/%E9%95%9C%E5%83%8F%E5%8F%8C%E5%AD%90.html" title="镜像双子">镜像双子</a>和他的善良双胞胎，因为很难确定他们哪一个是真正的邪恶。你应该选择的目标是场上唯一的角色。</li>
+</ul>
+<ul>
+<li>如果大家想要处决你，你可以在投票前大声宣布你死亡后将选择哪位玩家作为<a href="../pages/%E5%91%86%E7%93%9C.html" title="呆瓜">呆瓜</a>。如果大家认为这个玩家是邪恶的，他们就不太可能处决你，这有助于善良团队继续下去这个游戏。如果恶魔那天晚上没有杀你，那可能意味着恶魔不想杀你，因为他知道你无论如何选的玩家都是善良阵营的。</li>
+</ul>
+<ul>
+<li>如果你死亡了，并且选择了一个玩家，而游戏并没有结束，你几乎可以肯定那名玩家是个善良的玩家。既然<a href="../pages/%E5%91%86%E7%93%9C.html" title="呆瓜">呆瓜</a>不受<a href="../pages/%E6%B6%A1%E6%B5%81.html" title="涡流">涡流</a>、<a href="../pages/%E8%AF%BA-%E8%BE%BE%E9%B2%BA.html" title="诺-达鲺">诺-达鲺</a>的影响，也可能不受<a href="../pages/%E5%BF%83%E4%B8%8A%E4%BA%BA.html" title="心上人">心上人</a>或者<a href="../pages/%E5%93%B2%E5%AD%A6%E5%AE%B6.html" title="哲学家">哲学家</a>影响，那么你可以放心地假设你没有醉酒或者中毒。</li>
+</ul>
+<h2 id="伪装成呆瓜">伪装成呆瓜</h2>
+<ul>
+<li>死亡是你的归宿！自杀然后声明自己是<a href="../pages/%E5%91%86%E7%93%9C.html" title="呆瓜">呆瓜</a>这可能会让你力挽狂澜。随着游戏的进行，一些邪恶的角色甚至会自然地导致邪恶玩家的死亡，这让伪装成<a href="../pages/%E5%91%86%E7%93%9C.html" title="呆瓜">呆瓜</a>变得比通常更可行。如果你是一个刚刚传递了自己恶魔能力的<a href="../pages/%E6%96%B9%E5%8F%A4.html" title="方古">方古</a>，或者一个刚刚被<a href="../pages/%E4%BA%A1%E9%AA%A8%E9%AD%94.html" title="亡骨魔">亡骨魔</a>杀死的爪牙，那就放心大胆的伪装自己的角色吧，让善良阵营的团队感受到恐惧。</li>
+</ul>
+<ul>
+<li>当你作为<a href="../pages/%E5%91%86%E7%93%9C.html" title="呆瓜">呆瓜</a>“选择一名玩家”时，你有以下的一些选择：</li>
+</ul>
+<ul>
+<ul>
+<li>选择一名你认为是善良阵营的玩家，且他是大家公认的好人——这样将使你博得该玩家的好感度，而且能让你看起来更值得信赖，进而意味着人们会听取你的建议，或者你的谎言，甚至相信你给出的信息。</li>
+</ul>
+</ul>
+<ul>
+<ul>
+<li>如果你伪装成<a href="../pages/%E5%91%86%E7%93%9C.html" title="呆瓜">呆瓜</a>且伪装得非常可靠和可信的，选择一个你知道的邪恶玩家——因为大家都信任你，他们就会相信被选中的这个玩家是善良的好人，并且他们将在至少一段时间内免受怀疑。</li>
+</ul>
+</ul>
+<ul>
+<ul>
+<li>如果你伪装成<a href="../pages/%E5%91%86%E7%93%9C.html" title="呆瓜">呆瓜</a>很可疑，选择一个你知道的好人玩家但是好人团队现在还无法确认他是好人的玩家。这将会让该玩家在接下来的游戏中被大家怀疑成你俩是一个阵营的玩家。如果你被当成真的邪恶玩家而被好人轮番攻击，他们也会这样对待该名玩家。</li>
+</ul>
+</ul>
+<ul>
+<ul>
+<li>最后，如果你伪装成<a href="../pages/%E5%91%86%E7%93%9C.html" title="呆瓜">呆瓜</a>很可疑，而大家很清楚你想把一个善良阵营的玩家拉下水，通过选择一个邪恶阵营的玩家来反向欺骗他们，这让他们看起来是极好的，这个代价只是你的命而已。你越坚持他们是邪恶的，大家就越坚持他们是善良的。</li>
+</ul>
+</ul>
+<ul>
+<li><a href="../pages/%E5%91%86%E7%93%9C.html" title="呆瓜">呆瓜</a>是个很好的陷阱骗局。要么对自己的角色保持沉默，要么假装声明自己是另一个角色，然后再承认自己是笨蛋。因为这是一个真正的笨蛋会做的事情，所以你会比你直接承认你是<a href="../pages/%E5%91%86%E7%93%9C.html" title="呆瓜">呆瓜</a>更可信。</li>
+</ul>
+<ul>
+<li>对于喜欢长时间游戏的玩家来说，一个有趣的选择是私下告诉一两个玩家你是<a href="../pages/%E5%91%86%E7%93%9C.html" title="呆瓜">呆瓜</a>，然后同时公开声称自己是另一个角色。这是一个和善良阵营玩家建立信任的好方法，因为你可以说这个秘密是因为你相信他们不会杀了你。玩家喜欢被信任的感觉，在他们获得对你的说法产生怀疑的信息之前，他们可能会倾向于回报你。然后你可以享受各种各样的乐趣——例如，让这些玩家代表你传播错误信息，在你几乎不动手脚的情况下混淆有用的信息！</li>
+</ul>
+<ul>
+<li>在你还活着的时候暴露你是个<a href="../pages/%E5%91%86%E7%93%9C.html" title="呆瓜">呆瓜</a>不是个最佳的选择，但是有几个情况是非常有必要这样去做的。比如说，你在试图避免被处决！另一个非常明智的决定就是当你面临着公开表明的外来者的数量等于本应参与游戏的外来者的数量——这给了善良阵营非常多的有关哪一种恶魔在场的信息，并且让这些外来者成为值得信赖的善良玩家。通过暴露自己，你搅乱了场上的局势信息，让所有的外来者都变得可疑，并且让大家觉得恶魔就是<a href="../pages/%E6%96%B9%E5%8F%A4.html" title="方古">方古</a>。最后，最好是在游戏接近尾声的时候“透露”，最好是在最后一天，如果善良阵营不会给你太大的压力的话——当你不再“害怕”被恶魔杀死时，隐藏起来没有什么意义。</li>
+</ul>
+<h2 id="角色信息">角色信息</h2>
+<ul>
+<li>英文名：Klutz</li>
+</ul>
+<ul>
+<li>所属剧本：<a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html" title="梦殒春宵">梦殒春宵</a></li>
+</ul>
+<ul>
+<li>角色类型：<a href="../pages/%E5%A4%96%E6%9D%A5%E8%80%85.html" title="外来者">外来者</a></li>
+</ul>
+<ul>
+<li>角色能力类型：<a href="../pages/%E6%AD%BB%E4%BA%A1%E8%A7%A6%E5%8F%91%E8%83%BD%E5%8A%9B.html" title="死亡触发能力">死亡触发能力</a>、<a href="../pages/%E5%85%AC%E5%BC%80%E8%A7%A6%E5%8F%91%E8%83%BD%E5%8A%9B.html" title="公开触发能力">公开触发能力</a>、<a href="../pages/%E7%89%B9%E6%AE%8A%E8%83%9C%E5%88%A9%E5%A4%B1%E8%B4%A5%E6%9D%A1%E4%BB%B6.html" title="特殊胜利失败条件">特殊胜利失败条件</a></li>
+</ul>
+<p><em>其他称呼（非官方，仅方便索引用）：傻瓜、笨蛋、白痴</em></p></div>
+    <div class="page-meta">最后修改于 2025-02-26T03:01:05Z，编辑者 <b>Zack</b> ｜ 页面 8,112 字节 ｜ <a href="https://clocktower-wiki.gstonegames.com/index.php?title=%E5%91%86%E7%93%9C" target="_blank" rel="noopener">查看原页面</a> ｜ <div class="comment">编辑摘要：/* 范例 */</div></div>
+    <div class="backlinks"><b>链入此页的页面（49）</b><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a><a href="../pages/%E6%96%B9%E5%8F%A4.html">方古</a><a href="../pages/%E5%A4%84%E5%86%B3.html">处决</a><a href="../pages/%E9%A3%9F%E4%BA%BA%E6%97%8F.html">食人族</a><a href="../pages/%E6%B8%94%E5%A4%AB.html">渔夫</a><a href="../pages/%E5%B0%86%E5%86%9B.html">将军</a><a href="../pages/%E5%BC%82%E7%AB%AF%E5%88%86%E5%AD%90.html">异端分子</a><a href="../pages/%E6%94%BF%E5%AE%A2.html">政客</a><a href="../pages/%E7%81%B5%E8%A8%80%E5%B8%88.html">灵言师</a><a href="../pages/%E7%B2%BE%E7%A5%9E%E7%97%85%E6%82%A3%E8%80%85.html">精神病患者</a><a href="../pages/%E6%9A%B4%E4%B9%B1.html">暴乱</a><a href="../pages/%E4%BA%A1%E9%AA%A8%E9%AD%94.html">亡骨魔</a><a href="../pages/%E8%AF%BA-%E8%BE%BE%E9%B2%BA.html">诺-达鲺</a><a href="../pages/%E5%85%AC%E5%BC%80%E8%A7%A6%E5%8F%91%E8%83%BD%E5%8A%9B.html">公开触发能力</a><a href="../pages/%E8%8E%B7%E5%8F%96%E4%BF%A1%E6%81%AF.html">获取信息</a><a href="../pages/%E6%AD%BB%E4%BA%A1%E8%A7%A6%E5%8F%91%E8%83%BD%E5%8A%9B.html">死亡触发能力</a><a href="../pages/%E7%89%B9%E6%AE%8A%E8%83%9C%E5%88%A9%E5%A4%B1%E8%B4%A5%E6%9D%A1%E4%BB%B6.html">特殊胜利失败条件</a><a href="../pages/%E5%BF%83%E4%B8%8A%E4%BA%BA.html">心上人</a><a href="../pages/%E7%95%B8%E5%BD%A2%E7%A7%80%E6%BC%94%E5%91%98.html">畸形秀演员</a><a href="../pages/%E5%91%86%E7%93%9C.html">呆瓜</a><a href="../pages/%E6%9D%82%E8%80%8D%E8%89%BA%E4%BA%BA.html">杂耍艺人</a><a href="../pages/%E5%A5%B3%E5%B7%AB.html">女巫</a><a href="../pages/%E6%B4%97%E8%84%91%E5%B8%88.html">洗脑师</a><a href="../pages/%E9%BA%BB%E8%84%B8%E5%B7%AB%E5%A9%86.html">麻脸巫婆</a><a href="../pages/%E5%A4%96%E6%9D%A5%E8%80%85.html">外来者</a><a href="../pages/%E6%97%A0%E4%B8%8A%E6%84%89%E6%82%A6.html">无上愉悦</a><a href="../pages/%E5%92%96%E5%95%A1%E5%B8%88.html">咖啡师</a><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a><a href="../pages/%E5%8F%AA%E6%89%8B%E9%81%AE%E5%A4%A9.html">只手遮天</a><a href="../pages/%E9%92%A6%E5%A4%A9%E7%9B%91.html">钦天监</a><a href="../pages/%E7%A9%B7%E5%A5%87.html">穷奇</a><a href="../pages/%E7%AC%AC%E4%B8%80%E5%B1%8A%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A%E5%89%A7%E6%9C%AC%E5%88%9B%E4%BD%9C%E5%A4%A7%E8%B5%9B.html">第一届华灯初上剧本创作大赛</a><a href="../pages/%E9%AA%91%E8%99%8E%E7%94%9F%E6%AD%BB%E8%A1%8C.html">骑虎生死行</a><a href="../pages/%E5%BC%95%E8%B7%AF%E4%BA%BA.html">引路人</a><a href="../pages/%E7%99%BD%E7%8B%90%E8%A1%8C%E4%B8%9B%E9%87%8C.html">白狐行丛里</a><a href="../pages/%E5%AF%B9%E5%A2%9F%E9%9A%BE%E6%AC%A2%E9%B8%A3.html">对墟难欢鸣</a><a href="../pages/%E8%B5%A6%E4%BB%A4%E6%89%BF%E6%97%A8.html">赦令承旨</a><a href="../pages/%E6%9E%AF%E6%9C%A8%E9%80%A2%E6%98%A5.html">枯木逢春</a><a href="../pages/%E8%8E%AB%E9%80%86%E4%B9%8B%E4%BA%A4.html">莫逆之交</a><a href="../pages/%E9%97%B2%E8%A8%80%E7%A2%8E%E8%AF%AD.html">闲言碎语</a><a href="../pages/%E6%96%B9%E5%A3%AB.html">方士</a><a href="../pages/%E4%B8%80%E9%99%90%E7%94%9F%E6%9C%BA.html">一限生机</a><a href="../pages/%E4%B8%8A%E5%B8%9D%E7%BC%BA%E5%B8%AD.html">上帝缺席</a><a href="../pages/%E4%B8%87%E6%97%A0%E5%BC%82%E5%A4%B1.html">万无异失</a><a href="../pages/%E6%9A%97%E5%BA%A6%E9%99%88%E4%BB%93.html">暗度陈仓</a><a href="../pages/%E6%97%A7%E6%97%A5%E7%86%9F%E8%AF%86.html">旧日熟识</a><a href="../pages/%E7%81%AF%E7%A5%9E%E5%A5%91%E7%BA%A6.html">灯神契约</a><a href="../pages/%E9%9A%90%E5%A3%AB.html">隐士</a><a href="../pages/%E6%98%8E%E4%BA%89%E6%9A%97%E6%96%97.html">明争暗斗</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

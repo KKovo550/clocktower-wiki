@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>德鲁伊 Druid - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">德鲁伊 Druid<span class="ns-badge">奥德赛</span></h1>
+    <div class="tagline">来自钟楼百科 · 摘自《奥德赛 Odyssey》百科 · 镇民</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#夜晚行动顺序">夜晚行动顺序</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#游玩与对抗技巧">游玩与对抗技巧</a></li><li class="lvl2"><a href="#伪装成该角色">伪装成该角色</a></li><li class="lvl2"><a href="#出现剧本">出现剧本</a></li><li class="lvl2"><a href="#整体设计">整体设计</a></li><li class="lvl2"><a href="#创意来源">创意来源</a></li><li class="lvl2"><a href="#图标画师">图标画师</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E5%BE%B7%E9%B2%81%E4%BC%8A">查找包含此角色的剧本 →</a></p><div class="charinfo"><div class="charinfo-img"><a href="../files/%E6%96%87%E4%BB%B6_%E5%BE%B7%E9%B2%81%E4%BC%8A.png.html"><img alt="德鲁伊 Druid" data-source-image="../images/%E5%BE%B7%E9%B2%81%E4%BC%8A.png" src="../assets/media/德鲁伊.preview.webp" width="600" height="600" decoding="async"></a></div><div class="charinfo-meta"><div class="row"><span class="k">角色类型</span><span class="v"><a href="../pages/%E9%95%87%E6%B0%91.html" title="镇民">镇民</a></span></div><div class="row"><span class="k">英文名</span><span class="v">Druid</span></div><div class="row"><span class="k">角色ID</span><span class="v">067</span></div><div class="row"><span class="k">角色归属</span><span class="v">角色拓展包《奥德赛》</span></div><div class="row"><span class="k">能力标签</span><span class="v"><a href="../pages/%E6%9A%B4%E9%9C%B2%E8%A7%92%E8%89%B2.html" title="暴露角色">暴露角色</a></span></div><div class="row"><span class="k">角色定位</span><span class="v">功能型镇民</span></div><div class="row"><span class="k">发布日期</span><span class="v">2026.5.13</span></div><div class="row"><span class="k">角色授权</span><span class="v">开放（任意剧本创作皆可使用，不要改能力）</span></div><div class="row"><span class="k">出处</span><span class="v"><a class="external" href="https://www.yuque.com/u48069482/taiyi" target="_blank" rel="noopener">《奥德赛 Odyssey》百科</a></span></div></div></div><h2 id="背景故事">背景故事</h2>
+<p><em>"自然里有捕食者，也有猎物。狼吃鹿，鹿吃草，草吃土里的骨头。每一张嘴都在吞食另一张嘴。这不是残忍，是平衡。但有一种捕食者，自然没有给它安排天敌。它吃的时候，不为了活，不为了饿，只是为了取乐。自然未曾备好枷锁，那便由我，来成为它的天敌。"</em></p>
+<h2 id="角色简介"><span style="color:rgb(64, 64, 64);">角色简介</span></h2>
+<p>如果德鲁伊两侧的玩家阵营相同，恶魔只能攻击他们。</p>
+<h2 id="角色能力">角色能力</h2>
+<div class="callout callout-info">
+<p>如果与你邻近的两名存活玩家的阵营相同，恶魔只能攻击他们。</p>
+</div>
+<h2 id="范例">范例</h2>
+<ul>
+<li>第二个夜晚，与德鲁伊邻近的两名存活玩家分别是男爵（邪恶）和占卜师（善良），恶魔可以攻击任意目标。当晚恶魔杀死了圣徒。</li>
+<li>第二个夜晚，与德鲁伊邻近的两名存活玩家分别是圣徒（善良）和占卜师（善良），说书人在唤醒恶魔时，向恶魔出示了德鲁伊的角色标记并指向圣徒玩家和占卜师玩家，恶魔只能选择他们。当晚恶魔杀死了圣徒。</li>
+</ul>
+<h2 id="运作方式">运作方式</h2>
+<p>如果与德鲁伊邻近的两名存活玩家都是善良的或都是邪恶的（略过旅行者），将德鲁伊的“强制选择”提示标记放置到这两名玩家的角色标记旁。如果与德鲁伊邻近的两名存活玩家一名是善良的而另一名是邪恶的，移除这些提示标记。根据这个条件在整局游戏中随时更新这些提示标记（例如一名玩家的阵营改变了或原本的玩家死亡了）。</p>
+<p>如果与德鲁伊邻近的两名存活玩家阵营相同，在恶魔行动的时间节点：如果恶魔的能力是由玩家决定攻击目标，唤醒恶魔并向他展示“该角色的能力对你生效”信息标记、德鲁伊的角色标记，并指向与德鲁伊邻近的两名存活玩家，恶魔只能攻击这两名玩家。如果恶魔的能力是由说书人决定攻击谁，说书人只能选择杀死与德鲁伊邻近的两名存活玩家。</p>
+<h2 id="夜晚行动顺序">夜晚行动顺序</h2>
+<ul>
+<li>首个夜晚</li>
+<ul>
+<li>夜序数值：/</li>
+<li>前位角色：/</li>
+<li>行动提示：/</li>
+</ul>
+<li>其他夜晚</li>
+<ul>
+<li>夜序数值：/</li>
+<li>前位角色：/</li>
+<li>行动提示：/</li>
+</ul>
+</ul>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>强制选择*2</li>
+<ul>
+<li>放置时机：每当与德鲁伊邻近的两名存活玩家都是属于善良阵营或都属于邪恶阵营时，放置此标记。</li>
+<li>放置条件：该标记的放置条件会进行动态检测。当满足条件时，放置标记，当不满足条件时，立即移除标记。标记只会放置在与德鲁伊邻近的两名存活玩家的角色标记旁。</li>
+<li>移除时机：德鲁伊死亡或离场时，或由于动态检测条件不满足时。</li>
+<li>特殊说明：动态检测会检查德鲁伊的两名邻近存活玩家和他们的阵营是否相同，因此如果与德鲁伊邻近的两名存活玩家的生死状态或阵营状态发生了变化，都需要重新进行检查。</li>
+</ul>
+</ul>
+<h2 id="规则细节">规则细节</h2>
+<ul>
+<li><strong><span style="color:rgb(64, 64, 64);">攻击</span></strong><span style="color:rgb(64, 64, 64);">：指拥有恶魔能力的玩家或说书人使用恶魔的致死能力选中玩家的行为。通常情况下，攻击会导致存活的玩家死亡。少数情况下，攻击不会导致玩家死亡，如攻击不会死亡的玩家或攻击已死亡的玩家。</span></li>
+<li><strong><span style="color:rgb(64, 64, 64);">只能攻击xx：</span></strong><span style="color:rgb(64, 64, 64);">指拥有恶魔能力的玩家因能力而被唤醒后，被提示只能攻击特定的玩家。说书人决定恶魔攻击的对象时，也只能选择特定的玩家。</span></li>
+<li>德鲁伊能力生效时，恶魔只能攻击与德鲁伊邻近的存活玩家。不管该恶魔的能力是由玩家选择还是说书人选择。</li>
+<li>如果恶魔能够杀死多名玩家，在恶魔杀死所有玩家以后再更新德鲁伊的能力判定。</li>
+<li>如果恶魔能够攻击2名以上的玩家（如珀），在德鲁伊能力生效时也只能选择最多2名玩家。</li>
+<li>德鲁伊的能力只影响恶魔的能力。非恶魔能力造成的死亡不会受到德鲁伊的影响。</li>
+<li>如果恶魔没有主动攻击玩家的能力 （牙噶巴布/小怪宝），则恶魔不会得知强制选择的对象，即不会因此暴露德鲁伊。由说书人在二人中选择。</li>
+<li>德鲁伊的能力判定会忽略旅行者玩家（旅行者隔绝原则）。</li>
+</ul>
+<h2 id="游玩与对抗技巧">游玩与对抗技巧</h2>
+<ul>
+<li>如果你是德鲁伊。在恶魔首次发起攻击前最好不要暴露你的角色，因为你需要通过当晚死亡情况，来判断你的能力是否生效。如果恶魔知道你是德鲁伊，那么恶魔可能会故意杀死你身边的玩家来混淆你的判断。</li>
+<li>如果你是德鲁伊。如果与你邻近的2名玩家的阵营相同，那么恶魔无法杀死你，也无法杀死除这两名玩家以外的任何玩家。</li>
+<li>如果你是德鲁伊。如果你的能力生效了，意味着恶魔一定已经知道你是德鲁伊了。所以如果你身边的玩家在夜晚死亡了，最好公布你是德鲁伊，并与大家探讨昨夜的死亡情况。</li>
+<li>如果你是德鲁伊。如果你身边的玩家在夜晚死亡了，如果他是因为你的能力，导致恶魔不得不杀死他。那么这就意味着你身边两名玩家阵营是相同的，要么他们都是善良，要么他们都是邪恶的。</li>
+<li>如果你是恶魔。如果你被唤醒并被要求只能选择2名玩家，那么他们中间的那名玩家就一定是德鲁伊。</li>
+<li>如果你是恶魔。如果你知道谁是德鲁伊，且他身边坐着邪恶玩家，你可以故意杀死那名善良玩家，以将那名邪恶玩家伪装为善良的。</li>
+<li>如果你是恶魔。德鲁伊的存在会极大的影响你的刀法，想办法尽快解决他。不管是处决他还是使用爪牙能力杀死他。</li>
+<li>如果你是恶魔。如果你发现德鲁伊中毒了，那么他的能力就不会生效，而德鲁伊往往会以为是自己身边坐着邪恶玩家。利用好这点去攻击德鲁伊身边的玩家是邪恶的。</li>
+</ul>
+<h2 id="伪装成该角色">伪装成该角色</h2>
+<ul>
+<li>伪装为德鲁伊往往需要与恶魔有密切的配合，否则很难自圆其说。</li>
+<li>如果你想伪装为德鲁伊，要想好你的策略。一般德鲁伊会在发现夜晚死亡的不是他身边的存活玩家时起跳，因为这代表他身边有邪恶玩家。</li>
+</ul>
+<h2 id="出现剧本">出现剧本</h2>
+<ul>
+<li><em>暂无</em></li>
+</ul>
+<h2 id="整体设计">整体设计</h2>
+<ul>
+<li>太一</li>
+</ul>
+<h2 id="创意来源">创意来源</h2>
+<ul>
+<li>太一</li>
+</ul>
+<h2 id="图标画师">图标画师</h2>
+<ul>
+<li>Lei.</li>
+</ul></div>
+    <div class="page-meta">最后修改于 2026-09-08T05:06:27.000Z，编辑者 <b>未知</b> ｜ 页面 6,455 字节 ｜ <a href="https://www.yuque.com/u48069482/taiyi/yy0g9yxp3izvs1xl" target="_blank" rel="noopener">查看原页面</a></div>
+    <div class="backlinks"><b>链入此页的页面（2）</b><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">奥德赛 Odyssey</a><a href="../pages/%E6%94%BB%E5%87%BB_Attack.html">攻击 Attack</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

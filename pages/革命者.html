@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>革命者 - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">革命者</h1>
+    <div class="tagline">来自钟楼百科</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#角色信息">角色信息</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E9%9D%A9%E5%91%BD%E8%80%85">查找包含此角色的剧本 →</a></p><p><a href="../pages/%E9%9D%A9%E5%91%BD%E8%80%85.html" class="image-link" title="革命者"><img alt="Revolutionary.png" style="width:200px" class="" loading="lazy" data-source-image="../images/Revolutionary.png" src="../assets/media/Revolutionary.preview.webp" width="600" height="600" decoding="async"></a></p>
+<h2 id="背景故事">背景故事</h2>
+<p><em>“团结，假装的。分裂，就拖延。”</em></p>
+<h2 id="角色能力">角色能力</h2>
+<p><strong>公开声明一对邻座玩家本局游戏一直保持同一阵营。每局游戏限一次，他们中的一人可能被当作其他的角色/阵营。</strong></p>
+<h2 id="角色简介">角色简介</h2>
+<p>革命者可以帮助弱势玩家获得更多参与感。</p>
+<ul>
+<li>如果一名玩家有智力障碍、没有办法理解游戏规则、是一名失明或失聪人士、或者没有办法正常交流或参与游戏，他们依然可以与他们信任的玩家进行配合。</li>
+</ul>
+<ul>
+<li>这两名玩家会是相同阵营并且靠近对方坐在一起，这样他们就可以在整局游戏中互相轻声细语或向对方打信号。有经验的玩家能够用各种各样的方式来帮助弱势玩家，例如代表他们说话或者是建议他们做些什么。</li>
+</ul>
+<ul>
+<li>革命者对想玩这个游戏的情侣或是好朋友来说也非常有用的，因为有时候他们会因为互相欺骗、彼此之间产生不信任而感到不适。即使这只是个游戏。</li>
+</ul>
+<ul>
+<li>每局游戏限一次，说书人能够使其中一名玩家被当作与他原本不同的角色或阵营，或角色和阵营都与原本不同。</li>
+</ul>
+<ul>
+<li>必要时，说书人可以在夜里将两名玩家同时唤醒来帮助弱势玩家理解游戏。</li>
+</ul>
+<ul>
+<li>如果革命者受到了改变阵营的能力影响，说书人可以选择：要么这个能力不会生效，要么就是两名玩家一起改变阵营。</li>
+</ul>
+<h2 id="范例">范例</h2>
+<p>小马是一名失聪人士，他和小佳合作成为<a href="../pages/%E9%9D%A9%E5%91%BD%E8%80%85.html" title="革命者">革命者</a>。小马抽取到了<a href="../pages/%E6%8A%95%E6%AF%92%E8%80%85.html" title="投毒者">投毒者</a>，所以小佳成为了<a href="../pages/%E5%B0%8F%E6%81%B6%E9%AD%94.html" title="小恶魔">小恶魔</a>。他们可以用手语私下沟通，这样小马就能参与游戏了。</p>
+<p>小娜只有12岁。她很想要参与但是难以理解这些错综复杂的角色是如何运作的。她拿到了<a href="../pages/%E5%83%A7%E4%BE%A3.html" title="僧侣">僧侣</a>并和她的<a href="../pages/%E5%85%B1%E6%83%85%E8%80%85.html" title="共情者">共情者</a>爸爸一起进行配合。</p>
+<h2 id="运作方式">运作方式</h2>
+<p>当初始设置中交给玩家盲抽袋之前，宣布革命者加入游戏，并宣布两名邻座玩家会是革命者。将革命者标记放入魔典中。将“被当作其他”提示标记放在两名革命者的中间。</p>
+<p>把盲抽袋拿给一个革命者，由他抽取一个角色标记。你查看他的角色，并从盲抽袋里选择一个相同阵营的角色并交给另外一名革命者。再把盲抽袋交给其他玩家抽取角色。</p>
+<p>每局游戏限一次，你可以使被标记了“被当作其他”的玩家之一被当作另一个角色和/或阵营，然后移除“被当作其他”提示标记。</p>
+<p>革命者应该在两名玩家都愿意的情况下才加入游戏，在游戏开始前先征得他们的同意。</p>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>被当作其他</li>
+</ul>
+<p>放置时机：在将所有玩家的角色标记收回至魔典后。</p>
+<p>放置条件：放置在成为“革命者”的这两名玩家的角色标记中间。</p>
+<p>移除时机：当说书人选择触发了革命者的效果并将革命者其中一人被其他玩家当作错误的角色和/或阵营后，将此标记移除。</p>
+<h2 id="角色信息">角色信息</h2>
+<ul>
+<li>英文名：Revolutionary</li>
+</ul>
+<ul>
+<li>角色类型：<a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html" title="传奇角色">传奇角色</a></li>
+</ul>
+<ul>
+<li>角色能力类型：<a href="../pages/%E9%82%BB%E8%BF%91.html" title="邻近">邻近</a>、<a href="../pages/%E4%BA%92%E5%8A%A8%E5%B9%B2%E6%89%B0.html" title="互动干扰">互动干扰</a>、<a href="../pages/%E9%99%90%E6%AC%A1%E8%83%BD%E5%8A%9B.html" title="限次能力">限次能力</a></li>
+</ul></div>
+    <div class="page-meta">最后修改于 2023-04-21T15:03:25Z，编辑者 <b>Little Black</b> ｜ 页面 3,189 字节 ｜ <a href="https://clocktower-wiki.gstonegames.com/index.php?title=%E9%9D%A9%E5%91%BD%E8%80%85" target="_blank" rel="noopener">查看原页面</a></div>
+    <div class="backlinks"><b>链入此页的页面（5）</b><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a><a href="../pages/%E4%BA%92%E5%8A%A8%E5%B9%B2%E6%89%B0.html">互动干扰</a><a href="../pages/%E9%82%BB%E8%BF%91.html">邻近</a><a href="../pages/%E9%99%90%E6%AC%A1%E8%83%BD%E5%8A%9B.html">限次能力</a><a href="../pages/%E9%9D%A9%E5%91%BD%E8%80%85.html">革命者</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

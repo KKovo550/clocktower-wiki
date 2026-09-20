@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>麻风侏儒 Leper Gnome - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">麻风侏儒 Leper Gnome<span class="ns-badge">奥德赛</span></h1>
+    <div class="tagline">来自钟楼百科 · 摘自《奥德赛 Odyssey》百科 · 爪牙</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#夜晚行动顺序">夜晚行动顺序</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#游玩与对抗技巧">游玩与对抗技巧</a></li><li class="lvl2"><a href="#出现剧本">出现剧本</a></li><li class="lvl2"><a href="#整体设计">整体设计</a></li><li class="lvl2"><a href="#创意来源">创意来源</a></li><li class="lvl2"><a href="#图标画师">图标画师</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E9%BA%BB%E9%A3%8E%E4%BE%8F%E5%84%92">查找包含此角色的剧本 →</a></p><div class="charinfo"><div class="charinfo-img"><a href="../files/%E6%96%87%E4%BB%B6_%E9%BA%BB%E9%A3%8E%E4%BE%8F%E5%84%92.png.html"><img alt="麻风侏儒 Leper Gnome" data-source-image="../images/%E9%BA%BB%E9%A3%8E%E4%BE%8F%E5%84%92.png" src="../assets/media/麻风侏儒.preview.webp" width="600" height="600" decoding="async"></a></div><div class="charinfo-meta"><div class="row"><span class="k">角色类型</span><span class="v"><a href="../pages/%E7%88%AA%E7%89%99.html" title="爪牙">爪牙</a></span></div><div class="row"><span class="k">英文名</span><span class="v">Leper Gnome</span></div><div class="row"><span class="k">角色ID</span><span class="v">009</span></div><div class="row"><span class="k">角色归属</span><span class="v">角色拓展包《奥德赛》</span></div><div class="row"><span class="k">能力标签</span><span class="v"><a href="../pages/%E7%89%B9%E6%AE%8A%E8%83%9C%E5%88%A9%E5%A4%B1%E8%B4%A5%E6%9D%A1%E4%BB%B6.html" title="特殊胜利失败条件">特殊胜利失败条件</a>、<a href="../pages/%E6%AD%BB%E5%90%8E%E8%83%BD%E5%8A%9B%E4%BF%9D%E7%95%99.html" title="死后能力保留">死后能力保留</a>、<a href="../pages/%E8%A7%92%E8%89%B2%E5%8F%98%E5%8C%96.html" title="角色变化">角色变化</a></span></div><div class="row"><span class="k">角色授权</span><span class="v">开放（任意剧本创作可用，不要修改能力）</span></div><div class="row"><span class="k">出处</span><span class="v"><a class="external" href="https://www.yuque.com/u48069482/taiyi" target="_blank" rel="noopener">《奥德赛 Odyssey》百科</a></span></div></div></div><p><a href="../files/%E6%96%87%E4%BB%B6_%E9%BA%BB%E9%A3%8E%E4%BE%8F%E5%84%92.png.html" class="image-link" title="文件:麻风侏儒.png"><img alt="麻风侏儒.png" style="width:240px" class="" loading="lazy" data-source-image="../images/%E9%BA%BB%E9%A3%8E%E4%BE%8F%E5%84%92.png" src="../assets/media/麻风侏儒.preview.webp" width="600" height="600" decoding="async"></a></p>
+<h2 id="背景故事">背景故事</h2>
+<p><em>“过来！拥抱我！你到底在怕什么！”</em></p>
+<h2 id="角色简介"><span style="color:rgb(64, 64, 64);">角色简介</span></h2>
+<p>接触麻风侏儒的镇民也会变成麻风侏儒。</p>
+<h2 id="角色能力">角色能力</h2>
+<div class="callout callout-info">
+<p>镇民玩家使用自身能力选择你时，会立即变成麻风侏儒，且你失去所有能力。你的胜负条件与邪恶玩家相同，即使你已死亡。</p>
+</div>
+<h2 id="范例">范例</h2>
+<ul>
+<li>第一个夜晚，女裁缝选择了麻风侏儒，女裁缝变成了麻风侏儒，初始的麻风侏儒失去了能力。游戏结束时，邪恶获胜。新麻风侏儒（原女裁缝）也获胜了。</li>
+<li>第一个白天，游歌者公开选择了包含麻风侏儒在内的几名玩家，游歌者变成了麻风侏儒，初始的麻风侏儒失去了能力。游戏结束时，善良获胜。新麻风侏儒（原游歌者）因自身能力落败了。</li>
+<li>第二个夜晚，旅店老板选择了初始的麻风侏儒，旅店老板成了麻风侏儒，初始的麻风侏儒失去了能力。随后女裁缝选择了麻风侏儒（原旅店老板），女裁缝也变成了麻风侏儒，麻风侏儒（原旅店老板）也失去了能力。随后侍女选择了麻风侏儒（原女裁缝），也变成了麻风侏儒，麻风侏儒（原女裁缝）也失去了能力。游戏结束时，邪恶获胜。麻风侏儒（原侍女）因为自身能力也获胜了。麻风侏儒（原旅店老板）、麻风侏儒（原女裁缝）落败了。</li>
+</ul>
+<h2 id="运作方式">运作方式</h2>
+<p>当镇民玩家使用自身能力选择麻风侏儒时，不管是此时是白天还是夜晚，立即将该镇民的角色标记替换为麻风侏儒，然后为被选择的麻风侏儒标记“失去能力”。如果此时是夜晚，告知新的麻风侏儒他变成了麻风侏儒。如果此时是白天，等到入夜后第一时间告知新的麻风侏儒他变成了麻风侏儒。</p>
+<p>游戏结束时，具有能力的麻风侏儒会跟随邪恶阵营一起获胜，或一起落败。</p>
+<h2 id="夜晚行动顺序">夜晚行动顺序</h2>
+<ul>
+<li>首个夜晚</li>
+<ul>
+<li>夜序数值：/</li>
+<li>前位角色：/</li>
+<li>行动提示：/</li>
+</ul>
+<li>其他夜晚</li>
+<ul>
+<li>夜序数值：/</li>
+<li>前位角色：/</li>
+<li>行动提示：/</li>
+</ul>
+</ul>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>失去能力*4</li>
+<ul>
+<li>放置时机：镇民玩家使用自身能力选择麻风侏儒时。</li>
+<li>放置条件：放置在被选择的麻风侏儒的角色标记旁。</li>
+<li>移除时机：麻风侏儒离场时。</li>
+</ul>
+</ul>
+<h2 id="规则细节">规则细节</h2>
+<ul>
+<li>麻风侏儒的能力可能在一天内创造多个麻风侏儒（例如镇民2选择麻风1变成麻风2，镇民3选择麻风2变成麻风3，镇民4选择麻风3变成麻风4）。</li>
+<li>使用自身能力选择麻风侏儒的镇民玩家会立即变为麻风侏儒，不会再收到信息或正常发动能力（例如猎魔人选择健康清醒状态的麻风侏儒，猎魔人会变成麻风侏儒，而麻风侏儒并不会被猎魔人杀死，因为在猎魔人的能力生效之前他就已经不是猎魔人了）。</li>
+<li>不管是白天选择的镇民（游歌者）及夜晚选择的镇民（旅店老板、侍女），只要选中麻风侏儒，就会立即被变成麻风侏儒。</li>
+<li>变为麻风侏儒只会改变角色，并不会改变阵营。</li>
+<li>镇民玩家变成新的麻风侏儒后，原麻风侏儒会失去所有能力，包括“你的胜负条件与邪恶玩家相同，即使你已死亡。”这条能力。</li>
+<li>没有因自身能力失去所有能力的麻风侏儒，在死亡后依然具有“你的胜负条件与邪恶玩家相同”这条能力。</li>
+<li>不要告知麻风侏儒他是否已经失去能力，他需要自己判断。</li>
+<li><strong>特殊规则：</strong>镇民变成的麻风侏儒不会被其他角色的能力（如落难少女、帽匠）当做爪牙。</li>
+</ul>
+<h2 id="游玩与对抗技巧">游玩与对抗技巧</h2>
+<ul>
+<li>如果你是一名邪恶的麻风侏儒，想尽一切办法引诱其他镇民玩家使用他们的能力选择你！把你的麻风病传出去！这样才能发挥出你的价值！</li>
+<li>如果你是一名善良的麻风侏儒，你得先搞清楚——变为麻风侏儒并不会让你改变阵营！你始终是善良的。但是麻风侏儒的能力会导致你可能需要与邪恶阵营站在一起。</li>
+<li>如果你从一名镇民变成了麻风侏儒，现在你要认真思考你该为谁而战了，如果你能确定没有其他镇民选择过你——意味着你还具有能力，那么你可以通过麻风侏儒的能力与邪恶一起获胜。但是如果有其他镇民选择过你——这会让你失去能力，你依然需要为善良阵营效力！不幸的是，你并不知道你是否还具有能力，好好思考！仔细判断！</li>
+</ul>
+<h2 id="出现剧本">出现剧本</h2>
+<ul>
+<li>达芬奇密码</li>
+</ul>
+<h2 id="整体设计">整体设计</h2>
+<ul>
+<li>太一</li>
+</ul>
+<h2 id="创意来源">创意来源</h2>
+<ul>
+<li>太一</li>
+</ul>
+<h2 id="图标画师">图标画师</h2>
+<ul>
+<li>Lei.</li>
+</ul></div>
+    <div class="page-meta">最后修改于 2026-08-24T04:50:50.000Z，编辑者 <b>未知</b> ｜ 页面 4,711 字节 ｜ <a href="https://www.yuque.com/u48069482/taiyi/ez1pb4bit8qtkgvk" target="_blank" rel="noopener">查看原页面</a></div>
+    <div class="backlinks"><b>链入此页的页面（1）</b><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">奥德赛 Odyssey</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>规则解释 - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">规则解释</h1>
+    <div class="tagline">来自钟楼百科</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#在游戏开始之前">在游戏开始之前</a></li><li class="lvl2"><a href="#四项原则">四项原则</a></li><li class="lvl2"><a href="#在首次提名之前">在首次提名之前</a></li></ul></div>
+    <div class="mw-parser-output"><p>这个页面的内容用于向初次游玩《染·钟楼谜团》这款游戏的玩家介绍在第一次游玩时所需要了解的重要内容。在游戏开始前，你只需要将这些内容念出，或者让玩家自行查阅即可。</p>
+<p>部分规则将提示你演示各种手势信号。你最好在你讲规则的时候演示这些手势，以使一些玩家能更直观地进行学习。</p>
+<p>你可以现在就念出规则中有关提名和处决的内容，但如果你在第一次提名处决开始时讲解有关规则会更加有助于玩家理解。</p>
+<p>放在城镇广场下方的旅行者列表的背面有一份规则表副本。为了节省时间，你可以让一名老手玩家阅读这张表上的规则，这样你就可以在他们讲解规则的时候设置游戏了。</p>
+<h2 id="在游戏开始之前">在游戏开始之前</h2>
+<p>在很久很久以前，一个叫做鸦木布拉夫的沉睡小镇里，雷雨交加。正当午夜之时……你们听到了一声尖叫。当你们冲到城镇广场查看时，你们发现受人爱戴的说书人被谋杀了……他被钉在钟楼的时针上，鲜血不断滴落到下方的鹅卵石上。你们猜测这正是恶魔所为，没错——恶魔会在夜晚杀戮，而在白天化为人形隐匿于镇民之中。</p>
+<p>你们将会收到一个红色或蓝色的角色标记。如果你的标记是蓝色的，你属于善良的一方。如果是红色的，你会是邪恶的一方。如果你是善良的，你的目标是找到并处决所有恶魔。如果所有恶魔都死亡，善良阵营获胜。如果你是邪恶的，你的目标是摧毁这个城镇。如果只剩两个玩家还活着，邪恶阵营获胜。</p>
+<p>游戏分为两个阶段：白天阶段和夜晚阶段。在白天，你们会互相交谈。你们每个人都有一个秘密身份，也就是一个剧本列表中的角色。通常善良的玩家会分享他们所知道的一切，并尝试去弄清楚每个人的具体身份。大多数善良的玩家都会说实话，但有的善良玩家也会有伪装的动机。如果你是邪恶的，那你肯定需要伪装！最好挑个善良角色来伪装，并尽可能多地散布虚假信息。</p>
+<p>在夜晚时，所有人都会闭上眼睛。说书人会唤醒部分玩家，当你被唤醒了就通常就可以使用自己的角色能力或是获取某种类型的信息。晚上，说书人会保持沉默，但会使用这些手势和动作跟你们交流：<em>（在你说话时演示以下内容。）</em></p>
+<ul>
+<li>（拍拍）在你的肩膀或膝盖上轻拍 2 次，你就可以睁开眼睛</li>
+<li>（用你的手遮住自己眼睛）这个动作，你就需要闭眼</li>
+<li>（点头）点头代表肯定，（摇头）摇头代表否定</li>
+<li>（拇指朝上）这个手势代表善良，（拇指朝下）这个手势代表邪恶</li>
+<li>（数字手势）这是代表数字的手势， 0、1、2、3 ……</li>
+<li>（☞）如果你要在晚上选择一名玩家，只需像这样指向他</li>
+</ul>
+<p>你们中的大多数人都会死。这是一件好事！在鸦木布拉夫小镇，死亡并不是终点。某些玩家甚至可能想要赶紧死，因为他们死掉时就能获得信息。如果你死了，你仍然参与游戏，你可以继续说话，你会与你的阵营一同获胜或落败。</p>
+<p>在这个游戏中会有很多信息。但是其中一些可能是错误的。如果你醉酒或中毒，你会失去角色能力，但说书人会假装你仍有能力。说书人会给你假信息——你得到的任何信息都可能错误，但你不会知道你有没有醉酒或中毒。例如，如果你是酒鬼，你会从袋子里抽出一个镇民角色标记，只有说书人知道你实际上是酒鬼。或者，如果投毒者使你中毒了，你仍然可以在晚上醒来使用你的能力，但它不会起作用。</p>
+<h2 id="四项原则">四项原则</h2>
+<p>熟悉全部规则的信息量太大了，所以最开始游戏，你只需要简单地记住四件事：</p>
+<p><strong>1）你可以在任何时候说任何你想说的话。</strong></p>
+<p>这是一个聊天为主的游戏。你可以自己决定是和所有人一起公聊或者去找人私聊。</p>
+<p><strong>2) 禁止偷看。</strong></p>
+<p>请对你的角色标记保密，也不准偷看魔典，魔典里面有所有游戏中的角色信息。如果你看到不应该看到的东西，会破坏游戏的乐趣。</p>
+<p><strong>3）有任何疑问都可以问说书人。</strong></p>
+<p>如果你有不懂的，不明白的地方，包括你的角色或者你想要伪装的角色能力，在晚上发生了你无法理解的事，或者你想了解玩法...无论是什么问题都可以问说书人。说书人是中立的，他的职责就是帮助你理解规则，然后玩得开心。你有问题就可以直接问说书人，如果你不想让别人知道你问了什么，也可以找说书人私聊。</p>
+<p><strong>4) 玩得开心。</strong></p>
+<p>这个游戏里会有欺骗和诡计，所以请互相尊重和体谅。要以优雅的方式杀戮，也要以有尊严的方式死去。</p>
+<h2 id="在首次提名之前">在首次提名之前</h2>
+<p>说书人将会让大家开始提名。</p>
+<p>想要提名一名玩家，只需说出他名字。例如：“我提名小帅。”当一名玩家被提名时，每个人都要投票表决是否要处决他。例如：我会像这样指他（指向小帅），并说“对小帅的提名计票，从现在开始。”说书人会按顺时针方向移动他的手（亲自演示），当说书人指到你的时候，如果你举手了，那你就是投了赞成票，如果你没举手，那你就是放弃了投票。 每个白天，你可以给不同的玩家投票，投票次数不限，当天得票最多的人会被处决。而且处决的赞成票数需要大于等于存活玩家人数的一半的，才算投票成功，否则被提名的人就不会被处决。如果多名玩家的票数打平，这些玩家都不会被处决。</p>
+<p>即使你死了也不会出局。你仍然可以说话，你在夜晚仍然要闭上眼睛。最重要的是，你仍然可以帮助自己的阵营获胜。事实上，胜负经常是由死去玩家的投票和意见决定的。如果你死了，你会失去你的角色能力，你不再能发起提名，并且你在游戏的剩下时间里只剩最后一票，所以要谨慎，想清楚再投。</p></div>
+    <div class="page-meta">最后修改于 2024-03-30T05:28:48Z，编辑者 <b>Little Black</b> ｜ 页面 6,177 字节 ｜ <a href="https://clocktower-wiki.gstonegames.com/index.php?title=%E8%A7%84%E5%88%99%E8%A7%A3%E9%87%8A" target="_blank" rel="noopener">查看原页面</a> ｜ <div class="comment">编辑摘要：/* 在游戏开始之前 */</div></div>
+    <div class="backlinks"><b>链入此页的页面（1）</b><a href="../pages/%E9%A6%96%E9%A1%B5.html">首页</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>规则调整提前公示 - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">规则调整提前公示</h1>
+    <div class="tagline">来自钟楼百科</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#角色能力调整">角色能力调整</a></li><li class="lvl2"><a href="#相克规则新增">相克规则新增</a></li><li class="lvl2"><a href="#相克规则调整">相克规则调整</a></li><li class="lvl2"><a href="#其他调整">其他调整</a></li><li class="lvl2"><a href="#华灯初上系列角色能力调整">华灯初上系列角色能力调整</a></li></ul></div>
+    <div class="mw-parser-output"><p>基于“实验性角色”的特性，部分相关规则和相克规则可能会发生调整。这些调整在应用前会先在此页面进行公示。</p>
+<p>你也可以直接通过本页面来查询有哪些规则做出了调整。</p>
+<p>本页面所有调整均来自于Steven的设计日志，国外也会相应做出变动。（不排除存在回调的可能性。）</p>
+<h2 id="角色能力调整">角色能力调整</h2>
+<p><a href="../pages/%E5%9B%BD%E7%8E%8B.html" class="image-link" title="国王"><img alt="King.png" style="width:50px" class="" loading="lazy" data-source-image="../images/King.png" src="../assets/media/King.preview.webp" width="600" height="600" decoding="async"></a><strong>国王</strong>：</p>
+<p>调整前：每个夜晚，如果死亡的玩家数量大于存活的玩家数量，你会得知一个存活的角色。恶魔知道你是国王。</p>
+<p>调整后：每个夜晚，如果死亡的玩家数量大于<span style="color:green"><strong>或等于</strong></span>存活的玩家数量，你会得知一个存活的角色。恶魔知道你是国王。</p>
+<p><a href="../pages/%E5%B0%8F%E6%80%AA%E5%AE%9D.html" class="image-link" title="小怪宝"><img alt="Lilmonsta.png" style="width:50px" class="" loading="lazy" data-source-image="../images/Lilmonsta.png" src="../assets/media/Lilmonsta.preview.webp" width="591" height="591" decoding="async"></a><strong>小怪宝</strong>：</p>
+<p>调整前：每个夜晚，所有爪牙要秘密决定由哪名玩家来照看小怪宝并且“是恶魔”。每个夜晚*，会有一名玩家死亡。[+1爪牙]</p>
+<p>调整后：每个夜晚，所有爪牙要秘密决定由哪名玩家来照看小怪宝并且“是恶魔”。每个夜晚*，<span style="color:green"><strong>可能</strong></span>会有一名玩家死亡。[+1爪牙]</p>
+<p><a href="../pages/%E6%B0%94%E7%90%83%E9%A9%BE%E9%A9%B6%E5%91%98.html" class="image-link" title="气球驾驶员"><img alt="Balloonist.png" style="width:50px" class="" loading="lazy" data-source-image="../images/Balloonist.png" src="../assets/media/Balloonist.preview.webp" width="591" height="591" decoding="async"></a><strong>气球驾驶员</strong>：</p>
+<p>调整前：每个夜晚，你会得知一名不同角色类型的玩家，直到场上所有的角色类型你都得知过一次。[+1 外来者]</p>
+<p>调整后：每个夜晚，你会得知一名<span style="color:green"><strong>与上个夜晚得知的玩家角色类型不同</strong></span>的玩家。[+<span style="color:green"><strong>0~</strong></span>1外来者]</p>
+<p><a href="../pages/%E7%98%9F%E7%96%AB%E5%8C%BB%E7%94%9F.html" class="image-link" title="瘟疫医生"><img alt="Plaguedoctor.png" style="width:50px" class="" loading="lazy" data-source-image="../images/Plaguedoctor.png" src="../assets/media/Plaguedoctor.preview.webp" width="591" height="591" decoding="async"></a><strong>瘟疫医生</strong>：</p>
+<p>第一版：如果你死亡，说书人获得一个<span style="color:red"><strong>不在场的</strong></span>爪牙能力。</p>
+<p>第二版：<span style="color:red"><strong>如果你死亡</strong></span>，说书人会获得一个爪牙能力。</p>
+<p>调整后：<span style="color:green"><strong>当你死亡时</strong></span>，说书人会获得一个爪牙能力。</p>
+<p><a href="../pages/%E9%B9%B0%E8%BA%AB%E5%A5%B3%E5%A6%96.html" class="image-link" title="鹰身女妖"><img alt="Harpy.png" style="width:50px" class="" loading="lazy" data-source-image="../images/Harpy.png" src="../assets/media/Harpy.preview.webp" width="591" height="591" decoding="async"></a><strong>鹰身女妖</strong>：</p>
+<p>调整前：每个夜晚，你要选择两名玩家：明天第一名玩家需要“疯狂”地证明第二名玩家是邪恶的，否则他们可能会死亡。</p>
+<p>调整后：每个夜晚，你要选择两名玩家：明天第一名玩家需要“疯狂”地证明第二名玩家是邪恶的，否则他们<span style="color:green"><strong>之中</strong></span>可能会<span style="color:green"><strong>有人</strong></span>死亡。</p>
+<p><a href="../pages/%E7%97%A2%E8%9B%AD.html" class="image-link" title="痢蛭"><img alt="Lleech.png" style="width:50px" class="" loading="lazy" data-source-image="../images/Lleech.png" src="../assets/media/Lleech.preview.webp" width="600" height="600" decoding="async"></a><strong>痢蛭</strong>：</p>
+<p>调整前：每个夜晚*，你要选择一名玩家：他死亡。在你的首个夜晚，你要选择一名存活的玩家：他中毒，只有他死亡时你才会一同死亡。</p>
+<p>调整后：每个夜晚*，你要选择一名玩家：他死亡。在你的首个夜晚，你要选择一名存活的玩家：他中毒，只有<span style="color:green"><strong>当他处于死亡状态时你才会立即死亡</strong></span>。</p>
+<p><a href="../pages/%E8%A1%97%E5%A4%B4%E9%A3%8E%E7%90%B4%E6%89%8B.html" class="image-link" title="街头风琴手"><img alt="Organgrinder.png" style="width:50px" class="" loading="lazy" data-source-image="../images/Organgrinder.png" src="../assets/media/Organgrinder.preview.webp" width="591" height="591" decoding="async"></a><strong>街头风琴手</strong>：</p>
+<p>第一版：所有玩家在投票时闭眼，且票数会秘密统计。<span style="color:red"><strong>对你的提名只在你投票时才会统计票数</strong></span>。</p>
+<p>第二版：所有玩家在投票时闭眼，且票数会秘密统计。<span style="color:red"><strong>每个夜晚，你要选择自己是否醉酒，直到你下次选择</strong></span>。</p>
+<p>调整后：所有玩家在投票时闭眼，且票数会秘密统计。每个夜晚，你要选择自己是否醉酒<span style="color:green"><strong>直到下个黄昏</strong></span>。</p>
+<p><a href="../pages/%E6%9D%82%E6%8A%80%E6%BC%94%E5%91%98.html" class="image-link" title="杂技演员"><img alt="Acrobat.png" style="width:50px" class="" loading="lazy" data-source-image="../images/Acrobat.png" src="../assets/media/Acrobat.preview.webp" width="591" height="591" decoding="async"></a><strong>杂技演员</strong>：</p>
+<p>杂技演员角色类型变为镇民</p>
+<p>调整前：每个夜晚*，<span style="color:red"><strong>如果与你邻近的存活善良玩家之一醉酒或中毒，你死亡</strong></span>。</p>
+<p>调整后：每个夜晚*，<span style="color:green"><strong>你要选择一名玩家：如果当晚他醉酒或中毒，你死亡</strong></span>。</p>
+<p><a href="../pages/%E5%86%9C%E5%A4%AB.html" class="image-link" title="农夫"><img alt="Farmer.png" style="width:50px" class="" loading="lazy" data-source-image="../images/Farmer.png" src="../assets/media/Farmer.preview.webp" width="600" height="600" decoding="async"></a><strong>农夫</strong>：</p>
+<p>调整前：<span style="color:red"><strong>如果你在夜晚死亡</strong></span>，一名存活的善良玩家会变成农夫。</p>
+<p>调整后：<span style="color:green"><strong>当你在夜晚死亡时</strong></span>，一名存活的善良玩家会变成农夫。</p>
+<p><a href="../pages/%E6%88%8F%E6%B3%95%E5%B8%88.html" class="image-link" title="戏法师"><img alt="Alsaahir.png" style="width:50px" class="" loading="lazy" data-source-image="../images/Alsaahir.png" src="../assets/media/Alsaahir.preview.webp" width="591" height="591" decoding="async"></a><strong>戏法师</strong>：</p>
+<p>调整前：每个白天<span style="color:red"><strong>限一次，你可以公开猜测谁是爪牙，谁是恶魔</strong></span>。如果你猜对，善良阵营获胜。</p>
+<p>调整后：每个白天，<span style="color:green"><strong>你可以公开进行一次谁是爪牙，谁是恶魔的猜测</strong></span>。如果你猜对，善良阵营获胜。</p>
+<p><a href="../pages/%E7%82%B8%E5%BC%B9%E4%BA%BA.html" class="image-link" title="炸弹人"><img alt="Boomdandy.png" style="width:50px" class="" loading="lazy" data-source-image="../images/Boomdandy.png" src="../assets/media/Boomdandy.preview.webp" width="600" height="600" decoding="async"></a><strong>炸弹人</strong>：</p>
+<p>调整前：如果你被处决，除三名玩家以外的其他所有玩家均会死亡。<span style="color:red"><strong>一分钟之后</strong></span>，被最多玩家手指指着的玩家死亡。</p>
+<p>调整后：如果你被处决，除三名玩家以外的其他所有玩家均会死亡。<span style="color:green"><strong>倒数十声后</strong></span>，被最多玩家手指指着的玩家死亡。</p>
+<p><a href="../pages/%E5%8D%8A%E5%85%BD%E4%BA%BA.html" class="image-link" title="半兽人"><img alt="Lycanthrope.png" style="width:50px" class="" loading="lazy" data-source-image="../images/Lycanthrope.png" src="../assets/media/Lycanthrope.preview.webp" width="600" height="600" decoding="async"></a><strong>半兽人</strong>：</p>
+<p>调整前：每个夜晚*，你要选择一名存活的玩家：如果他是善良的，他死亡，<span style="color:red"><strong>并且当晚不会再有其他玩家死亡</strong></span>。</p>
+<p>调整后：每个夜晚*，你要选择一名存活玩家：如果他是善良的，他死亡，<span style="color:green"><strong>并且当晚恶魔不会造成死亡。会有一名善良玩家始终被当作邪恶阵营</strong></span>。</p>
+<p><a href="../pages/%E6%9A%B4%E4%B9%B1.html" class="image-link" title="暴乱"><img alt="Riot.png" style="width:50px" class="" loading="lazy" data-source-image="../images/Riot.png" src="../assets/media/Riot.preview.webp" width="600" height="600" decoding="async"></a><strong>暴乱</strong>（角色详情页待更新）：</p>
+<p>调整前：<span style="color:red"><strong>被提名的玩家死亡，但他可以立刻再次发起提名（第三个白天他必须这么做）。在第三个白天结束时，邪恶阵营获胜。[所有爪牙都是暴乱]</strong></span></p>
+<p>调整后：<span style="color:green"><strong>在第三个白天，所有爪牙会变成暴乱，当天被提名的玩家会立即死亡且必须再次提名一名存活的玩家</strong></span>。</p>
+<p><a href="../pages/%E7%82%BC%E9%87%91%E6%9C%AF%E5%A3%AB.html" class="image-link" title="炼金术士"><img alt="Alchemist.png" style="width:50px" class="" loading="lazy" data-source-image="../images/Alchemist.png" src="../assets/media/Alchemist.preview.webp" width="600" height="600" decoding="async"></a><strong>炼金术士</strong>：</p>
+<p>调整前：你拥有一个<span style="color:red"><strong>不在场的</strong></span>爪牙角色的能力。</p>
+<p>调整后：你拥有一个爪牙角色的能力。<span style="color:green"><strong>当你使用能力时，说书人可能会要求你更换选择</strong></span>。</p>
+<p><a href="../pages/%E5%93%88%E8%BF%AA%E5%AF%82%E4%BA%9A.html" class="image-link" title="哈迪寂亚"><img alt="Alhadikhia.png" style="width:50px" class="" loading="lazy" data-source-image="../images/Alhadikhia.png" src="../assets/media/Alhadikhia.preview.webp" width="600" height="600" decoding="async"></a><strong>哈迪寂亚</strong>：</p>
+<p>调整前：每个夜晚*，你<span style="color:red"><strong>要</strong></span>选择三名玩家（所有玩家都会得知你选了谁）：他们分别秘密决定自己的生死，然后如果他们都存活则都死亡。</p>
+<p>调整后：每个夜晚*，你<span style="color:green"><strong>可以</strong></span>选择三名玩家（所有玩家都会得知你选了谁）：他们分别秘密决定自己的生死，然后如果他们都存活则都死亡。</p>
+<h2 id="相克规则新增">相克规则新增</h2>
+<p><a href="../pages/%E5%8F%AC%E5%94%A4%E5%B8%88.html" title="召唤师">召唤师</a>与<a href="../pages/%E9%BA%BB%E8%84%B8%E5%B7%AB%E5%A9%86.html" title="麻脸巫婆">麻脸巫婆</a>：召唤师无法创造已经在场的恶魔。如果召唤师创造了一个不在场的恶魔，当晚的死亡由说书人决定。</p>
+<p><a href="../pages/%E7%BB%B4%E9%BD%90%E5%B0%94.html" title="维齐尔">维齐尔</a>与<a href="../pages/%E6%94%BF%E5%AE%A2.html" title="政客">政客</a>：维齐尔的能力可能会将政客当作邪恶阵营。</p>
+<p><a href="../pages/%E5%8F%AC%E5%94%A4%E5%B8%88.html" title="召唤师">召唤师</a>与<a href="../pages/%E5%B8%BD%E5%8C%A0.html" title="帽匠">帽匠</a>：召唤师无法创造已经在场的恶魔。如果召唤师创造了一个不在场的恶魔，当晚的死亡由说书人决定。</p>
+<p><a href="../pages/%E5%8F%AC%E5%94%A4%E5%B8%88.html" title="召唤师">召唤师</a>与<a href="../pages/%E4%BE%8D%E8%87%A3.html" title="侍臣">侍臣</a>：如果召唤师因为侍臣的能力在第三个夜晚醉酒，由召唤师来选择创造哪种恶魔，由说书人来决定哪名玩家发生转变。</p>
+<p><a href="../pages/%E5%8F%AC%E5%94%A4%E5%B8%88.html" title="召唤师">召唤师</a>与<a href="../pages/%E5%83%B5%E6%80%96.html" title="僵怖">僵怖</a>：如果召唤师将一名已死亡的玩家变成了僵怖，该玩家会变成“已经死过一次”的僵怖。</p>
+<p><a href="../pages/%E5%8F%AC%E5%94%A4%E5%B8%88.html" title="召唤师">召唤师</a>与<a href="../pages/%E6%99%AE%E5%8D%A1.html" title="普卡">普卡</a>：召唤师可以选择在第二个夜晚将一名玩家变成普卡。</p>
+<p><a href="../pages/%E5%8F%AC%E5%94%A4%E5%B8%88.html" title="召唤师">召唤师</a>与<a href="../pages/%E5%B7%A5%E7%A8%8B%E5%B8%88.html" title="工程师">工程师</a>：如果工程师的能力使得召唤师在使用自己的能力前离场，召唤师会在此前立即使用自己的能力。</p>
+<p><a href="../pages/%E9%BA%BB%E8%84%B8%E5%B7%AB%E5%A9%86.html" title="麻脸巫婆">麻脸巫婆</a>与<a href="../pages/%E5%BC%82%E6%95%99%E9%A2%86%E8%A2%96.html" title="异教领袖">异教领袖</a>：被麻脸巫婆创造的邪恶异教领袖无法因为自身能力转变为善良阵营。</p>
+<p><a href="../pages/%E9%BA%BB%E8%84%B8%E5%B7%AB%E5%A9%86.html" title="麻脸巫婆">麻脸巫婆</a>与<a href="../pages/%E8%8E%BD%E5%A4%AB.html" title="莽夫">莽夫</a>：被麻脸巫婆创造的邪恶莽夫无法因为自身能力转变为善良阵营。</p>
+<p><a href="../pages/%E9%A3%9F%E4%BA%BA%E6%97%8F.html" title="食人族">食人族</a>与<a href="../pages/%E6%9D%82%E8%80%8D%E8%89%BA%E4%BA%BA.html" title="杂耍艺人">杂耍艺人</a>：如果杂耍艺人在自己的首个白天猜测后在当天死于处决，当晚食人族会替杂耍艺人得知对应的信息。</p>
+<p><a href="../pages/%E5%93%B2%E5%AD%A6%E5%AE%B6.html" title="哲学家">哲学家</a>与<a href="../pages/%E8%B5%8F%E9%87%91%E7%8C%8E%E4%BA%BA.html" title="赏金猎人">赏金猎人</a>：如果哲学家获得了赏金猎人的能力，可能会有一名镇民玩家转变为邪恶。</p>
+<p><a href="../pages/%E5%86%9B%E5%9B%A2.html" title="军团">军团</a>与<a href="../pages/%E5%90%9F%E6%B8%B8%E8%AF%97%E4%BA%BA.html" title="吟游诗人">吟游诗人</a>：如果军团死于处决，所有军团保留能力，但吟游诗人可能会在当晚得知今天白天死于处决的玩家是军团。</p>
+<p><a href="../pages/%E5%8F%AC%E5%94%A4%E5%B8%88.html" title="召唤师">召唤师</a>与<a href="../pages/%E4%BC%A0%E6%95%99%E5%A3%AB.html" title="传教士">传教士</a>：如果召唤师在第三个夜晚或之前被传教士选中，由召唤师来选择创造哪种恶魔，由说书人来决定哪名玩家发生转变。</p>
+<p><a href="../pages/%E5%8D%A1%E6%89%8E%E5%8A%9B.html" title="卡扎力">卡扎力</a>与<a href="../pages/%E5%A3%AB%E5%85%B5.html" title="士兵">士兵</a>：卡扎力可以把士兵转变成邪恶的爪牙。</p>
+<p><a href="../pages/%E9%A3%9F%E4%BA%BA%E6%97%8F.html" title="食人族">食人族</a>与<a href="../pages/%E7%BD%82%E7%B2%9F%E7%A7%8D%E6%A4%8D%E8%80%85.html" title="罂粟种植者">罂粟种植者</a>：如果食人族获得了罂粟种植者的能力，当他获得下一个能力时，爪牙和恶魔也会互相认识。</p>
+<p><a href="../pages/%E5%88%A9%E7%BB%B4%E5%9D%A6.html" title="利维坦">利维坦</a>与<a href="../pages/%E9%A9%B1%E9%AD%94%E4%BA%BA.html" title="驱魔人">驱魔人</a>：如果驱魔人存活并且成功选中过利维坦，即使有多于一名善良玩家被处决，邪恶阵营也不会获胜。</p>
+<p><a href="../pages/%E5%88%A9%E7%BB%B4%E5%9D%A6.html" title="利维坦">利维坦</a>与<a href="../pages/%E5%9B%BD%E7%8E%8B.html" title="国王">国王</a>：如果利维坦在场，当至少一名玩家死亡时，国王每晚就会得知一个存活的角色。</p>
+<p><a href="../pages/%E7%82%BC%E9%87%91%E6%9C%AF%E5%A3%AB.html" title="炼金术士">炼金术士</a>与<a href="../pages/%E6%8F%90%E7%BA%BF%E6%9C%A8%E5%81%B6.html" title="提线木偶">提线木偶</a>：如果炼金术士本应获得提线木偶的能力，那么他不会拥有该能力并改为提线木偶一定在场。</p>
+<p><a href="../pages/%E7%82%BC%E9%87%91%E6%9C%AF%E5%A3%AB.html" title="炼金术士">炼金术士</a>与<a href="../pages/%E4%B8%BB%E8%B0%8B.html" title="主谋">主谋</a>：如果炼金术士本应获得主谋的能力，那么他不会拥有该能力并改为主谋一定不在场。</p>
+<p><a href="../pages/%E7%82%BC%E9%87%91%E6%9C%AF%E5%A3%AB.html" title="炼金术士">炼金术士</a>与<a href="../pages/%E8%A1%97%E5%A4%B4%E9%A3%8E%E7%90%B4%E6%89%8B.html" title="街头风琴手">街头风琴手</a>：如果炼金术士获得街头风琴手的能力，街头风琴手一定在场。如果炼金术士和街头风琴手都是清醒的，改为他们都醉酒。</p>
+<h2 id="相克规则调整">相克规则调整</h2>
+<p>2025年10月试运行相克现已经全面正式上线，详情请移步<a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html" title="相克规则">相克规则</a>。</p>
+<p><a href="../pages/%E9%97%B4%E8%B0%8D.html" title="间谍">间谍</a>与<a href="../pages/%E8%90%BD%E9%9A%BE%E5%B0%91%E5%A5%B3.html" title="落难少女">落难少女</a>：</p>
+<p>调整前：互为克星的角色在同一时间里只能有其中一个角色在场。</p>
+<p>调整后：<span style="color:green"><strong>如果间谍正在场或曾经在场，落难少女中毒。</strong></span></p>
+<p><a href="../pages/%E5%AF%A1%E5%A6%87.html" title="寡妇">寡妇</a>与<a href="../pages/%E8%90%BD%E9%9A%BE%E5%B0%91%E5%A5%B3.html" title="落难少女">落难少女</a>：</p>
+<p>调整前：互为克星的角色在同一时间里只能有其中一个角色在场。</p>
+<p>调整后：<span style="color:green"><strong>如果寡妇正在场或曾经在场，落难少女中毒。</strong></span></p>
+<p><a href="../pages/%E5%8F%AC%E5%94%A4%E5%B8%88.html" title="召唤师">召唤师</a>与<a href="../pages/%E5%8D%A1%E6%89%8E%E5%8A%9B.html" title="卡扎力">卡扎力</a>：</p>
+<p>调整前：卡扎力无法创造召唤师。</p>
+<p>调整后：<span style="color:green"><strong>召唤师无法创造已经在场的恶魔。如果召唤师创造了一个不在场的恶魔，当晚的死亡由说书人决定。</strong></span></p>
+<p><a href="../pages/%E9%BA%BB%E8%84%B8%E5%B7%AB%E5%A9%86.html" title="麻脸巫婆">麻脸巫婆</a>与<a href="../pages/%E6%94%BF%E5%AE%A2.html" title="政客">政客</a>：</p>
+<p>调整前：麻脸巫婆无法将一名邪恶玩家变成政客。</p>
+<p>调整后：<span style="color:green"><strong>被麻脸巫婆创造的邪恶政客无法因为自身能力转变为善良阵营。</strong></span></p>
+<p><a href="../pages/%E7%BB%B4%E9%BD%90%E5%B0%94.html" title="维齐尔">维齐尔</a>与<a href="../pages/%E9%AD%94%E6%9C%AF%E5%B8%88.html" title="魔术师">魔术师</a>：</p>
+<p>调整前：互为克星的角色在同一时间里只能有其中一个角色在场。</p>
+<p>调整后：<span style="color:green"><strong>如果维齐尔和魔术师都在场，恶魔不会得知谁是爪牙。</strong></span></p>
+<p><a href="../pages/%E5%B0%8F%E6%80%AA%E5%AE%9D.html" title="小怪宝">小怪宝</a>与<a href="../pages/%E9%AD%94%E6%9C%AF%E5%B8%88.html" title="魔术师">魔术师</a>：</p>
+<p>调整前：互为克星的角色在同一时间里只能有其中一个角色在场。</p>
+<p>调整后：<span style="color:green"><strong>每个夜晚，由魔术师来选择一个爪牙角色：如果他和小怪宝均存活，由他来照看小怪宝。</strong></span></p>
+<p>进阶可选规则：每个夜晚，由魔术师来选择一个爪牙角色：如果他和小怪宝均存活，由他来照看小怪宝。<span style="color:green"><strong>否则，由魔术师来照看小怪宝，但如果魔术师在照看小怪宝时死亡，邪恶阵营获胜。</strong></span></p>
+<p><a href="../pages/%E9%97%B4%E8%B0%8D.html" title="间谍">间谍</a>与<a href="../pages/%E5%BC%82%E7%AB%AF%E5%88%86%E5%AD%90.html" title="异端分子">异端分子</a>：</p>
+<p>调整前：互为克星的角色在同一时间里只能有其中一个角色在场。</p>
+<p>调整后：<span style="color:green"><strong>异端分子会被间谍当作一个不在场的外来者，异端分子会知道是哪个外来者。</strong></span></p>
+<p><a href="../pages/%E5%AF%A1%E5%A6%87.html" title="寡妇">寡妇</a>与<a href="../pages/%E5%BC%82%E7%AB%AF%E5%88%86%E5%AD%90.html" title="异端分子">异端分子</a>：</p>
+<p>调整前：互为克星的角色在同一时间里只能有其中一个角色在场。</p>
+<p>调整后：<span style="color:green"><strong>异端分子会被寡妇当作一个不在场的外来者，异端分子会知道是哪个外来者。</strong></span></p>
+<p><a href="../pages/%E6%95%99%E7%88%B6.html" title="教父">教父</a>与<a href="../pages/%E5%BC%82%E7%AB%AF%E5%88%86%E5%AD%90.html" title="异端分子">异端分子</a>：</p>
+<p>调整前：互为克星的角色在同一时间里只能有其中一个角色在场。</p>
+<p>调整后：<span style="color:green"><strong>异端分子会被教父当作一个不在场的外来者，异端分子会知道是哪个外来者。</strong></span></p>
+<p><a href="../pages/%E5%93%88%E8%BF%AA%E5%AF%82%E4%BA%9A.html" title="哈迪寂亚">哈迪寂亚</a>与<a href="../pages/%E4%B8%BB%E8%B0%8B.html" title="主谋">主谋</a>：</p>
+<p>调整前：互为克星的角色在同一时间里只能有其中一个角色在场。邪恶阵营玩家在游戏开始时知道这两者中是什么角色在场，是哪一名玩家。</p>
+<p>调整后：<span style="color:green"><strong>如果哈迪寂亚死于处决，且主谋存活，当晚哈迪寂亚要选择三名善良玩家：如果他们都选择存活，邪恶阵营获胜。否则，善良阵营获胜。</strong></span></p>
+<p><a href="../pages/%E5%86%9B%E5%9B%A2.html" title="军团">军团</a>与<a href="../pages/%E4%BC%A0%E6%95%99%E5%A3%AB.html" title="传教士">传教士</a>：</p>
+<p>调整前：互为克星的角色在同一时间里只能有其中一个角色在场。</p>
+<p>调整后：<span style="color:green"><strong>如果传教士选中了军团，军团仍然保留能力，但传教士可能会得知自己选中了军团。</strong></span></p>
+<p><a href="../pages/%E6%8F%90%E7%BA%BF%E6%9C%A8%E5%81%B6.html" title="提线木偶">提线木偶</a>与<a href="../pages/%E6%B0%94%E7%90%83%E9%A9%BE%E9%A9%B6%E5%91%98.html" title="气球驾驶员">气球驾驶员</a>：</p>
+<p>调整前：如果提线木偶抽到了气球驾驶员，也会+1外来者。</p>
+<p>调整后：如果提线木偶抽到了气球驾驶员，也<span style="color:green"><strong>可能</strong></span>会+1外来者。</p>
+<p><a href="../pages/%E5%8D%A1%E6%89%8E%E5%8A%9B.html" title="卡扎力">卡扎力</a>与<a href="../pages/%E8%8E%BD%E5%A4%AB.html" title="莽夫">莽夫</a>：</p>
+<p>调整前：如果卡扎力在选择爪牙时选择了莽夫，接下来的爪牙转变由说书人来做出决定。</p>
+<p>调整后：<span style="color:green"><strong>卡扎力可以把莽夫变成邪恶的爪牙。</strong></span></p>
+<p><a href="../pages/%E7%82%BC%E9%87%91%E6%9C%AF%E5%A3%AB.html" title="炼金术士">炼金术士</a>与<a href="../pages/%E5%AF%A1%E5%A6%87.html" title="寡妇">寡妇</a>/<a href="../pages/%E9%97%B4%E8%B0%8D.html" title="间谍">间谍</a>：</p>
+<p>第一版：炼金术士无法获得寡妇/间谍的能力。</p>
+<p>第二版：</p>
+<p><span style="color:green"><strong>如果炼金术士获得了寡妇的能力，他无法查看魔典。</strong></span></p>
+<p><span style="color:green"><strong>如果炼金术士获得了间谍的能力，他无法查看魔典，并且间谍不能被当作善良阵营、镇民角色或外来者角色。</strong></span></p>
+<p>调整后：</p>
+<p><span style="color:green"><strong>如果炼金术士本应获得寡妇/间谍的能力，那么他不会拥有该能力并改为寡妇/间谍一定在场。每个白天发生处决后，存活的炼金术士可以公开猜测一名存活玩家是寡妇/间谍：如果猜对了，恶魔今晚必须选择寡妇/间谍。</strong></span></p>
+<p><a href="../pages/%E6%9A%B4%E4%B9%B1.html" title="暴乱">暴乱</a>与<a href="../pages/%E9%A9%B1%E9%AD%94%E4%BA%BA.html" title="驱魔人">驱魔人</a>：</p>
+<p>调整前：互为克星的角色在同一时间里只能有其中一个角色在场。</p>
+<p>调整后：<span style="color:green"><strong>如果驱魔人在第三个夜晚选中了暴乱，爪牙不会变成暴乱。</strong></span></p>
+<p><a href="../pages/%E6%9A%B4%E4%B9%B1.html" title="暴乱">暴乱</a>与<a href="../pages/%E5%86%9C%E5%A4%AB.html" title="农夫">农夫</a>/<a href="../pages/%E5%AE%88%E9%B8%A6%E4%BA%BA.html" title="守鸦人">守鸦人</a>/<a href="../pages/%E8%B4%A4%E8%80%85.html" title="贤者">贤者</a>：</p>
+<p>调整前：如果暴乱提名并杀死了农夫/守鸦人/贤者，当晚会有一名存活的善良玩家变成农夫/守鸦人会被唤醒并使用其能力/贤者会被唤醒并使用其能力。</p>
+<p>调整后：<span style="color:green"><strong>每个夜晚*，暴乱要选择一名存活的善良玩家（与之前的每个夜晚不同）：如果农夫/守鸦人/贤者被选择，他的能力生效但不会死亡。</strong></span>（建议在暴乱选择农夫/守鸦人/贤者并触发这些角色的能力后，这些角色失去能力）</p>
+<p><a href="../pages/%E6%9A%B4%E4%B9%B1.html" title="暴乱">暴乱</a>与<a href="../pages/%E7%A5%96%E6%AF%8D.html" title="祖母">祖母</a>：</p>
+<p>调整前：如果暴乱提名并杀死了孙子，祖母会一同死亡。</p>
+<p>调整后：<span style="color:green"><strong>如果暴乱在场，孙子在白天死亡，祖母会一同死亡。</strong></span></p>
+<p><a href="../pages/%E6%9A%B4%E4%B9%B1.html" title="暴乱">暴乱</a>与<a href="../pages/%E6%97%85%E5%BA%97%E8%80%81%E6%9D%BF.html" title="旅店老板">旅店老板</a>/<a href="../pages/%E5%83%A7%E4%BE%A3.html" title="僧侣">僧侣</a>/<a href="../pages/%E5%A3%AB%E5%85%B5.html" title="士兵">士兵</a>：</p>
+<p>调整前：如果暴乱提名了一名前一晚曾被旅店老板/僧侣成功保护的玩家、士兵，那名玩家不会死亡。</p>
+<p>调整后：<span style="color:green"><strong>如果暴乱在场，旅店老板/僧侣保护的玩家、士兵免疫所有邪恶阵营的负面效果。</strong></span></p>
+<p><a href="../pages/%E6%9A%B4%E4%B9%B1.html" title="暴乱">暴乱</a>与<a href="../pages/%E9%95%87%E9%95%BF.html" title="镇长">镇长</a>：</p>
+<p>调整前：如果在第三天开始时只有三名玩家存活，所有玩家可以针对今天不发起提名进行表决。如果表决通过且镇长存活，镇长的阵营获胜。</p>
+<p>调整后：<span style="color:green"><strong>镇长可以停止提名。如果他这样做了，并且场上只有一名暴乱存活，善良阵营获胜；否则，邪恶阵营获胜。</strong></span></p>
+<p><a href="../pages/%E6%9A%B4%E4%B9%B1.html" title="暴乱">暴乱</a>与<a href="../pages/%E5%9B%BD%E7%8E%8B.html" title="国王">国王</a>：</p>
+<p>调整前：如果暴乱提名并杀死了国王且唱诗男孩存活，当晚唱诗男孩会被唤醒并使用其能力。</p>
+<p>调整后：<span style="color:green"><strong>如果暴乱在场，当至少一名玩家死亡时，国王每晚就会得知一个存活的角色。</strong></span></p>
+<p><a href="../pages/%E6%9A%B4%E4%B9%B1.html" title="暴乱">暴乱</a>与<a href="../pages/%E6%8A%A5%E4%B8%A7%E5%A5%B3%E5%A6%96.html" title="报丧女妖">报丧女妖</a>：</p>
+<p>调整前：如果暴乱提名并杀死了报丧女妖，所有玩家都会得知报丧女妖死亡，随后报丧女妖可以立即提名两名玩家。</p>
+<p>调整后：<span style="color:green"><strong>每个夜晚*，暴乱要选择一名存活的善良玩家（与之前的每个夜晚不同）：如果报丧女妖被选择，他死亡并能力生效。</strong></span></p>
+<p><a href="../pages/%E5%88%A9%E7%BB%B4%E5%9D%A6.html" title="利维坦">利维坦</a>与<a href="../pages/%E5%AE%88%E9%B8%A6%E4%BA%BA.html" title="守鸦人">守鸦人</a>/<a href="../pages/%E8%B4%A4%E8%80%85.html" title="贤者">贤者</a>/<a href="../pages/%E5%86%9C%E5%A4%AB.html" title="农夫">农夫</a>：</p>
+<p>调整前：如果利维坦在场且守鸦人/贤者死于处决，那么他当晚会被唤醒并使用自己的能力。如果提名者是善良阵营，守鸦人/贤者会醉酒。如果利维坦在场且农夫死于处决，当晚会有一名存活的善良玩家变成农夫。</p>
+<p>调整后：<span style="color:green"><strong>每个夜晚*，利维坦要选择一名存活的善良玩家（与之前的每个夜晚不同）：如果守鸦人/贤者/农夫被选择，他的能力生效但不会死亡。</strong></span>（建议在利维坦选择守鸦人/贤者/农夫并触发这些角色的能力后，这些角色失去能力）</p>
+<p><a href="../pages/%E5%88%A9%E7%BB%B4%E5%9D%A6.html" title="利维坦">利维坦</a>与<a href="../pages/%E6%97%85%E5%BA%97%E8%80%81%E6%9D%BF.html" title="旅店老板">旅店老板</a>/<a href="../pages/%E5%83%A7%E4%BE%A3.html" title="僧侣">僧侣</a>/<a href="../pages/%E5%A3%AB%E5%85%B5.html" title="士兵">士兵</a>：</p>
+<p>调整前：如果利维坦发起的提名中被处决的玩家在前一晚曾被旅店老板/僧侣成功保护、士兵，那名玩家不会死亡。</p>
+<p>调整后：<span style="color:green"><strong>如果利维坦在场，旅店老板/僧侣保护的玩家、士兵免疫所有邪恶阵营的负面效果。</strong></span></p>
+<p><a href="../pages/%E5%88%A9%E7%BB%B4%E5%9D%A6.html" title="利维坦">利维坦</a>与<a href="../pages/%E6%8A%A5%E4%B8%A7%E5%A5%B3%E5%A6%96.html" title="报丧女妖">报丧女妖</a>：</p>
+<p>调整前：如果利维坦在场且报丧女妖死于处决，所有玩家都会得知报丧女妖死亡，随后报丧女妖获得她死亡后的能力。</p>
+<p>调整后：<span style="color:green"><strong>每个夜晚*，利维坦要选择一名存活的善良玩家（与之前的每个夜晚不同）：如果报丧女妖被选择，他死亡并能力生效。</strong></span></p>
+<p><a href="../pages/%E5%88%A9%E7%BB%B4%E5%9D%A6.html" title="利维坦">利维坦</a>与<a href="../pages/%E7%A5%96%E6%AF%8D.html" title="祖母">祖母</a>:</p>
+<p>调整前：如果利维坦在场，孙子死于处决，祖母会一同死亡。</p>
+<p>调整后：如果利维坦在场，孙子死于处决，<span style="color:green"><strong>邪恶阵营获胜。</strong></span></p>
+<p><a href="../pages/%E7%82%BC%E9%87%91%E6%9C%AF%E5%A3%AB.html" title="炼金术士">炼金术士</a>与<a href="../pages/%E5%8F%AC%E5%94%A4%E5%B8%88.html" title="召唤师">召唤师</a>：</p>
+<p>调整前：如果炼金术士获得了召唤师的能力，游戏会以初始有恶魔在场进行。炼金术士召唤师选择的玩家会变成恶魔但不会改变阵营。</p>
+<p>调整后：<span style="color:green"><strong>获得召唤师能力的炼金术士不会获得伪装。他要选择一个恶魔角色，但不选择玩家，由说书人决定哪一名玩家变成邪恶的恶魔。如果他在选择之前死亡，邪恶阵营获胜。[无恶魔在场]</strong></span></p>
+<h2 id="其他调整">其他调整</h2>
+<ul>
+<li>汀西维尔的剧本结构从原本的“6/2/2/1”调整为“6/2/2/<span style="color:green"><strong>2</strong></span>”</li>
+</ul>
+<ul>
+<li><a href="../pages/%E7%A7%81%E8%B4%A7%E5%95%86%E4%BA%BA.html" title="私货商人">私货商人</a>，<a href="../pages/%E5%9B%AD%E4%B8%81.html" title="园丁">园丁</a>，<a href="../pages/%E6%9A%B4%E9%A3%8E%E6%8D%95%E6%89%8B.html" title="暴风捕手">暴风捕手</a>的角色类型由传奇角色更改为<span style="color:green"><strong>奇遇角色</strong></span>。</li>
+</ul>
+<ul>
+<li><a href="../pages/%E9%A3%9F%E4%BA%BA%E9%AD%94.html" class="image-link" title="食人魔"><img alt="Ogre.png" style="width:50px" class="" loading="lazy" data-source-image="../images/Ogre.png" src="../assets/media/Ogre.preview.webp" width="591" height="591" decoding="async"></a><strong>食人魔</strong>新增可选规则：</li>
+</ul>
+<p>使用“挚友”提示标记来标记被食人魔选择的玩家。食人魔始终与他所选择的玩家同一阵营。如果食人魔的挚友转变了阵营，食人魔也一同转变阵营，但食人魔不会得知自己的阵营发生变化。该可选规则仅在15人及以上的游戏中建议使用，以使得游戏中不会出现过多的邪恶玩家。</p>
+<ul>
+<li><a href="../pages/%E8%A1%97%E5%A4%B4%E9%A3%8E%E7%90%B4%E6%89%8B.html" title="街头风琴手">街头风琴手</a>与<a href="../pages/%E5%8D%96%E8%8A%B1%E5%A5%B3%E5%AD%A9.html" title="卖花女孩">卖花女孩</a>的相克规则<span style="color:green"><strong>暂时被移除</strong></span>。</li>
+</ul>
+<p>相克规则历史记录：</p>
+<p>第一版：如果街头风琴手使得玩家需要闭眼投票，卖花女孩在夜晚会改为得知恶魔在白天投票的总次数。</p>
+<p>第二版：如果街头风琴手使得玩家需要闭眼投票，当晚卖花女孩会被唤醒且要选择一名玩家：她会得知该玩家是否在今天白天投过票。（因为没有相关提示标记，说书人可以使用这种方式来记录谁投了票：在夜晚唤醒玩家并对他展示“今天你投票了吗”信息标记进行询问。即使卖花女孩不在场，说书人也可以分别唤醒一些玩家，对他们展示这个信息标记，以假装卖花女孩在场并选择了他们。如果有邪恶玩家伪装成卖花女孩，这一点会显得尤为重要。）</p>
+<ul>
+<li><a href="../pages/%E8%A1%97%E5%A4%B4%E9%A3%8E%E7%90%B4%E6%89%8B.html" title="街头风琴手">街头风琴手</a>与<a href="../pages/%E5%90%9F%E6%B8%B8%E8%AF%97%E4%BA%BA.html" title="吟游诗人">吟游诗人</a>的相克规则<span style="color:green"><strong>暂时被移除</strong></span>。</li>
+</ul>
+<p>相克规则历史记录：</p>
+<p>第一版：互为克星的角色在同一时间里只能有其中一个角色在场。</p>
+<p>第二版：如果吟游诗人让全员醉酒，街头风琴手会保留能力，但吟游诗人可以在投票期间睁眼。（说书人需要在夜晚唤醒他对他进行提示）</p>
+<ul>
+<li><a href="../pages/%E8%A1%97%E5%A4%B4%E9%A3%8E%E7%90%B4%E6%89%8B.html" title="街头风琴手">街头风琴手</a>与<a href="../pages/%E4%BC%A0%E6%95%99%E5%A3%AB.html" title="传教士">传教士</a>的相克规则<span style="color:green"><strong>暂时被移除</strong></span>。</li>
+</ul>
+<p>相克规则历史记录：</p>
+<p>第一版：互为克星的角色在同一时间里只能有其中一个角色在场。</p>
+<p>第二版：如果传教士选中了街头风琴手，街头风琴手会保留能力，但传教士可以在投票期间睁眼。（说书人需要在夜晚唤醒他对他进行提示）</p>
+<ul>
+<li><a href="../pages/%E8%A1%97%E5%A4%B4%E9%A3%8E%E7%90%B4%E6%89%8B.html" title="街头风琴手">街头风琴手</a>与<a href="../pages/%E5%B0%8F%E6%80%AA%E5%AE%9D.html" title="小怪宝">小怪宝</a>的相克规则<span style="color:green"><strong>暂时被移除</strong></span>。</li>
+</ul>
+<p>相克规则历史记录：</p>
+<p>如果街头风琴手在照看小怪宝，对街头风琴手的提名即使他自己没有投票，票数也会被统计。</p>
+<ul>
+<li><a href="../pages/%E8%B5%8C%E5%BE%92.html" title="赌徒">赌徒</a>与<a href="../pages/%E5%8D%8A%E5%85%BD%E4%BA%BA.html" title="半兽人">半兽人</a>的相克规则<span style="color:green"><strong>暂时被移除</strong></span>。</li>
+</ul>
+<p>相克规则历史记录：</p>
+<p>赌徒会先于半兽人行动。如果赌徒赌博失败且半兽人存活，那么无论半兽人选择了哪名玩家，当晚只会有赌徒死亡。</p>
+<ul>
+<li><a href="../pages/%E7%82%BC%E9%87%91%E6%9C%AF%E5%A3%AB.html" title="炼金术士">炼金术士</a>与<a href="../pages/%E7%BB%B4%E9%BD%90%E5%B0%94.html" title="维齐尔">维齐尔</a>的相克规则<span style="color:green"><strong>暂时被移除</strong></span>。</li>
+</ul>
+<p>相克规则历史记录：</p>
+<p>如果炼金术士拥有维齐尔的能力，他只能在三名或更多玩家投票时选择立即处决，不论这些玩家的阵营如何。</p>
+<ul>
+<li><a href="../pages/%E6%9A%B4%E4%B9%B1.html" title="暴乱">暴乱</a>与<a href="../pages/%E7%AE%A1%E5%AE%B6.html" title="管家">管家</a>的相克规则<span style="color:green"><strong>暂时被移除</strong></span>。</li>
+</ul>
+<p>相克规则历史记录：</p>
+<p>管家无法提名主人。</p>
+<ul>
+<li><a href="../pages/%E6%9A%B4%E4%B9%B1.html" title="暴乱">暴乱</a>与<a href="../pages/%E9%A3%9F%E4%BA%BA%E6%97%8F.html" title="食人族">食人族</a>/<a href="../pages/%E9%AD%94%E9%AC%BC%E4%BB%A3%E8%A8%80%E4%BA%BA.html" title="魔鬼代言人">魔鬼代言人</a>/<a href="../pages/%E5%92%8C%E5%B9%B3%E4%B8%BB%E4%B9%89%E8%80%85.html" title="和平主义者">和平主义者</a>/<a href="../pages/%E9%80%81%E8%91%AC%E8%80%85.html" title="送葬者">送葬者</a>的相克规则<span style="color:green"><strong>暂时被移除</strong></span>。</li>
+</ul>
+<p>相克规则历史记录：</p>
+<p>被提名且死亡的玩家算作被处决。</p>
+<ul>
+<li><a href="../pages/%E6%9A%B4%E4%B9%B1.html" title="暴乱">暴乱</a>与<a href="../pages/%E9%92%9F%E8%A1%A8%E5%8C%A0.html" title="钟表匠">钟表匠</a>/<a href="../pages/%E8%B0%83%E6%9F%A5%E5%91%98.html" title="调查员">调查员</a>/<a href="../pages/%E8%90%BD%E9%9A%BE%E5%B0%91%E5%A5%B3.html" title="落难少女">落难少女</a>/<a href="../pages/%E5%9F%8E%E9%95%87%E5%85%AC%E5%91%8A%E5%91%98.html" title="城镇公告员">城镇公告员</a>/<a href="../pages/%E4%BC%A0%E6%95%99%E5%A3%AB.html" title="传教士">传教士</a>的相克规则<span style="color:green"><strong>暂时被移除</strong></span>。</li>
+</ul>
+<p>相克规则历史记录：</p>
+<p>暴乱被钟表匠/调查员/落难少女/城镇公告员/传教士当作爪牙。</p>
+<ul>
+<li><a href="../pages/%E6%9A%B4%E4%B9%B1.html" title="暴乱">暴乱</a>与<a href="../pages/%E5%B7%A5%E7%A8%8B%E5%B8%88.html" title="工程师">工程师</a>的相克规则<span style="color:green"><strong>暂时被移除</strong></span>。</li>
+</ul>
+<p>相克规则历史记录：</p>
+<p>暴乱和工程师不能在初始时同时在场。如果工程师创造了暴乱，所有邪恶玩家都会变成暴乱。</p>
+<ul>
+<li><a href="../pages/%E6%9A%B4%E4%B9%B1.html" title="暴乱">暴乱</a>与<a href="../pages/%E5%8D%96%E8%8A%B1%E5%A5%B3%E5%AD%A9.html" title="卖花女孩">卖花女孩</a>/<a href="../pages/%E5%90%9F%E6%B8%B8%E8%AF%97%E4%BA%BA.html" title="吟游诗人">吟游诗人</a>的相克规则<span style="color:green"><strong>暂时被移除</strong></span>。</li>
+</ul>
+<p>相克规则历史记录：</p>
+<p>互为克星的角色在同一时间里只能有其中一个角色在场。</p>
+<ul>
+<li><a href="../pages/%E6%9A%B4%E4%B9%B1.html" title="暴乱">暴乱</a>与<a href="../pages/%E9%AD%94%E5%83%8F.html" title="魔像">魔像</a>的相克规则<span style="color:green"><strong>暂时被移除</strong></span>。</li>
+</ul>
+<p>相克规则历史记录：</p>
+<p>如果魔像提名了暴乱，暴乱不会死亡。</p>
+<ul>
+<li><a href="../pages/%E6%9A%B4%E4%B9%B1.html" title="暴乱">暴乱</a>与<a href="../pages/%E9%BA%BB%E8%84%B8%E5%B7%AB%E5%A9%86.html" title="麻脸巫婆">麻脸巫婆</a>的相克规则<span style="color:green"><strong>暂时被移除</strong></span>。</li>
+</ul>
+<p>相克规则历史记录：</p>
+<p>如果麻脸巫婆创造了暴乱，所有邪恶玩家都会变成暴乱。如果麻脸巫婆在游戏的第三天之后创造了暴乱，则游戏还会再进行一天。</p>
+<ul>
+<li><a href="../pages/%E6%9A%B4%E4%B9%B1.html" title="暴乱">暴乱</a>与<a href="../pages/%E5%9C%A3%E5%BE%92.html" title="圣徒">圣徒</a>的相克规则<span style="color:green"><strong>暂时被移除</strong></span>。</li>
+</ul>
+<p>相克规则历史记录：</p>
+<p>如果善良玩家提名并杀死了圣徒，圣徒的阵营落败。</p>
+<ul>
+<li><a href="../pages/%E6%9A%B4%E4%B9%B1.html" title="暴乱">暴乱</a>与<a href="../pages/%E5%91%8A%E5%AF%86%E8%80%85.html" title="告密者">告密者</a>的相克规则<span style="color:green"><strong>暂时被移除</strong></span>。</li>
+</ul>
+<p>相克规则历史记录：</p>
+<p>如果告密者在场，所有暴乱玩家都会分别得知三个不在场角色。</p>
+<ul>
+<li><a href="../pages/%E6%9A%B4%E4%B9%B1.html" title="暴乱">暴乱</a>与<a href="../pages/%E5%B8%BD%E5%8C%A0.html" title="帽匠">帽匠</a>的相克规则<span style="color:green"><strong>暂时被移除</strong></span>。</li>
+</ul>
+<p>相克规则历史记录：</p>
+<p>如果帽匠死亡时暴乱在场，一名暴乱选择变成其他恶魔，则其他所有暴乱需要选择变成其他爪牙。如果帽匠死亡时恶魔选择变成暴乱，所有爪牙会一同变成暴乱（如果发生在第三天后，则游戏会多进行一天）。</p>
+<ul>
+<li><a href="../pages/%E6%9A%B4%E4%B9%B1.html" title="暴乱">暴乱</a>与<a href="../pages/%E5%8F%AC%E5%94%A4%E5%B8%88.html" title="召唤师">召唤师</a>的相克规则<span style="color:green"><strong>暂时被移除</strong></span>。</li>
+</ul>
+<p>相克规则历史记录：</p>
+<p>如果召唤师创造了暴乱，被选择的玩家和所有邪恶玩家都变成邪恶的暴乱。被选择的玩家必须是与召唤师邻近的存活善良玩家。</p>
+<ul>
+<li><a href="../pages/%E6%9A%B4%E4%B9%B1.html" title="暴乱">暴乱</a>与<a href="../pages/%E7%8B%82%E7%83%AD%E8%80%85.html" title="狂热者">狂热者</a>的相克规则<span style="color:green"><strong>暂时被移除</strong></span>。</li>
+</ul>
+<p>相克规则历史记录：</p>
+<p>狂热者在被提名后必须立马发起提名，即使自己已死亡。</p>
+<h2 id="华灯初上系列角色能力调整">华灯初上系列角色能力调整</h2>
+<p><a href="../pages/%E5%8F%98%E8%84%B8%E5%B8%88.html" class="image-link" title="变脸师"><img alt="Bianlianshi.png" style="width:50px" class="" loading="lazy" data-source-image="../images/Bianlianshi.png" src="../assets/media/Bianlianshi.preview.webp" width="591" height="591" decoding="async"></a><strong>变脸师</strong>：</p>
+<p>调整前：每个白天，如果你“疯狂”地证明自己是一个善良角色（与之前不同），你会在当晚获得那个角色的能力，直到下个黄昏。</p>
+<p>调整后：每个白天，如果你“疯狂”地证明自己是一个善良角色（与之前不同），你<span style="color:green"><strong>可能</strong></span>会在当晚获得那个角色的能力，直到下个黄昏。</p>
+<p><a href="../pages/%E9%83%8E%E4%B8%AD.html" class="image-link" title="郎中"><img alt="Langzhong.png" style="width:50px" class="" loading="lazy" data-source-image="../images/Langzhong.png" src="../assets/media/Langzhong.preview.webp" width="591" height="591" decoding="async"></a><strong>郎中</strong>：</p>
+<p>调整前：每个夜晚，你要选择一名玩家：你会得知一个与他能力相关的词语。</p>
+<p>调整后：每个夜晚，你要选择<span style="color:green"><strong>除你以外的</strong></span>一名玩家：你会得知一个与他能力相关的词语。</p>
+<p><a href="../pages/%E9%80%86%E8%87%A3.html" class="image-link" title="逆臣"><img alt="Nichen.png" style="width:50px" class="" loading="lazy" data-source-image="../images/Nichen.png" src="../assets/media/Nichen.preview.webp" width="591" height="591" decoding="async"></a><strong>逆臣</strong>：</p>
+<p>调整前：在你的首个夜晚，你要选择除你以外的一名玩家：如果他先死于处决，你转变为邪恶；如果你先死于处决，他转变为邪恶。</p>
+<p>调整后：在你的首个夜晚，你要选择除你以外的一名玩家：如果他先死于处决，你<span style="color:green"><strong>会在当晚</strong></span>转变为邪恶；如果你先死于处决，他<span style="color:green"><strong>会在当晚</strong></span>转变为邪恶。</p>
+<p><a href="../pages/%E6%B7%B7%E6%B2%8C.html" class="image-link" title="混沌"><img alt="Hundun.png" style="width:50px" class="" loading="lazy" data-source-image="../images/Hundun.png" src="../assets/media/Hundun.preview.webp" width="591" height="591" decoding="async"></a><strong>混沌</strong>：</p>
+<p>调整前：每个夜晚*，你要选择一名玩家：他死亡。如果你以这种方式杀死了一名与你邻近的镇民玩家，所有善良玩家会中毒直到下个黄昏。</p>
+<p>调整后：每个夜晚*，你要选择一名玩家：他死亡。如果你以这种方式杀死了一名与你邻近的镇民玩家，<span style="color:green"><strong>除旅行者外的</strong></span>所有善良玩家会中毒直到下个黄昏。</p>
+<p><a href="../pages/%E4%B9%A6%E7%94%9F.html" class="image-link" title="书生"><img alt="Shusheng.png" style="width:50px" class="" loading="lazy" data-source-image="../images/Shusheng.png" src="../assets/media/Shusheng.preview.webp" width="591" height="591" decoding="async"></a><strong>书生</strong>：</p>
+<p>调整前：恶魔知道你在场。每局游戏限一次，恶魔可以拜访说书人并猜测谁是书生。如果恶魔猜测正确，即使你已死亡，当晚该恶魔可以选择一名玩家：他死亡。</p>
+<p>调整后：恶魔知道<span style="color:green"><strong>书生</strong></span>在场。每局游戏限一次，恶魔可以拜访说书人并猜测<span style="color:green"><strong>你</strong></span>是书生。如果恶魔猜测正确，即使你已死亡，当晚该恶魔可以选择一名玩家：他死亡。</p></div>
+    <div class="page-meta">最后修改于 2026-06-13T04:20:30Z，编辑者 <b>Zack</b> ｜ 页面 28,084 字节 ｜ <a href="https://clocktower-wiki.gstonegames.com/index.php?title=%E8%A7%84%E5%88%99%E8%B0%83%E6%95%B4%E6%8F%90%E5%89%8D%E5%85%AC%E7%A4%BA" target="_blank" rel="noopener">查看原页面</a> ｜ <div class="comment">编辑摘要：/* 相克规则调整 */</div></div>
+    <div class="backlinks"><b>链入此页的页面（1）</b><a href="../pages/%E9%A6%96%E9%A1%B5.html">首页</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

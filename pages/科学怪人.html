@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>科学怪人 - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">科学怪人</h1>
+    <div class="tagline">来自钟楼百科</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#提示与技巧">提示与技巧</a></li><li class="lvl2"><a href="#对抗科学怪人">对抗科学怪人</a></li><li class="lvl2"><a href="#角色信息">角色信息</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E7%A7%91%E5%AD%A6%E6%80%AA%E4%BA%BA">查找包含此角色的剧本 →</a></p><p><a href="../pages/%E7%A7%91%E5%AD%A6%E6%80%AA%E4%BA%BA.html" class="image-link" title="科学怪人"><img alt="Boffin.png" style="width:200px" class="" loading="lazy" data-source-image="../images/Boffin.png" src="../assets/media/Boffin.preview.webp" width="591" height="591" decoding="async"></a></p>
+<h2 id="背景故事">背景故事</h2>
+<p><em>“恒星的氢能，取之不尽，静待采掘；碳、氧、氖，尽数裂解。分子引发混沌，熵增由此产生，宇宙现象更替，原子紊乱重塑，物质聚合坍缩。所有的一切，都集中在这一个小小的锥形瓶中。”</em></p>
+<h2 id="角色能力">角色能力</h2>
+<p><strong>恶魔拥有一个不在场的善良角色的能力，即使他醉酒或中毒。你和他都知道他获得了什么能力。</strong></p>
+<h2 id="角色简介">角色简介</h2>
+<p>科学怪人能够复制善良角色的能力。</p>
+<ul>
+<li>只要科学怪人存活且清醒健康，恶魔就会拥有一个不在场的镇民或外来者角色的能力。</li>
+</ul>
+<ul>
+<li>如果恶魔醉酒中毒，恶魔仍然保留自己获得的这个善良角色的能力。然而如果科学怪人醉酒中毒，恶魔就会暂时失去这个善良角色的能力。</li>
+</ul>
+<ul>
+<li>如果恶魔拥有的能力是死亡后触发或保留的能力，且恶魔死亡，那么恶魔会保留获得的这项能力，例如心上人。</li>
+</ul>
+<ul>
+<li>如果有新恶魔被创造，例如红唇女郎或理发师，那么新恶魔也能从科学怪人处获得能力。新恶魔获得的能力可以与旧恶魔获得的能力不同。</li>
+</ul>
+<ul>
+<li>如果有多名恶魔同时在场且存活，只会有其中一名存活恶魔能够从科学怪人处获得能力。</li>
+</ul>
+<ul>
+<li>如果在游戏设置时恶魔因此获得的能力能够影响初始设置，例如唱诗男孩，那么就会对游戏设置产生影响。</li>
+</ul>
+<ul>
+<li>获得善良角色能力的恶魔与科学怪人都能得知恶魔获得了哪个角色的能力。说书人可以分别或同时唤醒这两名玩家通知他们相关信息。</li>
+</ul>
+<ul>
+<li>恶魔因此获得的不在场角色能力可以来自于恶魔的伪装之一。</li>
+</ul>
+<ul>
+<li>在夜晚时，恶魔会额外在这个善良角色被唤醒的时机下被唤醒。</li>
+</ul>
+<h2 id="范例">范例</h2>
+<p><a href="../pages/%E5%B0%8F%E6%81%B6%E9%AD%94.html" title="小恶魔">小恶魔</a>拥有<a href="../pages/%E8%B4%9E%E6%B4%81%E8%80%85.html" title="贞洁者">贞洁者</a>的能力。<a href="../pages/%E6%88%8F%E6%B3%95%E5%B8%88.html" title="戏法师">戏法师</a>提名了<a href="../pages/%E5%B0%8F%E6%81%B6%E9%AD%94.html" title="小恶魔">小恶魔</a>，他立即被处决。</p>
+<p><a href="../pages/%E5%A0%A4%E4%B8%B0%E4%B9%8B%E9%A6%96.html" title="堤丰之首">堤丰之首</a>拥有<a href="../pages/%E4%BE%8D%E5%A5%B3.html" title="侍女">侍女</a>的能力。每个夜晚，<a href="../pages/%E5%A0%A4%E4%B8%B0%E4%B9%8B%E9%A6%96.html" title="堤丰之首">堤丰之首</a>会被额外唤醒一次，并需要选择两名玩家，得知他们之中因自身能力被唤醒的人数。在第四个夜晚，<a href="../pages/%E7%A7%91%E5%AD%A6%E6%80%AA%E4%BA%BA.html" title="科学怪人">科学怪人</a>醉酒，恶魔因此失去了<a href="../pages/%E4%BE%8D%E5%A5%B3.html" title="侍女">侍女</a>的能力，当晚不再被额外唤醒。</p>
+<p><a href="../pages/%E5%8D%A1%E6%89%8E%E5%8A%9B.html" title="卡扎力">卡扎力</a>拥有<a href="../pages/%E6%8A%A5%E4%B8%A7%E5%A5%B3%E5%A6%96.html" title="报丧女妖">报丧女妖</a>的能力。<a href="../pages/%E5%8D%A1%E6%89%8E%E5%8A%9B.html" title="卡扎力">卡扎力</a>在夜晚死亡，<a href="../pages/%E7%BA%A2%E5%94%87%E5%A5%B3%E9%83%8E.html" title="红唇女郎">红唇女郎</a>变成了<a href="../pages/%E5%8D%A1%E6%89%8E%E5%8A%9B.html" title="卡扎力">卡扎力</a>。死亡的<a href="../pages/%E5%8D%A1%E6%89%8E%E5%8A%9B.html" title="卡扎力">卡扎力</a>能在每个白天发起两次提名，每次提名中都能投出两票。</p>
+<h2 id="运作方式">运作方式</h2>
+<p>在进行游戏设置时，将角色标记放入盲抽袋前，决定好恶魔获得的角色能力，并为恶魔本身和获得的角色能力做出相应的设置调整。在将角色标记收回并放入魔典后，将恶魔获得的能力对应的角色标记放置在恶魔的角色标记旁。</p>
+<p>在首个夜晚，唤醒科学怪人和恶魔。对他们展示“该角色的能力对你生效”信息标记，然后是科学怪人的角色标记，再是恶魔获得能力的那个善良角色标记。在展示后将这个善良角色标记放回到恶魔的角色标记旁。</p>
+<p>按照恶魔具有这个善良角色的能力一样来进行运作，同时恶魔还具有自己本身的能力。</p>
+<h2 id="提示标记">提示标记</h2>
+<p>无</p>
+<h2 id="规则细节">规则细节</h2>
+<ul>
+<li>如果科学怪人让恶魔拥有“能够让自己醉酒中毒”的能力（比如<a href="../pages/%E6%B0%B4%E6%89%8B.html" title="水手">水手</a>、<a href="../pages/%E9%A3%9F%E4%BA%BA%E6%97%8F.html" title="食人族">食人族</a>等），当这些能力导致自身醉酒或中毒时，仅影响恶魔因科学怪人拥有的能力，不会影响恶魔玩家原本的能力。</li>
+</ul>
+<ul>
+<li>相克规则：</li>
+<ul>
+<li><a href="../pages/%E5%BC%82%E6%95%99%E9%A2%86%E8%A2%96.html" title="异教领袖">异教领袖</a>：如果恶魔拥有异教领袖的能力，他无法因为该能力转变为善良阵营。</li>
+<li><a href="../pages/%E8%8E%BD%E5%A4%AB.html" title="莽夫">莽夫</a>：如果恶魔拥有莽夫的能力，他无法因为该能力转变为善良阵营。</li>
+<li><a href="../pages/%E5%BC%82%E7%AB%AF%E5%88%86%E5%AD%90.html" title="异端分子">异端分子</a>：恶魔无法拥有异端分子的能力。</li>
+<li><a href="../pages/%E9%A3%9F%E4%BA%BA%E9%AD%94.html" title="食人魔">食人魔</a>：恶魔无法拥有食人魔的能力。</li>
+<li><a href="../pages/%E6%94%BF%E5%AE%A2.html" title="政客">政客</a>：恶魔无法拥有政客的能力。</li>
+<li><a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a>：恶魔不能获得酒鬼的能力。</li>
+<li><a href="../pages/%E7%82%BC%E9%87%91%E6%9C%AF%E5%A3%AB.html" title="炼金术士">炼金术士</a>：如果炼金术士拥有科学怪人的能力，炼金术士不会得知恶魔因此获得了哪个角色的能力。</li>
+<li><a href="../pages/%E6%9D%91%E5%A4%AB.html" title="村夫">村夫</a>：如果村夫在场数量不足3人，科学怪人可以让恶魔拥有村夫的能力。</li>
+</ul>
+</ul>
+<ul>
+<li>相克规则（与华灯系列角色）：</li>
+<ul>
+<li><a href="../pages/%E6%82%9F%E9%81%93%E8%80%85.html" title="悟道者">悟道者</a>：恶魔无法拥有悟道者的能力。</li>
+<li><a href="../pages/%E7%8B%B8%E7%8C%AB.html" title="狸猫">狸猫</a>：如果因科学怪人获得狸猫能力的恶魔与“太子”交换角色，改为“太子”变成狸猫且恶魔获得“太子”原本角色的能力。</li>
+</ul>
+</ul>
+<h2 id="提示与技巧">提示与技巧</h2>
+<ul>
+<li>无论恶魔拥有什么能力，都要与他们协作！如果恶魔拥有贞洁者的能力，找到一个强大的善良镇民提名他们。如果恶魔拥有造谣者的能力，伪装成造谣者，在恶魔使用造谣者能力时发表虚假的声明。如果恶魔拥有侍臣的能力，找出恶魔让哪位善良角色醉酒，并说服该玩家相信他们是清醒且健康的。</li>
+</ul>
+<ul>
+<li>陷害那些拥有可以互相确认能力的善良玩家。如果善良阵营认为游戏中有科学怪人存在，说服大家相信被确认的守夜人或教授其实是拥有善良角色能力的恶魔。游戏后期针对这些玩家发起攻击以保护恶魔。</li>
+</ul>
+<ul>
+<li>活下来！只有你活着，恶魔才能继续使用善良角色能力！！！</li>
+</ul>
+<ul>
+<li>如果恶魔获得的是限次能力，鼓励他们在你死亡之前使用。</li>
+</ul>
+<ul>
+<li>作为恶魔，宣称自己是你当前拥有能力的角色。（尤其是当你拥有可验证的能力时！）</li>
+</ul>
+<ul>
+<li>作为恶魔，有时可以声称自己是另一个不在场的角色，而不是获得能力的善良角色。如果你拥有和平主义者的能力，不要告诉任何人！让好人玩家以为有魔鬼代言人在保护邪恶玩家，而实际上是你的和平主义者能力阻止好人玩家死于处决。或者，如果你是拥有僧侣能力的涡流，保护像女裁缝或城镇公告员这样的获取信息型的镇民，让他们在涡流的游戏中获得正确（但因此自相矛盾）的信息。</li>
+</ul>
+<ul>
+<li>作为恶魔，利用你获得的能力帮助邪恶阵营获取信息。作为奥赫，使用筑梦师的能力来检测那些你认为对你撒谎的玩家的角色。作为方古，使用图书管理员的能力来识别那些想在邪恶阵营面前隐藏自己的外来者。</li>
+</ul>
+<ul>
+<li>作为恶魔，利用你的能力暗中干扰镇民。使用侍臣的能力扰乱好人玩家的信息！使用哲学家的能力让一个正在游戏中的善良角色不知不觉变得醉酒！</li>
+</ul>
+<ul>
+<li>作为恶魔，在使用你的能力之前声称自己拥有该能力，以此来让善良玩家相信你。只是一定要在科学怪人死亡之前使用它！</li>
+</ul>
+<ul>
+<li>作为恶魔，一开始不要提及你的能力，先让自己得到一位或多位善良玩家的信任！</li>
+</ul>
+<ul>
+<li>如果善良玩家认为科学怪人在场，尽量让拥有可验证能力的玩家存活下来，借此把他们诬陷为恶魔。没有什么比让被确认的贞洁者、魔像和守夜人作为最后三名存活玩家更有意思的了！</li>
+</ul>
+<h2 id="对抗科学怪人">对抗科学怪人</h2>
+<ul>
+<li>记住，被“确认”的玩家不一定是善良的，他们也可能是邪恶的恶魔！幸运的是，拥有特定能力并被确认的玩家中最多只有一人是恶魔。如果有玩家声称自己是弄臣、贞洁者、教授和守夜人，那么这4名玩家中至少有3个是好人！</li>
+</ul>
+<ul>
+<li>相信你的社交属性判断，比如紧张的发言，飘忽不定的眼神。有时可能没有机械性的信息来区分教授和拥有教授能力的恶魔。</li>
+</ul>
+<ul>
+<li>如果你拥有可确认的能力，寻找额外的信息来证明你是拥有该能力的善良玩家，而不是假扮成善良镇民或外来者能力的恶魔。</li>
+</ul>
+<ul>
+<li>如果你认为游戏中有科学怪人存在，优先处决那些已经确认自己是好人的玩家。说书人通常会给恶魔一个可验证的能力，比如和平主义者、魔像或守夜人，因此处决这些玩家可以缩小恶魔玩家的范围。</li>
+</ul>
+<ul>
+<li>如果奇怪且无法解释的事情不断发生，考虑一种可能性，即恶魔在暗中使用善良角色的能力来制造混乱。例如，如果旅店老板保护的玩家持续在夜晚死亡，考虑一下是否恶魔使用了哲学家的能力获得了旅店老板的能力，从而让真正的旅店老板处于醉酒状态。</li>
+</ul>
+<ul>
+<li>要意识到恶魔可能拥有一个对邪恶没有收益的外来者能力。</li>
+</ul>
+<ul>
+<li>如果你认为游戏中有科学怪人存在，要警惕那些在夜晚死亡的玩家，特别是如果剧本中有与死亡相关的角色时。拥有瘟疫医生能力的小恶魔可以以自己为目标，从而让邪恶阵营获得额外的爪牙能力。拥有报丧女妖能力的方古可以以外来者为目标以激活其报丧女妖的能力。拥有心上人能力的诺-达鲺可以在红唇女郎在场的情况下死亡，从而秘密地让一个善良玩家进入心上人的醉酒状态。</li>
+</ul>
+<h2 id="角色信息">角色信息</h2>
+<ul>
+<li>英文名：Boffin</li>
+</ul>
+<ul>
+<li>所属剧本：<a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html" title="实验性角色">实验性角色</a></li>
+</ul>
+<ul>
+<li>角色类型：<a href="../pages/%E7%88%AA%E7%89%99.html" title="爪牙">爪牙</a></li>
+</ul>
+<ul>
+<li>角色能力类型：<a href="../pages/%E8%8E%B7%E5%BE%97%E8%83%BD%E5%8A%9B.html" title="获得能力">获得能力</a>、<a href="../pages/%E8%AE%BE%E7%BD%AE%E8%B0%83%E6%95%B4.html" title="设置调整">设置调整</a>、<a href="../pages/%E6%9A%B4%E9%9C%B2%E8%A7%92%E8%89%B2.html" title="暴露角色">暴露角色</a>、<a href="../pages/%E6%8C%81%E7%BB%AD%E6%A3%80%E6%B5%8B%E5%9E%8B%E8%83%BD%E5%8A%9B.html" title="持续检测型能力">持续检测型能力</a></li>
+</ul></div>
+    <div class="page-meta">最后修改于 2026-06-26T11:16:59Z，编辑者 <b>Zack</b> ｜ 页面 9,071 字节 ｜ <a href="https://clocktower-wiki.gstonegames.com/index.php?title=%E7%A7%91%E5%AD%A6%E6%80%AA%E4%BA%BA" target="_blank" rel="noopener">查看原页面</a> ｜ <div class="comment">编辑摘要：/* 对抗科学怪人 */</div></div>
+    <div class="backlinks"><b>链入此页的页面（26）</b><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a><a href="../pages/%E7%82%BC%E9%87%91%E6%9C%AF%E5%A3%AB.html">炼金术士</a><a href="../pages/%E6%9A%B4%E9%9C%B2%E8%A7%92%E8%89%B2.html">暴露角色</a><a href="../pages/%E5%BC%82%E6%95%99%E9%A2%86%E8%A2%96.html">异教领袖</a><a href="../pages/%E5%BC%82%E7%AB%AF%E5%88%86%E5%AD%90.html">异端分子</a><a href="../pages/%E6%94%BF%E5%AE%A2.html">政客</a><a href="../pages/%E8%8E%B7%E5%BE%97%E8%83%BD%E5%8A%9B.html">获得能力</a><a href="../pages/%E8%AE%BE%E7%BD%AE%E8%B0%83%E6%95%B4.html">设置调整</a><a href="../pages/%E9%85%92%E9%AC%BC.html">酒鬼</a><a href="../pages/%E8%8E%BD%E5%A4%AB.html">莽夫</a><a href="../pages/%E6%8C%81%E7%BB%AD%E6%A3%80%E6%B5%8B%E5%9E%8B%E8%83%BD%E5%8A%9B.html">持续检测型能力</a><a href="../pages/%E7%88%AA%E7%89%99.html">爪牙</a><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a><a href="../pages/%E6%82%9F%E9%81%93%E8%80%85.html">悟道者</a><a href="../pages/%E5%A4%9C%E6%99%9A%E8%A1%8C%E5%8A%A8%E9%A1%BA%E5%BA%8F%E4%B8%80%E8%A7%88.html">夜晚行动顺序一览</a><a href="../pages/%E6%96%B0%E8%A7%92%E8%89%B2%E5%85%AC%E5%B8%83%E8%AE%A1%E5%88%92.html">新角色公布计划</a><a href="../pages/%E6%9D%91%E5%A4%AB.html">村夫</a><a href="../pages/%E9%A3%9F%E4%BA%BA%E9%AD%94.html">食人魔</a><a href="../pages/%E7%A7%91%E5%AD%A6%E6%80%AA%E4%BA%BA.html">科学怪人</a><a href="../pages/%E4%BF%A1%E5%8F%A3%E9%9B%8C%E9%BB%84.html">信口雌黄</a><a href="../pages/%E4%BE%8F%E5%84%92.html">侏儒</a><a href="../pages/%E6%9A%B4%E5%90%9B.html">暴君</a><a href="../pages/%E7%8B%B8%E7%8C%AB.html">狸猫</a><a href="../pages/%E8%BD%AE%E5%88%B0%E4%BD%A0%E4%BA%86.html">轮到你了</a><a href="../pages/%E4%B8%83%E6%AD%A5%E6%88%90%E8%AF%97.html">七步成诗</a><a href="../pages/%E5%B9%BD%E7%81%B5%E4%BE%A6%E6%8E%A2.html">幽灵侦探</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>见闻家 Witness - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">见闻家 Witness<span class="ns-badge">奥德赛</span></h1>
+    <div class="tagline">来自钟楼百科 · 摘自《奥德赛 Odyssey》百科 · 镇民</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#夜晚行动顺序">夜晚行动顺序</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#游玩与对抗技巧">游玩与对抗技巧</a></li><li class="lvl2"><a href="#伪装成该角色">伪装成该角色</a></li><li class="lvl2"><a href="#出现剧本">出现剧本</a></li><li class="lvl2"><a href="#整体设计">整体设计</a></li><li class="lvl2"><a href="#创意来源">创意来源</a></li><li class="lvl2"><a href="#图标画师">图标画师</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E8%A7%81%E9%97%BB%E5%AE%B6">查找包含此角色的剧本 →</a></p><div class="charinfo"><div class="charinfo-img"><a href="../files/%E6%96%87%E4%BB%B6_%E8%A7%81%E9%97%BB%E5%AE%B6.png.html"><img alt="见闻家 Witness" data-source-image="../images/%E8%A7%81%E9%97%BB%E5%AE%B6.png" src="../assets/media/见闻家.preview.webp" width="600" height="600" decoding="async"></a></div><div class="charinfo-meta"><div class="row"><span class="k">角色类型</span><span class="v"><a href="../pages/%E9%95%87%E6%B0%91.html" title="镇民">镇民</a></span></div><div class="row"><span class="k">英文名</span><span class="v">Witness</span></div><div class="row"><span class="k">角色ID</span><span class="v">069</span></div><div class="row"><span class="k">角色归属</span><span class="v">角色拓展包《奥德赛》</span></div><div class="row"><span class="k">能力标签</span><span class="v"><a href="../pages/%E8%8E%B7%E5%8F%96%E4%BF%A1%E6%81%AF.html" title="获取信息">获取信息</a></span></div><div class="row"><span class="k">角色定位</span><span class="v">持续信息镇民</span></div><div class="row"><span class="k">发布日期</span><span class="v">2026.5.15</span></div><div class="row"><span class="k">角色授权</span><span class="v">开放（任意剧本创作皆可使用，不要改能力）</span></div><div class="row"><span class="k">出处</span><span class="v"><a class="external" href="https://www.yuque.com/u48069482/taiyi" target="_blank" rel="noopener">《奥德赛 Odyssey》百科</a></span></div></div></div><h2 id="背景故事">背景故事</h2>
+<p><em>"我见过镇民在烛光下祈祷，也见过他们在墙根写下诅咒；我见过外来者带着礼物敲门，也见过他们偷挖墓地里的棺椁；我见过爪牙跪舔主人的皮鞋，也见过他们跪在神像前忏悔；我见过恶魔的双手沾满了鲜血，也见过它们为婴儿的哭声感伤。你以为我在分辨善恶？不，我只是在看同一面镜子，映射出两种不同的光。"</em></p>
+<h2 id="角色简介"><span style="color:rgb(64, 64, 64);">角色简介</span></h2>
+<p>见闻家每天会得知关于各种角色类型的信息。</p>
+<h2 id="角色能力">角色能力</h2>
+<div class="callout callout-info">
+<p>每个白天，你可以从说书人处得知一条正确信息（关于某种角色类型）。如果该类型的玩家数量异常，你改为得知错误信息。</p>
+</div>
+<h2 id="范例">范例</h2>
+<ul>
+<li>12人局（7/2/2/1），第一个白天。见闻家拜访说书人并得知“占卜师与女裁缝都在场”。占卜师与女裁缝均为镇民，本局游戏因为方古的存在，增加了一名外来者而减少了一名镇民，此时场上镇民的数量为6个，镇民数量异常，且本局游戏占卜师与女裁缝并非都在场。“占卜师与女裁缝都在场”是一条错误信息。</li>
+<li>12人局（7/2/2/1），第三个白天。见闻家拜访说书人并得知“小美是小恶魔”。小恶魔是恶魔，本局游戏的恶魔是小恶魔，且场上存在一名死亡的小恶魔、一名存活的小恶魔，此时恶魔的数量为2，恶魔数量异常，且本局游戏小美不是恶魔。“小美是小恶魔”是一条错误信息。</li>
+<li>12人局（7/2/2/1），第二个白天。见闻家拜访说书人并得知“小美和小帅中存在男爵”。男爵是爪牙，此时场上爪牙数量为2个，爪牙数量无异常，且小帅是男爵。“小美和小帅中存在男爵”是一条正确信息。</li>
+</ul>
+<h2 id="运作方式">运作方式</h2>
+<p>每个白天仅限一次，如果见闻家要求与你进行私聊，请和他一起离开玩家围成的圆圈，保证你们的私聊不会被偷听。然后以耳语的方式告知见闻家一条与某个角色类型（镇民、外来者、爪牙、恶魔）有关的正确信息。</p>
+<p>如果此时某种角色类型的玩家数量与默认数量（参考游戏人数配置表）不一致，你要给出有关这种角色类型的信息的话，就必须给出一条错误信息。</p>
+<h2 id="夜晚行动顺序">夜晚行动顺序</h2>
+<ul>
+<li>首个夜晚</li>
+<ul>
+<li>夜序数值：/</li>
+<li>前位角色：/</li>
+<li>行动提示：/</li>
+</ul>
+<li>其他夜晚</li>
+<ul>
+<li>夜序数值：/</li>
+<li>前位角色：/</li>
+<li>行动提示：/</li>
+</ul>
+</ul>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>无</li>
+</ul>
+<h2 id="规则细节">规则细节</h2>
+<ul>
+<li><strong>该角色类型的玩家数量异常</strong>：指某个角色类型的玩家数量，与游戏默认配置下的数量不一致（只判断客观事实，不受互动干扰能力影响）。改变初始配置的角色（男爵、方古）或游戏中途改变玩家角色的角色（麻脸巫婆、小恶魔）都可能会导致某一类角色类型的玩家数量异常。以12人局举例，在场镇民数量不为7即是“异常”，在场外来者数量不为2即是“异常”，在场爪牙数量不为2即是“异常”，在场恶魔数量不为1即是“异常”。</li>
+<li><strong>正确信息：</strong>客观真实的信息，是否正确的判断不受任何能力效果干扰。不为正确信息的即是错误信息。</li>
+<li>你是否要给出错误信息，参考的是你给出信息的那一刻，你信息中有关的角色类型的玩家数量是否与默认配置的数量不同，即“异常”。</li>
+<li>见闻家会得到与什么角色类型相关的信息，是由说书人决定的。</li>
+<li>见闻家可以选择不从说书人那里获取信息，如果他愿意的话。</li>
+<li>是否与说书人交谈取决于见闻家而非说书人。见闻家从说书人处获取信息不是公开交流，因此其他玩家不能旁听。见闻家会秘密地获取信息。</li>
+<li>你给出的信息必须且只能与一种角色类型（镇民、外来者、爪牙、恶魔）有关。比如你要给出镇民相关的信息，你可以给出镇民角色类型的信息（小美小帅都是镇民）、镇民角色的信息（小美是占卜师）。但不能给出关联多个角色类型的信息（例如：小美和小帅中有一个是恶魔而另一个是镇民、昨夜一名镇民变成了外来者）。</li>
+<li>禁止给出谜语类或含糊不清的信息，比如：昨夜蓝色的奥特曼打败了红脸的小怪兽。</li>
+<li>见闻家不会得知旅行者相关的信息，旅行者不被当做一种角色类型（旅行者隔绝原则）。</li>
+<li><strong>参考信息模板</strong>：1、存活玩家中有3个镇民；2、小美与小帅中存在外来者；3、小美与小帅中存在男爵；4、占卜师在场而女裁缝不在场；5、昨天晚上恶魔杀死了多名玩家；6、恶魔是个女孩子；7、昨晚恶魔从涡流变成了方古。</li>
+<li><strong>信息格式</strong>：只包含一种角色类型且能清晰表达含义的短语。具体参考上一条。</li>
+<li><strong>错误（虚假）信息格式</strong>：只包含一种角色类型且能清晰表达含义的短语，但其表达的含义为错误信息。（例如：小美与小帅中存在恶魔，但其实小美小帅都不是恶魔）</li>
+</ul>
+<h2 id="游玩与对抗技巧">游玩与对抗技巧</h2>
+<ul>
+<li>如果你是见闻家。你获得的信息不一定是正确的，一定要记住，如果你得知的角色类型的玩家数量异常，你得知的信息就会是错误的！如果你已经得知有会增减外来者或镇民的角色在场了，那么你就可以反推你得知的有关于外来者或镇民的信息是错误的！</li>
+<li>如果你是见闻家。错误的信息也并非没有作用，如果你能确定一条信息是错误的，那么有关于该角色类型的玩家数量大概率是异常的，且你可以反盘这条信息。</li>
+<li>如果你是恶魔。见闻家带来的大量信息对邪恶阵营来说是非常不利的。观察哪些玩家每天都去拜访说书人，然后分别出其中的见闻家，尽快解决他。</li>
+<li>如果你是邪恶玩家。见闻家的信息正误与角色数量异常有关，如果某类在场的角色数量异常但善良并不自知，尽可能去误导他们！</li>
+<li>如果你是邪恶玩家。如果你的能力能够改变角色类型，你可以利用这点让见闻家产生错误的信息。</li>
+</ul>
+<h2 id="伪装成该角色">伪装成该角色</h2>
+<ul>
+<li>如果你想伪装成见闻家。记得每天都去拜访说书人，以伪装为见闻家发动能力的样子！</li>
+<li>千万注意！见闻家的信息中只会出现一种角色类型！如果你报出的信息不符合格式，那么几乎等于承认你是一个邪恶玩家。</li>
+<li>如果你不知道要怎么编信息，求助于说书人！他会给出一些可以帮到你的建议。</li>
+<li>你的信息需要与“角色数量异常”相关联，最好在逻辑上能够自圆其说，否则你可能会被打成是在编信息的邪恶玩家。</li>
+</ul>
+<h2 id="出现剧本">出现剧本</h2>
+<ul>
+<li><em>暂无</em></li>
+</ul>
+<h2 id="整体设计">整体设计</h2>
+<ul>
+<li>太一</li>
+</ul>
+<h2 id="创意来源">创意来源</h2>
+<ul>
+<li>太一</li>
+</ul>
+<h2 id="图标画师">图标画师</h2>
+<ul>
+<li>Lei.</li>
+</ul></div>
+    <div class="page-meta">最后修改于 2026-09-08T05:06:36.000Z，编辑者 <b>未知</b> ｜ 页面 6,912 字节 ｜ <a href="https://www.yuque.com/u48069482/taiyi/xzawtr9nv4gzf83b" target="_blank" rel="noopener">查看原页面</a></div>
+    <div class="backlinks"><b>链入此页的页面（2）</b><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">奥德赛 Odyssey</a><a href="../pages/%E4%BB%8E%E8%AF%B4%E4%B9%A6%E4%BA%BA%E5%A4%84_From_the_Storyteller.html">从说书人处 From the Storyteller</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

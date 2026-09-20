@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>黑帮 - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">黑帮</h1>
+    <div class="tagline">来自钟楼百科</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#提示与技巧作为善良">提示与技巧（作为善良）</a></li><li class="lvl2"><a href="#提示与技巧作为邪恶">提示与技巧（作为邪恶）</a></li><li class="lvl2"><a href="#角色信息">角色信息</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E9%BB%91%E5%B8%AE">查找包含此角色的剧本 →</a></p><p><a href="../pages/%E9%BB%91%E5%B8%AE.html" class="image-link" title="黑帮"><img alt="Gangster.png" style="width:200px" class="" loading="lazy" data-source-image="../images/Gangster.png" src="../assets/media/Gangster.preview.webp" width="600" height="600" decoding="async"></a></p>
+<h2 id="背景故事">背景故事</h2>
+<p><em>“我喜欢你的鞋子。不过要是你遭遇了什么小小的意外，不小心弄坏了它们，那可就丢人了。既然你提到了，其实我也挺喜欢你的袖扣的。”</em></p>
+<h2 id="角色能力">角色能力</h2>
+<p><strong>每个白天限一次，你可以杀死与你邻近的两名存活的玩家中的一名，但需要另一边那个存活的玩家同意。</strong></p>
+<h2 id="角色简介">角色简介</h2>
+<p>黑帮撺掇他的邻近玩家之间互相杀戮。</p>
+<ul>
+<li>黑帮可以杀死与他邻近的存活玩家之一。死亡的邻近玩家会被跳过而不被计算在内。</li>
+</ul>
+<ul>
+<li>想要使用这项能力，黑帮和另一名与他邻近的存活玩家必须一致同意。说书人必须亲自听到两人的意向。黑帮不能在未经过说书人的见证时杀死其他玩家。</li>
+</ul>
+<ul>
+<li>每个白天，黑帮可以随心所欲地发言，以此来挑拨玩家。一旦他提议使用能力并征求了意见之后，他就不能在今天再次使用他的能力，即使被攻击的玩家因为某些能力保护而没有死亡。</li>
+</ul>
+<ul>
+<li>在计算黑帮邻近的存活玩家时，始终是在顺时针和逆时针方向上分别计算距离黑帮最近的存活玩家。</li>
+</ul>
+<ul>
+<li>如果两名邻近的存活玩家都想要杀死对方，那么由黑帮来做出决定让谁死亡。</li>
+</ul>
+<h2 id="范例">范例</h2>
+<p>与<a href="../pages/%E9%BB%91%E5%B8%AE.html" title="黑帮">黑帮</a>邻近的存活玩家是<a href="../pages/%E5%9C%A3%E5%BE%92.html" title="圣徒">圣徒</a>和<a href="../pages/%E7%94%B7%E7%88%B5.html" title="男爵">男爵</a>。<a href="../pages/%E9%BB%91%E5%B8%AE.html" title="黑帮">黑帮</a>询问了<a href="../pages/%E7%94%B7%E7%88%B5.html" title="男爵">男爵</a>是否想要杀死<a href="../pages/%E5%9C%A3%E5%BE%92.html" title="圣徒">圣徒</a>。<a href="../pages/%E7%94%B7%E7%88%B5.html" title="男爵">男爵</a>同意了，<a href="../pages/%E5%9C%A3%E5%BE%92.html" title="圣徒">圣徒</a>因此死亡。</p>
+<p>与<a href="../pages/%E9%BB%91%E5%B8%AE.html" title="黑帮">黑帮</a>邻近的玩家是<a href="../pages/%E4%BE%8D%E5%A5%B3.html" title="侍女">侍女</a>和<a href="../pages/%E7%BD%82%E7%B2%9F%E7%A7%8D%E6%A4%8D%E8%80%85.html" title="罂粟种植者">罂粟种植者</a>，但他们都已死亡。与<a href="../pages/%E9%BB%91%E5%B8%AE.html" title="黑帮">黑帮</a>邻近的存活玩家是<a href="../pages/%E5%A4%B1%E5%BF%86%E8%80%85.html" title="失忆者">失忆者</a>和<a href="../pages/%E7%8F%80.html" title="珀">珀</a>。<a href="../pages/%E9%BB%91%E5%B8%AE.html" title="黑帮">黑帮</a>与<a href="../pages/%E7%8F%80.html" title="珀">珀</a>交谈并提议杀死<a href="../pages/%E5%A4%B1%E5%BF%86%E8%80%85.html" title="失忆者">失忆者</a>，<a href="../pages/%E7%8F%80.html" title="珀">珀</a>拒绝了。随后<a href="../pages/%E9%BB%91%E5%B8%AE.html" title="黑帮">黑帮</a>与<a href="../pages/%E5%A4%B1%E5%BF%86%E8%80%85.html" title="失忆者">失忆者</a>交谈，<a href="../pages/%E5%A4%B1%E5%BF%86%E8%80%85.html" title="失忆者">失忆者</a>同意让<a href="../pages/%E9%BB%91%E5%B8%AE.html" title="黑帮">黑帮</a>杀死<a href="../pages/%E7%8F%80.html" title="珀">珀</a>。<a href="../pages/%E7%8F%80.html" title="珀">珀</a>死亡，善良阵营获胜。</p>
+<p>与<a href="../pages/%E9%BB%91%E5%B8%AE.html" title="黑帮">黑帮</a>邻近的存活玩家是<a href="../pages/%E5%BC%84%E8%87%A3.html" title="弄臣">弄臣</a>和<a href="../pages/%E8%B4%A4%E8%80%85.html" title="贤者">贤者</a>。<a href="../pages/%E8%B4%A4%E8%80%85.html" title="贤者">贤者</a>同意让<a href="../pages/%E9%BB%91%E5%B8%AE.html" title="黑帮">黑帮</a>杀死<a href="../pages/%E5%BC%84%E8%87%A3.html" title="弄臣">弄臣</a>，但<a href="../pages/%E5%BC%84%E8%87%A3.html" title="弄臣">弄臣</a>因为自己的能力而没有死亡。今天<a href="../pages/%E9%BB%91%E5%B8%AE.html" title="黑帮">黑帮</a>无法再次使用自己的能力了。</p>
+<h2 id="运作方式">运作方式</h2>
+<p>每个白天限一次，黑帮可以宣布他想要使用自己的能力。如果他这么做了，询问他的邻近存活玩家之中是否有人同意黑帮使用能力。如果其中一名与黑帮邻近的存活玩家同意了，那么另一名与黑帮邻近的存活玩家就会死亡。如果两人均同意，那么由黑帮来决定杀死其中的哪一名玩家。如果两人均不同意，黑帮今天就无法再次使用他的能力。</p>
+<h2 id="提示标记">提示标记</h2>
+<p>无</p>
+<h2 id="提示与技巧作为善良">提示与技巧（作为善良）</h2>
+<ul>
+<li>查明你邻近存活玩家的角色。他们知道你是黑帮。你最好也知道他们的角色。在轻率地决定杀死谁之前先了解他们的角色。</li>
+</ul>
+<ul>
+<li>与每个邻近存活玩家交谈。说服他“允许你”杀死另一名玩家，即使他认为另一名玩家是善良的。你是善良阵营，因此能够在任何时候杀死任一邻近存活玩家是一种强力而可以指望有用的选项。你可以选择不杀死任一玩家，即使两名玩家都希望你杀死对方。</li>
+</ul>
+<ul>
+<li>如果可以，每天都杀人。仅仅考虑几率来玩，每天杀死两名玩家（一名被处决而另一名被黑帮杀害）意味着善良阵营杀死恶魔并获胜的几率也变成近乎两倍。即使你认为你的两个邻近存活玩家都是善良的，这也是值得的。</li>
+</ul>
+<ul>
+<li>在选择杀死哪名玩家时，首先瞄准邪恶玩家。如果你怀疑某人是邪恶的，就安排他们下海喂鱼。如果你确实没有怀疑任一玩家是邪恶的，那么就选择一名角色能力看起来对善良阵营更没用的玩家，或者选择一名看起来不太愿意死亡的玩家。</li>
+</ul>
+<ul>
+<li>如果你相信你的两名邻近玩家都是善良的，并且它们都持有在游戏剩下的时间内仍持续有用的角色能力，那么今天就不要杀人，也不要询问他们是否要杀死对方。这样，他们两就都能充分使用自己的能力。你可能不想杀死<a href="../pages/%E9%95%87%E9%95%BF.html" title="镇长">镇长</a>、<a href="../pages/%E8%B4%A4%E8%80%85.html" title="贤者">贤者</a>或<a href="../pages/%E5%9B%BD%E7%8E%8B.html" title="国王">国王</a>，如果他们在晚上死亡，那就转而将你的能力用在一名新的邻近存活玩家身上——你的能力也很有用，如果永远不使用它也是一种耻辱。</li>
+</ul>
+<ul>
+<li>如果你认为某名特定玩家是恶魔（或者只是一个爪牙），那么杀死你与他之前的其他玩家。希冀于在一两天内让他成为你的邻近存活玩家然后用你的能力杀死他。</li>
+</ul>
+<ul>
+<li>在最后一天之前要求团队放逐你。如果一个邪恶的黑帮在剩下三名其他玩家的情况下存活，那么就可以通过恶魔同意的方式来杀死另一名玩家并获胜。放逐意味着你在最后一天无法使用你的能力，但这也是一种对于善良阵营的示好。如果善良阵营相信你是善良的，他们会把你之前的杀戮当作善良玩家的最优选择，而不会错误地假定你因为是邪恶阵营而杀掉了善良玩家。</li>
+</ul>
+<ul>
+<li>记得你需要你的邻近存活玩家来同意使用你的能力。你不能代表他们同意。你需要和他们成为朋友，让他们相信你是善良且将善良阵营的利益置于心头的人。他们可能不希望你使用你的能力，并且也具有充分的理由如此。</li>
+</ul>
+<h2 id="提示与技巧作为邪恶">提示与技巧（作为邪恶）</h2>
+<ul>
+<li>如果你的两名邻近存活玩家都是善良的，试着让他们敌对。如果他们认为他们都是善良的，就不太可能会互相残杀。寻找办法暗示他们中至少有一人是邪恶的，那么其中一人就可能会杀死另一人。</li>
+</ul>
+<ul>
+<li>如果你的一名邻近存活玩家是邪恶的，那他们就有充分的理由想要杀死你的另一名邻近存活玩家。窍门不在于说服他们如此做，而在于提出一个好理由来解释为什么要这么做。与你的邻近的邪恶玩家交谈以帮助他们拟定一个合理的理由来告诉团队，因为过于狂热地利用黑帮的邪恶玩家会看起来更邪恶。你甚至可以表现得是勉强杀死另一名邻近玩家，并宣称你只是因为无可选择才这么做的。</li>
+</ul>
+<ul>
+<li>让尽可能多的善良玩家被杀。如何达成这点并不重要。每一名善良玩家死去都会减少一名能获得信息的善良玩家，少一名以能力对抗邪恶阵营的玩家，少一名善良玩家投票。</li>
+</ul>
+<ul>
+<li>杀死任何非恶魔玩家。即使爪牙由于你的能力而死亡，也意味着最后一天会更早来临，邪恶阵营获胜也更快。类似地，如果外来者因你的能力死亡，邪恶阵营也更接近获胜。不需要太过关注每名玩家的角色……只要他们不是恶魔，他们就最好是死人。</li>
+</ul>
+<ul>
+<li>在与任何善良的邻近存活玩家交谈前先与邪恶的邻近存活玩家交谈。许多玩家会想要在另一名玩家杀死他们之前杀死另一名玩家，先与邪恶的邻近存活玩家交谈会给你杀死善良玩家提供一个好借口。</li>
+</ul>
+<ul>
+<li>有时，特定玩家死于处决会对邪恶阵营更好。诸如善良的双子（参见<a href="../pages/%E9%95%9C%E5%83%8F%E5%8F%8C%E5%AD%90.html" title="镜像双子">镜像双子</a>）或<a href="../pages/%E5%9C%A3%E5%BE%92.html" title="圣徒">圣徒</a>等角色如果被处决，将会导致善良阵营落败，因此最好不要使用你的黑帮能力杀死他们。但是要注意不要太过了，因为一个善良的黑帮没有理由不杀死一个<a href="../pages/%E5%9C%A3%E5%BE%92.html" title="圣徒">圣徒</a>。</li>
+</ul>
+<ul>
+<li>如果你怀疑一名善良的邻近玩家即将被处决，今天就不要使用你的黑帮能力杀死他们。由黑帮能力造成的死亡不算作处决，不会结束这一天。在死亡发生后结束这一天对邪恶阵营比较有利，因为恶魔不再会意外地在当天被处决了。</li>
+</ul>
+<ul>
+<li>选择死亡的玩家以让你与恶魔之间的距离最大化。考虑到黑帮只能杀死邻近的存活玩家，而善良玩家可能会对你邻近的存活玩家中哪一个应当死亡提出强烈的意见。如果你的一名邻近存活玩家是恶魔，团队可能会对你施加很大压力迫使你杀死他们，虽然你总是可以选择不杀，但这最终会导致你看起来非常可疑并展现出你是邪恶阵营而知道恶魔是谁。最好避免这种情况，从一开始就不要与恶魔邻近。当恶魔与你相隔二、三、四乃至更多名玩家时，通过朝相反方向杀死玩家来维持这种状态。</li>
+</ul>
+<h2 id="角色信息">角色信息</h2>
+<ul>
+<li>英文名：Gangster</li>
+</ul>
+<ul>
+<li>所属剧本：<a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html" title="实验性角色">实验性角色</a>、<a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html" title="暗流涌动">暗流涌动</a>卡牌版</li>
+</ul>
+<ul>
+<li>角色类型：<a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html" title="旅行者">旅行者</a></li>
+</ul>
+<ul>
+<li>角色能力类型：<a href="../pages/%E9%A2%9D%E5%A4%96%E6%AD%BB%E4%BA%A1.html" title="额外死亡">额外死亡</a>、<a href="../pages/%E9%82%BB%E8%BF%91.html" title="邻近">邻近</a></li>
+</ul></div>
+    <div class="page-meta">最后修改于 2023-09-28T03:23:59Z，编辑者 <b>Little Black</b> ｜ 页面 8,375 字节 ｜ <a href="https://clocktower-wiki.gstonegames.com/index.php?title=%E9%BB%91%E5%B8%AE" target="_blank" rel="noopener">查看原页面</a></div>
+    <div class="backlinks"><b>链入此页的页面（8）</b><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a><a href="../pages/%E9%BB%91%E5%B8%AE.html">黑帮</a><a href="../pages/%E9%A2%9D%E5%A4%96%E6%AD%BB%E4%BA%A1.html">额外死亡</a><a href="../pages/%E9%82%BB%E8%BF%91.html">邻近</a><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a><a href="../pages/%E5%8D%B0%E5%BA%A6%E6%95%99%E6%95%99%E5%BE%92.html">印度教教徒</a><a href="../pages/%E6%A2%A6%E5%9B%9E%E5%A4%A7%E5%94%90.html">梦回大唐</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>卡扎力 - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">卡扎力</h1>
+    <div class="tagline">来自钟楼百科</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#提示与技巧">提示与技巧</a></li><li class="lvl2"><a href="#对抗卡扎力">对抗卡扎力</a></li><li class="lvl2"><a href="#角色信息">角色信息</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E5%8D%A1%E6%89%8E%E5%8A%9B">查找包含此角色的剧本 →</a></p><p><a href="../pages/%E5%8D%A1%E6%89%8E%E5%8A%9B.html" class="image-link" title="卡扎力"><img alt="Kazali.png" style="width:200px" class="" loading="lazy" data-source-image="../images/Kazali.png" src="../assets/media/Kazali.preview.webp" width="591" height="591" decoding="async"></a></p>
+<h2 id="背景故事">背景故事</h2>
+<p><em>“Gon(z)a7les6。请当Zn。机制已被FAN转。系统古攵阝章。重新{配}置。”</em></p>
+<h2 id="角色能力">角色能力</h2>
+<p><strong>每个夜晚*，你要选择一名玩家：他死亡。[由你决定谁是什么爪牙，-或+任意数量外来者]</strong></p>
+<h2 id="角色简介">角色简介</h2>
+<p>卡扎力能自由选择自己的爪牙。</p>
+<ul>
+<li>如果卡扎力在游戏中途被创造，他不会选择玩家成为新的爪牙。</li>
+</ul>
+<ul>
+<li>说书人可以将这些变成爪牙的玩家的原本善良角色作为恶魔的伪装提供，因为这些角色都已不在场。</li>
+</ul>
+<ul>
+<li>卡扎力对设置调整的效果在设置阶段和游戏的首个夜晚均会生效。</li>
+</ul>
+<ul>
+<li>在唤醒这些爪牙，告诉他们自己的新角色的过程中，说书人可以让卡扎力见证这一过程，也可以让他先行入睡。</li>
+</ul>
+<ul>
+<li>卡扎力只能选择位于角色列表上的爪牙。他不能选择让多名玩家变成同一个爪牙角色。</li>
+</ul>
+<ul>
+<li>卡扎力能够将他想要的任意玩家变成爪牙，无论该名玩家的角色能力如何，例如：士兵，莽夫，落难少女，国王等。</li>
+</ul>
+<h2 id="范例">范例</h2>
+<p>这是一场15人的游戏，没有爪牙在场。<a href="../pages/%E5%8D%A1%E6%89%8E%E5%8A%9B.html" title="卡扎力">卡扎力</a>被唤醒，他选择让道哥变成了邪恶的<a href="../pages/%E8%A1%97%E5%A4%B4%E9%A3%8E%E7%90%B4%E6%89%8B.html" title="街头风琴手">街头风琴手</a>，让小米变成了邪恶的<a href="../pages/%E7%BB%B4%E9%BD%90%E5%B0%94.html" title="维齐尔">维齐尔</a>，让小莱变成了邪恶的<a href="../pages/%E5%93%A5%E5%B8%83%E6%9E%97.html" title="哥布林">哥布林</a>。</p>
+<h2 id="运作方式">运作方式</h2>
+<p>在游戏设置时，移除所有的爪牙角色标记，并加入镇民和/或外来者角色标记，加入的角色标记总数量与移除的爪牙角色标记数量相等。</p>
+<p>在首个夜晚，唤醒卡扎力。让他指向一名玩家，和角色列表上的一个爪牙角色。用这个爪牙的角色标记替换该玩家原本的角色标记，然后唤醒该玩家，对他展示“你是”信息标记和这个爪牙角色标记，然后展示向下的大拇指。重复这个流程，直到场上有与初始设置时同等数量的爪牙。让卡扎力重新入睡。</p>
+<p>除首个夜晚以外的每个夜晚，唤醒卡扎力。让他指向任意一名玩家。那名玩家死亡——在他角色标记旁放置“死亡”提示标记。让卡扎力重新入睡。</p>
+<p>根据具体剧本的不同，在设置时增加超过一个外来者角色可能会给善良阵营带来巨大的劣势。</p>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>死亡</li>
+</ul>
+<p>放置时机：在除游戏的第一个夜晚之外，卡扎力进行了夜晚行动并选择了玩家后放置。</p>
+<p>放置条件：卡扎力选择的玩家当前存活，且能被卡扎力杀死，且卡扎力未醉酒中毒，那么在该玩家的角色标记旁放置，用以提醒说书人在黎明时分宣布当晚的死亡玩家。</p>
+<p>移除时机：在黎明时宣布死亡玩家后，说书人可以任由自己方便来进行移除。</p>
+<h2 id="规则细节">规则细节</h2>
+<ul>
+<li>在不考虑与其他角色交互时的运作，卡扎力对于爪牙的转化可以按照“重复这个流程，直到场上有与初始设置时同等数量的爪牙”来理解。然而实际上卡扎力的转化的更标准的描述形式应该是“重复这个流程，直到卡扎力进行了等同于初始设置爪牙数量次数的选择”。</li>
+</ul>
+<ul>
+<li>虽然在运作方式中没有提到，然而卡扎力在设置时也可以移除一部分原有的外来者，并用对应数量的镇民进行替换。</li>
+</ul>
+<ul>
+<li>特定角色互动：</li>
+<ul>
+<li><a href="../pages/%E6%9D%91%E5%A4%AB.html" title="村夫">村夫</a>：如果有复数个村夫在场，卡扎力的设置调整优先生效，其他的村夫因卡扎力的能力变成了爪牙，剩下的那名村夫一定是清醒的，因为这时村夫已经只有一个了。</li>
+</ul>
+</ul>
+<ul>
+<li>相克规则：</li>
+<ul>
+<li><a href="../pages/%E8%B5%8F%E9%87%91%E7%8C%8E%E4%BA%BA.html" title="赏金猎人">赏金猎人</a>：如果卡扎力把赏金猎人变成了爪牙，赏金猎人不会带来邪恶的镇民。</li>
+<li><a href="../pages/%E6%8F%90%E7%BA%BF%E6%9C%A8%E5%81%B6.html" title="提线木偶">提线木偶</a>：如果提线木偶本应初始在场，他们会在恶魔之后进场并与恶魔邻座。</li>
+<li><a href="../pages/%E5%8F%AC%E5%94%A4%E5%B8%88.html" title="召唤师">召唤师</a>：如果召唤师创造了第二个存活的恶魔，当晚的死亡由说书人决定。</li>
+</ul>
+</ul>
+<ul>
+<li>相克规则（与华灯系列角色）：</li>
+<ul>
+<li><a href="../pages/%E6%88%8F%E5%AD%90.html" title="戏子">戏子</a>：卡扎力和戏子不能在初始时同时在场。如果有角色能力能够使得善良玩家在第一个夜晚变成戏子，卡扎力会在这一效果生效之前先进行转变爪牙的行动。</li>
+</ul>
+</ul>
+<h2 id="提示与技巧">提示与技巧</h2>
+<ul>
+<li>选择做邪恶玩家时跟你配合得当的玩家。这是你组建邪恶阵营的大好时机，你能组建一支肆意碾压毫无戒心的可怜的善良玩家的团队，而不是随机决定的，东拼西凑的，磕磕绊绊的团队。</li>
+</ul>
+<ul>
+<li>如果你不太拿得准谁跟你配合最好，那就选那些在跟你阵营不相同的时候会让你感到害怕的玩家。如果你打不过他们，就让他们加入你！</li>
+</ul>
+<ul>
+<li>选择那些不是你作为卡扎力时最优选择的玩家。如果邪恶玩家的组合看起来有些奇特，那么就会更像是他们从盲抽袋里抽到了这些角色，也就不会怀疑恶魔是卡扎力了。</li>
+</ul>
+<ul>
+<li>抛开那些“最佳策略”，选择最有意思的人！归根结底，这个游戏就是为了好玩，如果你觉得和一些人组队一定会很开心，那就选择他们，让他们加入，一起玩个痛快！</li>
+</ul>
+<ul>
+<li>选择能力契合的爪牙。<a href="../pages/%E8%A1%97%E5%A4%B4%E9%A3%8E%E7%90%B4%E6%89%8B.html" title="街头风琴手">街头风琴手</a>可以与<a href="../pages/%E5%93%A5%E5%B8%83%E6%9E%97.html" title="哥布林">哥布林</a>或<a href="../pages/%E7%82%B8%E5%BC%B9%E4%BA%BA.html" title="炸弹人">炸弹人</a>产生巨大的配合，<a href="../pages/%E9%BA%BB%E8%84%B8%E5%B7%AB%E5%A9%86.html" title="麻脸巫婆">麻脸巫婆</a>也乐意去使唤<a href="../pages/%E5%AF%A1%E5%A6%87.html" title="寡妇">寡妇</a>——尽可能组建出最适合的团队。</li>
+</ul>
+<ul>
+<li>选择能让你假装成是另一种恶魔的爪牙。也许你想要瞒天过海，所以不妨选择<a href="../pages/%E5%88%BA%E5%AE%A2.html" title="刺客">刺客</a>来让人们怀疑你是一个攻击性更强的恶魔，或者选择<a href="../pages/%E9%AD%94%E9%AC%BC%E4%BB%A3%E8%A8%80%E4%BA%BA.html" title="魔鬼代言人">魔鬼代言人</a>来让人们担心恶魔可能是<a href="../pages/%E7%97%A2%E8%9B%AD.html" title="痢蛭">痢蛭</a>。</li>
+</ul>
+<ul>
+<li>分配给你选择的玩家最适合他们游玩策略的爪牙角色。你不仅可以选择让谁加入你的团队，还能为他们分配角色！因此，请利用好这一优势，为你的爪牙们分配他们喜欢并且能发挥最大作用的角色。</li>
+</ul>
+<h2 id="对抗卡扎力">对抗卡扎力</h2>
+<ul>
+<li>不要指望找到没有伪装的爪牙，因为根本就不存在！与卡扎力对战的缺点就是，所有爪牙在游戏开始时都会得知一个不在场的善良角色，因此他们从游戏开始时就有一个为他们备好的伪装，你无法凭借这一点来抓住他们。</li>
+</ul>
+<ul>
+<li>然而，这也是一种明显的表象！如果每个人都很乐意在一开始就报出自己的角色，那么有可能就是卡扎力在场，并因此使得整个邪恶阵营都有伪装的机会。</li>
+</ul>
+<ul>
+<li>检查外来者的数量。因为卡扎力会对外来者的数量产生不可预知的影响，因此这不会每每都有效，但是也有一定的用处，尤其是当你得知的信息表明没有其他效果对外来者的数量产生影响，然而外来者的数量又不太对劲的时候。</li>
+</ul>
+<ul>
+<li>如果你认为这是卡扎力在场的对局，并且找到了一个爪牙，那么问问自己，谁会选择这名玩家，他还有可能选择谁？代入到游戏中的每一名玩家并做出设想，问自己那个爪牙是否会作为这名玩家的选择。如果是，那么根据你发现的信息，这名玩家是否有理由成为恶魔，是否可以通过思考他可能选择的其他爪牙来证实这一点？</li>
+</ul>
+<h2 id="角色信息">角色信息</h2>
+<ul>
+<li>英文名：Kazali</li>
+</ul>
+<ul>
+<li>所属剧本：<a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html" title="实验性角色">实验性角色</a>、<a href="../pages/%E6%97%A0%E4%BD%95%E6%9C%89%E4%B9%8B%E4%B9%A1.html" title="无何有之乡">无何有之乡</a>（快速上手剧本）</li>
+</ul>
+<ul>
+<li>角色类型：<a href="../pages/%E6%81%B6%E9%AD%94.html" title="恶魔">恶魔</a></li>
+</ul>
+<ul>
+<li>角色能力类型：<a href="../pages/%E8%AE%BE%E7%BD%AE%E8%B0%83%E6%95%B4.html" title="设置调整">设置调整</a>、<a href="../pages/%E8%A7%92%E8%89%B2%E5%8F%98%E5%8C%96.html" title="角色变化">角色变化</a>、<a href="../pages/%E9%98%B5%E8%90%A5%E8%BD%AC%E5%8F%98.html" title="阵营转变">阵营转变</a></li>
+</ul></div>
+    <div class="page-meta">最后修改于 2026-06-13T03:11:42Z，编辑者 <b>Zack</b> ｜ 页面 7,265 字节 ｜ <a href="https://clocktower-wiki.gstonegames.com/index.php?title=%E5%8D%A1%E6%89%8E%E5%8A%9B" target="_blank" rel="noopener">查看原页面</a> ｜ <div class="comment">编辑摘要：/* 规则细节 */</div></div>
+    <div class="backlinks"><b>链入此页的页面（25）</b><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a><a href="../pages/%E8%B5%8F%E9%87%91%E7%8C%8E%E4%BA%BA.html">赏金猎人</a><a href="../pages/%E5%BC%82%E6%95%99%E9%A2%86%E8%A2%96.html">异教领袖</a><a href="../pages/%E6%8F%90%E7%BA%BF%E6%9C%A8%E5%81%B6.html">提线木偶</a><a href="../pages/%E8%A7%92%E8%89%B2%E5%8F%98%E5%8C%96.html">角色变化</a><a href="../pages/%E8%AE%BE%E7%BD%AE%E8%B0%83%E6%95%B4.html">设置调整</a><a href="../pages/%E9%98%B5%E8%90%A5%E8%BD%AC%E5%8F%98.html">阵营转变</a><a href="../pages/%E6%81%B6%E9%AD%94.html">恶魔</a><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a><a href="../pages/%E6%88%8F%E5%AD%90.html">戏子</a><a href="../pages/%E5%A4%9C%E6%99%9A%E8%A1%8C%E5%8A%A8%E9%A1%BA%E5%BA%8F%E4%B8%80%E8%A7%88.html">夜晚行动顺序一览</a><a href="../pages/%E6%96%B0%E8%A7%92%E8%89%B2%E5%85%AC%E5%B8%83%E8%AE%A1%E5%88%92.html">新角色公布计划</a><a href="../pages/%E5%8D%A1%E6%89%8E%E5%8A%9B.html">卡扎力</a><a href="../pages/%E6%9D%91%E5%A4%AB.html">村夫</a><a href="../pages/%E6%97%A0%E4%BD%95%E6%9C%89%E4%B9%8B%E4%B9%A1.html">无何有之乡</a><a href="../pages/%E5%AF%84%E6%A2%A6%E4%BB%96%E4%B9%A1.html">寄梦他乡</a><a href="../pages/%E5%8F%AC%E5%94%A4%E5%B8%88.html">召唤师</a><a href="../pages/%E6%8A%A5%E4%B8%A7%E5%A5%B3%E5%A6%96.html">报丧女妖</a><a href="../pages/%E6%9E%AF%E6%9C%A8%E9%80%A2%E6%98%A5.html">枯木逢春</a><a href="../pages/%E8%A7%84%E5%88%99%E8%B0%83%E6%95%B4%E6%8F%90%E5%89%8D%E5%85%AC%E7%A4%BA.html">规则调整提前公示</a><a href="../pages/%E7%A7%91%E5%AD%A6%E6%80%AA%E4%BA%BA.html">科学怪人</a><a href="../pages/%E4%BF%A1%E5%8F%A3%E9%9B%8C%E9%BB%84.html">信口雌黄</a><a href="../pages/%E5%85%AC%E4%B8%BB.html">公主</a><a href="../pages/%E7%8B%A1%E5%85%94%E4%B8%89%E7%AA%9F.html">狡兔三窟</a><a href="../pages/%E4%B8%80%E5%BE%80%E5%B7%AB%E5%89%8D.html">一往巫前</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

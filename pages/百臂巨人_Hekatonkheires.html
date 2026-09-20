@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>百臂巨人 Hekatonkheires - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">百臂巨人 Hekatonkheires<span class="ns-badge">奥德赛</span></h1>
+    <div class="tagline">来自钟楼百科 · 摘自《奥德赛 Odyssey》百科 · 爪牙</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#夜晚行动顺序">夜晚行动顺序</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#游玩与对抗技巧">游玩与对抗技巧</a></li><li class="lvl2"><a href="#出现剧本">出现剧本</a></li><li class="lvl2"><a href="#整体设计">整体设计</a></li><li class="lvl2"><a href="#创意来源">创意来源</a></li><li class="lvl2"><a href="#图标画师">图标画师</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E7%99%BE%E8%87%82%E5%B7%A8%E4%BA%BA">查找包含此角色的剧本 →</a></p><div class="charinfo"><div class="charinfo-img"><a href="../files/%E6%96%87%E4%BB%B6_%E7%99%BE%E8%87%82%E5%B7%A8%E4%BA%BA.png.html"><img alt="百臂巨人 Hekatonkheires" data-source-image="../images/%E7%99%BE%E8%87%82%E5%B7%A8%E4%BA%BA.png" src="../assets/media/百臂巨人.preview.webp" width="600" height="600" decoding="async"></a></div><div class="charinfo-meta"><div class="row"><span class="k">角色类型</span><span class="v"><a href="../pages/%E7%88%AA%E7%89%99.html" title="爪牙">爪牙</a></span></div><div class="row"><span class="k">英文名</span><span class="v">Hekatonkheires</span></div><div class="row"><span class="k">角色ID</span><span class="v">046</span></div><div class="row"><span class="k">角色归属</span><span class="v">角色拓展包《奥德赛》</span></div><div class="row"><span class="k">能力标签</span><span class="v"><a href="../pages/%E5%A4%84%E5%86%B3.html" title="处决">处决</a>、<a href="../pages/%E5%85%AC%E5%BC%80%E8%A7%A6%E5%8F%91%E8%83%BD%E5%8A%9B.html" title="公开触发能力">公开触发能力</a>、<a href="../pages/%E6%8A%95%E7%A5%A8.html" title="投票">投票</a></span></div><div class="row"><span class="k">角色定位</span><span class="v">轮次爪牙</span></div><div class="row"><span class="k">发布日期</span><span class="v">2025.4.1</span></div><div class="row"><span class="k">角色授权</span><span class="v">开放（任意剧本创作皆可使用，不要改能力）</span></div><div class="row"><span class="k">出处</span><span class="v"><a class="external" href="https://www.yuque.com/u48069482/taiyi" target="_blank" rel="noopener">《奥德赛 Odyssey》百科</a></span></div></div></div><p><a href="../files/%E6%96%87%E4%BB%B6_%E7%99%BE%E8%87%82%E5%B7%A8%E4%BA%BA.png.html" class="image-link" title="文件:百臂巨人.png"><img alt="百臂巨人.png" style="width:240px" class="" loading="lazy" data-source-image="../images/%E7%99%BE%E8%87%82%E5%B7%A8%E4%BA%BA.png" src="../assets/media/百臂巨人.preview.webp" width="600" height="600" decoding="async"></a></p>
+<h2 id="背景故事">背景故事</h2>
+<p><em>“百臂巨人的血脉从不屈服！每张处决我的陶片，都会成为我举起巨石的臂膀。我终将砸穿你们的伪善，哪怕它硬如特洛伊的城墙。”</em></p>
+<h2 id="角色简介"><span style="color:rgb(64, 64, 64);">角色简介</span></h2>
+<p>百臂巨人得到的票数越多，他的能力就愈加强大。</p>
+<h2 id="角色能力">角色能力</h2>
+<div class="callout callout-info">
+<p>如果你在死于处决后，立即公开声明你是百臂巨人，你下一次投票的票数会记作你今天获得的票数。</p>
+</div>
+<h2 id="范例">范例</h2>
+<ul>
+<li>百臂巨人第一天获得12票且死于处决，并且在得知自己死亡后立即公开声明了自己是百臂巨人。最后一个白天，百臂巨人使用投票标记投票，说书人唱票唱到百臂巨人时，将百臂巨人的票数算作12票。当天一名善良玩家共获得14票且死于处决，邪恶阵营获胜。</li>
+<li>百臂巨人第一天获得12票且死于处决，但他没有公开声明自己是百臂巨人。最后一个白天，百臂巨人使用投票标记投票，说书人唱票唱到百臂巨人时，将百臂巨人的票数正常算作1票。</li>
+<li>百臂巨人在第四天获得4票且死于处决，并且在得知自己死亡后立即公开声明了自己是百臂巨人。下一个白天，百臂巨人使用投票标记投票，说书人唱票唱到百臂巨人时，将百臂巨人的票数算作4票。</li>
+</ul>
+<h2 id="运作方式">运作方式</h2>
+<p>如果百臂巨人死于处决，且他立即公开声明了自己是百臂巨人。在百臂巨人的角色标记旁放置“复仇”的提示标记，且记下他当天所获得的票数。</p>
+<p>百臂巨人下一次投票时（一般是使用投票标记投票），将他的票数记作他死于处决那天所记下的票数。</p>
+<h2 id="夜晚行动顺序">夜晚行动顺序</h2>
+<ul>
+<li>首个夜晚</li>
+<ul>
+<li>夜序数值：/</li>
+<li>前位角色：/</li>
+<li>行动提示：/</li>
+</ul>
+<li>其他夜晚</li>
+<ul>
+<li>夜序数值：/</li>
+<li>前位角色：/</li>
+<li>行动提示：/</li>
+</ul>
+</ul>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>复仇</li>
+<ul>
+<li>放置时机：百臂巨人公开声明自己是百臂巨人时。</li>
+<li>放置条件：如果百臂巨人死于处决后立即声明自己是百臂巨人，在百臂巨人的角色标记旁放置。</li>
+<li>移除时机：百臂巨人投票后，或离场时。</li>
+</ul>
+</ul>
+<h2 id="规则细节">规则细节</h2>
+<ul>
+<li>如果百臂巨人没有在死于处决后立即公开声明自己是百臂巨人，那么百臂巨人的能力无法被正常触发。一般在百臂巨人死于处决后两分钟内的公开声明都会被算作有效声明。</li>
+<li>如果有不是百臂巨人的玩家在死于处决后公开声明自己是百臂巨人，你也需要像回应真正的百臂巨人一样配合回应他。即使他并不具有百臂巨人的能力。</li>
+<li>死于处决以外原因的百臂巨人无法触发他的能力。</li>
+<li>如果百臂巨人死于非正常处决（比如洗脑师），百臂巨人同样可以公开声明。他的票数会等于他当天被提名时所获得的票数。如果百臂巨人当天没有被提名或是没有收到任何投票，那么他下一次投票会被记作0票。</li>
+<li>百臂巨人在获得能力后进行投票，说书人在唱到百臂巨人的票时，需要直接唱出当前累计的所有票数。比如：1票（指向一名投票玩家）、2票（指向前一名投票玩家）、13票（指向百臂巨人）、14票（指向下一名投票玩家）。</li>
+</ul>
+<h2 id="游玩与对抗技巧">游玩与对抗技巧</h2>
+<ul>
+<li>如果你是百臂巨人。绞尽脑汁让自己早点死于处决。</li>
+<li>如果你是百臂巨人。尽你所能伪装得荒谬。如果善良玩家看穿了你的伪装而处决你，那就太棒了。如果善良玩家没能看穿你的伪装，那伪装也成功了。</li>
+<li>如果你是百臂巨人。对是否公开声明自己是百臂巨人慎重考虑。一般在游戏前期，你获得了足够主宰一轮处决的票数，那你可以毫不犹豫的声明自己是百臂巨人。如果在游戏中后期，就算你进行声明，也只能获得3、4票的话，那你就需要慎重的考虑这是否值得。因为公开声明一定会暴露是一名邪恶玩家，通常情况下，对邪恶阵营来说都是有害的。</li>
+<li>如果你是其他爪牙。有的时候在死于处决时声明自己是百臂巨人也是一个可行的战术。虽然你并不能真正获得百臂巨人的能力，但是会令善良阵营对你抱有极大的忌惮心理，特别在你获得了大量投票的前提下。</li>
+<li>如果你是善良玩家。如果没有玩家在死于处决后声明自己是百臂巨人，那么一定不会有百臂巨人的能力被触发。</li>
+<li>如果你是善良玩家。如果有玩家在死于处决后声明自己是百臂巨人，记住他当天获得的票数。如果他真的是百臂巨人，这意味着邪恶阵营在任意一天可以随时在任一处决中加上这些票数，积极备战做好应对。</li>
+</ul>
+<h2 id="出现剧本">出现剧本</h2>
+<ul>
+<li>暂无</li>
+</ul>
+<h2 id="整体设计">整体设计</h2>
+<ul>
+<li>太一</li>
+</ul>
+<h2 id="创意来源">创意来源</h2>
+<ul>
+<li>太一</li>
+</ul>
+<h2 id="图标画师">图标画师</h2>
+<ul>
+<li>Lei.</li>
+</ul></div>
+    <div class="page-meta">最后修改于 2026-09-08T05:13:12.000Z，编辑者 <b>未知</b> ｜ 页面 4,891 字节 ｜ <a href="https://www.yuque.com/u48069482/taiyi/lbvcoh6bftlxdgkg" target="_blank" rel="noopener">查看原页面</a></div>
+    <div class="backlinks"><b>链入此页的页面（1）</b><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">奥德赛 Odyssey</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

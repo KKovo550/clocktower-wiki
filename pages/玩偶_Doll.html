@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>玩偶 Doll - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">玩偶 Doll<span class="ns-badge">奥德赛</span></h1>
+    <div class="tagline">来自钟楼百科 · 摘自《奥德赛 Odyssey》百科 · 爪牙</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#夜晚行动顺序">夜晚行动顺序</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#游玩与对抗技巧">游玩与对抗技巧</a></li><li class="lvl2"><a href="#出现剧本">出现剧本</a></li><li class="lvl2"><a href="#整体设计">整体设计</a></li><li class="lvl2"><a href="#创意来源">创意来源</a></li><li class="lvl2"><a href="#图标画师">图标画师</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E7%8E%A9%E5%81%B6">查找包含此角色的剧本 →</a></p><div class="charinfo"><div class="charinfo-img"><a href="../files/%E6%96%87%E4%BB%B6_%E7%8E%A9%E5%81%B6.png.html"><img alt="玩偶 Doll" data-source-image="../images/%E7%8E%A9%E5%81%B6.png" src="../assets/media/玩偶.preview.webp" width="600" height="600" decoding="async"></a></div><div class="charinfo-meta"><div class="row"><span class="k">角色类型</span><span class="v"><a href="../pages/%E7%88%AA%E7%89%99.html" title="爪牙">爪牙</a></span></div><div class="row"><span class="k">英文名</span><span class="v">Doll</span></div><div class="row"><span class="k">角色ID</span><span class="v">024</span></div><div class="row"><span class="k">角色归属</span><span class="v">角色拓展包《奥德赛》</span></div><div class="row"><span class="k">能力标签</span><span class="v"><a href="../pages/%E8%AE%A4%E7%9F%A5%E8%A6%86%E7%9B%96.html" title="认知覆盖">认知覆盖</a>、<a href="../pages/%E8%AE%BE%E7%BD%AE%E8%B0%83%E6%95%B4.html" title="设置调整">设置调整</a>、<a href="../pages/%E8%A7%92%E8%89%B2%E5%8F%98%E5%8C%96.html" title="角色变化">角色变化</a></span></div><div class="row"><span class="k">角色授权</span><span class="v">开放（任意剧本创作可用，不要修改能力）</span></div><div class="row"><span class="k">出处</span><span class="v"><a class="external" href="https://www.yuque.com/u48069482/taiyi" target="_blank" rel="noopener">《奥德赛 Odyssey》百科</a></span></div></div></div><p><a href="../files/%E6%96%87%E4%BB%B6_%E7%8E%A9%E5%81%B6.png.html" class="image-link" title="文件:玩偶.png"><img alt="玩偶.png" style="width:240px" class="" loading="lazy" data-source-image="../images/%E7%8E%A9%E5%81%B6.png" src="../assets/media/玩偶.preview.webp" width="600" height="600" decoding="async"></a></p>
+<h2 id="背景故事">背景故事</h2>
+<p><em><span style="color:rgb(64, 64, 64);">“他们说我是好孩子...但我总听见针脚裂开的声音。我后背的标签上的那串数字...好像在倒数？那位大人，您需要新朋友了对吗？这次我会乖乖躺进棺材里...”</span></em></p>
+<h2 id="角色简介"><span style="color:rgb(64, 64, 64);">角色简介</span></h2>
+<p>玩偶不知道自己是玩偶。恶魔可以杀死旧的玩偶创造新玩偶。</p>
+<h2 id="角色能力">角色能力</h2>
+<div class="callout callout-info">
+<p>你以为你是一个善良角色，但其实你不是。如果你被恶魔杀死，恶魔要选择一名玩家：他变成玩偶。[玩偶会与恶魔邻座]</p>
+</div>
+<h2 id="范例">范例</h2>
+<ul>
+<li>玩偶以为自己是猎手，在白天公开选择了恶魔。无事发生，因为玩偶并不是真的猎手。</li>
+<li>恶魔在夜晚杀死了玩偶并选择了占卜师，占卜师变成了新的玩偶（善良）。但占卜师对此并没有察觉，依然以为自己是占卜师，因为玩偶会以为自己是一个善良角色。</li>
+<li>恶魔欺骗与自己邻座的占卜师说他是玩偶，是邪恶的爪牙，占卜师相信了，并帮助恶魔赢得胜利。但占卜师并不是玩偶。</li>
+<li>恶魔第二个夜晚杀死了初始的玩偶（邪恶），并选择了占卜师，占卜师变成了玩偶（善良）但不自知。恶魔第三个夜晚杀死了原占卜师（现善良玩偶），并选择了神谕者，神谕者变成了玩偶（善良）但不自知。恶魔第四个夜晚杀死了原神谕者（现善良玩偶），并选择了贵族，贵族变成了玩偶（善良）但不自知。</li>
+</ul>
+<h2 id="运作方式">运作方式</h2>
+<p>在游戏设置时，将角色标记放入盲抽袋之前，移除玩偶的角色标记，并加入一个镇民角色标记。在所有玩家都得知自己的角色后，在恶魔的邻近玩家中选择一名非爪牙玩家（如果是12人以上的对局，恶魔两边的玩家碰巧都是爪牙，建议使用最简单的办法：找个理由重发角色），并在他的角色标记旁放置“初始玩偶”提示标记。</p>
+<p>将玩偶当做他以为的那个角色一样来运作。他会在他以为的那个善良角色的时机被唤醒，可能获得错误信息，不会在首夜爪牙信息时被唤醒，等等。</p>
+<p>如果恶魔在夜晚杀死了玩偶，对他展示玩偶的角色标记和“该角色的能力对你生效”，然后让恶魔选择一名玩家。为该玩家放置“新玩偶”提示标记——他现在变成了玩偶。（一般情况下，他还会以为他是原来的角色，因此无需唤醒他通知角色转变。详见规则细节）。如果某些恶魔在白天杀死了玩偶，则在入夜后第一时间如此做。</p>
+<h2 id="夜晚行动顺序">夜晚行动顺序</h2>
+<ul>
+<li>首个夜晚</li>
+<ul>
+<li>夜序数值：/</li>
+<li>前位角色：/</li>
+<li>行动提示：/</li>
+</ul>
+<li>其他夜晚</li>
+<ul>
+<li>夜序数值：/</li>
+<li>前位角色：/</li>
+<li>行动提示：/</li>
+</ul>
+</ul>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>初始玩偶</li>
+<ul>
+<li>放置时机：在为首个夜晚做准备时放置。</li>
+<li>放置条件：在将所有玩家的角色标记收回到魔典后，在与恶魔邻座的一个善良玩家的角色标记旁放置。</li>
+<li>移除时机：玩偶离场时。</li>
+</ul>
+<li>新玩偶*4</li>
+<ul>
+<li>放置时机：恶魔创造新玩偶时。</li>
+<li>放置条件：恶魔杀死了存活的玩偶并选择了一名玩家。</li>
+<li>移除时机：玩偶离场时。</li>
+</ul>
+</ul>
+<h2 id="规则细节">规则细节</h2>
+<ul>
+<li>初始玩偶是邪恶阵营。但玩偶会认知自己为善良阵营及善良角色。因此不管玩偶玩家如何询问你，你都不能透露他的真实角色以及真实阵营（邪恶的玩偶）。你需要合理欺骗他，让他以为他是他得知的善良角色。</li>
+<li>恶魔不会得知谁是玩偶。恶魔会通过恶魔信息（首夜邪恶互认环节）得知哪些玩家是爪牙，这其中会包含玩偶，但恶魔无法分辨其中是否有玩偶（玩偶一定会与恶魔邻座，当恶魔得知有爪牙与自己邻座时，他可以通过这点预见这名爪牙是玩偶）。</li>
+<li>其他爪牙会正常通过爪牙信息（首夜邪恶互认环节）得知谁是恶魔，谁是爪牙（包含玩偶），但不会得知恶魔与爪牙的具体角色。</li>
+<li>玩偶以为自己是一个善良角色，所以不会在首个夜晚得知爪牙信息（首夜邪恶互认环节），他不会得知谁是爪牙、谁是恶魔。</li>
+<li>玩偶可能以为自己是镇民，也可能以为自己是外来者（除酒鬼外，认知覆盖不嵌套），如果玩偶以为自己是外来者，那么场上实际存在的外来者数量会比应该存在的外来者数量少一名。例如12人局7221配置（7个镇民2个外来者2个爪牙1个恶魔），原本应该有2名外来者，但其中一名外来者在游戏开始时被说书人标记为玩偶，所以场上实际只存在一名外来者。</li>
+<li>恶魔选择新玩偶的时机在夜晚恶魔杀死玩偶后，立即让恶魔进行选择。如果某些恶魔在白天杀死了玩偶，入夜后第一时间让恶魔选择。</li>
+<li>恶魔在创造新玩偶时不需要遵循“玩偶会与恶魔邻座”的要求。因为[ ]内的能力针对的是游戏开始前的配置阶段。</li>
+<li>被变成玩偶的玩家，一般情况下不会得知自己角色发生了转变，他依然会以为自己是原本的角色，但其实他已经丧失了原本的能力。从变成玩偶开始，他可能会获得错误的信息（也可能会获得正确信息）并且不再具有原本的能力。</li>
+<li>如果一名善良玩家被变成玩偶，他会是善良的玩偶（只改变角色不改变阵营），他依然属于善良阵营，并不会因此变为邪恶玩家。</li>
+<li>玩偶是爪牙不是镇民，因此如果有玩偶认为自己是镇民角色，且涡流等只影响镇民的角色在场，那么他获得的信息可正确可错误，并不是一定错误（因为此类能力只影响镇民）。所以请注意，不管是初始玩偶还是一名镇民被变成玩偶后，他都不会受到涡流等角色的能力影响。</li>
+<li>初始玩偶在会被其他角色的能力看作邪恶阵营以及爪牙角色（他本来就是邪恶阵营及爪牙）。</li>
+<li>小恶魔自杀时，说书人可以选择玩偶变成新的小恶魔，但是这并不会改变玩偶原本的阵营。如果是邪恶玩偶，那他就会变成邪恶的小恶魔。如果他是善良的玩偶，那他就会变成善良的小恶魔。不建议在还有存活的邪恶爪牙的前提下，把善良爪牙变成小恶魔。</li>
+<li>每个夜晚，恶魔只能创造一个新玩偶。</li>
+<li>恶魔不可以使用玩偶的能力选择旅行者玩家（旅行者隔绝原则）。</li>
+<li><strong>相克规则（玩偶与告密者）：</strong>玩偶不会得知三个不在场的角色，改为由恶魔额外得知三个不在场角色（可以与恶魔伪装相同）。非初始玩偶不与告密者能力互动。</li>
+</ul>
+<h2 id="游玩与对抗技巧">游玩与对抗技巧</h2>
+<ul>
+<li>如果你是初始玩偶，就意味着恶魔一定就在你的旁边。</li>
+<li>如果你可以确定你左右的玩家中没有恶魔，那么你就几乎可以断定跟你说你是玩偶的那名玩家正在欺骗你，曝光他们；又或者是你可能已经被恶魔选中为新的玩偶，请小心甄别！</li>
+<li>作为初始玩偶，你本质上是一个邪恶的酒鬼——你不仅没有你以为具有的能力，甚至不是你以为你是的阵营！好消息是许多你能用来检测自己是酒鬼的技巧也适用于检测玩偶。如果你的信息不够合乎情理，或是你的能力在~~它~~应当生效时没有生效，那么你可能是玩偶而不是一名善良玩家！</li>
+<li>如果你旁边的一名玩家声称你是玩偶，然后你死在了夜晚，这很可能是恶魔正在利用你的能力制造新的玩偶。当然这并不绝对，依然保持警惕，利用信息判断自己到底是不是那个初始的玩偶。</li>
+<li>爪牙数量是固定的，12人局只会有2个爪牙，如果你发现场上既有男爵又有哥布林时，那么你就几乎不可能是玩偶了。</li>
+<li>如果你确信自己不是玩偶，但有人告诉你你是玩偶，那告诉团队这件事。团队很可能会处决你的相邻玩家，这意味要么一个恶魔死亡，要么一个爪牙死亡，再不然就是一个伪装了但又没啥用的善良玩家死亡，最不济是一个胡闹的善良玩家死亡。</li>
+<li>你是善良的，但有个不太愿意相信你的邻近玩家。欺骗他是玩偶！至少在一段时间内，多数玩家会与你合作并试着探究他们自己的角色。只要确保在游戏结束前能让他们明白他们必须与你合作才能获胜就行。</li>
+<li>我是否该欺骗其他玩家他是玩偶？任何玩家都可以欺骗其他玩家是玩偶。如果你是一个爪牙，期望欺骗更多的善良玩家为邪恶阵营效力，那么你可以欺骗与你邻近的玩家你是恶魔而他是玩偶。</li>
+<li>如果你是一个恶魔，没有东西能阻止你告诉你的邻近善良玩家他们是玩偶。事实上，你可以告诉他们两个人，让他们都确信自己是“真正的”玩偶，只是另一个是被欺骗的！</li>
+<li>找到玩偶可以为善良阵营带来什么？如果你找到了一个初始玩偶，那么恶魔一定就在他的邻近玩家当中！如果你找到了一个疑似恶魔创造的新玩偶，那么玩偶一定在之前的某个夜晚被恶魔杀死了。如果目前只有一个玩家在夜晚死亡，那么他就是那个初始的玩偶，恶魔就一定在他身边！</li>
+<li>恶魔每个夜晚只能创造一个新玩偶，创造新玩偶的前提是杀死所有旧玩偶，牢记这一点，如果你发觉可能场上存在多名玩偶，玩偶链是有迹可循的，试着解开玩偶链找到那个幕后的恶魔。</li>
+<li>如果你认为一名玩家可能已经被变成玩偶了，那么他就已经不具备能力了，他的能力和信息都不再可信。</li>
+</ul>
+<h2 id="出现剧本">出现剧本</h2>
+<ul>
+<li>宝宝巴士、飞越疯人院Ⅱ</li>
+</ul>
+<h2 id="整体设计">整体设计</h2>
+<ul>
+<li>太一</li>
+</ul>
+<h2 id="创意来源">创意来源</h2>
+<ul>
+<li>官方角色</li>
+</ul>
+<h2 id="图标画师">图标画师</h2>
+<ul>
+<li>Lei.</li>
+</ul></div>
+    <div class="page-meta">最后修改于 2026-08-06T14:41:15.000Z，编辑者 <b>未知</b> ｜ 页面 9,870 字节 ｜ <a href="https://www.yuque.com/u48069482/taiyi/gr6bkik3nl131c0t" target="_blank" rel="noopener">查看原页面</a></div>
+    <div class="backlinks"><b>链入此页的页面（1）</b><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">奥德赛 Odyssey</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>亚瑟 Arthur - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">亚瑟 Arthur<span class="ns-badge">奥德赛</span></h1>
+    <div class="tagline">来自钟楼百科 · 摘自《奥德赛 Odyssey》百科 · 恶魔</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#夜晚行动顺序">夜晚行动顺序</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#游玩与对抗技巧">游玩与对抗技巧</a></li><li class="lvl2"><a href="#出现剧本">出现剧本</a></li><li class="lvl2"><a href="#整体设计">整体设计</a></li><li class="lvl2"><a href="#创意来源">创意来源</a></li><li class="lvl2"><a href="#图标画师">图标画师</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E4%BA%9A%E7%91%9F">查找包含此角色的剧本 →</a></p><div class="charinfo"><div class="charinfo-img"><a href="../files/%E6%96%87%E4%BB%B6_%E4%BA%9A%E7%91%9F.png.html"><img alt="亚瑟 Arthur" data-source-image="../images/%E4%BA%9A%E7%91%9F.png" src="../assets/media/亚瑟.preview.webp" width="600" height="600" decoding="async"></a></div><div class="charinfo-meta"><div class="row"><span class="k">角色类型</span><span class="v">多刀、生存恶魔</span></div><div class="row"><span class="k">英文名</span><span class="v">Arthur</span></div><div class="row"><span class="k">角色ID</span><span class="v">019</span></div><div class="row"><span class="k">角色归属</span><span class="v">角色拓展包《奥德赛》</span></div><div class="row"><span class="k">能力标签</span><span class="v"><a href="../pages/%E9%A2%9D%E5%A4%96%E6%AD%BB%E4%BA%A1.html" title="额外死亡">额外死亡</a>、<a href="../pages/%E8%A7%92%E8%89%B2%E5%8F%98%E5%8C%96.html" title="角色变化">角色变化</a>、<a href="../pages/%E9%99%90%E6%AC%A1%E8%83%BD%E5%8A%9B.html" title="限次能力">限次能力</a></span></div><div class="row"><span class="k">角色授权</span><span class="v">开放（任意剧本创作可用，不要修改能力）</span></div><div class="row"><span class="k">出处</span><span class="v"><a class="external" href="https://www.yuque.com/u48069482/taiyi" target="_blank" rel="noopener">《奥德赛 Odyssey》百科</a></span></div></div></div><p><a href="../files/%E6%96%87%E4%BB%B6_%E4%BA%9A%E7%91%9F.png.html" class="image-link" title="文件:亚瑟.png"><img alt="亚瑟.png" style="width:240px" class="" loading="lazy" data-source-image="../images/%E4%BA%9A%E7%91%9F.png" src="../assets/media/亚瑟.preview.webp" width="600" height="600" decoding="async"></a></p>
+<h2 id="背景故事">背景故事</h2>
+<p><em>“湖中仙女当年递给我剑时，藏起了另一句话——‘你终将溺毙于自己的荣耀。’如今我浮上水面，吐出不甘与悔恨，却发现自己早已长出鳞片与利爪。堕落？这是我的新生。每一个背叛我的人，都将被我挂在卡美洛特的残垣上风干。我回来了，带着锈蚀的圣剑与石化的心。”</em></p>
+<h2 id="角色简介"><span style="color:rgb(64, 64, 64);">角色简介</span></h2>
+<p>亚瑟通过与爪牙“王车易位”造成多名玩家死亡。</p>
+<h2 id="角色能力">角色能力</h2>
+<div class="callout callout-info">
+<p>每个夜晚*，你要选择一名玩家：他死亡。当亚瑟首次攻击爪牙时，亚瑟会与其交换角色，且两名存活玩家代替其被攻击。</p>
+</div>
+<h2 id="范例">范例</h2>
+<ul>
+<li>亚瑟攻击了男爵，男爵没有死亡，管家和投毒者死亡了，原男爵变成了新的亚瑟，原亚瑟变成了新的男爵。</li>
+<li>亚瑟攻击了投毒者，投毒者没有死亡，亚瑟和管家死亡了，原投毒者变成了新的亚瑟，原亚瑟（已死亡）变成了新的投毒者。</li>
+<li>前一个夜晚，男爵与亚瑟交换了角色并成为了新的亚瑟。当晚，亚瑟攻击了投毒者，投毒者死亡。</li>
+</ul>
+<h2 id="运作方式">运作方式</h2>
+<p>除首个夜晚外的每个夜晚，唤醒亚瑟。让他指向一名玩家。让亚瑟重新入睡。为那名玩家放置“死亡”提示标记。</p>
+<p>如果被选择的玩家是爪牙，且他可以被亚瑟杀死，且这是本局游戏中亚瑟首次即将杀死爪牙（“王车易位”提示标记未放置在魔典中），改为在两名其他玩家角色旁放置“死亡”提示标记——他们代替该爪牙死亡。然后交换该爪牙和亚瑟的角色。分别唤醒该爪牙和亚瑟，告知他们的角色发生了什么变化。让他们入睡。将“王车易位”提示标记放置在魔典中。</p>
+<h2 id="夜晚行动顺序">夜晚行动顺序</h2>
+<ul>
+<li>首个夜晚</li>
+<ul>
+<li>夜序数值：/</li>
+<li>前位角色：/</li>
+<li>行动提示：/</li>
+</ul>
+<li>其他夜晚</li>
+<ul>
+<li>夜序数值：5410</li>
+<li>前位角色：方古</li>
+<li>行动提示：让他选择一名玩家。</li>
+</ul>
+</ul>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>死亡*2</li>
+<ul>
+<li>放置时机：在亚瑟选择了玩家后放置。</li>
+<li>放置条件：如果亚瑟选择的玩家当前存活，且能被亚瑟杀死，且亚瑟未醉酒中毒，且未满足王车易位的条件，那么在该玩家的角色标记旁放置。若满足王车易位，则改为在任意两个玩家的角色标记旁放置。</li>
+<li>移除时机：在黎明时宣布死亡玩家后，说书人可以任由自己方便来进行移除。</li>
+</ul>
+<li>王车易位</li>
+<ul>
+<li>放置时机：亚瑟与爪牙交换角色之后。</li>
+<li>放置条件：亚瑟成功与爪牙交换角色后，将此提示标记放置在魔典中央。</li>
+<li>移除时机：此标记不因任何原因移除。</li>
+</ul>
+</ul>
+<h2 id="规则细节">规则细节</h2>
+<ul>
+<li><strong>“当亚瑟首次攻击爪牙时”：</strong>指本局游戏中，角色为亚瑟或拥有亚瑟能力的玩家首次将要攻击爪牙的时机。因此每局游戏最多只会出现一次，已经王车易位的新亚瑟无法再与爪牙交换角色。</li>
+<li>拥有亚瑟能力而角色并非亚瑟的玩家与爪牙交换角色时是交换他当前的角色而非亚瑟角色。亚瑟能中的“亚瑟”指的是角色为亚瑟或拥有亚瑟能力的玩家。</li>
+<li>任意存活玩家都可以代替被攻击的爪牙遭受攻击（包含原亚瑟），说书人需要根据局势决定，但不建议让无法死亡的玩家被攻击（死亡玩家、弄臣或被保护的玩家），因为善良玩家需要通过多名玩家死亡来发觉恶魔位置发生了改变。</li>
+<li>亚瑟变成爪牙，这名爪牙视为重新入场，因此不会继承原爪牙的选择，比如：魔鬼代言人选择了一名玩家，然后亚瑟与魔鬼代言人交换了角色，原魔鬼代言人的能力就消失了，而新的魔鬼代言人因为已经过了行动时点，所以也不会被唤醒。这意味着下个白天不会有魔鬼代言人的能力生效。</li>
+<li>如果魔鬼代言人在场，亚瑟和一名其他爪牙交换角色，可能发生连续两天魔鬼代言人保护恶魔的（魔鬼代言人第一天选择原亚瑟，第二天选择交换后的新亚瑟）。如果你发现邪恶方正在利用此策略形成连续保护，且善良毫无胜算，你可以利用亚瑟的能力杀死魔鬼代言人，从而破除连续2天的处决保护，给善良阵营最后一点获胜的机会。</li>
+<li>亚瑟的能力不可以选择旅行者玩家（旅行者隔绝原则）。</li>
+</ul>
+<h2 id="游玩与对抗技巧">游玩与对抗技巧</h2>
+<ul>
+<li>如果你是亚瑟。与爪牙交换角色很酷！恶魔位置会因此发生改变，但是突如其来的夜晚多死，也可能会暴露在场恶魔是亚瑟并且改变了恶魔位置！所以尽可能合理的利用其他角色的多死逻辑掩饰亚瑟已经王车易位这件事！</li>
+<li>如果你是亚瑟。你的额外能力的用途不仅是换位！更是额外击杀加速游戏的好手段！如果场面上只剩下4名存活玩家，使出王车易位可以杀死2名玩家从而提前结束游戏。</li>
+<li>如果你是善良玩家。出现突然的额外死亡时要特别注意，很有可能是亚瑟已经王车易位跑路了！</li>
+<li>如果你是善良玩家。对抗亚瑟可能需要尽可能地找到所有所有爪牙的位置，因为你不知道亚瑟会与哪名爪牙进行王车易位。但如果夜晚一直没有出现多死，那就不要担心恶魔换位。因为亚瑟一定还没有王车易位。</li>
+</ul>
+<h2 id="出现剧本">出现剧本</h2>
+<ul>
+<li>圆桌骑士团</li>
+</ul>
+<h2 id="整体设计">整体设计</h2>
+<ul>
+<li>太一</li>
+</ul>
+<h2 id="创意来源">创意来源</h2>
+<ul>
+<li>太一</li>
+</ul>
+<h2 id="图标画师">图标画师</h2>
+<ul>
+<li>Lei.</li>
+</ul></div>
+    <div class="page-meta">最后修改于 2026-08-22T19:45:24.000Z，编辑者 <b>未知</b> ｜ 页面 5,529 字节 ｜ <a href="https://www.yuque.com/u48069482/taiyi/rvggckctoipv1mab" target="_blank" rel="noopener">查看原页面</a></div>
+    <div class="backlinks"><b>链入此页的页面（2）</b><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">奥德赛 Odyssey</a><a href="../pages/%E6%94%BB%E5%87%BB_Attack.html">攻击 Attack</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>哪些是“可以但不建议” - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">哪些是“可以但不建议”</h1>
+    <div class="tagline">来自钟楼百科</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#简要说明">简要说明</a></li><li class="lvl2"><a href="#基础规则部分">基础规则部分</a></li><li class="lvl2"><a href="#暗流涌动">暗流涌动</a></li><li class="lvl2"><a href="#黯月初升">黯月初升</a></li><li class="lvl2"><a href="#梦殒春宵">梦殒春宵</a></li><li class="lvl2"><a href="#实验性角色">实验性角色</a></li></ul></div>
+    <div class="mw-parser-output"><h2 id="简要说明">简要说明</h2>
+<p>此处列举了一些属于“规则允许，但不建议让说书人这么做”的行为（简称“YBD”，指“Yes but don't”）。《染》是一款对规则持开放态度的游戏，然而这并不意味着某些事情能做，就必须要去这么做。设计师也在“给说书人的建议”里强调了这一点。为此，我们在这里整理了部分属于“可以但不建议”的游戏行为，方便大家查找。</p>
+<p>因为游戏中角色的数量逐渐增加，角色之间的互动也会变得越来越多，难免会出现新的“YBD”，而没有及时在这里列出，此时说书人需要结合自己的实际经验来进行判断，尽可能给玩家带来一个良好的游戏体验。</p>
+<h2 id="基础规则部分">基础规则部分</h2>
+<ul>
+<li>恶魔的伪装</li>
+</ul>
+<p>在恶魔得知三个不在场的善良角色时，得知<a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a>或<a href="../pages/%E6%8F%90%E7%BA%BF%E6%9C%A8%E5%81%B6.html" title="提线木偶">提线木偶</a>以为的角色。（虽然这些角色的确不在场，但这不利于恶魔进行伪装，也不够有趣。）</p>
+<ul>
+<li>旅行者的加入游戏</li>
+</ul>
+<p>在初始游戏人数不足七人，或当前场中剩余存活人数不足七人时加入旅行者。</p>
+<ul>
+<li>旅行者的角色转换</li>
+</ul>
+<p>让旅行者在游戏中途变成非旅行者，或者非旅行者在游戏中途变成旅行者。（如果你实在想这么做，需要在游戏开始前告知所有玩家，并在游戏中始终保持旅行者角色的公开，但这无法保证游戏的乐趣。另外，在这一规则下，<a href="../pages/%E9%BA%BB%E8%84%B8%E5%B7%AB%E5%A9%86.html" title="麻脸巫婆">麻脸巫婆</a>也仍无法将玩家变成旅行者，因为旅行者角色不满足“不在场”的定义，详情参考<a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html" title="术语汇总">术语汇总</a>。）</p>
+<ul>
+<li>疯狂</li>
+</ul>
+<p>在进入夜晚时因为玩家白天的行为而判定他不够疯狂，让他夜晚时受到惩罚。（因为疯狂的判断通常更多时候需要参考玩家较近时间内的表现而非更早时候的行为，延迟对疯狂的判断本身就是在制造混乱。详情可以参考<a href="../pages/%E7%96%AF%E7%8B%82%E8%A7%84%E5%88%99%E5%A6%82%E4%BD%95%E8%BF%90%E4%BD%9C%EF%BC%9F%E2%80%94%E2%80%94%E7%96%AF%E7%8B%82%E7%9A%84%E5%B0%8F%E7%B2%BE%E7%81%B5.html" title="疯狂规则如何运作？——疯狂的小精灵">小精灵的拓展阅读</a>）</p>
+<h2 id="暗流涌动">暗流涌动</h2>
+<ul>
+<li><a href="../pages/%E9%95%87%E9%95%BF.html" title="镇长">镇长</a></li>
+</ul>
+<p>频繁地让镇长的能力触发并因此选择无法死去的玩家作为代替镇长死亡的目标。</p>
+<ul>
+<li><a href="../pages/%E9%99%8C%E5%AE%A2.html" title="陌客">陌客</a></li>
+</ul>
+<p>1.让陌客在“爪牙信息”和“恶魔信息”阶段，被当作爪牙或恶魔，以此让真爪牙得知陌客与真恶魔两名恶魔玩家；或让真恶魔得知陌客与其他爪牙是他的爪牙；或与爪牙一起睁眼；或作为恶魔睁眼得知所有爪牙和恶魔伪装。（为了达成同样的目的，可以在剧本中加入<a href="../pages/%E9%AD%94%E6%9C%AF%E5%B8%88.html" title="魔术师">魔术师</a>或<a href="../pages/%E5%87%B6%E5%AE%85%E9%AD%85%E5%BD%B1.html" title="凶宅魅影">内奸</a>，而不必让陌客作为一个外来者在此处发挥正面的作用）</p>
+<p>2.让陌客在<a href="../pages/%E5%B0%8F%E6%81%B6%E9%AD%94.html" title="小恶魔">小恶魔</a>自杀时被当作爪牙，并因此将一个与原本的<a href="../pages/%E5%B0%8F%E6%81%B6%E9%AD%94.html" title="小恶魔">小恶魔</a>实际阵营不同的陌客变成<a href="../pages/%E5%B0%8F%E6%81%B6%E9%AD%94.html" title="小恶魔">小恶魔</a>。</p>
+<p>3.让陌客在死亡时被当作恶魔，并因此让<a href="../pages/%E7%BA%A2%E5%94%87%E5%A5%B3%E9%83%8E.html" title="红唇女郎">红唇女郎</a>变成对应那种被当作的恶魔。</p>
+<p>4.让陌客被当作爪牙或恶魔并因此被<a href="../pages/%E5%B7%A5%E7%A8%8B%E5%B8%88.html" title="工程师">工程师</a>改变角色。</p>
+<p>5.让能查看魔典的角色（<a href="../pages/%E9%97%B4%E8%B0%8D.html" title="间谍">间谍</a>和<a href="../pages/%E5%AF%A1%E5%A6%87.html" title="寡妇">寡妇</a>）在查看魔典时，将陌客角色标记替换成爪牙或恶魔角色标记。（同样的，这一行为可以通过<a href="../pages/%E9%AD%94%E6%9C%AF%E5%B8%88.html" title="魔术师">魔术师</a>来实现）</p>
+<p>6.在没有其他恶魔存活的时候，将陌客当作恶魔，并因此让游戏继续而不是让善良阵营获胜。<strong>（规则不可以，也不建议）</strong></p>
+<p>7.不向<a href="../pages/%E6%95%99%E7%88%B6.html" title="教父">教父</a>提供陌客在场的信息，或在陌客死亡的时候不当作外来者并因此无法触发<a href="../pages/%E6%95%99%E7%88%B6.html" title="教父">教父</a>的能力。</p>
+<p>8.在<a href="../pages/%E6%96%B9%E5%8F%A4.html" title="方古">方古</a>杀死陌客时，不将陌客当作外来者，并因此无法触发<a href="../pages/%E6%96%B9%E5%8F%A4.html" title="方古">方古</a>的能力。</p>
+<p>9.让陌客成为<a href="../pages/%E5%8D%A0%E5%8D%9C%E5%B8%88.html" title="占卜师">占卜师</a>的“干扰项”。（这可能会在陌客被当作邪恶阵营时，转移“干扰项”并误导占卜师将新的“干扰项”误认为是原本爪牙现在为<a href="../pages/%E5%B0%8F%E6%81%B6%E9%AD%94.html" title="小恶魔">小恶魔</a>。）</p>
+<p>10.让陌客在被<a href="../pages/%E9%BA%BB%E8%84%B8%E5%B7%AB%E5%A9%86.html" title="麻脸巫婆">麻脸巫婆</a>创造的时候当作创造了一个恶魔，并因此触发<a href="../pages/%E9%BA%BB%E8%84%B8%E5%B7%AB%E5%A9%86.html" title="麻脸巫婆">麻脸巫婆</a>的能力由说书人决定当晚的死亡。</p>
+<ul>
+<li><a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a></li>
+</ul>
+<p>让酒鬼以为的角色是与某个在场镇民相同的角色。（默认实体规则下，通常每个镇民角色标记只有一个，而线上游戏或是有多套实体游戏则能实现这个操作。如果你实在想这么做，需要在游戏开始前告诉大家这一规则，同时这也会让酒鬼这个角色多少背离原本的设计意图。为了达成同样的目的，可以在剧本中加入<a href="../pages/%E5%B0%8F%E7%B2%BE%E7%81%B5.html" title="小精灵">小精灵</a>来实现，并且也通常建议这么做。）</p>
+<ul>
+<li><a href="../pages/%E9%97%B4%E8%B0%8D.html" title="间谍">间谍</a></li>
+</ul>
+<p>1.让间谍成为<a href="../pages/%E5%8D%A0%E5%8D%9C%E5%B8%88.html" title="占卜师">占卜师</a>的“干扰项”。</p>
+<p>2.让能查看魔典的角色（<a href="../pages/%E9%97%B4%E8%B0%8D.html" title="间谍">间谍</a>和<a href="../pages/%E5%AF%A1%E5%A6%87.html" title="寡妇">寡妇</a>）在查看魔典时，将间谍角色标记替换成镇民或外来者角色标记。（没 有 必 要）</p>
+<p>3.让间谍在“爪牙信息”和“恶魔信息”阶段，被当作镇民或外来者并因此不参与爪牙互认，不获取谁是恶魔的信息，或让恶魔无法得知间谍是他的爪牙。</p>
+<p>4.让间谍被当作善良阵营，从而成为<a href="../pages/%E9%95%9C%E5%83%8F%E5%8F%8C%E5%AD%90.html" title="镜像双子">镜像双子</a>的对立双子。</p>
+<p>5.在<a href="../pages/%E5%B0%8F%E6%81%B6%E9%AD%94.html" title="小恶魔">小恶魔</a>自杀时，将<a href="../pages/%E9%97%B4%E8%B0%8D.html" title="间谍">间谍</a>当作善良角色，使得<a href="../pages/%E9%97%B4%E8%B0%8D.html" title="间谍">间谍</a>无法变成<a href="../pages/%E5%B0%8F%E6%81%B6%E9%AD%94.html" title="小恶魔">小恶魔</a>，而导致游戏结束。</p>
+<h2 id="黯月初升">黯月初升</h2>
+<ul>
+<li><a href="../pages/%E7%A5%96%E6%AF%8D.html" title="祖母">祖母</a></li>
+</ul>
+<p>让祖母成为自己的孙子。（祖 母 悖 论 要 不 得）</p>
+<ul>
+<li><a href="../pages/%E6%95%99%E6%8E%88.html" title="教授">教授</a></li>
+</ul>
+<p>在教授夜晚行动时，允许教授挨个点一遍他眼里的存活玩家来确认有谁当晚死亡。（建议教授选择他认知里已死亡的玩家，而只有那些在教授醒来前复活的玩家说书人需要提醒教授重新更换目标）</p>
+<ul>
+<li><a href="../pages/%E9%80%A0%E8%B0%A3%E8%80%85.html" title="造谣者">造谣者</a></li>
+</ul>
+<p>让造谣者的能力选择一名无法死亡的玩家死亡。</p>
+<ul>
+<li><a href="../pages/%E7%96%AF%E5%AD%90.html" title="疯子">疯子</a></li>
+</ul>
+<p>欺骗疯子让他以为自己被<a href="../pages/%E8%88%9E%E8%9B%87%E4%BA%BA.html" title="舞蛇人">舞蛇人</a>的效果选中从而变成了<a href="../pages/%E8%88%9E%E8%9B%87%E4%BA%BA.html" title="舞蛇人">舞蛇人</a>。（从规则上来说，这是不允许的，因为疯子的认知覆盖能力需要确保他一直以为自己是恶魔角色。这里也放在了一起，但需要注意这是<strong>“规则不可以，也不建议”</strong>）</p>
+<h2 id="梦殒春宵">梦殒春宵</h2>
+<ul>
+<li><a href="../pages/%E8%88%9E%E8%9B%87%E4%BA%BA.html" title="舞蛇人">舞蛇人</a></li>
+</ul>
+<p>让醉酒或中毒的舞蛇人以为自己选中并变成了恶魔角色。</p>
+<h2 id="实验性角色">实验性角色</h2>
+<ul>
+<li><a href="../pages/%E5%B0%8F%E7%B2%BE%E7%81%B5.html" title="小精灵">小精灵</a></li>
+</ul>
+<p>让小精灵的能力得知小精灵在场。</p>
+<ul>
+<li><a href="../pages/%E8%B5%8F%E9%87%91%E7%8C%8E%E4%BA%BA.html" title="赏金猎人">赏金猎人</a></li>
+</ul>
+<p>让赏金猎人因为自己的初始设置效果而转变为邪恶阵营的同时，让赏金猎人的能力得知自己。</p>
+<ul>
+<li><a href="../pages/%E8%A7%A3%E8%B0%9C%E5%A4%A7%E5%B8%88.html" title="解谜大师">解谜大师</a></li>
+</ul>
+<p>让解谜大师的能力使自身或恶魔醉酒。</p>
+<ul>
+<li><a href="../pages/%E4%BA%8B%E5%8A%A1%E5%AE%98.html" title="事务官">事务官</a></li>
+</ul>
+<p>让事务官的能力得知玩家自己。</p>
+<ul>
+<li><a href="../pages/%E9%AD%94%E6%9C%AF%E5%B8%88.html" title="魔术师">魔术师</a></li>
+</ul>
+<p>让魔术师成为镜像双子的对立双子。</p>
+<ul>
+<li><a href="../pages/%E5%B0%8F%E6%80%AA%E5%AE%9D.html" title="小怪宝">小怪宝</a></li>
+</ul>
+<p>让疯子以为自己是小怪宝。</p></div>
+    <div class="page-meta">最后修改于 2024-12-25T08:05:44Z，编辑者 <b>HuaQu</b> ｜ 页面 6,462 字节 ｜ <a href="https://clocktower-wiki.gstonegames.com/index.php?title=%E5%93%AA%E4%BA%9B%E6%98%AF%E2%80%9C%E5%8F%AF%E4%BB%A5%E4%BD%86%E4%B8%8D%E5%BB%BA%E8%AE%AE%E2%80%9D" target="_blank" rel="noopener">查看原页面</a> ｜ <div class="comment">编辑摘要：/* 黯月初升 */</div></div>
+    <div class="backlinks"><b>链入此页的页面（3）</b><a href="../pages/%E9%A6%96%E9%A1%B5.html">首页</a><a href="../pages/%E9%99%8C%E5%AE%A2.html">陌客</a><a href="../pages/%E9%97%B4%E8%B0%8D.html">间谍</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

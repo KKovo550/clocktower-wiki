@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>第一届华灯初上剧本创作大赛 - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">第一届华灯初上剧本创作大赛</h1>
+    <div class="tagline">来自钟楼百科</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#简介">简介</a></li><li class="lvl2"><a href="#决赛">决赛</a></li><li class="lvl2"><a href="#其他奖项">其他奖项</a></li><li class="lvl2"><a href="#评委组娱乐赛">评委组娱乐赛</a></li><li class="lvl2"><a href="#6强剧本分组信息">6强剧本分组信息</a></li><li class="lvl2"><a href="#12强剧本分组信息">12强剧本分组信息</a></li><li class="lvl2"><a href="#25强剧本分组信息">25强剧本分组信息</a></li><li class="lvl2"><a href="#50强剧本分组信息">50强剧本分组信息</a></li><li class="lvl2"><a href="#50强数据统计">50强数据统计</a></li><li class="lvl2"><a href="#海选数据统计">海选数据统计</a></li><li class="lvl2"><a href="#比赛日程">比赛日程</a></li></ul></div>
+    <div class="mw-parser-output"><h2 id="简介">简介</h2>
+<p>本次比赛是由sui发起的，针对华灯初上角色包的剧本创作大赛，具体赛程和赛事规则请跳转：【<a class="external" href="https://www.bilibili.com/video/BV1pG411a7n5" target="_blank" rel="noopener">视频版</a>】&amp;【<a class="external" href="https://www.bilibili.com/read/cv28559786" target="_blank" rel="noopener">文字版</a>】</p>
+<h2 id="决赛">决赛</h2>
+<ul>
+<li>冠军：成双成对（作者：谢梦）</li>
+</ul>
+<ul>
+<li>亚军：谨言慎行（作者：际尘）</li>
+</ul>
+<ul>
+<li>季军：我的后半生（作者：闻人）</li>
+</ul>
+<h2 id="其他奖项">其他奖项</h2>
+<ul>
+<li>遗憾落败奖：危机四伏</li>
+</ul>
+<ul>
+<li>最具创意奖：恶路难行</li>
+</ul>
+<ul>
+<li>最具国风奖：侠客风云决</li>
+</ul>
+<ul>
+<li>SUI选择奖：百转千回</li>
+</ul>
+<h2 id="评委组娱乐赛">评委组娱乐赛</h2>
+<ul>
+<li>第一名：寂静之城（作者：SUI）</li>
+</ul>
+<ul>
+<li>第二名：秽眼如炬（作者：小黑）</li>
+</ul>
+<ul>
+<li>第三名：进退两难（作者：刘中奇）</li>
+</ul>
+<ul>
+<li>第四名：曼珠沙华（作者：蒸汽riki）</li>
+</ul>
+<ul>
+<li>第五名：转世重生（作者：努力努力）</li>
+</ul>
+<h2 id="6强剧本分组信息">6强剧本分组信息</h2>
+<p>绿色粗体的为成功晋级的剧本。</p>
+<ul>
+<li>第一组：<span style="color:green"><strong>成双成对</strong></span>（作者：谢梦） vs 除暴安良（作者：惊鸿）</li>
+</ul>
+<ul>
+<li>第二组：恶路难行（作者：Boxiao） vs <span style="color:green"><strong>我的后半生</strong></span>（作者：闻人）</li>
+</ul>
+<ul>
+<li>第三组：<span style="color:green"><strong>谨言慎行</strong></span>（作者：际尘） vs 侠客风云诀（作者：泽度哥）</li>
+</ul>
+<h2 id="12强剧本分组信息">12强剧本分组信息</h2>
+<p>绿色粗体的为成功晋级的剧本。</p>
+<ul>
+<li>第一组：百转千回（作者：cody） vs <span style="color:green"><strong>成双成对</strong></span>（作者：谢梦）</li>
+</ul>
+<ul>
+<li>第二组：<span style="color:green"><strong>谨言慎行</strong></span>（作者：际尘） vs 白日放歌（作者：利尼维亚首席气球驾驶员）</li>
+</ul>
+<ul>
+<li>第三组：<span style="color:green"><strong>恶路难行</strong></span>（作者：Boxiao） vs 效死之徒（作者：摸鱼学徒）</li>
+</ul>
+<ul>
+<li>第四组：<span style="color:green"><strong>侠客风云决</strong></span>（作者：泽度哥） vs 首夜狂欢（作者：稚宇）</li>
+</ul>
+<ul>
+<li>第五组：狐假虎威（作者：s3t_） vs <span style="color:green"><strong>我的后半生</strong></span>（作者：闻人）</li>
+</ul>
+<ul>
+<li>第六组：众口铄金（作者：勾陈） vs <span style="color:green"><strong>除暴安良</strong></span>（作者：惊鸿）</li>
+</ul>
+<h2 id="25强剧本分组信息">25强剧本分组信息</h2>
+<p>绿色粗体的为成功晋级的剧本。</p>
+<ul>
+<li>第一组：<a href="../pages/%E7%99%BD%E7%8B%90%E8%A1%8C%E4%B8%9B%E9%87%8C.html" title="白狐行丛里">白狐行丛里</a>，包含剧本：幻象丛生、倒行逆施、<span style="color:green"><strong>狐假虎威</strong></span>、十里洋场、<span style="color:green"><strong>白日放歌</strong></span></li>
+</ul>
+<ul>
+<li>第二组：<a href="../pages/%E9%9B%86%E5%90%8E%E4%BA%BA%E4%B9%8B%E8%A8%80.html" title="集后人之言">集后人之言</a>，包含剧本：巨人观、<span style="color:green"><strong>我的后半生</strong></span>、风雅集、梦之谜团、<span style="color:green"><strong>谨言慎行</strong></span></li>
+</ul>
+<ul>
+<li>第三组：<a href="../pages/%E4%BE%A0%E4%BA%91%E6%95%88%E8%89%AF%E5%85%9A.html" title="侠云效良党">侠云效良党</a>，包含剧本：<span style="color:green"><strong>侠客风云决</strong></span>、风云突变、党同伐异、<span style="color:green"><strong>效死之徒</strong></span>、<span style="color:green"><strong>除暴安良</strong></span></li>
+</ul>
+<ul>
+<li>第四组：<a href="../pages/%E5%8D%83%E9%9D%A2%E4%BC%97%E5%8D%B1%E7%84%89.html" title="千面众危焉">千面众危焉</a>，包含剧本：<span style="color:green"><strong>众口铄金</strong></span>、<span style="color:green"><strong>百转千回</strong></span>、危机四伏、血色终焉、假面舞会</li>
+</ul>
+<ul>
+<li>第五组：<a href="../pages/%E5%AF%B9%E5%A2%9F%E9%9A%BE%E6%AC%A2%E9%B8%A3.html" title="对墟难欢鸣">对墟难欢鸣</a>，包含剧本：<span style="color:green"><strong>首夜狂欢</strong></span>、<span style="color:green"><strong>成双成对</strong></span>、云间华墟、<span style="color:green"><strong>恶路难行</strong></span>、金鼓齐鸣</li>
+</ul>
+<h2 id="50强剧本分组信息">50强剧本分组信息</h2>
+<p>50强剧本json下载链接：<a class="external" href="https://pan.baidu.com/s/1qkrw-51ZK4lnS-9zMsRMNg?pwd=y64n" target="_blank" rel="noopener">点这里</a>（支持非官方魔典）</p>
+<p>绿色粗体的为成功晋级的剧本。</p>
+<ul>
+<li>第一组：<a href="../pages/%E4%BA%BA%E9%97%B4%E6%9A%97%E6%9C%88%E5%A4%9C.html" title="人间暗月夜">人间暗月夜</a>，包含剧本：<span style="color:green"><strong>巨人观</strong></span>、<span style="color:green"><strong>云间华墟</strong></span>、暗流潜伏、星稀月明、雪夜洪炉</li>
+</ul>
+<ul>
+<li>第二组：<a href="../pages/%E9%AA%91%E8%99%8E%E7%94%9F%E6%AD%BB%E8%A1%8C.html" title="骑虎生死行">骑虎生死行</a>，包含剧本：奇灯绝绘、<span style="color:green"><strong>狐假虎威</strong></span>、生生不息、生死难料、<span style="color:green"><strong>恶路难行</strong></span></li>
+</ul>
+<ul>
+<li>第三组：<a href="../pages/%E8%A1%8C%E6%88%90%E4%B8%8B%E5%AD%A4%E4%B9%A1.html" title="行成下孤乡">行成下孤乡</a>，包含剧本：<span style="color:green"><strong>倒行逆施</strong></span>、<span style="color:green"><strong>成双成对</strong></span>、瓜田李下、大漠孤烟直、外乡人</li>
+</ul>
+<ul>
+<li>第四组：<a href="../pages/%E8%8E%AB%E8%A8%80%E4%B8%89%E5%8D%83%E6%AD%BB.html" title="莫言三千死">莫言三千死</a>，包含剧本：生死莫测、<span style="color:green"><strong>谨言慎行</strong></span>、九衢三市、<span style="color:green"><strong>百转千回</strong></span>、<span style="color:green"><strong>效死之徒</strong></span></li>
+</ul>
+<ul>
+<li>第五组：<a href="../pages/%E9%B8%A3%E9%A3%8E%E5%99%AC%E5%90%8E%E6%B5%AA.html" title="鸣风噬后浪">鸣风噬后浪</a>，包含剧本：<span style="color:green"><strong>金鼓齐鸣</strong></span>、风云莫测、噬魂戮命、<span style="color:green"><strong>我的后半生</strong></span>、浪漫飞翔</li>
+</ul>
+<ul>
+<li>第六组：<a href="../pages/%E5%B9%BB%E5%BD%B1%E7%94%BB%E5%AE%89%E5%8D%B1.html" title="幻影画安危">幻影画安危</a>，包含剧本：<span style="color:green"><strong>幻象丛生</strong></span>、无序之影、红尘画卷、<span style="color:green"><strong>除暴安良</strong></span>、<span style="color:green"><strong>危机四伏</strong></span></li>
+</ul>
+<ul>
+<li>第七组：<a href="../pages/%E8%B0%9C%E6%A2%A6%E5%BE%85%E6%AD%8C%E8%88%9E.html" title="谜梦待歌舞">谜梦待歌舞</a>，包含剧本：<span style="color:green"><strong>梦之谜团</strong></span>、黄粱一梦、拭目以待、<span style="color:green"><strong>白日放歌</strong></span>、<span style="color:green"><strong>假面舞会</strong></span></li>
+</ul>
+<ul>
+<li>第八组：<a href="../pages/%E5%BC%82%E5%9C%B0%E4%BC%97%E6%AC%A2%E6%9D%A5.html" title="异地众欢来">异地众欢来</a>，包含剧本：<span style="color:green"><strong>党同伐异</strong></span>、极阴之地、<span style="color:green"><strong>众口铄金</strong></span>、<span style="color:green"><strong>首夜狂欢</strong></span>、继往开来</li>
+</ul>
+<ul>
+<li>第九组：<a href="../pages/%E9%A3%8E%E4%BA%91%E5%AD%B0%E6%88%8F%E8%A8%80.html" title="风云孰戏言">风云孰戏言</a>，包含剧本：<span style="color:green"><strong>风雅集</strong></span>、<span style="color:green"><strong>侠客风云决</strong></span>、孰对孰错、戏如人生、酒后吐真言</li>
+</ul>
+<ul>
+<li>第十组：<a href="../pages/%E9%A3%8E%E8%B5%B7%E7%BB%88%E7%9B%B8%E8%AF%86.html" title="风起终相识">风起终相识</a>，包含剧本：<span style="color:green"><strong>风云突变</strong></span>、鱼蛇起洞、<span style="color:green"><strong>血色终焉</strong></span>、针锋相对、<span style="color:green"><strong>十里洋场</strong></span></li>
+</ul>
+<h2 id="50强数据统计">50强数据统计</h2>
+<p>特殊说明：50强的数据统计仅反映本次比赛中剧本质量较好的一批剧本中的角色分布情况，相比“海选数据统计”更具有局限性，仅供玩家投票时参考。</p>
+<ul>
+<li>整体数据</li>
+<ul>
+<li>平均每个剧本中出现的华灯角色数量是<strong>6.38</strong>个</li>
+<li>单个剧本出现华灯角色数量最低<strong>2</strong>个，最高<strong>13</strong>个</li>
+<li>最常出现的数量仍然是<strong>6</strong>个，带有6个华灯角色的剧本一共有<strong>10</strong>个</li>
+</ul>
+</ul>
+<ul>
+<li>关于非华灯角色</li>
+<ul>
+<li>出场率最高的仍然是<a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a>，总共出现<strong>35</strong>次，出场率从<strong>64.4%</strong>上升至<strong>70%</strong></li>
+<li>出现了<strong>0出场率</strong>的角色，分别有：<a href="../pages/%E4%B8%BB%E8%B0%8B.html" title="主谋">主谋</a>、<a href="../pages/%E6%81%90%E6%83%A7%E4%B9%8B%E7%81%B5.html" title="恐惧之灵">恐惧之灵</a>、<a href="../pages/%E6%9A%B4%E4%B9%B1.html" title="暴乱">暴乱</a>、<a href="../pages/%E5%A3%AB%E5%85%B5.html" title="士兵">士兵</a>、<a href="../pages/%E7%AE%A1%E5%AE%B6.html" title="管家">管家</a></li>
+<li>出场率最高的镇民Top5分别是：<a href="../pages/%E5%8D%9A%E5%AD%A6%E8%80%85.html" title="博学者">博学者</a>、<a href="../pages/%E5%A5%B3%E8%A3%81%E7%BC%9D.html" title="女裁缝">女裁缝</a>、<a href="../pages/%E5%8D%A0%E5%8D%9C%E5%B8%88.html" title="占卜师">占卜师</a>、<a href="../pages/%E5%8D%96%E8%8A%B1%E5%A5%B3%E5%AD%A9.html" title="卖花女孩">卖花女孩</a>、<a href="../pages/%E8%B5%8C%E5%BE%92.html" title="赌徒">赌徒</a></li>
+<li>出场率最高的外来者Top5分别是：<a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a>、<a href="../pages/%E7%90%86%E5%8F%91%E5%B8%88.html" title="理发师">理发师</a>、<a href="../pages/%E5%B8%BD%E5%8C%A0.html" title="帽匠">帽匠</a>、<a href="../pages/%E9%99%8C%E5%AE%A2.html" title="陌客">陌客</a>、<a href="../pages/%E7%95%B8%E5%BD%A2%E7%A7%80%E6%BC%94%E5%91%98.html" title="畸形秀演员">畸形秀演员</a></li>
+<li>出场率最高的爪牙top5分别是<a href="../pages/%E6%95%99%E7%88%B6.html" title="教父">教父</a>、<a href="../pages/%E7%BA%A2%E5%94%87%E5%A5%B3%E9%83%8E.html" title="红唇女郎">红唇女郎</a>、<a href="../pages/%E6%B4%97%E8%84%91%E5%B8%88.html" title="洗脑师">洗脑师</a>、<a href="../pages/%E5%88%BA%E5%AE%A2.html" title="刺客">刺客</a>、<a href="../pages/%E9%AD%94%E9%AC%BC%E4%BB%A3%E8%A8%80%E4%BA%BA.html" title="魔鬼代言人">魔鬼代言人</a></li>
+<li>出场率最高的恶魔Top5分别是：<a href="../pages/%E4%BA%A1%E9%AA%A8%E9%AD%94.html" title="亡骨魔">亡骨魔</a>、<a href="../pages/%E5%B0%8F%E6%81%B6%E9%AD%94.html" title="小恶魔">小恶魔</a>、<a href="../pages/%E7%8F%80.html" title="珀">珀</a>、<a href="../pages/%E8%AF%BA-%E8%BE%BE%E9%B2%BA.html" title="诺-达鲺">诺-达鲺</a>、<a href="../pages/%E6%B6%A1%E6%B5%81.html" title="涡流">涡流</a></li>
+</ul>
+</ul>
+<ul>
+<li>角色出场率</li>
+<ul>
+<li>暗流涌动中出场率最高的Top5分别是：<a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a>、<a href="../pages/%E5%8D%A0%E5%8D%9C%E5%B8%88.html" title="占卜师">占卜师</a>、<a href="../pages/%E7%BA%A2%E5%94%87%E5%A5%B3%E9%83%8E.html" title="红唇女郎">红唇女郎</a>、<a href="../pages/%E6%8A%95%E6%AF%92%E8%80%85.html" title="投毒者">投毒者</a>，<a href="../pages/%E9%99%8C%E5%AE%A2.html" title="陌客">陌客</a>&amp;<a href="../pages/%E5%85%B1%E6%83%85%E8%80%85.html" title="共情者">共情者</a>并列第五</li>
+<li>黯月初升中出场率最高的Top5分别是：<a href="../pages/%E6%95%99%E7%88%B6.html" title="教父">教父</a>、<a href="../pages/%E5%88%BA%E5%AE%A2.html" title="刺客">刺客</a>、<a href="../pages/%E8%B5%8C%E5%BE%92.html" title="赌徒">赌徒</a>、<a href="../pages/%E4%BE%8D%E5%A5%B3.html" title="侍女">侍女</a>、<a href="../pages/%E9%AD%94%E9%AC%BC%E4%BB%A3%E8%A8%80%E4%BA%BA.html" title="魔鬼代言人">魔鬼代言人</a></li>
+<li>梦殒春宵中出场率最高的Top5分别是：<a href="../pages/%E5%8D%9A%E5%AD%A6%E8%80%85.html" title="博学者">博学者</a>、<a href="../pages/%E5%A5%B3%E8%A3%81%E7%BC%9D.html" title="女裁缝">女裁缝</a>、<a href="../pages/%E7%90%86%E5%8F%91%E5%B8%88.html" title="理发师">理发师</a>、<a href="../pages/%E5%8D%96%E8%8A%B1%E5%A5%B3%E5%AD%A9.html" title="卖花女孩">卖花女孩</a>、<a href="../pages/%E6%B4%97%E8%84%91%E5%B8%88.html" title="洗脑师">洗脑师</a></li>
+<li>实验性角色中出场率最高的Top5分别是：<a href="../pages/%E5%B8%BD%E5%8C%A0.html" title="帽匠">帽匠</a>、<a href="../pages/%E9%A3%9F%E4%BA%BA%E6%97%8F.html" title="食人族">食人族</a>、<a href="../pages/%E8%B4%B5%E6%97%8F.html" title="贵族">贵族</a>、<a href="../pages/%E6%8F%90%E7%BA%BF%E6%9C%A8%E5%81%B6.html" title="提线木偶">提线木偶</a>、<a href="../pages/%E5%AF%A1%E5%A6%87.html" title="寡妇">寡妇</a></li>
+<li>华灯初上中出场率最高的Top5分别是：<a href="../pages/%E6%AD%8C%E4%BC%B6.html" title="歌伶">歌伶</a>、<a href="../pages/%E6%B7%B7%E6%B2%8C.html" title="混沌">混沌</a>、<a href="../pages/%E7%A9%B7%E5%A5%87.html" title="穷奇">穷奇</a>、<a href="../pages/%E5%BA%97%E5%B0%8F%E4%BA%8C.html" title="店小二">店小二</a>，<a href="../pages/%E8%B5%B6%E5%B0%B8%E4%BA%BA.html" title="赶尸人">赶尸人</a>&amp;<a href="../pages/%E5%8F%98%E8%84%B8%E5%B8%88.html" title="变脸师">变脸师</a>并列第五</li>
+</ul>
+</ul>
+<h2 id="海选数据统计">海选数据统计</h2>
+<p>特殊说明：海选数据统计反映的是各角色在剧本创作中的受欢迎程度以及创作难易程度，同时因为华灯剧本涉及到与华灯角色进行组合，也会一定程度上反映出官方角色与华灯角色之间的契合程度（又或者是百搭程度）。</p>
+<ul>
+<li>整体数据</li>
+<ul>
+<li>本次比赛，总共收到了<strong>278</strong>份不重复的<strong>有效剧本</strong></li>
+<li>其中，绝大部分剧本的镇民数量都是<strong>13</strong></li>
+<li>有8个剧本只有<strong>12个镇民</strong>（通常来说镇民数量不足13，在人数较多的局面给玩家的体验较差，这些剧本也很难通过海选，需要注意这一点）</li>
+<li>有4个剧本包含<strong>14个镇民</strong>（这是因为在镇民中加入了无神论者，实际上这是一个非常聪明的行为，因为通常无神论者在不出场的时候很难作为对新手玩家来说特别有效的伪装）</li>
+</ul>
+</ul>
+<ul>
+<li>关于华灯初上的角色数量</li>
+<ul>
+<li>平均每个剧本中出现的华灯角色数量大约是<strong>7</strong>个</li>
+<li>出现华灯角色数量最低的是<strong>1</strong>个，最高是<strong>17</strong>个</li>
+<li>最常出现的数量是<strong>6</strong>个，带有6个华灯角色的剧本一共有<strong>48</strong>个，约占总剧本数量的<strong>17.3%</strong></li>
+</ul>
+</ul>
+<ul>
+<li>关于非华灯角色</li>
+<ul>
+<li>出场率最高的是<strong><a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a></strong>，总共出现<strong>179</strong>次，出场率约<strong>64.4%</strong></li>
+<li>出场率最低的是<strong><a href="../pages/%E5%A3%AB%E5%85%B5.html" title="士兵">士兵</a></strong>和<strong><a href="../pages/%E7%AE%A1%E5%AE%B6.html" title="管家">管家</a></strong>，都只在<strong>3</strong>个剧本中出现</li>
+<li>出场率最高的<strong>镇民</strong>Top5分别是：<strong><a href="../pages/%E5%8D%9A%E5%AD%A6%E8%80%85.html" title="博学者">博学者</a></strong>、<strong><a href="../pages/%E5%8D%A0%E5%8D%9C%E5%B8%88.html" title="占卜师">占卜师</a></strong>、<strong><a href="../pages/%E8%B5%8C%E5%BE%92.html" title="赌徒">赌徒</a></strong>、<strong><a href="../pages/%E9%80%A0%E8%B0%A3%E8%80%85.html" title="造谣者">造谣者</a></strong>、<strong><a href="../pages/%E8%8C%B6%E8%89%BA%E5%B8%88.html" title="茶艺师">茶艺师</a></strong>（可以看到黯月初升的镇民部分整体出场率特别高）</li>
+<li>出场率最高的<strong>外来者</strong>Top5分别是：<strong><a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a></strong>、<strong><a href="../pages/%E7%96%AF%E5%AD%90.html" title="疯子">疯子</a></strong>、<strong><a href="../pages/%E5%B8%BD%E5%8C%A0.html" title="帽匠">帽匠</a></strong>、<strong><a href="../pages/%E7%90%86%E5%8F%91%E5%B8%88.html" title="理发师">理发师</a></strong>、<strong><a href="../pages/%E7%95%B8%E5%BD%A2%E7%A7%80%E6%BC%94%E5%91%98.html" title="畸形秀演员">畸形秀演员</a></strong></li>
+<li>出场率最高的<strong>爪牙</strong>top5分别是<strong><a href="../pages/%E6%95%99%E7%88%B6.html" title="教父">教父</a></strong>、<strong><a href="../pages/%E6%8F%90%E7%BA%BF%E6%9C%A8%E5%81%B6.html" title="提线木偶">提线木偶</a></strong>、<strong><a href="../pages/%E9%AD%94%E9%AC%BC%E4%BB%A3%E8%A8%80%E4%BA%BA.html" title="魔鬼代言人">魔鬼代言人</a></strong>、<strong><a href="../pages/%E5%88%BA%E5%AE%A2.html" title="刺客">刺客</a></strong>、<strong><a href="../pages/%E6%8A%95%E6%AF%92%E8%80%85.html" title="投毒者">投毒者</a></strong>（可以看到黯月初升的爪牙也是维持着整体较高的出场率）</li>
+<li>出场率最高的<strong>恶魔</strong>Top5分别是：<strong><a href="../pages/%E7%97%A2%E8%9B%AD.html" title="痢蛭">痢蛭</a></strong>、<strong><a href="../pages/%E7%8F%80.html" title="珀">珀</a></strong>、<strong><a href="../pages/%E6%B6%A1%E6%B5%81.html" title="涡流">涡流</a></strong>、<strong><a href="../pages/%E5%B0%8F%E6%80%AA%E5%AE%9D.html" title="小怪宝">小怪宝</a></strong>、<strong><a href="../pages/%E5%A5%A5%E8%B5%AB.html" title="奥赫">奥赫</a></strong></li>
+</ul>
+</ul>
+<ul>
+<li>关于官方剧本角色</li>
+<ul>
+<li><strong><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html" title="暗流涌动">暗流涌动</a></strong>中出场率最高的Top5分别是：<strong><a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a></strong>、<strong><a href="../pages/%E5%8D%A0%E5%8D%9C%E5%B8%88.html" title="占卜师">占卜师</a></strong>、<strong><a href="../pages/%E6%8A%95%E6%AF%92%E8%80%85.html" title="投毒者">投毒者</a></strong>、<strong><a href="../pages/%E7%BA%A2%E5%94%87%E5%A5%B3%E9%83%8E.html" title="红唇女郎">红唇女郎</a></strong>、<strong><a href="../pages/%E5%85%B1%E6%83%85%E8%80%85.html" title="共情者">共情者</a></strong>，出场率最低的有<strong><a href="../pages/%E6%B4%97%E8%A1%A3%E5%A6%87.html" title="洗衣妇">洗衣妇</a></strong>、<strong><a href="../pages/%E5%A3%AB%E5%85%B5.html" title="士兵">士兵</a></strong>、<strong><a href="../pages/%E7%AE%A1%E5%AE%B6.html" title="管家">管家</a></strong></li>
+<li><strong><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html" title="黯月初升">黯月初升</a></strong>中出场率最高的Top5分别是：<strong><a href="../pages/%E8%B5%8C%E5%BE%92.html" title="赌徒">赌徒</a></strong>、<strong><a href="../pages/%E6%95%99%E7%88%B6.html" title="教父">教父</a></strong>、<strong><a href="../pages/%E9%80%A0%E8%B0%A3%E8%80%85.html" title="造谣者">造谣者</a></strong>、<strong><a href="../pages/%E8%8C%B6%E8%89%BA%E5%B8%88.html" title="茶艺师">茶艺师</a></strong>、<strong><a href="../pages/%E4%BE%8D%E5%A5%B3.html" title="侍女">侍女</a></strong>，出场率最低的有<strong><a href="../pages/%E5%90%9F%E6%B8%B8%E8%AF%97%E4%BA%BA.html" title="吟游诗人">吟游诗人</a></strong>、<strong><a href="../pages/%E4%BE%8D%E8%87%A3.html" title="侍臣">侍臣</a></strong>、<strong><a href="../pages/%E4%BF%AE%E8%A1%A5%E5%8C%A0.html" title="修补匠">修补匠</a></strong>、<strong><a href="../pages/%E4%B8%BB%E8%B0%8B.html" title="主谋">主谋</a></strong></li>
+<li><strong><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html" title="梦殒春宵">梦殒春宵</a></strong>中出场率最高的Top5分别是：<strong><a href="../pages/%E5%8D%9A%E5%AD%A6%E8%80%85.html" title="博学者">博学者</a></strong>、<strong><a href="../pages/%E5%A5%B3%E8%A3%81%E7%BC%9D.html" title="女裁缝">女裁缝</a></strong>、<strong><a href="../pages/%E7%90%86%E5%8F%91%E5%B8%88.html" title="理发师">理发师</a></strong>、<strong><a href="../pages/%E7%A5%9E%E8%B0%95%E8%80%85.html" title="神谕者">神谕者</a></strong>、<strong><a href="../pages/%E8%88%9E%E8%9B%87%E4%BA%BA.html" title="舞蛇人">舞蛇人</a></strong>，出场率最低的有<strong><a href="../pages/%E5%91%86%E7%93%9C.html" title="呆瓜">呆瓜</a></strong>、<strong><a href="../pages/%E9%95%9C%E5%83%8F%E5%8F%8C%E5%AD%90.html" title="镜像双子">镜像双子</a></strong>、<strong><a href="../pages/%E5%BF%83%E4%B8%8A%E4%BA%BA.html" title="心上人">心上人</a></strong></li>
+<li><strong><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html" title="实验性角色">实验性角色</a></strong>中出场率最高的Top5分别是：<strong><a href="../pages/%E9%A3%9F%E4%BA%BA%E6%97%8F.html" title="食人族">食人族</a></strong>、<strong><a href="../pages/%E6%8F%90%E7%BA%BF%E6%9C%A8%E5%81%B6.html" title="提线木偶">提线木偶</a></strong>、<strong><a href="../pages/%E5%B8%BD%E5%8C%A0.html" title="帽匠">帽匠</a></strong>、<strong><a href="../pages/%E7%97%A2%E8%9B%AD.html" title="痢蛭">痢蛭</a></strong>、<strong><a href="../pages/%E6%B0%94%E7%90%83%E9%A9%BE%E9%A9%B6%E5%91%98.html" title="气球驾驶员">气球驾驶员</a></strong>，出场率最低的有<strong><a href="../pages/%E8%A1%97%E5%A4%B4%E9%A3%8E%E7%90%B4%E6%89%8B.html" title="街头风琴手">街头风琴手</a></strong>、<strong><a href="../pages/%E5%88%A9%E7%BB%B4%E5%9D%A6.html" title="利维坦">利维坦</a></strong>、<strong><a href="../pages/%E6%81%90%E6%83%A7%E4%B9%8B%E7%81%B5.html" title="恐惧之灵">恐惧之灵</a></strong>、<strong><a href="../pages/%E6%9A%B4%E4%B9%B1.html" title="暴乱">暴乱</a></strong></li>
+</ul>
+</ul>
+<ul>
+<li>关于新实验性角色</li>
+</ul>
+<p>新实验性角色中，角色出场率梯度如下：（括号内代表总出场次数，出场率可以直接用次数除278得到）</p>
+<p>T1：<a href="../pages/%E5%B8%BD%E5%8C%A0.html" title="帽匠">帽匠</a>（72）</p>
+<p>T2：<a href="../pages/%E9%B9%B0%E8%BA%AB%E5%A5%B3%E5%A6%96.html" title="鹰身女妖">鹰身女妖</a>、<a href="../pages/%E5%A5%A5%E8%B5%AB.html" title="奥赫">奥赫</a>、<a href="../pages/%E7%98%9F%E7%96%AB%E5%8C%BB%E7%94%9F.html" title="瘟疫医生">瘟疫医生</a>（52~45）</p>
+<p>T3：<a href="../pages/%E4%BF%AE%E8%A1%8C%E8%80%85.html" title="修行者">修行者</a>、<a href="../pages/%E5%A5%B3%E7%A5%AD%E5%8F%B8.html" title="女祭司">女祭司</a>、<a href="../pages/%E7%BB%B4%E9%BD%90%E5%B0%94.html" title="维齐尔">维齐尔</a>（24~19）</p>
+<p>T4：<a href="../pages/%E9%AA%91%E5%A3%AB.html" title="骑士">骑士</a>、<a href="../pages/%E4%BA%8B%E5%8A%A1%E5%AE%98.html" title="事务官">事务官</a>、<a href="../pages/%E8%A1%97%E5%A4%B4%E9%A3%8E%E7%90%B4%E6%89%8B.html" title="街头风琴手">街头风琴手</a>（13~9）</p>
+<ul>
+<li>关于华灯角色</li>
+<ul>
+<li>出场率最高的是<strong><a href="../pages/%E9%83%8E%E4%B8%AD.html" title="郎中">郎中</a></strong>，总共出场<strong>121</strong>次，出场率约<strong>43.5%</strong></li>
+<li>其次分别是<strong><a href="../pages/%E8%B5%B6%E5%B0%B8%E4%BA%BA.html" title="赶尸人">赶尸人</a></strong>和<strong><a href="../pages/%E9%98%B4%E9%98%B3%E5%B8%88.html" title="阴阳师">阴阳师</a></strong>，都出场了<strong>118</strong>次，出场率约<strong>42.4%</strong></li>
+<li>出场次数高于100次的还有<strong><a href="../pages/%E6%82%9F%E9%81%93%E8%80%85.html" title="悟道者">悟道者</a></strong>、<strong><a href="../pages/%E5%8F%98%E8%84%B8%E5%B8%88.html" title="变脸师">变脸师</a></strong>、<strong><a href="../pages/%E5%BA%97%E5%B0%8F%E4%BA%8C.html" title="店小二">店小二</a></strong>和<strong><a href="../pages/%E7%A9%B7%E5%A5%87.html" title="穷奇">穷奇</a></strong></li>
+</ul>
+</ul>
+<p>华灯初上的角色出场率梯度如下：</p>
+<p>T1：<a href="../pages/%E9%83%8E%E4%B8%AD.html" title="郎中">郎中</a>、<a href="../pages/%E8%B5%B6%E5%B0%B8%E4%BA%BA.html" title="赶尸人">赶尸人</a>、<a href="../pages/%E9%98%B4%E9%98%B3%E5%B8%88.html" title="阴阳师">阴阳师</a>（121~118）</p>
+<p>T1.5：<a href="../pages/%E6%82%9F%E9%81%93%E8%80%85.html" title="悟道者">悟道者</a>、<a href="../pages/%E5%8F%98%E8%84%B8%E5%B8%88.html" title="变脸师">变脸师</a>、<a href="../pages/%E5%BA%97%E5%B0%8F%E4%BA%8C.html" title="店小二">店小二</a>、<a href="../pages/%E7%A9%B7%E5%A5%87.html" title="穷奇">穷奇</a>（113~102）</p>
+<p>T2：<a href="../pages/%E6%AD%8C%E4%BC%B6.html" title="歌伶">歌伶</a>、<a href="../pages/%E9%92%A6%E5%A4%A9%E7%9B%91.html" title="钦天监">钦天监</a>、<a href="../pages/%E4%B9%A6%E7%94%9F.html" title="书生">书生</a>、<a href="../pages/%E9%A5%95%E9%A4%AE.html" title="饕餮">饕餮</a>、<a href="../pages/%E9%80%86%E8%87%A3.html" title="逆臣">逆臣</a>（99~92）</p>
+<p>T3：<a href="../pages/%E6%B7%B7%E6%B2%8C.html" title="混沌">混沌</a>、<a href="../pages/%E5%85%BB%E8%9B%8A%E4%BA%BA.html" title="养蛊人">养蛊人</a>、<a href="../pages/%E7%8B%90%E5%AA%9A%E5%A8%98.html" title="狐媚娘">狐媚娘</a>、<a href="../pages/%E6%89%93%E6%9B%B4%E4%BA%BA.html" title="打更人">打更人</a>、<a href="../pages/%E5%8D%8A%E4%BB%99.html" title="半仙">半仙</a>、<a href="../pages/%E6%A2%BC%E6%9D%8C.html" title="梼杌">梼杌</a>（80~62）</p>
+<p>T4：<a href="../pages/%E9%94%A6%E8%A1%A3%E5%8D%AB.html" title="锦衣卫">锦衣卫</a>、<a href="../pages/%E6%88%8F%E5%AD%90.html" title="戏子">戏子</a>、<a href="../pages/%E5%92%8C%E5%B0%9A.html" title="和尚">和尚</a>、<a href="../pages/%E7%85%9E%E6%98%9F.html" title="煞星">煞星</a>（50~41）</p>
+<p>T5：<a href="../pages/%E7%86%8A%E5%AD%A9%E5%AD%90.html" title="熊孩子">熊孩子</a>、<a href="../pages/%E7%A6%81%E5%8D%AB%E5%86%9B.html" title="禁卫军">禁卫军</a>、<a href="../pages/%E4%BD%BF%E8%8A%82.html" title="使节">使节</a>（34~19）</p>
+<ul>
+<li>一些有趣的数据</li>
+<ul>
+<li>在剧本创作中，最万金油的角色：<strong>镇民-<a href="../pages/%E5%8D%9A%E5%AD%A6%E8%80%85.html" title="博学者">博学者</a></strong>、<strong>外来者-<a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a></strong>、<strong>爪牙-<a href="../pages/%E6%8F%90%E7%BA%BF%E6%9C%A8%E5%81%B6.html" title="提线木偶">提线木偶</a></strong>、<strong>恶魔-<a href="../pages/%E6%B6%A1%E6%B5%81.html" title="涡流">涡流</a></strong></li>
+<li>最常被用来调整外来者数量的角色：<strong><a href="../pages/%E6%95%99%E7%88%B6.html" title="教父">教父</a></strong></li>
+<li>暗流F4就业现状：<a href="../pages/%E5%9B%BE%E4%B9%A6%E7%AE%A1%E7%90%86%E5%91%98.html" title="图书管理员">图书管理员</a>（32,11.5%）、<a href="../pages/%E5%8E%A8%E5%B8%88.html" title="厨师">厨师</a>（30,10.8%）、<a href="../pages/%E8%B0%83%E6%9F%A5%E5%91%98.html" title="调查员">调查员</a>（23,8.3%）、<a href="../pages/%E6%B4%97%E8%A1%A3%E5%A6%87.html" title="洗衣妇">洗衣妇</a>（10,3.6%），<a href="../pages/%E9%92%9F%E8%A1%A8%E5%8C%A0.html" title="钟表匠">钟表匠</a>出场23次，与调查员相同</li>
+<li><a href="../pages/%E5%B8%BD%E5%8C%A0.html" title="帽匠">帽匠</a>（72）和<a href="../pages/%E7%90%86%E5%8F%91%E5%B8%88.html" title="理发师">理发师</a>（71）的出场率不相上下，染没有完爆（？）</li>
+<li><a href="../pages/%E5%9B%BD%E7%8E%8B.html" title="国王">国王</a>（10）总是跟<a href="../pages/%E5%94%B1%E8%AF%97%E7%94%B7%E5%AD%A9.html" title="唱诗男孩">唱诗男孩</a>（10）一同出现，然而<a href="../pages/%E8%90%BD%E9%9A%BE%E5%B0%91%E5%A5%B3.html" title="落难少女">落难少女</a>（34）却对<a href="../pages/%E5%B7%A1%E5%B1%B1%E4%BA%BA.html" title="巡山人">巡山人</a>（20）没有过强的依赖，在追求自己的自由（？）</li>
+<li>最让说书人头大的<a href="../pages/%E6%95%B0%E5%AD%A6%E5%AE%B6.html" title="数学家">数学家</a>（33）仍然有着一定的受众（怀疑你们这些说书人的属性）（？）</li>
+</ul>
+</ul>
+<ul>
+<li>一些关于剧本的关键词</li>
+<ul>
+<li><strong><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html" title="暗流涌动">暗流涌动</a></strong>的关键词是：<span style="color:red"><strong>两极分化</strong></span>，分别有着出场率最高的外来者和最低的外来者</li>
+<li><strong><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html" title="黯月初升">黯月初升</a></strong>的关键词是：<span style="color:orange"><strong>又爱又恨</strong></span>，虽然玩家对黯月的整体评价不如另两个剧本，然而结果本次比赛角色整体出场率最高（当然跟华灯的部分角色的相性比较契合也是出场率较高的原因）</li>
+<li><strong><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html" title="梦殒春宵">梦殒春宵</a></strong>的关键词是：<span style="color:purple"><strong>一枝独秀</strong></span>，<a href="../pages/%E5%8D%9A%E5%AD%A6%E8%80%85.html" title="博学者">博学者</a>的出场率是其他角色平均出场率的2.6倍</li>
+<li><strong><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html" title="实验性角色">实验性角色</a></strong></span>的关键词是：<span style="color:purple"><strong>发挥稳定</strong></span>，新实验性角色的出场率分布状况与老实验性角色接近一致</li>
+<li><strong><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html" title="华灯初上">华灯初上</a></strong></span>的关键词是：<span style="color:red"><strong>意外之喜</strong></span>，当所有人都以为<a href="../pages/%E8%B5%B6%E5%B0%B8%E4%BA%BA.html" title="赶尸人">赶尸人</a>一定遥遥领先的时候，<a href="../pages/%E9%83%8E%E4%B8%AD.html" title="郎中">郎中</a>默默占据了头号位置</li>
+</ul>
+</ul>
+<h2 id="比赛日程">比赛日程</h2>
+<p>2023.12.16-2023.12.28 投稿阶段</p>
+<p>2023.12.29-2024.1.10 评委海选（选出50强）</p>
+<p>2024.1.12-2024.1.26 50进25</p>
+<p>2024.2.2-2024.2.23 25进12</p>
+<p>2024.3.3-2024.3.15 12进6</p>
+<p>2024.3.21-2024.4.2 6进3&amp;评委组匿名投稿</p>
+<p>2024.4.8-2024.4.20 决赛</p></div>
+    <div class="page-meta">最后修改于 2024-04-25T08:29:26Z，编辑者 <b>Little Black</b> ｜ 页面 14,338 字节 ｜ <a href="https://clocktower-wiki.gstonegames.com/index.php?title=%E7%AC%AC%E4%B8%80%E5%B1%8A%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A%E5%89%A7%E6%9C%AC%E5%88%9B%E4%BD%9C%E5%A4%A7%E8%B5%9B" target="_blank" rel="noopener">查看原页面</a></div>
+    <div class="backlinks"><b>链入此页的页面（2）</b><a href="../pages/%E9%A6%96%E9%A1%B5.html">首页</a><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

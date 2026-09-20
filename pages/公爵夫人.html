@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>公爵夫人 - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">公爵夫人</h1>
+    <div class="tagline">来自钟楼百科</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#角色信息">角色信息</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E5%85%AC%E7%88%B5%E5%A4%AB%E4%BA%BA">查找包含此角色的剧本 →</a></p><p><a href="../pages/%E5%85%AC%E7%88%B5%E5%A4%AB%E4%BA%BA.html" class="image-link" title="公爵夫人"><img alt="Duchess.png" style="width:200px" class="" loading="lazy" data-source-image="../images/Duchess.png" src="../assets/media/Duchess.preview.webp" width="600" height="600" decoding="async"></a></p>
+<h2 id="背景故事">背景故事</h2>
+<p><em>“我们会在6点至7点之间招待客人。6点15分喝茶点。6点45分吃松饼。不要迟到，着装要像往常一样正式。”</em></p>
+<h2 id="角色能力">角色能力</h2>
+<p><strong>每个白天，三名玩家可以一起拜访你。当晚*，他们会得知他们之中有几个是邪恶的，但其中一人的信息是错的。</strong></p>
+<h2 id="角色简介">角色简介</h2>
+<p>公爵夫人可以在你的剧本有太少的信息或者有太多错误信息的可能性时，提供更多有用的信息。</p>
+<ul>
+<li>有些时候，你可能会通过剧本工具创造了一个善良阵营几乎难以直接获得信息的角色列表。虽然对一些玩家来说，拥有丰富的能力但信息量少可能会让游戏很有趣，但也有玩家可能会喜欢更多的信息。公爵夫人可以为这样的游戏提供一些常规的信息。</li>
+</ul>
+<ul>
+<li>每个拜访公爵夫人的玩家会得知包括他们自己在内的拜访者中有多少名是邪恶的。但是说书人会选择其中一名拜访者给他错误的信息。</li>
+</ul>
+<ul>
+<li>玩家们将自行决定由哪三名玩家前往拜访公爵夫人。如果不是正好三名拜访者，公爵夫人晚上就不会行动。</li>
+</ul>
+<h2 id="范例">范例</h2>
+<p><a href="../pages/%E5%A3%AB%E5%85%B5.html" title="士兵">士兵</a>、<a href="../pages/%E5%92%8C%E5%B9%B3%E4%B8%BB%E4%B9%89%E8%80%85.html" title="和平主义者">和平主义者</a>和<a href="../pages/%E8%B4%A4%E8%80%85.html" title="贤者">贤者</a>拜访了<a href="../pages/%E5%85%AC%E7%88%B5%E5%A4%AB%E4%BA%BA.html" title="公爵夫人">公爵夫人</a>。<a href="../pages/%E5%A3%AB%E5%85%B5.html" title="士兵">士兵</a>和<a href="../pages/%E5%92%8C%E5%B9%B3%E4%B8%BB%E4%B9%89%E8%80%85.html" title="和平主义者">和平主义者</a>得知了“0”。<a href="../pages/%E8%B4%A4%E8%80%85.html" title="贤者">贤者</a>得知了“1”。</p>
+<p><a href="../pages/%E7%95%B8%E5%BD%A2%E7%A7%80%E6%BC%94%E5%91%98.html" title="畸形秀演员">畸形秀演员</a>、<a href="../pages/%E7%AE%A1%E5%AE%B6.html" title="管家">管家</a>和<a href="../pages/%E7%8F%80.html" title="珀">珀</a>拜访了<a href="../pages/%E5%85%AC%E7%88%B5%E5%A4%AB%E4%BA%BA.html" title="公爵夫人">公爵夫人</a>。<a href="../pages/%E7%95%B8%E5%BD%A2%E7%A7%80%E6%BC%94%E5%91%98.html" title="畸形秀演员">畸形秀演员</a>得知了“1”，<a href="../pages/%E7%AE%A1%E5%AE%B6.html" title="管家">管家</a>得知了“2”，<a href="../pages/%E7%8F%80.html" title="珀">珀</a>得知了“1”。</p>
+<p><a href="../pages/%E4%B8%BB%E8%B0%8B.html" title="主谋">主谋</a>、<a href="../pages/%E5%B0%8F%E6%81%B6%E9%AD%94.html" title="小恶魔">小恶魔</a>和<a href="../pages/%E5%90%9F%E6%B8%B8%E8%AF%97%E4%BA%BA.html" title="吟游诗人">吟游诗人</a>拜访了<a href="../pages/%E5%85%AC%E7%88%B5%E5%A4%AB%E4%BA%BA.html" title="公爵夫人">公爵夫人</a>。<a href="../pages/%E4%B8%BB%E8%B0%8B.html" title="主谋">主谋</a>得知了“2”，<a href="../pages/%E5%B0%8F%E6%81%B6%E9%AD%94.html" title="小恶魔">小恶魔</a>得知了“1”，<a href="../pages/%E5%90%9F%E6%B8%B8%E8%AF%97%E4%BA%BA.html" title="吟游诗人">吟游诗人</a>得知了“2”。</p>
+<h2 id="运作方式">运作方式</h2>
+<p>在游戏开始时，宣布公爵夫人加入游戏。将公爵夫人标记及其对应提示标记放入魔典中。</p>
+<p>每一天，任何玩家都可以自愿表示他们今天晚上要拜访公爵夫人。如果正好有三名玩家自愿在今天晚上拜访公爵夫人，用“访客”标记其中两名玩家，用“错误信息”标记剩下那名玩家。如果自愿拜访的玩家超过或少于三名，那就无需添加这些提示标记。</p>
+<p>在晚上，分别单独唤醒每一名标记了“访客”和“错误信息”的玩家。向被唤醒的玩家展示“公爵夫人”标记。如果被唤醒的玩家被标记了“访客”，向他们用手指比划一个数字（0，1，2或3），这个数字会等于被标记了“访客”和“错误信息”的玩家中邪恶玩家的数量。如果被唤醒的玩家被标记了“错误信息”，则向他们用手指比划一个错误的数字。让被唤醒的玩家入睡。</p>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>访客&amp;错误信息</li>
+</ul>
+<p>放置时机：白天阶段，正好有三名玩家选择一同拜访公爵夫人时。</p>
+<p>放置条件：在这三名玩家其中两名的角色标记旁放置“访客”提示标记，在另一名玩家的角色标记旁放置“错误信息”提示标记。</p>
+<p>移除时机：在黎明时。</p>
+<h2 id="角色信息">角色信息</h2>
+<ul>
+<li>英文名：Duchess</li>
+</ul>
+<ul>
+<li>角色类型：<a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html" title="传奇角色">传奇角色</a></li>
+</ul>
+<ul>
+<li>角色能力类型：<a href="../pages/%E8%8E%B7%E5%8F%96%E4%BF%A1%E6%81%AF.html" title="获取信息">获取信息</a>、<a href="../pages/%E5%85%AC%E5%BC%80%E8%A7%A6%E5%8F%91%E8%83%BD%E5%8A%9B.html" title="公开触发能力">公开触发能力</a>、“<a href="../pages/%E6%8B%9C%E8%AE%BF%E8%AF%B4%E4%B9%A6%E4%BA%BA.html" title="拜访说书人">拜访说书人</a>”</li>
+</ul></div>
+    <div class="page-meta">最后修改于 2023-04-21T15:21:48Z，编辑者 <b>Little Black</b> ｜ 页面 3,186 字节 ｜ <a href="https://clocktower-wiki.gstonegames.com/index.php?title=%E5%85%AC%E7%88%B5%E5%A4%AB%E4%BA%BA" target="_blank" rel="noopener">查看原页面</a></div>
+    <div class="backlinks"><b>链入此页的页面（8）</b><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a><a href="../pages/%E6%8B%9C%E8%AE%BF%E8%AF%B4%E4%B9%A6%E4%BA%BA.html">拜访说书人</a><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a><a href="../pages/%E5%85%AC%E5%BC%80%E8%A7%A6%E5%8F%91%E8%83%BD%E5%8A%9B.html">公开触发能力</a><a href="../pages/%E8%8E%B7%E5%8F%96%E4%BF%A1%E6%81%AF.html">获取信息</a><a href="../pages/%E5%85%AC%E7%88%B5%E5%A4%AB%E4%BA%BA.html">公爵夫人</a><a href="../pages/%E5%A4%9C%E6%99%9A%E8%A1%8C%E5%8A%A8%E9%A1%BA%E5%BA%8F%E4%B8%80%E8%A7%88.html">夜晚行动顺序一览</a><a href="../pages/%E9%BB%91%E5%A4%9C%E9%97%AE%E7%99%BD%E5%A4%A9.html">黑夜问白天</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

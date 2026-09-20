@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>歌伶 - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">歌伶</h1>
+    <div class="tagline">来自钟楼百科</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#角色信息">角色信息</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E6%AD%8C%E4%BC%B6">查找包含此角色的剧本 →</a></p><p><a href="../pages/%E6%AD%8C%E4%BC%B6.html" class="image-link" title="歌伶"><img alt="Geling.png" style="width:200px" class="" loading="lazy" data-source-image="../images/Geling.png" src="../assets/media/Geling.preview.webp" width="591" height="591" decoding="async"></a></p>
+<h2 id="背景故事">背景故事</h2>
+<p><em>“商女不知亡国恨，隔江犹唱后庭花。”</em></p>
+<h2 id="角色能力">角色能力</h2>
+<p><strong>每局游戏限一次，在白天时，你可以提议所有玩家观看你的演出，并从同意参加的玩家中选择你的观众。如果恶魔成为了观众，你会在当晚死亡。</strong></p>
+<h2 id="角色简介">角色简介</h2>
+<p>歌伶热衷于邀请观众来观看她的表演，但也会因此成为恶魔想要陷害的目标。</p>
+<ul>
+<li>歌伶的能力在每局游戏中只能使用一次。歌伶需要在白天公开声明自己是歌伶，随后才能使用自己的能力。</li>
+</ul>
+<ul>
+<li>与其他公开声明的角色一样，任何玩家都可以伪装自己是歌伶，并假装使用自己的能力。说书人同样也会配合你的“演出”。</li>
+</ul>
+<ul>
+<li>在歌伶公开使用能力后，想要参加“歌伶的演出”的玩家需要举手来示意自己想要成为歌伶的观众。已经死亡的玩家也能举手。在所有玩家表明态度后，歌伶需要从举手的玩家中选择哪些玩家作为自己的观众。所有玩家都会知道谁成为了歌伶的观众。</li>
+</ul>
+<ul>
+<li>如果恶魔被歌伶选为了自己的观众，那么歌伶就会在当晚死亡。</li>
+</ul>
+<ul>
+<li>如果非恶魔玩家在被选中作为观众后，变成了恶魔角色，歌伶不会因此死亡。</li>
+</ul>
+<ul>
+<li>只要歌伶在当晚清醒健康，即使她在选择观众时醉酒中毒，但观众中包含恶魔，那么歌伶就会在夜晚死亡。</li>
+</ul>
+<h2 id="范例">范例</h2>
+<p><a href="../pages/%E6%AD%8C%E4%BC%B6.html" title="歌伶">歌伶</a>在白天公开了自己的角色，此时有5名玩家举手想要成为<a href="../pages/%E6%AD%8C%E4%BC%B6.html" title="歌伶">歌伶</a>的观众。歌伶从其中选择了三名玩家，分别是：存活的<a href="../pages/%E4%BF%AE%E8%A1%A5%E5%8C%A0.html" title="修补匠">修补匠</a>、存活的<a href="../pages/%E9%BA%BB%E8%84%B8%E5%B7%AB%E5%A9%86.html" title="麻脸巫婆">麻脸巫婆</a>和已经死亡的<a href="../pages/%E6%96%B9%E5%8F%A4.html" title="方古">方古</a>。当晚，<a href="../pages/%E6%AD%8C%E4%BC%B6.html" title="歌伶">歌伶</a>死亡。</p>
+<h2 id="运作方式">运作方式</h2>
+<p>每局游戏限一次，歌伶可以在白天公开自己的角色。此时你需要让所有玩家安静，并宣布“想要成为歌伶观众的玩家请举手”或者类似的内容，同时高声宣布或默数倒计时。在倒计时结束后，让歌伶从仍然举手的玩家中选择哪些玩家成为自己的观众。如果恶魔成为了歌伶的观众，则将“死亡”提示标记放置在歌伶的角色标记旁。歌伶现在使用完了自己的能力，将“失去能力”提示标记放置在歌伶的角色标记旁，代表她无法再在白天使用自己的能力了。</p>
+<p>在夜晚时，如果歌伶的角色标记旁放置了“死亡”提示标记，那么歌伶死亡。在黎明时宣布所有当晚死亡的玩家。</p>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>失去能力</li>
+</ul>
+<p>放置时机：在歌伶使用了自己的能力后放置。</p>
+<p>放置条件：不论歌伶是否醉酒中毒，将此标记放置在歌伶的角色标记旁。</p>
+<p>移除时机：歌伶死亡或离场时。</p>
+<ul>
+<li>死亡</li>
+</ul>
+<p>放置时机：在歌伶使用了自己的能力，且恶魔成为了歌伶的观众后放置。</p>
+<p>放置条件：不论歌伶是否醉酒中毒，将此标记放置在歌伶的角色标记旁。</p>
+<p>移除时机：如果当晚歌伶醉酒中毒，则直接移除；或在宣布了歌伶的死亡后，由说书人在自己方便的时候移除。</p>
+<h2 id="角色信息">角色信息</h2>
+<ul>
+<li>英文名：Diva</li>
+</ul>
+<ul>
+<li>所属角色合集：<a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html" title="华灯初上">华灯初上</a></li>
+</ul>
+<ul>
+<li>创意来源：痴愚</li>
+</ul>
+<ul>
+<li>角色类型：镇民</li>
+</ul>
+<ul>
+<li>角色能力类型：<a href="../pages/%E5%85%AC%E5%BC%80%E8%A7%A6%E5%8F%91%E8%83%BD%E5%8A%9B.html" title="公开触发能力">公开触发能力</a>、<a href="../pages/%E9%A2%9D%E5%A4%96%E6%AD%BB%E4%BA%A1.html" title="额外死亡">额外死亡</a>、<a href="../pages/%E9%99%90%E6%AC%A1%E8%83%BD%E5%8A%9B.html" title="限次能力">限次能力</a>、<a href="../pages/%E5%9B%9E%E6%BA%AF%E5%9E%8B%E8%83%BD%E5%8A%9B.html" title="回溯型能力">回溯型能力</a></li>
+</ul></div>
+    <div class="page-meta">最后修改于 2024-04-18T06:24:21Z，编辑者 <b>Little Black</b> ｜ 页面 3,337 字节 ｜ <a href="https://clocktower-wiki.gstonegames.com/index.php?title=%E6%AD%8C%E4%BC%B6" target="_blank" rel="noopener">查看原页面</a> ｜ <div class="comment">编辑摘要：/* 角色信息 */</div></div>
+    <div class="backlinks"><b>链入此页的页面（28）</b><a href="../pages/%E5%9B%9E%E6%BA%AF%E5%9E%8B%E8%83%BD%E5%8A%9B.html">回溯型能力</a><a href="../pages/%E9%A2%9D%E5%A4%96%E6%AD%BB%E4%BA%A1.html">额外死亡</a><a href="../pages/%E5%85%AC%E5%BC%80%E8%A7%A6%E5%8F%91%E8%83%BD%E5%8A%9B.html">公开触发能力</a><a href="../pages/%E6%8F%90%E5%90%8D.html">提名</a><a href="../pages/%E6%8A%95%E7%A5%A8.html">投票</a><a href="../pages/%E9%99%90%E6%AC%A1%E8%83%BD%E5%8A%9B.html">限次能力</a><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a><a href="../pages/%E5%8F%98%E8%84%B8%E5%B8%88.html">变脸师</a><a href="../pages/%E6%AD%8C%E4%BC%B6.html">歌伶</a><a href="../pages/%E5%A4%9C%E6%99%9A%E8%A1%8C%E5%8A%A8%E9%A1%BA%E5%BA%8F%E4%B8%80%E8%A7%88.html">夜晚行动顺序一览</a><a href="../pages/%E7%AC%AC%E4%B8%80%E5%B1%8A%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A%E5%89%A7%E6%9C%AC%E5%88%9B%E4%BD%9C%E5%A4%A7%E8%B5%9B.html">第一届华灯初上剧本创作大赛</a><a href="../pages/%E4%BA%BA%E9%97%B4%E6%9A%97%E6%9C%88%E5%A4%9C.html">人间暗月夜</a><a href="../pages/%E8%A1%8C%E6%88%90%E4%B8%8B%E5%AD%A4%E4%B9%A1.html">行成下孤乡</a><a href="../pages/%E8%8E%AB%E8%A8%80%E4%B8%89%E5%8D%83%E6%AD%BB.html">莫言三千死</a><a href="../pages/%E9%B8%A3%E9%A3%8E%E5%99%AC%E5%90%8E%E6%B5%AA.html">鸣风噬后浪</a><a href="../pages/%E5%B9%BB%E5%BD%B1%E7%94%BB%E5%AE%89%E5%8D%B1.html">幻影画安危</a><a href="../pages/%E8%B0%9C%E6%A2%A6%E5%BE%85%E6%AD%8C%E8%88%9E.html">谜梦待歌舞</a><a href="../pages/%E5%BC%82%E5%9C%B0%E4%BC%97%E6%AC%A2%E6%9D%A5.html">异地众欢来</a><a href="../pages/%E9%A3%8E%E4%BA%91%E5%AD%B0%E6%88%8F%E8%A8%80.html">风云孰戏言</a><a href="../pages/%E9%A3%8E%E8%B5%B7%E7%BB%88%E7%9B%B8%E8%AF%86.html">风起终相识</a><a href="../pages/%E5%AF%84%E6%A2%A6%E4%BB%96%E4%B9%A1.html">寄梦他乡</a><a href="../pages/%E7%99%BD%E7%8B%90%E8%A1%8C%E4%B8%9B%E9%87%8C.html">白狐行丛里</a><a href="../pages/%E9%9B%86%E5%90%8E%E4%BA%BA%E4%B9%8B%E8%A8%80.html">集后人之言</a><a href="../pages/%E5%8D%83%E9%9D%A2%E4%BC%97%E5%8D%B1%E7%84%89.html">千面众危焉</a><a href="../pages/%E5%AF%B9%E5%A2%9F%E9%9A%BE%E6%AC%A2%E9%B8%A3.html">对墟难欢鸣</a><a href="../pages/%E8%B5%A6%E4%BB%A4%E6%89%BF%E6%97%A8.html">赦令承旨</a><a href="../pages/%E6%A2%A6%E5%9B%9E%E5%A4%A7%E5%94%90.html">梦回大唐</a><a href="../pages/%E6%B1%9F%E5%9F%8E%E5%90%AF.html">江城启</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

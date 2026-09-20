@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>奥赫 - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">奥赫</h1>
+    <div class="tagline">来自钟楼百科</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#提示与技巧">提示与技巧</a></li><li class="lvl2"><a href="#对抗奥赫">对抗奥赫</a></li><li class="lvl2"><a href="#角色信息">角色信息</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E5%A5%A5%E8%B5%AB">查找包含此角色的剧本 →</a></p><p><a href="../pages/%E5%A5%A5%E8%B5%AB.html" class="image-link" title="奥赫"><img alt="Ojo.png" style="width:200px" class="" loading="lazy" data-source-image="../images/Ojo.png" src="../assets/media/Ojo.preview.webp" width="591" height="591" decoding="async"></a></p>
+<h2 id="背景故事">背景故事</h2>
+<p><em>“如同无月之夜里的篝火那般显眼……我看到你了，凡人。”</em></p>
+<h2 id="角色能力">角色能力</h2>
+<p><strong>每个夜晚*，你要选择一个角色：他死亡。如果该角色不在场，则由说书人来决定谁会被你杀死。</strong></p>
+<h2 id="角色简介">角色简介</h2>
+<p>奥赫能够杀死特定的角色。</p>
+<ul>
+<li>与其他恶魔不同，奥赫在攻击时选择的是角色，而不是玩家。说书人可能需要提醒玩家奥赫能力的特殊之处。建议在游戏进入到夜晚阶段时，让所有玩家将角色列表放在手边。</li>
+</ul>
+<ul>
+<li>如果奥赫愿意，他可以杀死邪恶角色。</li>
+</ul>
+<ul>
+<li>如果某个角色有多名玩家在场，且奥赫选择了这个角色，只会有一名玩家死亡。</li>
+</ul>
+<ul>
+<li>如果奥赫选择了不在场的角色，说书人大多数情况下都会杀死一名存活的善良玩家。说书人杀死死亡玩家或邪恶玩家虽然可行，但这种情况会非常少见。</li>
+</ul>
+<h2 id="范例">范例</h2>
+<p><a href="../pages/%E5%A5%A5%E8%B5%AB.html" title="奥赫">奥赫</a>选择了<a href="../pages/%E7%98%9F%E7%96%AB%E5%8C%BB%E7%94%9F.html" title="瘟疫医生">瘟疫医生</a>，<a href="../pages/%E7%98%9F%E7%96%AB%E5%8C%BB%E7%94%9F.html" title="瘟疫医生">瘟疫医生</a>死亡。下一个夜晚，<a href="../pages/%E5%A5%A5%E8%B5%AB.html" title="奥赫">奥赫</a>选择了<a href="../pages/%E7%BD%82%E7%B2%9F%E7%A7%8D%E6%A4%8D%E8%80%85.html" title="罂粟种植者">罂粟种植者</a>，<a href="../pages/%E7%BD%82%E7%B2%9F%E7%A7%8D%E6%A4%8D%E8%80%85.html" title="罂粟种植者">罂粟种植者</a>死亡。再下一个夜晚，<a href="../pages/%E5%A5%A5%E8%B5%AB.html" title="奥赫">奥赫</a>选择了<a href="../pages/%E5%85%B1%E6%83%85%E8%80%85.html" title="共情者">共情者</a>。<a href="../pages/%E5%85%B1%E6%83%85%E8%80%85.html" title="共情者">共情者</a>不在场，因此说书人决定改为让<a href="../pages/%E4%BF%AE%E8%A1%8C%E8%80%85.html" title="修行者">修行者</a>死亡。</p>
+<h2 id="运作方式">运作方式</h2>
+<p>除首个夜晚以外的每个夜晚，唤醒奥赫。让奥赫指向角色列表上的一个角色标记。如果被选择的角色在场，对应的玩家死亡——使用“死亡”提示标记标记那名玩家。如果被选择的角色不在场，那么改为你来选择任意一名玩家，那名玩家死亡——使用“死亡”提示标记标记那名玩家。让奥赫重新入睡。</p>
+<p>如果奥赫所在的剧本包含能够在同一个夜晚进行多次杀戮的恶魔，例如<a href="../pages/%E6%B2%99%E5%B7%B4%E6%B4%9B%E6%96%AF.html" title="沙巴洛斯">沙巴洛斯</a>，并且奥赫选择了一个不在场的角色，你可以杀死超过一名玩家。这可以帮助奥赫伪装成另一种恶魔。</p>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>死亡</li>
+</ul>
+<p>放置时机：在奥赫夜晚行动并选择了角色后放置。</p>
+<p>放置条件：因为奥赫的能力而会被杀死的玩家当前存活，且能被奥赫杀死，且奥赫未醉酒中毒，那么在该玩家的角色标记旁放置，用以提醒说书人在黎明时分宣布当晚的死亡玩家。</p>
+<p>移除时机：在黎明时宣布死亡玩家后，说书人可以任由自己方便来进行移除。</p>
+<h2 id="提示与技巧">提示与技巧</h2>
+<ul>
+<li>优先选择最强力的角色。你的能力的乐趣在于，你可以随心所欲地消灭那些你觉得最具威胁性的角色，所以放开手来结果他们吧！</li>
+</ul>
+<ul>
+<li>考虑一下剧本中的其他恶魔——是否值得伪装成其他恶魔可能的行动来进行杀戮？如果你这样做，那意味着你可能不得不放弃优先击杀那些最具威胁性的镇民的做法，但这正是你的能力所在，所以你需要考虑一下是否值得去伪装成其他恶魔。 </li>
+</ul>
+<ul>
+<li>如果你觉得你的玩法会让玩家发现你是奥赫，请确保你以一个较弱的镇民角色或外来者角色进行伪装。你不会希望在三人决赛圈之前被玩家怀疑为什么你还没有死亡，而其他那些最强力的镇民都已经死了。</li>
+</ul>
+<ul>
+<li>伪装成一个强力镇民角色，并让你的爪牙们也这样做！如果游戏中有好几个强力角色都还没死亡，这会让游戏看起来更像不是奥赫在场。同时，你的整个邪恶团队可以借此散播极具影响力的错误信息。</li>
+</ul>
+<ul>
+<li>如果你不太确定某名玩家是不是真实地声称了自己的角色，你可以选择这个角色并找出真相。如果他死亡，那很棒，你知道你必须将他的信息纳入你的游戏逻辑中。如果他没有死亡，说明他在伪装，你可以无视他的信息。</li>
+</ul>
+<ul>
+<li>注意那些在你的意料之外死亡的玩家。也许他和另一名玩家互通了角色，而实际上他才是你想要杀死的角色。也许你选择的角色并不在场，而他被说书人选中了。</li>
+</ul>
+<ul>
+<li>基本上你不应该重复选择同一个角色，除非你想让说书人去进行杀戮！但是请记住，说书人选择目标的设计意图不是为了帮你摆脱困境，所以让说书人选择玩家可能并不是对你们阵营最有帮助的做法。 </li>
+</ul>
+<ul>
+<li>如果你们的剧本上有恶魔可以在夜晚制造复数死亡，你可以故意选择一个不在场角色（也许是你的伪装之一？），以便说书人制造复数死亡，从而让那些制造复数死亡的恶魔在场的逻辑能够成立。尽管这些杀戮可能比不上你去选择特定角色进行狙击那样有利，但这样做可以保持恶魔角色的不确定性。</li>
+</ul>
+<ul>
+<li>别忘了外来者。如果你把所有注意力都集中在击杀镇民上，那么你可能会面临与两名外来者一起进入三人决赛圈的局面，而那两名外来者已经通过外来者数量配置来确证。所以不要忘了，外来者也值得被杀死。</li>
+</ul>
+<ul>
+<li>如果你或爪牙想伪装一个没有在初始伪装信息里的角色，你可以在夜晚选择这个角色，通过结果判断它是否在场，并以此调整你的伪装。</li>
+</ul>
+<h2 id="对抗奥赫">对抗奥赫</h2>
+<ul>
+<li>如果你是强力角色，你可以声称自己是其他角色，即使你立即死于恶魔的能力。奥赫会通过使用他的能力立即杀死你来获得收益，但如果你令他认为你是某些较为弱势的角色，他会觉得自己选择了一个不在场角色，然后你可以在游戏后期用你的信息来让邪恶玩家大吃一惊。</li>
+</ul>
+<ul>
+<li>如果你们发现奥赫在场，你们应该去相信那些早早死亡的强力角色。虽然他们可能没有太多信息，但你们基本上可以确信他们获得的信息，因为奥赫不会让他们产生错误信息。并且，奥赫在场的时候，玩家死在游戏前期这回事，就可以让你们相信他们大概率是好人，并且大概率正是他们自己声称的角色。 </li>
+</ul>
+<ul>
+<li>通过观察哪些角色死亡来判断奥赫是否在场。如果玩家都按照通常游戏那样死亡——死亡的是那些公开声明自己是强力角色，以及那些根据场上公开或半公开信息可以推断出来是强力角色的玩家，那么这很可能不是奥赫在场。如果死亡的是那些从头到尾都没有公开声明过自己的角色，并且一直游离在玩家信息之外的玩家，那么这可能是奥赫在场。 </li>
+</ul>
+<ul>
+<li>不要因为在游戏前期死亡的是外来者或不太重要的镇民就放弃奥赫在场的可能性。奥赫可能是在试图摆脱你们的追踪，或可能是意外地选中了不在场角色，然后说书人相应地选择更弱小的目标进行击杀。 </li>
+</ul>
+<ul>
+<li>注意那些在夜晚死亡的玩家所声称的角色。考虑一下存活玩家之中，谁的游戏思路比较有可能认为当前的死亡顺序最有利于邪恶阵营。如果你的小伙伴是奥赫，他会优先击杀什么角色？这个思路可以帮助你找出谁是真正的奥赫！ </li>
+</ul>
+<h2 id="角色信息">角色信息</h2>
+<ul>
+<li>英文名：Ojo</li>
+</ul>
+<ul>
+<li>所属剧本：<a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html" title="实验性角色">实验性角色</a>、<a href="../pages/%E6%97%A0%E4%BD%95%E6%9C%89%E4%B9%8B%E4%B9%A1.html" title="无何有之乡">无何有之乡</a>（快速上手剧本）</li>
+</ul>
+<ul>
+<li>角色类型：<a href="../pages/%E6%81%B6%E9%AD%94.html" title="恶魔">恶魔</a></li>
+</ul>
+<ul>
+<li>角色背景相关：Ojo在西班牙语里的意思是眼睛，同时背景里也提到了篝火，所以奥赫的角色图标看上去是一团着火的眼睛。</li>
+</ul></div>
+    <div class="page-meta">最后修改于 2024-01-26T15:35:11Z，编辑者 <b>Little Black</b> ｜ 页面 7,214 字节 ｜ <a href="https://clocktower-wiki.gstonegames.com/index.php?title=%E5%A5%A5%E8%B5%AB" target="_blank" rel="noopener">查看原页面</a> ｜ <div class="comment">编辑摘要：/* 角色信息 */</div></div>
+    <div class="backlinks"><b>链入此页的页面（28）</b><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a><a href="../pages/%E6%81%B6%E9%AD%94.html">恶魔</a><a href="../pages/%E5%A4%9C%E6%99%9A%E8%A1%8C%E5%8A%A8%E9%A1%BA%E5%BA%8F%E4%B8%80%E8%A7%88.html">夜晚行动顺序一览</a><a href="../pages/%E6%96%B0%E8%A7%92%E8%89%B2%E5%85%AC%E5%B8%83%E8%AE%A1%E5%88%92.html">新角色公布计划</a><a href="../pages/%E5%A5%A5%E8%B5%AB.html">奥赫</a><a href="../pages/%E5%B8%BD%E5%8C%A0.html">帽匠</a><a href="../pages/%E7%AC%AC%E4%B8%80%E5%B1%8A%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A%E5%89%A7%E6%9C%AC%E5%88%9B%E4%BD%9C%E5%A4%A7%E8%B5%9B.html">第一届华灯初上剧本创作大赛</a><a href="../pages/%E4%BA%BA%E9%97%B4%E6%9A%97%E6%9C%88%E5%A4%9C.html">人间暗月夜</a><a href="../pages/%E8%A1%8C%E6%88%90%E4%B8%8B%E5%AD%A4%E4%B9%A1.html">行成下孤乡</a><a href="../pages/%E8%8E%AB%E8%A8%80%E4%B8%89%E5%8D%83%E6%AD%BB.html">莫言三千死</a><a href="../pages/%E5%B9%BB%E5%BD%B1%E7%94%BB%E5%AE%89%E5%8D%B1.html">幻影画安危</a><a href="../pages/%E8%B0%9C%E6%A2%A6%E5%BE%85%E6%AD%8C%E8%88%9E.html">谜梦待歌舞</a><a href="../pages/%E9%A3%8E%E8%B5%B7%E7%BB%88%E7%9B%B8%E8%AF%86.html">风起终相识</a><a href="../pages/%E6%97%A0%E4%BD%95%E6%9C%89%E4%B9%8B%E4%B9%A1.html">无何有之乡</a><a href="../pages/%E7%99%BD%E7%8B%90%E8%A1%8C%E4%B8%9B%E9%87%8C.html">白狐行丛里</a><a href="../pages/%E4%BE%A0%E4%BA%91%E6%95%88%E8%89%AF%E5%85%9A.html">侠云效良党</a><a href="../pages/%E5%8D%83%E9%9D%A2%E4%BC%97%E5%8D%B1%E7%84%89.html">千面众危焉</a><a href="../pages/%E5%AF%B9%E5%A2%9F%E9%9A%BE%E6%AC%A2%E9%B8%A3.html">对墟难欢鸣</a><a href="../pages/%E6%8A%A5%E4%B8%A7%E5%A5%B3%E5%A6%96.html">报丧女妖</a><a href="../pages/%E8%8E%AB%E9%80%86%E4%B9%8B%E4%BA%A4.html">莫逆之交</a><a href="../pages/%E4%BF%A1%E5%8F%A3%E9%9B%8C%E9%BB%84.html">信口雌黄</a><a href="../pages/%E7%8B%B8%E7%8C%AB.html">狸猫</a><a href="../pages/%E5%B7%AB%E5%B8%88.html">巫师</a><a href="../pages/%E5%B9%BD%E7%81%B5%E4%BE%A6%E6%8E%A2.html">幽灵侦探</a><a href="../pages/%E5%8F%8C%E5%AD%90%E7%85%9E%E6%98%9F.html">双子煞星</a><a href="../pages/%E5%86%A5%E6%B2%B3%E9%82%AA%E6%B8%A1.html">冥河邪渡</a><a href="../pages/%E5%A4%A9%E6%89%8D%E5%9C%A8%E5%B7%A6.html">天才在左</a><a href="../pages/%E6%B1%9F%E5%9F%8E%E5%90%AF.html">江城启</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

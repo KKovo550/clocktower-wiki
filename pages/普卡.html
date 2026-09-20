@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>普卡 - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">普卡</h1>
+    <div class="tagline">来自钟楼百科</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#提示与技巧">提示与技巧</a></li><li class="lvl2"><a href="#对抗普卡">对抗普卡</a></li><li class="lvl2"><a href="#角色信息">角色信息</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E6%99%AE%E5%8D%A1">查找包含此角色的剧本 →</a></p><p><a href="../pages/%E6%99%AE%E5%8D%A1.html" class="image-link" title="普卡"><img alt="Pukka.png" style="width:200px" class="" loading="lazy" data-source-image="../images/Pukka.png" src="../assets/media/Pukka.preview.webp" width="600" height="600" decoding="async"></a></p>
+<h2 id="背景故事">背景故事</h2>
+<p><em>“您人真好，发生了这样的事情，您还愿意让我来您金碧辉煌的家里做客。我很抱歉，刚才不小心划伤了您。这是一点点赔礼，没事的，请收下吧，把这根金牙签当做我那卑微的歉意吧。”</em></p>
+<h2 id="角色能力">角色能力</h2>
+<p><strong>每个夜晚，你要选择一名玩家：他中毒。</strong></p>
+<p><strong>上个因你的能力中毒的玩家会死亡并恢复健康。</strong></p>
+<h2 id="角色简介">角色简介</h2>
+<p>普卡能让他的受害者中毒，并在之后毒发身亡。</p>
+<ul>
+<li>当普卡攻击时，他的受害者会立即中毒。在下一个夜晚，该名玩家会在普卡发起下一次攻击之后的时间点死亡。</li>
+</ul>
+<ul>
+<li>不同于其他恶魔，普卡在首个夜晚就会行动。</li>
+</ul>
+<ul>
+<li>驱魔人能防止普卡被唤醒来使玩家中毒。旅店老板能防止普卡杀死已经中毒的玩家，随后该玩家会恢复健康。</li>
+</ul>
+<ul>
+<li>如果醉酒状态的普卡选择了一名玩家，该玩家不会中毒，也不会在下一个夜晚死亡。</li>
+</ul>
+<ul>
+<li>如果普卡在上一个夜晚选择玩家时是清醒的，但是当晚醉酒了，该玩家不会死亡。但是当普卡恢复清醒，中毒效果会恢复，且会在随后的夜晚杀死该玩家。</li>
+</ul>
+<h2 id="范例">范例</h2>
+<p><a href="../pages/%E6%99%AE%E5%8D%A1.html" title="普卡">普卡</a>使<a href="../pages/%E4%BE%8D%E5%A5%B3.html" title="侍女">侍女</a>中毒。<a href="../pages/%E4%BE%8D%E5%A5%B3.html" title="侍女">侍女</a>得到错误信息。下一夜，<a href="../pages/%E4%BE%8D%E5%A5%B3.html" title="侍女">侍女</a>死亡。</p>
+<p><a href="../pages/%E6%99%AE%E5%8D%A1.html" title="普卡">普卡</a>使<a href="../pages/%E5%BC%84%E8%87%A3.html" title="弄臣">弄臣</a>中毒。在下个白天，<a href="../pages/%E5%BC%84%E8%87%A3.html" title="弄臣">弄臣</a>被处决且死亡，因为他没有能力。在下个夜晚，无人死亡，且<a href="../pages/%E6%99%AE%E5%8D%A1.html" title="普卡">普卡</a>使<a href="../pages/%E9%80%A0%E8%B0%A3%E8%80%85.html" title="造谣者">造谣者</a>中毒。再下个夜晚，醉酒状态的<a href="../pages/%E6%99%AE%E5%8D%A1.html" title="普卡">普卡</a>试图使<a href="../pages/%E4%BF%AE%E8%A1%A5%E5%8C%A0.html" title="修补匠">修补匠</a>中毒，但没有成功。再下个夜晚，恢复清醒的<a href="../pages/%E6%99%AE%E5%8D%A1.html" title="普卡">普卡</a>让<a href="../pages/%E9%80%A0%E8%B0%A3%E8%80%85.html" title="造谣者">造谣者</a>死亡。 <em>（因为普卡的致死能力只看他上一个成功中毒的角色，因此会跳过修补匠。在普卡醉酒期间，虽然造谣者不再中毒，但不会因此移除造谣者的中毒标记，并在普卡恢复清醒的时候立刻让原本选择的造谣者重新中毒。因此轮到普卡行动时，造谣者就会死亡。）</em></p>
+<p><a href="../pages/%E6%99%AE%E5%8D%A1.html" title="普卡">普卡</a>使<a href="../pages/%E5%92%8C%E5%B9%B3%E4%B8%BB%E4%B9%89%E8%80%85.html" title="和平主义者">和平主义者</a>中毒。在下一个夜晚，<a href="../pages/%E9%A9%B1%E9%AD%94%E4%BA%BA.html" title="驱魔人">驱魔人</a>选择了<a href="../pages/%E6%99%AE%E5%8D%A1.html" title="普卡">普卡</a>，阻止了他当晚被唤醒。<a href="../pages/%E5%92%8C%E5%B9%B3%E4%B8%BB%E4%B9%89%E8%80%85.html" title="和平主义者">和平主义者</a>死亡，但是<a href="../pages/%E6%99%AE%E5%8D%A1.html" title="普卡">普卡</a>当晚没有被唤醒以发起攻击。</p>
+<p><a href="../pages/%E6%9C%88%E4%B9%8B%E5%AD%90.html" title="月之子">月之子</a>被处决并死亡，并选择了<a href="../pages/%E4%BE%8D%E8%87%A3.html" title="侍臣">侍臣</a>。当晚，<a href="../pages/%E6%99%AE%E5%8D%A1.html" title="普卡">普卡</a>选择了<a href="../pages/%E6%9C%88%E4%B9%8B%E5%AD%90.html" title="月之子">月之子</a>。<a href="../pages/%E4%BE%8D%E8%87%A3.html" title="侍臣">侍臣</a>没有死亡，因为已死亡的<a href="../pages/%E6%9C%88%E4%B9%8B%E5%AD%90.html" title="月之子">月之子</a>中毒了。</p>
+<h2 id="运作方式">运作方式</h2>
+<p>每个夜晚，唤醒普卡。让普卡指向任意一名玩家。让普卡重新入睡。所选玩家中毒——将“中毒”提示标记放置到该玩家的角色标记旁。</p>
+<p>除了首个夜晚以外的每个夜晚，其他标有普卡的“中毒”提示标记的玩家死亡——将“死亡”提示标记放置到这些玩家的角色标记旁，然后移除他们的“中毒”提示标记。</p>
+<p>被普卡杀死的玩家在死亡时仍然中毒。如果有来自其他剧本的角色，你可能需要将“中毒”标记保留在“死亡”标记旁，直到这些角色的死亡能力结算完毕。例如，如果普卡杀死了贤者，贤者可能会因为中毒效果而获得错误信息。</p>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>中毒</li>
+</ul>
+<p>放置时机：在普卡夜晚行动并选择了玩家后放置。</p>
+<p>放置条件：普卡选择的玩家能因普卡而中毒，且普卡未醉酒中毒，那么在该玩家的角色标记旁放置普卡的中毒标记。</p>
+<p>移除时机：当普卡的能力满足让被中毒标记的角色死亡时，在结算完该角色的“死亡触发能力”后移除，或普卡死亡或离场时移除。</p>
+<ul>
+<li>死亡</li>
+</ul>
+<p>放置时机：在普卡夜晚行动（并可能会放置“中毒”标记）结束时，放置此标记。</p>
+<p>放置条件：普卡未醉酒中毒时，不论普卡此次夜晚行动是否被唤醒或成功放置标记，进行以下操作：检查在本次普卡夜晚行动之前，已放置有普卡的“中毒”标记的玩家（其他角色的中毒标记不会检查）。若该玩家已死亡或无法被普卡杀死，直接移除“中毒”标记。否则，在该玩家的角色标记旁放置“死亡”标记，用以提醒说书人在黎明时分宣布当晚的死亡玩家。如果普卡已醉酒中毒，跳过此操作，且不会移除原本放置的中毒标记。</p>
+<p>移除时机：在黎明时宣布死亡玩家后，说书人可以任由自己方便来进行移除。</p>
+<h2 id="规则细节">规则细节</h2>
+<ul>
+<li>相克规则：</li>
+<ul>
+<li><a href="../pages/%E5%8F%AC%E5%94%A4%E5%B8%88.html" title="召唤师">召唤师</a>：召唤师可以在第二个夜晚召唤普卡来替代第三个夜晚的召唤。</li>
+</ul>
+</ul>
+<ul>
+<li>相克规则（与华灯系列角色）：</li>
+<ul>
+<li><a href="../pages/%E6%88%8F%E5%AD%90.html" title="戏子">戏子</a>：在戏子存在于剧本中时，普卡可以在游戏中任意时候向说书人示意自己“想要死亡”。说书人会在当晚杀死这名玩家。</li>
+<li><a href="../pages/%E6%88%8F%E5%AD%90%EF%BC%88%E6%94%B9%EF%BC%89.html" title="戏子（改）">戏子（改）</a>：在戏子（改）存在于剧本中时，普卡可以在游戏中任意时候向说书人示意自己“想要死亡”。说书人会在当晚杀死这名玩家。</li>
+</ul>
+</ul>
+<h2 id="提示与技巧">提示与技巧</h2>
+<ul>
+<li>狡猾的<a href="../pages/%E6%99%AE%E5%8D%A1.html" title="普卡">普卡</a>因其恶毒和残忍而成为<a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html" title="黯月初升">黯月初升</a>中最致命的恶魔。所有其他恶魔都给小镇一个晚上的礼遇；<a href="../pages/%E6%99%AE%E5%8D%A1.html" title="普卡">普卡</a>没有这样的耐心，从第一天晚上开始就在镇上播下混乱，在镇民甚至有机会采取行动之前就选择了他们的第一个受害者。<a href="../pages/%E5%83%B5%E6%80%96.html" title="僵怖">僵怖</a>可能比你更强壮，<a href="../pages/%E6%B2%99%E5%B7%B4%E6%B4%9B%E6%96%AF.html" title="沙巴洛斯">沙巴洛斯</a>和<a href="../pages/%E7%8F%80.html" title="珀">珀</a>可能会更有效地杀人，但他们很容易受到优秀团队使用的最致命武器的攻击：信息。你不仅杀死了你的受害者，而且还压制了你的受害者，迫使他们在精神错乱中度过最后的日子，他们的信息混乱，他们曾经构成的危险也化为乌有。优秀的团队总是希望你不在比赛中，以免他们不得不在整场比赛中怀疑所有通常会将他们引导到你家门口的信息。</li>
+</ul>
+<ul>
+<li>考虑你想毒死谁以及想杀谁。一个咄咄逼人、健谈的<a href="../pages/%E4%BE%8D%E5%A5%B3.html" title="侍女">侍女</a>没有意识到他们最后一天的信息是错误的，可以在坟墓之外为你做很多工作。如果你非常幸运，你可以在他们抓住你之前抓住一个<a href="../pages/%E9%A9%B1%E9%AD%94%E4%BA%BA.html" title="驱魔人">驱魔人</a>或<a href="../pages/%E4%BE%8D%E8%87%A3.html" title="侍臣">侍臣</a>，或者你可以让一个<a href="../pages/%E6%97%85%E5%BA%97%E8%80%81%E6%9D%BF.html" title="旅店老板">旅店老板</a>的顾客暴露给你的<a href="../pages/%E6%95%99%E7%88%B6.html" title="教父">教父</a>或<a href="../pages/%E6%9C%88%E4%B9%8B%E5%AD%90.html" title="月之子">月之子</a>诅咒，时机稍好。你是<a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html" title="黯月初升">黯月初升</a>中唯一有能力混淆目标信息的邪恶玩家，那么为什么不充分利用呢？</li>
+</ul>
+<ul>
+<li>瞄准你认为不会在第二天被处决的玩家。如果善良阵营处决了你中毒的受害者，那么那天晚上你就不会造成死亡……狡猾的优秀玩家可能会用它来检测你在比赛中。一个不合时宜的执行会让你争先恐后地赶上比赛的其余部分！</li>
+</ul>
+<ul>
+<li>瞄准那些被善良阵营怀疑的声称自己对（死于）处决免疫的玩家，例如<a href="../pages/%E6%B0%B4%E6%89%8B.html" title="水手">水手</a>或<a href="../pages/%E8%8C%B6%E8%89%BA%E5%B8%88.html" title="茶艺师">茶艺师</a>和她的邻座。即使在下个夜晚没有发生死亡，也会让人觉得他们假装使用了<a href="../pages/%E9%AD%94%E9%AC%BC%E4%BB%A3%E8%A8%80%E4%BA%BA.html" title="魔鬼代言人">魔鬼代言人</a>的能力，甚至可以引导善良阵营实际上他们是<a href="../pages/%E5%83%B5%E6%80%96.html" title="僵怖">僵怖</a>。（善良阵营处决死亡玩家的任意一天对于你而言都非常有利）</li>
+</ul>
+<ul>
+<li>你的毒只能被狡猾的<a href="../pages/%E8%8E%BD%E5%A4%AB.html" title="莽夫">莽夫</a>阻止，但角色仍然可以在晚上被<a href="../pages/%E8%8C%B6%E8%89%BA%E5%B8%88.html" title="茶艺师">茶艺师</a>或<a href="../pages/%E6%97%85%E5%BA%97%E8%80%81%E6%9D%BF.html" title="旅店老板">旅店老板</a>等角色保护免于死亡。您无需害怕<a href="../pages/%E5%BC%84%E8%87%A3.html" title="弄臣">弄臣</a>或<a href="../pages/%E6%B0%B4%E6%89%8B.html" title="水手">水手</a>，但仍需谨慎选择 - 错过一次杀戮不会有任何影响，尤其是在您与<a href="../pages/%E6%B2%99%E5%B7%B4%E6%B4%9B%E6%96%AF.html" title="沙巴洛斯">沙巴洛斯</a>或<a href="../pages/%E7%8F%80.html" title="珀">珀</a>竞争的情况下。可靠和有条不紊应该是你的目标。</li>
+</ul>
+<ul>
+<li>尽量掩饰<a href="../pages/%E6%99%AE%E5%8D%A1.html" title="普卡">普卡</a>存在的事实。一旦善良阵营知道你在场，他们就可以开始回溯你的有毒信息，取消你所有的辛勤工作！虽然看起来声称<a href="../pages/%E5%83%B5%E6%80%96.html" title="僵怖">僵怖</a>在场似乎是显而易见的选择，但实际上在<a href="../pages/%E5%88%BA%E5%AE%A2.html" title="刺客">刺客</a>或<a href="../pages/%E6%95%99%E7%88%B6.html" title="教父">教父</a>的帮助下模仿<a href="../pages/%E7%8F%80.html" title="珀">珀</a>甚至<a href="../pages/%E6%B2%99%E5%B7%B4%E6%B4%9B%E6%96%AF.html" title="沙巴洛斯">沙巴洛斯</a>更容易……或者只是伪装成一些勇于冒险的镇民。例如，如果你知道<a href="../pages/%E9%80%A0%E8%B0%A3%E8%80%85.html" title="造谣者">造谣者</a>声明将在当晚造成死亡，那或许就是让你的爪牙采取行动的时候，创造一个模拟<a href="../pages/%E7%8F%80.html" title="珀">珀</a>蓄力后的爆发杀戮。虽然他们最终可能会找到你，但等到他们这么做的时候......已经阻止不了你了。</li>
+</ul>
+<h2 id="对抗普卡">对抗普卡</h2>
+<p>当你要对抗普卡的时候，这里有几件事你应该记住：</p>
+<ul>
+<li>与<a href="../pages/%E6%99%AE%E5%8D%A1.html" title="普卡">普卡</a>战斗的第一步是弄清楚<a href="../pages/%E6%99%AE%E5%8D%A1.html" title="普卡">普卡</a>是否在起作用。寻找夜间的可疑死亡，例如“<a href="../pages/%E5%BC%84%E8%87%A3.html" title="弄臣">弄臣</a>”过早死亡，或“<a href="../pages/%E6%B0%B4%E6%89%8B.html" title="水手">水手</a>”完全死亡。或者，考虑到当没有人在夜间死亡时，那是因为那天被处决的<a href="../pages/%E6%99%AE%E5%8D%A1.html" title="普卡">普卡</a>目标。如果围绕这两个信号形成模式，您几乎可以肯定在游戏中有<a href="../pages/%E6%99%AE%E5%8D%A1.html" title="普卡">普卡</a>。</li>
+</ul>
+<ul>
+<li>一旦您发现<a href="../pages/%E6%99%AE%E5%8D%A1.html" title="普卡">普卡</a>正在发挥作用，您就需要进行一些信息回溯。每个昨晚死去的玩家，都是在前一天晚上被毒死的。死亡的<a href="../pages/%E8%8C%B6%E8%89%BA%E5%B8%88.html" title="茶艺师">茶艺师</a>的能力在活着的时候不起作用是有原因的。<a href="../pages/%E8%B5%8C%E5%BE%92.html" title="赌徒">赌徒</a>的死亡有一个理由，那就是他们在前一天晚上选择一名玩家时没有死。死亡的<a href="../pages/%E4%BE%8D%E5%A5%B3.html" title="侍女">侍女</a>在前天晚上得到了虚假信息。死亡的<a href="../pages/%E9%A9%B1%E9%AD%94%E4%BA%BA.html" title="驱魔人">驱魔人</a>可能实际上是在玩家死亡的夜晚选择了恶魔。回溯可能很复杂，因为前天晚上发生的事情比昨晚发生的事情更难记住，但如果你能做到的话，这将提供大量信息。</li>
+</ul>
+<ul>
+<li>如果<a href="../pages/%E6%99%AE%E5%8D%A1.html" title="普卡">普卡</a>在比赛中，没有人是安全的。<a href="../pages/%E5%BC%84%E8%87%A3.html" title="弄臣">弄臣</a>和<a href="../pages/%E6%B0%B4%E6%89%8B.html" title="水手">水手</a>无法被他们的角色能力等保护。另外，由于<a href="../pages/%E6%99%AE%E5%8D%A1.html" title="普卡">普卡</a>比平时提前一整晚选择杀死谁，所以有利于所有善良玩家尽快向所有人公开他们的角色和信息，尽可能。有时，一些善良玩家与其他恶魔一起，不透露他们是谁可能是有益的，这样恶魔会攻击某些玩家而让其他人独自一人 - 但对于<a href="../pages/%E6%99%AE%E5%8D%A1.html" title="普卡">普卡</a>，情况并非如此。表明一切，并作为善良阵营将那个讨厌的投毒者绳之以法！</li>
+</ul>
+<ul>
+<li>如果您不知道哪些玩家是邪恶的，请处决您认为中毒的玩家。在所有条件相同的情况下，最好处决一个被<a href="../pages/%E6%99%AE%E5%8D%A1.html" title="普卡">普卡</a>毒化的好玩家，而不是一个没有中毒的善良玩家，因为当你处决一个<a href="../pages/%E6%99%AE%E5%8D%A1.html" title="普卡">普卡</a>的受害者时，当晚会没有人死于恶魔。显然，最好处决邪恶玩家，但如果你不知道谁是好人或谁是邪恶的，那么在投票处决似乎中毒的玩家方面会犯错。</li>
+</ul>
+<h2 id="角色信息">角色信息</h2>
+<ul>
+<li>英文名：Pukka</li>
+</ul>
+<ul>
+<li>所属剧本：<a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html" title="黯月初升">黯月初升</a></li>
+</ul>
+<ul>
+<li>角色类型：<a href="../pages/%E6%81%B6%E9%AD%94.html" title="恶魔">恶魔</a></li>
+</ul>
+<ul>
+<li>角色能力类型：<a href="../pages/%E4%B8%AD%E6%AF%92.html" title="中毒">中毒</a>、<a href="../pages/%E5%9B%9E%E6%BA%AF%E5%9E%8B%E8%83%BD%E5%8A%9B.html" title="回溯型能力">回溯型能力</a></li>
+</ul>
+<p><em>其他称呼（非官方，仅方便索引用）：纯种恶魔、纯血、疫魔</em></p></div>
+    <div class="page-meta">最后修改于 2026-07-24T05:06:30Z，编辑者 <b>Zack</b> ｜ 页面 10,375 字节 ｜ <a href="https://clocktower-wiki.gstonegames.com/index.php?title=%E6%99%AE%E5%8D%A1" target="_blank" rel="noopener">查看原页面</a> ｜ <div class="comment">编辑摘要：/* 对抗普卡 */</div></div>
+    <div class="backlinks"><b>链入此页的页面（55）</b><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a><a href="../pages/%E7%A5%96%E6%AF%8D.html">祖母</a><a href="../pages/%E9%A9%B1%E9%AD%94%E4%BA%BA.html">驱魔人</a><a href="../pages/%E4%BE%8D%E8%87%A3.html">侍臣</a><a href="../pages/%E5%9B%9E%E6%BA%AF%E5%9E%8B%E8%83%BD%E5%8A%9B.html">回溯型能力</a><a href="../pages/%E5%8D%8A%E5%85%BD%E4%BA%BA.html">半兽人</a><a href="../pages/%E5%B7%A5%E7%A8%8B%E5%B8%88.html">工程师</a><a href="../pages/%E6%9D%82%E6%8A%80%E6%BC%94%E5%91%98.html">杂技演员</a><a href="../pages/%E6%8F%90%E7%BA%BF%E6%9C%A8%E5%81%B6.html">提线木偶</a><a href="../pages/%E7%97%A2%E8%9B%AD.html">痢蛭</a><a href="../pages/%E4%B8%AD%E6%AF%92.html">中毒</a><a href="../pages/%E5%BC%84%E8%87%A3.html">弄臣</a><a href="../pages/%E4%BF%AE%E8%A1%A5%E5%8C%A0.html">修补匠</a><a href="../pages/%E6%9C%88%E4%B9%8B%E5%AD%90.html">月之子</a><a href="../pages/%E8%8E%BD%E5%A4%AB.html">莽夫</a><a href="../pages/%E5%88%BA%E5%AE%A2.html">刺客</a><a href="../pages/%E5%83%B5%E6%80%96.html">僵怖</a><a href="../pages/%E6%99%AE%E5%8D%A1.html">普卡</a><a href="../pages/%E6%B2%99%E5%B7%B4%E6%B4%9B%E6%96%AF.html">沙巴洛斯</a><a href="../pages/%E7%8F%80.html">珀</a><a href="../pages/%E9%BA%BB%E8%84%B8%E5%B7%AB%E5%A9%86.html">麻脸巫婆</a><a href="../pages/%E6%81%B6%E9%AD%94.html">恶魔</a><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a><a href="../pages/%E9%92%9F%E6%A5%BC%E8%B0%9C%E5%9B%A2%E9%9A%90%E6%80%A7%E8%A7%84%E5%88%99%E6%B1%87%E6%80%BB.html">钟楼谜团隐性规则汇总</a><a href="../pages/%E5%8F%AA%E6%89%8B%E9%81%AE%E5%A4%A9.html">只手遮天</a><a href="../pages/%E6%88%8F%E5%AD%90.html">戏子</a><a href="../pages/%E5%A4%9C%E6%99%9A%E8%A1%8C%E5%8A%A8%E9%A1%BA%E5%BA%8F%E4%B8%80%E8%A7%88.html">夜晚行动顺序一览</a><a href="../pages/%E4%BA%BA%E9%97%B4%E6%9A%97%E6%9C%88%E5%A4%9C.html">人间暗月夜</a><a href="../pages/%E9%AA%91%E8%99%8E%E7%94%9F%E6%AD%BB%E8%A1%8C.html">骑虎生死行</a><a href="../pages/%E5%B9%BB%E5%BD%B1%E7%94%BB%E5%AE%89%E5%8D%B1.html">幻影画安危</a><a href="../pages/%E8%B0%9C%E6%A2%A6%E5%BE%85%E6%AD%8C%E8%88%9E.html">谜梦待歌舞</a><a href="../pages/%E5%BC%82%E5%9C%B0%E4%BC%97%E6%AC%A2%E6%9D%A5.html">异地众欢来</a><a href="../pages/%E9%A3%8E%E4%BA%91%E5%AD%B0%E6%88%8F%E8%A8%80.html">风云孰戏言</a><a href="../pages/%E5%BC%95%E8%B7%AF%E4%BA%BA.html">引路人</a><a href="../pages/%E7%A7%BB%E8%8A%B1%E6%8E%A5%E6%9C%A8.html">移花接木</a><a href="../pages/%E7%99%BD%E7%8B%90%E8%A1%8C%E4%B8%9B%E9%87%8C.html">白狐行丛里</a><a href="../pages/%E4%BE%A0%E4%BA%91%E6%95%88%E8%89%AF%E5%85%9A.html">侠云效良党</a><a href="../pages/%E5%8D%83%E9%9D%A2%E4%BC%97%E5%8D%B1%E7%84%89.html">千面众危焉</a><a href="../pages/%E5%AF%B9%E5%A2%9F%E9%9A%BE%E6%AC%A2%E9%B8%A3.html">对墟难欢鸣</a><a href="../pages/%E5%8D%81%E4%B8%89%E8%A1%8C.html">十三行</a><a href="../pages/%E5%8F%AC%E5%94%A4%E5%B8%88.html">召唤师</a><a href="../pages/%E7%A7%89%E7%AC%94.html">秉笔</a><a href="../pages/%E8%A7%84%E5%88%99%E8%B0%83%E6%95%B4%E6%8F%90%E5%89%8D%E5%85%AC%E7%A4%BA.html">规则调整提前公示</a><a href="../pages/%E9%9D%99%E5%80%99%E4%BD%B3%E9%9F%B3.html">静候佳音</a><a href="../pages/%E9%97%B2%E8%A8%80%E7%A2%8E%E8%AF%AD.html">闲言碎语</a><a href="../pages/%E6%88%8F%E5%AD%90%EF%BC%88%E6%94%B9%EF%BC%89.html">戏子（改）</a><a href="../pages/%E4%B8%8A%E5%B8%9D%E7%BC%BA%E5%B8%AD.html">上帝缺席</a><a href="../pages/%E4%B8%87%E6%97%A0%E5%BC%82%E5%A4%B1.html">万无异失</a><a href="../pages/%E9%94%99%E4%BD%8D%E6%97%B6%E7%A9%BA.html">错位时空</a><a href="../pages/%E6%8C%91%E7%81%AF%E7%9C%8B%E5%89%91.html">挑灯看剑</a><a href="../pages/%E4%B8%83%E6%AD%A5%E6%88%90%E8%AF%97.html">七步成诗</a><a href="../pages/%E5%8F%8C%E5%AD%90%E7%85%9E%E6%98%9F.html">双子煞星</a><a href="../pages/%E4%B8%80%E5%BE%80%E5%B7%AB%E5%89%8D.html">一往巫前</a><a href="../pages/%E9%87%91%E6%88%88%E9%93%81%E9%A9%ACV2.0.html">金戈铁马V2.0</a><a href="../pages/%E6%98%8E%E4%BA%89%E6%9A%97%E6%96%97.html">明争暗斗</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>设置调整 - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content"><h1 class="page-title">设置调整</h1><div class="tagline">来自钟楼百科</div><div class="mw-parser-output"><p>&lt;&lt;返回<a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html" title="角色能力类别总览">角色能力类别总览</a>
+</p>
+<div class="toc" id="toc"><div class="toctitle"><h2 id="mw-toc-heading">目录</h2><span class="toctogglespan"></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#能力简介"><span class="tocnumber">1</span> <span class="toctext">能力简介</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#设置调整能力优先级"><span class="tocnumber">2</span> <span class="toctext">设置调整能力优先级</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#相关角色"><span class="tocnumber">3</span> <span class="toctext">相关角色</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#基础配置变动"><span class="tocnumber">3.1</span> <span class="toctext">基础配置变动</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#增加特定角色"><span class="tocnumber">3.2</span> <span class="toctext">增加特定角色</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#认知覆盖类配置调整"><span class="tocnumber">3.3</span> <span class="toctext">认知覆盖类配置调整</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#非常规设置调整"><span class="tocnumber">3.4</span> <span class="toctext">非常规设置调整</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#特殊"><span class="tocnumber">3.5</span> <span class="toctext">特殊</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<span id=".E8.83.BD.E5.8A.9B.E7.AE.80.E4.BB.8B"></span><h2 id="能力简介">能力简介</h2>
+<p>通常来说，在一局《染》中，玩家抽取到的角色应该满足：
+</p><p>1.角色类型/阵营分布根据玩家人数固定
+</p><p>2.所有同一类型的角色都有相同的出场机会，但并非每局都固定出场
+</p><p>3.场上不会存在多个完全相同的角色
+</p><p>而具有“设置调整”能力的角色能够打破上述规则，使得其中一项或多项情况发生变化。
+</p><p>如果将具有“设置调整”能力的角色作为一局游戏的出场角色，则需要根据这些角色的调整规则，将出场角色按照特定的方式进行调整。在这一阶段中，游戏尚未开始，因此只会有与“设置调整”相关的能力会产生效果。而在游戏开始后，设置调整能力不再产生任何效果，同时角色的其他部分的能力开始生效。（例：陌客在这一步骤中无法被当作爪牙角色使得设置的时候少一个爪牙而多一个外来者。）
+</p><p>至于<a href="../pages/%E5%8D%A1%E6%89%8E%E5%8A%9B.html" title="卡扎力">卡扎力</a>等角色的设置调整能力，则是该角色作为初始出场的角色触发设置调整能力，而这项能力使得他需要在首个夜晚进行相关的操作。（可以理解为首夜的行动是由设置调整能力而附带的额外能力。）这些操作无法在设置阶段完成，因为说书人无法知道谁会成为<a href="../pages/%E5%8D%A1%E6%89%8E%E5%8A%9B.html" title="卡扎力">卡扎力</a>，因此只能在首个夜晚进行操作。
+</p><p>部分设置调整能力会对特定角色类型做出数量调整，在这种时候如无特殊说明，默认会对镇民的数量做出相应的调整。（如+1外来者则意味着同时需要-1镇民，而<a href="../pages/%E6%8F%90%E7%BA%BF%E6%9C%A8%E5%81%B6.html" title="提线木偶">提线木偶</a>在设置时会将自己移除，因此同时需要+1镇民，<a href="../pages/%E5%B0%8F%E6%80%AA%E5%AE%9D.html" title="小怪宝">小怪宝</a>虽然会+1爪牙但因为它自己本身不出场，因此无需-1镇民去匹配玩家人数。）
+</p>
+<span id=".E8.AE.BE.E7.BD.AE.E8.B0.83.E6.95.B4.E8.83.BD.E5.8A.9B.E4.BC.98.E5.85.88.E7.BA.A7"></span><h2 id="设置调整能力优先级">设置调整能力优先级</h2>
+<p>如果有多个具有设置调整能力的角色出场，则按照以下优先级决定能力生效的顺序：
+</p>
+<ul><li><b>1.炼金术士与科学怪人</b></li></ul>
+<p>如果<a href="../pages/%E7%82%BC%E9%87%91%E6%9C%AF%E5%A3%AB.html" title="炼金术士">炼金术士</a>和/或<a href="../pages/%E7%A7%91%E5%AD%A6%E6%80%AA%E4%BA%BA.html" title="科学怪人">科学怪人</a>出场，先决定<a href="../pages/%E7%82%BC%E9%87%91%E6%9C%AF%E5%A3%AB.html" title="炼金术士">炼金术士</a>和/或恶魔会获得什么样的能力，如果该能力带有设置调整效果，则需要在下方的对应步骤中完成相应的设置调整。
+</p><p>如果此时<a href="../pages/%E7%82%BC%E9%87%91%E6%9C%AF%E5%A3%AB.html" title="炼金术士">炼金术士</a>和/或<a href="../pages/%E7%A7%91%E5%AD%A6%E6%80%AA%E4%BA%BA.html" title="科学怪人">科学怪人</a>并未出场，但在随后的设置步骤中因为对镇民的增减而导致这些角色出场，同样需要立即决定相应的能力。
+</p>
+<ul><li><b>2.特殊设置方式</b></li></ul>
+<p>这类设置会提供一个特殊的设置规则。如：<a href="../pages/%E5%86%9B%E5%9B%A2.html" title="军团">军团</a>、<a href="../pages/%E6%97%A0%E7%A5%9E%E8%AE%BA%E8%80%85.html" title="无神论者">无神论者</a>、<a href="../pages/%E6%88%8F%E5%AD%90.html" title="戏子">戏子</a>等。
+</p>
+<ul><li><b>3.认知覆盖类角色设置</b></li></ul>
+<p>在这一步中，如果上述步骤使得有认知覆盖类角色出场，则为这类角色进行相关的调整操作。（移除角色标记并放入认知覆盖的角色标记，或其他可能的操作）
+</p><p>请注意在完成这一步后，进行下方步骤的操作时，<a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a>以为的镇民和<a href="../pages/%E7%96%AF%E5%AD%90.html" title="疯子">疯子</a>以为的恶魔都无法产生设置调整的效果。如果这些角色标记出场了，不要在这一步进行相应的调整。（<a href="../pages/%E6%8F%90%E7%BA%BF%E6%9C%A8%E5%81%B6.html" title="提线木偶">提线木偶</a>则是由于设置原因无法完全确定具体什么角色会成为<a href="../pages/%E6%8F%90%E7%BA%BF%E6%9C%A8%E5%81%B6.html" title="提线木偶">提线木偶</a>以为的角色，因此在移除<a href="../pages/%E6%8F%90%E7%BA%BF%E6%9C%A8%E5%81%B6.html" title="提线木偶">提线木偶</a>之后加入的角色均会正常完成设置调整部分的内容，这一情况也在<a href="../pages/%E6%8F%90%E7%BA%BF%E6%9C%A8%E5%81%B6.html" title="提线木偶">提线木偶</a>的相克规则中做出了统一规定的说明。）
+</p>
+<ul><li><b>4.基础配置变动</b></li></ul>
+<p>这类设置会对特定角色类型的出场总数量进行加减。如：<a href="../pages/%E7%94%B7%E7%88%B5.html" title="男爵">男爵</a>、<a href="../pages/%E6%95%99%E7%88%B6.html" title="教父">教父</a>、<a href="../pages/%E6%B0%94%E7%90%83%E9%A9%BE%E9%A9%B6%E5%91%98.html" title="气球驾驶员">气球驾驶员</a>等。
+</p><p>请注意，这类配置变动会首先加总所有变化，随后再判断是否满足当前剧本中的外来者数量区间，最后才进行相应的调整。
+</p><p>请注意，如果在调整角色的过程中，将一个会导致设置调整的角色从出场角色中移除后，他所带来的设置调整效果也需要一并被移除（<a href="../pages/%E9%9A%90%E5%A3%AB.html" title="隐士">隐士</a>移除自己的情况除外）。此时需要重新按顺序检视所有设置调整效果，以免实际结果与设置调整能力生效时的期望结果有出入。
+</p><p>例如：
+</p>
+<pre>11人游戏（7/1/2/1）中，<a href="../pages/%E6%95%99%E7%88%B6.html" title="教父">教父</a>和<a href="../pages/%E4%BA%A1%E9%AA%A8%E9%AD%94.html" title="亡骨魔">亡骨魔</a>共让外来者-2，然而外来者只有1个，因此导致最终的外来者数量为0，实际效果让外来者总共-1，且镇民+1。
+</pre>
+<pre>12人游戏（7/2/2/1）中，<a href="../pages/%E7%94%B7%E7%88%B5.html" title="男爵">男爵</a>和<a href="../pages/%E6%B0%94%E7%90%83%E9%A9%BE%E9%A9%B6%E5%91%98.html" title="气球驾驶员">气球驾驶员</a>共让外来者+3，然而剧本中只有4个外来者，因此导致最终的外来者数量为4，实际效果让外来者总共+2，且镇民-2。
+</pre>
+<pre>11人游戏（7/1/2/1）中，<a href="../pages/%E6%95%99%E7%88%B6.html" title="教父">教父</a>、<a href="../pages/%E4%BA%A1%E9%AA%A8%E9%AD%94.html" title="亡骨魔">亡骨魔</a>、<a href="../pages/%E7%94%B7%E7%88%B5.html" title="男爵">男爵</a>共同生效时让外来者数量不发生变化，而非先让<a href="../pages/%E6%95%99%E7%88%B6.html" title="教父">教父</a>和<a href="../pages/%E4%BA%A1%E9%AA%A8%E9%AD%94.html" title="亡骨魔">亡骨魔</a>的能力生效使外来者数量降低到0，再让<a href="../pages/%E7%94%B7%E7%88%B5.html" title="男爵">男爵</a>的能力生效使外来者数量增加到2。
+</pre>
+<ul><li><b>5.增加特定角色</b></li></ul>
+<p>完成上述设置后，再对特定角色进行增减。
+</p><p>请注意，如果在调整角色的过程中，将一个会导致设置调整的角色从出场角色中移除后，他所带来的设置调整效果也需要一并被移除（<a href="../pages/%E9%9A%90%E5%A3%AB.html" title="隐士">隐士</a>移除自己的情况除外）。此时需要重新按顺序检视所有设置调整效果，以免实际结果与设置调整能力生效时的期望结果有出入。
+</p>
+<ul><li><b>6.将设置完成的角色交由玩家随机抽取</b></li></ul>
+<ul><li><b>7.回收角色标记</b></li></ul>
+<p>完成认知覆盖类角色的相关操作，放置对应的提示标记等。
+</p>
+<ul><li><b>8.在游戏开始后进行的操作</b>
+<ul><li>只有当这些角色在设置调整后仍作为出场角色时，才会在游戏开始后进行对应的操作。</li>
+<li>a.通知<a href="../pages/%E5%A0%A4%E4%B8%B0%E4%B9%8B%E9%A6%96.html" title="堤丰之首">堤丰之首</a>两侧的玩家是邪恶爪牙/让<a href="../pages/%E5%8D%A1%E6%89%8E%E5%8A%9B.html" title="卡扎力">卡扎力</a>选择玩家变成邪恶爪牙。</li>
+<li>b.复数<a href="../pages/%E6%9D%91%E5%A4%AB.html" title="村夫">村夫</a>中的一名放置“醉酒”提示标记。</li>
+<li>c.通知<a href="../pages/%E8%B5%8F%E9%87%91%E7%8C%8E%E4%BA%BA.html" title="赏金猎人">赏金猎人</a>转换的镇民变为邪恶阵营。</li></ul></li></ul>
+<span id=".E7.9B.B8.E5.85.B3.E8.A7.92.E8.89.B2"></span><h2 id="相关角色">相关角色</h2>
+<span id=".E5.9F.BA.E7.A1.80.E9.85.8D.E7.BD.AE.E5.8F.98.E5.8A.A8"></span><h3 id="基础配置变动">基础配置变动</h3>
+<ul><li><b>暗流涌动</b>
+<ul><li><a href="../pages/%E7%94%B7%E7%88%B5.html" title="男爵">男爵</a>（爪牙）：+2外来者，-2镇民</li></ul></li></ul>
+<ul><li><b>黯月初升</b>
+<ul><li><a href="../pages/%E6%95%99%E7%88%B6.html" title="教父">教父</a>（爪牙）：+1或-1外来者，调整相应数量的镇民</li></ul></li></ul>
+<ul><li><b>梦殒春宵</b>
+<ul><li><a href="../pages/%E6%96%B9%E5%8F%A4.html" title="方古">方古</a>（恶魔）：+1外来者，-1镇民</li>
+<li><a href="../pages/%E4%BA%A1%E9%AA%A8%E9%AD%94.html" title="亡骨魔">亡骨魔</a>（恶魔）：-1外来者，+1镇民</li></ul></li></ul>
+<ul><li><b>实验性角色</b>
+<ul><li><a href="../pages/%E6%B0%94%E7%90%83%E9%A9%BE%E9%A9%B6%E5%91%98.html" title="气球驾驶员">气球驾驶员</a>（镇民）：+0~1外来者，-对应数量的镇民</li>
+<li><a href="../pages/%E9%9A%90%E5%A3%AB.html" title="隐士">隐士</a>（外来者）：-0~1外来者，+对应数量的镇民</li>
+<li><a href="../pages/%E5%8F%AC%E5%94%A4%E5%B8%88.html" title="召唤师">召唤师</a>（爪牙）：-1恶魔，+1镇民</li>
+<li><a href="../pages/%E9%99%90.html" title="限">限</a>（爪牙）：加减任意数量外来者，调整相应数量的镇民</li>
+<li><a href="../pages/%E5%B0%8F%E6%80%AA%E5%AE%9D.html" title="小怪宝">小怪宝</a>（恶魔）：+1爪牙，然后将小怪宝作为特殊角色标记放在魔典中</li>
+<li><a href="../pages/%E5%8D%A1%E6%89%8E%E5%8A%9B.html" title="卡扎力">卡扎力</a>（恶魔）：移除所有爪牙，并调整外来者数量（加减任意数量，但通常不要超过+1外来者），随后加入镇民直到角色标记等同于玩家人数</li>
+<li><a href="../pages/%E5%A0%A4%E4%B8%B0%E4%B9%8B%E9%A6%96.html" title="堤丰之首">堤丰之首</a>（恶魔）：移除所有爪牙，并调整外来者数量（加减任意数量，但通常不要超过+1外来者），随后加入镇民直到角色标记等同于玩家人数。在首夜将恶魔周围等同于初始爪牙+1数量的善良玩家唤醒并通知他们变成了邪恶的爪牙。</li></ul></li></ul>
+<ul><li><b>传奇角色</b>
+<ul><li><a href="../pages/%E5%93%A8%E5%85%B5.html" title="哨兵">哨兵</a>：+1或-1外来者，调整相应数量的镇民；或者不做设置变动</li></ul></li></ul>
+<ul><li><b>华灯初上</b>
+<ul><li><a href="../pages/%E8%B5%B6%E5%B0%B8%E4%BA%BA.html" title="赶尸人">赶尸人</a>（爪牙）：-1外来者，+1镇民</li>
+<li><a href="../pages/%E7%A9%B7%E5%A5%87.html" title="穷奇">穷奇</a>（恶魔）：+1外来者，-1镇民</li>
+<li><a href="../pages/%E9%A5%95%E9%A4%AE.html" title="饕餮">饕餮</a>（恶魔）：+1外来者，-1镇民</li></ul></li></ul>
+<span id=".E5.A2.9E.E5.8A.A0.E7.89.B9.E5.AE.9A.E8.A7.92.E8.89.B2"></span><h3 id="增加特定角色">增加特定角色</h3>
+<ul><li><b>实验性角色</b>
+<ul><li><a href="../pages/%E5%94%B1%E8%AF%97%E7%94%B7%E5%AD%A9.html" title="唱诗男孩">唱诗男孩</a>（镇民）：+1国王，-1其他镇民</li>
+<li><a href="../pages/%E6%9D%91%E5%A4%AB.html" title="村夫">村夫</a>（镇民）：+0~2村夫，-对应数量的其他镇民</li>
+<li><a href="../pages/%E5%B7%A1%E5%B1%B1%E4%BA%BA.html" title="巡山人">巡山人</a>（镇民）：+1落难少女，-1镇民；如果巡山人与落难少女一起作为初始随机结果，则不进行任何变动</li></ul></li></ul>
+<span id=".E8.AE.A4.E7.9F.A5.E8.A6.86.E7.9B.96.E7.B1.BB.E9.85.8D.E7.BD.AE.E8.B0.83.E6.95.B4"></span><h3 id="认知覆盖类配置调整">认知覆盖类配置调整</h3>
+<ul><li><b>暗流涌动</b>
+<ul><li><a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a>（外来者）：-1酒鬼，+1镇民</li></ul></li></ul>
+<ul><li><b>黯月初升</b>
+<ul><li><a href="../pages/%E7%96%AF%E5%AD%90.html" title="疯子">疯子</a>（外来者）：
+<ul><li>如果疯子与恶魔同种类：不变；</li>
+<li>如果疯子与恶魔不同种类：-1疯子，+1恶魔；</li>
+<li>如果是线上游戏：-1疯子，+1任何恶魔，可以与原本的恶魔种类相同。说书人需要告知所有玩家角色分配方式与实体规则略有不同</li></ul></li></ul></li></ul>
+<ul><li><b>实验性角色</b>
+<ul><li><a href="../pages/%E6%8F%90%E7%BA%BF%E6%9C%A8%E5%81%B6.html" title="提线木偶">提线木偶</a>（爪牙）：
+<ul><li>方法1：（爪牙数量小于3时）-1提线木偶，+1镇民，然后在抽取角色后标记与恶魔相邻的善良角色之一为提线木偶；（爪牙数量大于等于3时）-1提线木偶，-X爪牙（X=爪牙总数-2），+X+1镇民，然后在抽取角色后标记与恶魔相邻的善良角色之一为提线木偶，并选择X名镇民作为真正的爪牙并告知他们</li>
+<li>方法2：-1提线木偶，-1原本的恶魔，+2镇民，然后在抽取角色后选择至少与一名善良角色相邻的镇民作为真正的恶魔并告知他，并标记与其相邻的善良角色之一为提线木偶</li></ul></li></ul></li></ul>
+<ul><li><b>华灯初上</b>
+<ul><li><a href="../pages/%E6%82%9F%E9%81%93%E8%80%85.html" title="悟道者">悟道者</a>（镇民）：-1悟道者，+1外来者</li></ul></li></ul>
+<span id=".E9.9D.9E.E5.B8.B8.E8.A7.84.E8.AE.BE.E7.BD.AE.E8.B0.83.E6.95.B4"></span><h3 id="非常规设置调整">非常规设置调整</h3>
+<ul><li><b>实验性角色</b>
+<ul><li><a href="../pages/%E8%B5%8F%E9%87%91%E7%8C%8E%E4%BA%BA.html" title="赏金猎人">赏金猎人</a>（镇民）：为首夜准备时设置邪恶镇民，并在进入首夜后立即告知对应镇民转为邪恶</li>
+<li><a href="../pages/%E6%97%A0%E7%A5%9E%E8%AE%BA%E8%80%85.html" title="无神论者">无神论者</a>（镇民）：移除所有邪恶角色，说书人可以任意设置角色配置且能在配置角色时就打破规则，只需保持进入盲抽袋的角色标记数量与玩家数量相等</li>
+<li><a href="../pages/%E5%86%9B%E5%9B%A2.html" title="军团">军团</a>（恶魔）：将超过半数的角色标记替换成军团，剩余的善良角色可以由说书人自行决定</li>
+<li><a href="../pages/%E6%95%99%E7%9A%87.html" title="教皇">教皇</a>（奇遇角色）：加入重复的善良角色</li>
+<li><a href="../pages/%E9%81%97%E5%BF%98%E4%B9%8B%E9%97%A8.html" title="遗忘之门">遗忘之门</a>（奇遇角色）：从盲抽袋中抽取角色标记并放置于魔典，不要把盲抽袋交给玩家抽取</li>
+<li><a href="../pages/%E5%9B%AD%E4%B8%81.html" title="园丁">园丁</a>（奇遇角色）：由说书人决定每名玩家的具体角色</li></ul></li></ul>
+<ul><li><b>华灯初上</b>
+<ul><li><a href="../pages/%E6%88%8F%E5%AD%90.html" title="戏子">戏子</a>（镇民）：将所有善良角色标记都替换成戏子</li></ul></li></ul>
+<span id=".E7.89.B9.E6.AE.8A"></span><h3 id="特殊">特殊</h3>
+<ul><li><b>实验性角色</b>
+<ul><li><a href="../pages/%E7%82%BC%E9%87%91%E6%9C%AF%E5%A3%AB.html" title="炼金术士">炼金术士</a>（镇民）：在设置时决定炼金术士的能力，从而决定炼金术士是否会调整初始设置</li>
+<li><a href="../pages/%E7%A7%91%E5%AD%A6%E6%80%AA%E4%BA%BA.html" title="科学怪人">科学怪人</a>（爪牙）：在设置时决定恶魔的能力，从而决定是否会调整初始设置</li></ul></li></ul>
+
+
+
+
+</div><div class="page-meta">同步于 2026-09-18T21:37:36Z ｜ 修订 6503 ｜ <a href="https://clocktower-wiki.gstonegames.com/index.php?title=%E8%AE%BE%E7%BD%AE%E8%B0%83%E6%95%B4" target="_blank" rel="noopener">查看原页面</a></div></main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

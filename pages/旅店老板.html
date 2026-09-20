@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>旅店老板 - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">旅店老板</h1>
+    <div class="tagline">来自钟楼百科</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#提示与技巧">提示与技巧</a></li><li class="lvl2"><a href="#伪装成旅店老板">伪装成旅店老板</a></li><li class="lvl2"><a href="#角色信息">角色信息</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E6%97%85%E5%BA%97%E8%80%81%E6%9D%BF">查找包含此角色的剧本 →</a></p><p><a href="../pages/%E6%97%85%E5%BA%97%E8%80%81%E6%9D%BF.html" class="image-link" title="旅店老板"><img alt="Innkeeper.png" style="width:200px" class="" loading="lazy" data-source-image="../images/Innkeeper.png" src="../assets/media/Innkeeper.preview.webp" width="600" height="600" decoding="async"></a></p>
+<h2 id="背景故事">背景故事</h2>
+<p><em>“到里头来，美丽的旅者，放松筋骨，好好歇息。尽管饮酒作乐，黑暗之物今夜无法伤你分毫。”</em></p>
+<h2 id="角色能力">角色能力</h2>
+<p><strong>每个夜晚*，你要选择两名玩家：他们当晚不会死亡，但其中一人会醉酒到下个黄昏。</strong></p>
+<h2 id="角色简介">角色简介</h2>
+<p>旅店老板在夜晚保护玩家们免于死亡，但是某些人在此过程中会醉酒。</p>
+<ul>
+<li>与僧侣类似，旅店老板能让玩家们不被恶魔杀死。受保护的玩家也不会因为外来者、爪牙、镇民和旅行者的能力而死亡。</li>
+</ul>
+<ul>
+<li>旅店老板只在夜晚保护玩家，并不包括白天。</li>
+</ul>
+<ul>
+<li>旅店老板选择的两名玩家其中之一将在当晚和下一个白天醉酒。该玩家可以是善良的或邪恶的，但几乎总会是善良的，这取决于你的游戏走向。选择了自己的旅店老板可能会醉酒，这意味着他会失去能力并且当晚可以死亡，而他保护的另一个人也不再安全。</li>
+</ul>
+<h2 id="范例">范例</h2>
+<p><a href="../pages/%E6%97%85%E5%BA%97%E8%80%81%E6%9D%BF.html" title="旅店老板">旅店老板</a>保护了<a href="../pages/%E5%BC%84%E8%87%A3.html" title="弄臣">弄臣</a>和<a href="../pages/%E4%BE%8D%E5%A5%B3.html" title="侍女">侍女</a>。说书人选择让<a href="../pages/%E5%BC%84%E8%87%A3.html" title="弄臣">弄臣</a>醉酒。明天，当<a href="../pages/%E5%BC%84%E8%87%A3.html" title="弄臣">弄臣</a>被处决时，他会死亡，即使他还没有使用自己的能力。</p>
+<p><a href="../pages/%E6%97%85%E5%BA%97%E8%80%81%E6%9D%BF.html" title="旅店老板">旅店老板</a>保护了<a href="../pages/%E5%88%BA%E5%AE%A2.html" title="刺客">刺客</a>和<a href="../pages/%E7%8F%80.html" title="珀">珀</a>。说书人选择让<a href="../pages/%E5%88%BA%E5%AE%A2.html" title="刺客">刺客</a>醉酒。当晚的后续时段中，<a href="../pages/%E5%88%BA%E5%AE%A2.html" title="刺客">刺客</a>使用了自己的能力，但是无事发生。</p>
+<p><a href="../pages/%E6%97%85%E5%BA%97%E8%80%81%E6%9D%BF.html" title="旅店老板">旅店老板</a>保护了他自己和<a href="../pages/%E5%92%8C%E5%B9%B3%E4%B8%BB%E4%B9%89%E8%80%85.html" title="和平主义者">和平主义者</a>。说书人选择让<a href="../pages/%E6%97%85%E5%BA%97%E8%80%81%E6%9D%BF.html" title="旅店老板">旅店老板</a>醉酒。当晚，恶魔攻击了<a href="../pages/%E5%92%8C%E5%B9%B3%E4%B8%BB%E4%B9%89%E8%80%85.html" title="和平主义者">和平主义者</a>，<a href="../pages/%E5%92%8C%E5%B9%B3%E4%B8%BB%E4%B9%89%E8%80%85.html" title="和平主义者">和平主义者</a>死亡。</p>
+<h2 id="运作方式">运作方式</h2>
+<p>除了首个夜晚以外的每个夜晚，唤醒旅店老板。让旅店老板指向任意两名玩家。让旅店老板重新入睡。将“不会死亡”提示标记放置到所选的两个角色标记旁。所选玩家其中一人醉酒——将“醉酒”提示标记放置到该玩家的角色标记旁。标有“不会死亡”的玩家当晚不会死亡。</p>
+<p>在黎明，移除“不会死亡”提示标记。</p>
+<p>在黄昏，移除“醉酒”提示标记。</p>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>不会死亡</li>
+</ul>
+<p>放置时机：在旅店老板夜晚行动并选择了玩家后。</p>
+<p>放置条件：在旅店老板选择的两名玩家的角色标记旁分别各放置一个此标记。若此时旅店老板醉酒中毒，不放置该标记。</p>
+<p>移除时机：在黎明时，或旅店老板死亡或离场时。</p>
+<ul>
+<li>醉酒</li>
+</ul>
+<p>放置时机：在成功放置了旅店老板的“不会死亡”提示标记后。</p>
+<p>放置条件：在旅店老板当晚选择的两名玩家之中，由说书人选择一名玩家，在他的角色标记旁放置。</p>
+<p>移除时机：在黄昏时，或旅店老板死亡或离场时。</p>
+<h2 id="规则细节">规则细节</h2>
+<ul>
+<li>相克规则：</li>
+<ul>
+<li><a href="../pages/%E5%88%A9%E7%BB%B4%E5%9D%A6.html" title="利维坦">利维坦</a>：如果利维坦提名并处决了旅店老板上个夜晚保护的其中一名玩家，善良阵营获胜。</li>
+<li><a href="../pages/%E6%9A%B4%E4%B9%B1.html" title="暴乱">暴乱</a>：如果暴乱提名并处决了旅店老板上个夜晚保护的其中一名玩家，善良阵营获胜。</li>
+</ul>
+</ul>
+<h2 id="提示与技巧">提示与技巧</h2>
+<ul>
+<li>你的能力很强大，如果有效使用，你可以阻止邪恶阵营的侵害，并保护善良玩家的安全。然而，这是有代价的——任何受你保护的人都变得不可靠，因为他们可能会在幸存的那晚醉酒。与强力的玩家合作，保护关键的角色，这非常重要——某些角色（例如<a href="../pages/%E5%92%8C%E5%B9%B3%E4%B8%BB%E4%B9%89%E8%80%85.html" title="和平主义者">和平主义者</a>和<a href="../pages/%E9%A9%B1%E9%AD%94%E4%BA%BA.html" title="驱魔人">驱魔人</a>）生存时间越长越强大。</li>
+</ul>
+<ul>
+<li>注意你的能力会导致醉酒！不要保护在当晚需要接收可靠信息的人或那些将使用他们能力的人。例如，如果你知道一个<a href="../pages/%E4%BE%8D%E8%87%A3.html" title="侍臣">侍臣</a>即将使用他们的能力，你保护他们可能会导致他们醉酒因此浪费他们的强大能力！</li>
+</ul>
+<ul>
+<li>你保护的人，与你公开声称要保护的人，可以不一样。因为如果邪恶阵营相信你说的话，他们不会想浪费时间瞄准那些不能被杀死的玩家。同时，你秘密地保护其他可能成为受害者的玩家，希望他们能免遭杀戮。</li>
+</ul>
+<ul>
+<li>用自己的能力保护自己似乎是个好主意，但通常不建议这样做——因为说书人很可能会选择让你醉酒，让你的保护完全失效，这样你和另一个玩家都会很危险。</li>
+</ul>
+<ul>
+<li>如果你认为你至少辨别了2个邪恶的玩家，请同时选择他们！保护他们免于死亡并不理想，但这确实意味着他们中的一个会在那天晚上醉酒。如果你设法抓住了恶魔或像<a href="../pages/%E5%88%BA%E5%AE%A2.html" title="刺客">刺客</a>或<a href="../pages/%E9%AD%94%E9%AC%BC%E4%BB%A3%E8%A8%80%E4%BA%BA.html" title="魔鬼代言人">魔鬼代言人</a>这样的强大爪牙，你就从源头上切断了邪恶的能力！但是，如果你选错了，那么大概率就是善良玩家醉酒了。</li>
+</ul>
+<h2 id="伪装成旅店老板">伪装成旅店老板</h2>
+<p>当你要伪装成旅店老板的时候，这里有几件事你应该记住：</p>
+<ul>
+<li>如果你是恶魔，请杀死你声称要保护的玩家不同的玩家。如果你声称在晚上保护了<a href="../pages/%E4%BE%8D%E5%A5%B3.html" title="侍女">侍女</a>，而<a href="../pages/%E4%BE%8D%E5%A5%B3.html" title="侍女">侍女</a>在早上死了，那么你就得去解释。如果你是恶魔，或者你是可以与恶魔私聊战术的爪牙，你可以攻击与你声称要保护的玩家不同的玩家。</li>
+</ul>
+<ul>
+<li>如果你的邪恶阵营同伴的表演得不太好，请声称你保护了他们。这将使他们中的一个或两个看起来像是醉酒了，这使他们的失误显得合理，同时也为他们还活着提供了额外的理由。</li>
+</ul>
+<ul>
+<li>如果善良的玩家拥有特别强的能力，请声称要保护他们。让他们觉得自己有醉酒的可能性，这样他们会很困惑，从而有效地抵消他们的能力。</li>
+</ul>
+<ul>
+<li>私下告诉人们你是<a href="../pages/%E6%97%85%E5%BA%97%E8%80%81%E6%9D%BF.html" title="旅店老板">旅店老板</a>，这可以获得善良阵营信任，同时给善良方制作很多麻烦。善良的玩家通常会想要向<a href="../pages/%E6%97%85%E5%BA%97%E8%80%81%E6%9D%BF.html" title="旅店老板">旅店老板</a>透露他们的角色，以便获得<a href="../pages/%E6%97%85%E5%BA%97%E8%80%81%E6%9D%BF.html" title="旅店老板">旅店老板</a>的保护（如果他们是一个不惜一切代价想要活下去的角色）或确保<a href="../pages/%E6%97%85%E5%BA%97%E8%80%81%E6%9D%BF.html" title="旅店老板">旅店老板</a>永远不会选择他们（因为他们需要清醒地使用他们的能力）。知道哪些玩家是哪些角色可以直接帮助你，因为你知道要杀谁，而同时那些玩家也会更信任你。</li>
+</ul>
+<ul>
+<li>准备好后备的虚张声势，以防人们太怀疑你在游戏后期还活着。<a href="../pages/%E6%97%85%E5%BA%97%E8%80%81%E6%9D%BF.html" title="旅店老板">旅店老板</a>很少能活到游戏后期，但并非不可能。你有充分的理由“撒谎”，例如自称是<a href="../pages/%E5%BC%84%E8%87%A3.html" title="弄臣">弄臣</a>。诸如<a href="../pages/%E5%BC%84%E8%87%A3.html" title="弄臣">弄臣</a>, <a href="../pages/%E6%B0%B4%E6%89%8B.html" title="水手">水手</a>, <a href="../pages/%E8%8E%BD%E5%A4%AB.html" title="莽夫">莽夫</a>或坐在<a href="../pages/%E8%8C%B6%E8%89%BA%E5%B8%88.html" title="茶艺师">茶艺师</a>旁边的玩家等角色都有充分的理由谎报自己的角色以吸引恶魔的注意，而旅店老板是恶魔特别喜欢的目标，所以在游戏后期，当你旅店老板的角色受怀疑时，你大可考虑再扮演这些角色。</li>
+</ul>
+<h2 id="角色信息">角色信息</h2>
+<ul>
+<li>英文名：Innkeeper</li>
+</ul>
+<ul>
+<li>所属剧本：<a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html" title="黯月初升">黯月初升</a></li>
+</ul>
+<ul>
+<li>角色类型：<a href="../pages/%E9%95%87%E6%B0%91.html" title="镇民">镇民</a></li>
+</ul>
+<ul>
+<li>角色能力类型：<a href="../pages/%E5%85%8D%E6%AD%BB.html" title="免死">免死</a>、<a href="../pages/%E9%86%89%E9%85%92.html" title="醉酒">醉酒</a></li>
+</ul></div>
+    <div class="page-meta">最后修改于 2026-06-13T02:53:10Z，编辑者 <b>Zack</b> ｜ 页面 6,664 字节 ｜ <a href="https://clocktower-wiki.gstonegames.com/index.php?title=%E6%97%85%E5%BA%97%E8%80%81%E6%9D%BF" target="_blank" rel="noopener">查看原页面</a> ｜ <div class="comment">编辑摘要：/* 规则细节 */</div></div>
+    <div class="backlinks"><b>链入此页的页面（57）</b><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a><a href="../pages/%E7%A5%96%E6%AF%8D.html">祖母</a><a href="../pages/%E6%B0%B4%E6%89%8B.html">水手</a><a href="../pages/%E4%BE%8D%E5%A5%B3.html">侍女</a><a href="../pages/%E9%A9%B1%E9%AD%94%E4%BA%BA.html">驱魔人</a><a href="../pages/%E6%97%85%E5%BA%97%E8%80%81%E6%9D%BF.html">旅店老板</a><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a><a href="../pages/%E5%90%9F%E6%B8%B8%E8%AF%97%E4%BA%BA.html">吟游诗人</a><a href="../pages/%E6%97%A0%E7%A5%9E%E8%AE%BA%E8%80%85.html">无神论者</a><a href="../pages/%E5%91%8A%E5%AF%86%E8%80%85.html">告密者</a><a href="../pages/%E5%AF%A1%E5%A6%87.html">寡妇</a><a href="../pages/%E6%9A%B4%E4%B9%B1.html">暴乱</a><a href="../pages/%E5%88%A9%E7%BB%B4%E5%9D%A6.html">利维坦</a><a href="../pages/%E5%85%8D%E6%AD%BB.html">免死</a><a href="../pages/%E9%86%89%E9%85%92.html">醉酒</a><a href="../pages/%E6%8A%95%E6%AF%92%E8%80%85.html">投毒者</a><a href="../pages/%E5%92%8C%E5%B9%B3%E4%B8%BB%E4%B9%89%E8%80%85.html">和平主义者</a><a href="../pages/%E5%BC%84%E8%87%A3.html">弄臣</a><a href="../pages/%E4%BF%AE%E8%A1%A5%E5%8C%A0.html">修补匠</a><a href="../pages/%E6%9C%88%E4%B9%8B%E5%AD%90.html">月之子</a><a href="../pages/%E7%96%AF%E5%AD%90.html">疯子</a><a href="../pages/%E9%AD%94%E9%AC%BC%E4%BB%A3%E8%A8%80%E4%BA%BA.html">魔鬼代言人</a><a href="../pages/%E5%88%BA%E5%AE%A2.html">刺客</a><a href="../pages/%E6%99%AE%E5%8D%A1.html">普卡</a><a href="../pages/%E6%B2%99%E5%B7%B4%E6%B4%9B%E6%96%AF.html">沙巴洛斯</a><a href="../pages/%E7%8F%80.html">珀</a><a href="../pages/%E9%95%87%E6%B0%91.html">镇民</a><a href="../pages/%E5%B7%AB%E6%AF%92%E5%B8%88.html">巫毒师</a><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a><a href="../pages/%E9%92%9F%E6%A5%BC%E8%B0%9C%E5%9B%A2%E9%9A%90%E6%80%A7%E8%A7%84%E5%88%99%E6%B1%87%E6%80%BB.html">钟楼谜团隐性规则汇总</a><a href="../pages/%E5%8F%AA%E6%89%8B%E9%81%AE%E5%A4%A9.html">只手遮天</a><a href="../pages/%E6%B2%B8%E5%8F%8D%E7%9B%88%E5%A4%A9.html">沸反盈天</a><a href="../pages/%E4%B9%A6%E7%94%9F.html">书生</a><a href="../pages/%E8%B5%B6%E5%B0%B8%E4%BA%BA.html">赶尸人</a><a href="../pages/%E5%A4%9C%E6%99%9A%E8%A1%8C%E5%8A%A8%E9%A1%BA%E5%BA%8F%E4%B8%80%E8%A7%88.html">夜晚行动顺序一览</a><a href="../pages/%E4%BA%BA%E9%97%B4%E6%9A%97%E6%9C%88%E5%A4%9C.html">人间暗月夜</a><a href="../pages/%E9%AA%91%E8%99%8E%E7%94%9F%E6%AD%BB%E8%A1%8C.html">骑虎生死行</a><a href="../pages/%E8%A1%8C%E6%88%90%E4%B8%8B%E5%AD%A4%E4%B9%A1.html">行成下孤乡</a><a href="../pages/%E5%B9%BB%E5%BD%B1%E7%94%BB%E5%AE%89%E5%8D%B1.html">幻影画安危</a><a href="../pages/%E8%B0%9C%E6%A2%A6%E5%BE%85%E6%AD%8C%E8%88%9E.html">谜梦待歌舞</a><a href="../pages/%E9%A3%8E%E4%BA%91%E5%AD%B0%E6%88%8F%E8%A8%80.html">风云孰戏言</a><a href="../pages/%E9%A3%8E%E8%B5%B7%E7%BB%88%E7%9B%B8%E8%AF%86.html">风起终相识</a><a href="../pages/%E5%BD%B1%E5%93%8D.html">影响</a><a href="../pages/%E7%99%BD%E7%8B%90%E8%A1%8C%E4%B8%9B%E9%87%8C.html">白狐行丛里</a><a href="../pages/%E4%BE%A0%E4%BA%91%E6%95%88%E8%89%AF%E5%85%9A.html">侠云效良党</a><a href="../pages/%E8%A7%84%E5%88%99%E8%B0%83%E6%95%B4%E6%8F%90%E5%89%8D%E5%85%AC%E7%A4%BA.html">规则调整提前公示</a><a href="../pages/%E9%97%B2%E8%A8%80%E7%A2%8E%E8%AF%AD.html">闲言碎语</a><a href="../pages/%E9%81%93%E5%A3%AB.html">道士</a><a href="../pages/%E6%9A%B4%E5%90%9B.html">暴君</a><a href="../pages/%E9%BB%91%E5%A4%9C%E9%97%AE%E7%99%BD%E5%A4%A9.html">黑夜问白天</a><a href="../pages/%E6%98%BE%E6%88%91%E7%A5%9E%E9%80%9A.html">显我神通</a><a href="../pages/%E7%81%AF%E7%A5%9E%E5%A5%91%E7%BA%A6.html">灯神契约</a><a href="../pages/%E7%BF%BB%E4%BA%91%E8%A6%86%E9%9B%A8.html">翻云覆雨</a><a href="../pages/%E6%8C%91%E7%81%AF%E7%9C%8B%E5%89%91.html">挑灯看剑</a><a href="../pages/%E4%B8%83%E6%AD%A5%E6%88%90%E8%AF%97.html">七步成诗</a><a href="../pages/%E6%97%A0%E5%90%8D%E6%97%85%E5%AE%A2.html">无名旅客</a><a href="../pages/%E5%8F%8C%E5%AD%90%E7%85%9E%E6%98%9F.html">双子煞星</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

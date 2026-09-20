@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>吟游诗人 - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">吟游诗人</h1>
+    <div class="tagline">来自钟楼百科</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#提示与技巧">提示与技巧</a></li><li class="lvl2"><a href="#伪装成吟游诗人">伪装成吟游诗人</a></li><li class="lvl2"><a href="#角色信息">角色信息</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E5%90%9F%E6%B8%B8%E8%AF%97%E4%BA%BA">查找包含此角色的剧本 →</a></p><p><a href="../files/%E6%96%87%E4%BB%B6_Minstrel.png.html" class="image-link" title="文件:Minstrel.png"><img alt="Minstrel.png" style="width:200px" class="" loading="lazy" data-source-image="../images/Minstrel.png" src="../assets/media/Minstrel.preview.webp" width="600" height="600" decoding="async"></a></p>
+<h2 id="背景故事">背景故事</h2>
+<p><em>“我应倾听，当你轻敲我心……</em></p>
+<p><em>美梦因你，甜美温馨……</em></p>
+<p><em>若你羞赧，难以决定……</em></p>
+<p><em>我会安睡，待你光临。”</em></p>
+<h2 id="角色能力">角色能力</h2>
+<p><strong>当一名爪牙死于处决时，除了你和旅行者以外的所有其他玩家醉酒直到明天黄昏。</strong></p>
+<h2 id="角色简介">角色简介</h2>
+<p>如果有爪牙因为处决而死去，吟游诗人会让所有人醉酒。</p>
+<ul>
+<li>如果一名爪牙玩家被处决且死亡，所有玩家（除了吟游诗人）会立即变得醉酒，并在整个夜晚和下一个白天都保持醉酒状态。镇民、外来者、爪牙、甚至是恶魔都会醉酒，但是旅行者不会。如果爪牙在夜晚死亡，吟游诗人不会使人醉酒。</li>
+</ul>
+<ul>
+<li>如果一名已死亡的爪牙玩家被处决，吟游诗人的能力不会触发——已死亡的角色不会再次死亡！如果一名爪牙玩家被处决但没有死亡，吟游诗人的能力不会触发。如果一名爪牙玩家在吟游诗人醉酒或中毒期间死于处决时，吟游诗人的能力不会触发。</li>
+</ul>
+<h2 id="范例">范例</h2>
+<p>在首个白天，<a href="../pages/%E5%92%8C%E5%B9%B3%E4%B8%BB%E4%B9%89%E8%80%85.html" title="和平主义者">和平主义者</a>死亡。当晚，玩家们正常行动，因为<a href="../pages/%E5%92%8C%E5%B9%B3%E4%B8%BB%E4%B9%89%E8%80%85.html" title="和平主义者">和平主义者</a>不是爪牙。在第二个白天，<a href="../pages/%E6%B3%95%E5%AE%98.html" title="法官">法官</a>处决了<a href="../pages/%E6%95%99%E7%88%B6.html" title="教父">教父</a>。当晚，所有人都醉酒，包括恶魔，因此无人死亡。在第三个白天，<a href="../pages/%E9%AD%94%E9%AC%BC%E4%BB%A3%E8%A8%80%E4%BA%BA.html" title="魔鬼代言人">魔鬼代言人</a>醉酒了，受到<a href="../pages/%E9%AD%94%E9%AC%BC%E4%BB%A3%E8%A8%80%E4%BA%BA.html" title="魔鬼代言人">魔鬼代言人</a>保护的一名爪牙玩家被处决并死亡。因为有爪牙因处决而死去，<a href="../pages/%E5%90%9F%E6%B8%B8%E8%AF%97%E4%BA%BA.html" title="吟游诗人">吟游诗人</a>又一次让所有人醉酒。</p>
+<p><a href="../pages/%E5%88%BA%E5%AE%A2.html" title="刺客">刺客</a>被处决，因此<a href="../pages/%E5%90%9F%E6%B8%B8%E8%AF%97%E4%BA%BA.html" title="吟游诗人">吟游诗人</a>让所有人醉酒。在下一个白天，<a href="../pages/%E6%95%99%E7%88%B6.html" title="教父">教父</a>被处决，因此<a href="../pages/%E5%90%9F%E6%B8%B8%E8%AF%97%E4%BA%BA.html" title="吟游诗人">吟游诗人</a>让所有人再次醉酒。恶魔两个夜晚都没办法成功发起攻击。在下一个白天，获得<a href="../pages/%E4%B8%BB%E8%B0%8B.html" title="主谋">主谋</a>能力的<a href="../pages/%E5%AD%A6%E5%BE%92.html" title="学徒">学徒</a>被流放了，因此当晚所有人都再次恢复清醒，因为<a href="../pages/%E5%90%9F%E6%B8%B8%E8%AF%97%E4%BA%BA.html" title="吟游诗人">吟游诗人</a>的能力不会因旅行者被流放而触发。</p>
+<p>在白天，<a href="../pages/%E5%88%BA%E5%AE%A2.html" title="刺客">刺客</a>死亡，因此<a href="../pages/%E5%90%9F%E6%B8%B8%E8%AF%97%E4%BA%BA.html" title="吟游诗人">吟游诗人</a>让所有人醉酒。在下一个白天，<a href="../pages/%E5%83%B5%E6%80%96.html" title="僵怖">僵怖</a>被处决且第一次死亡。善良阵营获胜，因为<a href="../pages/%E5%83%B5%E6%80%96.html" title="僵怖">僵怖</a>醉酒，因而没有任何能力。</p>
+<h2 id="运作方式">运作方式</h2>
+<p>在白天，如果一名爪牙玩家死于处决，除旅行者外的所有其他玩家都醉酒——将吟游诗人的“全员醉酒”提示标记放置到魔典左侧的中央。</p>
+<p>在下一天的黄昏，所有因吟游诗人醉酒的玩家恢复清醒——移除“全员醉酒”提示标记。</p>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>全员醉酒</li>
+</ul>
+<p>放置时机：当有一名爪牙死于处决时。</p>
+<p>放置条件：当有爪牙死于处决，且此时吟游诗人未醉酒中毒，放置在魔典中央。（为了区分效果持续生效的终止时机，建议在每到黎明时，将此标记从魔典中央移动至吟游诗人角色旁。如果黄昏时，“全员醉酒”标记在吟游诗人旁，则移除，如果“全员醉酒”标记在魔典中央，则不移除。）</p>
+<p>移除时机：放置此标记后的下一天黄昏。如果当天再次有爪牙死于处决，则重新放置此标记，否则移除此标记。吟游诗人死亡或离场时，也要移除此标记。</p>
+<h2 id="规则细节">规则细节</h2>
+<ul>
+<li>相克规则：</li>
+<ul>
+<li><a href="../pages/%E5%86%9B%E5%9B%A2.html" title="军团">军团</a>：如果军团死于处决，所有军团保留能力，但吟游诗人可能会在当晚得知今天白天死于处决的玩家是军团。</li>
+</ul>
+</ul>
+<h2 id="提示与技巧">提示与技巧</h2>
+<ul>
+<li>乍一看，<a href="../pages/%E5%90%9F%E6%B8%B8%E8%AF%97%E4%BA%BA.html" title="吟游诗人">吟游诗人</a>似乎没有那么强大，但实际上你获得了游戏中最可靠的一些信息。在任何一天处决之后，如果有人在晚上死去，那么你都可以确认今天被处决的人不是爪牙，而如果被处决的是恶魔，通常游戏就结束了（<a href="../pages/%E5%83%B5%E6%80%96.html" title="僵怖">僵怖</a>和<a href="../pages/%E4%B8%BB%E8%B0%8B.html" title="主谋">主谋</a>除外），因此你可以推测今天被处决的是善良的！</li>
+</ul>
+<ul>
+<li>如果大家确实成功处决了一个爪牙，<a href="../pages/%E5%90%9F%E6%B8%B8%E8%AF%97%E4%BA%BA.html" title="吟游诗人">吟游诗人</a>的能力就会激活，当晚不会有人因恶魔死去。但这并不意味着平安夜一定是因为你的能力。在<a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html" title="黯月初升">黯月初升</a>中，人们不死的原因和他们死的原因一样多（例如<a href="../pages/%E9%A9%B1%E9%AD%94%E4%BA%BA.html" title="驱魔人">驱魔人</a>、<a href="../pages/%E6%97%85%E5%BA%97%E8%80%81%E6%9D%BF.html" title="旅店老板">旅店老板</a>、<a href="../pages/%E7%8F%80.html" title="珀">珀</a>）！为了确保是你的能力触发了，并且最近的被处决者确实是爪牙，你可以找一些证据 - 因为你影响了游戏中的所有能力，你应该能够找到其他能力没有按预期工作的证据。例如，<a href="../pages/%E4%BE%8D%E5%A5%B3.html" title="侍女">侍女</a>或<a href="../pages/%E8%B5%8C%E5%BE%92.html" title="赌徒">赌徒</a>等角色可能会得到奇怪的结果，再例如，没有人可以免于处决（例如<a href="../pages/%E5%92%8C%E5%B9%B3%E4%B8%BB%E4%B9%89%E8%80%85.html" title="和平主义者">和平主义者</a>、<a href="../pages/%E9%AD%94%E9%AC%BC%E4%BB%A3%E8%A8%80%E4%BA%BA.html" title="魔鬼代言人">魔鬼代言人</a>），并且像<a href="../pages/%E4%BF%AE%E8%A1%A5%E5%8C%A0.html" title="修补匠">修补匠</a>这样的角色不会在那天随机死亡。</li>
+</ul>
+<ul>
+<li>去处决！执行处决的次数越多，找到爪牙的机会就越大。优秀的玩家可能不愿意处决任何不是恶魔嫌疑人的人，因为在<a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html" title="黯月初升">黯月初升</a>中死亡人数可能会出乎意料的多，但把<a href="../pages/%E5%88%BA%E5%AE%A2.html" title="刺客">刺客</a>或<a href="../pages/%E4%B8%BB%E8%B0%8B.html" title="主谋">主谋</a>等强大的爪牙从游戏中移除，会大有裨益。再加上一晚的缓刑，你在成功执行时所获得的能力应当会让你比更积极！</li>
+</ul>
+<ul>
+<li>恶魔可能不太会以你为目标，因为他们低估了你的力量！除非爪牙有被处决的危险，否则<a href="../pages/%E5%90%9F%E6%B8%B8%E8%AF%97%E4%BA%BA.html" title="吟游诗人">吟游诗人</a>可能会比其他没有保护的城镇居民活得更久，因为恶魔会更害怕<a href="../pages/%E9%A9%B1%E9%AD%94%E4%BA%BA.html" title="驱魔人">驱魔人</a>或<a href="../pages/%E8%8C%B6%E8%89%BA%E5%B8%88.html" title="茶艺师">茶艺师</a>活下去。充分利用这一点——希望当邪恶的团队意识到你有多么危险时，已经有一两个爪牙倒下了！</li>
+</ul>
+<ul>
+<li>如果邪恶团队更精明一点，他们可能会更早地瞄准你，尤其是当爪牙有被处决的危险时。将你的角色隐藏几天可能会给邪恶玩家不小的打击，因为当爪牙被处决，所有人都无法正常行动时，他们才知道你阻止了他们，也暴露了爪牙。你的意外死亡也可能表明邪恶团队在保护被大家怀疑的爪牙。</li>
+</ul>
+<h2 id="伪装成吟游诗人">伪装成吟游诗人</h2>
+<p>当你要伪装成吟游诗人的时候，这里有几件事你应该记住：</p>
+<ul>
+<li>吟游诗人是一个很好的“掩护”。除了经常提醒人们您是<a href="../pages/%E5%90%9F%E6%B8%B8%E8%AF%97%E4%BA%BA.html" title="吟游诗人">吟游诗人</a>之外，你无需做太多事情。一些优秀的玩家会伪装成<a href="../pages/%E5%90%9F%E6%B8%B8%E8%AF%97%E4%BA%BA.html" title="吟游诗人">吟游诗人</a>来掩盖他们是<a href="../pages/%E9%A9%B1%E9%AD%94%E4%BA%BA.html" title="驱魔人">驱魔人</a>的事实，你也可以这么做。</li>
+</ul>
+<ul>
+<li>如果你是邪恶方，每场游戏至少这么做一次——避免恶魔在晚上杀人。如果没有其他死亡发生，这将模拟真正的<a href="../pages/%E5%90%9F%E6%B8%B8%E8%AF%97%E4%BA%BA.html" title="吟游诗人">吟游诗人</a>在场和<a href="../pages/%E7%88%AA%E7%89%99.html" title="爪牙">爪牙</a>被处决时发生的情况。如果你在一个可疑玩家被处决后这样做，你不仅证实了团队对该玩家是爪牙的怀疑，而且你还让团队相信他们当晚喝醉了——这给获取夜间信息和反馈的角色会带来巨大的麻烦，例如<a href="../pages/%E9%A9%B1%E9%AD%94%E4%BA%BA.html" title="驱魔人">驱魔人</a>、<a href="../pages/%E4%BE%8D%E5%A5%B3.html" title="侍女">侍女</a>、<a href="../pages/%E8%B5%8C%E5%BE%92.html" title="赌徒">赌徒</a>甚至<a href="../pages/%E6%9C%88%E4%B9%8B%E5%AD%90.html" title="月之子">月之子</a>。</li>
+</ul>
+<ul>
+<li>.如果你声称自己是<a href="../pages/%E5%90%9F%E6%B8%B8%E8%AF%97%E4%BA%BA.html" title="吟游诗人">吟游诗人</a>，而一个邪恶的玩家被处决，那么当晚恶魔正常杀人是让团队相信被处决的玩家是好人的好方法。你甚至可能不需要说更多的话，就说你是<a href="../pages/%E5%90%9F%E6%B8%B8%E8%AF%97%E4%BA%BA.html" title="吟游诗人">吟游诗人</a> - 让他们自己解决剩下的问题。</li>
+</ul>
+<ul>
+<li>鼓励处决——当然是对你和你的恶魔以外的玩家处决。</li>
+</ul>
+<ul>
+<li>如果真正的<a href="../pages/%E5%90%9F%E6%B8%B8%E8%AF%97%E4%BA%BA.html" title="吟游诗人">吟游诗人</a>在场，而你是恶魔，可以降低杀人频率，这样可以让<a href="../pages/%E5%90%9F%E6%B8%B8%E8%AF%97%E4%BA%BA.html" title="吟游诗人">吟游诗人</a>判断失误。如果一个<a href="../pages/%E5%90%9F%E6%B8%B8%E8%AF%97%E4%BA%BA.html" title="吟游诗人">吟游诗人</a>假设他们处决了一个爪牙，而他们实际上处决了一个镇民，那么不仅镇民看起来很邪恶，而其他玩家也会认为他们今晚喝醉了（由于<a href="../pages/%E5%90%9F%E6%B8%B8%E8%AF%97%E4%BA%BA.html" title="吟游诗人">吟游诗人</a>的能力），虽然他们可能完全清醒。</li>
+</ul>
+<h2 id="角色信息">角色信息</h2>
+<ul>
+<li>英文名：Minstrel</li>
+</ul>
+<ul>
+<li>所属剧本：<a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html" title="黯月初升">黯月初升</a></li>
+</ul>
+<ul>
+<li>角色类型：<a href="../pages/%E9%95%87%E6%B0%91.html" title="镇民">镇民</a></li>
+</ul>
+<ul>
+<li>角色能力类型：<a href="../pages/%E5%A4%84%E5%86%B3.html" title="处决">处决</a>、<a href="../pages/%E6%AD%BB%E4%BA%A1%E8%A7%A6%E5%8F%91%E8%83%BD%E5%8A%9B.html" title="死亡触发能力">死亡触发能力</a>、<a href="../pages/%E9%86%89%E9%85%92.html" title="醉酒">醉酒</a></li>
+</ul>
+<ul>
+<li>角色背景相关：吟游诗人在唱的是类似于《Danny Boy》的具有爱尔兰民谣风格的曲子。</li>
+</ul></div>
+    <div class="page-meta">最后修改于 2025-08-22T00:16:32Z，编辑者 <b>Zack</b> ｜ 页面 7,663 字节 ｜ <a href="https://clocktower-wiki.gstonegames.com/index.php?title=%E5%90%9F%E6%B8%B8%E8%AF%97%E4%BA%BA" target="_blank" rel="noopener">查看原页面</a> ｜ <div class="comment">编辑摘要：/* 角色信息 */</div></div>
+    <div class="backlinks"><b>链入此页的页面（24）</b><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a><a href="../pages/%E4%BE%8D%E5%A5%B3.html">侍女</a><a href="../pages/%E8%B5%8C%E5%BE%92.html">赌徒</a><a href="../pages/%E6%95%99%E6%8E%88.html">教授</a><a href="../pages/%E5%A4%84%E5%86%B3.html">处决</a><a href="../pages/%E6%97%A0%E7%A5%9E%E8%AE%BA%E8%80%85.html">无神论者</a><a href="../pages/%E5%86%9B%E5%9B%A2.html">军团</a><a href="../pages/%E6%AD%BB%E4%BA%A1%E8%A7%A6%E5%8F%91%E8%83%BD%E5%8A%9B.html">死亡触发能力</a><a href="../pages/%E9%86%89%E9%85%92.html">醉酒</a><a href="../pages/%E8%8E%BD%E5%A4%AB.html">莽夫</a><a href="../pages/%E6%95%99%E7%88%B6.html">教父</a><a href="../pages/%E9%AD%94%E9%AC%BC%E4%BB%A3%E8%A8%80%E4%BA%BA.html">魔鬼代言人</a><a href="../pages/%E5%88%BA%E5%AE%A2.html">刺客</a><a href="../pages/%E4%B8%BB%E8%B0%8B.html">主谋</a><a href="../pages/%E9%95%87%E6%B0%91.html">镇民</a><a href="../pages/%E4%B8%BB%E6%95%99.html">主教</a><a href="../pages/%E5%85%AC%E7%88%B5%E5%A4%AB%E4%BA%BA.html">公爵夫人</a><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a><a href="../pages/%E7%98%9F%E7%96%AB%E5%8C%BB%E7%94%9F.html">瘟疫医生</a><a href="../pages/%E7%AC%AC%E4%B8%80%E5%B1%8A%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A%E5%89%A7%E6%9C%AC%E5%88%9B%E4%BD%9C%E5%A4%A7%E8%B5%9B.html">第一届华灯初上剧本创作大赛</a><a href="../pages/%E4%BA%BA%E9%97%B4%E6%9A%97%E6%9C%88%E5%A4%9C.html">人间暗月夜</a><a href="../pages/%E5%AF%B9%E5%A2%9F%E9%9A%BE%E6%AC%A2%E9%B8%A3.html">对墟难欢鸣</a><a href="../pages/%E8%A7%84%E5%88%99%E8%B0%83%E6%95%B4%E6%8F%90%E5%89%8D%E5%85%AC%E7%A4%BA.html">规则调整提前公示</a><a href="../pages/%E9%97%B2%E8%A8%80%E7%A2%8E%E8%AF%AD.html">闲言碎语</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>异术士 - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content"><h1 class="page-title">异术士</h1><div class="tagline">来自钟楼百科</div><div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E5%BC%82%E6%9C%AF%E5%A3%AB">查找包含此角色的剧本 →</a></p><p><a href="../pages/%E5%BC%82%E6%9C%AF%E5%A3%AB.html" title="异术士"><img alt="Zenomancer.png" data-source-image="../images/sync_febf3520714cd0e06e9f.png" src="../assets/media/sync_febf3520714cd0e06e9f.preview.webp" width="200" height="200" decoding="async"></a>
+</p>
+<div class="toc" id="toc"><div class="toctitle"><h2 id="mw-toc-heading">目录</h2><span class="toctogglespan"></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#背景故事"><span class="tocnumber">1</span> <span class="toctext">背景故事</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#角色能力"><span class="tocnumber">2</span> <span class="toctext">角色能力</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#角色简介"><span class="tocnumber">3</span> <span class="toctext">角色简介</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#范例"><span class="tocnumber">4</span> <span class="toctext">范例</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#运作方式"><span class="tocnumber">5</span> <span class="toctext">运作方式</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#提示标记"><span class="tocnumber">6</span> <span class="toctext">提示标记</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#角色信息"><span class="tocnumber">7</span> <span class="toctext">角色信息</span></a></li>
+</ul>
+</div>
+
+<span id=".E8.83.8C.E6.99.AF.E6.95.85.E4.BA.8B"></span><h2 id="背景故事">背景故事</h2>
+<p><i>“有人说，宇宙是动态的，而非静止，这一切都承载于驮着巨龟的巨龟之上，层层叠叠的巨龟，我的朋友，永无止境。”</i>
+</p>
+<span id=".E8.A7.92.E8.89.B2.E8.83.BD.E5.8A.9B"></span><h2 id="角色能力">角色能力</h2>
+<p><b>一名或多名玩家各自拥有一个目标。当达成目标后，他会获得一条正确信息。</b>
+</p>
+<span id=".E8.A7.92.E8.89.B2.E7.AE.80.E4.BB.8B"></span><h2 id="角色简介">角色简介</h2>
+<p>异术士会给玩家发布任务。
+</p>
+<ul><li>说书人可以为一名或多名玩家分配目标。说书人会私下告知玩家他的目标是什么。玩家可能在游戏开始时就被分配了目标，也可能在游戏过程中才被分配目标。不同玩家被分配目标的时间点可能各不相同。</li></ul>
+<ul><li>目标可以是任何事情：可以是与游戏直接相关的，也可以是超出游戏范围的内容。</li></ul>
+<ul><li>判定一名玩家是否达成目标条件的决定权在说书人手中。一旦说书人判定达成目标条件，该玩家将获得一条关于游戏的正确信息，即使玩家中毒或醉酒，因为这是异术士能力产生的信息，而不是来源于玩家自己的角色。</li></ul>
+<ul><li>目标之间可能相互冲突，也可能始终无法达成。</li></ul>
+<ul><li>通常一局游戏会有1到3个目标，且大多数目标在对局开始时就已被分配。</li></ul>
+<ul><li>玩家可以声称自己被分配了目标，或假装已经达成了目标。</li></ul>
+<ul><li>任何玩家都可能被分配目标，哪怕是旅行者或死亡玩家。</li></ul>
+<span id=".E8.8C.83.E4.BE.8B"></span><h2 id="范例">范例</h2>
+<pre>小艾是<a href="../pages/%E9%BA%BB%E8%84%B8%E5%B7%AB%E5%A9%86.html" title="麻脸巫婆">麻脸巫婆</a>。他的目标是“创造一个邪恶的外来者”。小艾把<a href="../pages/%E5%AF%A1%E5%A6%87.html" title="寡妇">寡妇</a>变成了<a href="../pages/%E5%BF%83%E4%B8%8A%E4%BA%BA.html" title="心上人">心上人</a>，然后小艾得知小博是醉酒的<a href="../pages/%E8%B4%A4%E8%80%85.html" title="贤者">贤者</a>。
+</pre>
+<pre>小文的目标是“让小美相信自己是<a href="../pages/%E6%8F%90%E7%BA%BF%E6%9C%A8%E5%81%B6.html" title="提线木偶">提线木偶</a>”。说书人判断小美已经在质疑自己到底是不是<a href="../pages/%E6%8F%90%E7%BA%BF%E6%9C%A8%E5%81%B6.html" title="提线木偶">提线木偶</a>了。小文得知了没有<a href="../pages/%E6%8F%90%E7%BA%BF%E6%9C%A8%E5%81%B6.html" title="提线木偶">提线木偶</a>在场。同时，小八的目标是“提名并处决一名爪牙”。由于这个目标没有实现，因此小八没有获得<a href="https://clocktower-wiki.gstonegames.com" class="mw-selflink selflink" rel="noopener" target="_blank">异术士</a>的信息。
+</pre>
+<pre>小佳的任务是“把沙发上所有柔软的枕头都在不触碰的情况下偷走”。小米也有相同的目标。小米说服小明去和小佳进行私聊，趁机让小黑偷走所有枕头并交给自己。小米得知了恶魔是<a href="../pages/%E6%96%B9%E5%8F%A4.html" title="方古">方古</a>。
+</pre>
+<span id=".E8.BF.90.E4.BD.9C.E6.96.B9.E5.BC.8F"></span><h2 id="运作方式">运作方式</h2>
+<p>你可以在任意时刻告知一名玩家，他获得了一个目标。你可以私下告诉他们，也可以在夜晚唤醒该玩家，并向其出示一张写有目标的纸条。用异术士的“目标”提示标记来标记该玩家。
+</p>
+<pre>你可以在目标后加一句“……但你不能告诉任何人你的目标”，这样会让目标变得更有趣。大多数目标如果在玩家无法透露的情况下完成，会更加刺激好玩。
+</pre>
+<span id=".E6.8F.90.E7.A4.BA.E6.A0.87.E8.AE.B0"></span><h2 id="提示标记">提示标记</h2>
+<ul><li>目标</li></ul>
+<p>放置时机：给出玩家目标后。
+</p><p>放置条件：放置在获得任务的玩家角色标记旁边。
+</p><p>移除时机：玩家完成任务并获取信息后。
+</p>
+<span id=".E8.A7.92.E8.89.B2.E4.BF.A1.E6.81.AF"></span><h2 id="角色信息">角色信息</h2>
+<ul><li>英文名：Zenomancer</li></ul>
+<ul><li>角色类型：<a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html" title="奇遇角色">奇遇角色</a></li></ul>
+<ul><li>角色能力类型：<a href="../pages/%E8%8E%B7%E5%8F%96%E4%BF%A1%E6%81%AF.html" title="获取信息">获取信息</a></li></ul>
+
+
+
+
+</div><div class="page-meta">同步于 2026-09-18T21:37:36Z ｜ 修订 6509 ｜ <a href="https://clocktower-wiki.gstonegames.com/index.php?title=%E5%BC%82%E6%9C%AF%E5%A3%AB" target="_blank" rel="noopener">查看原页面</a></div></main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

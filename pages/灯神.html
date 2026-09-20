@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>灯神 - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">灯神</h1>
+    <div class="tagline">来自钟楼百科</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#角色信息">角色信息</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E7%81%AF%E7%A5%9E">查找包含此角色的剧本 →</a></p><p><a href="../pages/%E7%81%AF%E7%A5%9E.html" class="image-link" title="灯神"><img alt="Djinn.png" style="width:200px" class="" loading="lazy" data-source-image="../images/Djinn.png" src="../assets/media/Djinn.preview.webp" width="600" height="600" decoding="async"></a></p>
+<h2 id="背景故事">背景故事</h2>
+<p><em>“我们并非在此，</em></p>
+<p><em>你也未必真实，</em></p>
+<p><em>一切神秘皆是幻象难觅，</em></p>
+<p><em>茫茫问题好似晴天霹雳。”</em></p>
+<p><em>（原文为阿拉伯语，见下）</em></p>
+<p>نحن لسنا هنا.</p>
+<p>انت لست حقيقي.</p>
+<p>كل شيء هو وهم.</p>
+<p>أسئلتك هي جبل نار في يوم صافٍ.</p>
+<h2 id="角色能力">角色能力</h2>
+<p><strong>使用灯神的相克规则。所有玩家都会知道其内容。</strong></p>
+<h2 id="角色简介">角色简介</h2>
+<p>灯神会加入到所有带有相克图标的剧本上，通过创造一个独特的规则来解决相克问题。</p>
+<ul>
+<li>当使用剧本工具创建角色列表时，一些角色组合会被标记为相克。两名角色相克意味着他们的能力存在冲突或互斥。灯神会创建独特的规则来让这些角色很好地共存。一些相克角色甚至在灯神在场时，反而能搭配出更好的体验。</li>
+</ul>
+<ul>
+<li>在线的剧本工具会对灯神的特殊规则进行描述，并且在创建的剧本有相克角色时自动列出相应规则。</li>
+</ul>
+<ul>
+<li>有许多不同的灯神特殊规则，每一条都是为一对特定的相克角色量身定制的。</li>
+</ul>
+<ul>
+<li>如果角色列表上存在相克角色，即使相克角色都不在场，说书人也应该在游戏开始前告知所有的玩家灯神的特殊规则是什么。</li>
+</ul>
+<ul>
+<li>灯神可能同时会有多条特殊规则。如果角色列表上存在多对相克角色，玩家们会得知灯神所有的特殊规则。</li>
+</ul>
+<h2 id="范例">范例</h2>
+<p><a href="../pages/%E9%BA%BB%E8%84%B8%E5%B7%AB%E5%A9%86.html" title="麻脸巫婆">麻脸巫婆</a>和<a href="../pages/%E5%BC%82%E7%AB%AF%E5%88%86%E5%AD%90.html" title="异端分子">异端分子</a>是相克角色。在游戏开始前，说书人宣布了<a href="../pages/%E7%81%AF%E7%A5%9E.html" title="灯神">灯神</a>规则：“<a href="../pages/%E9%BA%BB%E8%84%B8%E5%B7%AB%E5%A9%86.html" title="麻脸巫婆">麻脸巫婆</a>不能创造<a href="../pages/%E5%BC%82%E7%AB%AF%E5%88%86%E5%AD%90.html" title="异端分子">异端分子</a>”。后来在游戏中，<a href="../pages/%E9%BA%BB%E8%84%B8%E5%B7%AB%E5%A9%86.html" title="麻脸巫婆">麻脸巫婆</a>想要创造<a href="../pages/%E5%BC%82%E7%AB%AF%E5%88%86%E5%AD%90.html" title="异端分子">异端分子</a>。说书人摇头告诉<a href="../pages/%E9%BA%BB%E8%84%B8%E5%B7%AB%E5%A9%86.html" title="麻脸巫婆">麻脸巫婆</a>不能这么做，她必须选择创造其他角色。</p>
+<p><a href="../pages/%E9%97%B4%E8%B0%8D.html" title="间谍">间谍</a>和<a href="../pages/%E9%AD%94%E6%9C%AF%E5%B8%88.html" title="魔术师">魔术师</a>是相克角色。在游戏开始前，说书人宣布了<a href="../pages/%E7%81%AF%E7%A5%9E.html" title="灯神">灯神</a>规则：“当<a href="../pages/%E9%97%B4%E8%B0%8D.html" title="间谍">间谍</a>查看魔典时，恶魔和<a href="../pages/%E9%AD%94%E6%9C%AF%E5%B8%88.html" title="魔术师">魔术师</a>的角色标记会被移除”。即使场上没有<a href="../pages/%E9%97%B4%E8%B0%8D.html" title="间谍">间谍</a>和<a href="../pages/%E9%AD%94%E6%9C%AF%E5%B8%88.html" title="魔术师">魔术师</a>，说书人仍会大声宣布这条规则，善良阵营无法因此得知哪种爪牙在场。</p>
+<h2 id="运作方式">运作方式</h2>
+<p>在游戏开始前，如果角色列表上存在相克玩家，宣布灯神在场，并向玩家们告知本局游戏中所有的灯神特殊规则。（即使没有相克角色在场也要这么做。）</p>
+<p>按照剧本工具列出的灯神的<a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html" title="相克规则">相克规则</a>说明进行操作。</p>
+<h2 id="提示标记">提示标记</h2>
+<p>无</p>
+<h2 id="角色信息">角色信息</h2>
+<ul>
+<li>英文名：Djinn</li>
+</ul>
+<ul>
+<li>角色类型：<a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html" title="传奇角色">传奇角色</a></li>
+</ul>
+<ul>
+<li>角色能力类型：特殊规则</li>
+</ul></div>
+    <div class="page-meta">最后修改于 2023-04-21T15:25:19Z，编辑者 <b>Little Black</b> ｜ 页面 2,572 字节 ｜ <a href="https://clocktower-wiki.gstonegames.com/index.php?title=%E7%81%AF%E7%A5%9E" target="_blank" rel="noopener">查看原页面</a></div>
+    <div class="backlinks"><b>链入此页的页面（3）</b><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a><a href="../pages/%E7%81%AF%E7%A5%9E.html">灯神</a><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

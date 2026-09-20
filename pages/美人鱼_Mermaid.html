@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>美人鱼 Mermaid - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">美人鱼 Mermaid<span class="ns-badge">奥德赛</span></h1>
+    <div class="tagline">来自钟楼百科 · 摘自《奥德赛 Odyssey》百科 · 镇民</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#夜晚行动顺序">夜晚行动顺序</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#游玩与对抗技巧">游玩与对抗技巧</a></li><li class="lvl2"><a href="#伪装成该角色">伪装成该角色</a></li><li class="lvl2"><a href="#出现剧本">出现剧本</a></li><li class="lvl2"><a href="#整体设计">整体设计</a></li><li class="lvl2"><a href="#创意来源">创意来源</a></li><li class="lvl2"><a href="#图标画师">图标画师</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E7%BE%8E%E4%BA%BA%E9%B1%BC">查找包含此角色的剧本 →</a></p><div class="charinfo"><div class="charinfo-img"><a href="../files/%E6%96%87%E4%BB%B6_%E7%BE%8E%E4%BA%BA%E9%B1%BC.png.html"><img alt="美人鱼 Mermaid" data-source-image="../images/%E7%BE%8E%E4%BA%BA%E9%B1%BC.png" src="../assets/media/美人鱼.preview.webp" width="600" height="600" decoding="async"></a></div><div class="charinfo-meta"><div class="row"><span class="k">角色类型</span><span class="v"><a href="../pages/%E9%95%87%E6%B0%91.html" title="镇民">镇民</a></span></div><div class="row"><span class="k">英文名</span><span class="v">Mermaid</span></div><div class="row"><span class="k">角色ID</span><span class="v">101</span></div><div class="row"><span class="k">角色归属</span><span class="v">角色拓展包《奥德赛》</span></div><div class="row"><span class="k">能力标签</span><span class="v"><a href="../pages/%E4%BF%9D%E6%8A%A4.html" title="保护">保护</a>、<a href="../pages/%E5%85%8D%E6%AD%BB.html" title="免死">免死</a>、<a href="../pages/%E5%85%AC%E5%BC%80%E8%A7%A6%E5%8F%91%E8%83%BD%E5%8A%9B.html" title="公开触发能力">公开触发能力</a></span></div><div class="row"><span class="k">角色定位</span><span class="v">保护镇民</span></div><div class="row"><span class="k">发布日期</span><span class="v">2026.6.17</span></div><div class="row"><span class="k">角色授权</span><span class="v">开放（任意剧本创作皆可使用，不要改能力）</span></div><div class="row"><span class="k">出处</span><span class="v"><a class="external" href="https://www.yuque.com/u48069482/taiyi" target="_blank" rel="noopener">《奥德赛 Odyssey》百科</a></span></div></div></div><h2 id="背景故事">背景故事</h2>
+<p>_"__<span style="color:rgb(64, 64, 64);">岸上的小宝贝们，耳朵痒不痒？那是因为我的歌声钻进你们心里啦！小镇上谁不知道，只要我一开口，连海鸥都不舍得飞走～今天心情超级好，允许你们每人许一个愿望，不过得先夸我一句！从你开始，对，戴帽子的那个。美人鱼姐姐最美？嗯…勉强及格，过来击个掌吧！"</span>_</p>
+<h2 id="角色简介"><span style="color:rgb(64, 64, 64);">角色简介</span></h2>
+<p>美人鱼会保护赞美她的玩家。</p>
+<h2 id="角色能力">角色能力</h2>
+<div class="callout callout-info">
+<p>每个白天，你可以公开接受一名其他玩家对你的赞美：邪恶角色的能力对他无效，直到你接受了另一名玩家的赞美。</p>
+</div>
+<h2 id="范例">范例</h2>
+<ul>
+<li>第一个白天，圣徒公开赞美美人鱼玩家“姐姐你今天真好看”，美人鱼玩家公开回应“说的真好，我接受你的赞美”。当晚，小恶魔攻击了圣徒，圣徒受到了美人鱼的保护，所以并没有死亡。</li>
+<li>第二个白天，占卜师公开赞美美人鱼玩家“你对游戏的理解真的很好，我得多跟你学”，美人鱼玩家公开回应“这个话我爱听，我会保护你的宝宝”。当晚投毒者选择了占卜师，但因占卜师受到了美人鱼的保护，占卜师依然获得了正确信息。</li>
+<li>占卜师受到美人鱼保护，当晚投毒者选择了占卜师，占卜师没有中毒，稍后美人鱼被恶魔攻击并死亡，占卜师立即恢复中毒状态。</li>
+</ul>
+<h2 id="运作方式">运作方式</h2>
+<p>每个白天，首个被美人鱼公开接受赞美的玩家，在他的角色标记旁放置“免疫邪恶”提示标记，并移除其他“免疫邪恶”提示标记。</p>
+<p>被放置了“免疫邪恶”提示标记的玩家，不会受到邪恶角色能力的影响。</p>
+<h2 id="夜晚行动顺序">夜晚行动顺序</h2>
+<ul>
+<li>首个夜晚</li>
+<ul>
+<li>夜序数值：/</li>
+<li>前位角色：/</li>
+<li>行动提示：/</li>
+</ul>
+<li>其他夜晚</li>
+<ul>
+<li>夜序数值：/</li>
+<li>前位角色：/</li>
+<li>行动提示：/</li>
+</ul>
+</ul>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>免疫邪恶</li>
+<ul>
+<li>放置时机：美人鱼公开接受其他玩家的赞美时。</li>
+<li>放置条件：美人鱼未中毒、醉酒，放置此标记在赞美美人鱼的玩家的角色标记旁</li>
+<li>移除时机：美人鱼死亡、立场或接受一名新的玩家的赞美时。</li>
+</ul>
+</ul>
+<h2 id="规则细节">规则细节</h2>
+<ul>
+<li>邪恶角色的能力包含所有爪牙与恶魔的能力。包括但不限于死亡、中毒、错误信息等等。</li>
+<li>受美人鱼保护的玩家如果因邪恶角色的能力将要中毒醉酒或是其他持续类的效果，此类效果会暂时失效（可以倒置中毒提示标记），而不会直接让此类效果消失。如果美人鱼中途死亡或中毒醉酒，导致保护能力失效，这些玩家会立即被这些效果影响（比如重新中毒）。</li>
+<li>每个白天，美人鱼只能接受一名玩家对他的赞美，你需要对美人鱼的接受做出回应，比如公开表达收到。让玩家们明确是哪一名玩家可能会受到保护。</li>
+<li>美人鱼不可以接受自己对自己的赞美。</li>
+<li>美人鱼如果没有回应或拒绝了一名玩家的赞美，那么接下来她仍然可以接受其他玩家对她的赞美。</li>
+<li>对于不是美人鱼的玩家，如果他也接受了其他玩家的赞美，那么你也需要像回应美人鱼一样配合回应他们。</li>
+<li>如果美人鱼及其他玩家对于“赞美”这件事过于敷衍。适当地提示他们必须真诚地互动才能受到美人鱼的保护，可以让他们重新赞美一遍。美人鱼的设计初衷是鼓励玩家们社交，多进行互动行为。合理地利用美人鱼的能力让气氛活跃起来。</li>
+<li>美人鱼不可以接受旅行者玩家的赞美（旅行者隔绝原则）。</li>
+</ul>
+<h2 id="游玩与对抗技巧">游玩与对抗技巧</h2>
+<ul>
+<li>如果你是美人鱼。隐藏自己的身份没有太大的意义。因为你需要与其他玩家互动才能发挥你的能力，而互动就会暴露你是一个美人鱼。</li>
+<li>如果你是美人鱼。选择更重要的玩家接受他们的赞美！或者是选择你更爱听的赞美！想怎么玩就怎么玩！想保护谁就保护谁！</li>
+<li>如果你是一名重要的镇民。如果你被真正的美人鱼保护了，那么你的能力一定不会受到恶魔与爪牙的影响，通常情况下，你不会死亡，也不会中毒。你的信息会变得相当可信！</li>
+<li>如果你是一名善良玩家。适当伪装为美人鱼有利于帮助真正的美人鱼隐藏自己。</li>
+<li>如果你是恶魔。可能会有多名玩家是美人鱼，尽快分辨出谁是真正的美人鱼。或者你也可以尝试去赞美美人鱼以获取她的保护，这样就没有其他重要镇民会获得她的保护了。</li>
+</ul>
+<h2 id="伪装成该角色">伪装成该角色</h2>
+<ul>
+<li>伪装为美人鱼，欺骗那些被你“保护”的玩家，他们的信息相当可信。</li>
+<li>美人鱼总是会选择看起来更重要的镇民保护，所以尽可能选择更重要的玩家。这样会让你看起来更可信。</li>
+<li>美人鱼保护的玩家通常情况下不会在夜晚死亡。不要去攻击被你“保护”的玩家。否则这会让你无法解释。</li>
+</ul>
+<h2 id="出现剧本">出现剧本</h2>
+<ul>
+<li><em>暂无</em></li>
+</ul>
+<h2 id="整体设计">整体设计</h2>
+<ul>
+<li>太一</li>
+</ul>
+<h2 id="创意来源">创意来源</h2>
+<ul>
+<li>太一</li>
+</ul>
+<h2 id="图标画师">图标画师</h2>
+<ul>
+<li>Lei.</li>
+</ul></div>
+    <div class="page-meta">最后修改于 2026-09-08T05:09:36.000Z，编辑者 <b>未知</b> ｜ 页面 5,151 字节 ｜ <a href="https://www.yuque.com/u48069482/taiyi/npv12wmfrrv22zqg" target="_blank" rel="noopener">查看原页面</a></div>
+    <div class="backlinks"><b>链入此页的页面（2）</b><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">奥德赛 Odyssey</a><a href="../pages/%E5%85%B6%E4%BB%96%EF%BC%88%E7%8E%A9%E5%AE%B6%EF%BC%89_Other_players.html">其他（玩家） Other players</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

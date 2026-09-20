@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>酿酒师 - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">酿酒师</h1>
+    <div class="tagline">来自钟楼百科</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#角色信息">角色信息</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E9%85%BF%E9%85%92%E5%B8%88">查找包含此角色的剧本 →</a></p><p><a href="../pages/%E9%85%BF%E9%85%92%E5%B8%88.html" class="image-link" title="酿酒师"><img alt="Niangjiushi.png" style="width:200px" class="" loading="lazy" data-source-image="../images/Niangjiushi.png" src="../assets/media/Niangjiushi.preview.webp" width="600" height="600" decoding="async"></a></p>
+<h2 id="背景故事">背景故事</h2>
+<p><em>“酒后胡言，不过笑耳。”</em></p>
+<h2 id="角色能力">角色能力</h2>
+<p><strong>每个夜晚，你要选择一个镇民角色：当他下一次通过自身能力获取信息时，改为得知你给出的信息。</strong></p>
+<h2 id="角色简介">角色简介</h2>
+<p>酿酒师可以让特定的镇民得知他给出的信息。</p>
+<ul>
+<li>每个夜晚，酿酒师要选择一个镇民角色，随后他要向说书人给出一个信息，当那个镇民角色下一次通过自身能力获取信息时，他会得知酿酒师给出的信息。</li>
+</ul>
+<ul>
+<li>说书人解释的规则等并非由角色能力本身得知的信息并不会被酿酒师影响。</li>
+</ul>
+<ul>
+<li>受到酿酒师影响的玩家在因为自身能力获取信息时，即使他醉酒中毒，得知的信息也一定是酿酒师给出的信息。</li>
+</ul>
+<ul>
+<li>如果酿酒师给出的信息不在那个角色所能获得信息的格式范围内，那么在下一次那个角色获得信息时，酿酒师的能力不生效。</li>
+</ul>
+<ul>
+<li>酿酒师影响的是特定角色而非角色能力的实际拥有者。如果酿酒师选择了不在场的角色，之后该角色在场了，被选择角色的对应玩家也会受到酿酒师的能力影响。</li>
+</ul>
+<ul>
+<li>即使酿酒师在选择一个镇民角色的时候中毒醉酒，但只要在那个镇民因自身能力获取信息时酿酒师健康清醒，那么该镇民就会受到酿酒师能力影响。</li>
+</ul>
+<h2 id="范例">范例</h2>
+<p><a href="../pages/%E9%85%BF%E9%85%92%E5%B8%88.html" title="酿酒师">酿酒师</a>选择了<a href="../pages/%E5%8D%A0%E5%8D%9C%E5%B8%88.html" title="占卜师">占卜师</a>，并向说书人给出“是”。当晚，不论<a href="../pages/%E5%8D%A0%E5%8D%9C%E5%B8%88.html" title="占卜师">占卜师</a>选择哪两名玩家，都会得知“是”。</p>
+<p>首个夜晚，<a href="../pages/%E5%93%B2%E5%AD%A6%E5%AE%B6.html" title="哲学家">哲学家</a>选择获得<a href="../pages/%E5%9F%8E%E9%95%87%E5%85%AC%E5%91%8A%E5%91%98.html" title="城镇公告员">城镇公告员</a>的能力，在场的<a href="../pages/%E5%9F%8E%E9%95%87%E5%85%AC%E5%91%8A%E5%91%98.html" title="城镇公告员">城镇公告员</a>因此醉酒。当晚，<a href="../pages/%E9%85%BF%E9%85%92%E5%B8%88.html" title="酿酒师">酿酒师</a>选择了<a href="../pages/%E5%9F%8E%E9%95%87%E5%85%AC%E5%91%8A%E5%91%98.html" title="城镇公告员">城镇公告员</a>，并向说书人给出“否”。第一个白天，有爪牙发起了提名。第二个夜晚，<a href="../pages/%E5%93%B2%E5%AD%A6%E5%AE%B6.html" title="哲学家">哲学家</a>得知了“是”，<a href="../pages/%E5%9F%8E%E9%95%87%E5%85%AC%E5%91%8A%E5%91%98.html" title="城镇公告员">城镇公告员</a>得知了“否”。</p>
+<p>第一个白天，<a href="../pages/%E5%85%B1%E6%83%85%E8%80%85.html" title="共情者">共情者</a>死于处决，<a href="../pages/%E9%A3%9F%E4%BA%BA%E6%97%8F.html" title="食人族">食人族</a>获得了<a href="../pages/%E5%85%B1%E6%83%85%E8%80%85.html" title="共情者">共情者</a>的能力。当晚，<a href="../pages/%E9%85%BF%E9%85%92%E5%B8%88.html" title="酿酒师">酿酒师</a>选择了<a href="../pages/%E9%A3%9F%E4%BA%BA%E6%97%8F.html" title="食人族">食人族</a>，并向说书人给出“是”，随后，与两名存活的善良玩家相邻的<a href="../pages/%E9%A3%9F%E4%BA%BA%E6%97%8F.html" title="食人族">食人族</a>得知了“0”。</p>
+<p><a href="../pages/%E9%85%BF%E9%85%92%E5%B8%88.html" title="酿酒师">酿酒师</a>选择了<a href="../pages/%E6%B0%94%E7%90%83%E9%A9%BE%E9%A9%B6%E5%91%98.html" title="气球驾驶员">气球驾驶员</a>，并向说书人给出“小红”，但<a href="../pages/%E6%B0%94%E7%90%83%E9%A9%BE%E9%A9%B6%E5%91%98.html" title="气球驾驶员">气球驾驶员</a>不在场。下个夜晚，<a href="../pages/%E9%BA%BB%E8%84%B8%E5%B7%AB%E5%A9%86.html" title="麻脸巫婆">麻脸巫婆</a>将小红变成了<a href="../pages/%E6%B0%94%E7%90%83%E9%A9%BE%E9%A9%B6%E5%91%98.html" title="气球驾驶员">气球驾驶员</a>，<a href="../pages/%E9%85%BF%E9%85%92%E5%B8%88.html" title="酿酒师">酿酒师</a>依然选择气球驾驶员，并向说书人给出“小王”。当晚，小红得知了“小王”。</p>
+<h2 id="运作方式">运作方式</h2>
+<p>每个夜晚，唤醒酿酒师，让酿酒师指向角色列表上一个镇民角色的图标并让他给出信息（点头摇头，用手势比划数字或指向一名玩家等）。让酿酒师重新入睡。</p>
+<p>如果他指向的角色在场且给出的信息在合理范围内，在对应的角色标记旁放置“微醺”提示标记。</p>
+<p>每当带有“微醺”提示标记的玩家的能力需要你提供信息时，你就必须提供酿酒师给出的信息。你可以事先将酿酒师选择但当前未在场的角色标记摆放在魔典的某处，并在旁边放置“微醺”标记以便记忆。（如有必要，你可以记录下酿酒师给出的信息以备忘）</p>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>微醺</li>
+</ul>
+<p>放置时机：在酿酒师夜晚行动时选择了一个镇民角色后。</p>
+<p>放置条件：放置在酿酒师所选择的那个镇民角色所对应的玩家的角色标记旁。如果此时酿酒师中毒或醉酒，也要放置该标记。 如果所选的镇民不会因自身能力获取信息或者酿酒师给出的信息不在合理范围内时，不放置该标记。</p>
+<p>转移条件：酿酒师的能力是动态检测的，因此一旦酿酒师选择的那个角色有被中途创造出来，或者这个镇民角色所属的玩家角色发生变化，就需要移动微醺标记到合适的位置。</p>
+<p>移除时机：被酿酒师选择的镇民玩家因自身能力获得信息后，或酿酒师死亡或离场时。</p>
+<h2 id="规则细节">规则细节</h2>
+<ul>
+<li>如果酿酒师多次选择同一个角色，在那个角色下一次获取信息时，以酿酒师最后一次给出的合理信息为准。</li>
+</ul>
+<ul>
+<li>特定角色互动：</li>
+<ul>
+<li><a href="../pages/%E6%B6%A1%E6%B5%81.html" title="涡流">涡流</a>：涡流与酿酒师同时作用于某个镇民时，以酿酒师给出的合理信息为准。</li>
+<li><a href="../pages/%E5%8D%9A%E5%AD%A6%E8%80%85.html" title="博学者">博学者</a>/<a href="../pages/%E6%B8%94%E5%A4%AB.html" title="渔夫">渔夫</a>：不能以简单手势来给出信息的角色能力，说书人可以向酿酒师玩家提供可编辑信息的工具，如写字板等，让酿酒师能够在夜晚给出复杂的信息内容。</li>
+<li><a href="../pages/%E6%9D%91%E5%A4%AB.html" title="村夫">村夫</a>：当多个村夫在场时，酿酒师的能力会影响被说书人首先唤醒的那个村夫玩家。</li>
+<li><a href="../pages/%E5%AE%88%E5%A4%9C%E4%BA%BA.html" title="守夜人">守夜人</a>：被守夜人选择的其他玩家不是通过他的能力获取了信息，而是通过守夜人的能力获取信息，在此前提下，酿酒师的能力不会影响守夜人产生的信息。（如果守夜人选择自己，那么会被酿酒师的能力影响）</li>
+</ul>
+</ul>
+<h2 id="角色信息">角色信息</h2>
+<ul>
+<li>英文名：Brewer</li>
+</ul>
+<ul>
+<li>所属角色合集：<a href="../pages/%E5%B1%B1%E9%9B%A8%E6%AC%B2%E6%9D%A5.html" title="山雨欲来">山雨欲来</a></li>
+</ul>
+<ul>
+<li>创意来源：苏通染</li>
+</ul>
+<ul>
+<li>角色类型：<a href="../pages/%E7%88%AA%E7%89%99.html" title="爪牙">爪牙</a></li>
+</ul>
+<ul>
+<li>角色能力类型：<a href="../pages/%E8%83%BD%E5%8A%9B%E6%95%88%E6%9E%9C%E5%B9%B2%E6%89%B0.html" title="能力效果干扰">能力效果干扰</a>、<a href="../pages/%E6%8C%81%E7%BB%AD%E6%A3%80%E6%B5%8B%E5%9E%8B%E8%83%BD%E5%8A%9B.html" title="持续检测型能力">持续检测型能力</a>、<a href="../pages/%E5%9B%9E%E6%BA%AF%E5%9E%8B%E8%83%BD%E5%8A%9B.html" title="回溯型能力">回溯型能力</a></li>
+</ul></div>
+    <div class="page-meta">最后修改于 2026-06-29T00:56:15Z，编辑者 <b>Zack</b> ｜ 页面 5,095 字节 ｜ <a href="https://clocktower-wiki.gstonegames.com/index.php?title=%E9%85%BF%E9%85%92%E5%B8%88" target="_blank" rel="noopener">查看原页面</a> ｜ <div class="comment">编辑摘要：/* 角色简介 */</div></div>
+    <div class="backlinks"><b>链入此页的页面（8）</b><a href="../pages/%E5%9B%9E%E6%BA%AF%E5%9E%8B%E8%83%BD%E5%8A%9B.html">回溯型能力</a><a href="../pages/%E8%8E%B7%E5%8F%96%E4%BF%A1%E6%81%AF.html">获取信息</a><a href="../pages/%E8%83%BD%E5%8A%9B%E6%95%88%E6%9E%9C%E5%B9%B2%E6%89%B0.html">能力效果干扰</a><a href="../pages/%E6%8C%81%E7%BB%AD%E6%A3%80%E6%B5%8B%E5%9E%8B%E8%83%BD%E5%8A%9B.html">持续检测型能力</a><a href="../pages/%E5%A4%9C%E6%99%9A%E8%A1%8C%E5%8A%A8%E9%A1%BA%E5%BA%8F%E4%B8%80%E8%A7%88.html">夜晚行动顺序一览</a><a href="../pages/%E5%B1%B1%E9%9B%A8%E6%AC%B2%E6%9D%A5.html">山雨欲来</a><a href="../pages/%E9%85%BF%E9%85%92%E5%B8%88.html">酿酒师</a><a href="../pages/%E6%A2%A6%E5%9B%9E%E5%A4%A7%E5%94%90.html">梦回大唐</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>恐虐 Khorne - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">恐虐 Khorne<span class="ns-badge">奥德赛</span></h1>
+    <div class="tagline">来自钟楼百科 · 摘自《奥德赛 Odyssey》百科 · 恶魔</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#夜晚行动顺序">夜晚行动顺序</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#游玩与对抗技巧">游玩与对抗技巧</a></li><li class="lvl2"><a href="#出现剧本">出现剧本</a></li><li class="lvl2"><a href="#整体设计">整体设计</a></li><li class="lvl2"><a href="#创意来源">创意来源</a></li><li class="lvl2"><a href="#图标画师">图标画师</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E6%81%90%E8%99%90">查找包含此角色的剧本 →</a></p><div class="charinfo"><div class="charinfo-img"><a href="../files/%E6%96%87%E4%BB%B6_%E6%81%90%E8%99%90.png.html"><img alt="恐虐 Khorne" data-source-image="../images/%E6%81%90%E8%99%90.png" src="../assets/media/恐虐.preview.webp" width="600" height="600" decoding="async"></a></div><div class="charinfo-meta"><div class="row"><span class="k">角色类型</span><span class="v"><a href="../pages/%E6%81%B6%E9%AD%94.html" title="恶魔">恶魔</a></span></div><div class="row"><span class="k">英文名</span><span class="v">Khorne</span></div><div class="row"><span class="k">角色ID</span><span class="v">110</span></div><div class="row"><span class="k">角色归属</span><span class="v">角色拓展包《奥德赛》</span></div><div class="row"><span class="k">能力标签</span><span class="v"><a href="../pages/%E9%A2%9D%E5%A4%96%E6%AD%BB%E4%BA%A1.html" title="额外死亡">额外死亡</a>、<a href="../pages/%E5%85%8D%E6%AD%BB.html" title="免死">免死</a></span></div><div class="row"><span class="k">角色定位</span><span class="v">多刀恶魔</span></div><div class="row"><span class="k">发布日期</span><span class="v">2026.7.3</span></div><div class="row"><span class="k">角色授权</span><span class="v">开放（任意剧本创作皆可使用，不要改能力）</span></div><div class="row"><span class="k">出处</span><span class="v"><a class="external" href="https://www.yuque.com/u48069482/taiyi" target="_blank" rel="noopener">《奥德赛 Odyssey》百科</a></span></div></div></div><h2 id="背景故事">背景故事</h2>
+<p><em>"你太胆小了，连刀刃都在发抖，你根本不配站在这里，你玷污了你的旗帜和荣耀。那些敢于直视我、向我冲来、在倒下的瞬间还试图反扑的勇士才配让我为他们哀悼，哪怕只有片刻。而你？你只配被我顺手一刀剁倒，无人知晓，连苍蝇都懒得落在你的尸体上。"</em></p>
+<h2 id="角色简介"><span style="color:rgb(64, 64, 64);">角色简介</span></h2>
+<p>恐虐既会杀死玩家，也会保护玩家。</p>
+<h2 id="角色能力">角色能力</h2>
+<div class="callout callout-info">
+<p>每个夜晚*，你要选择两名玩家：他们死亡。如果有善良玩家在白天死亡，当晚你选择的其中一名玩家不会死亡。</p>
+</div>
+<h2 id="范例">范例</h2>
+<ul>
+<li>第一个白天，一名善良玩家死于处决。当晚，恐虐选择了占卜师和贵族，贵族死亡了，占卜师没有死亡。</li>
+<li>第一个白天，一名善良玩家死于处决。当晚，赌徒猜错了角色，恐虐选择了占卜师和赌徒，占卜师死亡了，赌徒没有死亡（受恐虐能力影响，详见规则细节）。</li>
+<li>第一个白天，一名外来者死于处决。当晚，恐虐选择了占卜师和贵族，占卜师死亡了。随后教父选择了贵族，贵族没有死亡。</li>
+<li>第一个白天，魔像提名并杀死了一名善良玩家。当晚，恐虐选择了占卜师和贵族，占卜师死亡了，贵族没有死亡。</li>
+<li>第二个白天，只有一名善良玩家被处决但没有死亡。当晚，恐虐攻击了两名玩家，这两名玩家死亡。</li>
+<li>第三个白天，只有一名邪恶玩家死于处决。当晚，恐虐攻击了两名玩家，这两名玩家死亡。</li>
+<li>第四个白天，没有玩家被处决。当晚，恐虐攻击了两名玩家，这两名玩家死亡。</li>
+</ul>
+<h2 id="运作方式">运作方式</h2>
+<p>除首个夜晚以外的每个夜晚，唤醒恐虐。让恐虐指向任意两名玩家。让恐虐重新入睡。被选择的玩家死亡——在那两名玩家的角色标记旁放置恐虐的“死亡”提示标记。</p>
+<p>如果一名善良玩家在白天死亡，将“不会死亡”提示标记放置到恐虐的角色标记旁。当晚，恐虐选择两名玩家后，你要将“死亡”提示标记放置在其中一名玩家的角色标记旁——他死亡。将“不会死亡”提示标记移动到另一名玩家的角色标记旁——他当晚不会死亡，包括不会死于恐虐能力以及其他原因。</p>
+<p>黎明时，移除所有“不会死亡”提示标记。</p>
+<h2 id="夜晚行动顺序">夜晚行动顺序</h2>
+<ul>
+<li>首个夜晚</li>
+<ul>
+<li>夜序数值：/</li>
+<li>前位角色：/</li>
+<li>行动提示：/</li>
+</ul>
+<li>其他夜晚</li>
+<ul>
+<li>夜序数值：4910</li>
+<li>前位角色：小恶魔</li>
+<li>行动提示：让他选择两名玩家。</li>
+</ul>
+</ul>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>死亡*2</li>
+<ul>
+<li>放置时机：在恐虐选择了玩家后放置。</li>
+<li>放置条件：如果恐虐选择的玩家当前存活，且恐虐未醉酒中毒，那么在该玩家的角色标记旁放置。</li>
+<li>移除时机：在黎明时宣布死亡玩家后，说书人可以任由自己方便来进行移除。</li>
+</ul>
+<li>不会死亡</li>
+<ul>
+<li>放置时机：善良玩家在白天死亡时或恐虐行动时。</li>
+<li>放置条件：善良玩家在白天死亡时，放置在恐虐的角色标记旁，即使恐虐中毒醉酒。恐虐行动时，如果此标记被放置在魔典中，将其移动到恐虐选择的一名玩家的角色标记旁。</li>
+<li>移除时机：黎明时。</li>
+</ul>
+</ul>
+<h2 id="规则细节">规则细节</h2>
+<ul>
+<li>恐虐每个夜晚可以攻击两名玩家。这两名玩家会按恐虐选择的先后顺序依次死亡。</li>
+<li>如果白天有善良玩家死亡，当晚恐虐选择的两名玩家中谁会死亡而谁受到保护，由说书人决定。</li>
+<li>只要有善良玩家在白天死亡，不管是死于处决或其他原因。当天晚上恐虐选择的玩家中会有一名玩家不会在当晚死亡。包括不会死于恐虐的能力以及其他原因。</li>
+<li>某些能够在夜晚时、恐虐行动前造成死亡的角色（如赌徒），如果当晚在恐虐行动前造成了死亡，又被选中作为恐虐保护的玩家，撤销当晚造成的死亡。如果这些死亡会造成某些死亡触发效果，等到恐虐行动后，如果恐虐没有保护他们，再对这些效果进行结算。</li>
+<li>如果善良玩家在白天死亡时，恐虐醉酒或中毒，随后恐虐恢复健康。恐虐当晚选择的玩家依然会有一名不会死亡。</li>
+<li>如果善良玩家在白天死亡时，恐虐不在场。随后恐虐被创造，当晚恐虐会杀死两名玩家。</li>
+<li>如果恐虐保护了被半兽人选择的善良玩家，从而导致半兽人没有造成死亡。当晚恐虐选择的另一名玩家会正常死亡而不会受到半兽人的保护。</li>
+<li>善良旅行者玩家在白天死亡，并不会影响恐虐的能力。恐虐不可以选择旅行者。（旅行者隔绝原则）</li>
+</ul>
+<h2 id="游玩与对抗技巧">游玩与对抗技巧</h2>
+<ul>
+<li>如果你是恐虐。你的保护能力可以让一些本应在夜晚死亡的玩家不会死亡，从而造成一些混乱。比如保护一名赌错了的赌徒，或是保护被猎红镇民盯上的爪牙。</li>
+<li>如果你是恐虐。如果白天有善良玩家死亡，就意味着你当晚无法精准地杀死某一名玩家。所以，尽可能选择两名同样重要的玩家，保证你的击杀价值。</li>
+<li>如果你是恐虐。如果当天邪恶玩家死于处决，你可以隐藏你的锋芒，故意选择死亡的玩家或是受到保护的玩家，只让一名玩家死亡。这样可以伪装为其他恶魔在场，或是引导大家相信当天被处决的玩家是善良的。</li>
+<li>如果你是恐虐。不要害怕善良阵营在白天不处决玩家或是处决玩家但没有死亡。因为你可以因此在当晚杀死多名玩家。但也可能会因此暴露恶魔是恐虐。</li>
+<li>如果你是善良玩家。如果夜晚经常出现无缘由的多名玩家死亡，你要考虑恶魔是恐虐的可能性。</li>
+<li>如果你是善良玩家。如果你认为在场恶魔就是恐虐，但是夜晚只有一名玩家死亡。那么当天被处决的玩家就可能是善良的。如果夜晚有2名甚至更多玩家死亡，那么当天被处决的玩家极有可能是邪恶的。</li>
+<li>如果你是善良玩家。如果你认为在场恶魔就是恐虐，尽量每天都去处决玩家。就算你们不去选择玩家处决，暴虐也会在夜晚杀死多名玩家。让恐虐选择不如由大家统一决定。</li>
+</ul>
+<h2 id="出现剧本">出现剧本</h2>
+<ul>
+<li><em>暂无</em></li>
+</ul>
+<h2 id="整体设计">整体设计</h2>
+<ul>
+<li>太一</li>
+</ul>
+<h2 id="创意来源">创意来源</h2>
+<ul>
+<li>太一</li>
+</ul>
+<h2 id="图标画师">图标画师</h2>
+<ul>
+<li>Lei.</li>
+</ul></div>
+    <div class="page-meta">最后修改于 2026-09-08T05:28:17.000Z，编辑者 <b>未知</b> ｜ 页面 6,405 字节 ｜ <a href="https://www.yuque.com/u48069482/taiyi/tgau279yqw2w2i49" target="_blank" rel="noopener">查看原页面</a></div>
+    <div class="backlinks"><b>链入此页的页面（1）</b><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">奥德赛 Odyssey</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>失败的上帝 - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">失败的上帝</h1>
+    <div class="tagline">来自钟楼百科</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#角色详解">角色详解</a></li><li class="lvl2"><a href="#角色信息">角色信息</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E5%A4%B1%E8%B4%A5%E7%9A%84%E4%B8%8A%E5%B8%9D">查找包含此角色的剧本 →</a></p><p><a href="../pages/%E5%A4%B1%E8%B4%A5%E7%9A%84%E4%B8%8A%E5%B8%9D.html" class="image-link" title="失败的上帝"><img alt="Deusexfiasco_new.png" style="width:200px" class="" loading="lazy" data-source-image="../images/Deusexfiasco_new.png" src="../assets/media/Deusexfiasco_new.preview.webp" width="591" height="591" decoding="async"></a></p>
+<h2 id="背景故事">背景故事</h2>
+<p><em>“这不是漏洞，是神迹。</em></p>
+<p><em>这不是失误，是天意。</em></p>
+<p><em>这不是崩坏，是风格。”</em></p>
+<h2 id="角色能力">角色能力</h2>
+<p><strong>每局游戏至少一次，说书人将会出现失误，但会纠正并公开承认自己曾处理有误。</strong></p>
+<h2 id="角色简介">角色简介</h2>
+<p>失败的上帝可以帮助说书人弥补出现的错误，并提高对主持一些困难剧本的白信心。</p>
+<ul>
+<li>在游戏开始时，宣布失败的上帝加入游戏。它不可以在游戏中途加入游戏。假如说书人游戏中途犯了一个措误，并在事后加入失败的上帝，那么所有玩家都会明确意识到这确实是一个真实的失误，这样失败的上帝原本模糊和不确定性的设计目的就失效了。</li>
+</ul>
+<ul>
+<li>说书人至少需要犯一次错。这可以是一个意外的错误，也可以是一个故意的错误。玩家并不知道是哪种情况。</li>
+</ul>
+<ul>
+<li>若说书人已经有过失误，就无需再人为制造额外错误来配合角色。如果游戏椄近最后一天，说书人还没有犯过错，那么他要在游戏结束前故意犯个错。</li>
+</ul>
+<ul>
+<li>无论是意外还是故意的错误，都必须采取补救措施或被纠正。说书人可能需要打破规则来弥补错误带来的后果。发生错误后的任何时候，说书人需要让所有玩家得知发生了一个错误，并且已经纠正或弥补了。不需要告知具体发生了什么，但可能需要秘密告知受影响的那名玩家。</li>
+</ul>
+<ul>
+<li>玩家可以在没有错误时声称说书人犯错了，或者声称一个还未纠正的错误被处理了。</li>
+</ul>
+<ul>
+<li>如有需要，说书人可以安排几次看似意外的错误、有意为之的错误，或二者结合，以营造失败的上帝带来的混乱效果。</li>
+</ul>
+<h2 id="范例">范例</h2>
+<p>在第一个白天，道哥和说书人私聊时，告诉说书人他从盲抽袋中抽出来的是<a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a>，说书人发现魔典中道哥的角色的确是<a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a>。说书人告诉道哥他现在是<a href="../pages/%E9%95%87%E9%95%BF.html" title="镇长">镇长</a>，并且将魔典中道哥的角色标记替换为<a href="../pages/%E9%95%87%E9%95%BF.html" title="镇长">镇长</a>。并且悄悄将魔典里的<a href="../pages/%E5%AE%88%E9%B8%A6%E4%BA%BA.html" title="守鸦人">守鸦人</a>玩家变成了<a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a>。当天的晚些时候，说书人宣布氾了一个措误。</p>
+<p><a href="../pages/%E5%85%B1%E6%83%85%E8%80%85.html" title="共情者">共情者</a>坐在<a href="../pages/%E5%83%A7%E4%BE%A3.html" title="僧侣">僧侣</a>和中毒的<a href="../pages/%E9%99%8C%E5%AE%A2.html" title="陌客">陌客</a>中间，说书人忘记了<a href="../pages/%E9%99%8C%E5%AE%A2.html" title="陌客">陌客</a>是中毒的，不小心让<a href="../pages/%E5%85%B1%E6%83%85%E8%80%85.html" title="共情者">共情者</a>得知了“1”。当晚，说书人重新唤醒<a href="../pages/%E5%85%B1%E6%83%85%E8%80%85.html" title="共情者">共情者</a>并告知“0”。在白天，当<a href="../pages/%E5%85%B1%E6%83%85%E8%80%85.html" title="共情者">共情者</a>私下询问说书人发生了什么事情时，说书人说第一个数字是错误的，第二个数字是正确的。说书人为了不暴露太多额外的信息，一直等到下一个白天才宣布犯了一个错误。</p>
+<p><a href="../pages/%E5%B0%8F%E6%81%B6%E9%AD%94.html" title="小恶魔">小恶魔</a>被处决并死亡。说书人当晚唤醒清醒且健康的<a href="../pages/%E9%80%81%E8%91%AC%E8%80%85.html" title="送葬者">送葬者</a>，故意错误地给他展示了<a href="../pages/%E9%99%8C%E5%AE%A2.html" title="陌客">陌客</a>的角色标记。当晚，说书人重新唤醒了<a href="../pages/%E9%80%81%E8%91%AC%E8%80%85.html" title="送葬者">送葬者</a>并向他展示了<a href="../pages/%E5%B0%8F%E6%81%B6%E9%AD%94.html" title="小恶魔">小恶魔</a>的角色标记。黎明，说书人宣布他犯一个错误并且已经纠正了。</p>
+<p><a href="../pages/%E7%89%99%E5%99%B6%E5%B7%B4%E5%8D%9C.html" title="牙噶巴卜">牙噶巴卜</a>被处决并死亡。说书人不小心宣布了游戏结束，善良获生。但是<a href="../pages/%E7%BA%A2%E5%94%87%E5%A5%B3%E9%83%8E.html" title="红唇女郎">红唇女郎</a>仍然存活。说书人宣布犯了一个错误，游戏继赎。</p>
+<p>小八是<a href="../pages/%E6%B2%99%E5%B7%B4%E6%B4%9B%E6%96%AF.html" title="沙巴洛斯">沙巴洛斯</a>，当晚，小八杀死了小米和道哥。黎明时，说书人故意宣布小八和小莱死亡。约30秒后，说书人说：“哎呀！我的魔典摆错了，小八和小莱不应该死亡，他们还活着，是小米和道哥在昨晚死亡了。对不起，我弄错了。”</p>
+<p>说书人昨天晚上忘记了唤醒<a href="../pages/%E6%8A%95%E6%AF%92%E8%80%85.html" title="投毒者">投毒者</a>，于是说书人白天去找<a href="../pages/%E6%8A%95%E6%AF%92%E8%80%85.html" title="投毒者">投毒者</a>私聊并承认自己的错误，为了弥补错误，说书人告诉<a href="../pages/%E6%8A%95%E6%AF%92%E8%80%85.html" title="投毒者">投毒者</a>之后的每晚都可以选择任意数量的玩家，然后由说书人决定其中的哪名玩家中毒。</p>
+<p><a href="../pages/%E4%BE%8D%E5%A5%B3.html" title="侍女">侍女</a>被唤醒并选择了一名死亡玩家，即使<a href="../pages/%E4%BE%8D%E5%A5%B3.html" title="侍女">侍女</a>只能选择存活玩家。说书人并没有让<a href="../pages/%E4%BE%8D%E5%A5%B3.html" title="侍女">侍女</a>去更换选择，反而故意给了一个错误信息。在白天，说书人和<a href="../pages/%E4%BE%8D%E5%A5%B3.html" title="侍女">侍女</a>私聊，并承认他错误地让<a href="../pages/%E4%BE%8D%E5%A5%B3.html" title="侍女">侍女</a>选择了已经死亡的玩家，为了补救，他让<a href="../pages/%E4%BE%8D%E5%A5%B3.html" title="侍女">侍女</a>可以立刻重新选择两名存活的玩家。这次说书人给了<a href="../pages/%E4%BE%8D%E5%A5%B3.html" title="侍女">侍女</a>正确的信息。</p>
+<h2 id="运作方式">运作方式</h2>
+<p>在游戏开始时，宣布失败的上帝加入游戏。别把玩家们的吐槽和调侃放在心上！</p>
+<p>任何时候，如果你不小心犯了错吴，请尽最大努力纠正或弥补，必要时可灵活调整规则。之后，声明你犯了一个错误，并在魔典中添加“哎呀！”的提示标记。</p>
+<p>任何时候，如果你故意犯了错误，那么请纠正这个错误，之后，声明你犯了一个措误，并在魔典中添加“哎呀！”的提示标记。</p>
+<p><strong><em>请记住：传奇角色的设计并非为了说书人的“（恶）趣味”。其存在的目的是帮助说书人，流畅且包容地运作游戏。</em></strong></p>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>哎呀！</li>
+</ul>
+<p>放置时机：说书人公开承认错误后放置。</p>
+<p>放置条件：在说书人纠正或弥补错误并公开承认错误之后，放置在魔典中（由说书人自行决定放置在魔典何处）。</p>
+<h2 id="角色详解">角色详解</h2>
+<p>如果你想主持一局超出你舒适区的复杂的剧本——无论是第一次的《暗流涌动》，还是一个复杂的自定义剧本，失败的上帝都可以让你白信的去运作这个剧本。在游戏开始时，当失败的上帝加入后，玩家就会知道你在游戏过程中至少会犯一个错误，而你也就顺势获得了“犯错不背锅”的特权——看起来像是搞砸了？谁知道是不是你故意的呢！</p>
+<p>当你犯了错误后，要尽你最大弩力去纠正或弥补。可能有些错误处理起来很困难，但没关系，你尽力就好。在处理完错误后的某个时间，你可以选择你喜欢的表达方式，生动有趣或直白一些，公开宣布你犯了一个错误并已尽你所能妥善处理，保证玩家清楚地理解你的意思。</p>
+<p>如果在游戏开始时你没有加入失败的上帝，但在游戏过程中出现了失误，也不要让失败的上帝加入游戏。中途添加失败的上帝会向玩家表明你确实犯了一个预期以外的错误，这可能会导致玩家们不公平地推断出与关于这个失误或游戏以外的额外信息。如果没有加入失败的上帝，但你确实出现了失误的情况下，可以按照常规方式处理：选择平衡且有趣的方式去妥善处理它，你也可以决定是否需要向小镇玩家宣布或纠正它。</p>
+<h2 id="角色信息">角色信息</h2>
+<ul>
+<li>英文名：Deus Ex Fiasco</li>
+</ul>
+<ul>
+<li>角色类型：<a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html" title="传奇角色">传奇角色</a></li>
+</ul>
+<ul>
+<li>角色能力类型：<a href="../pages/%E8%BF%9B%E5%9C%BA%E8%83%BD%E5%8A%9B.html" title="进场能力">进场能力</a>、<a href="../pages/%E9%99%90%E6%AC%A1%E8%83%BD%E5%8A%9B.html" title="限次能力">限次能力</a></li>
+</ul></div>
+    <div class="page-meta">最后修改于 2025-08-03T15:43:57Z，编辑者 <b>Zack</b> ｜ 页面 6,661 字节 ｜ <a href="https://clocktower-wiki.gstonegames.com/index.php?title=%E5%A4%B1%E8%B4%A5%E7%9A%84%E4%B8%8A%E5%B8%9D" target="_blank" rel="noopener">查看原页面</a></div>
+    <div class="backlinks"><b>链入此页的页面（6）</b><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a><a href="../pages/%E8%BF%9B%E5%9C%BA%E8%83%BD%E5%8A%9B.html">进场能力</a><a href="../pages/%E9%99%90%E6%AC%A1%E8%83%BD%E5%8A%9B.html">限次能力</a><a href="../pages/%E5%A4%B1%E8%B4%A5%E7%9A%84%E4%B8%8A%E5%B8%9D.html">失败的上帝</a><a href="../pages/%E6%96%B0%E8%A7%92%E8%89%B2%E5%85%AC%E5%B8%83%E8%AE%A1%E5%88%92.html">新角色公布计划</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

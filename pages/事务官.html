@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>事务官 - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">事务官</h1>
+    <div class="tagline">来自钟楼百科</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#提示与技巧">提示与技巧</a></li><li class="lvl2"><a href="#伪装成事务官">伪装成事务官</a></li><li class="lvl2"><a href="#角色信息">角色信息</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E4%BA%8B%E5%8A%A1%E5%AE%98">查找包含此角色的剧本 →</a></p><p><a href="../pages/%E4%BA%8B%E5%8A%A1%E5%AE%98.html" class="image-link" title="事务官"><img alt="Steward.png" style="width:200px" class="" loading="lazy" data-source-image="../images/Steward.png" src="../assets/media/Steward.preview.webp" width="591" height="591" decoding="async"></a></p>
+<h2 id="背景故事">背景故事</h2>
+<p><em>“你竟敢指责夫人的过错？我认识她一辈子了！整整九年！”</em></p>
+<h2 id="角色能力">角色能力</h2>
+<p><strong>在你的首个夜晚，你会得知一名善良玩家。</strong></p>
+<h2 id="角色简介">角色简介</h2>
+<p>事务官会得知一名善良玩家。</p>
+<ul>
+<li>事务官得知的是玩家，但不得知他的具体角色。</li>
+</ul>
+<ul>
+<li>事务官会在首个夜晚得知他的信息。</li>
+</ul>
+<ul>
+<li>如果事务官在游戏中途被创造，事务官会在当晚得知信息。</li>
+</ul>
+<h2 id="范例">范例</h2>
+<p><a href="../pages/%E4%BA%8B%E5%8A%A1%E5%AE%98.html" title="事务官">事务官</a>得知小艾是善良玩家。小艾是<a href="../pages/%E9%80%81%E8%91%AC%E8%80%85.html" title="送葬者">送葬者</a>。</p>
+<p><a href="../pages/%E9%BA%BB%E8%84%B8%E5%B7%AB%E5%A9%86.html" title="麻脸巫婆">麻脸巫婆</a>将<a href="../pages/%E7%BD%82%E7%B2%9F%E7%A7%8D%E6%A4%8D%E8%80%85.html" title="罂粟种植者">罂粟种植者</a>变成了<a href="../pages/%E4%BA%8B%E5%8A%A1%E5%AE%98.html" title="事务官">事务官</a>。当晚，<a href="../pages/%E4%BA%8B%E5%8A%A1%E5%AE%98.html" title="事务官">事务官</a>得知小黑是善良玩家。小黑是<a href="../pages/%E9%97%B4%E8%B0%8D.html" title="间谍">间谍</a>，但被当作善良阵营。</p>
+<h2 id="运作方式">运作方式</h2>
+<p>在为首个夜晚进行准备时，将事务官的“得知”提示标记放置在任意一名善良玩家的角色标记旁。</p>
+<p>在首个夜晚，唤醒事务官，并指向标记有“得知”的那名玩家。让事务官重新入睡。</p>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>得知</li>
+</ul>
+<p>放置时机：在为首个夜晚做准备时放置。</p>
+<p>放置条件：放置在一名善良玩家的角色标记旁边。</p>
+<p>移除时机：在事务官获取信息后，说书人可以任由自己方便来进行移除。</p>
+<h2 id="提示与技巧">提示与技巧</h2>
+<ul>
+<li>你会得知一名既不是恶魔也不是爪牙的玩家。这是很棒的信息！你可以相信他是怀着善意为你们阵营行动，并且只有醉酒和中毒会干扰他们的信息。运用你的信息与其他人共同努力去通关游戏。</li>
+</ul>
+<ul>
+<li>直接公开自己的信息。如果所有人都知道你和你得知的玩家都是善良的，他们可以直接将这个信息加入到他们的逻辑线构建和能力选择方案里。你的信息不会让游戏通关，但它很有用，所以让大家都知道这个信息吧。</li>
+</ul>
+<ul>
+<li>与你得知的玩家私聊，并且为了让他能够存活而隐藏你的信息。如果让恶魔听到你的信息并且相信这是真的，那么恶魔会认为让你得知的玩家存活到三人决赛圈是危险的事情。所以恶魔会希望这名玩家最先死亡。因此，不说出你的信息也许有助于让那名玩家存活。</li>
+</ul>
+<ul>
+<li>一旦公开你的信息，让玩家们把这条信息纳入他们的逻辑线构建中！你知道自己以及你得知的玩家都是善良的，所以如果有逻辑线认为你们之中有邪恶玩家，那么另一个人也必须是邪恶玩家。通常来说，这意味着构建一条你们都是邪恶玩家的逻辑线最终会得到邪恶玩家过多的结论，而你可以根据这个结论作出相应的辩解。</li>
+</ul>
+<h2 id="伪装成事务官">伪装成事务官</h2>
+<ul>
+<li>事务官是这个游戏最简单的伪装之一，同时也是一个优秀的备用伪装。伪装成事务官，声称恶魔是你得知的玩家。如果玩家们信任你，那么恶魔看起来会是善良的，你的工作就完成了。</li>
+</ul>
+<ul>
+<li>将一名善良玩家作为你的事务官信息声明出来，然后确保其他玩家使用自身能力来指向你是邪恶玩家！你会把那名玩家一起拖下水，但是直到善良阵营花费好几天时间才有机会发现你是邪恶的。所以在你被处决之前，你还能够有好几天的时间来使用你的爪牙能力。</li>
+</ul>
+<ul>
+<li>将一名善良玩家作为你的事务官信息声明出来，并尝试与他们一起努力“通关”。如果你们能努力地作为一对合作搭档而被信任，你可以在没有受到太多嫌疑的情况下存活度过整局游戏。</li>
+</ul>
+<h2 id="角色信息">角色信息</h2>
+<ul>
+<li>英文名：Steward</li>
+</ul>
+<ul>
+<li>所属剧本：<a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html" title="实验性角色">实验性角色</a>、<a href="../pages/%E6%B2%B8%E5%8F%8D%E7%9B%88%E5%A4%A9.html" title="沸反盈天">沸反盈天</a>（快速上手剧本）</li>
+</ul>
+<ul>
+<li>角色类型：<a href="../pages/%E9%95%87%E6%B0%91.html" title="镇民">镇民</a></li>
+</ul>
+<ul>
+<li>角色能力类型：<a href="../pages/%E8%BF%9B%E5%9C%BA%E8%83%BD%E5%8A%9B.html" title="进场能力">进场能力</a>、<a href="../pages/%E8%8E%B7%E5%8F%96%E4%BF%A1%E6%81%AF.html" title="获取信息">获取信息</a></li>
+</ul></div>
+    <div class="page-meta">最后修改于 2023-09-05T08:45:32Z，编辑者 <b>Little Black</b> ｜ 页面 3,704 字节 ｜ <a href="https://clocktower-wiki.gstonegames.com/index.php?title=%E4%BA%8B%E5%8A%A1%E5%AE%98" target="_blank" rel="noopener">查看原页面</a> ｜ <div class="comment">编辑摘要：/* 角色信息 */</div></div>
+    <div class="backlinks"><b>链入此页的页面（19）</b><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a><a href="../pages/%E6%B0%94%E7%90%83%E9%A9%BE%E9%A9%B6%E5%91%98.html">气球驾驶员</a><a href="../pages/%E8%BF%9B%E5%9C%BA%E8%83%BD%E5%8A%9B.html">进场能力</a><a href="../pages/%E8%8E%B7%E5%8F%96%E4%BF%A1%E6%81%AF.html">获取信息</a><a href="../pages/%E9%95%87%E6%B0%91.html">镇民</a><a href="../pages/%E5%93%AA%E4%BA%9B%E6%98%AF%E2%80%9C%E5%8F%AF%E4%BB%A5%E4%BD%86%E4%B8%8D%E5%BB%BA%E8%AE%AE%E2%80%9D.html">哪些是“可以但不建议”</a><a href="../pages/%E4%BA%8B%E5%8A%A1%E5%AE%98.html">事务官</a><a href="../pages/%E6%B2%B8%E5%8F%8D%E7%9B%88%E5%A4%A9.html">沸反盈天</a><a href="../pages/%E5%8F%98%E8%84%B8%E5%B8%88.html">变脸师</a><a href="../pages/%E5%A4%9C%E6%99%9A%E8%A1%8C%E5%8A%A8%E9%A1%BA%E5%BA%8F%E4%B8%80%E8%A7%88.html">夜晚行动顺序一览</a><a href="../pages/%E6%96%B0%E8%A7%92%E8%89%B2%E5%85%AC%E5%B8%83%E8%AE%A1%E5%88%92.html">新角色公布计划</a><a href="../pages/%E7%AC%AC%E4%B8%80%E5%B1%8A%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A%E5%89%A7%E6%9C%AC%E5%88%9B%E4%BD%9C%E5%A4%A7%E8%B5%9B.html">第一届华灯初上剧本创作大赛</a><a href="../pages/%E8%8E%AB%E8%A8%80%E4%B8%89%E5%8D%83%E6%AD%BB.html">莫言三千死</a><a href="../pages/%E5%BC%82%E5%9C%B0%E4%BC%97%E6%AC%A2%E6%9D%A5.html">异地众欢来</a><a href="../pages/%E9%9B%86%E5%90%8E%E4%BA%BA%E4%B9%8B%E8%A8%80.html">集后人之言</a><a href="../pages/%E5%AF%B9%E5%A2%9F%E9%9A%BE%E6%AC%A2%E9%B8%A3.html">对墟难欢鸣</a><a href="../pages/%E9%97%B2%E8%A8%80%E7%A2%8E%E8%AF%AD.html">闲言碎语</a><a href="../pages/%E7%8C%8E%E5%B7%AB%E8%A1%8C%E5%8A%A8.html">猎巫行动</a><a href="../pages/%E6%98%BE%E6%88%91%E7%A5%9E%E9%80%9A.html">显我神通</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

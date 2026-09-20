@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>萨满 Shaman - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">萨满 Shaman<span class="ns-badge">奥德赛</span></h1>
+    <div class="tagline">来自钟楼百科 · 摘自《奥德赛 Odyssey》百科 · 爪牙</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#夜晚行动顺序">夜晚行动顺序</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#游玩与对抗技巧">游玩与对抗技巧</a></li><li class="lvl2"><a href="#出现剧本">出现剧本</a></li><li class="lvl2"><a href="#整体设计">整体设计</a></li><li class="lvl2"><a href="#创意来源">创意来源</a></li><li class="lvl2"><a href="#图标画师">图标画师</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E8%90%A8%E6%BB%A1">查找包含此角色的剧本 →</a></p><div class="charinfo"><div class="charinfo-img"><a href="../files/%E6%96%87%E4%BB%B6_%E8%90%A8%E6%BB%A1.png.html"><img alt="萨满 Shaman" data-source-image="../images/%E8%90%A8%E6%BB%A1.png" src="../assets/media/萨满.preview.webp" width="600" height="600" decoding="async"></a></div><div class="charinfo-meta"><div class="row"><span class="k">角色类型</span><span class="v"><a href="../pages/%E7%88%AA%E7%89%99.html" title="爪牙">爪牙</a></span></div><div class="row"><span class="k">英文名</span><span class="v">Shaman</span></div><div class="row"><span class="k">角色ID</span><span class="v">071</span></div><div class="row"><span class="k">角色归属</span><span class="v">角色拓展包《奥德赛》</span></div><div class="row"><span class="k">能力标签</span><span class="v"><a href="../pages/%E9%99%90%E6%AC%A1%E8%83%BD%E5%8A%9B.html" title="限次能力">限次能力</a>、<a href="../pages/%E8%A7%92%E8%89%B2%E5%8F%98%E5%8C%96.html" title="角色变化">角色变化</a></span></div><div class="row"><span class="k">角色定位</span><span class="v">邪恶增强爪牙</span></div><div class="row"><span class="k">发布日期</span><span class="v">2026.5.18</span></div><div class="row"><span class="k">角色授权</span><span class="v">开放（任意剧本创作皆可使用，不要改能力）</span></div><div class="row"><span class="k">出处</span><span class="v"><a class="external" href="https://www.yuque.com/u48069482/taiyi" target="_blank" rel="noopener">《奥德赛 Odyssey》百科</a></span></div></div></div><h2 id="背景故事">背景故事</h2>
+<p><em>"渴望力量？我给。渴望自由？我也给。但代价是丢掉人形。跪下吧，让我把你们的灵魂塞进羊的皮囊。颤抖吧，你们会发现自己长出了毛，四脚着地，脑子里只剩下咀嚼和逃命。别担心迷路——我为你们准备的牲圈，就在前方。"</em></p>
+<h2 id="角色简介"><span style="color:rgb(64, 64, 64);">角色简介</span></h2>
+<p>萨满可以一次性改变大量玩家的角色。</p>
+<h2 id="角色能力">角色能力</h2>
+<div class="callout callout-info">
+<p>每局游戏限一次，在夜晚时*，你可以选择四个不同类型的角色：对每个不在场的角色，一名同类型的玩家会变成该角色。</p>
+</div>
+<h2 id="范例">范例</h2>
+<ul>
+<li>第二个夜晚。萨满选择了涡流、投毒者、圣徒、占卜师。这些角色都不在场。方古变成了涡流，男爵变成了投毒者，管家变成了圣徒，共情者变成了占卜师。</li>
+<li>第二个夜晚。萨满选择了涡流、投毒者、圣徒、占卜师。涡流不在场，投毒者、圣徒、占卜师在场。方古变成了涡流。</li>
+<li>第三个夜晚。萨满选择了涡流、投毒者、圣徒、占卜师。涡流、占卜师在场，投毒者、圣徒不在场。萨满变成投毒者，食人魔变成了圣徒。</li>
+</ul>
+<h2 id="运作方式">运作方式</h2>
+<p>除首夜外的每个夜晚，唤醒萨满。他可以摇头或者选择四种不同类型的角色各一个。记下他选择的角色中的不在场角色，然后你要为每个不在场角色挑选一名同类型的玩家，唤醒该玩家，依次向他展示“你是”信息标记、他的新角色标记，然后让他重新入睡。直到所有不在场角色都转换完毕。如果萨满使用了能力，在后续的夜晚不需要再唤醒萨满。</p>
+<h2 id="夜晚行动顺序">夜晚行动顺序</h2>
+<ul>
+<li>首个夜晚</li>
+<ul>
+<li>夜序数值：/</li>
+<li>前位角色：/</li>
+<li>行动提示：/</li>
+</ul>
+<li>其他夜晚</li>
+<ul>
+<li>夜序数值：1310</li>
+<li>前位角色：麻脸巫婆</li>
+<li>行动提示：让他选择一个角色。</li>
+</ul>
+</ul>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>失去能力</li>
+<ul>
+<li>放置时机：在萨满夜晚行动时选择使用能力后放置。</li>
+<li>放置条件：只要萨满选择了角色，不论萨满是否醉酒中毒，都会将此标记放置在萨满角色标记旁。</li>
+<li>移除时机：萨满死亡或离场时。</li>
+</ul>
+</ul>
+<h2 id="规则细节">规则细节</h2>
+<ul>
+<li>在萨满做出选择后，先判定他选择的角色中哪些是不在场的角色。然后镇民→外来者→爪牙→恶魔的顺序依次选择同类型的玩家将其变化角色。不会出现因为萨满选择了一个在场角色，而那个在场角色的玩家被萨满变成了其他角色，再将该角色判定为不在场角色，导致其他玩家又变为该角色的情况。</li>
+<li>如果萨满要使用能力，必须选择4个不同类型的角色各一个（镇民、外来者、爪牙、恶魔），不可以多选或者少选。</li>
+<li>如果萨满将自己变成了其他角色，且此时角色变化还未结束，萨满的能力不会因此中断。</li>
+<li>如果萨满选择了不在场角色，但场上没有同类型的玩家，那么不会有玩家的角色发生改变。</li>
+<li>谁会变成萨满选择的不在场角色是由说书人决定的，而不是萨满。</li>
+<li>萨满的能力无法选择旅行者角色（旅行者隔绝原则）。</li>
+</ul>
+<h2 id="游玩与对抗技巧">游玩与对抗技巧</h2>
+<ul>
+<li>如果你是萨满。你的能力很强大，你可以用它来改变恶魔种类，可以改变爪牙种类，可以创造出原本没有外来者。甚至可以同时做到这几点。但你只有一次机会，谨慎行事。</li>
+<li>如果你是萨满。如果你在早期使用能力，因为对在场角色情况的不熟悉，很容易变化镇民或外来者，这容易暴露你的存在。而如果你在游戏中后期使用能力，因为对角色在场情况更加了解，你更可以掌控哪些类型的角色会被改变，而另一些不会被改变。</li>
+<li>如果你是萨满。如果你变化了外来者或镇民，那么被改变的玩家大概率会说出自己的角色被改变了，从而暴露你的存在，对此你最好有心理准备。不过这如果就是你的目的，他跳出来刚好省去了你寻找他的功夫。</li>
+<li>如果你是善良的。如果你被变成了一个同类型的角色，你很有可能是萨满正在使用能力。尽快公布这件事，爪牙及恶魔的种类极有可能也发生了变化。</li>
+<li>如果你是善良的。不要过度惧怕萨满，萨满的能力很强大，但他只有一次机会。</li>
+<li>如果你是善良的。如果你认为在场的爪牙或恶魔角色发生了改变，可能是萨满发动了能力。萨满可以一次性将恶魔爪牙变成不在场角色。</li>
+</ul>
+<h2 id="出现剧本">出现剧本</h2>
+<ul>
+<li><em>暂无</em></li>
+</ul>
+<h2 id="整体设计">整体设计</h2>
+<ul>
+<li>太一</li>
+</ul>
+<h2 id="创意来源">创意来源</h2>
+<ul>
+<li>太一</li>
+</ul>
+<h2 id="图标画师">图标画师</h2>
+<ul>
+<li>Lei.</li>
+</ul></div>
+    <div class="page-meta">最后修改于 2026-09-08T05:14:02.000Z，编辑者 <b>未知</b> ｜ 页面 4,659 字节 ｜ <a href="https://www.yuque.com/u48069482/taiyi/aeqeilu5bvkg6the" target="_blank" rel="noopener">查看原页面</a></div>
+    <div class="backlinks"><b>链入此页的页面（1）</b><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">奥德赛 Odyssey</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

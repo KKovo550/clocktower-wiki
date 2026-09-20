@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>祖母 - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">祖母</h1>
+    <div class="tagline">来自钟楼百科</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#提示与技巧">提示与技巧</a></li><li class="lvl2"><a href="#伪装成祖母">伪装成祖母</a></li><li class="lvl2"><a href="#角色信息">角色信息</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E7%A5%96%E6%AF%8D">查找包含此角色的剧本 →</a></p><p><a href="../pages/%E7%A5%96%E6%AF%8D.html" class="image-link" title="祖母"><img alt="Grandmother.png" style="width:200px" class="" loading="lazy" data-source-image="../images/Grandmother.png" src="../assets/media/Grandmother.preview.webp" width="600" height="600" decoding="async"></a></p>
+<h2 id="背景故事">背景故事</h2>
+<p><em>“我的小心肝呀，如果你要出门，记得加件外套。这是你的保温杯。这是你的围巾。你知道我心脏不太好。要是你感冒了，或者有个三长两短，我该怎么办？”</em></p>
+<h2 id="角色能力">角色能力</h2>
+<p><strong>在你的首个夜晚，你会得知一名善良玩家和他的角色。</strong></p>
+<p><strong>如果恶魔杀死了他，你也会死亡。</strong></p>
+<h2 id="角色简介">角色简介</h2>
+<p>祖母知道自己的孙子是谁，但是如果孙子被恶魔杀死，祖母也会死亡。</p>
+<ul>
+<li>在首个夜晚，祖母会得知自己的孙子——一名善良玩家的镇民或外来者角色信息。孙子不会得知自己有位祖母。</li>
+</ul>
+<ul>
+<li>如果恶魔杀死了孙子，祖母也会死亡。如果孙子通过任何其他方式死亡——例如处决，或在夜晚因其他原因死亡——祖母不会因此死亡。</li>
+</ul>
+<h2 id="范例">范例</h2>
+<p>在首个夜晚，<a href="../pages/%E7%A5%96%E6%AF%8D.html" title="祖母">祖母</a>被唤醒并得知自己的孙子小佳是<a href="../pages/%E6%95%99%E6%8E%88.html" title="教授">教授</a>。三个夜晚后，小佳被恶魔杀死，因此<a href="../pages/%E7%A5%96%E6%AF%8D.html" title="祖母">祖母</a>也一同死亡。</p>
+<p><a href="../pages/%E7%A5%96%E6%AF%8D.html" title="祖母">祖母</a>得知自己的孙子小莱是<a href="../pages/%E8%B5%8C%E5%BE%92.html" title="赌徒">赌徒</a>。小莱进行赌博且因此而死亡。<a href="../pages/%E7%A5%96%E6%AF%8D.html" title="祖母">祖母</a>依然存活。</p>
+<p><a href="../pages/%E7%A5%96%E6%AF%8D.html" title="祖母">祖母</a>得知自己的孙子小美是<a href="../pages/%E4%BF%AE%E8%A1%A5%E5%8C%A0.html" title="修补匠">修补匠</a>。小美被恶魔杀死，但祖母因为<a href="../pages/%E6%B0%B4%E6%89%8B.html" title="水手">水手</a>的能力而处于醉酒状态，因此<a href="../pages/%E7%A5%96%E6%AF%8D.html" title="祖母">祖母</a>依然存活。</p>
+<h2 id="运作方式">运作方式</h2>
+<p>在为首个夜晚进行准备时，通过将“孙子”提示标记放置到任意一个善良角色的角色标记旁来选择一名“孙子”。</p>
+<p>在首个夜晚，唤醒祖母，向其展示标有“孙子”的角色标记，然后指向该名“孙子”玩家，然后让祖母重新入睡。</p>
+<p>如果恶魔杀死了“孙子”，祖母死亡——将“死亡”提示标记放置到祖母的角色标记旁。</p>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>孙子</li>
+</ul>
+<p>放置时机：在为首个夜晚做准备时放置。</p>
+<p>放置条件：放置在一个善良角色或能被当作善良角色的角色标记旁边。</p>
+<p>移除时机：祖母死亡或离场后。</p>
+<ul>
+<li>死亡</li>
+</ul>
+<p>放置时机：在恶魔杀死了被标记有“孙子”的玩家时放置。</p>
+<p>放置条件：恶魔杀死“孙子”，且祖母未醉酒中毒时，放置在祖母角色标记旁边，用以提醒说书人在黎明时分宣布当晚的死亡玩家。</p>
+<p>移除时机：在黎明时宣布死亡玩家后，说书人可以任由自己方便来进行移除。</p>
+<h2 id="规则细节">规则细节</h2>
+<ul>
+<li>在绝大多数情况下，祖母得知的角色都应该是善良角色。因为如果祖母得知了邪恶角色，这会带来祖母能力之外的额外信息（有处于善良阵营的邪恶角色，又或者在剧本条件不允许的情况下作为了祖母醉酒中毒的明确提示）。</li>
+</ul>
+<ul>
+<li>相克规则：</li>
+<ul>
+<li><a href="../pages/%E5%88%A9%E7%BB%B4%E5%9D%A6.html" title="利维坦">利维坦</a>：如果利维坦在场，孙子死于处决，邪恶阵营获胜。</li>
+<li><a href="../pages/%E6%9A%B4%E4%B9%B1.html" title="暴乱">暴乱</a>：如果暴乱在场，孙子死于处决，邪恶阵营获胜。</li>
+</ul>
+</ul>
+<h2 id="提示与技巧">提示与技巧</h2>
+<ul>
+<li>保护你心爱的孙子！他们绝对是善良的，这一点在<a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html" title="黯月初升">黯月初升</a>剧本中非常珍贵（除非你第一夜就中毒或者醉酒，那你可能错认孙子的角色，甚至误以为某个邪恶玩家是你的孙子，而不知道你的真孙子是谁，但是你的真孙子一定是善良的）。此外，如果他们被恶魔杀死，你也会死--也算是你保护他额外的动力吧！</li>
+</ul>
+<ul>
+<li>和你的孙子对话，和他们花言巧语，让他们信任你！不像<a href="../pages/%E6%B4%97%E8%A1%A3%E5%A6%87.html" title="洗衣妇">洗衣妇</a>等角色，你的信息非常绝对，因为你只知道一个玩家和他们的角色-让他们先承认他们是谁没有好处，除非你强烈地怀疑你醉酒了。当你有机会的时候，表露出你很了解他们，你们会从一开始就建立很多信任。</li>
+</ul>
+<ul>
+<li>不要向任何人透露你孙子的角色！如果邪恶的团队知道你们的关系，他们绝对会想杀了你的孙子，并带走你的生命作为一个奖赏。保守秘密以保证你们的生命的安全。</li>
+</ul>
+<ul>
+<li>向几个玩家透露你的角色和你的孙子。这有两个好处——如果这些人值得信任，他们会知道反过来信任你和你的孙子。但是，如果你和你的孙子突然死了呢？你可以极大地怀疑这些玩家——有可能其中一个其实就是恶魔！（注意：如果你怀疑你在和邪恶的玩家对话，你不必告诉他们谁是你真正的孙子...）</li>
+</ul>
+<ul>
+<li>使用你的信息，有许多方法可以与善良阵营玩家建立信任！</li>
+<ul>
+<li>鼓励有保护能力的角色来保护你的孙子。如果你知道一名玩家是<a href="../pages/%E6%97%85%E5%BA%97%E8%80%81%E6%9D%BF.html" title="旅店老板">旅店老板</a>，可以让他保护孙子，或者你的孙子和<a href="../pages/%E8%8C%B6%E8%89%BA%E5%B8%88.html" title="茶艺师">茶艺师</a>很临近，试着让你的孙子和<a href="../pages/%E8%8C%B6%E8%89%BA%E5%B8%88.html" title="茶艺师">茶艺师</a>邻座，这样你的孙子就可以在晚上得到保护，保证你们两个的安全。</li>
+<li>同样，你可以警告像<a href="../pages/%E6%B0%B4%E6%89%8B.html" title="水手">水手</a>和<a href="../pages/%E9%A9%B1%E9%AD%94%E4%BA%BA.html" title="驱魔人">驱魔人</a>这样的玩家，他们有的会让你的孙子醉酒，或者只是在善良阵营玩家身上浪费他们的能力。</li>
+<li>最后，你可以鼓励<a href="../pages/%E8%B5%8C%E5%BE%92.html" title="赌徒">赌徒</a>和<a href="../pages/%E4%BE%8D%E5%A5%B3.html" title="侍女">侍女</a>在你或你的孙子身上使用他们的能力，当你们的信息一致时，让你们可以彼此信任！</li>
+</ul>
+</ul>
+<ul>
+<li>如果只有你和你的孙子在晚上死去，你很可能是因为你的能力而死的。如果你怀疑是这种情况，一定要让善良阵营玩家知道，否则在晚上两个玩家的死亡就像是<a href="../pages/%E6%B2%99%E5%B7%B4%E6%B4%9B%E6%96%AF.html" title="沙巴洛斯">沙巴洛斯</a>或<a href="../pages/%E7%8F%80.html" title="珀">珀</a>潜伏的迹象，而事实上<a href="../pages/%E5%83%B5%E6%80%96.html" title="僵怖">僵怖</a>或<a href="../pages/%E6%99%AE%E5%8D%A1.html" title="普卡">普卡</a>仍非常可能存在。</li>
+</ul>
+<ul>
+<li>不要一开始就和你的孙子窃窃私语，尤其是在游戏的早期，这会吸引所有玩家的注意，恶魔可能会怀疑你们是祖母和孙子，就把你们两个干掉。</li>
+</ul>
+<ul>
+<li>向团队透露你是<a href="../pages/%E7%A5%96%E6%AF%8D.html" title="祖母">祖母</a>，但不要说你的孙子是哪个玩家。比如你可以简单的说“我就是<a href="../pages/%E7%A5%96%E6%AF%8D.html" title="祖母">祖母</a>，我知道镇上有个<a href="../pages/%E9%A9%B1%E9%AD%94%E4%BA%BA.html" title="驱魔人">驱魔人</a>”，或者类似的话。这让团队知道你是一个镇民角色，也让他们知道并期待一个驱魔人会在之后现身。</li>
+</ul>
+<h2 id="伪装成祖母">伪装成祖母</h2>
+<p>当你要伪装成祖母的时候，这里有几件事你应该记住：</p>
+<ul>
+<li>作为祖母最简单的虚张声势就是声称你是<a href="../pages/%E7%A5%96%E6%AF%8D.html" title="祖母">祖母</a>，并声称一个邪恶的玩家是你的孙子。你可能不想在第一天这样做，因为大多数<a href="../pages/%E7%A5%96%E6%AF%8D.html" title="祖母">祖母</a>需要一两天来透露他们的信息。等待一两天也让你的假孙子有机会告诉大家他们是谁，这样你们就可以配合他们了。或者，你可以简单地说，你是祖母，宣布一个邪恶的玩家是一个特别好的角色，并寄希望于那位邪恶玩家能理解你在做什么，并稳步地扮演成为那个角色。</li>
+</ul>
+<ul>
+<li>也可以让一个善良玩家相信你是他们的祖母。如果善良玩家事先向你透露了他们的角色，或者公开透露了他们的角色，那会很容易伪装成他们的祖母。如果你知道他们的角色，你可以告诉大家同样的事情。如果你不知道他们的角色，你可以猜一猜...或者什么都不说。</li>
+</ul>
+<ul>
+<li>请你的邪恶玩家同伴秘密找出善良玩家，并把这些信息反馈给你。一旦你知道了一个善良玩家的角色，而那个好玩家又不知情，那么让他们相信你是他们的祖母就容易多了。</li>
+</ul>
+<ul>
+<li>扮演一名孙子！你可以自称是个善良玩家，还可以自称自己是孙子。告诉别的玩家，<a href="../pages/%E7%A5%96%E6%AF%8D.html" title="祖母">祖母</a>私下找过你，你对他们完全信任。并寄希望于一个邪恶玩家会声称自己是祖母并证实你的故事。</li>
+</ul>
+<h2 id="角色信息">角色信息</h2>
+<ul>
+<li>英文名：Grandmother</li>
+</ul>
+<ul>
+<li>所属剧本：<a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html" title="黯月初升">黯月初升</a></li>
+</ul>
+<ul>
+<li>角色类型：<a href="../pages/%E9%95%87%E6%B0%91.html" title="镇民">镇民</a></li>
+</ul>
+<ul>
+<li>角色能力类型：<a href="../pages/%E8%8E%B7%E5%8F%96%E4%BF%A1%E6%81%AF.html" title="获取信息">获取信息</a>、<a href="../pages/%E8%BF%9B%E5%9C%BA%E8%83%BD%E5%8A%9B.html" title="进场能力">进场能力</a>、<a href="../pages/%E6%AD%BB%E4%BA%A1%E8%A7%A6%E5%8F%91%E8%83%BD%E5%8A%9B.html" title="死亡触发能力">死亡触发能力</a>、<a href="../pages/%E9%A2%9D%E5%A4%96%E6%AD%BB%E4%BA%A1.html" title="额外死亡">额外死亡</a></li>
+</ul></div>
+    <div class="page-meta">最后修改于 2026-06-13T02:53:02Z，编辑者 <b>Zack</b> ｜ 页面 7,549 字节 ｜ <a href="https://clocktower-wiki.gstonegames.com/index.php?title=%E7%A5%96%E6%AF%8D" target="_blank" rel="noopener">查看原页面</a> ｜ <div class="comment">编辑摘要：/* 规则细节 */</div></div>
+    <div class="backlinks"><b>链入此页的页面（43）</b><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a><a href="../pages/%E7%A5%96%E6%AF%8D.html">祖母</a><a href="../pages/%E6%B0%B4%E6%89%8B.html">水手</a><a href="../pages/%E4%BE%8D%E5%A5%B3.html">侍女</a><a href="../pages/%E9%80%A0%E8%B0%A3%E8%80%85.html">造谣者</a><a href="../pages/%E4%BE%8D%E8%87%A3.html">侍臣</a><a href="../pages/%E6%95%99%E6%8E%88.html">教授</a><a href="../pages/%E6%97%A0%E7%A5%9E%E8%AE%BA%E8%80%85.html">无神论者</a><a href="../pages/%E6%9A%B4%E4%B9%B1.html">暴乱</a><a href="../pages/%E5%88%A9%E7%BB%B4%E5%9D%A6.html">利维坦</a><a href="../pages/%E9%A2%9D%E5%A4%96%E6%AD%BB%E4%BA%A1.html">额外死亡</a><a href="../pages/%E8%BF%9B%E5%9C%BA%E8%83%BD%E5%8A%9B.html">进场能力</a><a href="../pages/%E8%8E%B7%E5%8F%96%E4%BF%A1%E6%81%AF.html">获取信息</a><a href="../pages/%E6%AD%BB%E4%BA%A1%E8%A7%A6%E5%8F%91%E8%83%BD%E5%8A%9B.html">死亡触发能力</a><a href="../pages/%E4%BF%AE%E8%A1%A5%E5%8C%A0.html">修补匠</a><a href="../pages/%E7%8F%80.html">珀</a><a href="../pages/%E9%95%87%E6%B0%91.html">镇民</a><a href="../pages/%E5%93%AA%E4%BA%9B%E6%98%AF%E2%80%9C%E5%8F%AF%E4%BB%A5%E4%BD%86%E4%B8%8D%E5%BB%BA%E8%AE%AE%E2%80%9D.html">哪些是“可以但不建议”</a><a href="../pages/%E6%B3%95%E5%AE%98.html">法官</a><a href="../pages/%E4%B8%BB%E6%95%99.html">主教</a><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a><a href="../pages/%E5%A4%9C%E6%99%9A%E8%A1%8C%E5%8A%A8%E9%A1%BA%E5%BA%8F%E4%B8%80%E8%A7%88.html">夜晚行动顺序一览</a><a href="../pages/%E9%AA%91%E8%99%8E%E7%94%9F%E6%AD%BB%E8%A1%8C.html">骑虎生死行</a><a href="../pages/%E8%A1%8C%E6%88%90%E4%B8%8B%E5%AD%A4%E4%B9%A1.html">行成下孤乡</a><a href="../pages/%E9%B8%A3%E9%A3%8E%E5%99%AC%E5%90%8E%E6%B5%AA.html">鸣风噬后浪</a><a href="../pages/%E5%B9%BB%E5%BD%B1%E7%94%BB%E5%AE%89%E5%8D%B1.html">幻影画安危</a><a href="../pages/%E8%B0%9C%E6%A2%A6%E5%BE%85%E6%AD%8C%E8%88%9E.html">谜梦待歌舞</a><a href="../pages/%E5%BC%82%E5%9C%B0%E4%BC%97%E6%AC%A2%E6%9D%A5.html">异地众欢来</a><a href="../pages/%E9%9B%86%E5%90%8E%E4%BA%BA%E4%B9%8B%E8%A8%80.html">集后人之言</a><a href="../pages/%E5%AF%B9%E5%A2%9F%E9%9A%BE%E6%AC%A2%E9%B8%A3.html">对墟难欢鸣</a><a href="../pages/%E5%8D%81%E4%B8%89%E8%A1%8C.html">十三行</a><a href="../pages/%E8%A7%84%E5%88%99%E8%B0%83%E6%95%B4%E6%8F%90%E5%89%8D%E5%85%AC%E7%A4%BA.html">规则调整提前公示</a><a href="../pages/%E9%95%BF%E5%A4%9C%E9%99%A9%E6%81%B6.html">长夜险恶</a><a href="../pages/%E7%8B%AC%E5%8D%A0%E9%B3%8C%E5%A4%B4.html">独占鳌头</a><a href="../pages/%E4%BF%A1%E5%8F%A3%E9%9B%8C%E9%BB%84.html">信口雌黄</a><a href="../pages/%E9%81%93%E5%A3%AB.html">道士</a><a href="../pages/%E4%B8%8A%E5%B8%9D%E7%BC%BA%E5%B8%AD.html">上帝缺席</a><a href="../pages/%E7%A7%89%E5%85%AC%E5%8A%9E%E4%BA%8B.html">秉公办事</a><a href="../pages/%E6%97%A7%E6%97%A5%E7%86%9F%E8%AF%86.html">旧日熟识</a><a href="../pages/%E9%94%99%E4%BD%8D%E6%97%B6%E7%A9%BA.html">错位时空</a><a href="../pages/%E9%94%A6%E5%A4%9C%E6%9C%AA%E5%A4%AE.html">锦夜未央</a><a href="../pages/%E6%97%A0%E5%90%8D%E6%97%85%E5%AE%A2.html">无名旅客</a><a href="../pages/%E6%B1%9F%E5%9F%8E%E5%86%B3.html">江城决</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>艺伎 Geisha - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">艺伎 Geisha<span class="ns-badge">奥德赛</span></h1>
+    <div class="tagline">来自钟楼百科 · 摘自《奥德赛 Odyssey》百科 · 镇民</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#夜晚行动顺序">夜晚行动顺序</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#游玩与对抗技巧">游玩与对抗技巧</a></li><li class="lvl2"><a href="#伪装成该角色">伪装成该角色</a></li><li class="lvl2"><a href="#出现剧本">出现剧本</a></li><li class="lvl2"><a href="#整体设计">整体设计</a></li><li class="lvl2"><a href="#创意来源">创意来源</a></li><li class="lvl2"><a href="#图标画师">图标画师</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E8%89%BA%E4%BC%8E">查找包含此角色的剧本 →</a></p><div class="charinfo"><div class="charinfo-img"><a href="../files/%E6%96%87%E4%BB%B6_%E8%89%BA%E4%BC%8E.png.html"><img alt="艺伎 Geisha" data-source-image="../images/%E8%89%BA%E4%BC%8E.png" src="../assets/media/艺伎.preview.webp" width="600" height="600" decoding="async"></a></div><div class="charinfo-meta"><div class="row"><span class="k">角色类型</span><span class="v"><a href="../pages/%E9%95%87%E6%B0%91.html" title="镇民">镇民</a></span></div><div class="row"><span class="k">英文名</span><span class="v">Geisha</span></div><div class="row"><span class="k">角色ID</span><span class="v">100</span></div><div class="row"><span class="k">角色归属</span><span class="v">角色拓展包《奥德赛》</span></div><div class="row"><span class="k">能力标签</span><span class="v"><a href="../pages/%E8%8E%B7%E5%8F%96%E4%BF%A1%E6%81%AF.html" title="获取信息">获取信息</a>、<a href="../pages/%E8%BF%9B%E5%9C%BA%E8%83%BD%E5%8A%9B.html" title="进场能力">进场能力</a>、<a href="../pages/%E6%AD%BB%E4%BA%A1%E8%A7%A6%E5%8F%91%E8%83%BD%E5%8A%9B.html" title="死亡触发能力">死亡触发能力</a></span></div><div class="row"><span class="k">角色定位</span><span class="v">信息镇民</span></div><div class="row"><span class="k">发布日期</span><span class="v">2026.6.16</span></div><div class="row"><span class="k">角色授权</span><span class="v">开放（任意剧本创作皆可使用，不要改能力）</span></div><div class="row"><span class="k">出处</span><span class="v"><a class="external" href="https://www.yuque.com/u48069482/taiyi" target="_blank" rel="noopener">《奥德赛 Odyssey》百科</a></span></div></div></div><h2 id="背景故事">背景故事</h2>
+<p>_"__<span style="color:rgb(64, 64, 64);">住我隔壁的妹妹，为一个男人跳了河。捞上来的时候，嘴角还在笑着。别人都说她傻，说她疯。我没吭声。我知道，她不是疯，她只是算明白了。妈妈教过我们：楼里的姑娘动真情就是倒贴。可那妹妹说——不动真情，才是真的倒贴，贴进去一辈子。活着和活过，差一个字，就差着一辈子。她活过了，就值了。"</span>_</p>
+<h2 id="角色简介"><span style="color:rgb(64, 64, 64);">角色简介</span></h2>
+<p>艺伎在死后会完整地得知两名不同阵营的玩家。</p>
+<h2 id="角色能力">角色能力</h2>
+<div class="callout callout-info">
+<p>在你存活与死亡的首个夜晚，你会分别得知一名存活玩家：他们的阵营对立。</p>
+</div>
+<h2 id="范例">范例</h2>
+<ul>
+<li>第一个夜晚，艺伎得知1号玩家（占卜师）。第二个夜晚，艺伎死亡，艺伎得知2号玩家（存活的男爵）。</li>
+<li>第一个夜晚，艺伎得知3号玩家（投毒者）。第二个白天，艺伎死于处决，当晚，艺伎得知4号玩家（存活的圣徒）。</li>
+<li>第一个夜晚，艺伎得知1号玩家（圣徒）。第四个白天，艺伎死于处决，当晚，艺伎得知2号玩家（存活的小恶魔）。</li>
+</ul>
+<h2 id="运作方式">运作方式</h2>
+<p>在艺伎存活的首个夜晚，唤醒艺伎并指向一名存活玩家，并在该玩家角色标记旁放置“得知”提示标记。然后让艺伎重新入睡。</p>
+<p>在艺伎死亡后的首个夜晚，唤醒艺伎并指向一名存活的玩家。然后让艺伎重新入睡。该玩家需要与被放置“得知”提示标记的玩家阵营不同。</p>
+<p>如果艺伎存活的首个夜晚也是她死亡的首个夜晚。唤醒艺伎并指向两名阵营不同的存活玩家。</p>
+<h2 id="夜晚行动顺序">夜晚行动顺序</h2>
+<ul>
+<li>首个夜晚</li>
+<ul>
+<li>夜序数值：8610</li>
+<li>前位角色：女裁缝</li>
+<li>行动提示：唤醒她并告知她一名玩家。</li>
+</ul>
+<li>其他夜晚</li>
+<ul>
+<li>夜序数值：11910</li>
+<li>前位角色：女裁缝</li>
+<li>行动提示：如果她当天死亡，唤醒她并告知她一名玩家。</li>
+</ul>
+</ul>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>得知</li>
+<ul>
+<li>放置时机：艺伎存活的首个夜晚。</li>
+<li>放置条件：在被艺伎得知的玩家角色标记旁放置。</li>
+<li>移除时机：艺伎死亡或离场时。</li>
+</ul>
+</ul>
+<h2 id="规则细节">规则细节</h2>
+<ul>
+<li>如果艺伎存活的首个夜晚也是她死亡的首个夜晚。艺伎会同时得知两名阵营不同的存活玩家。</li>
+<li>艺伎得知的玩家必须是她行动的那一刻还存活的玩家。</li>
+<li>无论艺伎是死于处决或其他原因，无论是死于白天还是夜晚，在艺伎死亡的当天夜晚轮到艺伎的行动节点时，艺伎都会被唤醒并得知玩家。</li>
+<li>艺伎可以先得知善良玩家再得知邪恶玩家，也可以先得知邪恶玩家再得知善良玩家。这取决于说书人。</li>
+<li>如果一名死亡玩家变成了艺伎，他当晚只会得知一名玩家（无意义信息）。</li>
+<li>艺伎不会得知旅行者玩家（旅行者隔绝原则）。</li>
+<li><strong>信息格式：</strong>一名玩家，如小美、3号玩家。</li>
+<li><strong>错误（虚假）信息格式：</strong>一名玩家。死亡的首个夜晚得知的玩家需要与存活的首个夜晚得知的玩家阵营一致。</li>
+</ul>
+<h2 id="游玩与对抗技巧">游玩与对抗技巧</h2>
+<ul>
+<li>如果你是艺伎。如果你整局游戏都活着，那么你不会发挥任何价值。想办法寻求死亡。但是如果你认为除你之外的其他玩家都是邪恶的，最好不要轻易寻求死亡。否则你可能会直接输掉游戏。</li>
+<li>如果你是艺伎。在游戏早期死亡与在游戏中后期死亡的意义是不同的。游戏早期你会得知两名阵营不同的玩家，你可以将他们作为整局游戏的逻辑基点进行推理。但是在游戏的中后期，你得知的另一名存活玩家，会有很大概率是恶魔。</li>
+<li>如果你是艺伎。有的时候未必着急寻求死亡。因为在游戏结束前，大部分玩家都会死亡。</li>
+<li>如果你是恶魔。 要么在游戏早期处理掉艺伎，要么让艺伎一直存活到游戏结束。如果艺伎在游戏中后期死亡了，且邪恶玩家只剩下你一名，那局面对你来说会十分危险。</li>
+</ul>
+<h2 id="伪装成该角色">伪装成该角色</h2>
+<ul>
+<li>艺伎总是在寻求死亡。扮演成一个想要死亡的玩家，会让你看起来更像一个艺伎。</li>
+<li>艺伎可以作为备用的伪装。如果你的第一伪装失效后，你可以解释说其实你是一个艺伎。</li>
+</ul>
+<h2 id="出现剧本">出现剧本</h2>
+<ul>
+<li><em>暂无</em></li>
+</ul>
+<h2 id="整体设计">整体设计</h2>
+<ul>
+<li>太一</li>
+</ul>
+<h2 id="创意来源">创意来源</h2>
+<ul>
+<li>太一</li>
+</ul>
+<h2 id="图标画师">图标画师</h2>
+<ul>
+<li>Lei.</li>
+</ul></div>
+    <div class="page-meta">最后修改于 2026-09-08T05:09:30.000Z，编辑者 <b>未知</b> ｜ 页面 4,444 字节 ｜ <a href="https://www.yuque.com/u48069482/taiyi/uhfr9m2xgc55gudz" target="_blank" rel="noopener">查看原页面</a></div>
+    <div class="backlinks"><b>链入此页的页面（1）</b><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">奥德赛 Odyssey</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

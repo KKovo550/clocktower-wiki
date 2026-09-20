@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>精神病患者 - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">精神病患者</h1>
+    <div class="tagline">来自钟楼百科</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#提示与技巧">提示与技巧</a></li><li class="lvl2"><a href="#对抗精神病患者">对抗精神病患者</a></li><li class="lvl2"><a href="#角色信息">角色信息</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E7%B2%BE%E7%A5%9E%E7%97%85%E6%82%A3%E8%80%85">查找包含此角色的剧本 →</a></p><p><a href="../pages/%E7%B2%BE%E7%A5%9E%E7%97%85%E6%82%A3%E8%80%85.html" class="image-link" title="精神病患者"><img alt="Psychopath.png" style="width:200px" class="" loading="lazy" data-source-image="../images/Psychopath.png" src="../assets/media/Psychopath.preview.webp" width="600" height="600" decoding="async"></a></p>
+<h2 id="背景故事">背景故事</h2>
+<p><em>“惊不惊喜？！”</em></p>
+<h2 id="角色能力">角色能力</h2>
+<p><strong>每个白天，在提名开始前，你可以公开选择一名玩家：他死亡。</strong></p>
+<p><strong>如果你被处决，提名你的玩家需要和你猜拳，只有你输了你才会死亡。</strong></p>
+<h2 id="角色简介">角色简介</h2>
+<p>精神病患者在光天化日之下展开杀戮。</p>
+<ul>
+<li>在白天时，如果精神病患者宣布自己是精神病患者并公开选择一名玩家，那名玩家死亡。这个能力每个白天只能使用一次，且只能在说书人要求开始提名前进行。</li>
+</ul>
+<ul>
+<li>精神病患者的能力并非强制使用，他可以在自己不想要使用能力时不这么做。</li>
+</ul>
+<ul>
+<li>精神病患者能够正常被提名和投票。如果精神病患者被处决，他可能不会死亡。他会和提名他的玩家进行一次猜拳（石头剪刀布）。提名他的玩家需要赢得猜拳才能让这次处决成功杀死精神病患者。如果平局或者猜拳失败，精神病患者会仍然存活。</li>
+</ul>
+<ul>
+<li>对精神病患者的处决同样计入每个白天限制一次的次数里。如果精神病患者被处决，那么今天白天不会再有其他提名和处决发生了。</li>
+</ul>
+<ul>
+<li>如果精神病患者因为其他原因死亡，例如恶魔的攻击，那么他不会进行猜拳，而是直接死亡。</li>
+</ul>
+<h2 id="范例">范例</h2>
+<p>在第一个白天，小米宣称自己是<a href="../pages/%E7%B2%BE%E7%A5%9E%E7%97%85%E6%82%A3%E8%80%85.html" title="精神病患者">精神病患者</a>，并选择了小文。小文死亡。</p>
+<p><a href="../pages/%E7%B2%BE%E7%A5%9E%E7%97%85%E6%82%A3%E8%80%85.html" title="精神病患者">精神病患者</a>选择攻击<a href="../pages/%E6%B0%B4%E6%89%8B.html" title="水手">水手</a>。<a href="../pages/%E6%B0%B4%E6%89%8B.html" title="水手">水手</a>没有醉酒，因此没有死亡。今天<a href="../pages/%E7%B2%BE%E7%A5%9E%E7%97%85%E6%82%A3%E8%80%85.html" title="精神病患者">精神病患者</a>无法再次使用他的能力了。</p>
+<p><a href="../pages/%E7%B2%BE%E7%A5%9E%E7%97%85%E6%82%A3%E8%80%85.html" title="精神病患者">精神病患者</a>被<a href="../pages/%E7%90%86%E5%8F%91%E5%B8%88.html" title="理发师">理发师</a>提名并因此被处决。在猜拳中，<a href="../pages/%E7%90%86%E5%8F%91%E5%B8%88.html" title="理发师">理发师</a>出了石头，<a href="../pages/%E7%B2%BE%E7%A5%9E%E7%97%85%E6%82%A3%E8%80%85.html" title="精神病患者">精神病患者</a>也出了石头，因此<a href="../pages/%E7%B2%BE%E7%A5%9E%E7%97%85%E6%82%A3%E8%80%85.html" title="精神病患者">精神病患者</a>仍然存活。在下一个白天，<a href="../pages/%E5%9C%A3%E5%BE%92.html" title="圣徒">圣徒</a>提名并处决了<a href="../pages/%E7%B2%BE%E7%A5%9E%E7%97%85%E6%82%A3%E8%80%85.html" title="精神病患者">精神病患者</a>。<a href="../pages/%E5%9C%A3%E5%BE%92.html" title="圣徒">圣徒</a>出了布而<a href="../pages/%E7%B2%BE%E7%A5%9E%E7%97%85%E6%82%A3%E8%80%85.html" title="精神病患者">精神病患者</a>出了剪刀，因此<a href="../pages/%E7%B2%BE%E7%A5%9E%E7%97%85%E6%82%A3%E8%80%85.html" title="精神病患者">精神病患者</a>仍然存活。在下一个白天，<a href="../pages/%E7%90%86%E5%8F%91%E5%B8%88.html" title="理发师">理发师</a>再次提名并处决了<a href="../pages/%E7%B2%BE%E7%A5%9E%E7%97%85%E6%82%A3%E8%80%85.html" title="精神病患者">精神病患者</a>。<a href="../pages/%E7%90%86%E5%8F%91%E5%B8%88.html" title="理发师">理发师</a>出了石头而<a href="../pages/%E7%B2%BE%E7%A5%9E%E7%97%85%E6%82%A3%E8%80%85.html" title="精神病患者">精神病患者</a>出了剪刀，<a href="../pages/%E7%B2%BE%E7%A5%9E%E7%97%85%E6%82%A3%E8%80%85.html" title="精神病患者">精神病患者</a>死亡。</p>
+<h2 id="运作方式">运作方式</h2>
+<p>每个白天限一次，在你宣布开始提名之前，精神病患者可以公开选择一名玩家。那名玩家死亡。</p>
+<p>如果精神病患者被处决，他需要与提名他的玩家进行猜拳。如果精神病患者在猜拳中输了，那么他死亡。如果精神病患者在猜拳中平局或获胜，他会仍然存活。不论猜拳是哪种结果，白天阶段会随即结束，因为每个白天只会有一次处决发生。</p>
+<p>如果精神病患者因为提名自己或是某些角色的能力效果而被处决，那么他会改为和你进行猜拳。</p>
+<h2 id="提示标记">提示标记</h2>
+<p>无</p>
+<h2 id="规则细节">规则细节</h2>
+<ul>
+<li>特定角色互动：</li>
+<ul>
+<li><a href="../pages/%E7%82%BC%E9%87%91%E6%9C%AF%E5%A3%AB.html" title="炼金术士">炼金术士</a>：如果炼金术士获得精神病患者的能力并提名贞洁者而因此被处决，他将会和说书人猜拳。</li>
+<li><a href="../pages/%E5%92%96%E5%95%A1%E5%B8%88.html" title="咖啡师">咖啡师</a>：“行动两次”的效果将允许精神病患者在白天杀死2人（咖啡师可能会被立即流放），但如果在接下来的这个白天精神病患者被处决，仍然只会进行一次猜拳。</li>
+<li><a href="../pages/%E5%B1%A0%E5%A4%AB.html" title="屠夫">屠夫</a>：每天都可以重新提名精神病患者来进行第二次处决并尝试杀死他。</li>
+<li><a href="../pages/%E9%AD%94%E9%AC%BC%E4%BB%A3%E8%A8%80%E4%BA%BA.html" title="魔鬼代言人">魔鬼代言人</a> ：即使受到魔鬼代言人的保护，精神病患者仍然应该进行猜拳，只有当他输了时，善良阵营才会发现精神病患者受到了魔鬼代言人的保护，因为精神病患者没有死于一次“猜拳胜利”的处决。</li>
+<li><a href="../pages/%E5%BC%84%E8%87%A3.html" title="弄臣">弄臣</a>/<a href="../pages/%E6%B0%B4%E6%89%8B.html" title="水手">水手</a>/<a href="../pages/%E8%8C%B6%E8%89%BA%E5%B8%88.html" title="茶艺师">茶艺师</a>：如果精神病患者的目标不能死亡，目标不会死亡。这会被数学家记录。</li>
+<li><a href="../pages/%E6%B3%95%E5%AE%98.html" title="法官">法官</a>：如果法官强制使对精神病患者的提名通过，这只能确保精神病患者被处决，并且将需要进行猜拳来确定他是否会死亡。</li>
+<li><a href="../pages/%E5%91%86%E7%93%9C.html" title="呆瓜">呆瓜</a>/<a href="../pages/%E6%9C%88%E4%B9%8B%E5%AD%90.html" title="月之子">月之子</a>：如果精神病患者杀死他，他会在白天得知他的死亡，因此必须在同一天做出选择。</li>
+<li><a href="../pages/%E4%BA%A1%E9%AA%A8%E9%AD%94.html" title="亡骨魔">亡骨魔</a>：如果精神病患者被亡骨魔杀死并因此在死亡状态保留了他的能力，如果他在死亡状态被处决，则没有必要进行猜拳——他已经死亡，因此无论猜拳的结果如何都不会再次死亡。</li>
+</ul>
+</ul>
+<ul>
+<li>相克规则：</li>
+<ul>
+<li><a href="../pages/%E5%B0%8F%E6%80%AA%E5%AE%9D.html" title="小怪宝">小怪宝</a>：如果精神病患者正照看小怪宝，他会在被处决时死亡。</li>
+</ul>
+</ul>
+<ul>
+<li>相克规则（与华灯系列角色）：</li>
+<ul>
+<li><a href="../pages/%E5%A7%91%E8%8E%B7%E9%B8%9F.html" title="姑获鸟">姑获鸟</a>：如果姑获鸟获得了精神病患者的能力，他会在被处决时死亡。</li>
+</ul>
+</ul>
+<h2 id="提示与技巧">提示与技巧</h2>
+<ul>
+<li>在第一天或尽可能早表明角色，并立即开始杀戮。就算杀死的玩家不是那么理想，比如已经使用过能力的玩家，还是有帮助的。如果善良阵营每天处决一名玩家，而你和恶魔每天杀死两名玩家，那么无论死亡的是谁，你仍然有优势。尤其是在多人的场次中，善良阵营可能想立即处决你，但如果他们需要几天时间来实现处决，那对你来说还是值得的。</li>
+<li>等待完美的机会再表明角色。有的剧本可能会有一些（对邪恶阵营）极其危险的镇民，为了对这些特别强大的角色(例如<a href="../pages/%E5%8D%8A%E5%85%BD%E4%BA%BA.html" title="半兽人">半兽人</a>、<a href="../pages/%E5%9B%BD%E7%8E%8B.html" title="国王">国王</a>或<a href="../pages/%E5%BC%82%E6%95%99%E9%A2%86%E8%A2%96.html" title="异教领袖">异教领袖</a>)发动突然袭击，隐藏几天是值得的。即使你杀死了这个玩家后马上就死亡，也足以为邪恶阵营挽救游戏。</li>
+<li>等到游戏将要结束再表明角色。如果你能活到只剩最后三名玩家时，可以在最后一天提名前杀死一名玩家并赢得比赛。或者，如果有四到五名玩家还活着，你可以杀死一个玩家，并迫使善良阵营在当天面临胜负抉择：处决恶魔否则当晚落败。</li>
+<li>请注意，即使你是非常强大的爪牙，也有一个明显的缺点：善良阵营知道哪个玩家是爪牙，这意味着他们可以排除一个处决的对象。此外，有的角色如果的得知了爪牙信息能力会变得非常强大，例如<a href="../pages/%E8%B4%B5%E6%97%8F.html" title="贵族">贵族</a>、<a href="../pages/%E9%92%9F%E8%A1%A8%E5%8C%A0.html" title="钟表匠">钟表匠</a>或<a href="../pages/%E6%B0%94%E7%90%83%E9%A9%BE%E9%A9%B6%E5%91%98.html" title="气球驾驶员">气球驾驶员</a>。</li>
+<li>必要时自杀。在游戏快结束时，你死了（离邪恶阵营胜利条件更近一步）通常比活着且被认定不是恶魔要好得多。你可以用你的能力去死，甚至公开表明你愿意被恶魔杀死来达成这个目的。</li>
+<li>在存活时尽可能多地获取信息。在私聊中留意善良玩家分别是什么角色，哪些玩家正在计划什么。和每个玩家都聊聊。你甚至不需要和其他邪恶玩交流，但如果你愿意也可以试试。即使善良玩家可能会觉得你很烦人，但你拥有的信息越多，意味着您越清楚每天要攻击谁。</li>
+<li>在适当的时候吃下一些处决。在游戏早期，最好让大家处决其他玩家，因为处决到恶魔的几率很低。在游戏后期，通常最好让善良阵营来处决你，否则恶魔被处决的几率很高。如果你能说服善良阵营在恶魔被怀疑时的处决你，那么对你有利。在恶魔被信任的时候如果你能说服善良阵营不处决你，那么每天都有一个善良被处决和一个善良玩家因<a href="../pages/%E7%B2%BE%E7%A5%9E%E7%97%85%E6%82%A3%E8%80%85.html" title="精神病患者">精神病患者</a>而死，这对你有利。</li>
+<li>当只有四五个玩家活着时，请仔细考虑攻击谁。一个精明的善良玩家会意识​​到，当你在提名前攻击一名玩家时，仅四名玩家存活且带着一个活着的<a href="../pages/%E7%B2%BE%E7%A5%9E%E7%97%85%E6%82%A3%E8%80%85.html" title="精神病患者">精神病患者</a>入夜，这将意味着第二天灾祸降临（善良阵营落败）。</li>
+<li>不要怕死，但要尽量活得长久。在一场多人游戏中，一个幸运的善良阵营在第一天处决了<a href="../pages/%E7%B2%BE%E7%A5%9E%E7%97%85%E6%82%A3%E8%80%85.html" title="精神病患者">精神病患者</a>，他们移除并确认了一个原本要花费大量时间的爪牙。这对您没有帮助，也不是很有趣。</li>
+<li>你也可以在不表明角色，默默等待被处决。你能力的猜拳部分仍然会激活，即使善良阵营不知道你是<a href="../pages/%E7%B2%BE%E7%A5%9E%E7%97%85%E6%82%A3%E8%80%85.html" title="精神病患者">精神病患者</a>。这样可以浪费当天的处决机会，并且仍然允许您在第二天攻击玩家。当然，前提是你不输掉猜拳。</li>
+<li>如果有角色在游戏中交换恶魔，即使善良阵营知道你是<a href="../pages/%E7%B2%BE%E7%A5%9E%E7%97%85%E6%82%A3%E8%80%85.html" title="精神病患者">精神病患者</a>，有时在白天不使用你的能力会很有用。例如，如果剧本中有<a href="../pages/%E5%B0%8F%E6%81%B6%E9%AD%94.html" title="小恶魔">小恶魔</a>、<a href="../pages/%E6%96%B9%E5%8F%A4.html" title="方古">方古</a>或<a href="../pages/%E9%BA%BB%E8%84%B8%E5%B7%AB%E5%A9%86.html" title="麻脸巫婆">麻脸巫婆</a>，你可以欺骗优秀的团队来处决你，因为他们可能认为你不再具有能力。</li>
+<li>学习一些石头剪子布的心理学。与正常情况不同，您不需要获胜。获胜或打平对您来说都可以。与其试图弄清楚你的猜拳对手会做什么（三分之一的机会），你需要做的就是弄清楚他们不会做什么（三分之二的机会）。如果你认为他们不会出石头，就出剪刀。如果你认为他们不会出剪刀，就出布。如果你认为他们不会出布，就出石头。</li>
+<li>每隔一段时间，杀死一个邪恶的玩家。如果优秀的团队正确地假设你只杀死优秀的玩家，那就是给了他们太多的信息。杀死一个邪恶玩家，让他像善良玩家，有时是值得的。</li>
+<li>可以让邪恶玩家提名你，然后故意输掉。这可能导致提名你的邪恶玩家第二天会被处决，但偶尔也是值得的。</li>
+</ul>
+<h2 id="对抗精神病患者">对抗精神病患者</h2>
+<ul>
+<li>在<a href="../pages/%E7%B2%BE%E7%A5%9E%E7%97%85%E6%82%A3%E8%80%85.html" title="精神病患者">精神病患者</a>表明角色并使用能力之前，没有太多针对的事情可以做。直到他们的处决失败时，你才会的得知精神病患者在场，那时你可以制定处理他们的策略。</li>
+<li>一旦<a href="../pages/%E7%B2%BE%E7%A5%9E%E7%97%85%E6%82%A3%E8%80%85.html" title="精神病患者">精神病患者</a>暴露了自己，请考虑尽快处决他们。每天提名并处决他们，直到<a href="../pages/%E7%B2%BE%E7%A5%9E%E7%97%85%E6%82%A3%E8%80%85.html" title="精神病患者">精神病患者</a>不幸输掉猜拳而死去。这种策略在精神病患者很早表明角色的多人游戏中是最好的。花几天时间将他处决掉是值得的，以免他杀死三、四、五甚至更多玩家。</li>
+<li>一旦<a href="../pages/%E7%B2%BE%E7%A5%9E%E7%97%85%E6%82%A3%E8%80%85.html" title="精神病患者">精神病患者</a>暴露了自己，只要没有充分的理由杀死另一名玩玩家，考虑每天都处决<a href="../pages/%E7%B2%BE%E7%A5%9E%E7%97%85%E6%82%A3%E8%80%85.html" title="精神病患者">精神病患者</a>。如果你不知道恶魔是谁，最好一遍又一遍地处决<a href="../pages/%E7%B2%BE%E7%A5%9E%E7%97%85%E6%82%A3%E8%80%85.html" title="精神病患者">精神病患者</a>并希望好运发生。当游戏有四、五或六名玩家活着时，您可以将注意力转移到寻找恶魔上。</li>
+<li>一旦<a href="../pages/%E7%B2%BE%E7%A5%9E%E7%97%85%E6%82%A3%E8%80%85.html" title="精神病患者">精神病患者</a>暴露了自己，如果您对恶魔可能是哪个玩家有一两个线索，那就晾着精神病患者不管。通常最好的办法是杀死恶魔而不是浪费处决机会在<a href="../pages/%E7%B2%BE%E7%A5%9E%E7%97%85%E6%82%A3%E8%80%85.html" title="精神病患者">精神病患者</a>身上。</li>
+<li>如果团队的策略是杀死<a href="../pages/%E7%B2%BE%E7%A5%9E%E7%97%85%E6%82%A3%E8%80%85.html" title="精神病患者">精神病患者</a>，请确保你每天投票一致。犹豫反复只会让邪恶的团队受益。</li>
+<li>如果团队的策略是让<a href="../pages/%E7%B2%BE%E7%A5%9E%E7%97%85%E6%82%A3%E8%80%85.html" title="精神病患者">精神病患者</a>活着并找到恶魔，请对你更强大的角色能力保持沉默，以尽可能少向精神病患者提供信息。与你信任的玩家（或任何除精神病患者之外的玩家，真的）交谈，并秘密整理你的信息。<a href="../pages/%E7%B2%BE%E7%A5%9E%E7%97%85%E6%82%A3%E8%80%85.html" title="精神病患者">精神病患者</a>可能会随时偷听你们私聊，所以要小心，并随时小声私聊。或者，为了消除<a href="../pages/%E7%B2%BE%E7%A5%9E%E7%97%85%E6%82%A3%E8%80%85.html" title="精神病患者">精神病患者</a>干扰，如果您是一个不介意死亡的角色，请公开装作<a href="../pages/%E7%B2%BE%E7%A5%9E%E7%97%85%E6%82%A3%E8%80%85.html" title="精神病患者">精神病患者</a>想要杀死的角色，例如<a href="../pages/%E8%B5%8F%E9%87%91%E7%8C%8E%E4%BA%BA.html" title="赏金猎人">赏金猎人</a>或<a href="../pages/%E6%B8%94%E5%A4%AB.html" title="渔夫">渔夫</a>。或者，如果你是一个绝对不想死的角色，就公开谎称是一个精神病患者懒得碰的角色，比如<a href="../pages/%E5%8E%A8%E5%B8%88.html" title="厨师">厨师</a>或<a href="../pages/%E5%91%8A%E5%AF%86%E8%80%85.html" title="告密者">告密者</a>。</li>
+<li>当提名开始时，尽早提名<a href="../pages/%E7%B2%BE%E7%A5%9E%E7%97%85%E6%82%A3%E8%80%85.html" title="精神病患者">精神病患者</a>。如果提名成功，那将是你和精神病患者猜拳，你至少确定你属于善良阵营。警惕其他过于着急提名<a href="../pages/%E7%B2%BE%E7%A5%9E%E7%97%85%E6%82%A3%E8%80%85.html" title="精神病患者">精神病患者</a>的玩家，因为他们可能是提名<a href="../pages/%E7%B2%BE%E7%A5%9E%E7%97%85%E6%82%A3%E8%80%85.html" title="精神病患者">精神病患者</a>的邪恶玩家，目的是故意输掉猜拳。</li>
+</ul>
+<h2 id="角色信息">角色信息</h2>
+<ul>
+<li>英文名：Psychopath</li>
+</ul>
+<ul>
+<li>所属剧本：<a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html" title="实验性角色">实验性角色</a>、<a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html" title="梦殒春宵">梦殒春宵</a>卡牌版</li>
+</ul>
+<ul>
+<li>角色类型：<a href="../pages/%E7%88%AA%E7%89%99.html" title="爪牙">爪牙</a></li>
+</ul>
+<ul>
+<li>角色能力类型：<a href="../pages/%E9%A2%9D%E5%A4%96%E6%AD%BB%E4%BA%A1.html" title="额外死亡">额外死亡</a>、<a href="../pages/%E5%85%AC%E5%BC%80%E8%A7%A6%E5%8F%91%E8%83%BD%E5%8A%9B.html" title="公开触发能力">公开触发能力</a>、<a href="../pages/%E5%A4%84%E5%86%B3.html" title="处决">处决</a>、<a href="../pages/%E5%85%8D%E6%AD%BB.html" title="免死">免死</a></li>
+</ul></div>
+    <div class="page-meta">最后修改于 2026-07-17T15:46:07Z，编辑者 <b>Beiyu</b> ｜ 页面 11,595 字节 ｜ <a href="https://clocktower-wiki.gstonegames.com/index.php?title=%E7%B2%BE%E7%A5%9E%E7%97%85%E6%82%A3%E8%80%85" target="_blank" rel="noopener">查看原页面</a> ｜ <div class="comment">编辑摘要：/* 规则细节 */</div></div>
+    <div class="backlinks"><b>链入此页的页面（35）</b><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a><a href="../pages/%E7%82%BC%E9%87%91%E6%9C%AF%E5%A3%AB.html">炼金术士</a><a href="../pages/%E5%A4%84%E5%86%B3.html">处决</a><a href="../pages/%E5%8D%8A%E5%85%BD%E4%BA%BA.html">半兽人</a><a href="../pages/%E5%B7%A5%E7%A8%8B%E5%B8%88.html">工程师</a><a href="../pages/%E7%B2%BE%E7%A5%9E%E7%97%85%E6%82%A3%E8%80%85.html">精神病患者</a><a href="../pages/%E5%86%9B%E5%9B%A2.html">军团</a><a href="../pages/%E7%97%A2%E8%9B%AD.html">痢蛭</a><a href="../pages/%E5%B0%8F%E6%80%AA%E5%AE%9D.html">小怪宝</a><a href="../pages/%E9%A2%9D%E5%A4%96%E6%AD%BB%E4%BA%A1.html">额外死亡</a><a href="../pages/%E5%85%AC%E5%BC%80%E8%A7%A6%E5%8F%91%E8%83%BD%E5%8A%9B.html">公开触发能力</a><a href="../pages/%E5%85%8D%E6%AD%BB.html">免死</a><a href="../pages/%E7%88%AA%E7%89%99.html">爪牙</a><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a><a href="../pages/%E6%B2%B8%E5%8F%8D%E7%9B%88%E5%A4%A9.html">沸反盈天</a><a href="../pages/%E5%8D%8A%E4%BB%99.html">半仙</a><a href="../pages/%E9%94%A6%E8%A1%A3%E5%8D%AB.html">锦衣卫</a><a href="../pages/%E9%92%A6%E5%A4%A9%E7%9B%91.html">钦天监</a><a href="../pages/%E8%A1%8C%E6%88%90%E4%B8%8B%E5%AD%A4%E4%B9%A1.html">行成下孤乡</a><a href="../pages/%E5%B9%BB%E5%BD%B1%E7%94%BB%E5%AE%89%E5%8D%B1.html">幻影画安危</a><a href="../pages/%E8%B0%9C%E6%A2%A6%E5%BE%85%E6%AD%8C%E8%88%9E.html">谜梦待歌舞</a><a href="../pages/%E5%BC%82%E5%9C%B0%E4%BC%97%E6%AC%A2%E6%9D%A5.html">异地众欢来</a><a href="../pages/%E9%A3%8E%E8%B5%B7%E7%BB%88%E7%9B%B8%E8%AF%86.html">风起终相识</a><a href="../pages/%E7%99%BD%E7%8B%90%E8%A1%8C%E4%B8%9B%E9%87%8C.html">白狐行丛里</a><a href="../pages/%E4%BE%A0%E4%BA%91%E6%95%88%E8%89%AF%E5%85%9A.html">侠云效良党</a><a href="../pages/%E9%95%BF%E5%A4%9C%E9%99%A9%E6%81%B6.html">长夜险恶</a><a href="../pages/%E4%BF%A1%E5%8F%A3%E9%9B%8C%E9%BB%84.html">信口雌黄</a><a href="../pages/%E7%9F%A5%E5%BA%9C.html">知府</a><a href="../pages/%E7%A7%89%E5%85%AC%E5%8A%9E%E4%BA%8B.html">秉公办事</a><a href="../pages/%E6%9A%97%E5%BA%A6%E9%99%88%E4%BB%93.html">暗度陈仓</a><a href="../pages/%E4%BA%8B%E6%95%85%E9%99%90%E5%9C%BA.html">事故限场</a><a href="../pages/%E7%BF%BB%E4%BA%91%E8%A6%86%E9%9B%A8.html">翻云覆雨</a><a href="../pages/%E5%A7%91%E8%8E%B7%E9%B8%9F.html">姑获鸟</a><a href="../pages/%E5%AE%A0%E5%A6%83.html">宠妃</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+window.LIBRARY_HISTORY={};

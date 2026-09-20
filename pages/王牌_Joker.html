@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>王牌 Joker - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">王牌 Joker<span class="ns-badge">奥德赛</span></h1>
+    <div class="tagline">来自钟楼百科 · 摘自《奥德赛 Odyssey》百科 · 镇民</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#夜晚行动顺序">夜晚行动顺序</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#游玩与对抗技巧">游玩与对抗技巧</a></li><li class="lvl2"><a href="#伪装成该角色">伪装成该角色</a></li><li class="lvl2"><a href="#出现剧本">出现剧本</a></li><li class="lvl2"><a href="#整体设计">整体设计</a></li><li class="lvl2"><a href="#创意来源">创意来源</a></li><li class="lvl2"><a href="#图标画师">图标画师</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E7%8E%8B%E7%89%8C">查找包含此角色的剧本 →</a></p><div class="charinfo"><div class="charinfo-img"><a href="../files/%E6%96%87%E4%BB%B6_%E7%8E%8B%E7%89%8C.png.html"><img alt="王牌 Joker" data-source-image="../images/%E7%8E%8B%E7%89%8C.png" src="../assets/media/王牌.preview.webp" width="600" height="600" decoding="async"></a></div><div class="charinfo-meta"><div class="row"><span class="k">角色类型</span><span class="v"><a href="../pages/%E9%95%87%E6%B0%91.html" title="镇民">镇民</a></span></div><div class="row"><span class="k">英文名</span><span class="v">Joker</span></div><div class="row"><span class="k">角色ID</span><span class="v">042</span></div><div class="row"><span class="k">角色归属</span><span class="v">角色拓展包《奥德赛》</span></div><div class="row"><span class="k">能力标签</span><span class="v"><a href="../pages/%E8%8E%B7%E5%8F%96%E4%BF%A1%E6%81%AF.html" title="获取信息">获取信息</a></span></div><div class="row"><span class="k">角色授权</span><span class="v">开放（任意剧本创作可用，不要修改能力）</span></div><div class="row"><span class="k">出处</span><span class="v"><a class="external" href="https://www.yuque.com/u48069482/taiyi" target="_blank" rel="noopener">《奥德赛 Odyssey》百科</a></span></div></div></div><h2 id="背景故事">背景故事</h2>
+<p>_<span style="color:rgb(64, 64, 64);">"</span>__<span style="color:rgb(15, 17, 21);">我听见黑桃在密谋，红心在颤抖，梅花在窃笑，方块在坚守。别紧张，我只是个无害的小丑。</span>__<span style="color:rgb(64, 64, 64);">"</span>_</p>
+<h2 id="角色简介"><span style="color:rgb(64, 64, 64);">角色简介</span></h2>
+<p>王牌可以探查其他玩家的扑克花色，但花色的含义需要破解。</p>
+<h2 id="角色能力">角色能力</h2>
+<div class="callout callout-info">
+<p>每个夜晚，你要选择一名其他玩家：你会得知他是什么花色。四种花色秘密对应着四种角色类型。</p>
+</div>
+<h2 id="范例">范例</h2>
+<ul>
+<li>第一个夜晚，王牌选择了小恶魔，王牌得知方块。第二个夜晚，王牌选择了驱魔人，王牌得知黑桃。第三个夜晚，王牌选择了洗衣妇，王牌得知黑桃。在本局游戏这位王牌的能力中，黑桃对应镇民，红心对应外来者，梅花对应爪牙，方块对应恶魔。</li>
+<li>第一个夜晚，王牌选择了圣徒，王牌得知红心。第二个夜晚，王牌选择了管家，王牌得知红心。第三个夜晚，王牌选择了寡妇，王牌得知黑桃。第四个夜晚，王牌选择了男爵，王牌得知黑桃。在本局游戏这位王牌的能力中，黑桃对应爪牙，红心对应外来者，梅花对应恶魔，方块对应镇民。</li>
+</ul>
+<h2 id="运作方式">运作方式</h2>
+<p>在王牌入场时，你要确定该王牌能力中的四种花色分别对应哪些角色类型，并且在本局游戏中不能随意更改。</p>
+<p>每个夜晚，唤醒王牌。让他指向除自己外的任意一名玩家。然后向王牌展示该玩家的角色类型所对应的花色（红心、方块、梅花、黑桃）。</p>
+<h2 id="夜晚行动顺序">夜晚行动顺序</h2>
+<ul>
+<li>首个夜晚</li>
+<ul>
+<li>夜序数值：9010</li>
+<li>前位角色：气球驾驶员</li>
+<li>行动提示：唤醒他并让他选择一名其他玩家，告知他该玩家对应的花色。</li>
+</ul>
+<li>其他夜晚</li>
+<ul>
+<li>夜序数值：12110</li>
+<li>前位角色：气球驾驶员</li>
+<li>行动提示：唤醒他并让他选择一名其他玩家，告知他该玩家对应的花色。</li>
+</ul>
+</ul>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>红心</li>
+<ul>
+<li>放置时机：任意时刻。</li>
+<li>放置条件：仅供说书人提示使用。</li>
+<li>移除时机：任意时刻。</li>
+</ul>
+<li>方块</li>
+<ul>
+<li>放置时机：任意时刻。</li>
+<li>放置条件：仅供说书人提示使用。</li>
+<li>移除时机：任意时刻。</li>
+</ul>
+<li>黑桃</li>
+<ul>
+<li>放置时机：任意时刻。</li>
+<li>放置条件：仅供说书人提示使用。</li>
+<li>移除时机：任意时刻。</li>
+</ul>
+<li>梅花</li>
+<ul>
+<li>放置时机：任意时刻。</li>
+<li>放置条件：仅供说书人提示使用。</li>
+<li>移除时机：任意时刻。</li>
+</ul>
+</ul>
+<h2 id="规则细节">规则细节</h2>
+<ul>
+<li>王牌能力中花色与角色类型的对应关系不是固定的，而是由说书人决定的。</li>
+<li>在首次给予王牌信息时，你就要确定该王牌能力中的四种花色分别对应哪些角色类型，并且在本局游戏中不能随意更改。</li>
+<li>如果游戏中出现多个王牌或拥有王牌能力的玩家，他们的花色对应关系是各自独立的，可以相同也可以不同。</li>
+<li>王牌不能选择旅行者玩家（旅行者隔绝原则）。</li>
+<li><strong>信息格式：</strong>红心、方块、梅花、黑桃。</li>
+<li><strong>错误（虚假）信息格式：</strong>非对应所选玩家的花色。例如：如果王牌能力中恶魔对应的是方块，王牌选择了恶魔，错误信息是黑桃/红心/梅花。</li>
+</ul>
+<h2 id="游玩与对抗技巧">游玩与对抗技巧</h2>
+<ul>
+<li>想尽一切办法搞清楚你的4种花色分别代表什么，不管是和大家一起讨论，还是利用其他玩家的信息作为佐证。</li>
+<li>如果你得知2名玩家的花色不同，但他们都在声称自己是镇民，那他们当中至少有一个非镇民玩家！甚至两个都是！</li>
+<li>如果你已经得知了4种不同的花色，那么他们中一定存在恶魔！</li>
+<li>如果你已经检测了两名声称自己是镇民的玩家，且他们是同一花色，那么对之后检测出不是这种花色且声称自己是镇民的玩家打起十二分的警惕！他们极大可能不是镇民！当然，你之前检测到的是两名玩家有极小的概率同为爪牙，所以他们会是同一花色。</li>
+<li>如果你只获得了一晚的信息，那你的信息将毫无作用。所以，无论如何尽量撑过第二个夜晚。</li>
+<li>前期你的信息价值会很低，甚至毫无用处。但是随着时间推移，你的信息价值会越来越高。如果你活到游戏的中后期，并且已经破解了你的花色，那么你的信息将起到决定性的作用。所以，活着是你的第一目标。</li>
+<li>如果你是一名邪恶玩家，你可以伪装为外来者，并且引导王牌选择自己。这将会给他理清楚自己的信息带来巨大的困扰。</li>
+<li>如果你是恶魔，王牌会是你的头号处理目标。王牌生存的时间越长，他的信息威胁就越大。他的信息一旦盘通，会对善良梳理局面产生巨大帮助。你不会想让王牌活到最后的，尽快解决他。</li>
+</ul>
+<h2 id="伪装成该角色">伪装成该角色</h2>
+<ul>
+<li>在编织你的说辞前，优先与那些表现善良的玩家交流，侧面收集他们公开或私下宣称的身份信息。利用这些情报来构建你的叙事，让你提出的“信息”能够巧妙地嵌入现有的身份格局中，从而大幅提升其可信度。</li>
+<li>敏锐洞察好人阵营内部的信任链条。一个高明的做法是：将你的“查验”目标锁定在那些彼此存有戒心的玩家身上。例如，若你察觉到某人正强烈质疑另一人的身份，便可将他们同时纳入你的“信息”报告中。这能有效激化他们固有的矛盾，引导其内部陷入相互指控的混乱局面，从而为你创造生存空间。</li>
+<li>切忌！不要在游戏早期就急于公布你掌握的“情报”。开局阶段你手中的信息几乎为零，言多必失。这个角色最难之处在于初期的伪装。耐心观察局势发展数日，待场上身份信息更为明朗后，再逐步释放你精心编排的“信息”。内容的绝对正确并非首要，关键在于其逻辑必须贴合当前局势，听起来合情合理。</li>
+</ul>
+<h2 id="出现剧本">出现剧本</h2>
+<ul>
+<li>但丁密码</li>
+</ul>
+<h2 id="整体设计">整体设计</h2>
+<ul>
+<li>太一</li>
+</ul>
+<h2 id="创意来源">创意来源</h2>
+<ul>
+<li>太一</li>
+</ul>
+<h2 id="图标画师">图标画师</h2>
+<ul>
+<li>Lei.</li>
+</ul></div>
+    <div class="page-meta">最后修改于 2026-07-24T05:41:39.000Z，编辑者 <b>未知</b> ｜ 页面 6,136 字节 ｜ <a href="https://www.yuque.com/u48069482/taiyi/ayltcxokb84vytt4" target="_blank" rel="noopener">查看原页面</a></div>
+    <div class="backlinks"><b>链入此页的页面（2）</b><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">奥德赛 Odyssey</a><a href="../pages/%E5%85%B6%E4%BB%96%EF%BC%88%E7%8E%A9%E5%AE%B6%EF%BC%89_Other_players.html">其他（玩家） Other players</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

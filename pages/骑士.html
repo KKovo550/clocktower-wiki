@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>骑士 - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">骑士</h1>
+    <div class="tagline">来自钟楼百科</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#提示与技巧">提示与技巧</a></li><li class="lvl2"><a href="#伪装成骑士">伪装成骑士</a></li><li class="lvl2"><a href="#角色信息">角色信息</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E9%AA%91%E5%A3%AB">查找包含此角色的剧本 →</a></p><p><a href="../pages/%E9%AA%91%E5%A3%AB.html" class="image-link" title="骑士"><img alt="Knight.png" style="width:200px" class="" loading="lazy" data-source-image="../images/Knight.png" src="../assets/media/Knight.preview.webp" width="591" height="591" decoding="async"></a></p>
+<h2 id="背景故事">背景故事</h2>
+<p><em>“当有人倒下时，他也就谋杀了世界上的某个部分。”</em></p>
+<h2 id="角色能力">角色能力</h2>
+<p><strong>在你的首个夜晚，你会得知两名非恶魔玩家。</strong></p>
+<h2 id="角色简介">角色简介</h2>
+<p>骑士会得知角色不为恶魔的玩家。</p>
+<ul>
+<li>在骑士的首个夜晚，他会得知两名玩家，这两名玩家的角色都不是恶魔。</li>
+</ul>
+<ul>
+<li>在随后的夜晚，骑士不会得知更多的信息。</li>
+</ul>
+<ul>
+<li>骑士得知的玩家可以是镇民，外来者甚至爪牙，但骑士不会知道他所得知的玩家的具体角色类型。</li>
+</ul>
+<h2 id="范例">范例</h2>
+<p>小明是<a href="../pages/%E6%B6%A1%E6%B5%81.html" title="涡流">涡流</a>，小黑是<a href="../pages/%E7%82%BC%E9%87%91%E6%9C%AF%E5%A3%AB.html" title="炼金术士">炼金术士</a>。骑士得知了小明和小黑。由于<a href="../pages/%E6%B6%A1%E6%B5%81.html" title="涡流">涡流</a>的能力，<a href="../pages/%E9%AA%91%E5%A3%AB.html" title="骑士">骑士</a>的信息必须是错误的，所以他得知的玩家里必须要包含恶魔。</p>
+<p>小努是<a href="../pages/%E9%80%81%E8%91%AC%E8%80%85.html" title="送葬者">送葬者</a>，小清是<a href="../pages/%E5%B0%8F%E6%81%B6%E9%AD%94.html" title="小恶魔">小恶魔</a>，小Z是<a href="../pages/%E5%8D%A0%E5%8D%9C%E5%B8%88.html" title="占卜师">占卜师</a>。骑士得知了小努和小Z。</p>
+<h2 id="运作方式">运作方式</h2>
+<p>在为首个夜晚进行准备时，将骑士的“得知”提示标记放置在任意两名非恶魔玩家的角色标记旁。</p>
+<p>在首个夜晚，唤醒骑士，并指向标记有“得知”的两名玩家。让骑士重新入睡。</p>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>得知</li>
+</ul>
+<p>放置时机：在为首个夜晚做准备时放置。</p>
+<p>放置条件：放置在两个非恶魔角色的角色标记旁边。</p>
+<p>移除时机：在骑士获取信息后，说书人可以任由自己方便来进行移除。</p>
+<h2 id="提示与技巧">提示与技巧</h2>
+<ul>
+<li>你知道你所得知的两名玩家不是恶魔。如果他们都能活到最后三人决赛日，由于你知道其中两名玩家不是恶魔，所以你就一定知道恶魔是谁并且利用你的信息获胜！</li>
+</ul>
+<ul>
+<li>对玩家们隐藏你的信息——恶魔会积极主动想要杀死你得知的玩家，以防在决赛日暴露自己。所以不把自己得知的信息告诉别人意味着恶魔不知道该杀谁。</li>
+</ul>
+<ul>
+<li>在隐藏信息的同时尝试让你得知的两名玩家变得足够可疑，让他们看起来可能是恶魔候选人，但不足以可疑到会被处决。这让他们有最大几率活到决赛日。</li>
+</ul>
+<ul>
+<li>你也可以尽早说出你的信息，尝试说服善良玩家信任你所得知的玩家。从统计数据上看，他们很可能也是善良玩家，然后因为获得信任而受益。如果他们不是善良玩家，那他们就是爪牙，所以给他们一点不应有的信任也不是最糟糕的事情。</li>
+</ul>
+<ul>
+<li>寻找醉酒或中毒的来源——你需要确认你的信息是否正确！如果你怀疑你在首个夜晚醉酒或中毒，你可能会想要杀死你得知的两名玩家，因为他们更有可能是恶魔。因此查清你是否醉酒或中毒可以让你们获胜。</li>
+</ul>
+<ul>
+<li>你还可以在你得知的玩家被提名时才透露你的信息，帮助他们免于被处决。这样做可以让你的信息尽可能长久地不被恶魔知道，从而不会使你的信息成为让那些玩家存活的阻碍。</li>
+</ul>
+<ul>
+<li>同意与你所得知的其中一名玩家交换角色声明和角色信息。你是乐于去死的，来帮助你所得知的非恶魔玩家存活到决赛日。所以如果有人分享骑士信息，称你是两名非恶魔玩家之一，并且大家都这样认为的时候，恶魔将会被鼓动去杀死你，而不是杀死你所得知的玩家。</li>
+</ul>
+<ul>
+<li>在游戏早期说出那些并不是你得知的玩家，作为你的公开的“骑士信息”。如果这些玩家没有在夜晚死亡，要么是恶魔不相信你是骑士（可能是因为这两名玩家之中真的有恶魔），要么是恶魔在整个对局中还有更高优先级的击杀目标。不管是哪种情况，都能让你得到不错的玩家状态信息。</li>
+</ul>
+<ul>
+<li>声称自己是其他善良角色，比如占卜师或洗衣妇这种角色，可以将你得知的其中一名或两名玩家排除嫌疑。这样你就不会被迫过早透露你的骑士信息。</li>
+</ul>
+<ul>
+<li>你不需要让你得知的玩家向你透露他们的角色或信息，你知道他们不是恶魔，至少能在这个程度上信任他们。对于他们来说，最优的玩法可能是基于你的信息所激发的信任，尽可能长久地不暴露自己。</li>
+</ul>
+<h2 id="伪装成骑士">伪装成骑士</h2>
+<ul>
+<li>在你的骑士信息里声称恶魔玩家是其中之一。这很明显，也很直接，但很有效——清除恶魔玩家的恶魔嫌疑可以让你们获胜。</li>
+</ul>
+<ul>
+<li>将两名善良玩家作为你的骑士信息声明出来。这两名善良玩家都知道自己不是恶魔，所以至少对于他们而言，他们会倾向于相信你的信息是正确的，因此他们会更倾向于信任你。</li>
+</ul>
+<ul>
+<li>将两名善良玩家作为你的骑士信息声明出来，然后在剩下的时间里努力设法让自己看起来是爪牙玩家——这种做法将会陷害那两名善良玩家成为潜在的恶魔候选人，他们正在被一名疑似爪牙的玩家“清除”恶魔嫌疑。</li>
+</ul>
+<ul>
+<li>将一名善良玩家和一名邪恶玩家作为你的骑士信息声明出来，以便在这些玩家之间建立信任。从而提供了一个信任你们的善良玩家为你们做担保，让你的邪恶队友以此为基点开始散播错误信息。</li>
+</ul>
+<ul>
+<li>就像一个真正的骑士可能会做的那样，直到游戏后期才公开你的“骑士信息”，从而让游戏的逻辑线路脱离正轨。</li>
+</ul>
+<ul>
+<li>骑士是一个很棒的备用伪装——如果恶魔被提名并且可能会获得足够票数被处决，你可以放弃你之前伪装的角色，以骑士的角色出现并大声明确地告诉所有人，这名恶魔玩家不是恶魔。</li>
+</ul>
+<ul>
+<li>骑士对于善良玩家来说也是非常棒的初始伪装——声称自己是骑士并随机挑选两名玩家。这将帮助你隐藏你的真实角色，还有个额外的好处，就是你可能可以存活一段时间，直到游戏中后期才会受到许多质疑。即使你不小心将恶魔玩家列为两名非恶魔玩家之一，只要你在游戏后期放弃这个声明，通常也不会对善良阵营造成太大伤害。</li>
+</ul>
+<ul>
+<li>如果你是伪装成骑士的恶魔，杀死你的骑士信息里声称的两名玩家。这会让你看起来是善良玩家，因为“恶魔相信你就是骑士，并且杀死了他们无法接受能够存活到决赛日的那些玩家。”</li>
+</ul>
+<ul>
+<li>仔细思考暴露自己是骑士的时机，以及暴露你作为骑士应该得知的那些信息的时机——你不需要同时暴露自己的骑士角色和骑士信息，不同的暴露时机会对游戏有不同影响。尽早声称你自己是骑士可以让你获得一点社交信任，但你可以坚持不提供任何实质性的信息，直到游戏差不多快结束时，再提供能够最大程度帮助你的阵营获胜的信息。</li>
+</ul>
+<h2 id="角色信息">角色信息</h2>
+<ul>
+<li>英文名：Knight</li>
+</ul>
+<ul>
+<li>所属剧本：<a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html" title="实验性角色">实验性角色</a>、<a href="../pages/%E5%8F%AA%E6%89%8B%E9%81%AE%E5%A4%A9.html" title="只手遮天">只手遮天</a>（快速上手剧本）</li>
+</ul>
+<ul>
+<li>角色类型：<a href="../pages/%E9%95%87%E6%B0%91.html" title="镇民">镇民</a></li>
+</ul>
+<ul>
+<li>角色能力类型：<a href="../pages/%E8%BF%9B%E5%9C%BA%E8%83%BD%E5%8A%9B.html" title="进场能力">进场能力</a>、<a href="../pages/%E8%8E%B7%E5%8F%96%E4%BF%A1%E6%81%AF.html" title="获取信息">获取信息</a></li>
+</ul>
+<ul>
+<li>角色背景相关：骑士的背景风味文字来自于《To Live Is To Die》这首歌的歌词，原曲收录于重金属乐队Metallica在1988年创作的专辑《And Justice For All》。</li>
+</ul></div>
+    <div class="page-meta">最后修改于 2026-05-28T09:13:32Z，编辑者 <b>Beiyu</b> ｜ 页面 7,066 字节 ｜ <a href="https://clocktower-wiki.gstonegames.com/index.php?title=%E9%AA%91%E5%A3%AB" target="_blank" rel="noopener">查看原页面</a> ｜ <div class="comment">编辑摘要：/* 背景故事 */</div></div>
+    <div class="backlinks"><b>链入此页的页面（20）</b><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a><a href="../pages/%E8%BF%9B%E5%9C%BA%E8%83%BD%E5%8A%9B.html">进场能力</a><a href="../pages/%E8%8E%B7%E5%8F%96%E4%BF%A1%E6%81%AF.html">获取信息</a><a href="../pages/%E9%95%87%E6%B0%91.html">镇民</a><a href="../pages/%E5%8F%AA%E6%89%8B%E9%81%AE%E5%A4%A9.html">只手遮天</a><a href="../pages/%E9%AA%91%E5%A3%AB.html">骑士</a><a href="../pages/%E5%8F%98%E8%84%B8%E5%B8%88.html">变脸师</a><a href="../pages/%E5%A4%9C%E6%99%9A%E8%A1%8C%E5%8A%A8%E9%A1%BA%E5%BA%8F%E4%B8%80%E8%A7%88.html">夜晚行动顺序一览</a><a href="../pages/%E6%96%B0%E8%A7%92%E8%89%B2%E5%85%AC%E5%B8%83%E8%AE%A1%E5%88%92.html">新角色公布计划</a><a href="../pages/%E7%AC%AC%E4%B8%80%E5%B1%8A%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A%E5%89%A7%E6%9C%AC%E5%88%9B%E4%BD%9C%E5%A4%A7%E8%B5%9B.html">第一届华灯初上剧本创作大赛</a><a href="../pages/%E4%BA%BA%E9%97%B4%E6%9A%97%E6%9C%88%E5%A4%9C.html">人间暗月夜</a><a href="../pages/%E5%BC%82%E5%9C%B0%E4%BC%97%E6%AC%A2%E6%9D%A5.html">异地众欢来</a><a href="../pages/%E9%A3%8E%E8%B5%B7%E7%BB%88%E7%9B%B8%E8%AF%86.html">风起终相识</a><a href="../pages/%E4%BE%A0%E4%BA%91%E6%95%88%E8%89%AF%E5%85%9A.html">侠云效良党</a><a href="../pages/%E5%AF%B9%E5%A2%9F%E9%9A%BE%E6%AC%A2%E9%B8%A3.html">对墟难欢鸣</a><a href="../pages/%E5%87%B6%E8%AF%A1%E9%9A%BE%E8%BE%A8.html">凶诡难辨</a><a href="../pages/%E6%8C%91%E7%81%AF%E7%9C%8B%E5%89%91.html">挑灯看剑</a><a href="../pages/%E5%B9%BD%E7%81%B5%E4%BE%A6%E6%8E%A2.html">幽灵侦探</a><a href="../pages/%E8%85%B9%E8%AF%AD%E5%B8%88.html">腹语师</a><a href="../pages/%E6%B1%9F%E5%9F%8E%E5%90%AF.html">江城启</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

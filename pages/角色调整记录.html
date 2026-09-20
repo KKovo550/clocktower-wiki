@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>角色调整记录 - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">角色调整记录<span class="ns-badge">奥德赛</span></h1>
+    <div class="tagline">来自钟楼百科 · 摘自《奥德赛 Odyssey》百科 · 角色列表</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl3"><a href="#2026.9.10">2026.9.10</a></li><li class="lvl3"><a href="#2026.9.7">2026.9.7</a></li><li class="lvl3"><a href="#2026.9.6">2026.9.6</a></li><li class="lvl3"><a href="#2026.9.2">2026.9.2</a></li><li class="lvl3"><a href="#2026.9.1">2026.9.1</a></li><li class="lvl3"><a href="#2026.8.31">2026.8.31</a></li><li class="lvl3"><a href="#2026.8.24">2026.8.24</a></li><li class="lvl3"><a href="#2026.8.22">2026.8.22</a></li><li class="lvl3"><a href="#2026.8.19">2026.8.19</a></li><li class="lvl3"><a href="#2026.8.18">2026.8.18</a></li></ul></div>
+    <div class="mw-parser-output"><h3 id="2026.9.10">2026.9.10</h3>
+<ul>
+<li><strong>图标修改——调香师</strong></li>
+</ul>
+<p><em>角色标记需要重做。</em></p>
+<p>__</p>
+<ul>
+<li><strong>图标修改——捕虫少年</strong></li>
+</ul>
+<p><em>角色标记需要重做。</em></p>
+<p>__</p>
+<ul>
+<li><strong>能力调整及配套内容修改——双面人</strong></li>
+</ul>
+<blockquote><p><em>每个夜晚*，你会转变为与上个死于处决的玩家对立的阵营。</em></p><p>↓</p><p><em>审判日降临前的每个夜晚*，你会转变为与上个死于处决的玩家对立的阵营。</em></p></blockquote>
+<ul>
+<li><strong>能力重做——游侠</strong></li>
+</ul>
+<blockquote><p>如果与你邻近的存活玩家死亡，当晚你会被唤醒并要选择一名玩家：如果他是爪牙，他死亡。</p><p>↓</p><p>每局游戏限一次，在夜晚时*，你可以选择一名玩家：如果他是爪牙，他死亡；如果他是镇民，你死亡。</p></blockquote>
+<p><em>修改1个提示标记，1个提示标记需要重做。</em></p>
+<h3 id="2026.9.7">2026.9.7</h3>
+<ul>
+<li><strong>能力重做——纳垢</strong></li>
+</ul>
+<blockquote><p>每个夜晚*，你要选择一名玩家：他死亡，且与他邻座的玩家们会中毒直到你下次攻击前。</p><p>↓</p><p>每个夜晚*，你要选择一对邻座的玩家：其中一人中毒直到你再次选择，另一人死亡。</p></blockquote>
+<p><em>减少1个提示标记，角色标记需要重做。</em></p>
+<p>__</p>
+<ul>
+<li><strong>能力调整及配套内容修改——武僧</strong></li>
+</ul>
+<blockquote><p><em>当恶魔攻击你时，一名邪恶玩家会替代你被攻击。</em></p><p>↓</p><p><em>当恶魔攻击你时，一名存活的邪恶玩家会替代你被攻击。</em></p></blockquote>
+<p>__</p>
+<ul>
+<li><strong>能力调整及配套内容修改——浪人</strong></li>
+</ul>
+<blockquote><p><em>每局游戏限一次，在夜晚时*，你可以选择一名玩家：如果当晚他被恶魔攻击，一名邪恶玩家会代替他被攻击，且你重获能力。</em></p><p>↓</p><p><em>每局游戏限一次，在夜晚时*，你可以选择一名玩家：如果当晚他被恶魔攻击，一名存活的邪恶玩家会代替他被攻击，且你重获能力。</em></p></blockquote>
+<p>__</p>
+<ul>
+<li><strong>能力调整及配套内容修改——皮匠</strong></li>
+</ul>
+<blockquote><p><em>在你的首个夜晚，你会得知一个距离你最近的邪恶角色。</em></p><p>↓</p><p><em>在你的首个夜晚，你会得知一个距离你最近的爪牙角色。</em></p></blockquote>
+<p>__</p>
+<ul>
+<li><strong>能力调整及配套内容修改——天平师</strong></li>
+</ul>
+<blockquote><p><em>在你的首个夜晚，你会得知一名玩家：该玩家与他对立阵营的两名玩家距离相等。</em></p><p>↓</p><p><em>在你的首个夜晚，你会得知一名玩家：他是邪恶玩家，或他与两名邪恶玩家的距离相等。</em></p></blockquote>
+<ul>
+<li><strong>能力调整及配套内容修改——地狱轮盘</strong></li>
+</ul>
+<blockquote><p><em>玩家在发起提名后要掷出一个六面骰：如果掷出的点数已存在，他死亡，并移除所有已掷的骰子。</em></p><p>↓</p><p><em>审判日降临前，玩家在发起提名后要掷出一个六面骰：如果掷出的点数已存在，他死亡，并移除所有已掷的骰子。</em></p></blockquote>
+<h3 id="2026.9.6">2026.9.6</h3>
+<ul>
+<li><strong>配套内容调整——画家</strong></li>
+</ul>
+<p><em>规则细节有修改。删去1个提示标记，角色标记需要重做。</em></p>
+<h3 id="2026.9.2">2026.9.2</h3>
+<ul>
+<li><strong>能力描述优化————巫女</strong></li>
+</ul>
+<blockquote><p>每个夜晚，你要选择两名邻座的其他玩家：你会得知他们之中是否有爪牙。</p><p>↓</p><p>每个夜晚，你要选择一对邻座的其他玩家：你会得知他们之中是否有爪牙。</p></blockquote>
+<h3 id="2026.9.1">2026.9.1</h3>
+<ul>
+<li><strong>能力调整及配套内容修改——大巫妖</strong></li>
+</ul>
+<blockquote><p>每个夜晚*，你要选择一名玩家：他死亡。每个死亡玩家首次被大巫妖选择时，该玩家要选择两名玩家：他们死亡。</p><p>↓</p><p>每个夜晚*，你可以选择一名死亡玩家（未曾被大巫妖选择过），他要选择两名玩家：他们死亡。否则，会有一名玩家死亡。</p></blockquote>
+<h3 id="2026.8.31">2026.8.31</h3>
+<ul>
+<li><strong>能力调整及配套内容修改——骚客</strong></li>
+</ul>
+<blockquote><p>每个夜晚，你会得知一个字（均出自同一句诗词）。首次有玩家吟诵这句诗词时，他立即被处决，即使你已死亡。</p><p>↓</p><p>每个夜晚，你会得知一个字（均出自同一句诗词）。首次有存活玩家吟诵这句诗词时，他立即被处决，即使你已死亡。</p></blockquote>
+<h3 id="2026.8.24">2026.8.24</h3>
+<ul>
+<li><strong>能力描述优化——麻风侏儒</strong></li>
+</ul>
+<blockquote><p>使用自身能力选择你的镇民玩家会立即变成麻风侏儒，然后你失去所有能力。你的胜负条件与邪恶玩家相同，即使你已死亡。</p><p>↓</p><p>镇民玩家使用自身能力选择你时，会立即变成麻风侏儒，且你失去所有能力。你的胜负条件与邪恶玩家相同，即使你已死亡。</p></blockquote>
+<h3 id="2026.8.22">2026.8.22</h3>
+<ul>
+<li><strong>配套内容调整——毒爆</strong></li>
+</ul>
+<p><em>规则细节有修改。</em></p>
+<h3 id="2026.8.19">2026.8.19</h3>
+<ul>
+<li><strong>能力重做——湖中仙女</strong></li>
+</ul>
+<blockquote><p>每个夜晚*，如果当天有玩家被处决，你会得知他是否为镇民。如果他依然存活，你改为得知与他邻近的两名玩家是否皆为镇民。</p><p>↓</p><p>每个夜晚，说书人会向你展示两种能力，你可以选择其中一种：它替代你的原能力。</p></blockquote>
+<p><em>提示标记，角色标记需要重做。</em></p>
+<h3 id="2026.8.18">2026.8.18</h3>
+<ul>
+<li><strong>能力描述优化——治安官</strong></li>
+</ul>
+<blockquote><p>在你的首个夜晚，你会得知一名外来者或爪牙玩家。如果你在夜晚死亡，你会得知一名外来者或爪牙玩家（角色类型与上次不同）。[+1外来者]</p><p>↓</p><p>在你的首个夜晚，你会得知一名玩家。如果你在夜晚死亡，你会得知一名玩家。他们中一人是爪牙，另一人是外来者。[+1外来者]</p></blockquote>
+<ul>
+<li><strong>能力描述优化——猫猫探险队</strong></li>
+</ul>
+<blockquote><p>每个白天，一名未探险过的玩家可以公开申请探险。在当晚，如果他存活，你会得知一名与他阵营对立的玩家。</p><p>↓</p><p>每个白天，一名未曾探险过的玩家可以公开申请探险。在当晚，如果他存活，你会得知一名与他阵营对立的玩家。</p></blockquote>
+<ul>
+<li><strong>能力描述优化——倒吊人</strong></li>
+</ul>
+<blockquote><p>当游戏结束时，如果你使用过投票标记投票，对调胜负结果。</p><p>↓</p><p>当游戏结束时，如果你曾使用过投票标记投票，对调胜负结果。</p></blockquote>
+<ul>
+<li><strong>能力描述优化——仲裁者</strong></li>
+</ul>
+<blockquote><p>如果你提名并处决了一名其他善良玩家，他不会死于本次处决。</p><p>↓</p><p>其他善良玩家不会死于你发起的提名处决。</p></blockquote>
+<ul>
+<li><strong>能力调整及配套内容修改——乌贼娘</strong></li>
+</ul>
+<blockquote><p>如果你即将死亡，你可能不会死亡，但所有镇民会醉酒直到明天黄昏。</p><p>↓</p><p>当你首次即将死亡时，你可能不会死亡，但所有镇民会醉酒直到明天黄昏。</p></blockquote>
+<p><em>新增1个提示标记，角色标记需要重做。</em></p>
+<ul>
+<li><strong>能力调整及配套内容修改——克拉肯</strong></li>
+</ul>
+<blockquote><p>每个夜晚*，你可以选择一名玩家：他死亡。如果你在审判日降临前死亡，改为你假死，且你能力中的“一名玩家”改为“一名与你邻近的存活玩家”。</p><p>↓</p><p>每个夜晚*，你要选择一名玩家：他死亡。如果你在审判日降临前死亡，改为你假死。你假死时只能杀死与你邻近的存活玩家。</p></blockquote>
+<ul>
+<li><strong>能力调整及配套内容修改——夜叉</strong></li>
+</ul>
+<blockquote><p>每个夜晚*，你可以选择一名当天被你提名或提名了你的玩家：他死亡，即使你已死亡。</p><p>↓</p><p>每个夜晚*，你可以选择一名当天被你提名或提名了你的玩家：他死亡。</p></blockquote>
+<ul>
+<li><strong>配套内容调整——阴阳师</strong></li>
+</ul>
+<p><em>新增1个提示标记，角色标记需要重做。</em></p>
+<p>__</p>
+<ul>
+<li><strong>配套内容调整——月光骑士</strong></li>
+</ul>
+<p><em>新增1个提示标记，角色标记需要重做。</em></p>
+<p>__</p>
+<ul>
+<li><strong>配套内容调整——公证人</strong></li>
+</ul>
+<p><em>调整2个提示标记。</em></p></div>
+    <div class="page-meta">最后修改于 2026-09-09T16:29:43.000Z，编辑者 <b>未知</b> ｜ 页面 7,375 字节 ｜ <a href="https://www.yuque.com/u48069482/taiyi/uqr70hkp93ddoymt" target="_blank" rel="noopener">查看原页面</a></div>
+    <div class="backlinks"><b>链入此页的页面（1）</b><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">奥德赛 Odyssey</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

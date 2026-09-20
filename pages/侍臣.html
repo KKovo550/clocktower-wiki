@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>侍臣 - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">侍臣</h1>
+    <div class="tagline">来自钟楼百科</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#提示与技巧">提示与技巧</a></li><li class="lvl2"><a href="#伪装成侍臣">伪装成侍臣</a></li><li class="lvl2"><a href="#角色信息">角色信息</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E4%BE%8D%E8%87%A3">查找包含此角色的剧本 →</a></p><p><a href="../pages/%E4%BE%8D%E8%87%A3.html" class="image-link" title="侍臣"><img alt="Courtier.png" style="width:200px" class="" loading="lazy" data-source-image="../images/Courtier.png" src="../assets/media/Courtier.preview.webp" width="600" height="600" decoding="async"></a></p>
+<h2 id="背景故事">背景故事</h2>
+<p><em>“比起一只羊带领的一百头狮子，我更害怕一头狮子带领的一百只羊。”</em></p>
+<h2 id="角色能力">角色能力</h2>
+<p><strong>每局游戏限一次，在夜晚时，你可以选择一个角色：如果该角色在场，该角色之一从当晚开始醉酒三天三夜。</strong></p>
+<h2 id="角色简介">角色简介</h2>
+<p>侍臣能使一个角色醉酒，且不需要知道该角色是哪名玩家。</p>
+<ul>
+<li>每局游戏限一次，侍臣可以选择一个角色，使其醉酒三个夜晚和三个白天，立即生效。</li>
+</ul>
+<ul>
+<li>侍臣不会得知自己成功或失败，因此侍臣可能会选到不在场的角色。</li>
+</ul>
+<ul>
+<li>侍臣选择的是一个角色，而不是一名玩家。说书人可能需要提醒侍臣玩家注意这一点。也需要提醒试图伪装成侍臣的邪恶玩家注意这一点。</li>
+</ul>
+<ul>
+<li>如果醉酒或中毒的侍臣选择了一个角色，该角色不会醉酒，即使侍臣于之后恢复了清醒和健康。如果侍臣使一个角色醉酒，但是侍臣变得醉酒或中毒，那名醉酒的玩家会重新恢复清醒。如果侍臣在三个夜晚和三个白天结束前又恢复了清醒和健康，那名被侍臣选中角色的玩家还是会继续醉酒。</li>
+</ul>
+<h2 id="范例">范例</h2>
+<p>已经过去了四个夜晚，<a href="../pages/%E4%BE%8D%E8%87%A3.html" title="侍臣">侍臣</a>都被唤醒但没有使用自己的能力。在第五个夜晚，<a href="../pages/%E4%BE%8D%E8%87%A3.html" title="侍臣">侍臣</a>使<a href="../pages/%E6%B2%99%E5%B7%B4%E6%B4%9B%E6%96%AF.html" title="沙巴洛斯">沙巴洛斯</a>醉酒。从今晚起的三个夜晚，<a href="../pages/%E6%B2%99%E5%B7%B4%E6%B4%9B%E6%96%AF.html" title="沙巴洛斯">沙巴洛斯</a>能够行动，但是无法杀死任何人。</p>
+<p><a href="../pages/%E4%BE%8D%E8%87%A3.html" title="侍臣">侍臣</a>在醉酒时使用了自己的能力。无事发生，但<a href="../pages/%E4%BE%8D%E8%87%A3.html" title="侍臣">侍臣</a>再也不会被唤醒了。</p>
+<p><a href="../pages/%E4%BE%8D%E8%87%A3.html" title="侍臣">侍臣</a>使<a href="../pages/%E4%B8%BB%E8%B0%8B.html" title="主谋">主谋</a>醉酒。<a href="../pages/%E7%8F%80.html" title="珀">珀</a>被处决而<a href="../pages/%E4%B8%BB%E8%B0%8B.html" title="主谋">主谋</a>依然存活。游戏结束，善良阵营获胜。</p>
+<h2 id="运作方式">运作方式</h2>
+<p>每个夜晚，唤醒侍臣。侍臣要么摇头表示不使用能力，要么指向角色列表上的任意一个角色图标。让侍臣重新入睡。</p>
+<p>如果侍臣使用了能力且该角色在场，对应的玩家当晚醉酒，持续三天三夜。将侍臣的“醉酒1”放置到该玩家的角色标记旁。在下一夜，将“醉酒1”替换成“醉酒2”。再下一夜，将“醉酒2”替换成“醉酒3”。再下一夜的黄昏，移除“醉酒3”，且侍臣失去能力。将“失去能力”提示标记放置到侍臣角色标记旁，并从夜晚顺序表上移除其夜晚标记。</p>
+<p>在侍臣选择了角色使其醉酒后，在本局游戏的剩余时段内不再唤醒侍臣。</p>
+<p>在其他的剧本中，场上可能会出现多个相同角色。侍臣只能让他选择的角色所对应的玩家其中之一醉酒。</p>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>醉酒1</li>
+</ul>
+<p>放置时机：在侍臣夜晚行动时选择使用能力，并选择了剧本列表上的一个角色后。</p>
+<p>放置条件：如果侍臣未醉酒中毒，且他选择的角色在场，在该角色的角色标记旁边放置。如果此时有多个该角色在场，由说书人选择其中一个角色并在这个角色标记旁放置。</p>
+<p>移除时机：在黄昏时，将醉酒1替换成醉酒2，不论此时侍臣是否醉酒中毒。如果侍臣死亡或离场，则改为移除标记。</p>
+<ul>
+<li>醉酒2</li>
+</ul>
+<p>放置时机：当醉酒1放置且到达下一次黄昏时，将其替换成醉酒2。除此之外该标记不会放置。</p>
+<p>放置条件：与醉酒1保持相同的目标。</p>
+<p>移除时机：在放置醉酒2的下一个黄昏时，将醉酒2替换成醉酒3，不论此时侍臣是否醉酒中毒。如果侍臣死亡或离场，则改为移除标记。</p>
+<ul>
+<li>醉酒3</li>
+</ul>
+<p>放置时机：当醉酒2放置且到达下一次黄昏时，将其替换成醉酒3。除此之外该标记不会放置。</p>
+<p>放置条件：与醉酒2保持相同的目标。</p>
+<p>移除时机：在放置醉酒3的下一个黄昏时，将此标记移除并为侍臣放置失去能力标记，不论此时侍臣是否醉酒中毒。如果侍臣死亡或离场，也移除此标记。</p>
+<ul>
+<li>失去能力</li>
+</ul>
+<p>放置时机：当醉酒3放置且到达下一次黄昏时，或侍臣在醉酒中毒期间选择使用自己的能力时。</p>
+<p>放置条件：在满足上述两种时机之一时，放置在侍臣角色标记旁。</p>
+<p>移除时机：侍臣死亡或离场时。</p>
+<h2 id="规则细节">规则细节</h2>
+<ul>
+<li>相克规则：</li>
+<ul>
+<li><a href="../pages/%E7%BB%B4%E9%BD%90%E5%B0%94.html" title="维齐尔">维齐尔</a>：如果维齐尔失去能力，他会得知此事，但不会在白天死亡。</li>
+<li><a href="../pages/%E5%8F%AC%E5%94%A4%E5%B8%88.html" title="召唤师">召唤师</a>：如果存活的召唤师失去能力，说书人会获得召唤师能力。</li>
+</ul>
+</ul>
+<h2 id="提示与技巧">提示与技巧</h2>
+<ul>
+<li><a href="../pages/%E4%BE%8D%E8%87%A3.html" title="侍臣">侍臣</a>的独特之处在于你选择的是角色，而不是玩家。这意味着如果你选择了一个在游戏里中存在的角色，那他就会醉酒。这与<a href="../pages/%E6%8A%95%E6%AF%92%E8%80%85.html" title="投毒者">投毒者</a>不同，<a href="../pages/%E6%8A%95%E6%AF%92%E8%80%85.html" title="投毒者">投毒者</a>是选择让玩家中毒，而不管他们是什么角色。多亏了这一点，你可以使用一些不同的策略！</li>
+</ul>
+<ul>
+<li>整个游戏你只能使用一次你的能力，所以要把握好时机！你做出选择的时间越晚，你那时候的信息越多，造成的混乱也可能越多。另一方面，邪恶阵营的玩家会尽快瞄准你，所以尽早使用你的能力可以确保你在死前使用出能力并获得一些信息。要由你来判断游戏的进程并做出选择！</li>
+</ul>
+<ul>
+<li>显然，你能力最强的用途之一就是瞄准恶魔——如果你可以通过让恶魔醉酒来阻止恶魔，那么善良阵营玩家将有三晚的平安，而邪恶阵营将处于严重劣势。判断是哪个恶魔在游戏中的可靠方法是观察每晚的死亡人数——发现一个规律的话，你就可以在他们发动毁灭性攻击之前醉酒他们，比如致命的<a href="../pages/%E6%B2%99%E5%B7%B4%E6%B4%9B%E6%96%AF.html" title="沙巴洛斯">沙巴洛斯</a>或狡猾的<a href="../pages/%E7%8F%80.html" title="珀">珀</a>。</li>
+</ul>
+<ul>
+<li>你可以使用的另一个强大策略是让爪牙醉酒。醉酒的<a href="../pages/%E5%88%BA%E5%AE%A2.html" title="刺客">刺客</a>或<a href="../pages/%E6%95%99%E7%88%B6.html" title="教父">教父</a>无法在镇上造成额外死亡，但要把握好时机——只有在你确定这会帮助善良阵营的前提下，再这么做。选择灌醉<a href="../pages/%E9%AD%94%E9%AC%BC%E4%BB%A3%E8%A8%80%E4%BA%BA.html" title="魔鬼代言人">魔鬼代言人</a>或<a href="../pages/%E4%B8%BB%E8%B0%8B.html" title="主谋">主谋</a>就更阴险了，因为邪恶的阵营往往靠他们的能力在危急关头拯救他们，而醉酒不会马上被发现。一个认为自己背后有<a href="../pages/%E4%B8%BB%E8%B0%8B.html" title="主谋">主谋</a>的邪恶阵营可能会让他们的恶魔被处决，而事实上他们即将输掉游戏！</li>
+</ul>
+<ul>
+<li>在大多数情况下，让善良阵营的玩家醉酒可能不是你能力使用的最佳选择，但实际上在某些情况下它确实是可行的。例如，醉酒的<a href="../pages/%E9%80%A0%E8%B0%A3%E8%80%85.html" title="造谣者">造谣者</a>不能再随机死亡，醉酒的<a href="../pages/%E7%A5%96%E6%AF%8D.html" title="祖母">祖母</a>不会与孙子一起死去，醉酒的<a href="../pages/%E6%9C%88%E4%B9%8B%E5%AD%90.html" title="月之子">月之子</a>死亡后不会导致额外善良阵营玩家的死亡。</li>
+</ul>
+<ul>
+<li>如果你怀疑某人可能不是他们声称的人，你可以选择他们声称的角色，看看他们的发言是否会发生变化。例如，如果一个<a href="../pages/%E4%BE%8D%E5%A5%B3.html" title="侍女">侍女</a>在你醉酒那个角色之后继续提供“真实”信息，或者一个<a href="../pages/%E9%A9%B1%E9%AD%94%E4%BA%BA.html" title="驱魔人">驱魔人</a>在应该被醉酒之后继续“阻止”恶魔，那你完全可以怀疑他们。（注意：如果你错了，让真正的<a href="../pages/%E4%BE%8D%E5%A5%B3.html" title="侍女">侍女</a>或<a href="../pages/%E9%A9%B1%E9%AD%94%E4%BA%BA.html" title="驱魔人">驱魔人</a>醉酒了，你可能会因为干扰了善良阵营而受到怀疑和愤怒！这是一场冒险的游戏，但回报很大。）</li>
+</ul>
+<ul>
+<li>如果你只是不确定要让谁醉酒，而且你又感觉自己要死了，一个有效的选择是简单地选择剧本中最致命的角色。无论这个角色是否在游戏中，你现在都可以完全确信这个角色根本不会影响你的游戏，让善良玩家可以排除那个角色进行推理。 （你问，<a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html" title="黯月初升">黯月初升</a>剧本中谁是最致命的角色？好吧，这取决于你！）</li>
+</ul>
+<h2 id="伪装成侍臣">伪装成侍臣</h2>
+<p>当你要伪装成侍臣的时候，这里有几件事你应该记住：</p>
+<ul>
+<li>过几天再声称你是<a href="../pages/%E4%BE%8D%E8%87%A3.html" title="侍臣">侍臣</a>，或者至少等几天再声称已经使用了你的能力。这就是真正的<a href="../pages/%E4%BE%8D%E8%87%A3.html" title="侍臣">侍臣</a>通常会做的事情。另外，请记住，真正的<a href="../pages/%E4%BE%8D%E8%87%A3.html" title="侍臣">侍臣</a>会选择一个角色去醉酒，而不是选择一个玩家。</li>
+</ul>
+<ul>
+<li>假装自己是<a href="../pages/%E4%BE%8D%E8%87%A3.html" title="侍臣">侍臣</a>最简单方法是声称已对恶魔或爪牙使用过<a href="../pages/%E4%BE%8D%E8%87%A3.html" title="侍臣">侍臣</a>能力，然后没有明显效果。例如，声称你在<a href="../pages/%E6%99%AE%E5%8D%A1.html" title="普卡">普卡</a>上使用了你的能力，但由于夜晚仍然发生了死亡，你一定是猜错了恶魔。 “弄错”对于<a href="../pages/%E4%BE%8D%E8%87%A3.html" title="侍臣">侍臣</a>来说是很常见的，所以只要别的玩家对在场的邪恶角色不明，你就看起来并不可疑。</li>
+</ul>
+<ul>
+<li>假装醉酒“成功”可能更具破坏性，但也更具风险。如果你可以让团队相信你是<a href="../pages/%E4%BE%8D%E8%87%A3.html" title="侍臣">侍臣</a>，而且你已经醉酒了游戏中邪恶角色的能力，那么其他玩家将非常不愿意处决你。嗯，不错的骗术。</li>
+</ul>
+<ul>
+<li>如果你声称选择了实际在场的恶魔，或者至少是善良玩家认为在场的恶魔，那么你可能需要与恶魔商量一下，夜晚最好不要死亡。醉酒的恶魔不能杀人，所以为了看起来你真的对恶魔做了这件事，恶魔要么不杀人，要么有其他的夜晚死亡原因，比如<a href="../pages/%E9%80%A0%E8%B0%A3%E8%80%85.html" title="造谣者">造谣者</a>或<a href="../pages/%E4%BF%AE%E8%A1%A5%E5%8C%A0.html" title="修补匠">修补匠</a>。特别是如果你在游戏后期这样做的话 ，这种策略对你来说很可能获得游戏的胜利。如果善良玩家认为恶魔醉酒了，他们可能不会在只剩下3或4（甚至5或6）名玩家活着的情况下处决任何人，而像<a href="../pages/%E6%B2%99%E5%B7%B4%E6%B4%9B%E6%96%AF.html" title="沙巴洛斯">沙巴洛斯</a>或<a href="../pages/%E7%8F%80.html" title="珀">珀</a>这样的精明恶魔可以在那个时候杀死多个玩家。</li>
+</ul>
+<ul>
+<li>假装将关键角色的能力排除在游戏之外，从而让善良玩家不去考虑他们。如果你是<a href="../pages/%E4%B8%BB%E8%B0%8B.html" title="主谋">主谋</a>，你可以自称是选择<a href="../pages/%E4%B8%BB%E8%B0%8B.html" title="主谋">主谋</a>的<a href="../pages/%E4%BE%8D%E8%87%A3.html" title="侍臣">侍臣</a>，这意味着当你的能力在恶魔死后第二天夺取胜利时，他们将完全措手不及。如果你是<a href="../pages/%E6%99%AE%E5%8D%A1.html" title="普卡">普卡</a>，你可以声称是让<a href="../pages/%E6%99%AE%E5%8D%A1.html" title="普卡">普卡</a>醉酒的<a href="../pages/%E4%BE%8D%E8%87%A3.html" title="侍臣">侍臣</a>，当夜晚死亡持续时，这会让团队相信另一个恶魔在场，他们会完全忽略这种<a href="../pages/%E6%99%AE%E5%8D%A1.html" title="普卡">普卡</a>带来的中毒。真不错。</li>
+</ul>
+<h2 id="角色信息">角色信息</h2>
+<ul>
+<li>英文名：Courtier</li>
+</ul>
+<ul>
+<li>所属剧本：<a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html" title="黯月初升">黯月初升</a></li>
+</ul>
+<ul>
+<li>角色类型：<a href="../pages/%E9%95%87%E6%B0%91.html" title="镇民">镇民</a></li>
+</ul>
+<ul>
+<li>角色能力类型：<a href="../pages/%E9%86%89%E9%85%92.html" title="醉酒">醉酒</a>、<a href="../pages/%E9%99%90%E6%AC%A1%E8%83%BD%E5%8A%9B.html" title="限次能力">限次能力</a></li>
+</ul></div>
+    <div class="page-meta">最后修改于 2026-06-13T03:20:00Z，编辑者 <b>Zack</b> ｜ 页面 9,704 字节 ｜ <a href="https://clocktower-wiki.gstonegames.com/index.php?title=%E4%BE%8D%E8%87%A3" target="_blank" rel="noopener">查看原页面</a> ｜ <div class="comment">编辑摘要：/* 规则细节 */</div></div>
+    <div class="backlinks"><b>链入此页的页面（40）</b><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a><a href="../pages/%E6%B0%B4%E6%89%8B.html">水手</a><a href="../pages/%E4%BE%8D%E5%A5%B3.html">侍女</a><a href="../pages/%E6%97%85%E5%BA%97%E8%80%81%E6%9D%BF.html">旅店老板</a><a href="../pages/%E8%B5%8C%E5%BE%92.html">赌徒</a><a href="../pages/%E9%80%A0%E8%B0%A3%E8%80%85.html">造谣者</a><a href="../pages/%E4%BE%8D%E8%87%A3.html">侍臣</a><a href="../pages/%E6%95%99%E6%8E%88.html">教授</a><a href="../pages/%E8%8C%B6%E8%89%BA%E5%B8%88.html">茶艺师</a><a href="../pages/%E6%97%A0%E7%A5%9E%E8%AE%BA%E8%80%85.html">无神论者</a><a href="../pages/%E5%B7%A1%E5%B1%B1%E4%BA%BA.html">巡山人</a><a href="../pages/%E5%BC%82%E7%AB%AF%E5%88%86%E5%AD%90.html">异端分子</a><a href="../pages/%E7%81%B5%E8%A8%80%E5%B8%88.html">灵言师</a><a href="../pages/%E5%88%A9%E7%BB%B4%E5%9D%A6.html">利维坦</a><a href="../pages/%E7%97%A2%E8%9B%AD.html">痢蛭</a><a href="../pages/%E9%86%89%E9%85%92.html">醉酒</a><a href="../pages/%E5%BC%84%E8%87%A3.html">弄臣</a><a href="../pages/%E8%8E%BD%E5%A4%AB.html">莽夫</a><a href="../pages/%E5%88%BA%E5%AE%A2.html">刺客</a><a href="../pages/%E9%99%90%E6%AC%A1%E8%83%BD%E5%8A%9B.html">限次能力</a><a href="../pages/%E5%83%B5%E6%80%96.html">僵怖</a><a href="../pages/%E6%99%AE%E5%8D%A1.html">普卡</a><a href="../pages/%E6%B2%99%E5%B7%B4%E6%B4%9B%E6%96%AF.html">沙巴洛斯</a><a href="../pages/%E7%8F%80.html">珀</a><a href="../pages/%E5%93%B2%E5%AD%A6%E5%AE%B6.html">哲学家</a><a href="../pages/%E9%95%87%E6%B0%91.html">镇民</a><a href="../pages/%E5%AD%A6%E5%BE%92.html">学徒</a><a href="../pages/%E5%A5%B3%E8%88%8D%E7%9B%91.html">女舍监</a><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a><a href="../pages/%E7%BB%B4%E9%BD%90%E5%B0%94.html">维齐尔</a><a href="../pages/%E5%A4%9C%E6%99%9A%E8%A1%8C%E5%8A%A8%E9%A1%BA%E5%BA%8F%E4%B8%80%E8%A7%88.html">夜晚行动顺序一览</a><a href="../pages/%E7%AC%AC%E4%B8%80%E5%B1%8A%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A%E5%89%A7%E6%9C%AC%E5%88%9B%E4%BD%9C%E5%A4%A7%E8%B5%9B.html">第一届华灯初上剧本创作大赛</a><a href="../pages/%E5%B9%BB%E5%BD%B1%E7%94%BB%E5%AE%89%E5%8D%B1.html">幻影画安危</a><a href="../pages/%E5%BC%82%E5%9C%B0%E4%BC%97%E6%AC%A2%E6%9D%A5.html">异地众欢来</a><a href="../pages/%E4%BE%A0%E4%BA%91%E6%95%88%E8%89%AF%E5%85%9A.html">侠云效良党</a><a href="../pages/%E5%8F%AC%E5%94%A4%E5%B8%88.html">召唤师</a><a href="../pages/%E8%A7%84%E5%88%99%E8%B0%83%E6%95%B4%E6%8F%90%E5%89%8D%E5%85%AC%E7%A4%BA.html">规则调整提前公示</a><a href="../pages/%E4%BF%A1%E5%8F%A3%E9%9B%8C%E9%BB%84.html">信口雌黄</a><a href="../pages/%E9%81%93%E5%A3%AB.html">道士</a><a href="../pages/%E9%98%B4%E9%98%B3%E9%9A%BE%E8%BE%A8.html">阴阳难辨</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>旅行者 - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">旅行者</h1>
+    <div class="tagline">来自钟楼百科</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#旅行者角色规则">旅行者角色规则</a></li><li class="lvl3"><a href="#增加旅行者">增加旅行者</a></li><li class="lvl3"><a href="#旅行者运作方式">旅行者运作方式</a></li><li class="lvl2"><a href="#角色列表">角色列表</a></li><li class="lvl3"><a href="#暗流涌动">暗流涌动</a></li><li class="lvl3"><a href="#黯月初升">黯月初升</a></li><li class="lvl3"><a href="#梦殒春宵">梦殒春宵</a></li><li class="lvl3"><a href="#实验性角色">实验性角色</a></li></ul></div>
+    <div class="mw-parser-output"><h2 id="背景故事">背景故事</h2>
+<p><em>无名村的村间小路雨泥淤积，坑坑洼洼。一个高大男子伫立在这死寂的夜晚。雨水掠过他的帽檐瀑布般滑落，水柱映着惨白的月光在他的脚边溅起水花。男子一动不动地站着审视着周围的一切。坚定的站姿透露着他使命必达的决心。镇民们暗暗地掀起窗帘观察着他。</em></p>
+<p><em>镇民们当然也知道这人是为何而来。镇民们担心的并不是这人带来的强大法令，而是这人将如何颁布它。常言道，人类最大的恐惧是对未知的恐惧。这个谜一般的人和他谜一般的意图正是恐惧的化身。我们凭什么去相信一个无家可归、飘摆不定、没有信仰的人呢？我们应该帮助还是驱赶这些人？ 我们应该帮助还是驱赶这些……</em></p>
+<p><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html" class="image-link" title="旅行者"><img alt="Travellers.png" style="width:200px" class="" loading="lazy" data-source-image="../images/Travellers.png" src="../assets/media/Travellers.preview.webp" width="565" height="247" decoding="async"></a></p>
+<h2 id="旅行者角色规则">旅行者角色规则</h2>
+<p>旅行者角色是为那些会晚到或者需要提前离开的玩家所准备的。这些角色的能力都有非常强大的效果，但相对来说获取的信息也会变少。他们无需为自己的能力造成的强力后果负责。</p>
+<h3 id="增加旅行者">增加旅行者</h3>
+<p>为了在游戏中加入一名旅行者，进行以下步骤：</p>
+<ol>
+<li><strong>让想要扮演旅行者的玩家选择一个旅行者角色。</strong>让这名玩家自己选择一个旅行者来游玩。推荐使用对应剧本推荐的五个旅行者作为玩家的选择。</li>
+<dl>
+<dd></dd>
+</dl>
+<li><strong>为旅行者选择阵营。</strong>私下告诉这名旅行者他是善良还是邪恶。如果你让一名旅行者加入邪恶阵营，你需要让他得知恶魔是谁，但不告诉他哪些玩家是爪牙。（告诉他一名存活的恶魔玩家，或告诉他所有存活的邪恶恶魔玩家，根据当前游戏的实际情况来决定并给出最适合被该旅行者得知的信息。）</li>
+<dl>
+<dd></dd>
+</dl>
+<li><strong>调整魔典。</strong>让旅行者玩家在座位上坐下，然后将他的角色标记放置在魔典中能够对应他座位的位置。邪恶旅行者的角色标记要倒转放置，善良旅行者的角色标记常规放置。</li>
+<dl>
+<dd></dd>
+</dl>
+<li><strong>放置生命标记。</strong>将旅行者的生命标记放置在城镇广场上，与旅行者的座位相对应。旅行者的生命标记与普通玩家颜色不同。</li>
+<dl>
+<dd></dd>
+</dl>
+<li><strong>告诉其他玩家。</strong>宣告现在有一名旅行者加入了游戏，是哪一名玩家，他的角色是什么，他的角色具有什么样的能力。但不要公布他的所属阵营。</li>
+</ol>
+<p><strong>旅行者能够在游戏中的任意时刻加入。</strong>因为一局《染》通常会持续一小时左右，且能容纳最多二十名玩家，一些迟到十分钟左右的玩家也能通过这种方式来加入游戏并收获乐趣。甚至他们可以在你刚设置完游戏后的五分钟内，在开始首夜流程之前加入游戏——你只需要让他们在第一个夜晚保持闭眼，然后再让他们在第一个白天选择旅行者即可。</p>
+<p><strong>尽管如此，我们仍不建议你在游戏即将结束时加入旅行者。</strong>应该在还有七名或者更多玩家存活时才考虑加入旅行者。在一个进行到最后一天或是倒数第二天的游戏中加入旅行者，会让玩家觉得自己的输赢取决于在最后时段的一些不公平的调整，而并非通过自己的努力实现。</p>
+<p><strong>如果你愿意，你可以让旅行者在第一个夜晚之前就加入游戏。</strong>那么这些旅行者会在第一个夜晚使用角色能力——如果他们有夜晚能力的话。在一个人数超过十五人的游戏中，需要以包含旅行者的方式开始游戏，这些旅行者就会与其他玩家在同一时间加入游戏。</p>
+<p><strong>如果一名玩家需要在游戏结束前离开游戏，并在你设置游戏时将这一消息好心告知了你，那么你可以改为给他发放一个旅行者角色。</strong>这名玩家能在游戏过程中任意时间离开游戏——如果他要离开游戏，你只需要在魔典中移除他的角色标记，并在城镇广场中移除他的生命标记即可。我们也建议你将旅行者给到有这些需求的玩家，因为如果一旦有恶魔离开了游戏，那么游戏也就无法继续下去了……而你在游戏开始前不会知道哪一名玩家会成为恶魔。</p>
+<p><strong>在大多数情况下都应该让旅行者加入善良阵营。</strong>如果你想要保持游戏平衡，那么你应该在有三名以上的旅行者时，才考虑将其中一名旅行者划入邪恶阵营，因为邪恶的旅行者会给邪恶阵营提供额外一票，那会对邪恶阵营大有助益。在一场游戏中加入多个邪恶旅行者可能会是一场灾难。加入多个善良旅行者也会给善良阵营带来额外的票数，但善良旅行者不会知道其他玩家谁是善良谁是邪恶，这一点与邪恶旅行者是不同的。</p>
+<p>因此，如果只有一名旅行者加入了游戏，他应该在绝大多数情况下都是善良阵营的。如果有两名旅行者加入游戏，那么他们可以都是善良阵营，但让其中一人加入邪恶阵营也会比较有趣。如果有三到五名旅行者加入游戏，那么让一名甚至两名玩家加入邪恶阵营通常来讲也是没什么问题的。</p>
+<p>然而，这一切的决定权都在你手里。如果你正在进行一场十五人的游戏，且仍有八名玩家存活，但所有的爪牙都已死亡，那么你可以相对通常情况加入更多的邪恶旅行者。有时候善良阵营处于劣势时，你也可以让所有旅行者都加入他们。偶尔你也可以在仅有一名旅行者时让他加入邪恶阵营，这样会让玩家们保持对你的意图的猜测！</p>
+<h3 id="旅行者运作方式">旅行者运作方式</h3>
+<p><strong>在大多数情况下，旅行者与其他角色相同。</strong>他们可以发起提名，参与投票，在夜晚行动，被恶魔杀死，被当作其他普通角色，在死亡，醉酒或中毒时失去能力，并在死亡时获得投票标记。例如，坐在两名旅行者之间的共情者能够探查这两名旅行者的阵营。如果恶魔攻击了旅行者，旅行者也会死亡。</p>
+<p><strong>旅行者仅仅在以下情况里与普通角色有所不同：</strong></p>
+<ul>
+<li><strong>旅行者不计入邪恶阵营获胜所需的条件：“仅有两名玩家存活”中。</strong>例如，如果有五名玩家存活，但其中三名玩家是旅行者，那么邪恶阵营获胜。</li>
+</ul>
+<ul>
+<li><strong>旅行者需要通过流放流程而不是处决流程来杀死。</strong>在白天里的任意时间，任意玩家都能要求流放一名旅行者，强迫他死在远离小镇的荒地上。</li>
+</ul>
+<p>任何玩家，甚至是已经死亡的玩家，都能要求进行流放。玩家们可以在说书人要求开始提名之前，或是提名正在进行的过程中提出流放旅行者。发起流放不算作发起提名，因此一名发起了流放的玩家能在同一天发起提名。</p>
+<p>当一名玩家发起流放时，所有玩家都需要决定是否支持这项流放提议。这与决定是否投票处决的方式一致——玩家们举手表决，说书人进行统计——但参与流放表决不算作是参与投票。</p>
+<p>所有玩家，包括已死亡的玩家，都能够表决支持流放一名旅行者。支持流放的死亡玩家不需要消耗他们的投票标记。</p>
+<ul>
+<li><strong>流放一名旅行者的流程无法被任何角色能力所影响。</strong>这是一场纯粹的群体决定。例如，能够影响处决投票的角色（窃贼，官员等）无法影响流放表决。即使是主人没有举起手，管家也能举手支持一项流放表决。</li>
+</ul>
+<ul>
+<li><strong>如果有达到所有玩家一半数量的人支持一项流放提议，本次流放成功，被流放的旅行者会死亡。</strong>成功流放所需的票数是所有玩家总数的一半，而非根据存活玩家数量计算。如果有任何角色能力防止被流放的旅行者死亡，该旅行者会仍然存活。</li>
+</ul>
+<ul>
+<li><strong>在同一个白天能够流放任意数量的旅行者。</strong>流放不算做处决，因此即使有旅行者被流放，当天仍然能够进行一次处决。</li>
+</ul>
+<ul>
+<li><strong>与处决相似，每名旅行者在同一个白天只能被提议流放一次。</strong>玩家可能会认为某名旅行者是邪恶阵营的，并想要借此杀死他，但如果当天没有在流放提议中得到足够的支持票数，那么他们只能够在第二天再次发起流放。</li>
+</ul>
+<ul>
+<li><strong>一般来说，旅行者角色不能在游戏过程中变成非旅行者角色，非旅行者角色也不能在游戏过程中变成旅行者角色。</strong>如果有玩家尝试用自己的能力执行这样的操作，那么对他摇头示意让他们重新进行选择。（这是因为旅行者玩家可能会想在游戏中场提前退出，但如果他们变成了非旅行者角色，他们就无法那么做了。同样的，如果非旅行者玩家变成了旅行者，游戏可能会变得不太平衡，甚至有些愚昧。）</li>
+</ul>
+<p>当然，你也可以允许玩家实现旅行者角色与非旅行者角色之间的转变。如果你对测试机制保持开放的态度，并且你认为这样会让当前游戏变得更具乐趣，那么你可以允许类似的能力（例如理发师）来进行旅行者到非旅行者之间的角色转变。如果这种情况发生了，那么这些玩家需要在城镇广场上将自己的生命标记替换成对应的标记形式。所有玩家应该始终能得知哪些玩家是旅行者，哪些不是。</p>
+<h2 id="角色列表">角色列表</h2>
+<h3 id="暗流涌动">暗流涌动</h3>
+<div class="gallery" style="--perrow:5"><div class="gallerybox" style="width:250px"><a href="../pages/%E5%AE%98%E5%91%98.html" title="官员"><img alt="Bureaucrat.png" style="width:250px" class="" loading="lazy" data-source-image="../images/Bureaucrat.png" src="../assets/media/Bureaucrat.preview.webp" width="600" height="600" decoding="async"></a><div class="gallerycaption"><a href="../pages/%E5%AE%98%E5%91%98.html" title="官员">官员</a></div></div><div class="gallerybox" style="width:250px"><a href="../pages/%E4%B9%9E%E4%B8%90.html" title="乞丐"><img alt="Beggar.png" style="width:250px" class="" loading="lazy" data-source-image="../images/Beggar.png" src="../assets/media/Beggar.preview.webp" width="600" height="600" decoding="async"></a><div class="gallerycaption"><a href="../pages/%E4%B9%9E%E4%B8%90.html" title="乞丐">乞丐</a></div></div><div class="gallerybox" style="width:250px"><a href="../pages/%E6%9E%AA%E6%89%8B.html" title="枪手"><img alt="Gunslinger.png" style="width:250px" class="" loading="lazy" data-source-image="../images/Gunslinger.png" src="../assets/media/Gunslinger.preview.webp" width="600" height="600" decoding="async"></a><div class="gallerycaption"><a href="../pages/%E6%9E%AA%E6%89%8B.html" title="枪手">枪手</a></div></div><div class="gallerybox" style="width:250px"><a href="../pages/%E7%AA%83%E8%B4%BC.html" title="窃贼"><img alt="Thief.png" style="width:250px" class="" loading="lazy" data-source-image="../images/Thief.png" src="../assets/media/Thief.preview.webp" width="600" height="600" decoding="async"></a><div class="gallerycaption"><a href="../pages/%E7%AA%83%E8%B4%BC.html" title="窃贼">窃贼</a></div></div><div class="gallerybox" style="width:250px"><a href="../pages/%E6%9B%BF%E7%BD%AA%E7%BE%8A.html" title="替罪羊"><img alt="Scapegoat.png" style="width:250px" class="" loading="lazy" data-source-image="../images/Scapegoat.png" src="../assets/media/Scapegoat.preview.webp" width="600" height="600" decoding="async"></a><div class="gallerycaption"><a href="../pages/%E6%9B%BF%E7%BD%AA%E7%BE%8A.html" title="替罪羊">替罪羊</a></div></div></div>
+<h3 id="黯月初升">黯月初升</h3>
+<div class="gallery" style="--perrow:5"><div class="gallerybox" style="width:250px"><a href="../pages/%E6%B3%95%E5%AE%98.html" title="法官"><img alt="Judge.png" style="width:250px" class="" loading="lazy" data-source-image="../images/Judge.png" src="../assets/media/Judge.preview.webp" width="600" height="600" decoding="async"></a><div class="gallerycaption"><a href="../pages/%E6%B3%95%E5%AE%98.html" title="法官">法官</a></div></div><div class="gallerybox" style="width:250px"><a href="../pages/%E5%A5%B3%E8%88%8D%E7%9B%91.html" title="女舍监"><img alt="Matron.png" style="width:250px" class="" loading="lazy" data-source-image="../images/Matron.png" src="../assets/media/Matron.preview.webp" width="600" height="600" decoding="async"></a><div class="gallerycaption"><a href="../pages/%E5%A5%B3%E8%88%8D%E7%9B%91.html" title="女舍监">女舍监</a></div></div><div class="gallerybox" style="width:250px"><a href="../pages/%E5%B7%AB%E6%AF%92%E5%B8%88.html" title="巫毒师"><img alt="Voudon.png" style="width:250px" class="" loading="lazy" data-source-image="../images/Voudon.png" src="../assets/media/Voudon.preview.webp" width="600" height="600" decoding="async"></a><div class="gallerycaption"><a href="../pages/%E5%B7%AB%E6%AF%92%E5%B8%88.html" title="巫毒师">巫毒师</a></div></div><div class="gallerybox" style="width:250px"><a href="../pages/%E5%AD%A6%E5%BE%92.html" title="学徒"><img alt="Apprentice.png" style="width:250px" class="" loading="lazy" data-source-image="../images/Apprentice.png" src="../assets/media/Apprentice.preview.webp" width="600" height="600" decoding="async"></a><div class="gallerycaption"><a href="../pages/%E5%AD%A6%E5%BE%92.html" title="学徒">学徒</a></div></div><div class="gallerybox" style="width:250px"><a href="../pages/%E4%B8%BB%E6%95%99.html" title="主教"><img alt="Bishop.png" style="width:250px" class="" loading="lazy" data-source-image="../images/Bishop.png" src="../assets/media/Bishop.preview.webp" width="600" height="600" decoding="async"></a><div class="gallerycaption"><a href="../pages/%E4%B8%BB%E6%95%99.html" title="主教">主教</a></div></div></div>
+<h3 id="梦殒春宵">梦殒春宵</h3>
+<div class="gallery" style="--perrow:5"><div class="gallerybox" style="width:250px"><a href="../pages/%E6%80%AA%E5%92%96.html" title="怪咖"><img alt="Deviant.png" style="width:250px" class="" loading="lazy" data-source-image="../images/Deviant.png" src="../assets/media/Deviant.preview.webp" width="600" height="600" decoding="async"></a><div class="gallerycaption"><a href="../pages/%E6%80%AA%E5%92%96.html" title="怪咖">怪咖</a></div></div><div class="gallerybox" style="width:250px"><a href="../pages/%E9%9B%86%E9%AA%A8%E8%80%85.html" title="集骨者"><img alt="Bonecollector.png" style="width:250px" class="" loading="lazy" data-source-image="../images/Bonecollector.png" src="../assets/media/Bonecollector.preview.webp" width="600" height="600" decoding="async"></a><div class="gallerycaption"><a href="../pages/%E9%9B%86%E9%AA%A8%E8%80%85.html" title="集骨者">集骨者</a></div></div><div class="gallerybox" style="width:250px"><a href="../pages/%E5%92%96%E5%95%A1%E5%B8%88.html" title="咖啡师"><img alt="Barista.png" style="width:250px" class="" loading="lazy" data-source-image="../images/Barista.png" src="../assets/media/Barista.preview.webp" width="600" height="600" decoding="async"></a><div class="gallerycaption"><a href="../pages/%E5%92%96%E5%95%A1%E5%B8%88.html" title="咖啡师">咖啡师</a></div></div><div class="gallerybox" style="width:250px"><a href="../pages/%E6%B5%81%E8%8E%BA.html" title="流莺"><img alt="Harlot.png" style="width:250px" class="" loading="lazy" data-source-image="../images/Harlot.png" src="../assets/media/Harlot.preview.webp" width="600" height="600" decoding="async"></a><div class="gallerycaption"><a href="../pages/%E6%B5%81%E8%8E%BA.html" title="流莺">流莺</a></div></div><div class="gallerybox" style="width:250px"><a href="../pages/%E5%B1%A0%E5%A4%AB.html" title="屠夫"><img alt="Butcher.png" style="width:250px" class="" loading="lazy" data-source-image="../images/Butcher.png" src="../assets/media/Butcher.preview.webp" width="600" height="600" decoding="async"></a><div class="gallerycaption"><a href="../pages/%E5%B1%A0%E5%A4%AB.html" title="屠夫">屠夫</a></div></div></div>
+<h3 id="实验性角色">实验性角色</h3>
+<div class="gallery" style="--perrow:5"><div class="gallerybox" style="width:250px"><a href="../pages/%E9%BB%91%E5%B8%AE.html" title="黑帮"><img alt="Gangster.png" style="width:250px" class="" loading="lazy" data-source-image="../images/Gangster.png" src="../assets/media/Gangster.preview.webp" width="600" height="600" decoding="async"></a><div class="gallerycaption"><a href="../pages/%E9%BB%91%E5%B8%AE.html" title="黑帮">黑帮</a></div></div><div class="gallerybox" style="width:250px"><a href="../pages/%E7%AC%91%E5%8C%A0.html" title="笑匠"><img alt="Cacklejack.png" style="width:250px" class="" loading="lazy" data-source-image="../images/Cacklejack.png" src="../assets/media/Cacklejack.preview.webp" width="591" height="591" decoding="async"></a><div class="gallerycaption"><a href="../pages/%E7%AC%91%E5%8C%A0.html" title="笑匠">笑匠</a></div></div><div class="gallerybox" style="width:250px"><a href="../pages/%E4%BE%8F%E5%84%92.html" title="侏儒"><img alt="Gnome.png" style="width:250px" class="" loading="lazy" data-source-image="../images/Gnome.png" src="../assets/media/Gnome.preview.webp" width="591" height="591" decoding="async"></a><div class="gallerycaption"><a href="../pages/%E4%BE%8F%E5%84%92.html" title="侏儒">侏儒</a></div></div></div></div>
+    <div class="page-meta">最后修改于 2025-11-11T12:53:33Z，编辑者 <b>Zack</b> ｜ 页面 10,477 字节 ｜ <a href="https://clocktower-wiki.gstonegames.com/index.php?title=%E6%97%85%E8%A1%8C%E8%80%85" target="_blank" rel="noopener">查看原页面</a> ｜ <div class="comment">编辑摘要：/* 实验性角色 */</div></div>
+    <div class="backlinks"><b>链入此页的页面（29）</b><a href="../pages/%E9%A6%96%E9%A1%B5.html">首页</a><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a><a href="../pages/%E5%86%9C%E5%A4%AB.html">农夫</a><a href="../pages/%E9%AD%94%E6%9C%AF%E5%B8%88.html">魔术师</a><a href="../pages/%E7%97%A2%E8%9B%AD.html">痢蛭</a><a href="../pages/%E9%BB%91%E5%B8%AE.html">黑帮</a><a href="../pages/%E8%AE%BE%E8%AE%A1%E5%B8%88%E6%80%BB%E7%BB%93%E7%9A%84%E5%9B%BD%E5%86%85%E7%8E%A9%E5%AE%B6%E5%AF%B9%E6%9F%93%E7%9A%84%E9%94%99%E8%AF%AF%E7%90%86%E8%A7%A3.html">设计师总结的国内玩家对染的错误理解</a><a href="../pages/%E6%8F%90%E5%90%8D.html">提名</a><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a><a href="../pages/%E7%AA%83%E8%B4%BC.html">窃贼</a><a href="../pages/%E5%AE%98%E5%91%98.html">官员</a><a href="../pages/%E6%9E%AA%E6%89%8B.html">枪手</a><a href="../pages/%E6%9B%BF%E7%BD%AA%E7%BE%8A.html">替罪羊</a><a href="../pages/%E4%B9%9E%E4%B8%90.html">乞丐</a><a href="../pages/%E5%AD%A6%E5%BE%92.html">学徒</a><a href="../pages/%E5%A5%B3%E8%88%8D%E7%9B%91.html">女舍监</a><a href="../pages/%E6%B3%95%E5%AE%98.html">法官</a><a href="../pages/%E5%B7%AB%E6%AF%92%E5%B8%88.html">巫毒师</a><a href="../pages/%E4%B8%BB%E6%95%99.html">主教</a><a href="../pages/%E5%92%96%E5%95%A1%E5%B8%88.html">咖啡师</a><a href="../pages/%E6%B5%81%E8%8E%BA.html">流莺</a><a href="../pages/%E5%B1%A0%E5%A4%AB.html">屠夫</a><a href="../pages/%E6%80%AA%E5%92%96.html">怪咖</a><a href="../pages/%E9%9B%86%E9%AA%A8%E8%80%85.html">集骨者</a><a href="../pages/%E4%BE%8F%E5%84%92.html">侏儒</a><a href="../pages/%E7%81%AF%E7%A5%9E%E5%A5%91%E7%BA%A6.html">灯神契约</a><a href="../pages/%E7%AC%91%E5%8C%A0.html">笑匠</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

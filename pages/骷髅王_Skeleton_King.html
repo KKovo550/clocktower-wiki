@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>骷髅王 Skeleton King - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">骷髅王 Skeleton King<span class="ns-badge">奥德赛</span></h1>
+    <div class="tagline">来自钟楼百科 · 摘自《奥德赛 Odyssey》百科 · 恶魔</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#夜晚行动顺序">夜晚行动顺序</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#游玩与对抗技巧">游玩与对抗技巧</a></li><li class="lvl2"><a href="#出现剧本">出现剧本</a></li><li class="lvl2"><a href="#整体设计">整体设计</a></li><li class="lvl2"><a href="#创意来源">创意来源</a></li><li class="lvl2"><a href="#图标画师">图标画师</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E9%AA%B7%E9%AB%85%E7%8E%8B">查找包含此角色的剧本 →</a></p><div class="charinfo"><div class="charinfo-img"><a href="../files/%E6%96%87%E4%BB%B6_%E9%AA%B7%E9%AB%85%E7%8E%8B.png.html"><img alt="骷髅王 Skeleton King" data-source-image="../images/%E9%AA%B7%E9%AB%85%E7%8E%8B.png" src="../assets/media/骷髅王.preview.webp" width="600" height="600" decoding="async"></a></div><div class="charinfo-meta"><div class="row"><span class="k">角色类型</span><span class="v"><a href="../pages/%E6%81%B6%E9%AD%94.html" title="恶魔">恶魔</a></span></div><div class="row"><span class="k">英文名</span><span class="v">Skeleton King</span></div><div class="row"><span class="k">角色ID</span><span class="v">047</span></div><div class="row"><span class="k">角色归属</span><span class="v">角色拓展包《奥德赛》</span></div><div class="row"><span class="k">能力标签</span><span class="v"><a href="../pages/%E8%AE%BE%E7%BD%AE%E8%B0%83%E6%95%B4.html" title="设置调整">设置调整</a>、<a href="../pages/%E7%89%B9%E6%AE%8A%E8%83%9C%E5%88%A9%E5%A4%B1%E8%B4%A5%E6%9D%A1%E4%BB%B6.html" title="特殊胜利失败条件">特殊胜利失败条件</a></span></div><div class="row"><span class="k">角色授权</span><span class="v">开放（任意剧本创作可用，不要修改能力）</span></div><div class="row"><span class="k">出处</span><span class="v"><a class="external" href="https://www.yuque.com/u48069482/taiyi" target="_blank" rel="noopener">《奥德赛 Odyssey》百科</a></span></div></div></div><h2 id="背景故事">背景故事</h2>
+<p>_“__<span style="color:rgb(15, 17, 21);">我的耐心比你的生命更短。最后一次机会——低头，献上你的忠诚，我会赐与你膝盖接触地面的权利。我的王座前从不缺跪着的人，缺的是足够聪明的人。你的骨头看起来够硬，但我见过更硬的，不过都被我碾成了齑粉。最后一次，降，还是碎？”</span>_</p>
+<h2 id="角色简介"><span style="color:rgb(64, 64, 64);">角色简介</span></h2>
+<p>骷髅王会带领投降的镇民一同获胜。</p>
+<h2 id="角色能力">角色能力</h2>
+<div class="callout callout-info">
+<p>每个夜晚*，你要选择一名玩家：他死亡。当你以通常条件获胜时，曾上交投票标记的镇民也会获胜。[+1外来者]</p>
+</div>
+<h2 id="范例">范例</h2>
+<ul>
+<li>因为恶魔是骷髅王，所以场上有3名外来者，比默认的2名增加了一名。</li>
+<li>第五个白天，死亡且持有投票标记的筑梦师和洗衣妇公开向骷髅王投降并上交投票标记。当天占卜师被处决，场上只剩下骷髅王和裁缝，邪恶阵营获胜。筑梦师和洗衣妇也获胜了。</li>
+<li>最后一个白天，所有死亡的镇民都公开向骷髅王投降并上交投票标记。邪恶阵营获胜，因为骷髅王的能力，曾上交投票标记的死亡的镇民们也一同获胜了。</li>
+</ul>
+<h2 id="运作方式">运作方式</h2>
+<p>在初始设置时，将角色标记放入盲抽袋前，把一个镇民角色标记替换为一个外来者角色标记。</p>
+<p>在除首个夜晚以外的每个夜晚，唤醒骷髅王。让他指向任意一名玩家。那名玩家死亡——用“死亡”提示标记标记那名玩家。让骷髅王重新入睡。</p>
+<p>如果一名持有投票标记的玩家公开向骷髅王投降，收走他所有的投票标记。（这是一个通用的游戏动作，即使骷髅王不在场你也需要如此操作）</p>
+<p>当骷髅王获胜时，宣布所有上交了投票标记的镇民也一同获胜。</p>
+<h2 id="夜晚行动顺序">夜晚行动顺序</h2>
+<ul>
+<li>首个夜晚</li>
+<ul>
+<li>夜序数值：/</li>
+<li>前位角色：/</li>
+<li>行动提示：/</li>
+</ul>
+<li>其他夜晚</li>
+<ul>
+<li>夜序数值：5710</li>
+<li>前位角色：堤丰之首</li>
+<li>行动提示：让他选择一名玩家。</li>
+</ul>
+</ul>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>死亡</li>
+<ul>
+<li>放置时机：在骷髅王夜晚行动并选择了玩家后放置。</li>
+<li>放置条件：骷髅王选择的玩家当前存活，且能被骷髅王杀死，且骷髅王未醉酒中毒，那么在该玩家的角色标记旁放置，用以提醒说书人在黎明时分宣布当晚的死亡玩家。</li>
+<li>移除时机：在黎明时宣布死亡玩家后，说书人可以任由自己方便来进行移除。</li>
+</ul>
+<li>投降*4</li>
+<ul>
+<li>放置时机：持有投票标记的玩家上交投票标记之后。</li>
+<li>放置条件：在白天时，持有投票标记的镇民公开上交投票标记后，收走他所有的投票标记，并在该镇民角色标记旁放置“投降”标记。</li>
+<li>移除时机：骷髅王死亡后或离场时。</li>
+</ul>
+</ul>
+<h2 id="规则细节">规则细节</h2>
+<ul>
+<li><strong>投票标记：</strong>指玩家死亡时获得的投票用指示物。玩家在死亡后会获得一枚投票标记。死亡玩家只有使用投票标记才可以投票。每名玩家有没有、有多少枚投票标记都是公开可查的。</li>
+<li><strong>上交投票标记：</strong>指死亡玩家（旅行者除外）在白天时，为触发某一个角色的能力，而公开选择某个角色并将持有的投票标记交给说书人的行为，该玩家会失去所有持有的投票标记。没有投票标记的玩家无法上交投票标记。上交投票标记是公开的、所有玩家可见的，且只能在白天进行。只要具有上交投票标记能力的角色存在于剧本中，即使该角色不在场，玩家们也可以公开选择该角色并上交投票标记。如果剧本中存在多个上交投票标记的角色，玩家在上交时需要声明本次上交要选择哪一个角色。如果剧本中仅有一个上交投票标记的角色，则可以略过选择角色的步骤。</li>
+<li><strong>以通常条件获胜：</strong>指通过非特胜手段，达成通常获胜条件而获胜的方式。在骷髅王能力的语境中，指通过仅剩两名存活玩家的获胜方式。包含存活玩家都是邪恶玩家等提前获胜的方式，因为这类方式本质是快进对局而达成“仅剩两名存活玩家”的获胜方式。</li>
+<li>只有当骷髅王获胜时他的第二条能力才会生效。所以如果骷髅王落败，上交投票标记的镇民并不会因为骷髅王的能力而一同落败。</li>
+<li>“你获胜时”指的是确定骷髅王已经获胜之时。如果有类似对调胜负结果这类能力还未结算，先结算这些能力，在确定骷髅王获胜之后，再结算骷髅王的能力效果。</li>
+<li>骷髅王的能力不可以选择旅行者玩家（旅行者隔绝原则）。</li>
+</ul>
+<h2 id="游玩与对抗技巧">游玩与对抗技巧</h2>
+<ul>
+<li>如果骷髅王在场，镇民只要上交投票标记，就一定能获胜，这对镇民玩家来说是极大的诱惑。所以不管场上的恶魔是不是骷髅王，只要令死亡的镇民相信恶魔是骷髅王从而举手投降，邪恶就可以争取到极大的优势——上交投票标记的镇民一定不会参与到最后一天的投票当中。</li>
+<li>骷髅王会增加外来者的数量，你或队友伪装为外来者是一个伪造骷髅王在场的良好手段。</li>
+<li>如果你是骷髅王，你可以派出爪牙大张旗鼓的宣称在场恶魔就是骷髅王，这将轻而易举的分裂善良阵营。</li>
+<li>如果你是骷髅王，让多数外来者活到游戏后期是对你极其有利的局面。死亡的镇民总是在摇摆，如果活下来的只有外来者，那么会团结一致对抗你的也就只有他们了。</li>
+<li>如果你是镇民，你认为在场恶魔是骷髅王，且你活到了最后一天，如何劝说其他死亡玩家投票是最重要的事情。</li>
+<li>外来者不会受到骷髅王能力影响，外来者是抵抗骷髅王的重要力量，争取到外来者的支持，将会极大的帮助你在与骷髅王的对抗中获取优势。</li>
+<li>死亡的镇民是不可信任的，甚至即使恶魔不是骷髅王，他们也可能会被欺骗——以至于对最后一天的投票袖手旁观。</li>
+<li>12人局中，骷髅王在场，一般情况下是1个恶魔，2个爪牙，3个外来者。即使所有镇民都死光，善良只要争取到一个死亡镇民的投票，就可以在最后一天处决骷髅王。所以不要过度畏惧骷髅王，如何劝说摇摆的死亡镇民才是关键。</li>
+</ul>
+<h2 id="出现剧本">出现剧本</h2>
+<ul>
+<li>但丁密码</li>
+</ul>
+<h2 id="整体设计">整体设计</h2>
+<ul>
+<li>太一</li>
+</ul>
+<h2 id="创意来源">创意来源</h2>
+<ul>
+<li>太一</li>
+</ul>
+<h2 id="图标画师">图标画师</h2>
+<ul>
+<li>Lei.</li>
+</ul></div>
+    <div class="page-meta">最后修改于 2026-08-27T16:52:48.000Z，编辑者 <b>未知</b> ｜ 页面 6,473 字节 ｜ <a href="https://www.yuque.com/u48069482/taiyi/ffn5chg4b7wuk82k" target="_blank" rel="noopener">查看原页面</a></div>
+    <div class="backlinks"><b>链入此页的页面（2）</b><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">奥德赛 Odyssey</a><a href="../pages/%E4%BD%BF%E7%94%A8%E6%8A%95%E7%A5%A8%E6%A0%87%E8%AE%B0_%E4%B8%8A%E4%BA%A4%E6%8A%95%E7%A5%A8%E6%A0%87%E8%AE%B0_Use_Vote_Token_Give_up_Vote_Token.html">使用投票标记/上交投票标记 Use Vote Token/Give up Vote Token</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

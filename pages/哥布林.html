@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>哥布林 - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">哥布林</h1>
+    <div class="tagline">来自钟楼百科</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#提示与技巧">提示与技巧</a></li><li class="lvl2"><a href="#对抗哥布林">对抗哥布林</a></li><li class="lvl2"><a href="#角色信息">角色信息</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E5%93%A5%E5%B8%83%E6%9E%97">查找包含此角色的剧本 →</a></p><p><a href="../pages/%E5%93%A5%E5%B8%83%E6%9E%97.html" class="image-link" title="哥布林"><img alt="Goblin.png" style="width:200px" class="" loading="lazy" data-source-image="../images/Goblin.png" src="../assets/media/Goblin.preview.webp" width="591" height="591" decoding="async"></a></p>
+<h2 id="背景故事">背景故事</h2>
+<p><em>“你不会想要侮辱哥布林的。你真的，真的不会。让我们换个话题……我能再吃一块蛋糕吗？”</em></p>
+<h2 id="角色能力">角色能力</h2>
+<p><strong>如果你在被提名后公开声明自己是哥布林且在那个白天被处决，你的阵营获胜。</strong></p>
+<h2 id="角色简介">角色简介</h2>
+<p>哥布林会在小镇明知他是哥布林却要处决他时采取报复。</p>
+<ul>
+<li>如果哥布林被处决，邪恶阵营获胜。</li>
+</ul>
+<ul>
+<li>为了让这种情况发生，哥布林需要在被提名后，开始投票前告知其他玩家他是哥布林。他的公开宣言需要让所有人都听见，因为善良玩家必须清楚自己接下来的行为所带来的风险。</li>
+</ul>
+<ul>
+<li>如果哥布林没有公布自己的角色就被处决了，那么哥布林死亡，游戏如常进行。</li>
+</ul>
+<ul>
+<li>哥布林必须在被处决的当天宣布自己的角色，只有这样他的能力才会生效。在前一天或更早的时间里宣布不会产生效果。</li>
+</ul>
+<ul>
+<li>任何玩家都可以在被提名时声称自己是哥布林。</li>
+</ul>
+<h2 id="范例">范例</h2>
+<p>小黑是<a href="../pages/%E5%93%A5%E5%B8%83%E6%9E%97.html" title="哥布林">哥布林</a>。小艾提名了小黑，随后小黑宣称自己是<a href="../pages/%E5%93%A5%E5%B8%83%E6%9E%97.html" title="哥布林">哥布林</a>。投票随后被统计，小黑“即将被处决”。随后又有一些其他的提名被发起，但最终小黑被处决了。邪恶阵营获胜。</p>
+<p>小莱是<a href="../pages/%E8%89%BA%E6%9C%AF%E5%AE%B6.html" title="艺术家">艺术家</a>，但在被提名时宣称自己是<a href="../pages/%E5%93%A5%E5%B8%83%E6%9E%97.html" title="哥布林">哥布林</a>。小莱被处决，游戏继续。</p>
+<p>道哥是<a href="../pages/%E5%93%A5%E5%B8%83%E6%9E%97.html" title="哥布林">哥布林</a>。他在前面几天都宣称自己是哥布林，但在最新的一天里没有这么做。他被处决了。游戏继续。</p>
+<h2 id="运作方式">运作方式</h2>
+<p>如果哥布林在被提名后，投票开始前宣称自己是哥布林，复述他的发言以便让所有玩家都能清楚听见。将“已宣称”提示标记放置在哥布林的角色标记旁。</p>
+<p>如果哥布林在被处决时带有“已宣称”标记，宣布邪恶阵营获胜。</p>
+<p>如果一名不是哥布林的玩家宣称自己是哥布林，如常进行相关操作。向所有玩家宣布他宣称自己是哥布林，并假装在魔典中移动提示标记。</p>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>已宣称</li>
+</ul>
+<p>放置时机：在哥布林被提名后，开始投票前，哥布林宣称自己是哥布林时放置。</p>
+<p>放置条件：如果哥布林清醒健康，则将此标记放置在哥布林的角色标记旁。</p>
+<p>移除时机：在黄昏时。</p>
+<h2 id="规则细节">规则细节</h2>
+<ul>
+<li>相克规则：</li>
+<ul>
+<li><a href="../pages/%E7%98%9F%E7%96%AB%E5%8C%BB%E7%94%9F.html" title="瘟疫医生">瘟疫医生</a>：如果说书人本应获得哥布林的能力，改为一名爪牙玩家获得此能力，且他会得知此事。</li>
+<li><a href="../pages/%E6%B4%97%E8%84%91%E5%B8%88.html" title="洗脑师">洗脑师</a>：洗脑师可以选择将玩家洗脑成哥布林。</li>
+</ul>
+</ul>
+<ul>
+<li>相克规则（与华灯系列角色）：</li>
+<ul>
+<li><a href="../pages/%E6%88%8F%E5%AD%90.html" title="戏子">戏子</a>：戏子无法反转由哥布林的能力产生的胜负结果。</li>
+<li><a href="../pages/%E6%88%8F%E5%AD%90%EF%BC%88%E6%94%B9%EF%BC%89.html" title="戏子（改）">戏子（改）</a>：戏子（改）无法反转由哥布林的能力产生的胜负结果。</li>
+<li><a href="../pages/%E5%A7%91%E8%8E%B7%E9%B8%9F.html" title="姑获鸟">姑获鸟</a>：姑获鸟无法获得哥布林的能力。</li>
+</ul>
+</ul>
+<h2 id="提示与技巧">提示与技巧</h2>
+<ul>
+<li>哥布林有一件事情，并且只有一件事情要做——让小镇卸下他的伪装并处决他！只要你能成功地让小镇解决你，那就可以不择手段！</li>
+</ul>
+<ul>
+<li>宣称你是哥布林！当你这样做时，你几乎是完全透露了你的阵营和角色，所以也许最好等到你确实面临处决的威胁时才这么做，但那之后就放手一搏吧！如果你不这么做，你就没有任何能力，而这么做能让你把善良阵营踢出局。</li>
+</ul>
+<ul>
+<li>为了被处决而获胜，你需要让自己看起来像是恶魔而不是你公开宣称的角色。试着从游戏开始就像个恶魔一样行事来增长这种态势。</li>
+</ul>
+<ul>
+<li>由于其公开宣称的性质，哥布林是一个更聒噪的爪牙——相比起那些尽可能贼眉鼠眼的同伙而言。传播关于镇民的绝对谎言（“我听到了两个其他<a href="../pages/%E5%8D%A0%E5%8D%9C%E5%B8%88.html" title="占卜师">占卜师</a>的宣称，所以我认为你只是在说谎！”），对不同的人做出不同的角色宣称（“啥！我从来没有向张三宣称是<a href="../pages/%E7%AD%91%E6%A2%A6%E5%B8%88.html" title="筑梦师">筑梦师</a>；我一直是<a href="../pages/%E4%BE%8D%E5%A5%B3.html" title="侍女">侍女</a>！”），并且尽你所能地制造尽可能多的混乱（“每个人都知道三个外来者在游戏中，所以我们一定有个<a href="../pages/%E5%B7%A1%E5%B1%B1%E4%BA%BA.html" title="巡山人">巡山人</a>！”）。他们打算对此作何反应？处决你？</li>
+</ul>
+<ul>
+<li>如果你过于倾向混乱并宣称自己是哥布林，那人们可能会相信你是哥布林，这很糟糕，因为他们可能不会处决你并停止听取你有用的提示！转而尽量鬼祟而机敏可能会显得更谨慎，手握一个强大的角色伪装并以此为理由不想被小镇杀死——宣称是哥布林会导致与小镇的一些不和，将之作为在他们跟进处决前的一些语言挣扎，因为许多角色都有理由不想死亡。<a href="../pages/%E9%80%81%E8%91%AC%E8%80%85.html" title="送葬者">送葬者</a>、<a href="../pages/%E5%8D%9A%E5%AD%A6%E8%80%85.html" title="博学者">博学者</a>或是<a href="../pages/%E9%A3%9F%E4%BA%BA%E6%97%8F.html" title="食人族">食人族</a>都是希望尽可能延长生命的良好示例，即使小镇认为他们可疑。</li>
+</ul>
+<ul>
+<li>不要忘记为了让你的能力被计入，你必须在每次被提名时公开宣称！哥布林不受类似他们<a href="../pages/%E6%B4%97%E8%84%91%E5%B8%88.html" title="洗脑师">洗脑师</a>兄弟导致的疯狂的影响——你直视镇民，并让他们直面你的威胁。</li>
+</ul>
+<ul>
+<li>试着说服小镇你是一个恶魔！几乎在所有情况下，爪牙都是不必处决的妨碍者——如果一个可疑的邪恶爪牙宣称是哥布林，小镇可能会退却。然而，如果他们怀疑你是“恶魔”，那他们并无选择只能试图在某个时刻处决你！鼓励你的邪恶队友利用他们的伪装审判你来让你的伪装看起来可信……甚至过分可信？</li>
+</ul>
+<ul>
+<li>鼓励其他玩家宣称是哥布林，无论他们是善良还是邪恶！其他邪恶的爪牙比如<a href="../pages/%E6%8A%95%E6%AF%92%E8%80%85.html" title="投毒者">投毒者</a>可以使用这个宣称来延长自己的生命（任何人都可以宣称是哥布林，进行宣称并不需要哥布林在场！），同时善良玩家也可以使用哥布林宣称在一两日内阻挡控诉，以确保能他们能获得更多的信息……甚至可以看起来像是一个角色孤注一掷存活下去仅仅是为了被恶魔杀死！对真正的哥布林而言，这样的情况对他的好处是如果小镇上的每个人都宣称自己是哥布林变成了一种新的时尚趋势，那最后当轮到“你”挨剁而宣称是哥布林时，整个团队可能弥漫着一种虚假的安全感！</li>
+</ul>
+<ul>
+<li>试着让小镇以善意的原因处决你（比如让<a href="../pages/%E9%80%81%E8%91%AC%E8%80%85.html" title="送葬者">送葬者</a>检查你的能力）会与你进行哥布林宣称产生冲突。但不要沮丧——如果小镇认为你是反对他们以这个理由杀死你，而仅仅以宣称哥布林来威慑他们，那这个方案就能奏效。当你以这种方式获胜时，他们脸上显露的表情会让你相当满意！</li>
+</ul>
+<ul>
+<li>当心<a href="../pages/%E5%8E%A8%E5%B8%88.html" title="厨师">厨师</a>或是<a href="../pages/%E9%92%9F%E8%A1%A8%E5%8C%A0.html" title="钟表匠">钟表匠</a>或其他类似的角色！如果小镇相信你是哥布林，他们可以利用你的存在来追踪你的恶魔！（亦或者在较多人数的游戏中，如果你离其他邪恶阵营同伴都很远，你也可以故意引导到这种追踪上，以让小镇花费时间处决你的邻近玩家而不是恶魔！）</li>
+</ul>
+<ul>
+<li>哥布林说到底是一个非常社交属性（译者注：能力很依赖于沟通而不是自己的操作）的爪牙，因此保持对小镇最新变化的了解至关重要——在几乎所有情况下，你都希望动摇他们对你的认知到对立阵营。如果小镇认为你是善良的，他们就几乎没有理由会处决你——试着出现几次“疏漏”以提供他们怀疑你的理由！类似的，如果他们认为你是邪恶的而你又不加否认，小镇可能会把你当作哥布林——开始拼命努力说服他们你是善良的吧！这一切都是为了让你的阵营定位到达“宣称是哥布林，但是我们不相信这点并且我们想继续处决你”的理想状态。其中创造的所有混乱只是为了奖励的有趣！</li>
+</ul>
+<ul>
+<li>如果你是另一个邪恶角色，尤其是恶魔，那就宣称是哥布林吧！在没有其他方案的情况下这是一个很好的备选方案，但愿能恐吓到善良阵营不处决你，至少在一两天内。</li>
+</ul>
+<h2 id="对抗哥布林">对抗哥布林</h2>
+<ul>
+<li>你最大的问题不是哥布林，而是恶魔宣称是哥布林。这是一个可以防止被处决的绝妙防护，哥布林角色迫使你的阵营加倍地斟酌关于谁是恶魔的结论，因为一旦你们错了，游戏就结束了。</li>
+</ul>
+<ul>
+<li>如果一名玩家宣称是哥布林，而你无法确定他们是否是哥布林，那就先不要处决他们！因为处决的风险太高了。至少在这一刻是如此……</li>
+</ul>
+<ul>
+<li>尽可能地使用任何可能的信息来区分哥布林宣称的真伪：<a href="../pages/%E5%8D%A0%E5%8D%9C%E5%B8%88.html" title="占卜师">占卜师</a>、<a href="../pages/%E7%8C%8E%E6%89%8B.html" title="猎手">猎手</a>、<a href="../pages/%E8%88%9E%E8%9B%87%E4%BA%BA.html" title="舞蛇人">舞蛇人</a>或<a href="../pages/%E9%A9%B1%E9%AD%94%E4%BA%BA.html" title="驱魔人">驱魔人</a>都对是否对哥布林作出扣下扳机的决定有极大助益。</li>
+</ul>
+<ul>
+<li>记住，哥布林的能力只有在他在被提名时公开宣称才能生效。如果你的提名对象没有宣称是哥布林，那你就没必要担心哥布林可能获胜。</li>
+</ul>
+<ul>
+<li>如果一名玩家宣称是哥布林，花点时间与善良阵营合作来查明他们的真实角色。那些能够得知阵营或角色的角色，比如<a href="../pages/%E9%80%81%E8%91%AC%E8%80%85.html" title="送葬者">送葬者</a>、<a href="../pages/%E5%8D%A0%E5%8D%9C%E5%B8%88.html" title="占卜师">占卜师</a>、<a href="../pages/%E7%AD%91%E6%A2%A6%E5%B8%88.html" title="筑梦师">筑梦师</a>、<a href="../pages/%E8%B0%83%E6%9F%A5%E5%91%98.html" title="调查员">调查员</a>或<a href="../pages/%E5%9F%8E%E9%95%87%E5%85%AC%E5%91%8A%E5%91%98.html" title="城镇公告员">城镇公告员</a>都能帮上忙。即便是得到那些诸如谁是谁的次要信息，比如来自<a href="../pages/%E4%BE%8D%E5%A5%B3.html" title="侍女">侍女</a>或是<a href="../pages/%E8%B4%A4%E8%80%85.html" title="贤者">贤者</a>的，也会有帮助。当你有足够的信息来判断一名玩家是否真的是哥布林时，你就能相应地决定是否处决他。</li>
+</ul>
+<ul>
+<li>你可以作为善良玩家宣称是哥布林……但你需要一个特别合适的理由来这么做。有可能是你确实必须存活来完成你作为镇民的信息体系，这是一个值得如此做的宣称，但在对邪恶阵营提供了强力掩护之后，你重建信任的道路将会十分艰难。</li>
+</ul>
+<ul>
+<li>在游戏的早期随意地提名以求尽快揭露哥布林。此时哥布林玩家可能还没有充分的时间拟定好策略，并在他们确定宣称哥布林是否明置之前就宣称自己是哥布林。</li>
+</ul>
+<ul>
+<li>如果游戏中仅有一个爪牙，那等到最后一天才杀死哥布林。在这个时期，存活的玩家应当是恶魔、哥布林与一名善良玩家。这仍然给予了你杀死恶魔的机会，或者杀死宣称自己是哥布林而你认为是恶魔的那名玩家。</li>
+</ul>
+<ul>
+<li>如果游戏中多于一个爪牙，那在最后一天来临前杀死宣称哥布林的玩家。或者如果你没做到，那至少要确保所有其他爪牙都死亡。如果游戏到此时存活的三名玩家是恶魔、哥布林和另一个爪牙，那邪恶阵营就获胜了。</li>
+</ul>
+<ul>
+<li>如果你百分百地确信宣称是哥布林的玩家确实是哥布林，那这对善良阵营也是个好消息。假设哥布林玩家说的是真话，然后使用这个信息去寻找恶魔。注意哥布林说的其他信息，注意哥布林和谁说话。注意那些能获得关于爪牙的信息的角色的信息，比如<a href="../pages/%E8%B0%83%E6%9F%A5%E5%91%98.html" title="调查员">调查员</a>、<a href="../pages/%E5%8E%A8%E5%B8%88.html" title="厨师">厨师</a>、<a href="../pages/%E9%92%9F%E8%A1%A8%E5%8C%A0.html" title="钟表匠">钟表匠</a>或<a href="../pages/%E9%80%81%E8%91%AC%E8%80%85.html" title="送葬者">送葬者</a>，可以同时确认哪些角色获得了良好的信息以及这些信息指向的恶魔是谁。</li>
+</ul>
+<ul>
+<li>如果你认为一名宣称是哥布林的玩家其实是善良的而仅仅是不想被处决，那你也宣称自己是哥布林。如果你在被提名时宣称得很有说服力，然后说另一个哥布林宣称是虚假的，那么那名善良玩家可能就会承认自己是另一个不同的角色——他们真实的善良角色——而不再宣称是哥布林。因为真正的哥布林很难做到这点，所以你已经找到了另一名善良玩家。</li>
+</ul>
+<ul>
+<li>以哥布林的名义让自己免于被处决。如果你真的不想被处决，那么就在你被提名时宣称是哥布林。你可以告诉团队你宣称哥布林只是为了让他们不处决你，然后直接宣称你真正的角色。有时候，欺骗善良阵营一小段时间是值得的，这样你就可以多存活几天。如果你每天都能得到重要信息，比如<a href="../pages/%E5%8D%9A%E5%AD%A6%E8%80%85.html" title="博学者">博学者</a>或者<a href="../pages/%E5%8D%96%E8%8A%B1%E5%A5%B3%E5%AD%A9.html" title="卖花女孩">卖花女孩</a>，那么这种方案效果会很棒，但对那些还有能力可用的角色也很棒，比如<a href="../pages/%E7%8C%8E%E6%89%8B.html" title="猎手">猎手</a>或者<a href="../pages/%E9%95%87%E9%95%BF.html" title="镇长">镇长</a>。</li>
+</ul>
+<ul>
+<li>如果其他方案都行不通，那就处决宣称是哥布林的玩家。他们可能有望、可能、大概在撒谎。如果你处决了一名宣称是哥布林的玩家而游戏仍在继续，那他们就不是哥布林！整个团队现在都知道了一些有用的信息！这太棒了！</li>
+</ul>
+<h2 id="角色信息">角色信息</h2>
+<ul>
+<li>英文名：Goblin</li>
+</ul>
+<ul>
+<li>所属剧本：<a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html" title="实验性角色">实验性角色</a>、<a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html" title="暗流涌动">暗流涌动</a>卡牌版</li>
+</ul>
+<ul>
+<li>角色类型：<a href="../pages/%E7%88%AA%E7%89%99.html" title="爪牙">爪牙</a></li>
+</ul>
+<ul>
+<li>角色能力类型：<a href="../pages/%E6%8F%90%E5%90%8D.html" title="提名">提名</a>、<a href="../pages/%E5%85%AC%E5%BC%80%E8%A7%A6%E5%8F%91%E8%83%BD%E5%8A%9B.html" title="公开触发能力">公开触发能力</a>、<a href="../pages/%E5%A4%84%E5%86%B3.html" title="处决">处决</a>、<a href="../pages/%E7%89%B9%E6%AE%8A%E8%83%9C%E5%88%A9%E5%A4%B1%E8%B4%A5%E6%9D%A1%E4%BB%B6.html" title="特殊胜利失败条件">特殊胜利失败条件</a></li>
+</ul></div>
+    <div class="page-meta">最后修改于 2026-06-13T02:43:42Z，编辑者 <b>Zack</b> ｜ 页面 12,382 字节 ｜ <a href="https://clocktower-wiki.gstonegames.com/index.php?title=%E5%93%A5%E5%B8%83%E6%9E%97" target="_blank" rel="noopener">查看原页面</a> ｜ <div class="comment">编辑摘要：/* 规则细节 */</div></div>
+    <div class="backlinks"><b>链入此页的页面（40）</b><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a><a href="../pages/%E7%82%BC%E9%87%91%E6%9C%AF%E5%A3%AB.html">炼金术士</a><a href="../pages/%E6%9A%B4%E9%9C%B2%E8%A7%92%E8%89%B2.html">暴露角色</a><a href="../pages/%E5%A4%84%E5%86%B3.html">处决</a><a href="../pages/%E8%B5%8F%E9%87%91%E7%8C%8E%E4%BA%BA.html">赏金猎人</a><a href="../pages/%E5%BC%82%E6%95%99%E9%A2%86%E8%A2%96.html">异教领袖</a><a href="../pages/%E5%B7%A5%E7%A8%8B%E5%B8%88.html">工程师</a><a href="../pages/%E6%B8%94%E5%A4%AB.html">渔夫</a><a href="../pages/%E5%B0%86%E5%86%9B.html">将军</a><a href="../pages/%E8%90%BD%E9%9A%BE%E5%B0%91%E5%A5%B3.html">落难少女</a><a href="../pages/%E5%BC%82%E7%AB%AF%E5%88%86%E5%AD%90.html">异端分子</a><a href="../pages/%E6%94%BF%E5%AE%A2.html">政客</a><a href="../pages/%E5%93%A5%E5%B8%83%E6%9E%97.html">哥布林</a><a href="../pages/%E5%AF%A1%E5%A6%87.html">寡妇</a><a href="../pages/%E5%85%AC%E5%BC%80%E8%A7%A6%E5%8F%91%E8%83%BD%E5%8A%9B.html">公开触发能力</a><a href="../pages/%E7%89%B9%E6%AE%8A%E8%83%9C%E5%88%A9%E5%A4%B1%E8%B4%A5%E6%9D%A1%E4%BB%B6.html">特殊胜利失败条件</a><a href="../pages/%E6%8F%90%E5%90%8D.html">提名</a><a href="../pages/%E6%B4%97%E8%84%91%E5%B8%88.html">洗脑师</a><a href="../pages/%E7%88%AA%E7%89%99.html">爪牙</a><a href="../pages/%E7%AA%83%E7%AA%83%E7%A7%81%E8%AF%AD.html">窃窃私语</a><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a><a href="../pages/%E6%84%9A%E8%80%85%E6%AC%A2%E5%AE%B4.html">愚者欢宴</a><a href="../pages/%E5%A5%B3%E7%A5%AD%E5%8F%B8.html">女祭司</a><a href="../pages/%E7%98%9F%E7%96%AB%E5%8C%BB%E7%94%9F.html">瘟疫医生</a><a href="../pages/%E6%88%8F%E5%AD%90.html">戏子</a><a href="../pages/%E5%8D%A1%E6%89%8E%E5%8A%9B.html">卡扎力</a><a href="../pages/%E9%A3%8E%E4%BA%91%E5%AD%B0%E6%88%8F%E8%A8%80.html">风云孰戏言</a><a href="../pages/%E9%A3%8E%E8%B5%B7%E7%BB%88%E7%9B%B8%E8%AF%86.html">风起终相识</a><a href="../pages/%E7%99%BD%E7%8B%90%E8%A1%8C%E4%B8%9B%E9%87%8C.html">白狐行丛里</a><a href="../pages/%E5%AF%B9%E5%A2%9F%E9%9A%BE%E6%AC%A2%E9%B8%A3.html">对墟难欢鸣</a><a href="../pages/%E9%97%B2%E8%A8%80%E7%A2%8E%E8%AF%AD.html">闲言碎语</a><a href="../pages/%E5%A0%A4%E4%B8%B0%E4%B9%8B%E9%A6%96.html">堤丰之首</a><a href="../pages/%E7%8B%AC%E5%8D%A0%E9%B3%8C%E5%A4%B4.html">独占鳌头</a><a href="../pages/%E6%88%8F%E5%AD%90%EF%BC%88%E6%94%B9%EF%BC%89.html">戏子（改）</a><a href="../pages/%E6%9A%B4%E5%90%9B.html">暴君</a><a href="../pages/%E4%B8%87%E6%97%A0%E5%BC%82%E5%A4%B1.html">万无异失</a><a href="../pages/%E5%A7%91%E8%8E%B7%E9%B8%9F.html">姑获鸟</a><a href="../pages/%E7%8B%A1%E5%85%94%E4%B8%89%E7%AA%9F.html">狡兔三窟</a><a href="../pages/%E6%B1%9F%E5%9F%8E%E5%90%AF.html">江城启</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

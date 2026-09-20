@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>中毒 - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content"><h1 class="page-title">中毒</h1><div class="tagline">来自钟楼百科</div><div class="mw-parser-output"><p>&lt;&lt;返回<a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html" title="角色能力类别总览">角色能力类别总览</a>
+</p>
+<div class="toc" id="toc"><div class="toctitle"><h2 id="mw-toc-heading">目录</h2><span class="toctogglespan"></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#能力简介"><span class="tocnumber">1</span> <span class="toctext">能力简介</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#合理的欺骗"><span class="tocnumber">2</span> <span class="toctext">合理的欺骗</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#相关角色"><span class="tocnumber">3</span> <span class="toctext">相关角色</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#关注中毒的角色"><span class="tocnumber">4</span> <span class="toctext">关注中毒的角色</span></a></li>
+</ul>
+</div>
+
+<span id=".E8.83.BD.E5.8A.9B.E7.AE.80.E4.BB.8B"></span><h2 id="能力简介">能力简介</h2>
+<p>一些角色具有让特定玩家中毒或醉酒的能力。通常来说。邪恶角色的能力会让人中毒，而善良角色的能力会让人醉酒。但也有例外，如<a href="../pages/%E8%88%9E%E8%9B%87%E4%BA%BA.html" title="舞蛇人">舞蛇人</a>。中毒和醉酒在效果上并无区别，而只是让能力更符合角色本身的背景设定而做出的差异区分。
+</p><p>中毒和醉酒分别为玩家的两种不同的状态。不同的状态之间互相独立，不会因为一种状态发生变化而对另一种状态造成影响。参考<a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html" title="重要细节">重要细节</a>的第三部分。
+</p><p>如果一项能力同时让多名玩家中毒/醉酒（比如<a href="../pages/%E9%99%90.html" title="限">限</a>），那么这些玩家同时进入中毒/醉酒状态，不分先后。
+</p><p>中毒和醉酒，其本质是让玩家失去能力，但会让玩家误以为自己仍然具有能力。对于这部分，我们可以将角色的能力拆分为多个不同的部分，以便于理解中毒和醉酒的作用原理。
+</p><p><b>1.能力触发条件与时机。</b>
+</p><p>这部分是玩家使用能力的前提。能力触发需要满足特定的条件和时机，如共情者的条件和时机是：在夜晚轮到共情者行动时，如果共情者仍然存活。上述前提满足时，共情者的能力会被触发，说书人会将其唤醒并告知其信息。
+</p><p>又或者，能力是持续生效的效果，不需要满足这些条件和时机，能力就会直接生效。
+</p><p>不论如何，这一部分不会被中毒和醉酒影响。玩家在失去能力时，不会失去能力的触发条件和时机。如果<a href="../pages/%E5%AE%88%E9%B8%A6%E4%BA%BA.html" title="守鸦人">守鸦人</a>在中毒状态下被恶魔杀死，依然会使得他能够被唤醒，因为中毒不会影响<a href="../pages/%E5%AE%88%E9%B8%A6%E4%BA%BA.html" title="守鸦人">守鸦人</a>的能力触发前提。
+</p><p><b>2.玩家（能力的拥有者）对说书人的交互。</b>
+</p><p><a href="../pages/%E5%A5%B3%E8%A3%81%E7%BC%9D.html" title="女裁缝">女裁缝</a>使用能力时需要对说书人指出两名玩家，<a href="../pages/%E6%95%99%E6%8E%88.html" title="教授">教授</a>如果不希望今晚使用能力需要对说书人摇头，<a href="../pages/%E7%96%AF%E5%AD%90.html" title="疯子">疯子</a>以为自己是恶魔时需要在每晚按那种恶魔的攻击方式对说书人指出对应的玩家，<a href="../pages/%E5%8D%9A%E5%AD%A6%E8%80%85.html" title="博学者">博学者</a>想要获取信息需要在白天拜访说书人。这些都是玩家主动对说书人的交互。
+</p><p>而很显而易见的是，中毒和醉酒也不会使这一部分失效。此外，即使处于醉酒中毒之下，或是认知覆盖以为自己具有的某个能力，使用能力进行选择时，依然会被视作是“使用自身能力进行了选择”，从而能够与<a href="../pages/%E8%8E%BD%E5%A4%AB.html" title="莽夫">莽夫</a>之类的角色进行互动。
+</p><p><b>3.说书人对玩家自身的反馈内容。</b>
+</p><p>告知<a href="../pages/%E8%8E%BD%E5%A4%AB.html" title="莽夫">莽夫</a>阵营发生改变，告知<a href="../pages/%E5%8D%9A%E5%AD%A6%E8%80%85.html" title="博学者">博学者</a>两条信息，告知<a href="../pages/%E5%9B%BE%E4%B9%A6%E7%AE%A1%E7%90%86%E5%91%98.html" title="图书管理员">图书管理员</a>两名玩家和一个外来者角色，这些都是说书人根据玩家的能力所产生的结果，对玩家的信息反馈。中毒和醉酒会影响这一部分，从而使得玩家在自己的能力范围内能够接受到的相关信息发生改变，但不会超出自己的能力范围。<a href="../pages/%E5%85%B1%E6%83%85%E8%80%85.html" title="共情者">共情者</a>一定不会因此得知“3”，<a href="../pages/%E6%B4%97%E8%A1%A3%E5%A6%87.html" title="洗衣妇">洗衣妇</a>不会得知三名玩家或是一个爪牙角色，<a href="../pages/%E6%9D%82%E8%80%8D%E8%89%BA%E4%BA%BA.html" title="杂耍艺人">杂耍艺人</a>也不会得知“是”或“否”，即使他们已经醉酒或中毒。
+</p><p>玩家与说书人的交互取决于玩家具体的能力为何。当玩家具有不清楚自身能力的效果时（如<a href="../pages/%E9%A3%9F%E4%BA%BA%E6%97%8F.html" title="食人族">食人族</a>、<a href="../pages/%E5%A4%B1%E5%BF%86%E8%80%85.html" title="失忆者">失忆者</a>），说书人需要根据情况主动提醒玩家如何进行与说书人之间的交互。这也属于说书人对玩家自身的反馈内容之一。
+</p><p>如果<a href="../pages/%E5%A4%B1%E5%BF%86%E8%80%85.html" title="失忆者">失忆者</a>的能力需要让他在夜晚时选择两名玩家，说书人需要在夜晚时唤醒并主动告知<a href="../pages/%E5%A4%B1%E5%BF%86%E8%80%85.html" title="失忆者">失忆者</a>“进行选择两名玩家的操作”。如果<a href="../pages/%E5%A4%B1%E5%BF%86%E8%80%85.html" title="失忆者">失忆者</a>的能力是类似<a href="../pages/%E5%85%AC%E5%BC%80%E8%A7%A6%E5%8F%91%E8%83%BD%E5%8A%9B.html" title="公开触发能力">公开触发能力</a>一类的主动能力，则说书人不应该进行任何玩家能力使用的提醒，而是需要玩家自行猜测得出。通常来说，在<a href="../pages/%E5%A4%B1%E5%BF%86%E8%80%85.html" title="失忆者">失忆者</a>醉酒时，不建议说书人欺骗<a href="../pages/%E5%A4%B1%E5%BF%86%E8%80%85.html" title="失忆者">失忆者</a>以错误的方式使用他的能力，这是因为本身<a href="../pages/%E5%A4%B1%E5%BF%86%E8%80%85.html" title="失忆者">失忆者</a>的能力需要进行猜测，而他们在猜中自身能力之前无法确定自身能力在什么时候会醉酒中毒。而对于<a href="../pages/%E9%A3%9F%E4%BA%BA%E6%97%8F.html" title="食人族">食人族</a>，在其因为自身能力或是其他原因醉酒中毒时，说书人应该欺骗他以错误的方式使用他获得的能力，这是因为<a href="../pages/%E9%A3%9F%E4%BA%BA%E6%97%8F.html" title="食人族">食人族</a>通常只能获得善良玩家的角色能力，而善良玩家具有邪恶角色的情况少之又少。
+</p><p><b>4.说书人根据玩家的能力，对其他玩家的反馈内容，或是魔典操作，游戏流程的处理等。</b>
+</p><p><a href="../pages/%E5%AE%88%E5%A4%9C%E4%BA%BA.html" title="守夜人">守夜人</a>选择了一名玩家后，说书人会在<a href="../pages/%E5%AE%88%E5%A4%9C%E4%BA%BA.html" title="守夜人">守夜人</a>入睡后唤醒那名玩家，告知他“守夜人的能力对你触发，XX是守夜人”。如果<a href="../pages/%E5%AE%88%E5%A4%9C%E4%BA%BA.html" title="守夜人">守夜人</a>醉酒，那么说书人在<a href="../pages/%E5%AE%88%E5%A4%9C%E4%BA%BA.html" title="守夜人">守夜人</a>入睡后则会什么都不做。因为<a href="../pages/%E5%AE%88%E5%A4%9C%E4%BA%BA.html" title="守夜人">守夜人</a>失去了能力，自然无法成功使用自己的能力影响其他玩家。同样的，恶魔也无法得知醉酒的<a href="../pages/%E7%96%AF%E5%AD%90.html" title="疯子">疯子</a>当晚的选择目标，等等。
+</p><p>反过来，如果是醉酒的玩家被具有能力的<a href="../pages/%E5%AE%88%E5%A4%9C%E4%BA%BA.html" title="守夜人">守夜人</a>选中，那么这名玩家能够正常且正确地得知因为<a href="../pages/%E5%AE%88%E5%A4%9C%E4%BA%BA.html" title="守夜人">守夜人</a>的能力产生的相关信息。这是因为醉酒与中毒只会影响玩家通过自身能力产生的结果，但不会影响他们成为其他能力的目标，或是由于其他能力而获取信息。
+</p><p>综上，中毒与醉酒不会对1-2部分造成任何影响，对第3部分说书人需要对玩家进行合理的欺骗以使他误以为自己仍然具有能力，而对第4部分则会完全失效。对于处于认知覆盖下以为自己具有能力的玩家，其处理逻辑与中毒醉酒是类似的。
+</p><p>而对于<a href="../pages/%E4%BC%A0%E6%95%99%E5%A3%AB.html" title="传教士">传教士</a>的“失去能力”，则是在<a href="../pages/%E4%BC%A0%E6%95%99%E5%A3%AB.html" title="传教士">传教士</a>具有能力期间，使得1-4这些部分全部失效。这是<a href="../pages/%E4%BC%A0%E6%95%99%E5%A3%AB.html" title="传教士">传教士</a>的能力与醉酒中毒之间的区别。（<a href="../pages/%E6%A2%BC%E6%9D%8C.html" title="梼杌">梼杌</a>的‘失去能力’与<a href="../pages/%E4%BC%A0%E6%95%99%E5%A3%AB.html" title="传教士">传教士</a>同理）
+</p>
+<span id=".E5.90.88.E7.90.86.E7.9A.84.E6.AC.BA.E9.AA.97"></span><h2 id="合理的欺骗">合理的欺骗</h2>
+<p>中毒与醉酒的原则就是让玩家“在自身不知情的情况下传递错误信息”。基于这一原则，说书人能够对处于中毒或醉酒状态下的玩家进行合理的欺骗。
+</p><p>对于能力为<a href="../pages/%E8%8E%B7%E5%8F%96%E4%BF%A1%E6%81%AF.html" title="获取信息">获取信息</a>类的角色，这种欺骗较为容易进行，因为这实际上就是对上述能力拆解的第3部分的运用。
+</p><p>而对于能力不为获取信息类的角色，或者是获取信息较为特殊的角色，说书人的欺骗则应该更加深思熟虑，结合实际情况进行判断。
+</p><p>对于<a href="../pages/%E5%93%B2%E5%AD%A6%E5%AE%B6.html" title="哲学家">哲学家</a>、<a href="../pages/%E9%A3%9F%E4%BA%BA%E6%97%8F.html" title="食人族">食人族</a>这类能够获取能力的角色，说书人不仅应该在他们醉酒中毒时提供他们尝试获得或认为已经获得的那种能力所对应的信息，也应该在他们本该在夜晚被唤醒的时机将其唤醒，这样才能模拟出“他们真的获得了那种能力”的假象。
+</p><p>对于<a href="../pages/%E8%8E%BD%E5%A4%AB.html" title="莽夫">莽夫</a>、<a href="../pages/%E5%BC%82%E6%95%99%E9%A2%86%E8%A2%96.html" title="异教领袖">异教领袖</a>或<a href="../pages/%E8%88%9E%E8%9B%87%E4%BA%BA.html" title="舞蛇人">舞蛇人</a>这类能够通过自身能力让自己产生阵营或角色转变的角色，不论他们的能力导致的变化是否可逆，说书人都<b>不应该、也不能</b>在他们中毒醉酒时欺骗他们阵营或角色发生了变化。
+</p><p>说书人在对醉酒中毒的玩家进行欺骗时，如果想要通过这种方式创造较为复杂的局面，需要对角色的能力有足够程度的了解，否则建议以尽可能简单且不容易出错的方式来执行相关操作，避免给玩家带来糟糕的游戏体验。
+</p>
+<span id=".E7.9B.B8.E5.85.B3.E8.A7.92.E8.89.B2"></span><h2 id="相关角色">相关角色</h2>
+<ul><li><b>暗流涌动</b>
+<ul><li><a href="../pages/%E6%8A%95%E6%AF%92%E8%80%85.html" title="投毒者">投毒者</a>（爪牙）</li></ul></li></ul>
+<ul><li><b>黯月初升</b>
+<ul><li><a href="../pages/%E6%99%AE%E5%8D%A1.html" title="普卡">普卡</a>（恶魔）</li></ul></li></ul>
+<ul><li><b>梦殒春宵</b>
+<ul><li><a href="../pages/%E8%88%9E%E8%9B%87%E4%BA%BA.html" title="舞蛇人">舞蛇人</a>（镇民）</li>
+<li><a href="../pages/%E4%BA%A1%E9%AA%A8%E9%AD%94.html" title="亡骨魔">亡骨魔</a>（恶魔）</li>
+<li><a href="../pages/%E8%AF%BA-%E8%BE%BE%E9%B2%BA.html" title="诺-达鲺">诺-达鲺</a>（恶魔）</li></ul></li></ul>
+<ul><li><b>实验性角色</b>
+<ul><li><a href="../pages/%E9%A3%9F%E4%BA%BA%E6%97%8F.html" title="食人族">食人族</a>（镇民）</li>
+<li><a href="../pages/%E5%AF%A1%E5%A6%87.html" title="寡妇">寡妇</a>（爪牙）</li>
+<li><a href="../pages/%E9%99%90.html" title="限">限</a>（爪牙）</li>
+<li><a href="../pages/%E7%97%A2%E8%9B%AD.html" title="痢蛭">痢蛭</a>（恶魔）</li></ul></li></ul>
+<ul><li><b>华灯初上</b>
+<ul><li><a href="../pages/%E6%B7%B7%E6%B2%8C.html" title="混沌">混沌</a>（恶魔）</li></ul></li></ul>
+<ul><li><b>山雨欲来</b>
+<ul><li><a href="../pages/%E9%B8%A9.html" title="鸩">鸩</a>（镇民）</li>
+<li><a href="../pages/%E8%9B%8A%E9%9B%95.html" title="蛊雕">蛊雕</a>（爪牙）</li></ul></li></ul>
+<span id=".E5.85.B3.E6.B3.A8.E4.B8.AD.E6.AF.92.E7.9A.84.E8.A7.92.E8.89.B2"></span><h2 id="关注中毒的角色">关注中毒的角色</h2>
+<ul><li><b>实验性角色</b>
+<ul><li><a href="../pages/%E6%9D%82%E6%8A%80%E6%BC%94%E5%91%98.html" title="杂技演员">杂技演员</a>（镇民）</li></ul></li></ul>
+
+
+
+
+</div><div class="page-meta">同步于 2026-09-18T21:37:36Z ｜ 修订 6499 ｜ <a href="https://clocktower-wiki.gstonegames.com/index.php?title=%E4%B8%AD%E6%AF%92" target="_blank" rel="noopener">查看原页面</a></div></main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

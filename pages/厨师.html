@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>厨师 - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">厨师</h1>
+    <div class="tagline">来自钟楼百科</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#提示与技巧">提示与技巧</a></li><li class="lvl2"><a href="#伪装成厨师">伪装成厨师</a></li><li class="lvl2"><a href="#角色信息">角色信息</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E5%8E%A8%E5%B8%88">查找包含此角色的剧本 →</a></p><p><a href="../pages/%E5%8E%A8%E5%B8%88.html" class="image-link" title="厨师"><img alt="chef.png" style="width:200px" class="" loading="lazy" data-source-image="../images/Chef.png" src="../assets/media/Chef.preview.webp" width="600" height="600" decoding="async"></a></p>
+<h2 id="背景故事">背景故事</h2>
+<p><em>“今晚的预约有些古怪。我从未见过梅威瑟太太此前跟那个哈德逊巷的流氓有过交情。</em></p>
+<p><em>然而今晚，他们订了一张双人桌。真奇怪。”</em></p>
+<h2 id="角色能力">角色能力</h2>
+<p><strong>在你的首个夜晚，你会得知场上邻座的邪恶玩家有多少对。</strong></p>
+<h2 id="角色简介">角色简介</h2>
+<p>厨师会得知是否有邪恶玩家相邻而坐。</p>
+<ul>
+<li>在第一个夜晚，厨师会得知有多少对邪恶玩家相邻而坐。两名相邻而坐的玩家为一对，然而每名玩家都能分别与两侧的玩家各组成一对。因此，两名相邻而坐的玩家是一对，三名相邻而坐的玩家是两对，四名相邻而坐的玩家是三对，以此类推。</li>
+</ul>
+<ul>
+<li>厨师会像探查其他角色类型一样探查邪恶旅行者，但仅仅只会关注那些在厨师行动前加入游戏的旅行者。</li>
+</ul>
+<h2 id="范例">范例</h2>
+<p>没有邪恶玩家相邻而坐。<a href="../pages/%E5%8E%A8%E5%B8%88.html" title="厨师">厨师</a>得知了“0”。</p>
+<p><a href="../pages/%E5%B0%8F%E6%81%B6%E9%AD%94.html" title="小恶魔">小恶魔</a>与<a href="../pages/%E7%94%B7%E7%88%B5.html" title="男爵">男爵</a>相邻而坐。在另一侧，<a href="../pages/%E6%8A%95%E6%AF%92%E8%80%85.html" title="投毒者">投毒者</a>与<a href="../pages/%E7%BA%A2%E5%94%87%E5%A5%B3%E9%83%8E.html" title="红唇女郎">红唇女郎</a>相邻而坐。<a href="../pages/%E5%8E%A8%E5%B8%88.html" title="厨师">厨师</a>得知了“2”。</p>
+<p>邪恶的<a href="../pages/%E6%9B%BF%E7%BD%AA%E7%BE%8A.html" title="替罪羊">替罪羊</a>坐在<a href="../pages/%E5%B0%8F%E6%81%B6%E9%AD%94.html" title="小恶魔">小恶魔</a>与<a href="../pages/%E7%BA%A2%E5%94%87%E5%A5%B3%E9%83%8E.html" title="红唇女郎">红唇女郎</a>的中间。在另一侧，<a href="../pages/%E6%8A%95%E6%AF%92%E8%80%85.html" title="投毒者">投毒者</a>与<a href="../pages/%E7%94%B7%E7%88%B5.html" title="男爵">男爵</a>相邻而坐。<a href="../pages/%E5%8E%A8%E5%B8%88.html" title="厨师">厨师</a>得知了“3”。</p>
+<p><a href="../pages/%E9%99%8C%E5%AE%A2.html" title="陌客">陌客</a>坐在<a href="../pages/%E5%B0%8F%E6%81%B6%E9%AD%94.html" title="小恶魔">小恶魔</a>与<a href="../pages/%E6%8A%95%E6%AF%92%E8%80%85.html" title="投毒者">投毒者</a>的中间。<a href="../pages/%E5%8E%A8%E5%B8%88.html" title="厨师">厨师</a>得知了“1”。此时，<a href="../pages/%E9%99%8C%E5%AE%A2.html" title="陌客">陌客</a>在“<a href="../pages/%E5%B0%8F%E6%81%B6%E9%AD%94.html" title="小恶魔">小恶魔</a>-<a href="../pages/%E9%99%8C%E5%AE%A2.html" title="陌客">陌客</a>”这一对里被当作了邪恶阵营，但在“<a href="../pages/%E6%8A%95%E6%AF%92%E8%80%85.html" title="投毒者">投毒者</a>-<a href="../pages/%E9%99%8C%E5%AE%A2.html" title="陌客">陌客</a>”这一对里被当作了善良阵营。 <em>（备注：这个例子只是想举例说明厨师对阵营的探查是分多次进行，且陌客能在不同的能力不同的时间点下被视为不同的阵营或角色。在实际游戏中，因为厨师这样的多次探查能力非常少见，因此如果想采用这种给“1”的信息方式，建议说书人应该提前告知玩家，否则应该默认这种情况下要么得知“0”，要么得知“2”。在<a href="../pages/%E9%99%8C%E5%AE%A2.html" title="陌客">陌客</a>的范例中，也可以看到实际上对这个例子以及“1”的结果避而不提。）</em></p>
+<h2 id="运作方式">运作方式</h2>
+<p>在首个夜晚里，唤醒厨师。为厨师用手势比划场上互为邻座的邪恶玩家有多少对（0，1，2，等等）。让厨师重新入睡。</p>
+<h2 id="提示标记">提示标记</h2>
+<p>无</p>
+<h2 id="规则细节">规则细节</h2>
+<ul>
+<li><a href="../pages/%E5%8E%A8%E5%B8%88.html" title="厨师">厨师</a>的单次能力会为玩家进行多次检测判断。因此具有<a href="../pages/%E4%BA%92%E5%8A%A8%E5%B9%B2%E6%89%B0.html" title="互动干扰">互动干扰</a>类能力的角色可能会在与其左右相邻的玩家组合中被当作不同的阵营。但通常来说，我们建议按照在<a href="../pages/%E5%8E%A8%E5%B8%88.html" title="厨师">厨师</a>的单次能力探查中始终保持同一阵营来进行判断，以提升<a href="../pages/%E5%8E%A8%E5%B8%88.html" title="厨师">厨师</a>玩家的游戏体验。毕竟，不仅<a href="../pages/%E4%BA%92%E5%8A%A8%E5%B9%B2%E6%89%B0.html" title="互动干扰">互动干扰</a>能力会影响厨师的结果，<a href="../pages/%E9%86%89%E9%85%92.html" title="醉酒">醉酒</a>和<a href="../pages/%E4%B8%AD%E6%AF%92.html" title="中毒">中毒</a>也会。</li>
+</ul>
+<ul>
+<li><a href="../pages/%E5%8E%A8%E5%B8%88.html" title="厨师">厨师</a>的能力探查的是相邻玩家，且并未加“存活”这一附加条件。在游戏中途产生的<a href="../pages/%E5%8E%A8%E5%B8%88.html" title="厨师">厨师</a>，获取到的信息仍然会考虑仍然在游戏中的所有玩家（已经提前离开游戏的旅行者则不算在内）。</li>
+</ul>
+<h2 id="提示与技巧">提示与技巧</h2>
+<ul>
+<li>在游戏开始，单看你自己的信息并不是非常有用，但如果你将你的信息与你队友的信息相结合，就会变得非常有用了。如果你能找到<a href="../pages/%E5%85%B1%E6%83%85%E8%80%85.html" title="共情者">共情者</a>或者<a href="../pages/%E5%8D%A0%E5%8D%9C%E5%B8%88.html" title="占卜师">占卜师</a>，随后知道了一名玩家的阵营，或是知道了一名玩家是否为恶魔后，你的信息就开始发挥作用了。这是因为你在得知一名玩家阵营的同时，也知道了他周围的人的阵营。就算是将你的信息与<a href="../pages/%E6%B4%97%E8%A1%A3%E5%A6%87.html" title="洗衣妇">洗衣妇</a>，<a href="../pages/%E5%9B%BE%E4%B9%A6%E7%AE%A1%E7%90%86%E5%91%98.html" title="图书管理员">图书管理员</a>或<a href="../pages/%E8%B0%83%E6%9F%A5%E5%91%98.html" title="调查员">调查员</a>的信息相结合也会很有用。例如，如果你知道至少有一对邪恶玩家挨着坐，<a href="../pages/%E8%B0%83%E6%9F%A5%E5%91%98.html" title="调查员">调查员</a>还说玩家A和玩家B中有一个爪牙，那你就可以知道A或B的相邻玩家里很有可能会有邪恶阵营的玩家。</li>
+</ul>
+<ul>
+<li>你的信息随着游戏的进行将会变得越来越有用，所以在关键的时刻记得对善良阵营重申你的信息。当只剩下三名玩家存活时，你肯定知道这里面至少有一位邪恶玩家，因此在这个时候你所掌握的信息——场上邪恶玩家是否邻座——将决定游戏的最终结果。记得在这个节点让你的队伍仔细思考你的信息。</li>
+</ul>
+<ul>
+<li>得到信息"0"意味着没有邪恶玩家邻座；记得在白天寻找有哪些窃窃私语的玩家。他们有可能是邪恶阵营，但也有可能只是善良阵营的玩家在进行秘密交流。</li>
+</ul>
+<ul>
+<li>如果你知道邪恶玩家不邻座，并且确信某位玩家是邪恶阵营的，那与他相邻的玩家肯定就是善良阵营的。因此，如果你和邪恶阵营的玩家中间隔了一个玩家，那中间这位玩家肯定也是善良的。</li>
+</ul>
+<ul>
+<li>得到信息"1"或更多意味着场上的邪恶玩家是坐在一起的。注意那些窃窃私语并且形成微妙同盟关系的玩家。</li>
+</ul>
+<ul>
+<li>得到信息"2"意味着场上邪恶阵营是两两一对分开座的，也有可能是三位邪恶阵营玩家连在一起。记住，邪恶的旅行者也会被算进去，这将帮助你判断他们邻座的玩家阵营的好坏。</li>
+</ul>
+<ul>
+<li><a href="../pages/%E9%97%B4%E8%B0%8D.html" title="间谍">间谍</a>可能不会被当作是邪恶阵营，你可能因此会获得错误的数字。类似的，<a href="../pages/%E9%99%8C%E5%AE%A2.html" title="陌客">陌客</a>也有可能被你当作邪恶阵营。为了确保你信息的准确性，你需要用尽一切方法去尽快找到在场的<a href="../pages/%E9%97%B4%E8%B0%8D.html" title="间谍">间谍</a>或<a href="../pages/%E9%99%8C%E5%AE%A2.html" title="陌客">陌客</a>。对于<a href="../pages/%E9%99%8C%E5%AE%A2.html" title="陌客">陌客</a>来说，有时候你只需要直接在场上问有没有人是这个角色就足够了。而找出场上的<a href="../pages/%E9%97%B4%E8%B0%8D.html" title="间谍">间谍</a>就需要用到你的直觉了。你还需要去注意哪些玩家在夜晚被杀害了。如果你觉得恶魔的杀戮效率太高，那就表示可能有<a href="../pages/%E9%97%B4%E8%B0%8D.html" title="间谍">间谍</a>在帮助他。</li>
+</ul>
+<ul>
+<li>如果这局游戏是汀西维尔模式（只有5-6位玩家的模式），恶魔和爪牙不会互相知道彼此是谁，并且会竭尽所能的去试图找到对方。故意给团队一个错误信息能够让邪恶阵营的玩家找错队友。例如，在你知道场上邪恶玩家不相邻的情况下，说场上邪恶玩家是邻座的。这样场上的恶魔就可能会一不小心向他的善良阵营邻座透露自己的恶魔角色，又或者爪牙可能不会投票将自己善良阵营的邻座处决，并偶然投票处决了恶魔。</li>
+</ul>
+<h2 id="伪装成厨师">伪装成厨师</h2>
+<p>当你要伪装成厨师的时候，这里有几件事你应该记住：</p>
+<ul>
+<li>宣称场上没有或者只有一对邪恶阵营玩家邻座通常都是比较可信的。报出更大的数字，例如有两对或者三对邪恶阵营玩家邻座在概率上通常不太可能，因此也不太会被人相信。在人数较少的游戏中，声称场上有两到三对邪恶阵营的玩家邻座通常没什么意义，因为场上一共就只有两位邪恶玩家。</li>
+</ul>
+<ul>
+<li>给出错误的信息能够让善良阵营的玩家感到非常困惑。如果善良阵营认为邪恶玩家是邻座的，但实际上不是的话（反之亦然），他们就会就会因为各自的嫌疑而互相攻击，而你只需要隔岸观火。</li>
+</ul>
+<ul>
+<li>给出真的信息能够让善良玩家确定一些玩家的阵营并厘清状况。这样当然也会带给你一些好处，因为你已经为善良阵营提供了很多帮助，那他们就会相信你并且让你活着。又或者如果他们觉得你是邪恶阵营的，那他们通常会觉得你给出的信息是假的，也就是说从一开始他们推理的基础就错了。</li>
+</ul>
+<ul>
+<li><a href="../pages/%E5%8E%A8%E5%B8%88.html" title="厨师">厨师</a>是一个相当容易伪装的角色。如果你是个新手，装成<a href="../pages/%E5%8E%A8%E5%B8%88.html" title="厨师">厨师</a>能够在玩家中散布错误信息，而又不需要随着游戏的进行持续地更新你的信息。</li>
+</ul>
+<h2 id="角色信息">角色信息</h2>
+<ul>
+<li>英文名：Chef</li>
+</ul>
+<ul>
+<li>所属剧本：<a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html" title="暗流涌动">暗流涌动</a></li>
+</ul>
+<ul>
+<li>角色类型：<a href="../pages/%E9%95%87%E6%B0%91.html" title="镇民">镇民</a></li>
+</ul>
+<ul>
+<li>角色能力类型：<a href="../pages/%E8%8E%B7%E5%8F%96%E4%BF%A1%E6%81%AF.html" title="获取信息">获取信息</a>、<a href="../pages/%E8%BF%9B%E5%9C%BA%E8%83%BD%E5%8A%9B.html" title="进场能力">进场能力</a>、<a href="../pages/%E9%82%BB%E8%BF%91.html" title="邻近">邻近</a></li>
+</ul></div>
+    <div class="page-meta">最后修改于 2023-04-10T12:38:50Z，编辑者 <b>Little Black</b> ｜ 页面 7,656 字节 ｜ <a href="https://clocktower-wiki.gstonegames.com/index.php?title=%E5%8E%A8%E5%B8%88" target="_blank" rel="noopener">查看原页面</a></div>
+    <div class="backlinks"><b>链入此页的页面（45）</b><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a><a href="../pages/%E6%B4%97%E8%A1%A3%E5%A6%87.html">洗衣妇</a><a href="../pages/%E9%92%9F%E8%A1%A8%E5%8C%A0.html">钟表匠</a><a href="../pages/%E5%93%A5%E5%B8%83%E6%9E%97.html">哥布林</a><a href="../pages/%E6%8F%90%E7%BA%BF%E6%9C%A8%E5%81%B6.html">提线木偶</a><a href="../pages/%E7%B2%BE%E7%A5%9E%E7%97%85%E6%82%A3%E8%80%85.html">精神病患者</a><a href="../pages/%E5%AF%A1%E5%A6%87.html">寡妇</a><a href="../pages/%E5%93%88%E8%BF%AA%E5%AF%82%E4%BA%9A.html">哈迪寂亚</a><a href="../pages/%E8%B0%83%E6%9F%A5%E5%91%98.html">调查员</a><a href="../pages/%E5%8E%A8%E5%B8%88.html">厨师</a><a href="../pages/%E4%BA%92%E5%8A%A8%E5%B9%B2%E6%89%B0.html">互动干扰</a><a href="../pages/%E8%BF%9B%E5%9C%BA%E8%83%BD%E5%8A%9B.html">进场能力</a><a href="../pages/%E8%8E%B7%E5%8F%96%E4%BF%A1%E6%81%AF.html">获取信息</a><a href="../pages/%E9%82%BB%E8%BF%91.html">邻近</a><a href="../pages/%E5%83%A7%E4%BE%A3.html">僧侣</a><a href="../pages/%E5%AE%88%E9%B8%A6%E4%BA%BA.html">守鸦人</a><a href="../pages/%E8%B4%9E%E6%B4%81%E8%80%85.html">贞洁者</a><a href="../pages/%E9%99%8C%E5%AE%A2.html">陌客</a><a href="../pages/%E6%8A%95%E6%AF%92%E8%80%85.html">投毒者</a><a href="../pages/%E9%97%B4%E8%B0%8D.html">间谍</a><a href="../pages/%E5%B0%8F%E6%81%B6%E9%AD%94.html">小恶魔</a><a href="../pages/%E9%95%87%E6%B0%91.html">镇民</a><a href="../pages/%E6%9B%BF%E7%BD%AA%E7%BE%8A.html">替罪羊</a><a href="../pages/%E4%B9%9E%E4%B8%90.html">乞丐</a><a href="../pages/%E5%A5%B3%E7%A5%AD%E5%8F%B8.html">女祭司</a><a href="../pages/%E5%A4%9C%E6%99%9A%E8%A1%8C%E5%8A%A8%E9%A1%BA%E5%BA%8F%E4%B8%80%E8%A7%88.html">夜晚行动顺序一览</a><a href="../pages/%E7%AC%AC%E4%B8%80%E5%B1%8A%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A%E5%89%A7%E6%9C%AC%E5%88%9B%E4%BD%9C%E5%A4%A7%E8%B5%9B.html">第一届华灯初上剧本创作大赛</a><a href="../pages/%E5%B9%BB%E5%BD%B1%E7%94%BB%E5%AE%89%E5%8D%B1.html">幻影画安危</a><a href="../pages/%E8%B0%9C%E6%A2%A6%E5%BE%85%E6%AD%8C%E8%88%9E.html">谜梦待歌舞</a><a href="../pages/%E5%BC%82%E5%9C%B0%E4%BC%97%E6%AC%A2%E6%9D%A5.html">异地众欢来</a><a href="../pages/%E9%A3%8E%E4%BA%91%E5%AD%B0%E6%88%8F%E8%A8%80.html">风云孰戏言</a><a href="../pages/%E6%8E%AE%E5%AE%A2.html">掮客</a><a href="../pages/%E9%9B%86%E5%90%8E%E4%BA%BA%E4%B9%8B%E8%A8%80.html">集后人之言</a><a href="../pages/%E5%AF%B9%E5%A2%9F%E9%9A%BE%E6%AC%A2%E9%B8%A3.html">对墟难欢鸣</a><a href="../pages/%E8%8E%AB%E9%80%86%E4%B9%8B%E4%BA%A4.html">莫逆之交</a><a href="../pages/%E9%97%B2%E8%A8%80%E7%A2%8E%E8%AF%AD.html">闲言碎语</a><a href="../pages/%E6%97%A7%E6%97%A5%E7%86%9F%E8%AF%86.html">旧日熟识</a><a href="../pages/%E5%86%B2%E5%8A%A8%E6%B6%88%E8%B4%B9.html">冲动消费</a><a href="../pages/%E6%98%BE%E6%88%91%E7%A5%9E%E9%80%9A.html">显我神通</a><a href="../pages/%E7%81%AF%E7%A5%9E%E5%A5%91%E7%BA%A6.html">灯神契约</a><a href="../pages/%E8%BF%9F%E8%A7%81%E5%88%86%E6%99%93.html">迟见分晓</a><a href="../pages/%E5%8F%8C%E5%AD%90%E7%85%9E%E6%98%9F.html">双子煞星</a><a href="../pages/%E4%B8%80%E5%BE%80%E5%B7%AB%E5%89%8D.html">一往巫前</a><a href="../pages/%E8%AF%A1%E8%AF%88%E6%9D%B0%E5%85%8B.html">诡诈杰克</a><a href="../pages/%E6%B1%9F%E5%9F%8E%E5%86%B3.html">江城决</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

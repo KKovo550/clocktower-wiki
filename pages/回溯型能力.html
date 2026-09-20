@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>回溯型能力 - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">回溯型能力</h1>
+    <div class="tagline">来自钟楼百科</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#能力简介">能力简介</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#相关角色">相关角色</a></li><li class="lvl3"><a href="#客观条件回溯">客观条件回溯</a></li><li class="lvl3"><a href="#需要角色主观参与">需要角色主观参与</a></li></ul></div>
+    <div class="mw-parser-output"><p>&lt;&lt;返回<a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html" title="角色能力类别总览">角色能力类别总览</a></p>
+<h2 id="能力简介">能力简介</h2>
+<p>具有回溯型能力的角色，在相关能力生效时，会回顾在这之前某个时间点下的一些游戏状况，并以此作为判断能力是否生效，能力应该如何生效的前提条件。</p>
+<p>这类能力具有两个时间点：生效节点和回溯节点。</p>
+<ul>
+<li>在生效节点下，只判断玩家是否醉酒中毒，来决定能力是否正常生效。</li>
+</ul>
+<ul>
+<li>在回溯节点下，只判断玩家该项能力的前提条件是否满足，而不关注角色在那个节点下是否具有能力。</li>
+</ul>
+<p>回溯节点下的判断条件又分两种。</p>
+<ul>
+<li>某些角色判断当前游戏中发生的客观事实，而无需玩家要作为检测条件的那个角色参与其中。这类能力即使玩家在回溯节点下不是那个角色，只要在生效节点下是那个角色即可触发相应的效果。</li>
+</ul>
+<ul>
+<li>某些角色判断自己是否参与并进行了某些行为。这类能力<strong>必须</strong>要玩家在回溯节点下作为那个角色进行相关行动，才能在生效节点下触发相应的效果。</li>
+</ul>
+<p>回溯型能力与<a href="../pages/%E4%BA%92%E5%8A%A8%E5%B9%B2%E6%89%B0.html" title="互动干扰">互动干扰</a>的相关互动：</p>
+<ul>
+<li>如果一名玩家的角色在回溯节点下是具有互动干扰能力的角色且拥有能力，无论他在生效节点下是什么角色（或者他是否拥有能力），他都能够正常对回溯型能力的回溯节点进行干扰。</li>
+</ul>
+<ul>
+<li>反之，如果一名玩家的角色在回溯节点下不是具有互动干扰能力的角色（或者他是具有互动干扰能力的角色但失去能力），无论他在生效节点下是什么角色（或者他是否拥有能力），他都无法对回溯型能力的回溯节点进行干扰。</li>
+</ul>
+<ul>
+<li>互动干扰对回溯型能力的干扰时机是在回溯节点下，而非生效节点下。</li>
+</ul>
+<h2 id="范例">范例</h2>
+<p>一名邪恶的爪牙玩家伪装成<a href="../pages/%E9%80%A0%E8%B0%A3%E8%80%85.html" title="造谣者">造谣者</a>，并在当天白天公开发表了一项正确的声明。当晚，该玩家被<a href="../pages/%E9%BA%BB%E8%84%B8%E5%B7%AB%E5%A9%86.html" title="麻脸巫婆">麻脸巫婆</a>变成了<a href="../pages/%E9%80%A0%E8%B0%A3%E8%80%85.html" title="造谣者">造谣者</a>。随后，在轮到<a href="../pages/%E9%80%A0%E8%B0%A3%E8%80%85.html" title="造谣者">造谣者</a>的夜晚顺序时，判断作为<a href="../pages/%E9%80%A0%E8%B0%A3%E8%80%85.html" title="造谣者">造谣者</a>的玩家在白天确确实实发表了一项正确的声明。因此，说书人选择了一名玩家作为<a href="../pages/%E9%80%A0%E8%B0%A3%E8%80%85.html" title="造谣者">造谣者</a>的能力目标且死亡。</p>
+<p><a href="../pages/%E6%9D%82%E8%80%8D%E8%89%BA%E4%BA%BA.html" title="杂耍艺人">杂耍艺人</a>坐在<a href="../pages/%E8%AF%BA-%E8%BE%BE%E9%B2%BA.html" title="诺-达鲺">诺-达鲺</a>的旁边，因此中毒。在第一个白天，<a href="../pages/%E6%9D%82%E8%80%8D%E8%89%BA%E4%BA%BA.html" title="杂耍艺人">杂耍艺人</a>进行了三次猜测且均猜测正确。当晚，<a href="../pages/%E6%9D%82%E8%80%8D%E8%89%BA%E4%BA%BA.html" title="杂耍艺人">杂耍艺人</a>被<a href="../pages/%E5%83%A7%E4%BE%A3.html" title="僧侣">僧侣</a>保护，因此不再中毒，并得知了作为自己猜测结果的正确信息“3”。</p>
+<p><a href="../pages/%E5%93%B2%E5%AD%A6%E5%AE%B6.html" title="哲学家">哲学家</a>在某个夜晚选择获得了<a href="../pages/%E5%8D%96%E8%8A%B1%E5%A5%B3%E5%AD%A9.html" title="卖花女孩">卖花女孩</a>的能力，随后一名在当天白天投过票的玩家被<a href="../pages/%E9%BA%BB%E8%84%B8%E5%B7%AB%E5%A9%86.html" title="麻脸巫婆">麻脸巫婆</a>变成了<a href="../pages/%E6%B6%A1%E6%B5%81.html" title="涡流">涡流</a>。真正的恶魔没有在白天投票，因此稍后<a href="../pages/%E5%93%B2%E5%AD%A6%E5%AE%B6.html" title="哲学家">哲学家</a>被唤醒时，因为<a href="../pages/%E6%B6%A1%E6%B5%81.html" title="涡流">涡流</a>的影响而得知了“是”。</p>
+<p><a href="../pages/%E4%BE%8D%E5%A5%B3.html" title="侍女">侍女</a>玩家选择了<a href="../pages/%E6%95%99%E7%88%B6.html" title="教父">教父</a>和<a href="../pages/%E5%BC%84%E8%87%A3.html" title="弄臣">弄臣</a>，得知了两人中当晚因自身能力被唤醒的玩家数量为“0”。在下一个白天，<a href="../pages/%E6%95%99%E7%88%B6.html" title="教父">教父</a>被处决并死亡。当晚，<a href="../pages/%E4%BE%8D%E5%A5%B3.html" title="侍女">侍女</a>被<a href="../pages/%E9%BA%BB%E8%84%B8%E5%B7%AB%E5%A9%86.html" title="麻脸巫婆">麻脸巫婆</a>变成<a href="../pages/%E6%B2%99%E5%B7%B4%E6%B4%9B%E6%96%AF.html" title="沙巴洛斯">沙巴洛斯</a>。在轮到<a href="../pages/%E6%B2%99%E5%B7%B4%E6%B4%9B%E6%96%AF.html" title="沙巴洛斯">沙巴洛斯</a>行动时，作为<a href="../pages/%E6%B2%99%E5%B7%B4%E6%B4%9B%E6%96%AF.html" title="沙巴洛斯">沙巴洛斯</a>的玩家昨晚选择的两名玩家中有一名当前为已死亡状态，但他未在前一晚作为<a href="../pages/%E6%B2%99%E5%B7%B4%E6%B4%9B%E6%96%AF.html" title="沙巴洛斯">沙巴洛斯</a>做出选择，不满足反刍的前提条件。说书人无法选择让<a href="../pages/%E6%95%99%E7%88%B6.html" title="教父">教父</a>被<a href="../pages/%E6%B2%99%E5%B7%B4%E6%B4%9B%E6%96%AF.html" title="沙巴洛斯">沙巴洛斯</a>复活。</p>
+<p>伪装成<a href="../pages/%E6%9C%88%E4%B9%8B%E5%AD%90.html" title="月之子">月之子</a>的<a href="../pages/%E4%B8%BB%E8%B0%8B.html" title="主谋">主谋</a>死亡，并选择了一名善良玩家。当晚，<a href="../pages/%E4%B8%BB%E8%B0%8B.html" title="主谋">主谋</a>被<a href="../pages/%E9%BA%BB%E8%84%B8%E5%B7%AB%E5%A9%86.html" title="麻脸巫婆">麻脸巫婆</a>变成了<a href="../pages/%E6%9C%88%E4%B9%8B%E5%AD%90.html" title="月之子">月之子</a>。但由于该玩家的前置条件“作为<a href="../pages/%E6%9C%88%E4%B9%8B%E5%AD%90.html" title="月之子">月之子</a>得知自己死亡时触发，并选择了一名善良玩家”不满足，因为他并未作为<a href="../pages/%E6%9C%88%E4%B9%8B%E5%AD%90.html" title="月之子">月之子</a>得知自己死亡。（因为<a href="../pages/%E6%9C%88%E4%B9%8B%E5%AD%90.html" title="月之子">月之子</a>的能力不仅是回溯型能力，同时也是<a href="../pages/%E6%AD%BB%E4%BA%A1%E8%A7%A6%E5%8F%91%E8%83%BD%E5%8A%9B.html" title="死亡触发能力">死亡触发型</a>能力。）因此那名善良玩家不会因为<a href="../pages/%E6%9C%88%E4%B9%8B%E5%AD%90.html" title="月之子">月之子</a>的效果而死亡。</p>
+<p>伪装成<a href="../pages/%E6%9D%82%E8%80%8D%E8%89%BA%E4%BA%BA.html" title="杂耍艺人">杂耍艺人</a>的<a href="../pages/%E7%95%B8%E5%BD%A2%E7%A7%80%E6%BC%94%E5%91%98.html" title="畸形秀演员">畸形秀演员</a>在第一个白天选择进行了三次猜测且均猜测正确。当晚，<a href="../pages/%E7%90%86%E5%8F%91%E5%B8%88.html" title="理发师">理发师</a>的效果触发，恶魔选择<a href="../pages/%E7%95%B8%E5%BD%A2%E7%A7%80%E6%BC%94%E5%91%98.html" title="畸形秀演员">畸形秀演员</a>与<a href="../pages/%E6%9D%82%E8%80%8D%E8%89%BA%E4%BA%BA.html" title="杂耍艺人">杂耍艺人</a>进行了角色交换。现在，作为<a href="../pages/%E6%9D%82%E8%80%8D%E8%89%BA%E4%BA%BA.html" title="杂耍艺人">杂耍艺人</a>的前<a href="../pages/%E7%95%B8%E5%BD%A2%E7%A7%80%E6%BC%94%E5%91%98.html" title="畸形秀演员">畸形秀演员</a>当晚无法获取到任何关于白天猜测的有关信息，因为他并未在自己“作为<a href="../pages/%E6%9D%82%E8%80%8D%E8%89%BA%E4%BA%BA.html" title="杂耍艺人">杂耍艺人</a>的首个白天”进行猜测。（“在你的首个白天”中的“你”指的是玩家作为该能力所属角色时的“你”，而非玩家的“你”，类似能力描述有<a href="../pages/%E8%BF%9B%E5%9C%BA%E8%83%BD%E5%8A%9B.html" title="进场能力">“在你的首个夜晚”</a>）</p>
+<h2 id="相关角色">相关角色</h2>
+<h3 id="客观条件回溯">客观条件回溯</h3>
+<ul>
+<li><strong>暗流涌动</strong></li>
+<ul>
+<li><a href="../pages/%E9%80%81%E8%91%AC%E8%80%85.html" title="送葬者">送葬者</a>（镇民）</li>
+</ul>
+</ul>
+<ul>
+<li><strong>黯月初升</strong></li>
+<ul>
+<li><a href="../pages/%E9%80%A0%E8%B0%A3%E8%80%85.html" title="造谣者">造谣者</a>（镇民）</li>
+<li><a href="../pages/%E6%95%99%E7%88%B6.html" title="教父">教父</a>（爪牙）</li>
+<li><a href="../pages/%E5%83%B5%E6%80%96.html" title="僵怖">僵怖</a>（恶魔）</li>
+</ul>
+</ul>
+<ul>
+<li><strong>梦殒春宵</strong></li>
+<ul>
+<li><a href="../pages/%E6%95%B0%E5%AD%A6%E5%AE%B6.html" title="数学家">数学家</a>（镇民）</li>
+<li><a href="../pages/%E5%8D%96%E8%8A%B1%E5%A5%B3%E5%AD%A9.html" title="卖花女孩">卖花女孩</a>（镇民）</li>
+<li><a href="../pages/%E5%9F%8E%E9%95%87%E5%85%AC%E5%91%8A%E5%91%98.html" title="城镇公告员">城镇公告员</a>（镇民）</li>
+</ul>
+</ul>
+<ul>
+<li><strong>实验性角色</strong></li>
+<ul>
+<li><a href="../pages/%E9%99%90.html" title="限">限</a>（爪牙）</li>
+<li><a href="../pages/%E7%89%99%E5%99%B6%E5%B7%B4%E5%8D%9C.html" title="牙噶巴卜">牙噶巴卜</a>（恶魔）</li>
+</ul>
+</ul>
+<ul>
+<li><strong>华灯初上</strong></li>
+<ul>
+<li><a href="../pages/%E7%A9%B7%E5%A5%87.html" title="穷奇">穷奇</a>（恶魔）</li>
+</ul>
+</ul>
+<ul>
+<li><strong>山雨欲来</strong></li>
+<ul>
+<li><a href="../pages/%E9%A9%BF%E4%BD%BF.html" title="驿使">驿使</a>（镇民）</li>
+<li><a href="../pages/%E7%9F%A5%E5%BA%9C.html" title="知府">知府</a>（镇民）</li>
+</ul>
+</ul>
+<h3 id="需要角色主观参与">需要角色主观参与</h3>
+<ul>
+<li><strong>黯月初升</strong></li>
+<ul>
+<li><a href="../pages/%E6%9C%88%E4%B9%8B%E5%AD%90.html" title="月之子">月之子</a>（外来者）</li>
+<li><a href="../pages/%E6%99%AE%E5%8D%A1.html" title="普卡">普卡</a>（恶魔）（虽然普卡的第二个能力也是回溯型能力，但回溯的前提条件是“上一个因自己能力而中毒的玩家”，因此普卡在回溯时会跳过那些“被自己能力选择但并未导致中毒”的玩家，只判断自己具有能力时让谁中毒了）</li>
+<li><a href="../pages/%E6%B2%99%E5%B7%B4%E6%B4%9B%E6%96%AF.html" title="沙巴洛斯">沙巴洛斯</a>（恶魔）</li>
+<li><a href="../pages/%E7%8F%80.html" title="珀">珀</a>（恶魔）</li>
+</ul>
+</ul>
+<ul>
+<li><strong>梦殒春宵</strong></li>
+<ul>
+<li><a href="../pages/%E6%9D%82%E8%80%8D%E8%89%BA%E4%BA%BA.html" title="杂耍艺人">杂耍艺人</a>（镇民）</li>
+</ul>
+</ul>
+<ul>
+<li><strong>实验性角色</strong></li>
+<ul>
+<li><a href="../pages/%E5%85%AC%E4%B8%BB.html" title="公主">公主</a>（镇民）</li>
+<li><a href="../pages/%E8%B5%8F%E9%87%91%E7%8C%8E%E4%BA%BA.html" title="赏金猎人">赏金猎人</a>（镇民）</li>
+<li><a href="../pages/%E7%81%B5%E8%A8%80%E5%B8%88.html" title="灵言师">灵言师</a>（爪牙）</li>
+<li><a href="../pages/%E7%AC%91%E5%8C%A0.html" title="笑匠">笑匠</a>（旅行者）</li>
+</ul>
+</ul>
+<ul>
+<li><strong>华灯初上</strong></li>
+<ul>
+<li><a href="../pages/%E5%8F%98%E8%84%B8%E5%B8%88.html" title="变脸师">变脸师</a>（镇民）</li>
+<li><a href="../pages/%E6%AD%8C%E4%BC%B6.html" title="歌伶">歌伶</a>（镇民）</li>
+<li><a href="../pages/%E4%B9%A6%E7%94%9F.html" title="书生">书生</a>（外来者）</li>
+<li><a href="../pages/%E9%80%86%E8%87%A3.html" title="逆臣">逆臣</a>（外来者）</li>
+<li><a href="../pages/%E5%85%BB%E8%9B%8A%E4%BA%BA.html" title="养蛊人">养蛊人</a>（爪牙）</li>
+</ul>
+</ul>
+<ul>
+<li><strong>山雨欲来</strong></li>
+<ul>
+<li><a href="../pages/%E7%A7%89%E7%AC%94.html" title="秉笔">秉笔</a>（镇民）</li>
+<li><a href="../pages/%E6%8F%90%E5%88%91%E5%AE%98.html" title="提刑官">提刑官</a>（镇民）</li>
+<li><a href="../pages/%E9%85%BF%E9%85%92%E5%B8%88.html" title="酿酒师">酿酒师</a>（爪牙）</li>
+<li><a href="../pages/%E6%9A%B4%E5%90%9B.html" title="暴君">暴君</a>（恶魔）</li>
+<li><a href="../pages/%E5%85%B8%E7%8B%B1%E9%95%BF.html" title="典狱长">典狱长</a>（恶魔）</li>
+</ul>
+</ul></div>
+    <div class="page-meta">最后修改于 2026-07-15T01:18:54Z，编辑者 <b>Beiyu</b> ｜ 页面 5,932 字节 ｜ <a href="https://clocktower-wiki.gstonegames.com/index.php?title=%E5%9B%9E%E6%BA%AF%E5%9E%8B%E8%83%BD%E5%8A%9B" target="_blank" rel="noopener">查看原页面</a> ｜ <div class="comment">编辑摘要：/* 需要角色主观参与 */</div></div>
+    <div class="backlinks"><b>链入此页的页面（36）</b><a href="../pages/%E9%80%A0%E8%B0%A3%E8%80%85.html">造谣者</a><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a><a href="../pages/%E8%B5%8F%E9%87%91%E7%8C%8E%E4%BA%BA.html">赏金猎人</a><a href="../pages/%E7%81%B5%E8%A8%80%E5%B8%88.html">灵言师</a><a href="../pages/%E6%95%B0%E5%AD%A6%E5%AE%B6.html">数学家</a><a href="../pages/%E5%8D%96%E8%8A%B1%E5%A5%B3%E5%AD%A9.html">卖花女孩</a><a href="../pages/%E4%BA%92%E5%8A%A8%E5%B9%B2%E6%89%B0.html">互动干扰</a><a href="../pages/%E6%AD%BB%E4%BA%A1%E8%A7%A6%E5%8F%91%E8%83%BD%E5%8A%9B.html">死亡触发能力</a><a href="../pages/%E9%80%81%E8%91%AC%E8%80%85.html">送葬者</a><a href="../pages/%E5%9F%8E%E9%95%87%E5%85%AC%E5%91%8A%E5%91%98.html">城镇公告员</a><a href="../pages/%E6%9C%88%E4%B9%8B%E5%AD%90.html">月之子</a><a href="../pages/%E6%95%99%E7%88%B6.html">教父</a><a href="../pages/%E5%83%B5%E6%80%96.html">僵怖</a><a href="../pages/%E6%99%AE%E5%8D%A1.html">普卡</a><a href="../pages/%E6%B2%99%E5%B7%B4%E6%B4%9B%E6%96%AF.html">沙巴洛斯</a><a href="../pages/%E7%8F%80.html">珀</a><a href="../pages/%E6%9D%82%E8%80%8D%E8%89%BA%E4%BA%BA.html">杂耍艺人</a><a href="../pages/%E5%8F%98%E8%84%B8%E5%B8%88.html">变脸师</a><a href="../pages/%E6%AD%8C%E4%BC%B6.html">歌伶</a><a href="../pages/%E9%80%86%E8%87%A3.html">逆臣</a><a href="../pages/%E4%B9%A6%E7%94%9F.html">书生</a><a href="../pages/%E5%85%BB%E8%9B%8A%E4%BA%BA.html">养蛊人</a><a href="../pages/%E7%A9%B7%E5%A5%87.html">穷奇</a><a href="../pages/%E9%85%BF%E9%85%92%E5%B8%88.html">酿酒师</a><a href="../pages/%E5%85%B8%E7%8B%B1%E9%95%BF.html">典狱长</a><a href="../pages/%E7%89%99%E5%99%B6%E5%B7%B4%E5%8D%9C.html">牙噶巴卜</a><a href="../pages/%E7%A7%89%E7%AC%94.html">秉笔</a><a href="../pages/%E7%9F%A5%E5%BA%9C.html">知府</a><a href="../pages/%E6%9A%B4%E5%90%9B.html">暴君</a><a href="../pages/%E9%99%90.html">限</a><a href="../pages/%E6%8F%90%E5%88%91%E5%AE%98.html">提刑官</a><a href="../pages/%E5%85%AC%E4%B8%BB.html">公主</a><a href="../pages/%E7%AC%91%E5%8C%A0.html">笑匠</a><a href="../pages/%E9%A9%BF%E4%BD%BF.html">驿使</a><a href="../pages/%E9%BB%91%E9%AA%91%E5%A3%AB_Dark_Knight.html">黑骑士 Dark Knight</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

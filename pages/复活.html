@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>复活 - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">复活</h1>
+    <div class="tagline">来自钟楼百科</div>
+    
+    <div class="mw-parser-output"><p>&lt;&lt;返回<a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html" title="角色能力类别总览">角色能力类别总览</a></p>
+<h2 id="能力简介">能力简介</h2>
+<p>如果一名玩家在游戏过程中复活、变化或交换了角色，视为他获得了一个新的角色。</p>
+<ul>
+<li>他会立即获得这个新角色的能力，并失去原本的角色能力。原本角色的所有能力效果都会终止，相应的提示标记也会全部移除。新的角色视为该玩家以全新状态获得，因此能够触发“<a href="../pages/%E8%BF%9B%E5%9C%BA%E8%83%BD%E5%8A%9B.html" title="进场能力">在你的首个夜晚/白天</a>”类能力，或是使用“<a href="../pages/%E9%99%90%E6%AC%A1%E8%83%BD%E5%8A%9B.html" title="限次能力">每局游戏限一次</a>”的能力。这个角色在本局游戏中此前被其他任何玩家以任何方式使用过的能力，都不会影响现在该玩家来使用这个角色。（<a href="../pages/%E6%96%B9%E5%8F%A4.html" title="方古">方古</a>的全局限一次转变外来者的效果是例外）</li>
+</ul>
+<ul>
+<li>如果一名玩家在游戏过程中变成了爪牙或恶魔角色，他不会得知其他邪恶玩家是谁，也不会因为变成了恶魔角色而得知三个不在场的善良角色。因为这些信息只在整局游戏的首个夜晚提供给爪牙和恶魔玩家。</li>
+</ul>
+<ul>
+<li>方括号能力 <code>[]</code> 仅在初始设置时有效，在游戏过程中不会产生任何效果。如果有玩家变成了这样的角色，这部分内容的能力也不会有任何效果。</li>
+</ul>
+<p>值得注意的是，处于“活尸”状态的玩家如果复活，不会视为他获得了一个新的角色。</p>
+<h2 id="相关角色">相关角色</h2>
+<ul>
+<li><strong>黯月初升</strong></li>
+<ul>
+<li><a href="../pages/%E6%95%99%E6%8E%88.html" title="教授">教授</a>（镇民）</li>
+<li><a href="../pages/%E6%B2%99%E5%B7%B4%E6%B4%9B%E6%96%AF.html" title="沙巴洛斯">沙巴洛斯</a>（恶魔）</li>
+</ul>
+</ul>
+<ul>
+<li><strong>实验性角色</strong></li>
+<ul>
+<li><a href="../pages/%E5%93%88%E8%BF%AA%E5%AF%82%E4%BA%9A.html" title="哈迪寂亚">哈迪寂亚</a>（恶魔）</li>
+<li><a href="../pages/%E5%8D%B0%E5%BA%A6%E6%95%99%E6%95%99%E5%BE%92.html" title="印度教教徒">印度教教徒</a>（奇遇角色）</li>
+</ul>
+</ul>
+<ul>
+<li><strong>山雨欲来</strong></li>
+<ul>
+<li><a href="../pages/%E7%94%BB%E7%9A%AE.html" title="画皮">画皮</a>（爪牙）</li>
+</ul>
+</ul></div>
+    <div class="page-meta">最后修改于 2025-12-19T00:13:25Z，编辑者 <b>Beiyu</b> ｜ 页面 1,598 字节 ｜ <a href="https://clocktower-wiki.gstonegames.com/index.php?title=%E5%A4%8D%E6%B4%BB" target="_blank" rel="noopener">查看原页面</a> ｜ <div class="comment">编辑摘要：/* 相关角色 */</div></div>
+    <div class="backlinks"><b>链入此页的页面（8）</b><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a><a href="../pages/%E6%95%99%E6%8E%88.html">教授</a><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a><a href="../pages/%E5%93%88%E8%BF%AA%E5%AF%82%E4%BA%9A.html">哈迪寂亚</a><a href="../pages/%E6%B2%99%E5%B7%B4%E6%B4%9B%E6%96%AF.html">沙巴洛斯</a><a href="../pages/%E7%94%BB%E7%9A%AE.html">画皮</a><a href="../pages/%E5%8D%B0%E5%BA%A6%E6%95%99%E6%95%99%E5%BE%92.html">印度教教徒</a><a href="../pages/%E6%9C%A8%E4%B9%83%E4%BC%8A_Mummy.html">木乃伊 Mummy</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

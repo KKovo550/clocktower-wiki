@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>亡魂 - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">亡魂</h1>
+    <div class="tagline">来自钟楼百科</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#提示与技巧">提示与技巧</a></li><li class="lvl2"><a href="#对抗亡魂">对抗亡魂</a></li><li class="lvl2"><a href="#包容设计">包容设计</a></li><li class="lvl2"><a href="#角色信息">角色信息</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E4%BA%A1%E9%AD%82">查找包含此角色的剧本 →</a></p><p><a href="../pages/%E4%BA%A1%E9%AD%82.html" class="image-link" title="亡魂"><img alt="Wraith.png" style="width:200px" class="" loading="lazy" data-source-image="../images/Wraith.png" src="../assets/media/Wraith.preview.webp" width="591" height="591" decoding="async"></a></p>
+<h2 id="背景故事">背景故事</h2>
+<p><em>“在门扉的阴影处颤栗吧。巨兽在城墙内咆哮，愤怒的呼息重返人间，你的魂魄，迟迟未渡，留在末日之门。”</em></p>
+<h2 id="角色能力">角色能力</h2>
+<p><strong>你可以在夜晚睁眼。当其他邪恶玩家被唤醒时，你也会被唤醒。</strong></p>
+<h2 id="角色简介">角色简介</h2>
+<p>亡魂知道并且分享夜晚发生的事情。</p>
+<ul>
+<li>亡魂可以在夜晚的任何时候睁眼，睁眼的时长由亡魂自己决定。</li>
+</ul>
+<ul>
+<li>亡魂可以光明正大地睁眼，也可以偷偷地看。</li>
+</ul>
+<ul>
+<li>当其他邪恶玩家被唤醒时，说书人也会把亡魂唤醒，比如恶魔正在选择今晚杀害的目标，一名邪恶的旅行者正在使用他的能力，或者<a href="../pages/%E5%BC%82%E6%95%99%E9%A2%86%E8%A2%96.html" title="异教领袖">异教领袖</a>得知他加入邪恶阵营的时候。</li>
+</ul>
+<ul>
+<li>当多名玩家同时睁眼时，他们可以互相进行交流。</li>
+</ul>
+<ul>
+<li>如果善良玩家发现亡魂睁着眼，不会有任何能力上的影响。</li>
+</ul>
+<ul>
+<li>死亡的亡魂不能在夜晚睁眼。如果亡魂中毒或醉酒，说书人在当晚会告知他不能睁眼。</li>
+</ul>
+<h2 id="范例">范例</h2>
+<p>在首个夜晚，<a href="../pages/%E4%BA%A1%E9%AD%82.html" title="亡魂">亡魂</a>眯着眼关注哪些善良玩家睁眼了。在第二个夜晚，<a href="../pages/%E4%BA%A1%E9%AD%82.html" title="亡魂">亡魂</a>偷偷睁眼看到了道哥被唤醒并指向了两名玩家。在第三个夜晚，<a href="../pages/%E4%BA%A1%E9%AD%82.html" title="亡魂">亡魂</a>和恶魔一同被唤醒，<a href="../pages/%E4%BA%A1%E9%AD%82.html" title="亡魂">亡魂</a>认为道哥是<a href="../pages/%E5%8D%A0%E5%8D%9C%E5%B8%88.html" title="占卜师">占卜师</a>，他指向了角色列表并用手势让恶魔杀死了道哥。</p>
+<h2 id="运作方式">运作方式</h2>
+<p>每当你要在夜晚唤醒一名邪恶玩家时，先唤醒亡魂。当你让这名邪恶玩家重新入睡时，也让亡魂入睡。</p>
+<p>如果亡魂在存活时失去自己的能力，私下告知他不能在当晚睁眼，也不要在唤醒其他邪恶玩家时唤醒他。</p>
+<p>可选规则：每局游戏限一次，如果一名玩家“疯狂”地证明你是亡魂，他死亡。</p>
+<h2 id="提示标记">提示标记</h2>
+<p>无</p>
+<h2 id="规则细节">规则细节</h2>
+<ul>
+<li>相克规则：</li>
+<ul>
+<li><a href="../pages/%E9%AD%94%E6%9C%AF%E5%B8%88.html" title="魔术师">魔术师</a>：每次处决后，存活的魔术师可以公开猜测一名存活玩家是亡魂：如果猜对了，恶魔当晚必须选择亡魂。</li>
+<li><a href="../pages/%E7%82%BC%E9%87%91%E6%9C%AF%E5%A3%AB.html" title="炼金术士">炼金术士</a>：如果炼金术士本应获得亡魂的能力，那么他不会拥有该能力并改为亡魂一定在场。每次处决后，存活的炼金术士可以公开猜测一名存活玩家是亡魂：如果猜对了，恶魔当晚必须选择亡魂。</li>
+<li><a href="../pages/%E7%98%9F%E7%96%AB%E5%8C%BB%E7%94%9F.html" title="瘟疫医生">瘟疫医生</a>：如果说书人本应获得亡魂的能力，改为一名爪牙玩家获得此能力，且他会得知此事。</li>
+</ul>
+</ul>
+<ul>
+<li>相克规则（与华灯系列角色）：</li>
+<ul>
+<li><a href="../pages/%E6%88%8F%E5%AD%90.html" title="戏子">戏子</a>/<a href="../pages/%E6%88%8F%E5%AD%90%EF%BC%88%E6%94%B9%EF%BC%89.html" title="戏子（改）">戏子（改）</a>：互为克星的角色在同一时间里只能有其中一个角色在场。</li>
+<li><a href="../pages/%E5%A7%91%E8%8E%B7%E9%B8%9F.html" title="姑获鸟">姑获鸟</a>：如果姑获鸟本应获得亡魂的能力，改为亡魂保留能力。</li>
+</ul>
+</ul>
+<h2 id="提示与技巧">提示与技巧</h2>
+<ul>
+<li>关注正在发生的所有事情！你远比<a href="../pages/%E9%97%B4%E8%B0%8D.html" title="间谍">间谍</a>和<a href="../pages/%E5%AF%A1%E5%A6%87.html" title="寡妇">寡妇</a>更强大，因为你能知道善良玩家们正在怎样使用他们的能力——不论是唤醒了<a href="../pages/%E5%8D%A0%E5%8D%9C%E5%B8%88.html" title="占卜师">占卜师</a>选择了谁，还是唤醒了<a href="../pages/%E5%AE%88%E5%A4%9C%E4%BA%BA.html" title="守夜人">守夜人</a>让谁得知了他在场。但是要小心，如果你被发现了，善良阵营可能会尽快把你处决掉。</li>
+</ul>
+<ul>
+<li>在夜晚尽可能地多跟你的邪恶队友沟通。你能够在其他邪恶玩家醒来的时候一同醒来，这是你能力最强大的一环，因为你们可以协调彼此的能力使用。比如，在游戏的首个夜晚，让恶魔在夜里告诉你三个不在场的角色伪装；告诉<a href="../pages/%E8%AF%BA-%E8%BE%BE%E9%B2%BA.html" title="诺-达鲺">诺-达鲺</a>谁中了<a href="../pages/%E5%A5%B3%E5%B7%AB.html" title="女巫">女巫</a>的诅咒，让他去攻击别人；又或者指引<a href="../pages/%E6%8A%95%E6%AF%92%E8%80%85.html" title="投毒者">投毒者</a>去选择一个你看见连续几晚都被唤醒的好人。</li>
+<ul>
+<li>如果你有笔和纸，你可以写下来信息让同伴看见，或者用手机屏幕展示文字内容给其他邪恶玩家。如果你在线上游玩，使用专属的亡魂夜间私聊功能与队友私下交流。</li>
+</ul>
+</ul>
+<ul>
+<li>你是团队的战略核心！充分利用你和邪恶队友一起被唤醒的大量信息来发号施令。每个夜晚，给你的邪恶队友提供建议，告诉他们谁该成为目标，谁适合被陷害。</li>
+</ul>
+<ul>
+<li>避免和你的邪恶队友在白天私聊。你可以尽可能地和他们在夜晚沟通，所以在白天多花时间在善良玩家之间获取信息。</li>
+</ul>
+<ul>
+<li>如果你认为其他玩家在怀疑你是邪恶阵营的一员，或是亡魂，和固定的一至两名善良玩家私聊，让他们变得可疑！</li>
+</ul>
+<ul>
+<li>在游戏的早期，由于大多数玩家都是存活的，正使用自己的能力，所以尽可能地偷看来获取大部分信息。随着游戏的进行，可能不主动睁眼更好，尤其是还没有被抓住的时候！如果你被抓住了，所有人都知道你是亡魂，那么在游戏的后期，也意味着你不是大家要寻找的恶魔了。</li>
+</ul>
+<ul>
+<li>注意听声辨位！把注意力放在一些能摸索的细节上，比如说书人的脚步声，玩家晃动椅子的声音，又或者是谁突然停止说话的时候。这可以帮助你判断发生了什么，找到最合适的时机偷看几眼。</li>
+</ul>
+<ul>
+<li>在说书人随意走动的时候睁眼，当一个玩家即将被唤醒的时候闭眼。你可以通过玩家被唤醒来推测善良玩家的角色，虽然你不知道他们收到了什么信息，但你也不会有被抓住的任何风险。</li>
+</ul>
+<ul>
+<li>如果你被抓住了，大大方方地承认吧！善良玩家知道你是亡魂了又能怎样呢？这并不能告诉他们恶魔是谁。如果很多玩家知道你是邪恶阵营了，那就破罐子破摔吧！在白天加入其他玩家的私聊，尽可能地搅乱他们。</li>
+</ul>
+<ul>
+<li>在夜晚拍个自拍照，和正在闭眼的大家留个纪念！</li>
+</ul>
+<h2 id="对抗亡魂">对抗亡魂</h2>
+<ul>
+<li>如果你在夜晚被唤醒，注意四周！这是你发现亡魂的最佳时机！不过别光顾着“猎魂”，而错过了自己的夜晚信息——如果你没仔细看说书人的手势，他可是没有义务给你重复的。</li>
+</ul>
+<ul>
+<li>白天可以询问其他玩家夜里有没有可疑的事情发生。这样不仅能帮助找到亡魂，也可以判断谁声称自己夜晚因自身能力而被唤醒。</li>
+</ul>
+<ul>
+<li>如果你逮到了亡魂，告诉所有人！</li>
+</ul>
+<ul>
+<li>如果你怀疑某个玩家是亡魂，可以找到一个声称自己在夜晚醒来的玩家，比如侍臣或神谕者，让他们多注意那名玩家。</li>
+</ul>
+<ul>
+<li>如果你怀疑亡魂在场，注意谁在白天私聊。当亡魂在场时，邪恶阵营可以在夜晚安排策略，所以邪恶玩家在白天反而很少私聊——也就是说，大部分你看到的私聊玩家之中至少有一名是善良的。</li>
+</ul>
+<ul>
+<li>如果你发现了亡魂，可以让他活着——他们不是恶魔，甚至你可能可以从他的提名和投票之中获得一些线索。</li>
+</ul>
+<ul>
+<li>如果你发现了亡魂，杀死他！让他们尽早出局才能减少邪恶阵营的提名和投票。</li>
+</ul>
+<h2 id="包容设计">包容设计</h2>
+<p>在设计亡魂这个角色时，我们希望确保视力受限的玩家也能顺利参与游戏。特别感谢澳大利亚纽卡斯尔大学的玩家们，在测试过程中为盲人和低视力玩家提供了实用建议和帮助！</p>
+<p>如果一位视障玩家是亡魂：</p>
+<ul>
+<li>亡魂应使用手机的屏幕阅读器等类似功能与说书人进行沟通。</li>
+</ul>
+<ul>
+<li>在夜晚阶段，每当说书人唤醒一名玩家后，应通过手机短信或文本等形式通知亡魂该玩家的操作内容（例如：“Evin 指向了 Ben”，“Karen 得到的数字是 1”等等）。</li>
+</ul>
+<ul>
+<li>如果亡魂玩家非常有经验，可以简化消息内容（例如仅发送 “Karen 1” 代替 “Karen 得知了数字 1”）。使用简写可加快夜晚流程，也能降低其他玩家察觉亡魂需要特殊协助的风险。</li>
+</ul>
+<ul>
+<li>当其他邪恶玩家被唤醒时，说书人可以将自己的手机交给该邪恶玩家，以便亡魂通过短信与其直接沟通。在该玩家重新入睡后，说书人记得收回手机！</li>
+</ul>
+<p>如果一位视障玩家是邪恶方，队伍中包含亡魂：</p>
+<ul>
+<li>亡魂应使用屏幕阅读器等类似功能与队友沟通。</li>
+</ul>
+<ul>
+<li>当视障玩家被唤醒时，说书人应将手机交给亡魂，以便其能直接向这位队友发送消息。</li>
+</ul>
+<p>在任何情况下，当一位新玩家通过短信与视障玩家沟通时，要明确是谁正在发送信息。 例如：</p>
+<ul>
+<li>说书人将手机交给投毒者。投毒者发短信说：“嗨，我是 Sam。你看到 Josh 昨晚有没有被唤醒吗？”</li>
+</ul>
+<ul>
+<li>说书人收回手机后再次发短信说：“我是说书人”，然后再继续夜晚流程。</li>
+</ul>
+<h2 id="角色信息">角色信息</h2>
+<ul>
+<li>英文名：Wraith</li>
+</ul>
+<ul>
+<li>所属剧本：<a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html" title="实验性角色">实验性角色</a></li>
+</ul>
+<ul>
+<li>角色能力类型：<a href="../pages/%E6%9A%B4%E9%9C%B2%E8%A7%92%E8%89%B2.html" title="暴露角色">暴露角色</a></li>
+</ul></div>
+    <div class="page-meta">最后修改于 2026-07-02T02:55:19Z，编辑者 <b>Zack</b> ｜ 页面 8,419 字节 ｜ <a href="https://clocktower-wiki.gstonegames.com/index.php?title=%E4%BA%A1%E9%AD%82" target="_blank" rel="noopener">查看原页面</a> ｜ <div class="comment">编辑摘要：/* 规则细节 */</div></div>
+    <div class="backlinks"><b>链入此页的页面（15）</b><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a><a href="../pages/%E7%82%BC%E9%87%91%E6%9C%AF%E5%A3%AB.html">炼金术士</a><a href="../pages/%E6%9A%B4%E9%9C%B2%E8%A7%92%E8%89%B2.html">暴露角色</a><a href="../pages/%E9%AD%94%E6%9C%AF%E5%B8%88.html">魔术师</a><a href="../pages/%E7%88%AA%E7%89%99.html">爪牙</a><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a><a href="../pages/%E5%9B%AD%E4%B8%81.html">园丁</a><a href="../pages/%E7%98%9F%E7%96%AB%E5%8C%BB%E7%94%9F.html">瘟疫医生</a><a href="../pages/%E6%88%8F%E5%AD%90.html">戏子</a><a href="../pages/%E5%A4%9C%E6%99%9A%E8%A1%8C%E5%8A%A8%E9%A1%BA%E5%BA%8F%E4%B8%80%E8%A7%88.html">夜晚行动顺序一览</a><a href="../pages/%E6%96%B0%E8%A7%92%E8%89%B2%E5%85%AC%E5%B8%83%E8%AE%A1%E5%88%92.html">新角色公布计划</a><a href="../pages/%E6%88%8F%E5%AD%90%EF%BC%88%E6%94%B9%EF%BC%89.html">戏子（改）</a><a href="../pages/%E4%BA%A1%E9%AD%82.html">亡魂</a><a href="../pages/%E6%8C%91%E7%81%AF%E7%9C%8B%E5%89%91.html">挑灯看剑</a><a href="../pages/%E5%A7%91%E8%8E%B7%E9%B8%9F.html">姑获鸟</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

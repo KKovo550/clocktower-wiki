@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>小恶魔 - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">小恶魔</h1>
+    <div class="tagline">来自钟楼百科</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#提示与技巧">提示与技巧</a></li><li class="lvl2"><a href="#对抗小恶魔">对抗小恶魔</a></li><li class="lvl2"><a href="#角色信息">角色信息</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E5%B0%8F%E6%81%B6%E9%AD%94">查找包含此角色的剧本 →</a></p><p><a href="../pages/%E5%B0%8F%E6%81%B6%E9%AD%94.html" class="image-link" title="小恶魔"><img alt="imp.png" style="width:200px" class="" loading="lazy" data-source-image="../images/Imp.png" src="../assets/media/Imp.preview.webp" width="600" height="600" decoding="async"></a></p>
+<h2 id="背景故事">背景故事</h2>
+<p><em>“我们必须让自己的头脑保持敏锐，刀刃保持锋利。</em></p>
+<p><em>邪恶在我们之中穿行，想要不择手段地摧毁我们的善良。</em></p>
+<p><em>那些愚蠢之辈，把我们美丽的小镇给毁了。不要相信任何人。</em></p>
+<p><em>但如果你一定要相信某人，请相信我。”</em></p>
+<h2 id="角色能力">角色能力</h2>
+<p><strong>每个夜晚*，你要选择一名玩家：他死亡。如果你以这种方式自杀，一名爪牙会变成小恶魔。</strong></p>
+<h2 id="角色简介">角色简介</h2>
+<p>小恶魔会在夜晚杀戮，且能创造自己的分身……以可怕的代价。</p>
+<ul>
+<li>除首个夜晚以外的每个夜晚，小恶魔会选择一名玩家进行杀戮。因为夜间大多数角色都在恶魔之后行动，被恶魔杀死的玩家可能在当晚无法使用他的能力。</li>
+</ul>
+<ul>
+<li>小恶魔作为恶魔，能够得知哪些玩家是他的爪牙，也能得知三个不在场的善良角色，他能较为安全地伪装成这些角色。</li>
+</ul>
+<ul>
+<li>如果小恶魔死亡，游戏结束且善良阵营获胜。然而，如果小恶魔选择在夜晚杀死自己，他会死亡并且会有一名存活的爪牙变成小恶魔。新的小恶魔在当晚无法进行行动，但现在那名爪牙现在在各种意义上都会成为恶魔——他会在此后的每个夜晚杀戮，且会在死亡时让邪恶阵营落败。</li>
+</ul>
+<h2 id="范例">范例</h2>
+<p>现在是第一夜。<a href="../pages/%E5%B0%8F%E6%81%B6%E9%AD%94.html" title="小恶魔">小恶魔</a>得知小文和小美是爪牙。<a href="../pages/%E5%B0%8F%E6%81%B6%E9%AD%94.html" title="小恶魔">小恶魔</a>还得知<a href="../pages/%E5%83%A7%E4%BE%A3.html" title="僧侣">僧侣</a>，<a href="../pages/%E5%8E%A8%E5%B8%88.html" title="厨师">厨师</a>和<a href="../pages/%E5%9B%BE%E4%B9%A6%E7%AE%A1%E7%90%86%E5%91%98.html" title="图书管理员">图书管理员</a>不在场。<a href="../pages/%E5%B0%8F%E6%81%B6%E9%AD%94.html" title="小恶魔">小恶魔</a>谎称自己是<a href="../pages/%E5%8E%A8%E5%B8%88.html" title="厨师">厨师</a>，并在稍晚时分谎称自己是<a href="../pages/%E9%95%87%E9%95%BF.html" title="镇长">镇长</a>。最后，小恶魔被处决，且善良阵营获胜。</p>
+<p>在夜晚时，<a href="../pages/%E5%B0%8F%E6%81%B6%E9%AD%94.html" title="小恶魔">小恶魔</a>被唤醒并选择了一名玩家，那名玩家死亡。在下一个夜晚，<a href="../pages/%E5%B0%8F%E6%81%B6%E9%AD%94.html" title="小恶魔">小恶魔</a>选择让自己死亡。于是<a href="../pages/%E5%B0%8F%E6%81%B6%E9%AD%94.html" title="小恶魔">小恶魔</a>死亡，并且<a href="../pages/%E6%8A%95%E6%AF%92%E8%80%85.html" title="投毒者">投毒者</a>变成了<a href="../pages/%E5%B0%8F%E6%81%B6%E9%AD%94.html" title="小恶魔">小恶魔</a>。</p>
+<h2 id="运作方式">运作方式</h2>
+<p>除首个夜晚以外的每个夜晚，唤醒小恶魔。让小恶魔指向任意一名玩家。让小恶魔重新入睡。被选择的玩家死亡——在那名玩家的角色标记旁放置小恶魔的“死亡”提示标记并放置帷幕标记。</p>
+<p>如果小恶魔选择在夜里自杀，用多出来的小恶魔标记替换一名存活的爪牙玩家的角色标记，让那名玩家的角色改变为小恶魔。唤醒新的小恶魔，向他展示“你是”信息标记，然后向他展示小恶魔角色标记。让新的小恶魔重新入睡。</p>
+<p>黎明时，宣布有哪名玩家在夜晚死去。（不要说明死亡原因。）</p>
+<p>如果小恶魔选择在夜晚攻击一名已死亡的玩家，允许他这么做。当一个角色能力描述中提及“选择一名玩家”，意味着任何玩家——无论存活或是死亡——都能被选择。小恶魔可能在计划伪装成士兵，而这种情形下会让他的谎言看起来更加可信。</p>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>死亡</li>
+</ul>
+<p>放置时机：在小恶魔夜晚行动并选择了玩家后放置。</p>
+<p>放置条件：小恶魔选择的玩家当前存活，且能被小恶魔杀死，且小恶魔未醉酒中毒，那么在该玩家的角色标记旁放置，用以提醒说书人在黎明时分宣布当晚的死亡玩家。</p>
+<p>移除时机：在黎明时宣布死亡玩家后，说书人可以任由自己方便来进行移除。</p>
+<h2 id="提示与技巧">提示与技巧</h2>
+<ul>
+<li>邪恶玩家有很多策略可以选择，尤其是<a href="../pages/%E5%B0%8F%E6%81%B6%E9%AD%94.html" title="小恶魔">小恶魔</a>。一般来说，恶魔会希望自己看起来比较可信，且在可能的时候传递错误信息，让爪牙来证实你是一个善良阵营玩家，或者在需要的时候牺牲他们。这个章节中可以查看到更多信息。</li>
+</ul>
+<ul>
+<li>努力活过白天。就算场上有三名爪牙，你也没法保证<a href="../pages/%E7%BA%A2%E5%94%87%E5%A5%B3%E9%83%8E.html" title="红唇女郎">红唇女郎</a>在场。（然而，如果你已经与爪牙交流过并且确定她在场，就忽略这条建议吧！）</li>
+</ul>
+<ul>
+<li>如果你被怀疑了，在晚上自杀永远可以作为选择之一。杀死自己并且将恶魔血脉传递给一名更受信任的爪牙虽然会让你失去继续投票的权利，但让场上一直有恶魔存活更加重要。你也可以在没人怀疑你的时候自杀——大家比较倾向于相信死在晚上的玩家。不管你选上面哪种方式，如果你在晚上死了，就在白天给善良阵营传递错误信息。例如你可以说自己是个<a href="../pages/%E5%AE%88%E9%B8%A6%E4%BA%BA.html" title="守鸦人">守鸦人</a>，这很有可能改变游戏的走势。</li>
+</ul>
+<ul>
+<li>你的爪牙就是被用来牺牲的马前卒！杀死他们！全都杀了！你才是最重要的那个！</li>
+</ul>
+<ul>
+<li>在游戏开始，说书人将会告诉你三个可以用作伪装的角色。当然了，你也可以伪装成你喜欢的角色，但这几个相对安全一些。由于小恶魔可以在晚上自杀来将恶魔角色传递给一名爪牙，所以不论是选择相对保守的伪装还是选择一个激进一点的伪装都很有效。如果你是一名新玩家，或者还不太清楚游戏的运作方式，要么你直接向说书人寻求帮助，要么就选一个相对保守的角色做伪装，比如<a href="../pages/%E5%A3%AB%E5%85%B5.html" title="士兵">士兵</a>或者<a href="../pages/%E9%99%8C%E5%AE%A2.html" title="陌客">陌客</a>。如果你喜欢刺激，也可以选择像<a href="../pages/%E5%8D%A0%E5%8D%9C%E5%B8%88.html" title="占卜师">占卜师</a>或者<a href="../pages/%E9%80%81%E8%91%AC%E8%80%85.html" title="送葬者">送葬者</a>这样"高风险高回报"的角色做伪装。</li>
+</ul>
+<ul>
+<li>选择攻击目标的时候，你通常希望尽早选那些强大、棘手、能够获取信息的镇民，比如<a href="../pages/%E5%85%B1%E6%83%85%E8%80%85.html" title="共情者">共情者</a>、<a href="../pages/%E9%80%81%E8%91%AC%E8%80%85.html" title="送葬者">送葬者</a>、<a href="../pages/%E5%83%A7%E4%BE%A3.html" title="僧侣">僧侣</a>或者<a href="../pages/%E7%8C%8E%E6%89%8B.html" title="猎手">猎手</a>。在游戏前期就把这些信息抹杀掉会帮你很大忙。有些时候，你也可以故意留一个这样的镇民，让他一直活到最后一天，这样也会让其他人怀疑他的真实角色。他们可能会质问这位玩家"如果你是真的<a href="../pages/%E5%8D%A0%E5%8D%9C%E5%B8%88.html" title="占卜师">占卜师</a>，凭什么能活到现在？"，然后就将他处决。</li>
+</ul>
+<ul>
+<li>同样，在夜晚选择攻击目标的时候，你也最好早点选择那些已经被大家所信任的玩家。一个被所有人都确信的<a href="../pages/%E8%B4%9E%E6%B4%81%E8%80%85.html" title="贞洁者">贞洁者</a>永远也不会被处决，留她在场会增加你被处决的几率。被所有人都确信的外来者们也得消失，因为他们也不会被处决。在最后一天，你会希望留下至少一位看起来比你更有嫌疑的玩家，能留两位当然更好。</li>
+</ul>
+<ul>
+<li>把你的爪牙派出去搜集信息。尽可能多地知道大家的角色。这会帮你避免攻击到一些像<a href="../pages/%E5%AE%88%E9%B8%A6%E4%BA%BA.html" title="守鸦人">守鸦人</a>或<a href="../pages/%E5%A3%AB%E5%85%B5.html" title="士兵">士兵</a>这样棘手的角色，也就能够避免随之而来的问题。</li>
+</ul>
+<ul>
+<li>与你的爪牙交流！通过帮助他们伪装角色的方式与他们配合。可以允许你们其中的一位尽可能看起来邪恶，而另外一位就可以继承恶魔血脉并存活到游戏最后。问问<a href="../pages/%E9%97%B4%E8%B0%8D.html" title="间谍">间谍</a>他知道什么。与<a href="../pages/%E6%8A%95%E6%AF%92%E8%80%85.html" title="投毒者">投毒者</a>合作来避免夜里与他选到相同的目标。<a href="../pages/%E7%94%B7%E7%88%B5.html" title="男爵">男爵</a>你可以任他到处撒野。问问<a href="../pages/%E7%BA%A2%E5%94%87%E5%A5%B3%E9%83%8E.html" title="红唇女郎">红唇女郎</a>的计划是杀死你还是让你活着。</li>
+</ul>
+<ul>
+<li>善良阵营有一万种理由认为你是个邪恶的小恶魔。如果发生这种情况，千万别放弃！或许你可以说服大家<a href="../pages/%E5%85%B1%E6%83%85%E8%80%85.html" title="共情者">共情者</a>是个<a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a>？或许你也可以争辩说你可能是<a href="../pages/%E5%8D%A0%E5%8D%9C%E5%B8%88.html" title="占卜师">占卜师</a>的那个"干扰项"？</li>
+</ul>
+<ul>
+<li>如果你不想在夜晚杀死任何人，你可以选择一名已经死亡的玩家。这也可以帮你伪装成<a href="../pages/%E5%A3%AB%E5%85%B5.html" title="士兵">士兵</a>或者<a href="../pages/%E5%83%A7%E4%BE%A3.html" title="僧侣">僧侣</a>，因为无人死亡的夜晚看起来就像是<a href="../pages/%E5%A3%AB%E5%85%B5.html" title="士兵">士兵</a>或<a href="../pages/%E5%83%A7%E4%BE%A3.html" title="僧侣">僧侣</a>的能力生效了。</li>
+</ul>
+<h2 id="对抗小恶魔">对抗小恶魔</h2>
+<ul>
+<li>善良玩家杀死恶魔就能获胜。如果你得知有一位玩家可能是恶魔，另一位玩家可能是爪牙，通常来说这时最好的做法是优先处决掉那个你怀疑是恶魔的玩家！</li>
+</ul>
+<ul>
+<li>找到谁不是<a href="../pages/%E5%B0%8F%E6%81%B6%E9%AD%94.html" title="小恶魔">小恶魔</a>和找到<a href="../pages/%E5%B0%8F%E6%81%B6%E9%AD%94.html" title="小恶魔">小恶魔</a>一样重要。确定其他玩家是善良阵营能让你们迅速构建起信任，汇总信息并罗列出一系列的嫌疑人...这也意味着你能够知道谁不是恶魔。最后一天通常仅剩三名玩家存活，而其中一名就是恶魔——如果你不确定恶魔是哪个但可以担保其中一位玩家肯定是善良阵营，那你们能够处决掉恶魔的可能性就从三选一变成了二选一。</li>
+<ul>
+<li><a href="../pages/%E5%AE%88%E9%B8%A6%E4%BA%BA.html" title="守鸦人">守鸦人</a>或<a href="../pages/%E7%8C%8E%E6%89%8B.html" title="猎手">猎手</a>这样的角色非常擅于排除恶魔——虽说用这些一次性的能力找恶魔很令人兴奋，但就算最后只找到了一个善良玩家也同样能带来很大帮助。</li>
+</ul>
+</ul>
+<ul>
+<li>如果有人在某个奇怪的时间点出人意料地死亡了，或者是死在了备受大家怀疑的情况下，你或许就见证了恶魔自杀并将自己的恶魔血脉传递给了一位爪牙的伟大时刻。这是条令人兴奋的消息，因为你已经知道他是邪恶玩家了，你就可以回顾他之前做过的所有事，并且找出他的邪恶阵营同伴。在这个时候，来自<a href="../pages/%E5%8E%A8%E5%B8%88.html" title="厨师">厨师</a>、<a href="../pages/%E5%85%B1%E6%83%85%E8%80%85.html" title="共情者">共情者</a>和<a href="../pages/%E8%B0%83%E6%9F%A5%E5%91%98.html" title="调查员">调查员</a>的信息就显得非常有价值了，因为你可以用这个已经死去的恶魔作为参考基点来找到其他邪恶阵营的角色。如果这些角色不在场，你也有很多选择：想想他之前和哪些玩家进行过交流或者是统一了战线？他是不是伪装成了一个持有信息的角色？他用他们的信息证实或者保护了谁？例如，他可能会伪装成<a href="../pages/%E6%B4%97%E8%A1%A3%E5%A6%87.html" title="洗衣妇">洗衣妇</a>来"证实"其他爪牙的伪装，一旦大家相信了那个爪牙，他就会在晚上自杀。</li>
+</ul>
+<ul>
+<li>当心<a href="../pages/%E7%BA%A2%E5%94%87%E5%A5%B3%E9%83%8E.html" title="红唇女郎">红唇女郎</a>！只要有五名及以上的玩家存活，<a href="../pages/%E5%B0%8F%E6%81%B6%E9%AD%94.html" title="小恶魔">小恶魔</a>就算被处决，邪恶阵营也能够继续运作下去。如果你认为你知道谁是<a href="../pages/%E5%B0%8F%E6%81%B6%E9%AD%94.html" title="小恶魔">小恶魔</a>，你可以考虑等到场上只剩下五名以下玩家时再发起对他的处决，这样<a href="../pages/%E7%BA%A2%E5%94%87%E5%A5%B3%E9%83%8E.html" title="红唇女郎">红唇女郎</a>的能力就无法被触发，如此一来就可以阻止恶魔血脉的传递。</li>
+</ul>
+<ul>
+<li><a href="../pages/%E5%B0%8F%E6%81%B6%E9%AD%94.html" title="小恶魔">小恶魔</a>的攻击能力能够让他有效地移除那些能够给他带来威胁的角色，而且他会非常享受这种感觉。保护那些能持续获得信息的角色（如<a href="../pages/%E9%80%81%E8%91%AC%E8%80%85.html" title="送葬者">送葬者</a>）或者有强大的一次性能力的角色（如<a href="../pages/%E8%B4%9E%E6%B4%81%E8%80%85.html" title="贞洁者">贞洁者</a>），试着骗恶魔做出一些错误的选择。比如，<a href="../pages/%E5%A3%AB%E5%85%B5.html" title="士兵">士兵</a>或<a href="../pages/%E9%95%87%E9%95%BF.html" title="镇长">镇长</a>都可以伪装成一个更具有吸引力的目标，让自己的能力化解掉恶魔的攻击。要不像<a href="../pages/%E5%9C%A3%E5%BE%92.html" title="圣徒">圣徒</a>（他非常想死在晚上），<a href="../pages/%E9%99%8C%E5%AE%A2.html" title="陌客">陌客</a>或者<a href="../pages/%E6%B4%97%E8%A1%A3%E5%A6%87.html" title="洗衣妇">洗衣妇</a>这样的角色也可以试着吸引恶魔的注意——他们虽然免不了一死，但总好过<a href="../pages/%E5%8D%A0%E5%8D%9C%E5%B8%88.html" title="占卜师">占卜师</a>被杀！</li>
+</ul>
+<ul>
+<li>如果在这场游戏中玩家总数少于等于6（即汀西维尔模式），有关恶魔的规则会稍微有些变化。他在首个夜晚不会得知可以伪装的角色，他也不会知道爪牙是谁。一种有趣的策略就是在另一位玩家面前伪装成爪牙，然后鼓动恶魔多跟你交交底。如果他承认自己是恶魔了，你就可以把他赶出小镇，一锤定音！</li>
+</ul>
+<ul>
+<li>不像你可能遇到过的其他恶魔，<a href="../pages/%E5%B0%8F%E6%81%B6%E9%AD%94.html" title="小恶魔">小恶魔</a>这个能将恶魔血脉传递给爪牙的特殊能力让他有一个很特殊的地位。他能够通过更复杂的伪装实现金蝉脱壳，但这通常会需要不止一位玩家进行配合。在寻找邪恶阵营的时候，留意那些互相证实了阵营的角色。例如：</li>
+<ul>
+<li>他可能伪装成<a href="../pages/%E6%B4%97%E8%A1%A3%E5%A6%87.html" title="洗衣妇">洗衣妇</a>/<a href="../pages/%E5%9B%BE%E4%B9%A6%E7%AE%A1%E7%90%86%E5%91%98.html" title="图书管理员">图书管理员</a>并且证实了爪牙伪装的镇民/外来者角色。（这在爪牙伪装成<a href="../pages/%E5%9C%A3%E5%BE%92.html" title="圣徒">圣徒</a>时将非常可怕！）</li>
+<li>他伪装成了<a href="../pages/%E5%85%B1%E6%83%85%E8%80%85.html" title="共情者">共情者</a>然后声称两位邻座玩家都是善良阵营，很快他就死了然后把恶魔血脉传给了邻座的爪牙。</li>
+<li>他也可以死后伪装成<a href="../pages/%E5%AE%88%E9%B8%A6%E4%BA%BA.html" title="守鸦人">守鸦人</a>，回过头来证实爪牙的伪装，但这个爪牙早已变成恶魔了。</li>
+<li>他也可以伪装成<a href="../pages/%E7%8C%8E%E6%89%8B.html" title="猎手">猎手</a>，假装"猎杀"他的爪牙，后面他自己再死掉。（他们也可以对真<a href="../pages/%E7%8C%8E%E6%89%8B.html" title="猎手">猎手</a>耍这个把戏，让真<a href="../pages/%E7%8C%8E%E6%89%8B.html" title="猎手">猎手</a>对爪牙使用能力，过后再把恶魔血脉传递给这个已经被证实非恶魔的爪牙。）</li>
+<li>他也可能在晚上故意谁都不杀，然后让爪牙去伪装成<a href="../pages/%E5%83%A7%E4%BE%A3.html" title="僧侣">僧侣</a>或者<a href="../pages/%E5%A3%AB%E5%85%B5.html" title="士兵">士兵</a>。夜晚无人死亡会让大家会非常愿意相信<a href="../pages/%E5%A3%AB%E5%85%B5.html" title="士兵">士兵</a>，这个爪牙也就成了一个非常理想的恶魔继承人。</li>
+</ul>
+</ul>
+<h2 id="角色信息">角色信息</h2>
+<ul>
+<li>英文名：Imp</li>
+</ul>
+<ul>
+<li>所属剧本：<a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html" title="暗流涌动">暗流涌动</a></li>
+</ul>
+<ul>
+<li>角色类型：<a href="../pages/%E6%81%B6%E9%AD%94.html" title="恶魔">恶魔</a></li>
+</ul>
+<ul>
+<li>角色能力类型：<a href="../pages/%E8%A7%92%E8%89%B2%E5%8F%98%E5%8C%96.html" title="角色变化">角色变化</a>、<a href="../pages/%E6%AD%BB%E4%BA%A1%E8%A7%A6%E5%8F%91%E8%83%BD%E5%8A%9B.html" title="死亡触发能力">死亡触发能力</a></li>
+</ul></div>
+    <div class="page-meta">最后修改于 2026-06-17T05:28:58Z，编辑者 <b>Zack</b> ｜ 页面 11,965 字节 ｜ <a href="https://clocktower-wiki.gstonegames.com/index.php?title=%E5%B0%8F%E6%81%B6%E9%AD%94" target="_blank" rel="noopener">查看原页面</a> ｜ <div class="comment">编辑摘要：/* 运作方式 */</div></div>
+    <div class="backlinks"><b>链入此页的页面（106）</b><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a><a href="../pages/%E6%B4%97%E8%A1%A3%E5%A6%87.html">洗衣妇</a><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a><a href="../pages/%E4%BF%9D%E6%8A%A4.html">保护</a><a href="../pages/%E6%97%A0%E7%A5%9E%E8%AE%BA%E8%80%85.html">无神论者</a><a href="../pages/%E9%A3%9F%E4%BA%BA%E6%97%8F.html">食人族</a><a href="../pages/%E5%94%B1%E8%AF%97%E7%94%B7%E5%AD%A9.html">唱诗男孩</a><a href="../pages/%E5%8D%8A%E5%85%BD%E4%BA%BA.html">半兽人</a><a href="../pages/%E5%B7%A5%E7%A8%8B%E5%B8%88.html">工程师</a><a href="../pages/%E5%9B%BD%E7%8E%8B.html">国王</a><a href="../pages/%E9%AD%94%E6%9C%AF%E5%B8%88.html">魔术师</a><a href="../pages/%E7%BD%82%E7%B2%9F%E7%A7%8D%E6%A4%8D%E8%80%85.html">罂粟种植者</a><a href="../pages/%E8%90%BD%E9%9A%BE%E5%B0%91%E5%A5%B3.html">落难少女</a><a href="../pages/%E7%B2%BE%E7%A5%9E%E7%97%85%E6%82%A3%E8%80%85.html">精神病患者</a><a href="../pages/%E6%9A%B4%E9%A3%8E%E6%8D%95%E6%89%8B.html">暴风捕手</a><a href="../pages/%E8%AE%BE%E8%AE%A1%E5%B8%88%E6%80%BB%E7%BB%93%E7%9A%84%E5%9B%BD%E5%86%85%E7%8E%A9%E5%AE%B6%E5%AF%B9%E6%9F%93%E7%9A%84%E9%94%99%E8%AF%AF%E7%90%86%E8%A7%A3.html">设计师总结的国内玩家对染的错误理解</a><a href="../pages/%E8%B0%83%E6%9F%A5%E5%91%98.html">调查员</a><a href="../pages/%E5%8E%A8%E5%B8%88.html">厨师</a><a href="../pages/%E5%85%B1%E6%83%85%E8%80%85.html">共情者</a><a href="../pages/%E8%A7%92%E8%89%B2%E5%8F%98%E5%8C%96.html">角色变化</a><a href="../pages/%E8%AE%A4%E7%9F%A5%E8%A6%86%E7%9B%96.html">认知覆盖</a><a href="../pages/%E6%AD%BB%E4%BA%A1%E8%A7%A6%E5%8F%91%E8%83%BD%E5%8A%9B.html">死亡触发能力</a><a href="../pages/%E5%8D%A0%E5%8D%9C%E5%B8%88.html">占卜师</a><a href="../pages/%E9%80%81%E8%91%AC%E8%80%85.html">送葬者</a><a href="../pages/%E5%83%A7%E4%BE%A3.html">僧侣</a><a href="../pages/%E5%AE%88%E9%B8%A6%E4%BA%BA.html">守鸦人</a><a href="../pages/%E7%8C%8E%E6%89%8B.html">猎手</a><a href="../pages/%E5%A3%AB%E5%85%B5.html">士兵</a><a href="../pages/%E9%95%87%E9%95%BF.html">镇长</a><a href="../pages/%E9%85%92%E9%AC%BC.html">酒鬼</a><a href="../pages/%E9%99%8C%E5%AE%A2.html">陌客</a><a href="../pages/%E5%9C%A3%E5%BE%92.html">圣徒</a><a href="../pages/%E6%8A%95%E6%AF%92%E8%80%85.html">投毒者</a><a href="../pages/%E9%97%B4%E8%B0%8D.html">间谍</a><a href="../pages/%E7%BA%A2%E5%94%87%E5%A5%B3%E9%83%8E.html">红唇女郎</a><a href="../pages/%E7%94%B7%E7%88%B5.html">男爵</a><a href="../pages/%E5%B0%8F%E6%81%B6%E9%AD%94.html">小恶魔</a><a href="../pages/%E6%81%B6%E9%AD%94.html">恶魔</a><a href="../pages/%E6%97%A0%E4%B8%8A%E6%84%89%E6%82%A6.html">无上愉悦</a><a href="../pages/%E5%93%AA%E4%BA%9B%E6%98%AF%E2%80%9C%E5%8F%AF%E4%BB%A5%E4%BD%86%E4%B8%8D%E5%BB%BA%E8%AE%AE%E2%80%9D.html">哪些是“可以但不建议”</a><a href="../pages/%E6%9E%AA%E6%89%8B.html">枪手</a><a href="../pages/%E6%9B%BF%E7%BD%AA%E7%BE%8A.html">替罪羊</a><a href="../pages/%E7%8E%A9%E5%85%B7%E5%8C%A0.html">玩具匠</a><a href="../pages/%E9%9D%A9%E5%91%BD%E8%80%85.html">革命者</a><a href="../pages/%E5%85%AC%E7%88%B5%E5%A4%AB%E4%BA%BA.html">公爵夫人</a><a href="../pages/%E5%A4%B1%E8%B4%A5%E7%9A%84%E4%B8%8A%E5%B8%9D.html">失败的上帝</a><a href="../pages/%E2%80%9C%E8%A7%84%E5%88%99%E2%80%9D%E4%B8%8E%E2%80%9C%E7%90%86%E5%BF%B5%E2%80%9D%E2%80%94%E2%80%94%E5%85%B3%E4%BA%8E%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E4%BA%92%E5%8A%A8%E7%9A%84%E8%AF%B4%E6%98%8E.html">“规则”与“理念”——关于角色能力互动的说明</a><a href="../pages/%E9%92%9F%E6%A5%BC%E8%B0%9C%E5%9B%A2%E9%9A%90%E6%80%A7%E8%A7%84%E5%88%99%E6%B1%87%E6%80%BB.html">钟楼谜团隐性规则汇总</a><a href="../pages/%E8%A1%97%E5%A4%B4%E9%A3%8E%E7%90%B4%E6%89%8B.html">街头风琴手</a><a href="../pages/%E6%84%9A%E8%80%85%E6%AC%A2%E5%AE%B4.html">愚者欢宴</a><a href="../pages/%E9%AA%91%E5%A3%AB.html">骑士</a><a href="../pages/%E5%A5%B3%E7%A5%AD%E5%8F%B8.html">女祭司</a><a href="../pages/%E5%8D%8A%E4%BB%99.html">半仙</a><a href="../pages/%E5%BA%97%E5%B0%8F%E4%BA%8C.html">店小二</a><a href="../pages/%E5%92%8C%E5%B0%9A.html">和尚</a><a href="../pages/%E9%94%A6%E8%A1%A3%E5%8D%AB.html">锦衣卫</a><a href="../pages/%E5%A4%9C%E6%99%9A%E8%A1%8C%E5%8A%A8%E9%A1%BA%E5%BA%8F%E4%B8%80%E8%A7%88.html">夜晚行动顺序一览</a><a href="../pages/%E7%AC%AC%E4%B8%80%E5%B1%8A%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A%E5%89%A7%E6%9C%AC%E5%88%9B%E4%BD%9C%E5%A4%A7%E8%B5%9B.html">第一届华灯初上剧本创作大赛</a><a href="../pages/%E4%BA%BA%E9%97%B4%E6%9A%97%E6%9C%88%E5%A4%9C.html">人间暗月夜</a><a href="../pages/%E8%A1%8C%E6%88%90%E4%B8%8B%E5%AD%A4%E4%B9%A1.html">行成下孤乡</a><a href="../pages/%E8%8E%AB%E8%A8%80%E4%B8%89%E5%8D%83%E6%AD%BB.html">莫言三千死</a><a href="../pages/%E5%B9%BB%E5%BD%B1%E7%94%BB%E5%AE%89%E5%8D%B1.html">幻影画安危</a><a href="../pages/%E5%BC%82%E5%9C%B0%E4%BC%97%E6%AC%A2%E6%9D%A5.html">异地众欢来</a><a href="../pages/%E9%A3%8E%E4%BA%91%E5%AD%B0%E6%88%8F%E8%A8%80.html">风云孰戏言</a><a href="../pages/%E9%A3%8E%E8%B5%B7%E7%BB%88%E7%9B%B8%E8%AF%86.html">风起终相识</a><a href="../pages/%E6%8E%AE%E5%AE%A2.html">掮客</a><a href="../pages/%E5%85%A5%E6%AE%93%E5%B8%88.html">入殓师</a><a href="../pages/%E8%9B%8A%E9%9B%95.html">蛊雕</a><a href="../pages/%E7%99%BD%E7%8B%90%E8%A1%8C%E4%B8%9B%E9%87%8C.html">白狐行丛里</a><a href="../pages/%E9%9B%86%E5%90%8E%E4%BA%BA%E4%B9%8B%E8%A8%80.html">集后人之言</a><a href="../pages/%E5%8D%83%E9%9D%A2%E4%BC%97%E5%8D%B1%E7%84%89.html">千面众危焉</a><a href="../pages/%E5%8D%81%E4%B8%89%E8%A1%8C.html">十三行</a><a href="../pages/%E6%9E%AF%E6%9C%A8%E9%80%A2%E6%98%A5.html">枯木逢春</a><a href="../pages/%E9%9D%99%E5%80%99%E4%BD%B3%E9%9F%B3.html">静候佳音</a><a href="../pages/%E9%97%B2%E8%A8%80%E7%A2%8E%E8%AF%AD.html">闲言碎语</a><a href="../pages/%E7%A7%91%E5%AD%A6%E6%80%AA%E4%BA%BA.html">科学怪人</a><a href="../pages/%E9%81%93%E5%A3%AB.html">道士</a><a href="../pages/%E6%96%B9%E5%A3%AB.html">方士</a><a href="../pages/%E7%9F%A5%E5%BA%9C.html">知府</a><a href="../pages/%E7%94%BB%E7%9A%AE.html">画皮</a><a href="../pages/%E4%B8%80%E9%99%90%E7%94%9F%E6%9C%BA.html">一限生机</a><a href="../pages/%E4%B8%8A%E5%B8%9D%E7%BC%BA%E5%B8%AD.html">上帝缺席</a><a href="../pages/%E7%A7%89%E5%85%AC%E5%8A%9E%E4%BA%8B.html">秉公办事</a><a href="../pages/%E4%B8%87%E6%97%A0%E5%BC%82%E5%A4%B1.html">万无异失</a><a href="../pages/%E6%97%A7%E6%97%A5%E7%86%9F%E8%AF%86.html">旧日熟识</a><a href="../pages/%E5%B7%A1%E5%AF%9F.html">巡察</a><a href="../pages/%E9%BB%91%E5%A4%9C%E9%97%AE%E7%99%BD%E5%A4%A9.html">黑夜问白天</a><a href="../pages/%E5%86%B2%E5%8A%A8%E6%B6%88%E8%B4%B9.html">冲动消费</a><a href="../pages/%E4%BA%A1%E7%81%B5%E8%AE%AE%E4%BC%9A.html">亡灵议会</a><a href="../pages/%E7%81%AF%E7%A5%9E%E5%A5%91%E7%BA%A6.html">灯神契约</a><a href="../pages/%E9%94%99%E4%BD%8D%E6%97%B6%E7%A9%BA.html">错位时空</a><a href="../pages/%E4%B8%83%E6%AD%A5%E6%88%90%E8%AF%97.html">七步成诗</a><a href="../pages/%E5%B9%BD%E7%81%B5%E4%BE%A6%E6%8E%A2.html">幽灵侦探</a><a href="../pages/%E9%98%B4%E9%98%B3%E9%9A%BE%E8%BE%A8.html">阴阳难辨</a><a href="../pages/%E9%81%97%E5%BF%98%E4%B9%8B%E9%97%A8.html">遗忘之门</a><a href="../pages/%E5%A7%91%E8%8E%B7%E9%B8%9F.html">姑获鸟</a><a href="../pages/%E8%BF%9F%E8%A7%81%E5%88%86%E6%99%93.html">迟见分晓</a><a href="../pages/%E6%97%A0%E5%90%8D%E6%97%85%E5%AE%A2.html">无名旅客</a><a href="../pages/%E5%8F%8C%E5%AD%90%E7%85%9E%E6%98%9F.html">双子煞星</a><a href="../pages/%E5%86%A5%E6%B2%B3%E9%82%AA%E6%B8%A1.html">冥河邪渡</a><a href="../pages/%E4%B8%80%E5%BE%80%E5%B7%AB%E5%89%8D.html">一往巫前</a><a href="../pages/%E9%87%91%E6%88%88%E9%93%81%E9%A9%ACV2.0.html">金戈铁马V2.0</a><a href="../pages/%E6%B1%9F%E5%9F%8E%E5%90%AF.html">江城启</a><a href="../pages/%E6%B1%9F%E5%9F%8E%E5%86%B3.html">江城决</a><a href="../pages/%E6%9D%AD%E5%84%BF%E9%A3%8E.html">杭儿风</a><a href="../pages/%E9%A9%BF%E4%BD%BF.html">驿使</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

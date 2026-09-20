@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>圣骑士 Paladin - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">圣骑士 Paladin<span class="ns-badge">奥德赛</span></h1>
+    <div class="tagline">来自钟楼百科 · 摘自《奥德赛 Odyssey》百科 · 镇民</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#夜晚行动顺序">夜晚行动顺序</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#游玩与对抗技巧">游玩与对抗技巧</a></li><li class="lvl2"><a href="#伪装成该角色">伪装成该角色</a></li><li class="lvl2"><a href="#出现剧本">出现剧本</a></li><li class="lvl2"><a href="#整体设计">整体设计</a></li><li class="lvl2"><a href="#创意来源">创意来源</a></li><li class="lvl2"><a href="#图标画师">图标画师</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E5%9C%A3%E9%AA%91%E5%A3%AB">查找包含此角色的剧本 →</a></p><div class="charinfo"><div class="charinfo-img"><a href="../files/%E6%96%87%E4%BB%B6_%E5%9C%A3%E9%AA%91%E5%A3%AB.png.html"><img alt="圣骑士 Paladin" data-source-image="../images/%E5%9C%A3%E9%AA%91%E5%A3%AB.png" src="../assets/media/圣骑士.preview.webp" width="600" height="600" decoding="async"></a></div><div class="charinfo-meta"><div class="row"><span class="k">角色类型</span><span class="v"><a href="../pages/%E9%95%87%E6%B0%91.html" title="镇民">镇民</a></span></div><div class="row"><span class="k">英文名</span><span class="v">Paladin</span></div><div class="row"><span class="k">角色ID</span><span class="v">075</span></div><div class="row"><span class="k">角色归属</span><span class="v">角色拓展包《奥德赛》</span></div><div class="row"><span class="k">能力标签</span><span class="v"><a href="../pages/%E8%8E%B7%E5%8F%96%E4%BF%A1%E6%81%AF.html" title="获取信息">获取信息</a></span></div><div class="row"><span class="k">角色定位</span><span class="v">持续信息镇民</span></div><div class="row"><span class="k">发布日期</span><span class="v">2026.5.23</span></div><div class="row"><span class="k">角色授权</span><span class="v">开放（任意剧本创作皆可使用，不要改能力）</span></div><div class="row"><span class="k">出处</span><span class="v"><a class="external" href="https://www.yuque.com/u48069482/taiyi" target="_blank" rel="noopener">《奥德赛 Odyssey》百科</a></span></div></div></div><h2 id="背景故事">背景故事</h2>
+<p>_"__<span style="color:rgb(64, 64, 64);">昨夜我跪在圣坛前祈祷，神的声音如火焰般落在我肩上：‘去那座小镇，那里有我的羔羊。’所以我来了。我的盔甲上没有锈迹，因为每一道划痕都被圣水清洗过；我的剑刃永远温热，因为神的力量流淌其中。哪里有不公，哪里有哭泣，哪里就是我的战场。</span>__"_</p>
+<h2 id="角色简介"><span style="color:rgb(64, 64, 64);">角色简介</span></h2>
+<p>圣骑士会得知哪些玩家不是爪牙或恶魔。</p>
+<h2 id="角色能力">角色能力</h2>
+<div class="callout callout-info">
+<p><span style="color:rgb(64, 64, 64);">每个夜晚，你会得知两名玩家：他们要么都不是爪牙，要么都不是恶魔。两类线索每夜交替。</span></p>
+</div>
+<h2 id="范例">范例</h2>
+<ul>
+<li>圣骑士第一个夜晚得知小美和小帅，小美是爪牙，小帅是镇民。圣骑士第二个夜晚得知小张和小王，小张是恶魔，小王是外来者。圣骑士第三个夜晚得知小王和小帅，小王是外来者，小帅是镇民。圣骑士得知的顺序是非恶魔→非爪牙→非恶魔。</li>
+<li>圣骑士第一个夜晚得知小美和小帅，小美是和小帅都是镇民。圣骑士第二个夜晚得知小张和小王，小张和小王都是外来者。圣骑士第三个夜晚得知小黑和小白，小黑和小白都是镇民。圣骑士得知的顺序是非爪牙→非恶魔→非爪牙。</li>
+</ul>
+<h2 id="运作方式">运作方式</h2>
+<p>圣骑士入场时，在圣骑士的角色标记旁放置“不是爪牙”或“不是恶魔”提示标记。</p>
+<p>每个夜晚，唤醒圣骑士，如果“不是爪牙”提示标记被放圣骑士角色标记旁，指向两名不是爪牙的玩家，然后将“不是爪牙”提示标记替换为“不是恶魔”；如果“不是恶魔”提示标记被放圣骑士角色标记旁，指向两名不是恶魔的玩家，然后将“不是恶魔”提示标记替换为“不是爪牙”。</p>
+<h2 id="夜晚行动顺序">夜晚行动顺序</h2>
+<ul>
+<li>首个夜晚</li>
+<ul>
+<li>数值：7911</li>
+<li>前位角色：共情者</li>
+<li>行动提示：告知他两名玩家。</li>
+</ul>
+<li>其他夜晚</li>
+<ul>
+<li>数值：11011</li>
+<li>前位角色：共情者</li>
+<li>行动提示：告知他两名玩家。</li>
+</ul>
+</ul>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>不是爪牙</li>
+<ul>
+<li>放置时机：圣骑士入场时或圣骑士行动之后。</li>
+<li>放置条件：圣骑士入场时或移除“不是恶魔”提示标记时。</li>
+<li>移除时机：圣骑士行动之后。</li>
+</ul>
+<li>不是恶魔</li>
+<ul>
+<li>放置时机：圣骑士入场时或圣骑士行动之后。</li>
+<li>放置条件：圣骑士入场时或移除“不是爪牙”提示标记时。</li>
+<li>移除时机：圣骑士行动之后。</li>
+</ul>
+</ul>
+<h2 id="规则细节">规则细节</h2>
+<ul>
+<li>在圣骑士入场时，圣骑士每夜得知哪类线索就已经固定。如果圣骑士在应该得知“不是爪牙”的玩家的夜晚，因为中毒醉酒等原因得知了“不是恶魔”的玩家。下个夜晚，如果他恢复清醒健康，他依旧会得知“不是恶魔”的玩家。不会因为上个夜晚得知了“不是恶魔”的玩家，这个夜晚就改为得知“不是恶魔”的玩家。</li>
+<li>圣骑士不会得知旅行者玩家（旅行者隔绝原则）。</li>
+<li><strong>信息格式：</strong>2名玩家（如：1号、2号玩家或小美和小帅）。</li>
+<li><strong>错误（虚假）信息格式：</strong>与当前提示标记不对应的2名玩家。例如：“不是爪牙”标记被放置在场上时，包含至少一名爪牙的2名玩家就是错误信息。“不是恶魔”标记被放置在场上时，包含至少一名恶魔的2名玩家就是错误信息。</li>
+</ul>
+<h2 id="游玩与对抗技巧">游玩与对抗技巧</h2>
+<ul>
+<li>如果你是圣骑士。找出你的信息中哪天对应不是爪牙，哪天对应不是恶魔。这非常重要。</li>
+<li>如果你是圣骑士，获取一天的信息对你并没有什么帮助，尽可能的活下去吧。</li>
+<li>如果你是圣骑士。你的信息看起来好像不如直接得知哪些玩家是善良的，或是哪些玩家是镇民那么有用。但一旦理清楚你的信息对应着什么，将会极大的助力逻辑建设。</li>
+<li>如果你是邪恶玩家，让圣骑士存活在场无疑会对邪恶玩家起到绝对的威胁，尽早的杀死他。</li>
+</ul>
+<h2 id="伪装成该角色">伪装成该角色</h2>
+<ul>
+<li>你的信息更多的像是在保护一些玩家。尽可能的报出看起来善良的玩家，会令你看起来更像一名真的圣骑士。</li>
+</ul>
+<h2 id="出现剧本">出现剧本</h2>
+<ul>
+<li><em>暂无</em></li>
+</ul>
+<h2 id="整体设计">整体设计</h2>
+<ul>
+<li>太一</li>
+</ul>
+<h2 id="创意来源">创意来源</h2>
+<ul>
+<li>太一</li>
+</ul>
+<h2 id="图标画师">图标画师</h2>
+<ul>
+<li>Lei.</li>
+</ul></div>
+    <div class="page-meta">最后修改于 2026-09-08T05:07:01.000Z，编辑者 <b>未知</b> ｜ 页面 4,351 字节 ｜ <a href="https://www.yuque.com/u48069482/taiyi/exw5f9gdra167gv3" target="_blank" rel="noopener">查看原页面</a></div>
+    <div class="backlinks"><b>链入此页的页面（1）</b><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">奥德赛 Odyssey</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

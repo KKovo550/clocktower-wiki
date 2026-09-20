@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>猫猫探险队 The Cat Adventurers - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">猫猫探险队 The Cat Adventurers<span class="ns-badge">奥德赛</span></h1>
+    <div class="tagline">来自钟楼百科 · 摘自《奥德赛 Odyssey》百科 · 镇民</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#夜晚行动顺序">夜晚行动顺序</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#游玩与对抗技巧">游玩与对抗技巧</a></li><li class="lvl2"><a href="#伪装成该角色">伪装成该角色</a></li><li class="lvl2"><a href="#出现剧本">出现剧本</a></li><li class="lvl2"><a href="#整体设计">整体设计</a></li><li class="lvl2"><a href="#创意来源">创意来源</a></li><li class="lvl2"><a href="#图标画师">图标画师</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E7%8C%AB%E7%8C%AB%E6%8E%A2%E9%99%A9%E9%98%9F">查找包含此角色的剧本 →</a></p><div class="charinfo"><div class="charinfo-img"><a href="../files/%E6%96%87%E4%BB%B6_%E7%8C%AB%E7%8C%AB%E6%8E%A2%E9%99%A9%E9%98%9F.png.html"><img alt="猫猫探险队 The Cat Adventurers" data-source-image="../images/%E7%8C%AB%E7%8C%AB%E6%8E%A2%E9%99%A9%E9%98%9F.png" src="../assets/media/猫猫探险队.preview.webp" width="600" height="600" decoding="async"></a></div><div class="charinfo-meta"><div class="row"><span class="k">角色类型</span><span class="v"><a href="../pages/%E9%95%87%E6%B0%91.html" title="镇民">镇民</a></span></div><div class="row"><span class="k">英文名</span><span class="v">The Cat Adventurers</span></div><div class="row"><span class="k">角色ID</span><span class="v">029</span></div><div class="row"><span class="k">角色归属</span><span class="v">角色拓展包《奥德赛》</span></div><div class="row"><span class="k">能力标签</span><span class="v"><a href="../pages/%E5%85%AC%E5%BC%80%E8%A7%A6%E5%8F%91%E8%83%BD%E5%8A%9B.html" title="公开触发能力">公开触发能力</a>、<a href="../pages/%E8%8E%B7%E5%8F%96%E4%BF%A1%E6%81%AF.html" title="获取信息">获取信息</a></span></div><div class="row"><span class="k">角色授权</span><span class="v">开放（任意剧本创作可用，不要修改能力）</span></div><div class="row"><span class="k">出处</span><span class="v"><a class="external" href="https://www.yuque.com/u48069482/taiyi" target="_blank" rel="noopener">《奥德赛 Odyssey》百科</a></span></div></div></div><h2 id="背景故事">背景故事</h2>
+<p>_"__<span style="color:rgb(64, 64, 64);">午安喵，诸位。猫猫探险队应谜题之召而来，很荣幸能为贵镇分忧喵。我们需要一位熟悉本地情况的勇士为我们开路喵。在此之前，我有义务告知各位深入险境要承担极大的风险喵。好了，哪位勇士愿意加入荣耀的猫猫探险队喵？</span>__"_</p>
+<h2 id="角色简介"><span style="color:rgb(64, 64, 64);">角色简介</span></h2>
+<p>猫猫探险队每天会派出探险者搜寻不同阵营的玩家。</p>
+<h2 id="角色能力">角色能力</h2>
+<div class="callout callout-info">
+<p>每个白天，一名未曾探险过的玩家可以公开申请探险。在当晚，如果他存活，你会得知一名与他阵营对立的玩家。</p>
+</div>
+<h2 id="范例">范例</h2>
+<ul>
+<li>第一个白天，贵族公开声称“我要去探险！”，夜晚恶魔并没有选择杀死贵族，猫猫探险队得知了投毒者玩家。第二个白天，贵族公开声称“我要去探险！”，因为贵族已经“探险”过了，所以说书人拒绝了他。</li>
+<li>第一个白天，贵族公开声称“我要加入荣耀的猫猫探险队！”，夜晚恶魔杀死了贵族，猫猫探险队没有被唤醒。</li>
+<li>第一个白天，贵族公开声称“我就是猫猫探险队的先锋向导！”，夜晚代号X杀死了猫猫探险队，猫猫探险队没有被唤醒。</li>
+<li>第一个白天，投毒者公开声称“我誓死捍卫猫猫探险队的荣光！”，夜晚恶魔并没有选择杀死投毒者，猫猫探险队得知了贵族玩家。</li>
+<li>第一个白天，贵族公开声称“我要做猫猫探险队的向导！”，投毒者随后公开声称“我要为猫猫探险队开路！”，但是因为贵族抢先一步，所以说书人拒绝了投毒者。</li>
+<li>第一个白天，猫猫探险队不在场，贵族公开声称“我就是猫猫探险队的先锋向导！”，说书人如同猫猫探险队在场一般答复“收到”。</li>
+</ul>
+<h2 id="运作方式">运作方式</h2>
+<p>每个白天，如果一名玩家公开声称自己要“探险”或是其他任何表达自己要触发猫猫探险队能力的发言（你可以引导大家发表一些有意思的宣言），如果他未“探险”过，明确回应他们“收到”或是“我代表猫猫探险队感谢你的英勇”等调节气氛的回复。然后将“探险者”提示标记放置到该玩家的角色标记旁。如果在当天还有其他存活玩家也公开声称要“探险”，提示他们已经有人捷足先登了然后明确地拒绝他们。如果一名已经“探险”过的玩家再次公开“探险”，明确地拒绝他们。</p>
+<p>除了首个夜晚以外的每个夜晚，如果被放置了“探险者”提示标记的玩家是存活的，唤醒猫猫探险队并告知他一名与被放置了“探险者”提示标记的玩家不同阵营的玩家。如果“探险者”提示标记没有被放置或被放置了“探险者”提示标记的玩家已经死亡，不需要唤醒猫猫探险队。</p>
+<p>每个黎明，将所有放置在场上的“探险者”提示标记替换为“已探险”提示标记。</p>
+<h2 id="夜晚行动顺序">夜晚行动顺序</h2>
+<ul>
+<li>首个夜晚</li>
+<ul>
+<li>夜序数值：/</li>
+<li>前位角色：/</li>
+<li>行动提示：/</li>
+</ul>
+<li>其他夜晚</li>
+<ul>
+<li>夜序数值：11710</li>
+<li>前位角色：城镇公告员</li>
+<li>行动提示：如果当天的探险者存活，唤他并告知一名与探险者阵营对立的玩家。</li>
+</ul>
+</ul>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>探险者*1</li>
+<ul>
+<li>放置时机：玩家公开“探险”时。</li>
+<li>放置条件：一名玩家公开“探险”时，如果他之前没有被放置过“已探险”标记，且当天还未有“探险者”标记放置在场上，则将“探险者”标记放置在该玩家角色标记旁，用以提醒说书人在轮到猫猫探险队的夜晚顺序时判断是否唤醒猫猫探险队。不论猫猫探险队是否醉酒中毒，只要满足上述条件都需要放置该标记。</li>
+<li>移除时机：在黎明时。</li>
+</ul>
+<li>已探险*4</li>
+<ul>
+<li>放置时机：在黎明时。</li>
+<li>放置条件：黎明时，将“探险者”标记替换为“已探险”标记。</li>
+<li>移除时机：无。</li>
+</ul>
+</ul>
+<h2 id="规则细节">规则细节</h2>
+<ul>
+<li>任何没有“探险”过的玩家都可以公开“探险”（包括猫猫探险队自己和死亡玩家），每个白天限一次，先到先得。如果公开“探险”的玩家符合条件，明确回复他们“收到”或“我代表猫猫探险队感谢你的英勇”等话。如果已经“探险”过的玩家公开“探险”，或是当天已经确定了“探险者”后又有新的玩家公开“探险”，明确地拒绝他们。被拒绝的玩家不会被当做已经进行过“探险”。</li>
+<li>如果猫猫探险队不在场，或是猫猫探险队中毒醉酒，也请如同猫猫探险队在场时一样配合公开“探险”的玩家。</li>
+<li>如果猫猫探险队中毒醉酒，你可以告诉他错误信息。但请不要在没有玩家公开“探险”的夜晚唤醒猫猫探险队，或是在有玩家公开“探险”的夜晚不去唤醒猫猫探险队。这样猫猫探险队会明确知道自己中毒醉酒了。</li>
+<li>是否“探险”过的判定不会因为猫猫探险队是否在场而改变。如果一名玩家“探险”过，即使猫猫探险队不在场，他也不可以再次进行“探险”，哪怕游戏中途加入了猫猫探险队，或是猫猫探险队的玩家发生了改变。</li>
+<li>旅行者禁止“探险”（旅行者隔绝原则）。</li>
+<li><strong>信息格式：</strong>一名玩家，如：小美或1号玩家。</li>
+<li><strong>错误（虚假）信息格式：</strong>一名玩家，如：小美或1号玩家。但与当天的探险者为同一阵营。</li>
+</ul>
+<h2 id="游玩与对抗技巧">游玩与对抗技巧</h2>
+<ul>
+<li>鼓励大家去“探险”！否则你不会起到任何作用。实在不行，你也可以自己上！</li>
+<li>“探险”的玩家与你当晚得知的玩家是不同阵营，但是“探险”的玩家不一定是善良的，你得知的玩家也未必一定是邪恶的。邪恶玩家主动“探险”也是很常见的事情。</li>
+<li>如果你认为“探险”的玩家与你得知的玩家是同一阵营的，考虑涡流或是你中毒醉酒的可能性。</li>
+<li>如果你是一个不惧怕的死亡的善良角色，争取去“探险”！如果你存活下来了，可以通过猫猫探险队得知一名与你阵营不同的玩家。就算你死亡了，也是为其他重要镇民挡了一刀！如果你是空中飞人这类希望在夜晚倒下的角色，那你更应该去争取“探险”机会。</li>
+<li>如果你是一个惧怕死亡的善良角色，探险会让你承担极大的死亡风险。但你同样可以“探险”。你可以虚张声势地把自己表现为一个不怕死的角色甚至是空中飞人这类希望在夜晚死亡的角色，如果你成功欺骗了恶魔，你就可以平安度过一个夜晚。</li>
+<li>如果一名邪恶玩家，你也可以争取去“探险”！在大多数人看来，争取“探险”是一个积极游戏的行为。且你去“探险”就意味着猫猫探险队当天一定不会得知恶魔或你的其他重要队友。</li>
+<li>如果你是恶魔，且你认为猫猫探险队可能在场，那你要谨慎考虑接下来的行动。是杀死当天的“探险者”确保当天猫猫探险队一定不会获取信息，还是搏一把直接去杀死疑似猫猫探险队的玩家？亦或是对此放任不管。杀死当天的探险者可以确保猫猫探险队当天一定不会获得信息，但这可能只是在扬汤止沸，因为明天又会有新的探险者出现。</li>
+</ul>
+<h2 id="伪装成该角色">伪装成该角色</h2>
+<ul>
+<li>伪装为猫猫探险队时需要注意！如果“探险者”当天死亡，或是当天没有“探险者”，你是不会被唤醒的。</li>
+<li>在每个白天对谁去“探险”发表一些意见，这样有助于让大家更相信你是猫猫探险队。</li>
+<li>谨慎的考虑该如何报出你的信息。你的信息会使得2名玩家产生对立关系，如果他们更加倾向于相信对方是善良的，那么你可能会被他们联合攻击。大多数情况，报出一名原本就不被当天“探险者”信任的玩家会更有助于你争取到其他玩家的信任。</li>
+</ul>
+<h2 id="出现剧本">出现剧本</h2>
+<ul>
+<li>仲夏夜之梦</li>
+</ul>
+<h2 id="整体设计">整体设计</h2>
+<ul>
+<li>太一</li>
+</ul>
+<h2 id="创意来源">创意来源</h2>
+<ul>
+<li>太一</li>
+</ul>
+<h2 id="图标画师">图标画师</h2>
+<ul>
+<li>Lei.</li>
+</ul></div>
+    <div class="page-meta">最后修改于 2026-09-01T17:55:09.000Z，编辑者 <b>未知</b> ｜ 页面 8,140 字节 ｜ <a href="https://www.yuque.com/u48069482/taiyi/gmsspzkfwqogo7gc" target="_blank" rel="noopener">查看原页面</a></div>
+    <div class="backlinks"><b>链入此页的页面（1）</b><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">奥德赛 Odyssey</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

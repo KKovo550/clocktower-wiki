@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>舞蛇人 - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">舞蛇人</h1>
+    <div class="tagline">来自钟楼百科</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#提示与技巧">提示与技巧</a></li><li class="lvl2"><a href="#伪装成舞蛇人">伪装成舞蛇人</a></li><li class="lvl2"><a href="#角色信息">角色信息</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E8%88%9E%E8%9B%87%E4%BA%BA">查找包含此角色的剧本 →</a></p><p><a href="../pages/%E8%88%9E%E8%9B%87%E4%BA%BA.html" class="image-link" title="舞蛇人"><img alt="Snakecharmer.png" style="width:200px" class="" loading="lazy" data-source-image="../images/Snakecharmer.png" src="../assets/media/Snakecharmer.preview.webp" width="600" height="600" decoding="async"></a></p>
+<h2 id="背景故事">背景故事</h2>
+<p><em>“这位老爷……虽然我的烟斗是金色的，虽然我只要一首曲子就能驯服最狂野的灯神，但我只是一个卑贱的舞蛇人罢了，哎……听天由命吧。俗话说，人心不足蛇吞象。但不是我，这位老爷……真的不是我。”</em></p>
+<h2 id="角色能力">角色能力</h2>
+<p><strong>每个夜晚，你要选择一名存活的玩家：如果你选中了恶魔，你和他交换角色和阵营，然后他中毒。</strong></p>
+<h2 id="角色简介">角色简介</h2>
+<p>舞蛇人会得知哪些玩家不是恶魔……但是如果舞蛇人太过于冒失或贪婪，自己就会成为恶魔。</p>
+<ul>
+<li>每个夜晚，舞蛇人需要选择一名存活玩家。如果那名玩家不是恶魔，无事发生。当选中一名恶魔时，舞蛇人变成那个恶魔并转为邪恶，那名恶魔则转为善良并永久中毒。</li>
+</ul>
+<ul>
+<li>如果具有舞蛇人能力的哲学家选中了恶魔玩家并变成了新的恶魔，原本的恶魔会变成中毒的哲学家。</li>
+</ul>
+<h2 id="范例">范例</h2>
+<p><a href="../pages/%E8%88%9E%E8%9B%87%E4%BA%BA.html" title="舞蛇人">舞蛇人</a>选择的玩家是<a href="../pages/%E9%BA%BB%E8%84%B8%E5%B7%AB%E5%A9%86.html" title="麻脸巫婆">麻脸巫婆</a>，无事发生。下个夜晚，<a href="../pages/%E8%88%9E%E8%9B%87%E4%BA%BA.html" title="舞蛇人">舞蛇人</a>选择他自己，依旧无事发生。</p>
+<p><a href="../pages/%E8%88%9E%E8%9B%87%E4%BA%BA.html" title="舞蛇人">舞蛇人</a>选择的玩家是<a href="../pages/%E4%BA%A1%E9%AA%A8%E9%AD%94.html" title="亡骨魔">亡骨魔</a>。<a href="../pages/%E8%88%9E%E8%9B%87%E4%BA%BA.html" title="舞蛇人">舞蛇人</a>立即变成邪恶的<a href="../pages/%E4%BA%A1%E9%AA%A8%E9%AD%94.html" title="亡骨魔">亡骨魔</a>，曾经是<a href="../pages/%E4%BA%A1%E9%AA%A8%E9%AD%94.html" title="亡骨魔">亡骨魔</a>的玩家变成善良的<a href="../pages/%E8%88%9E%E8%9B%87%E4%BA%BA.html" title="舞蛇人">舞蛇人</a>并中毒。</p>
+<p><a href="../pages/%E9%BA%BB%E8%84%B8%E5%B7%AB%E5%A9%86.html" title="麻脸巫婆">麻脸巫婆</a>把自己变成了<a href="../pages/%E8%88%9E%E8%9B%87%E4%BA%BA.html" title="舞蛇人">舞蛇人</a>。然后，<a href="../pages/%E8%88%9E%E8%9B%87%E4%BA%BA.html" title="舞蛇人">舞蛇人</a>——原本为<a href="../pages/%E9%BA%BB%E8%84%B8%E5%B7%AB%E5%A9%86.html" title="麻脸巫婆">麻脸巫婆</a>——选择了<a href="../pages/%E6%96%B9%E5%8F%A4.html" title="方古">方古</a>玩家。<a href="../pages/%E8%88%9E%E8%9B%87%E4%BA%BA.html" title="舞蛇人">舞蛇人</a>变成了<a href="../pages/%E6%96%B9%E5%8F%A4.html" title="方古">方古</a>，<a href="../pages/%E6%96%B9%E5%8F%A4.html" title="方古">方古</a>变成了中毒的<a href="../pages/%E8%88%9E%E8%9B%87%E4%BA%BA.html" title="舞蛇人">舞蛇人</a>。但两者仍然邪恶。</p>
+<h2 id="运作方式">运作方式</h2>
+<p>每个夜晚，唤醒舞蛇人。让他指向任意一名存活玩家。</p>
+<p>如果被选择的玩家不是恶魔，则无事发生。让舞蛇人重新入睡。</p>
+<p>如果被选择的玩家是恶魔，旧的舞蛇人变为新的（邪恶）恶魔，并且旧的恶魔变为新的（善良）舞蛇人。在魔典中交换舞蛇人和恶魔的角色标记。在新的舞蛇人角色标记旁放置“中毒”提示标记。唤醒新的恶魔并依次向他展示“你是”信息标记、向下的大拇指、 ”你是”信息标记、然后是恶魔的角色标记。（这代表该玩家现在是邪恶的恶魔。）让新恶魔重新入睡。唤醒新的舞蛇人并依次向他展示“你是”信息标记、向上的大拇指、“你是”信息标记、然后是舞蛇人的角色标记。（这代表该玩家现在是善良的舞蛇人。）让新舞蛇人重新入睡。</p>
+<p>在舞蛇人属于邪恶阵营，或者恶魔属于善良阵营的特殊情况下，依旧相应地交换他们的阵营。</p>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>中毒</li>
+</ul>
+<p>放置时机：舞蛇人成功触发自己的能力，并在与恶魔交换角色标记之后。</p>
+<p>放置条件：舞蛇人与恶魔交换角色标记之后，放置在原恶魔现舞蛇人的角色标记旁。（即使是通过其他角色能力获取的舞蛇人的能力，依然要放置舞蛇人的中毒标记，但如果没有多余的舞蛇人中毒标记，则可以用对应角色的相应提示标记来提示现在的这个角色中毒了，且让这个角色中毒的效果是来自于这个角色本身。）</p>
+<p>移除时机：放置有此标记的角色死亡或离场时。</p>
+<h2 id="规则细节">规则细节</h2>
+<ul>
+<li>相克规则（与华灯系列角色）：</li>
+<ul>
+<li><a href="../pages/%E6%A2%BC%E6%9D%8C.html" title="梼杌">梼杌</a>：如果梼杌的角色发生了交换，因为梼杌失去能力的爪牙依然失去能力。</li>
+</ul>
+</ul>
+<h2 id="提示与技巧">提示与技巧</h2>
+<ul>
+<li>舞蛇人存在双重可能性。在任何可能的时候，你可能变为邪恶转而开始背叛你的队伍。而在此之前，你是一名善良玩家，你的信息也极其有用（知道谁不是恶魔与知道谁是恶魔同样重要！）。不像其他玩家，你并不为了你的队伍，而是为了你自己，或者说为游戏结束时你所在的阵营。</li>
+</ul>
+<ul>
+<li>谨慎一点；只选择少数玩家来确认不是恶魔。瞄准那些你认为会存活一段时间的玩家-如果在最后一天还活着的玩家中有你知道不是恶魔的，那么你们将从3选一变为2选1！一旦你对自己收集到的信息感到满足了（或者你并不想再冒险了），请记住你可以在晚上选择自己来避免成为恶魔！</li>
+</ul>
+<ul>
+<li>大胆一点；选择尽可能多的玩家，你确认不是恶魔的玩家越多，你就越强大！这种方法会提高你成为恶魔的概率，但如果你整局游戏都是善良阵营，那么你将拥有强大的力量来对抗邪恶阵营。然而如果你变邪恶了……我相信如果你这么做的话你也不会担心遇到这样的情况不是吗？</li>
+</ul>
+<ul>
+<li>不要告诉任何人你是舞蛇人，除非你确信你自己不会变为恶魔。即使你小心翼翼，你仍然有可能一不小心变为邪恶阵营。被你偷走恶魔角色的玩家现在是善良阵营，他会提供大量所发生的信息，如果此时有任何人知道你是舞蛇人，你会面临巨大的麻烦。尝试不揭露自己的角色直到死亡，或者你决定不再选择新的玩家。</li>
+</ul>
+<ul>
+<li>请牢记每个你选择的玩家如果没有使你交换角色，那么他不是恶魔。在验证恶魔时，你比占卜师更加精确……只要你能够让团队相信你。</li>
+</ul>
+<ul>
+<li>如果你一直是善良阵营，在最后请说出你的信息——如果你一直隐藏你的信息那只会对善良阵营造成伤害！如果你变邪恶了……不要承认自己是舞蛇人，而是先抓紧找个角色伪装吧。</li>
+</ul>
+<ul>
+<li>突然变为恶魔会让人很震惊，所以你要为这个可能性做好准备。准备一个角色，即便最坏的情况发生了，你也可以马上声明自己是恶魔但被舞蛇人给交换了。只要你足够快且气势汹汹，那么可怜的恶魔将很难跟上你的步调来证明你才是邪恶的那一个。</li>
+</ul>
+<ul>
+<li>那么如果你是恶魔但是变成了舞蛇人该怎么办？不必烦恼——你现在属于善良阵营，依然有着足够清晰的方式获得胜利。你有几个选择——立即告知大家你现在属于新的阵营，暴露你的爪牙，然后用你邪恶的能力来追捕新的恶魔吧……或者你也可以什么都不说直到几天后。如果这样，你的爪牙们仍然会相信你是恶魔然后去运用他们的能力寻找和对抗新的恶魔。同时在这期间你也可以悄悄的告诉一两个善良阵营的玩家让其成为你秘密找寻恶魔计划的伙伴。</li>
+</ul>
+<h2 id="伪装成舞蛇人">伪装成舞蛇人</h2>
+<p>当你要伪装成舞蛇人的时候，这里有几件事你应该记住：</p>
+<ul>
+<li>等待几天再表明自己是舞蛇人。你可以保持沉默或者去伪装成另一个善良角色。这也是通常舞蛇人会做的。</li>
+</ul>
+<ul>
+<li>提前准备好你的信息。一旦你选择声明你是舞蛇人，其他人会想要知道你在每天晚上都选择了谁。请记住舞蛇人是在首夜就开始行动的。如果你告诉了大家你的信息，那么他们才更可能会信任你。</li>
+</ul>
+<ul>
+<li>当你告诉大家你晚上选择的玩家时，至少要有一部分玩家是你没有被选择过的。如果你告诉大家除了某一个人其他人都被选过，那么这个玩家必定会是恶魔——当他被处决后如果游戏继续，那么你必定撒谎了。但是，如果善良玩家们认为有3名玩家有可能是恶魔，即使他们中的一人被处决后游戏继续，也不会让你显得可疑。</li>
+</ul>
+<ul>
+<li>与那些你假装选择过的玩家建立信任关系。玩家们通常会相信那些相信自己的人。当你声明某位玩家肯定不是恶魔时，这更能使他站在你这边。</li>
+</ul>
+<ul>
+<li>声明你选择的玩家时可以选择一个邪恶玩家。如果善良阵营相信你是舞蛇人，那么他们会相信你选择的玩家不是恶魔，就更可能会让他活下来。</li>
+</ul>
+<ul>
+<li>如果你是恶魔，你可以声明你被舞蛇人给交换了，你现在是善良阵营！当然，这样做有很大的风险，因为任何之前的恶魔都有可能会保险起见而被处决掉，但是如果你在游戏晚期的时候这么做就会比较有效。你可以计划着这样去做或者把这个作为一个在危机中的备用手段。如果你真的被舞蛇人交换了，那么你现在是善良的，而原来的舞蛇人变为了邪恶的恶魔，所以他必然伪装成另一个角色-这也就说明你可以声明你现在是一个变好了的恶魔。如果你选择这样做，准备好告诉大家你的爪牙们是谁。善良玩家会想要知道你的爪牙们是谁，你可以根据自己的喜好来决定提供正确或错误的信息。</li>
+</ul>
+<ul>
+<li>如果你是爪牙，你可以声明你被舞蛇人给交换了！这很疯狂！但如果你这么做，善良玩家会想要知道你的爪牙们是谁，而你会面临艰难的抉择。你会告诉除了恶魔之外的其他玩家都是你的爪牙吗？如果你认为善良玩家会选择处决爪牙，就这么做吧。如果你期望好人们不会处决爪牙，而是会去优先找恶魔？那么你也可以告诉大家恶魔是你爪牙。</li>
+</ul>
+<h2 id="角色信息">角色信息</h2>
+<ul>
+<li>英文名：Snake Charmer</li>
+</ul>
+<ul>
+<li>所属剧本：<a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html" title="梦殒春宵">梦殒春宵</a></li>
+</ul>
+<ul>
+<li>角色类型：<a href="../pages/%E9%95%87%E6%B0%91.html" title="镇民">镇民</a></li>
+</ul>
+<ul>
+<li>角色能力类型：<a href="../pages/%E8%A7%92%E8%89%B2%E5%8F%98%E5%8C%96.html" title="角色变化">角色变化</a>、<a href="../pages/%E9%98%B5%E8%90%A5%E8%BD%AC%E5%8F%98.html" title="阵营转变">阵营转变</a>、<a href="../pages/%E4%B8%AD%E6%AF%92.html" title="中毒">中毒</a>、<a href="../pages/%E8%BF%9B%E5%9C%BA%E8%83%BD%E5%8A%9B.html" title="进场能力">进场能力</a></li>
+</ul>
+<p><em>其他称呼（非官方，仅方便索引用）：耍蛇人</em></p></div>
+    <div class="page-meta">最后修改于 2026-07-16T15:18:32Z，编辑者 <b>Zack</b> ｜ 页面 9,186 字节 ｜ <a href="https://clocktower-wiki.gstonegames.com/index.php?title=%E8%88%9E%E8%9B%87%E4%BA%BA" target="_blank" rel="noopener">查看原页面</a> ｜ <div class="comment">编辑摘要：/* 角色信息 */</div></div>
+    <div class="backlinks"><b>链入此页的页面（67）</b><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a><a href="../pages/%E9%92%9F%E8%A1%A8%E5%8C%A0.html">钟表匠</a><a href="../pages/%E6%9A%B4%E9%9C%B2%E8%A7%92%E8%89%B2.html">暴露角色</a><a href="../pages/%E8%88%9E%E8%9B%87%E4%BA%BA.html">舞蛇人</a><a href="../pages/%E5%9B%BD%E7%8E%8B.html">国王</a><a href="../pages/%E8%B4%B5%E6%97%8F.html">贵族</a><a href="../pages/%E5%BC%82%E7%AB%AF%E5%88%86%E5%AD%90.html">异端分子</a><a href="../pages/%E5%93%A5%E5%B8%83%E6%9E%97.html">哥布林</a><a href="../pages/%E8%AE%BE%E8%AE%A1%E5%B8%88%E6%80%BB%E7%BB%93%E7%9A%84%E5%9B%BD%E5%86%85%E7%8E%A9%E5%AE%B6%E5%AF%B9%E6%9F%93%E7%9A%84%E9%94%99%E8%AF%AF%E7%90%86%E8%A7%A3.html">设计师总结的国内玩家对染的错误理解</a><a href="../pages/%E6%95%B0%E5%AD%A6%E5%AE%B6.html">数学家</a><a href="../pages/%E8%AF%BA-%E8%BE%BE%E9%B2%BA.html">诺-达鲺</a><a href="../pages/%E6%B6%A1%E6%B5%81.html">涡流</a><a href="../pages/%E4%BA%92%E5%8A%A8%E5%B9%B2%E6%89%B0.html">互动干扰</a><a href="../pages/%E8%BF%9B%E5%9C%BA%E8%83%BD%E5%8A%9B.html">进场能力</a><a href="../pages/%E8%8E%B7%E5%8F%96%E4%BF%A1%E6%81%AF.html">获取信息</a><a href="../pages/%E8%A7%92%E8%89%B2%E5%8F%98%E5%8C%96.html">角色变化</a><a href="../pages/%E9%98%B5%E8%90%A5%E8%BD%AC%E5%8F%98.html">阵营转变</a><a href="../pages/%E4%B8%AD%E6%AF%92.html">中毒</a><a href="../pages/%E9%86%89%E9%85%92.html">醉酒</a><a href="../pages/%E9%99%8C%E5%AE%A2.html">陌客</a><a href="../pages/%E5%BF%83%E4%B8%8A%E4%BA%BA.html">心上人</a><a href="../pages/%E7%90%86%E5%8F%91%E5%B8%88.html">理发师</a><a href="../pages/%E5%91%86%E7%93%9C.html">呆瓜</a><a href="../pages/%E5%8D%9A%E5%AD%A6%E8%80%85.html">博学者</a><a href="../pages/%E6%9D%82%E8%80%8D%E8%89%BA%E4%BA%BA.html">杂耍艺人</a><a href="../pages/%E6%B4%97%E8%84%91%E5%B8%88.html">洗脑师</a><a href="../pages/%E9%95%87%E6%B0%91.html">镇民</a><a href="../pages/%E5%93%AA%E4%BA%9B%E6%98%AF%E2%80%9C%E5%8F%AF%E4%BB%A5%E4%BD%86%E4%B8%8D%E5%BB%BA%E8%AE%AE%E2%80%9D.html">哪些是“可以但不建议”</a><a href="../pages/%E5%B1%A0%E5%A4%AB.html">屠夫</a><a href="../pages/%E5%9C%A3%E6%B4%81%E4%B9%8B%E9%AD%82.html">圣洁之魂</a><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a><a href="../pages/%E9%92%9F%E6%A5%BC%E8%B0%9C%E5%9B%A2%E9%9A%90%E6%80%A7%E8%A7%84%E5%88%99%E6%B1%87%E6%80%BB.html">钟楼谜团隐性规则汇总</a><a href="../pages/%E6%84%9A%E8%80%85%E6%AC%A2%E5%AE%B4.html">愚者欢宴</a><a href="../pages/%E5%8D%8A%E4%BB%99.html">半仙</a><a href="../pages/%E5%BA%97%E5%B0%8F%E4%BA%8C.html">店小二</a><a href="../pages/%E5%92%8C%E5%B0%9A.html">和尚</a><a href="../pages/%E9%80%86%E8%87%A3.html">逆臣</a><a href="../pages/%E4%BD%BF%E8%8A%82.html">使节</a><a href="../pages/%E6%A2%BC%E6%9D%8C.html">梼杌</a><a href="../pages/%E6%9B%B4%E6%8D%A2%E9%80%89%E6%8B%A9%E7%9B%AE%E6%A0%87.html">更换选择目标</a><a href="../pages/%E5%A4%9C%E6%99%9A%E8%A1%8C%E5%8A%A8%E9%A1%BA%E5%BA%8F%E4%B8%80%E8%A7%88.html">夜晚行动顺序一览</a><a href="../pages/%E7%AC%AC%E4%B8%80%E5%B1%8A%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A%E5%89%A7%E6%9C%AC%E5%88%9B%E4%BD%9C%E5%A4%A7%E8%B5%9B.html">第一届华灯初上剧本创作大赛</a><a href="../pages/%E4%BA%BA%E9%97%B4%E6%9A%97%E6%9C%88%E5%A4%9C.html">人间暗月夜</a><a href="../pages/%E9%AA%91%E8%99%8E%E7%94%9F%E6%AD%BB%E8%A1%8C.html">骑虎生死行</a><a href="../pages/%E8%A1%8C%E6%88%90%E4%B8%8B%E5%AD%A4%E4%B9%A1.html">行成下孤乡</a><a href="../pages/%E9%B8%A3%E9%A3%8E%E5%99%AC%E5%90%8E%E6%B5%AA.html">鸣风噬后浪</a><a href="../pages/%E5%B9%BB%E5%BD%B1%E7%94%BB%E5%AE%89%E5%8D%B1.html">幻影画安危</a><a href="../pages/%E8%B0%9C%E6%A2%A6%E5%BE%85%E6%AD%8C%E8%88%9E.html">谜梦待歌舞</a><a href="../pages/%E5%BC%82%E5%9C%B0%E4%BC%97%E6%AC%A2%E6%9D%A5.html">异地众欢来</a><a href="../pages/%E9%A3%8E%E4%BA%91%E5%AD%B0%E6%88%8F%E8%A8%80.html">风云孰戏言</a><a href="../pages/%E9%A3%8E%E8%B5%B7%E7%BB%88%E7%9B%B8%E8%AF%86.html">风起终相识</a><a href="../pages/%E5%BC%95%E8%B7%AF%E4%BA%BA.html">引路人</a><a href="../pages/%E5%85%A5%E6%AE%93%E5%B8%88.html">入殓师</a><a href="../pages/%E7%99%BD%E7%8B%90%E8%A1%8C%E4%B8%9B%E9%87%8C.html">白狐行丛里</a><a href="../pages/%E9%9B%86%E5%90%8E%E4%BA%BA%E4%B9%8B%E8%A8%80.html">集后人之言</a><a href="../pages/%E5%8D%83%E9%9D%A2%E4%BC%97%E5%8D%B1%E7%84%89.html">千面众危焉</a><a href="../pages/%E5%AF%B9%E5%A2%9F%E9%9A%BE%E6%AC%A2%E9%B8%A3.html">对墟难欢鸣</a><a href="../pages/%E8%B5%A6%E4%BB%A4%E6%89%BF%E6%97%A8.html">赦令承旨</a><a href="../pages/%E6%9E%AF%E6%9C%A8%E9%80%A2%E6%98%A5.html">枯木逢春</a><a href="../pages/%E9%95%BF%E5%A4%9C%E9%99%A9%E6%81%B6.html">长夜险恶</a><a href="../pages/%E8%A6%81%E8%B5%A2%E4%BA%86%E5%90%97%EF%BC%9F.html">要赢了吗？</a><a href="../pages/%E6%9A%97%E5%BA%A6%E9%99%88%E4%BB%93.html">暗度陈仓</a><a href="../pages/%E5%86%B2%E5%8A%A8%E6%B6%88%E8%B4%B9.html">冲动消费</a><a href="../pages/%E7%BF%BB%E4%BA%91%E8%A6%86%E9%9B%A8.html">翻云覆雨</a><a href="../pages/%E9%98%B4%E9%98%B3%E9%9A%BE%E8%BE%A8.html">阴阳难辨</a><a href="../pages/%E6%97%A0%E5%90%8D%E6%97%85%E5%AE%A2.html">无名旅客</a><a href="../pages/%E6%9D%AD%E5%84%BF%E9%A3%8E.html">杭儿风</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

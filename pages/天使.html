@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>天使 - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">天使</h1>
+    <div class="tagline">来自钟楼百科</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#角色信息">角色信息</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E5%A4%A9%E4%BD%BF">查找包含此角色的剧本 →</a></p><p><a href="../pages/%E5%A4%A9%E4%BD%BF.html" class="image-link" title="天使"><img alt="Angel.png" style="width:200px" class="" loading="lazy" data-source-image="../images/Angel.png" src="../assets/media/Angel.preview.webp" width="600" height="600" decoding="async"></a></p>
+<h2 id="背景故事">背景故事</h2>
+<p><em>“让无罪之人勇于向我所选之人举起手，因为成倍的风暴之怒以及正义终会降临在这群傻瓜身上。”</em></p>
+<h2 id="角色能力">角色能力</h2>
+<p><strong>对新玩家的死亡负最大责任的人，可能会遭遇一些不好的事情。</strong></p>
+<h2 id="角色简介">角色简介</h2>
+<p>天使可以帮助一群老玩家中的一两个新手玩家能获得更多的乐趣。</p>
+<ul>
+<li>被一群老玩家包围可能会让全场唯一的新玩家难以招架。当新玩家受到天使保护时，其他玩家可能会尽量让新玩家存活得更久一些，这也意味着新玩家会有更多的乐趣，同时也可以为游戏做出更多的贡献。</li>
+</ul>
+<ul>
+<li>所有的玩家都会知道哪名玩家被天使保护了，但不知道被保护玩家的阵营或角色。一旦这名受保护的玩家死亡，对他的死负主要责任的一名玩家会遭遇一些不好的事情。举个例子，恶魔杀死了这名受保护的玩家，恶魔会受到一些处罚。如果一名受保护的玩家被处决了，负主要责任的会是那名对他发起提名的玩家，他将会受到一些处罚。</li>
+</ul>
+<h2 id="范例">范例</h2>
+<p><a href="../pages/%E5%A4%A9%E4%BD%BF.html" title="天使">天使</a>保护了小美。恶魔攻击并杀死了她。作为惩罚，恶魔下一个夜晚不能进行攻击。</p>
+<p>小八是恶魔，并且被<a href="../pages/%E5%A4%A9%E4%BD%BF.html" title="天使">天使</a>保护了。玩家们直到最后一天才处决他，因为这样他们不会受到惩罚。</p>
+<h2 id="运作方式">运作方式</h2>
+<p>在游戏开始时，宣布天使加入游戏。在征得将要被保护玩家的同意后，宣布将会受到天使保护的一名或多名玩家。将天使标记与相关的提示标记放入魔典中，将“庇护”提示标记放在每一个受到保护的玩家标记旁。</p>
+<p>如果一名标记了“庇护”的玩家死亡，那名对他的死负主要责任的玩家将会遭遇一些不好的事情。你可以用“不好的事”标记该玩家，以提示你他现在已经中毒了，或者是处于疯狂状态，或者是他今天不能投票，或者只是作为提醒，具体效果之后再做决定。</p>
+<p>你可以在任何时候宣布，并将天使移出游戏。</p>
+<p>天使只会保护想要受到保护的玩家。在游戏开始前要征得他们的同意。</p>
+<p>“不好的事”是由你决定的。但我们建议你用死亡、失去能力一天或者是当天不能投票作为惩罚。轻度的惩罚总会比严重的惩罚要来的好一些。</p>
+<p>在游戏的最后一天移除天使，玩家们就可以放心地处决那名原本受天使保护的玩家。</p>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>庇护</li>
+</ul>
+<p>放置时机：游戏开始时。</p>
+<p>放置条件：在征得新手玩家的同意后，将庇护标记放置在新手玩家的角色标记旁。</p>
+<p>移除时机：当天使被移除时。</p>
+<ul>
+<li>不好的事</li>
+</ul>
+<p>放置时机：被天使的“庇护”标记的玩家死亡时。</p>
+<p>放置条件：在对被“庇护”玩家的死亡负最大责任的玩家角色标记旁放置。</p>
+<p>移除时机：当对该玩家的惩罚效果结束时。</p>
+<h2 id="角色信息">角色信息</h2>
+<ul>
+<li>英文名：Angel</li>
+</ul>
+<ul>
+<li>角色类型：<a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html" title="传奇角色">传奇角色</a></li>
+</ul></div>
+    <div class="page-meta">最后修改于 2023-04-21T14:49:16Z，编辑者 <b>Little Black</b> ｜ 页面 3,047 字节 ｜ <a href="https://clocktower-wiki.gstonegames.com/index.php?title=%E5%A4%A9%E4%BD%BF" target="_blank" rel="noopener">查看原页面</a></div>
+    <div class="backlinks"><b>链入此页的页面（3）</b><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a><a href="../pages/%E5%A4%A9%E4%BD%BF.html">天使</a><a href="../pages/%E9%BA%92%E9%BA%9F.html">麒麟</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

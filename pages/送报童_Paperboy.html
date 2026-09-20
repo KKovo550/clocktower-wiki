@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>送报童 Paperboy - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">送报童 Paperboy<span class="ns-badge">奥德赛</span></h1>
+    <div class="tagline">来自钟楼百科 · 摘自《奥德赛 Odyssey》百科 · 镇民</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#夜晚行动顺序">夜晚行动顺序</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#游玩与对抗技巧">游玩与对抗技巧</a></li><li class="lvl2"><a href="#伪装成该角色">伪装成该角色</a></li><li class="lvl2"><a href="#出现剧本">出现剧本</a></li><li class="lvl2"><a href="#整体设计">整体设计</a></li><li class="lvl2"><a href="#创意来源">创意来源</a></li><li class="lvl2"><a href="#图标画师">图标画师</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E9%80%81%E6%8A%A5%E7%AB%A5">查找包含此角色的剧本 →</a></p><div class="charinfo"><div class="charinfo-img"><a href="../files/%E6%96%87%E4%BB%B6_%E9%80%81%E6%8A%A5%E7%AB%A5.png.html"><img alt="送报童 Paperboy" data-source-image="../images/%E9%80%81%E6%8A%A5%E7%AB%A5.png" src="../assets/media/送报童.preview.webp" width="600" height="600" decoding="async"></a></div><div class="charinfo-meta"><div class="row"><span class="k">角色类型</span><span class="v"><a href="../pages/%E9%95%87%E6%B0%91.html" title="镇民">镇民</a></span></div><div class="row"><span class="k">英文名</span><span class="v">Paperboy</span></div><div class="row"><span class="k">角色ID</span><span class="v">021</span></div><div class="row"><span class="k">角色归属</span><span class="v">角色拓展包《奥德赛》</span></div><div class="row"><span class="k">能力标签</span><span class="v"><a href="../pages/%E8%8E%B7%E5%8F%96%E4%BF%A1%E6%81%AF.html" title="获取信息">获取信息</a>、<a href="../pages/%E6%8B%9C%E8%AE%BF%E8%AF%B4%E4%B9%A6%E4%BA%BA.html" title="拜访说书人">拜访说书人</a>、<a href="../pages/%E5%85%AC%E5%BC%80%E8%A7%A6%E5%8F%91%E8%83%BD%E5%8A%9B.html" title="公开触发能力">公开触发能力</a></span></div><div class="row"><span class="k">角色授权</span><span class="v">开放（任意剧本创作可用，不要修改能力）</span></div><div class="row"><span class="k">出处</span><span class="v"><a class="external" href="https://www.yuque.com/u48069482/taiyi" target="_blank" rel="noopener">《奥德赛 Odyssey》百科</a></span></div></div></div><p><a href="../files/%E6%96%87%E4%BB%B6_%E9%80%81%E6%8A%A5%E7%AB%A5.png.html" class="image-link" title="文件:送报童.png"><img alt="送报童.png" style="width:240px" class="" loading="lazy" data-source-image="../images/%E9%80%81%E6%8A%A5%E7%AB%A5.png" src="../assets/media/送报童.preview.webp" width="600" height="600" decoding="async"></a></p>
+<h2 id="背景故事">背景故事</h2>
+<p><em><span style="color:rgb(64, 64, 64);">“铛铛！今日头条！今日头条！”</span></em></p>
+<h2 id="角色简介"><span style="color:rgb(64, 64, 64);">角色简介</span></h2>
+<p>送报童每天会带来小镇上的各种新闻。</p>
+<h2 id="角色能力">角色能力</h2>
+<div class="callout callout-info">
+<p>每个白天，你可以从说书人处获取一条新闻，如果你公开宣读了该新闻，当晚你会得知它是否为事实。</p>
+</div>
+<h2 id="范例">范例</h2>
+<ul>
+<li>送报童第一个白天拜访说书人并得知《震惊！表面是好闺蜜的鸭鸭和柠檬私底下竟分属不同阵营！》，然后他公开宣读了此新闻。当晚，他被说书人唤醒并得知“是”。</li>
+<li>送报童第一个白天拜访说书人并得知《红唇女郎与男爵被目击到同时在小镇现身》，他当天并未公开宣读，当晚，他没有被说书人唤醒。</li>
+</ul>
+<h2 id="运作方式">运作方式</h2>
+<p>每个白天仅限一次，如果送报童要求与你进行私聊，请和他一起离开玩家围成的圆圈，保证你们的私聊不会被偷听。然后以耳语或手写或电子屏幕打字的方式告知送报童一条“新闻”。</p>
+<p>如果送报童在白天时公开宣读了你今天给他的“新闻”，在他角色标记旁边放置“真新闻”或“假新闻”提示标记（按照你给的新闻是否客观真实）。每个夜晚，如果送报童角色旁边有放置“真新闻”提示标记，那么唤醒他，并告知“是”；如果送报童角色旁边有放置“假新闻”提示标记，那么唤醒他，并告知“否”‘。如果送报童角色旁没有放置任何提示标记，不需要唤醒他。</p>
+<p>黎明时移除所有“真新闻”、“假新闻”提示标记。</p>
+<h2 id="夜晚行动顺序">夜晚行动顺序</h2>
+<ul>
+<li>首个夜晚</li>
+<ul>
+<li>夜序数值：/</li>
+<li>前位角色：/</li>
+<li>行动提示：/</li>
+</ul>
+<li>其他夜晚</li>
+<ul>
+<li>夜序数值：11610</li>
+<li>前位角色：买花女孩</li>
+<li>行动提示：如果他在白天宣读了新闻，唤醒他并告知他是否为事实。</li>
+</ul>
+</ul>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>真新闻</li>
+<ul>
+<li>放置时机：送报童在白天公开宣读你当天给予的“新闻”时。</li>
+<li>放置条件：如果该“新闻”是事实。</li>
+<li>移除时机：每个黎明，或送报童死亡或立场时。</li>
+</ul>
+<li>假新闻</li>
+<ul>
+<li>放置时机：送报童在白天公开宣读你当天给予的“新闻”时。</li>
+<li>放置条件：如果该“新闻”不是事实。</li>
+<li>移除时机：每个黎明，或送报童死亡或立场时。</li>
+</ul>
+</ul>
+<h2 id="规则细节">规则细节</h2>
+<ul>
+<li>“新闻”是经过适当修饰的信息，它可以是正确的也可以是错误的，它应当具备以下要素：1、准确的主语（表达角色用角色名，表达玩家用玩家名或几号玩家）2、清晰的含义（让玩家一眼能懂你想表达什么）3、有趣的修饰。</li>
+<li><strong>事实：</strong>客观正确。不是客观正确的即不是事实。</li>
+<li>如果一名新人邪恶玩家正在伪装成送报童找你私聊，你应该给予他一些帮助或建议，让他很好的创造出自己的“新闻”。</li>
+<li>对于“新闻”是否真实的判断是在说书人给出“新闻”的那一刻就决定的，比如白天时送报童得知“死亡玩家中没有邪恶玩家”，说书人在给出这条新闻时标记为真实，即使当晚有邪恶玩家死亡，说书人依然会告知送报童“是”（代表白天收到的是事实）。</li>
+<li><strong>注意：</strong>单独的新闻不是信息（能力描述中特意用的“获取”而不是“得知”），新闻不会被涡流或类涡流能力影响，从而一定产出假新闻。送报童的完整信息是“白天+夜晚”，涡流或类涡流能力可以影响送报童夜晚得知的信息。</li>
+<li>这是一些“新闻”示例：《史上最大的恶魔小恶魔莅临小镇》（小恶魔在场）、《恶魔昨夜收到了他的新玩偶》（恶魔昨夜创造了新的玩偶）、《震惊！表面是好闺蜜的鸭鸭和柠檬私底下竟分属不同阵营！》（鸭鸭与柠檬不同阵营）、《红唇女郎与男爵被目击到同时在小镇现身》（红唇女郎与男爵都在场）、《骇人听闻！镇上的酒鬼被人发现死在家中》（酒鬼已经死亡）、《斯文败类！恶魔竟爱戴眼镜！》（恶魔玩家戴眼镜）、《食人魔加入了魔鬼党》（食人魔转变为邪恶阵营了）。</li>
+<li><strong>信息格式：</strong>单独的“新闻”不是信息。夜晚得知的信息格式：“是”或“否”。</li>
+<li><strong>错误（虚假）信息格式：</strong>“新闻”没有错误信息格式。夜晚得知信息错误格式：相反结果，“是”改为“否”，“否”改为“是”。</li>
+</ul>
+<h2 id="游玩与对抗技巧">游玩与对抗技巧</h2>
+<ul>
+<li>如果你是送报童。你可以每个白天公开宣读若干条新闻（包含你真实获得的新闻以及你捏造的新闻），这样让恶魔无法分辨你即将掌握的信息究竟是什么，从而影响他是否击杀你的判断。</li>
+<li>如果你不是送报童。比如你是贤者或浪人，你也可以在白天公开宣读新闻，掩护真正的送报童，如果恶魔误以为你是真正的送报童从而选择击杀你，你就可以发挥你原本的角色能力。</li>
+<li>如果你是恶魔。通常来说，白天没有宣读新闻的玩家一定不是送报童。在白天宣读了新闻的玩家也未必是送报童。根据“新闻”的重要程度选择是否攻击该送报童。</li>
+</ul>
+<h2 id="伪装成该角色">伪装成该角色</h2>
+<ul>
+<li>从第一天开始就兢兢业业的公开宣读信息，伪装成一个勤勤恳恳的送报童。并降低你的新闻的信息强度，让新闻看起来不是那么重要，这样可以解释你为什么一直没有死在夜晚。</li>
+<li>尽可能参考新闻的示例，避免捏造出过于离谱的新闻，从而被其他玩家一眼识别出你正在撒谎。</li>
+<li>如果你伪装成送报童失败，你可以进而宣称自己是贤者或者浪人、银匠或空中飞人，并解释你伪装是为了帮助善良阵营迷惑恶魔。</li>
+</ul>
+<h2 id="出现剧本">出现剧本</h2>
+<ul>
+<li>宝宝巴士、飞越疯人院Ⅱ、仲夏夜之梦</li>
+</ul>
+<h2 id="整体设计">整体设计</h2>
+<ul>
+<li>太一</li>
+</ul>
+<h2 id="创意来源">创意来源</h2>
+<ul>
+<li>太一</li>
+</ul>
+<h2 id="图标画师">图标画师</h2>
+<ul>
+<li>Lei.</li>
+</ul></div>
+    <div class="page-meta">最后修改于 2026-07-29T11:00:46.000Z，编辑者 <b>未知</b> ｜ 页面 6,026 字节 ｜ <a href="https://www.yuque.com/u48069482/taiyi/eg769io828ot7xnk" target="_blank" rel="noopener">查看原页面</a></div>
+    <div class="backlinks"><b>链入此页的页面（2）</b><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">奥德赛 Odyssey</a><a href="../pages/%E4%BB%8E%E8%AF%B4%E4%B9%A6%E4%BA%BA%E5%A4%84_From_the_Storyteller.html">从说书人处 From the Storyteller</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

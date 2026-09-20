@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>恶堕 Corruptus - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">恶堕 Corruptus<span class="ns-badge">奥德赛</span></h1>
+    <div class="tagline">来自钟楼百科 · 摘自《奥德赛 Odyssey》百科 · 恶魔</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#夜晚行动顺序">夜晚行动顺序</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#游玩与对抗技巧">游玩与对抗技巧</a></li><li class="lvl2"><a href="#出现剧本">出现剧本</a></li><li class="lvl2"><a href="#整体设计">整体设计</a></li><li class="lvl2"><a href="#创意来源">创意来源</a></li><li class="lvl2"><a href="#图标画师">图标画师</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E6%81%B6%E5%A0%95">查找包含此角色的剧本 →</a></p><div class="charinfo"><div class="charinfo-img"><a href="../files/%E6%96%87%E4%BB%B6_%E6%81%B6%E5%A0%95.png.html"><img alt="恶堕 Corruptus" data-source-image="../images/%E6%81%B6%E5%A0%95.png" src="../assets/media/恶堕.preview.webp" width="600" height="600" decoding="async"></a></div><div class="charinfo-meta"><div class="row"><span class="k">角色类型</span><span class="v"><a href="../pages/%E6%81%B6%E9%AD%94.html" title="恶魔">恶魔</a></span></div><div class="row"><span class="k">英文名</span><span class="v">Corruptus</span></div><div class="row"><span class="k">角色ID</span><span class="v">020</span></div><div class="row"><span class="k">角色归属</span><span class="v">角色拓展包《奥德赛》</span></div><div class="row"><span class="k">能力标签</span><span class="v"><a href="../pages/%E7%89%B9%E6%AE%8A%E8%83%9C%E5%88%A9%E5%A4%B1%E8%B4%A5%E6%9D%A1%E4%BB%B6.html" title="特殊胜利失败条件">特殊胜利失败条件</a>、<a href="../pages/%E8%AE%BE%E7%BD%AE%E8%B0%83%E6%95%B4.html" title="设置调整">设置调整</a>、死后保留能力</span></div><div class="row"><span class="k">角色授权</span><span class="v">开放（任意剧本创作可用，不要修改能力）</span></div><div class="row"><span class="k">出处</span><span class="v"><a class="external" href="https://www.yuque.com/u48069482/taiyi" target="_blank" rel="noopener">《奥德赛 Odyssey》百科</a></span></div></div></div><p><a href="../files/%E6%96%87%E4%BB%B6_%E6%81%B6%E5%A0%95.png.html" class="image-link" title="文件:恶堕.png"><img alt="恶堕.png" style="width:240px" class="" loading="lazy" data-source-image="../images/%E6%81%B6%E5%A0%95.png" src="../assets/media/恶堕.preview.webp" width="600" height="600" decoding="async"></a></p>
+<h2 id="背景故事">背景故事</h2>
+<p><em>“拥抱黑暗吧，异乡人，我会将你的死亡与怮哭化作铠甲，将你受过的排挤与恶意化作刀刃，然后你要随我一起，向他们复仇。”</em></p>
+<h2 id="角色简介"><span style="color:rgb(64, 64, 64);">角色简介</span></h2>
+<p>恶堕蛊惑死亡的外来者为其效力。</p>
+<h2 id="角色能力">角色能力</h2>
+<div class="callout callout-info">
+<p>每个夜晚*，你要选择一名玩家：他<strong>必死</strong>。死亡外来者的胜负条件与你相同，即使你已死亡。[1名或2名外来者在场]</p>
+</div>
+<h2 id="范例">范例</h2>
+<ul>
+<li>恶堕获胜，所有死亡的外来者也获胜了。</li>
+<li>恶堕落败，所有死亡的外来者也落败了。</li>
+<li>恶堕攻击了弄臣，弄臣死亡。恶堕攻击了受茶艺师保护的占卜师，占卜师死亡。</li>
+<li>恶堕攻击了被浪人保护的占卜师，精神病患者死亡。</li>
+<li>因为恶堕在场，场上只有一名外来者。即使男爵也在场。</li>
+<li>因为恶堕在场，场上只有两名外来者。即使男爵、气球驾驶员在场。</li>
+</ul>
+<h2 id="运作方式">运作方式</h2>
+<p>在游戏设置时，只要你加入了恶堕，外来者的数量就只能是一名或两名（此效果会覆盖其他增减外来者的能力）。</p>
+<p>除首个夜晚以外的每个夜晚，唤醒恶堕。让恶堕指向任意一名玩家，该玩家死亡——将“死亡”提示标记放置到该玩家的角色标记旁。本次死亡会忽视免死效果。</p>
+<p>只要恶堕在场，哪怕恶堕已经死亡，死亡外来者在恶堕获胜时获胜，在恶堕落败时落败。</p>
+<h2 id="夜晚行动顺序">夜晚行动顺序</h2>
+<ul>
+<li>首个夜晚</li>
+<ul>
+<li>夜序数值：/</li>
+<li>前位角色：/</li>
+<li>行动提示：/</li>
+</ul>
+<li>其他夜晚</li>
+<ul>
+<li>夜序数值：6210</li>
+<li>前位角色：奥赫</li>
+<li>行动提示：让他选择一名玩家。</li>
+</ul>
+</ul>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>死亡</li>
+<ul>
+<li>放置时机：在恶堕选择了玩家后放置。</li>
+<li>放置条件：如果恶堕选择的玩家当前存活，且恶堕未醉酒中毒，那么在该玩家的角色标记旁放置。</li>
+<li>移除时机：在黎明时宣布死亡玩家后，说书人可以任由自己方便来进行移除。</li>
+</ul>
+</ul>
+<h2 id="规则细节">规则细节</h2>
+<ul>
+<li><strong>必死：</strong>指该造成死亡的能力会忽视阻止死亡的能力（弄臣、茶艺师等）而造成死亡。</li>
+<li>在游戏设置时，只要你加入了恶堕，外来者的数量就只能是一名或两名（此效果会覆盖其他增减外来者的能力）。例如，12人局，恶堕、男爵在场，外来者只能是一名或两名。</li>
+<li>恶堕的改变配置能力，是配置1名外来者还是2名外来者，由说书人决定。在默认配置为0名外来者的情况下，请不要配置2名外来者。否则容易发生邪恶绑票，善良阵营难以获胜的现象。请说书人严肃看待此问题，并认真思考对局的平衡性，然后选择是配置1名外来者还是2名外来者。</li>
+<li>一些恶魔不是恶堕的对局，邪恶方可能会试图欺骗外来者恶魔是恶堕，可以利用一些合理的方式帮助他们，比如给会获得错误信息的自由信息位“恶堕在场”的信息。</li>
+<li>恶堕攻击被浪人保护的玩家时，一名邪恶玩家会替代其被攻击。被保护的玩家不会死亡，而替代被攻击的玩家会死亡，即使他受到弄臣能力之类的效果保护。浪人的能力是改变恶魔的攻击对象，而非免死能力，所以恶堕无法杀死浪人保护的对象。</li>
+<li>恶堕与神秘学家：如果游戏开始时，在场外来者数量与默认数量不一致，神秘学家在本局游戏中只会得知错误信息。</li>
+<li>恶堕的能力不可以选择旅行者玩家（旅行者隔绝原则）。</li>
+</ul>
+<h2 id="游玩与对抗技巧">游玩与对抗技巧</h2>
+<ul>
+<li>如果你是恶堕。你可以肆无忌惮的杀死任何你想杀死的玩家。但在游戏的前中期暴露恶堕在场可能并不是一个很好的选择，因为善良阵营会排除掉其他恶魔的可能性从而缩减很多可能性。</li>
+<li>如果你是恶堕。在游戏结束前尽可能的攻击外来者！你需要通过某些方式告知外来者们在场恶魔是恶堕，不管是直接杀死弄臣还是通过爪牙大肆宣扬恶堕在场。这将有利于邪恶阵营在最后一天的投票。</li>
+<li>如果你是其他邪恶角色。如果恶堕不在场，你也可以欺骗外来者们，特别是已经死亡的外来者们在场恶魔是恶堕。这样会使得他们在游戏的最后一天与邪恶阵营站在一起。</li>
+<li>如果你是外来者。仔细的辨别在场恶魔！是不是恶堕对你有非常重大的影响。如果你在游戏结束前还活着，那么恶堕的能力一定不会影响你，放心大胆的给你认为的恶魔投票吧！如果你死了，那么就要小心了，如果恶魔是恶堕，你必须帮助邪恶阵营才能迎来最后的胜利。</li>
+</ul>
+<h2 id="出现剧本">出现剧本</h2>
+<ul>
+<li>圆桌骑士团</li>
+</ul>
+<h2 id="整体设计">整体设计</h2>
+<ul>
+<li>太一</li>
+</ul>
+<h2 id="创意来源">创意来源</h2>
+<ul>
+<li>太一</li>
+</ul>
+<h2 id="图标画师">图标画师</h2>
+<ul>
+<li>Lei.</li>
+</ul></div>
+    <div class="page-meta">最后修改于 2026-08-16T10:47:28.000Z，编辑者 <b>未知</b> ｜ 页面 4,821 字节 ｜ <a href="https://www.yuque.com/u48069482/taiyi/wy171yuqcpnv8i3x" target="_blank" rel="noopener">查看原页面</a></div>
+    <div class="backlinks"><b>链入此页的页面（1）</b><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">奥德赛 Odyssey</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

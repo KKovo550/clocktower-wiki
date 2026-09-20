@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>获得能力 - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">获得能力</h1>
+    <div class="tagline">来自钟楼百科</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#能力简介">能力简介</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#相关角色">相关角色</a></li></ul></div>
+    <div class="mw-parser-output"><p>&lt;&lt;返回<a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html" title="角色能力类别总览">角色能力类别总览</a></p>
+<h2 id="能力简介">能力简介</h2>
+<p>部分角色可以通过自身的角色能力去让自己或其他玩家（如果是<a href="../pages/%E7%98%9F%E7%96%AB%E5%8C%BB%E7%94%9F.html" title="瘟疫医生">瘟疫医生</a>的话则是让说书人）获得新的能力。</p>
+<p>如果一项能力允许一名玩家获得新的能力，则直到这项能力失效之前，玩家均会保留新的能力并持续生效。</p>
+<p>如果获得的能力是一项“<a href="../pages/%E6%AD%BB%E4%BA%A1%E8%A7%A6%E5%8F%91%E8%83%BD%E5%8A%9B.html" title="死亡触发能力">死亡触发能力</a>”，那么玩家会在死亡时触发该能力的效果。即使是玩家自己的角色能力让自己获得了“死亡触发能力”，这一能力也依然会在他死亡时保留效果。</p>
+<p>如果获得的能力是一项“<a href="../pages/%E6%AD%BB%E5%90%8E%E8%83%BD%E5%8A%9B%E4%BF%9D%E7%95%99.html" title="死后能力保留">死后能力保留</a>”的能力，那么只要玩家在死亡时这一“获得能力”的能力是有效的，玩家就会持续保留这项“死后保留能力”。然而如果玩家在死亡时没有成功获得这一项能力，那么就不会在死后保留这项能力。（例如<a href="../pages/%E5%93%B2%E5%AD%A6%E5%AE%B6.html" title="哲学家">哲学家</a>获得了<a href="../pages/%E9%99%8C%E5%AE%A2.html" title="陌客">陌客</a>的能力，如果<a href="../pages/%E5%93%B2%E5%AD%A6%E5%AE%B6.html" title="哲学家">哲学家</a>在醉酒后死亡，那么他不会在死后保留<a href="../pages/%E9%99%8C%E5%AE%A2.html" title="陌客">陌客</a>的能力）</p>
+<p>如果玩家获得的能力是一项<a href="../pages/%E8%BF%9B%E5%9C%BA%E8%83%BD%E5%8A%9B.html" title="进场能力">进场能力</a>，该能力会在特定的时间点生效。说书人应该立即放置相应的提示标记，如果是在非首个夜晚且需要唤醒该玩家的（如获取信息、玩家需要做出选择等），那么一般需要在夜晚顺序表中，所有会造成玩家死亡的行动与效果全部结算完毕后，插入结算这些效果，唤醒该玩家并触发相应的能力。但某些特殊情况的选择（如<a href="../pages/%E7%97%A2%E8%9B%AD.html" title="痢蛭">痢蛭</a>选择宿主），需要立刻被唤醒并进行选择。（因为这些能力通常不会在非首个夜晚生效，因此在夜晚顺序表中没有这些能力的触发时机。）如果存在多个处于这种情况下的玩家，那么由说书人来决定这些玩家的唤醒顺序，并分别单独唤醒这些玩家。这些能力的触发会插入夜晚顺序表的相关能力结算，并可能会影响夜晚顺序表中所有位于会造成死亡效果的角色行动之后的那些角色。另外，如果玩家在夜晚时获得<a href="../pages/%E8%BF%9B%E5%9C%BA%E8%83%BD%E5%8A%9B.html" title="进场能力">进场能力</a>的时机晚于这一规定时机，那么这些能力都会立即生效并进行结算。</p>
+<p>（这一规定的目的是为了让所有的角色能力都有机会受到中毒或死亡的效果所影响，从而让通过这种方式获得的信息与其他方式获取的信息一样，保持不确定性。然而如果你觉得这种定义较为繁琐，或者游玩的剧本中产生中毒效果的角色较少，或者一些特殊的情况出现了，你也可以使用更便捷的处理方式，例如，在一名玩家的角色变成<a href="../pages/%E6%95%99%E7%88%B6.html" title="教父">教父</a>时，告诉他你变成了<a href="../pages/%E6%95%99%E7%88%B6.html" title="教父">教父</a>，他所得知的在场外来者有哪些，以及让他行动来攻击一名玩家，将这些行为在同一次唤醒中一次性处理完毕。）</p>
+<h2 id="范例">范例</h2>
+<p><a href="../pages/%E5%92%96%E5%95%A1%E5%B8%88.html" title="咖啡师">咖啡师</a>的“行动两次”效果对<a href="../pages/%E6%9C%88%E4%B9%8B%E5%AD%90.html" title="月之子">月之子</a>生效。黎明时，<a href="../pages/%E6%9C%88%E4%B9%8B%E5%AD%90.html" title="月之子">月之子</a>被说书人宣布死亡。此时，<a href="../pages/%E6%9C%88%E4%B9%8B%E5%AD%90.html" title="月之子">月之子</a>需要立即选择两名不同的玩家。</p>
+<p><a href="../pages/%E5%BC%82%E7%AB%AF%E5%88%86%E5%AD%90.html" title="异端分子">异端分子</a>被处决而死亡。当晚，<a href="../pages/%E9%A3%9F%E4%BA%BA%E6%97%8F.html" title="食人族">食人族</a>被恶魔攻击并死亡。因为有两名玩家都具有<a href="../pages/%E5%BC%82%E7%AB%AF%E5%88%86%E5%AD%90.html" title="异端分子">异端分子</a>的能力，从现在起胜负结果不会再被反转。</p>
+<p>在一局梦殒春宵中，<a href="../pages/%E5%93%B2%E5%AD%A6%E5%AE%B6.html" title="哲学家">哲学家</a>在首个夜晚选择获得<a href="../pages/%E9%92%9F%E8%A1%A8%E5%8C%A0.html" title="钟表匠">钟表匠</a>的能力。说书人让他重新入睡，并在轮到应该唤醒<a href="../pages/%E9%92%9F%E8%A1%A8%E5%8C%A0.html" title="钟表匠">钟表匠</a>的时候将其唤醒并告知其相应的信息。然而，如果不是游戏的首个夜晚，说书人则应该等到恶魔行动后，再将<a href="../pages/%E9%92%9F%E8%A1%A8%E5%8C%A0.html" title="钟表匠">钟表匠</a>的信息告知<a href="../pages/%E5%93%B2%E5%AD%A6%E5%AE%B6.html" title="哲学家">哲学家</a>。（如果此时<a href="../pages/%E5%93%B2%E5%AD%A6%E5%AE%B6.html" title="哲学家">哲学家</a>醉酒或中毒，仍然需要注意说书人可以欺骗他并且可以告诉他错误的信息。）</p>
+<h2 id="相关角色">相关角色</h2>
+<ul>
+<li><strong>黯月初升</strong></li>
+<ul>
+<li><a href="../pages/%E5%AD%A6%E5%BE%92.html" title="学徒">学徒</a>（旅行者）</li>
+</ul>
+</ul>
+<ul>
+<li><strong>梦殒春宵</strong></li>
+<ul>
+<li><a href="../pages/%E5%93%B2%E5%AD%A6%E5%AE%B6.html" title="哲学家">哲学家</a>（镇民）</li>
+<li><a href="../pages/%E9%9B%86%E9%AA%A8%E8%80%85.html" title="集骨者">集骨者</a>（旅行者）</li>
+<li><a href="../pages/%E5%92%96%E5%95%A1%E5%B8%88.html" title="咖啡师">咖啡师</a>（旅行者）</li>
+</ul>
+</ul>
+<ul>
+<li><strong>实验性角色</strong></li>
+<ul>
+<li><a href="../pages/%E7%82%BC%E9%87%91%E6%9C%AF%E5%A3%AB.html" title="炼金术士">炼金术士</a>（镇民）</li>
+<li><a href="../pages/%E9%A3%9F%E4%BA%BA%E6%97%8F.html" title="食人族">食人族</a>（镇民）</li>
+<li><a href="../pages/%E5%A4%B1%E5%BF%86%E8%80%85.html" title="失忆者">失忆者</a>（镇民）</li>
+<li><a href="../pages/%E5%B0%8F%E7%B2%BE%E7%81%B5.html" title="小精灵">小精灵</a>（镇民）</li>
+<li><a href="../pages/%E7%98%9F%E7%96%AB%E5%8C%BB%E7%94%9F.html" title="瘟疫医生">瘟疫医生</a>（外来者）</li>
+<li><a href="../pages/%E9%9A%90%E5%A3%AB.html" title="隐士">隐士</a>（外来者）</li>
+<li><a href="../pages/%E7%A7%91%E5%AD%A6%E6%80%AA%E4%BA%BA.html" title="科学怪人">科学怪人</a>（爪牙）</li>
+<li><a href="../pages/%E5%B7%AB%E5%B8%88.html" title="巫师">巫师</a>（爪牙）</li>
+</ul>
+</ul>
+<ul>
+<li><strong>华灯初上</strong></li>
+<ul>
+<li><a href="../pages/%E5%8F%98%E8%84%B8%E5%B8%88.html" title="变脸师">变脸师</a>（镇民）</li>
+<li><a href="../pages/%E5%8F%AB%E8%8A%B1%E5%AD%90.html" title="叫花子">叫花子</a>（旅行者）</li>
+</ul>
+</ul>
+<ul>
+<li><strong>山雨欲来</strong></li>
+<ul>
+<li><a href="../pages/%E7%94%BB%E7%9A%AE.html" title="画皮">画皮</a>（爪牙）</li>
+<li><a href="../pages/%E5%A7%91%E8%8E%B7%E9%B8%9F.html" title="姑获鸟">姑获鸟</a>（恶魔）</li>
+</ul>
+</ul></div>
+    <div class="page-meta">最后修改于 2026-05-18T11:19:43Z，编辑者 <b>Zack</b> ｜ 页面 4,322 字节 ｜ <a href="https://clocktower-wiki.gstonegames.com/index.php?title=%E8%8E%B7%E5%BE%97%E8%83%BD%E5%8A%9B" target="_blank" rel="noopener">查看原页面</a> ｜ <div class="comment">编辑摘要：/* 能力简介 */</div></div>
+    <div class="backlinks"><b>链入此页的页面（25）</b><a href="../pages/%E7%82%BC%E9%87%91%E6%9C%AF%E5%A3%AB.html">炼金术士</a><a href="../pages/%E5%A4%B1%E5%BF%86%E8%80%85.html">失忆者</a><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a><a href="../pages/%E9%A3%9F%E4%BA%BA%E6%97%8F.html">食人族</a><a href="../pages/%E5%B0%8F%E7%B2%BE%E7%81%B5.html">小精灵</a><a href="../pages/%E6%AD%BB%E5%90%8E%E8%83%BD%E5%8A%9B%E4%BF%9D%E7%95%99.html">死后能力保留</a><a href="../pages/%E5%93%B2%E5%AD%A6%E5%AE%B6.html">哲学家</a><a href="../pages/%E5%AD%A6%E5%BE%92.html">学徒</a><a href="../pages/%E5%92%96%E5%95%A1%E5%B8%88.html">咖啡师</a><a href="../pages/%E9%9B%86%E9%AA%A8%E8%80%85.html">集骨者</a><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a><a href="../pages/%E7%98%9F%E7%96%AB%E5%8C%BB%E7%94%9F.html">瘟疫医生</a><a href="../pages/%E5%8F%98%E8%84%B8%E5%B8%88.html">变脸师</a><a href="../pages/%E5%8F%AB%E8%8A%B1%E5%AD%90.html">叫花子</a><a href="../pages/%E7%A7%91%E5%AD%A6%E6%80%AA%E4%BA%BA.html">科学怪人</a><a href="../pages/%E7%94%BB%E7%9A%AE.html">画皮</a><a href="../pages/%E5%B7%AB%E5%B8%88.html">巫师</a><a href="../pages/%E9%9A%90%E5%A3%AB.html">隐士</a><a href="../pages/%E5%A7%91%E8%8E%B7%E9%B8%9F.html">姑获鸟</a><a href="../pages/%E6%B5%AA%E4%BA%BA_Ronin.html">浪人 Ronin</a><a href="../pages/%E6%B9%96%E4%B8%AD%E4%BB%99%E5%A5%B3_Lady_of_the_Lake.html">湖中仙女 Lady of the Lake</a><a href="../pages/%E6%B3%B0%E5%9D%A6_Titan.html">泰坦 Titan</a><a href="../pages/%E6%99%93_Dawnyx.html">晓 Dawnyx</a><a href="../pages/%E6%B5%B7%E4%B9%8B%E5%AD%90_The_Sea-born.html">海之子 The Sea-born</a><a href="../pages/%E5%A5%B8%E5%A5%87_Tzeentch.html">奸奇 Tzeentch</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

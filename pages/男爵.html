@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>男爵 - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">男爵</h1>
+    <div class="tagline">来自钟楼百科</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#提示与技巧">提示与技巧</a></li><li class="lvl2"><a href="#对抗男爵">对抗男爵</a></li><li class="lvl2"><a href="#角色信息">角色信息</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E7%94%B7%E7%88%B5">查找包含此角色的剧本 →</a></p><p><a href="../pages/%E7%94%B7%E7%88%B5.html" class="image-link" title="男爵"><img alt="baron.png" style="width:200px" class="" loading="lazy" data-source-image="../images/Baron.png" src="../assets/media/Baron.preview.webp" width="600" height="600" decoding="async"></a></p>
+<h2 id="背景故事">背景故事</h2>
+<p><em>“这个小镇没救了，不是么？廉价的外来劳动力……这就是问题所在。要我说，我会把他们全部调配到矿井里。不过是稍有些困难的工作，这不会伤害到任何人，要是有人提出反对意见就赏他一记耳光。这就是所谓的底线，不是么？”</em></p>
+<h2 id="角色能力">角色能力</h2>
+<p><strong>会有额外的外来者在场。[+2 外来者]</strong></p>
+<h2 id="角色简介">角色简介</h2>
+<p>男爵会改变在场的外来者数量。</p>
+<ul>
+<li>外来者的数量变化会发生在初始设置时，且不会因为男爵死亡而恢复成原本的数量。对角色在初始设置时的更改，而在游戏过程中不产生影响的能力，都会在角色列表和角色标记上以方括号标注在角色描述的末尾——就像[这样]。</li>
+</ul>
+<ul>
+<li>增加的外来者角色总是会替换掉原本的镇民角色，而不是其他角色类型。</li>
+</ul>
+<h2 id="范例">范例</h2>
+<p>正在进行七人游戏的初始设置，有五名镇民，一名爪牙，和一名恶魔。因为爪牙是<a href="../pages/%E7%94%B7%E7%88%B5.html" title="男爵">男爵</a>，说书人移除了两名镇民，并添加了一个<a href="../pages/%E5%9C%A3%E5%BE%92.html" title="圣徒">圣徒</a>标记和一个<a href="../pages/%E7%AE%A1%E5%AE%B6.html" title="管家">管家</a>标记。现在，总共有三名镇民，两名外来者，一名爪牙，和一名恶魔被放进了盲抽袋并被玩家们抽取。</p>
+<p>正在进行十五人游戏的初始设置，有九名镇民，两名外来者（<a href="../pages/%E5%9C%A3%E5%BE%92.html" title="圣徒">圣徒</a>和<a href="../pages/%E7%AE%A1%E5%AE%B6.html" title="管家">管家</a>），三名爪牙，和一名恶魔。因为<a href="../pages/%E7%94%B7%E7%88%B5.html" title="男爵">男爵</a>在场，说书人必须添加一个<a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a>标记和一个<a href="../pages/%E9%99%8C%E5%AE%A2.html" title="陌客">陌客</a>标记。因此，说书人移除了<a href="../pages/%E5%83%A7%E4%BE%A3.html" title="僧侣">僧侣</a>标记来添加<a href="../pages/%E9%99%8C%E5%AE%A2.html" title="陌客">陌客</a>标记。然后，作为添加<a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a>角色标记的替代，说书人在魔典中加入了<a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a>的“是酒鬼”提示标记……因为在这局游戏中，会有一名玩家不是镇民——而是外来者：<a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a>。所有的这些被添加的角色标记会放进盲抽袋并被玩家们抽取。</p>
+<h2 id="运作方式">运作方式</h2>
+<p>在游戏设置时，移除任意两个镇民角色标记，并添加任意两个外来者角色标记。（如果你添加了<a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a>，请记得同样需要依照酒鬼的初始设置方法进行设置步骤。）这些外来者角色标记会作为镇民角色标记的替代放入盲抽袋中。</p>
+<h2 id="提示标记">提示标记</h2>
+<p>无</p>
+<h2 id="规则细节">规则细节</h2>
+<ul>
+<li>相克规则：</li>
+<ul>
+<li><a href="../pages/%E7%98%9F%E7%96%AB%E5%8C%BB%E7%94%9F.html" title="瘟疫医生">瘟疫医生</a>：如果说书人获得了男爵的能力，改为至多两名玩家会变成外来者。</li>
+<li><a href="../pages/%E5%BC%82%E7%AB%AF%E5%88%86%E5%AD%90.html" title="异端分子">异端分子</a>：互为克星的角色在同一时间里只能有其中一个角色在场。</li>
+</ul>
+</ul>
+<h2 id="提示与技巧">提示与技巧</h2>
+<ul>
+<li>你的能力甚至在游戏还未开始的时候就已经生效了。这意味着你除了帮恶魔获胜之外，绝对没有其他任何责任了！享受游戏吧！故意和某位镇民宣称相同的角色来让他看起来像是邪恶方的！散布谎言！你可以通过下套、伪装双重角色以及富有创造性的伪装来让善良玩家看起来邪恶，让邪恶玩家看起来善良。你可以大胆去做你任何想要做的事情，因为你已经没什么可以再失去的了！</li>
+</ul>
+<ul>
+<li>由于你向游戏中添加了额外的外来者，且这些玩家通常会公开声明自己的外来者角色，这时候你也说自己是外来者能给局势带来巨大的混乱。如果<a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a>在场，且只有你和一个真的外来者声明了自己的外来者角色——在这种情况下，由于场上多了两个外来者，善良阵营将会知道<a href="../pages/%E7%94%B7%E7%88%B5.html" title="男爵">男爵</a>在场，但只会认为你是个真的外来者。然而，如果场上没有<a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a>，就会比一般情况下多出三个外来者，善良阵营可能会想把三个外来者全部处决，因为这里面至少有一个是邪恶阵营的——处决三名玩家（包括你自己）将带来一场好戏且能够给你的队伍带来优势。</li>
+</ul>
+<ul>
+<li>故意与一位在场玩家声明一样的角色，这样可以让他的角色看起来也邪恶。你就算死了也无所谓，因此当<a href="../pages/%E5%8D%A0%E5%8D%9C%E5%B8%88.html" title="占卜师">占卜师</a>，<a href="../pages/%E9%80%81%E8%91%AC%E8%80%85.html" title="送葬者">送葬者</a>，甚至<a href="../pages/%E9%95%87%E9%95%BF.html" title="镇长">镇长</a>在场时，你也可以声明自己是这些角色，这样你们俩看起来就会都比较可疑。那个玩家会怀疑你邪恶，但其他玩家也同样会怀疑他，且不会相信任何他给出的信息。</li>
+</ul>
+<ul>
+<li>对邪恶阵营来说，在场上没有<a href="../pages/%E7%94%B7%E7%88%B5.html" title="男爵">男爵</a>的时候说场上有<a href="../pages/%E7%94%B7%E7%88%B5.html" title="男爵">男爵</a>也是个不错的策略。声称自己是个外来者将会让大家开始讨论是否有<a href="../pages/%E7%94%B7%E7%88%B5.html" title="男爵">男爵</a>在场。如果善良阵营开始相信<a href="../pages/%E7%94%B7%E7%88%B5.html" title="男爵">男爵</a>确实在场，你这个外来者角色就很合理了，但是善良阵营也会同样相信场上有个<a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a>，因为在没有其他玩家声明自己是外来者的情况下，另一个外来者肯定就是<a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a>了。这样他们就会对自己的信息一直保持怀疑态度。</li>
+</ul>
+<ul>
+<li>更好的是，如果在<a href="../pages/%E7%94%B7%E7%88%B5.html" title="男爵">男爵</a>不在场的情况下你说场上有<a href="../pages/%E7%94%B7%E7%88%B5.html" title="男爵">男爵</a>，且两位邪恶阵营玩家刚好都说自己是外来者，这样看起来就像是<a href="../pages/%E7%94%B7%E7%88%B5.html" title="男爵">男爵</a>增加了两个外来者，这两名外来者通常也不会被善良玩家处决。因为善良阵营想要让善良玩家一直活着，就算是被"确信"的外来者活着也比死了强。</li>
+</ul>
+<ul>
+<li>当个替死鬼吧。想办法代替恶魔被处决。不要怕以这种方式死亡，因为这能多保证你的恶魔老大一天的安全。而且，如果你看起来太值得被处决以至于<a href="../pages/%E7%8C%8E%E6%89%8B.html" title="猎手">猎手</a>或<a href="../pages/%E5%AE%88%E9%B8%A6%E4%BA%BA.html" title="守鸦人">守鸦人</a>对你使用了能力，这样还至少能够保证他们不会把能力用在恶魔身上。即便你提名了<a href="../pages/%E8%B4%9E%E6%B4%81%E8%80%85.html" title="贞洁者">贞洁者</a>，没有被立刻处决会让你看起来很邪恶，但这也避免了让恶魔陷入相同的处境。</li>
+</ul>
+<ul>
+<li>如果你没有伪装成外来者，就尽可能往真的外来者身上泼脏水。在场上明显存在<a href="../pages/%E7%94%B7%E7%88%B5.html" title="男爵">男爵</a>时，外来者通常会被善良阵营所信任，如果你想赢就必须杀掉他们。</li>
+</ul>
+<ul>
+<li>还有一种选择，就是让恶魔在游戏前期杀死你——在游戏前期死亡的玩家通常被大家认为是善良角色，利用这一点你就可以四处搜集情报并反馈给邪恶阵营，同时还可以顺便散播一下谎言。虽然说这条策略对任何爪牙都实用，但<a href="../pages/%E7%94%B7%E7%88%B5.html" title="男爵">男爵</a>无疑是最适合的，因为你那牛X的能力早就已经开始生效了。</li>
+</ul>
+<h2 id="对抗男爵">对抗男爵</h2>
+<ul>
+<li>如果外来者的数量与正常情况下对不上（例如：在仅有一位外来者的游戏中出现了三位外来者），场上就很有可能存在<a href="../pages/%E7%94%B7%E7%88%B5.html" title="男爵">男爵</a>。关于这一点，你有几种选择：</li>
+<ul>
+<li>如果你相信所有的外来者，那就让他们都活着！就算他们能力拉胯，但总归也是善良阵营的玩家。</li>
+<li>如果你不确定有没有<a href="../pages/%E7%94%B7%E7%88%B5.html" title="男爵">男爵</a>，那就最好尽快让外来者们都出局；这其实有可能是邪恶阵营玩家伪装成了额外的外来者来避免被怀疑。</li>
+<li>如果你相信外来者但数量确实对不上，那有一个镇民可能就是<a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a>，你应该尽快找到他。</li>
+</ul>
+</ul>
+<ul>
+<li>不同于其他爪牙，<a href="../pages/%E7%94%B7%E7%88%B5.html" title="男爵">男爵</a>对于游戏的影响是显而易见的；你将很快注意到场上是否存在意料之外的外来者。查明场上有<a href="../pages/%E7%94%B7%E7%88%B5.html" title="男爵">男爵</a>其实是件好事，因为这就意味着（特别是在人数较少的游戏中）可能场上会少一个<a href="../pages/%E6%8A%95%E6%AF%92%E8%80%85.html" title="投毒者">投毒者</a>，<a href="../pages/%E9%97%B4%E8%B0%8D.html" title="间谍">间谍</a>或<a href="../pages/%E7%BA%A2%E5%94%87%E5%A5%B3%E9%83%8E.html" title="红唇女郎">红唇女郎</a>。</li>
+</ul>
+<ul>
+<li>相比于其他爪牙来说，<a href="../pages/%E7%94%B7%E7%88%B5.html" title="男爵">男爵</a>就算一直活着也不会带来更多的收益了，因此他的行动通常会趋于大胆且在游戏中会显得更有进攻性。<a href="../pages/%E7%94%B7%E7%88%B5.html" title="男爵">男爵</a>不怕死；他会故意和其他玩家宣称同样的角色，故意第一个提名<a href="../pages/%E8%B4%9E%E6%B4%81%E8%80%85.html" title="贞洁者">贞洁者</a>，故意惹恼<a href="../pages/%E7%8C%8E%E6%89%8B.html" title="猎手">猎手</a>，也可能他就在那搅局。如果你认为某位玩家非常喜欢引发混乱，他可能就是<a href="../pages/%E7%94%B7%E7%88%B5.html" title="男爵">男爵</a>！</li>
+</ul>
+<ul>
+<li>与其他爪牙不同，<a href="../pages/%E7%94%B7%E7%88%B5.html" title="男爵">男爵</a>的效果在游戏最最开始就已经生效了且无法被改变。这也就意味着不是完全有必要非得处决<a href="../pages/%E7%94%B7%E7%88%B5.html" title="男爵">男爵</a>。让一个邪恶阵营玩家出局确实是有利的，但如果你有更好的选择（例如发现了一个可能是<a href="../pages/%E5%B0%8F%E6%81%B6%E9%AD%94.html" title="小恶魔">小恶魔</a>或<a href="../pages/%E6%8A%95%E6%AF%92%E8%80%85.html" title="投毒者">投毒者</a>的玩家），就可以先把<a href="../pages/%E7%94%B7%E7%88%B5.html" title="男爵">男爵</a>放在一边。</li>
+</ul>
+<ul>
+<li>别忘了<a href="../pages/%E5%B0%8F%E6%81%B6%E9%AD%94.html" title="小恶魔">小恶魔</a>也可以将恶魔角色传递给<a href="../pages/%E7%94%B7%E7%88%B5.html" title="男爵">男爵</a>！也不要完全忽视<a href="../pages/%E7%94%B7%E7%88%B5.html" title="男爵">男爵</a>的存在，最后一天再去考虑他有没有变成恶魔实在是有些晚了。</li>
+</ul>
+<h2 id="角色信息">角色信息</h2>
+<ul>
+<li>英文名：Baron</li>
+</ul>
+<ul>
+<li>所属剧本：<a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html" title="暗流涌动">暗流涌动</a></li>
+</ul>
+<ul>
+<li>角色类型：<a href="../pages/%E7%88%AA%E7%89%99.html" title="爪牙">爪牙</a></li>
+</ul>
+<ul>
+<li>角色能力类型：<a href="../pages/%E8%AE%BE%E7%BD%AE%E8%B0%83%E6%95%B4.html" title="设置调整">设置调整</a></li>
+</ul>
+<ul>
+<li>角色背景相关：男爵在<a href="../pages/%E8%B0%83%E6%9F%A5%E5%91%98.html" title="调查员">调查员</a>的背景故事里正在被对线。</li>
+</ul></div>
+    <div class="page-meta">最后修改于 2026-06-13T02:43:00Z，编辑者 <b>Zack</b> ｜ 页面 8,322 字节 ｜ <a href="https://clocktower-wiki.gstonegames.com/index.php?title=%E7%94%B7%E7%88%B5" target="_blank" rel="noopener">查看原页面</a> ｜ <div class="comment">编辑摘要：/* 规则细节 */</div></div>
+    <div class="backlinks"><b>链入此页的页面（57）</b><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a><a href="../pages/%E6%B4%97%E8%A1%A3%E5%A6%87.html">洗衣妇</a><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a><a href="../pages/%E5%9B%BE%E4%B9%A6%E7%AE%A1%E7%90%86%E5%91%98.html">图书管理员</a><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a><a href="../pages/%E7%82%BC%E9%87%91%E6%9C%AF%E5%A3%AB.html">炼金术士</a><a href="../pages/%E6%97%A0%E7%A5%9E%E8%AE%BA%E8%80%85.html">无神论者</a><a href="../pages/%E8%B5%8F%E9%87%91%E7%8C%8E%E4%BA%BA.html">赏金猎人</a><a href="../pages/%E5%B7%A5%E7%A8%8B%E5%B8%88.html">工程师</a><a href="../pages/%E8%B4%B5%E6%97%8F.html">贵族</a><a href="../pages/%E7%BD%82%E7%B2%9F%E7%A7%8D%E6%A4%8D%E8%80%85.html">罂粟种植者</a><a href="../pages/%E5%BC%82%E7%AB%AF%E5%88%86%E5%AD%90.html">异端分子</a><a href="../pages/%E6%81%90%E6%83%A7%E4%B9%8B%E7%81%B5.html">恐惧之灵</a><a href="../pages/%E5%88%A9%E7%BB%B4%E5%9D%A6.html">利维坦</a><a href="../pages/%E5%B0%8F%E6%80%AA%E5%AE%9D.html">小怪宝</a><a href="../pages/%E9%BB%91%E5%B8%AE.html">黑帮</a><a href="../pages/%E8%B0%83%E6%9F%A5%E5%91%98.html">调查员</a><a href="../pages/%E5%8E%A8%E5%B8%88.html">厨师</a><a href="../pages/%E5%85%B1%E6%83%85%E8%80%85.html">共情者</a><a href="../pages/%E8%AE%BE%E7%BD%AE%E8%B0%83%E6%95%B4.html">设置调整</a><a href="../pages/%E9%85%92%E9%AC%BC.html">酒鬼</a><a href="../pages/%E5%9C%A3%E5%BE%92.html">圣徒</a><a href="../pages/%E6%8A%95%E6%AF%92%E8%80%85.html">投毒者</a><a href="../pages/%E7%BA%A2%E5%94%87%E5%A5%B3%E9%83%8E.html">红唇女郎</a><a href="../pages/%E7%94%B7%E7%88%B5.html">男爵</a><a href="../pages/%E5%B0%8F%E6%81%B6%E9%AD%94.html">小恶魔</a><a href="../pages/%E9%AD%94%E9%AC%BC%E4%BB%A3%E8%A8%80%E4%BA%BA.html">魔鬼代言人</a><a href="../pages/%E7%88%AA%E7%89%99.html">爪牙</a><a href="../pages/%E6%97%A0%E4%B8%8A%E6%84%89%E6%82%A6.html">无上愉悦</a><a href="../pages/%E6%9E%AA%E6%89%8B.html">枪手</a><a href="../pages/%E6%9C%AB%E6%97%A5%E9%A2%84%E8%A8%80%E8%80%85.html">末日预言者</a><a href="../pages/%E5%93%A8%E5%85%B5.html">哨兵</a><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a><a href="../pages/%E6%84%9A%E8%80%85%E6%AC%A2%E5%AE%B4.html">愚者欢宴</a><a href="../pages/%E7%98%9F%E7%96%AB%E5%8C%BB%E7%94%9F.html">瘟疫医生</a><a href="../pages/%E5%92%8C%E5%B0%9A.html">和尚</a><a href="../pages/%E8%A1%8C%E6%88%90%E4%B8%8B%E5%AD%A4%E4%B9%A1.html">行成下孤乡</a><a href="../pages/%E5%B9%BB%E5%BD%B1%E7%94%BB%E5%AE%89%E5%8D%B1.html">幻影画安危</a><a href="../pages/%E5%BC%82%E5%9C%B0%E4%BC%97%E6%AC%A2%E6%9D%A5.html">异地众欢来</a><a href="../pages/%E5%BC%95%E8%B7%AF%E4%BA%BA.html">引路人</a><a href="../pages/%E5%85%A5%E6%AE%93%E5%B8%88.html">入殓师</a><a href="../pages/%E5%A5%B8%E4%BD%9E.html">奸佞</a><a href="../pages/%E5%AF%B9%E5%A2%9F%E9%9A%BE%E6%AC%A2%E9%B8%A3.html">对墟难欢鸣</a><a href="../pages/%E8%8E%AB%E9%80%86%E4%B9%8B%E4%BA%A4.html">莫逆之交</a><a href="../pages/%E9%97%B2%E8%A8%80%E7%A2%8E%E8%AF%AD.html">闲言碎语</a><a href="../pages/%E6%96%B9%E5%A3%AB.html">方士</a><a href="../pages/%E7%94%BB%E7%9A%AE.html">画皮</a><a href="../pages/%E9%99%90.html">限</a><a href="../pages/%E6%9A%97%E5%BA%A6%E9%99%88%E4%BB%93.html">暗度陈仓</a><a href="../pages/%E4%BA%A1%E7%81%B5%E8%AE%AE%E4%BC%9A.html">亡灵议会</a><a href="../pages/%E7%81%AF%E7%A5%9E%E5%A5%91%E7%BA%A6.html">灯神契约</a><a href="../pages/%E6%8C%91%E7%81%AF%E7%9C%8B%E5%89%91.html">挑灯看剑</a><a href="../pages/%E4%B8%83%E6%AD%A5%E6%88%90%E8%AF%97.html">七步成诗</a><a href="../pages/%E9%98%B4%E9%98%B3%E9%9A%BE%E8%BE%A8.html">阴阳难辨</a><a href="../pages/%E5%86%A5%E6%B2%B3%E9%82%AA%E6%B8%A1.html">冥河邪渡</a><a href="../pages/%E9%87%91%E6%88%88%E9%93%81%E9%A9%ACV2.0.html">金戈铁马V2.0</a><a href="../pages/%E6%B1%9F%E5%9F%8E%E5%90%AF.html">江城启</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

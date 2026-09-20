@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>骚客 Versifier - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">骚客 Versifier<span class="ns-badge">奥德赛</span></h1>
+    <div class="tagline">来自钟楼百科 · 摘自《奥德赛 Odyssey》百科 · 爪牙</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#夜晚行动顺序">夜晚行动顺序</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#游玩与对抗技巧">游玩与对抗技巧</a></li><li class="lvl2"><a href="#出现剧本">出现剧本</a></li><li class="lvl2"><a href="#整体设计">整体设计</a></li><li class="lvl2"><a href="#创意来源">创意来源</a></li><li class="lvl2"><a href="#图标画师">图标画师</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E9%AA%9A%E5%AE%A2">查找包含此角色的剧本 →</a></p><div class="charinfo"><div class="charinfo-img"><a href="../files/%E6%96%87%E4%BB%B6_%E9%AA%9A%E5%AE%A2.png.html"><img alt="骚客 Versifier" data-source-image="../images/%E9%AA%9A%E5%AE%A2.png" src="../assets/media/骚客.preview.webp" width="600" height="600" decoding="async"></a></div><div class="charinfo-meta"><div class="row"><span class="k">角色类型</span><span class="v"><a href="../pages/%E7%88%AA%E7%89%99.html" title="爪牙">爪牙</a></span></div><div class="row"><span class="k">英文名</span><span class="v">Versifier</span></div><div class="row"><span class="k">角色ID</span><span class="v">073</span></div><div class="row"><span class="k">角色归属</span><span class="v">角色拓展包《奥德赛》</span></div><div class="row"><span class="k">能力标签</span><span class="v">公开声称、<a href="../pages/%E5%A4%84%E5%86%B3.html" title="处决">处决</a>、死后保留能力、<a href="../pages/%E8%8E%B7%E5%8F%96%E4%BF%A1%E6%81%AF.html" title="获取信息">获取信息</a></span></div><div class="row"><span class="k">角色定位</span><span class="v">轮次爪牙</span></div><div class="row"><span class="k">发布日期</span><span class="v">2026.5.20</span></div><div class="row"><span class="k">角色授权</span><span class="v">开放（任意剧本创作皆可使用，不要改能力）</span></div><div class="row"><span class="k">出处</span><span class="v"><a class="external" href="https://www.yuque.com/u48069482/taiyi" target="_blank" rel="noopener">《奥德赛 Odyssey》百科</a></span></div></div></div><h2 id="背景故事">背景故事</h2>
+<p><em>"月皎惊乌栖不定，更漏将残，辘轳牵金井。"</em></p>
+<h2 id="角色简介"><span style="color:rgb(64, 64, 64);">角色简介</span></h2>
+<p>吟诵骚客诗词的玩家会被立即处决。</p>
+<h2 id="角色能力">角色能力</h2>
+<div class="callout callout-info">
+<p>每个夜晚，你会得知一个字（均出自同一句诗词）。首次有存活玩家吟诵这句诗词时，他立即被处决，即使你已死亡。</p>
+</div>
+<h2 id="范例">范例</h2>
+<ul>
+<li>骚客的诗词是“月落乌啼霜满天”。第一个夜晚，骚客得知“乌”。第二个夜晚，骚客得知“天”。第三个夜晚，骚客得知“月”。下一个白天，骚客大声念出“月落乌啼霜满天”，骚客立即被处决。</li>
+<li>骚客的诗词是“牧童遥指杏花村”。第一个夜晚，骚客得知“杏”。下一个白天，骚客死于处决。以后骚客没有再获得字词。还剩5人存活的白天，存活的男爵大声念出“ 一枝红杏出墙来  ”，无事发生。男爵又念出“ 杏花零落水痕肥  ”，无事发生。男爵又念出“ 牧童遥指杏花村  ”，男爵立即被处决。</li>
+<li>骚客的诗词是“烟蒲绿自生”。一名镇民在白天大声念出“烟蒲绿自生”，他立即被处决。</li>
+</ul>
+<h2 id="运作方式">运作方式</h2>
+<p>在为首个夜晚做准备时，为骚客准备一句诗词。</p>
+<p>每个夜晚，唤醒骚客，并告知他该诗词其中的一个字。然后让他重新入睡。</p>
+<p>当你首次听到有存活玩家完整地说出这句诗词时，立即宣布那名玩家被处决。即使此时骚客已经死亡。然后在骚客的角色标记旁放置“失去能力”提示标记。</p>
+<h2 id="夜晚行动顺序">夜晚行动顺序</h2>
+<ul>
+<li>首个夜晚</li>
+<ul>
+<li>夜序数值：6010</li>
+<li>前位角色：鹰身女妖</li>
+<li>行动提示：唤醒他并向他出示一个字。</li>
+</ul>
+<li>其他夜晚</li>
+<ul>
+<li>夜序数值：1440</li>
+<li>前位角色：投毒者</li>
+<li>行动提示：唤醒他并向他出示一个字。</li>
+</ul>
+</ul>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>失去能力</li>
+</ul>
+<p>放置时机：在有存活玩家首次说出骚客的诗词时，且被说书人听到时。</p>
+<p>放置条件：一名玩家因骚客能力被处决后。</p>
+<p>移除时机：骚客死亡或离场时。</p>
+<h2 id="规则细节">规则细节</h2>
+<ul>
+<li>骚客的诗词可以是古诗或古词，一般为5~8个字。你可以根据游戏人数多少来自由决定。一般情况下，游戏人数越多诗词字数越多。</li>
+<li>不建议给骚客重复的字，诗词中本身就有重字的除外。</li>
+<li>你只要完整地听见了有存活玩家念出骚客的诗词，就必须立即处决他。</li>
+<li>正常来说，骚客或其他邪恶玩家尝试几次吟诵不同诗词以触发能力是正常且被允许的。但是如果骚客或其他邪恶玩家长时间“霸麦”以尝试不同的诗词，并影响到了其他玩家的正常讨论或游戏的正常进行。说书人应该制止骚客并告知他还有多少次尝试机会，一旦机会全部用完骚客的能力就不会再被触发。</li>
+<li>骚客死亡后会失去每夜得到提示字的能力。但是不会失去强制处决念出诗句的存活玩家的能力。</li>
+<li>如果有玩家在骚客中毒醉酒时吟诵骚客的诗句，骚客的能力不会因此被消耗。</li>
+<li>如果死亡玩家吟诵了骚客的诗句，骚客的能力不会因此被触发或消耗。</li>
+<li>如果骚客的处决能力被触发，后续的夜晚不再唤醒骚客。</li>
+<li>旅行者玩家无法触发骚客的能力，即使他吟诵正确（旅行者隔绝原则）。</li>
+</ul>
+<h2 id="游玩与对抗技巧">游玩与对抗技巧</h2>
+<ul>
+<li>如果你是骚客。你的第一要务就是搞清楚你的诗词到底是哪一句。为了达成这个目标，你要尽可能地活到游戏中后期，否则只靠一两个字很难准确地找到诗词。</li>
+<li>如果你是骚客。即使你已经死亡了，你的能力中强制处决的部分依然可以生效，你依旧可以让你的队友念出诗词以达成强制处决的目的。当然，如果你能诱骗一名善良玩家念出那更好不过了。</li>
+</ul>
+<h2 id="出现剧本">出现剧本</h2>
+<ul>
+<li><em>暂无</em></li>
+</ul>
+<h2 id="整体设计">整体设计</h2>
+<ul>
+<li>太一</li>
+</ul>
+<h2 id="创意来源">创意来源</h2>
+<ul>
+<li>太一</li>
+</ul>
+<h2 id="图标画师">图标画师</h2>
+<ul>
+<li>Lei.</li>
+</ul></div>
+    <div class="page-meta">最后修改于 2026-09-08T05:14:10.000Z，编辑者 <b>未知</b> ｜ 页面 3,985 字节 ｜ <a href="https://www.yuque.com/u48069482/taiyi/ygwvx72g5ye2fbdg" target="_blank" rel="noopener">查看原页面</a></div>
+    <div class="backlinks"><b>链入此页的页面（1）</b><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">奥德赛 Odyssey</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

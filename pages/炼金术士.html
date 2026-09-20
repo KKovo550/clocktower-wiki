@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>炼金术士 - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">炼金术士</h1>
+    <div class="tagline">来自钟楼百科</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#提示与技巧">提示与技巧</a></li><li class="lvl2"><a href="#伪装成炼金术士">伪装成炼金术士</a></li><li class="lvl2"><a href="#角色信息">角色信息</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E7%82%BC%E9%87%91%E6%9C%AF%E5%A3%AB">查找包含此角色的剧本 →</a></p><p><a href="../pages/%E7%82%BC%E9%87%91%E6%9C%AF%E5%A3%AB.html" class="image-link" title="炼金术士"><img alt="Alchemist.png" style="width:200px" class="" loading="lazy" data-source-image="../images/Alchemist.png" src="../assets/media/Alchemist.preview.webp" width="600" height="600" decoding="async"></a></p>
+<h2 id="背景故事">背景故事</h2>
+<p><em>“探寻地球本质。加以矫正，你将寻得秘石。黄金之上皆是红色。那是真理之冠。”</em></p>
+<h2 id="角色能力">角色能力</h2>
+<p><strong>你拥有一个爪牙角色的能力。当你使用能力时，说书人可能会要求你更换选择。</strong></p>
+<h2 id="角色简介">角色简介</h2>
+<p>炼金术士具有爪牙的能力。</p>
+<ul>
+<li>炼金术士通常会获得一个不在场爪牙的能力，但可以获得一个在场爪牙的能力。</li>
+</ul>
+<ul>
+<li>炼金术士会在自己的首个夜晚得知自己获得了哪一项爪牙的能力。</li>
+</ul>
+<ul>
+<li>炼金术士仍然是善良的镇民。他会在善良阵营获胜时一同获胜，也会在善良阵营落败时一同落败。他被当作善良阵营的炼金术士。</li>
+</ul>
+<ul>
+<li>不同于一般的爪牙，炼金术士不会被唤醒以得知其他爪牙以及恶魔分别是哪些玩家。</li>
+</ul>
+<ul>
+<li>如果炼金术士获得的爪牙能力会导致在设置阶段添加或移除角色，这一能力也会在设置阶段生效。</li>
+</ul>
+<ul>
+<li>如果炼金术士获得了一个可以选择的能力，比如投毒者或维齐尔，说书人可以让炼金术士换个选择，炼金术士就必须更换自己的选择。</li>
+</ul>
+<h2 id="范例">范例</h2>
+<p><a href="../pages/%E7%82%BC%E9%87%91%E6%9C%AF%E5%A3%AB.html" title="炼金术士">炼金术士</a>拥有<a href="../pages/%E7%94%B7%E7%88%B5.html" title="男爵">男爵</a>的能力，给游戏带来了两个额外的外来者。</p>
+<p><a href="../pages/%E7%82%BC%E9%87%91%E6%9C%AF%E5%A3%AB.html" title="炼金术士">炼金术士</a>拥有<a href="../pages/%E6%8A%95%E6%AF%92%E8%80%85.html" title="投毒者">投毒者</a>的能力。在首个夜晚，他被唤醒并让<a href="../pages/%E5%B7%AB%E5%B8%88.html" title="巫师">巫师</a>中毒了。在第二个夜晚，他被唤醒并让<a href="../pages/%E6%88%8F%E6%B3%95%E5%B8%88.html" title="戏法师">戏法师</a>中毒了。在第三个夜晚，他被唤醒并尝试选择<a href="../pages/%E5%A0%A4%E4%B8%B0%E4%B9%8B%E9%A6%96.html" title="堤丰之首">堤丰之首</a>，但说书人让他更换选择，他转而选择了<a href="../pages/%E5%9B%BD%E7%8E%8B.html" title="国王">国王</a>。<a href="../pages/%E5%A0%A4%E4%B8%B0%E4%B9%8B%E9%A6%96.html" title="堤丰之首">堤丰之首</a>没有中毒。</p>
+<h2 id="运作方式">运作方式</h2>
+<p>在游戏的首个夜晚，唤醒炼金术士。向炼金术士展示“你是”信息标记，然后展示一个爪牙的角色标记。让炼金术士入睡。如果炼金术士获得了一个不在场爪牙的能力，将炼金术士的角色标记替换为刚刚展示的爪牙角色标记并倒置（以标记他仍然是善良阵营），并放置“是炼金术士”提示标记。</p>
+<p>炼金术士拥有该爪牙的能力。他会像一名爪牙一样使用这项能力，并在每晚该爪牙通常会被唤醒以使用能力时被唤醒。</p>
+<p>如果炼金术士在使用能力时需要做出选择，你可以要求他重新选择。如果这是在白天，请直接用言语提出。如果是在夜晚，请摇头，指向角色卡上的炼金术士能力文本，等待炼金术士重新选择。</p>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>是炼金术士</li>
+</ul>
+<p>放置时机：在首个夜晚放置。</p>
+<p>放置条件：放置在炼金术士的角色标记旁。</p>
+<p>移除时机：炼金术士离场时。</p>
+<h2 id="规则细节">规则细节</h2>
+<ul>
+<li>特定角色互动：</li>
+<ul>
+<li><a href="../pages/%E5%AD%A6%E5%BE%92.html" title="学徒">学徒</a>：善良学徒可以获得炼金术士的能力，进而获得一个爪牙的能力。</li>
+<li><a href="../pages/%E8%B5%8F%E9%87%91%E7%8C%8E%E4%BA%BA.html" title="赏金猎人">赏金猎人</a>：赏金猎人可以让炼金术士转变为邪恶，让爪牙能力回归邪恶阵营。</li>
+<li><a href="../pages/%E6%B4%97%E8%84%91%E5%B8%88.html" title="洗脑师">洗脑师</a>：无论洗脑师或炼金洗脑师，告知目标玩家“疯狂”的流程都一样，对该玩家展示洗脑师角色标记和需要“疯狂”的角色标记。</li>
+<li><a href="../pages/%E4%BE%8D%E5%A5%B3.html" title="侍女">侍女</a>：炼金术士会在第一夜被唤醒得知他获得了什么爪牙能力，之后是否被唤醒取决于他获得的爪牙能力。</li>
+<li><a href="../pages/%E9%95%9C%E5%83%8F%E5%8F%8C%E5%AD%90.html" title="镜像双子">镜像双子</a>：如果炼金术士获得镜像双子能力，则将一名邪恶玩家设置为他的“对立双子”。如果这名善良的炼金双子被处决，邪恶阵营获胜。</li>
+<li><a href="../pages/%E6%81%90%E6%83%A7%E4%B9%8B%E7%81%B5.html" title="恐惧之灵">恐惧之灵</a>：获得恐惧之灵能力的炼金术士在夜晚触发的公开宣布与恐惧之灵相同：“恐惧之灵选择了一名玩家”。</li>
+<li><a href="../pages/%E5%93%A5%E5%B8%83%E6%9E%97.html" title="哥布林">哥布林</a>：炼金哥布林触发哥布林能力需要声明自己是哥布林，而不是炼金哥布林。实际上，如果不允许将这两种情况当作同样处理，也太过于为难玩家了。</li>
+<li><a href="../pages/%E5%86%9B%E5%9B%A2.html" title="军团">军团</a>：炼金术士无法获得军团的能力。</li>
+<li><a href="../pages/%E5%B0%8F%E6%80%AA%E5%AE%9D.html" title="小怪宝">小怪宝</a>：炼金术士不是爪牙，所以不会在为秘密决定由哪名玩家照看小怪宝时醒来。</li>
+<li><a href="../pages/%E7%B2%BE%E7%A5%9E%E7%97%85%E6%82%A3%E8%80%85.html" title="精神病患者">精神病患者</a>：当炼金精神病患者发动能力选择一名玩家时，说书人可以公开要求他重新选择一名玩家，他必须更换选择。（说书人也可以要求精神病患者重新选择一名玩家，他可以不更换选择）</li>
+</ul>
+</ul>
+<ul>
+<li>相克规则：</li>
+<ul>
+<li><a href="../pages/%E5%AF%A1%E5%A6%87.html" title="寡妇">寡妇</a>：如果炼金术士本应获得寡妇的能力，那么他不会拥有该能力并改为寡妇一定在场。每次处决后，存活的炼金术士可以公开猜测一名存活玩家是寡妇：如果猜对了，恶魔当晚必须选择寡妇。</li>
+<li><a href="../pages/%E9%97%B4%E8%B0%8D.html" title="间谍">间谍</a>：如果炼金术士本应获得间谍的能力，那么他不会拥有该能力并改为间谍一定在场。每次处决后，存活的炼金术士可以公开猜测一名存活玩家是间谍：如果猜对了，恶魔当晚必须选择间谍。</li>
+<li><a href="../pages/%E5%8F%AC%E5%94%A4%E5%B8%88.html" title="召唤师">召唤师</a>：获得召唤师能力的炼金术士不会获得伪装。他要选择一个恶魔角色，但不选择玩家，由说书人决定哪一名玩家变成邪恶的恶魔。如果他在选择之前死亡，邪恶阵营获胜。[无恶魔在场]</li>
+<li><a href="../pages/%E7%A7%91%E5%AD%A6%E6%80%AA%E4%BA%BA.html" title="科学怪人">科学怪人</a>：如果炼金术士拥有科学怪人的能力，炼金术士不会得知恶魔因此获得了哪个角色的能力。</li>
+<li><a href="../pages/%E4%BA%A1%E9%AD%82.html" title="亡魂">亡魂</a>：如果炼金术士本应获得亡魂的能力，那么他不会拥有该能力并改为亡魂一定在场。每次处决后，存活的炼金术士可以公开猜测一名存活玩家是亡魂：如果猜对了，恶魔当晚必须选择亡魂。</li>
+<li><a href="../pages/%E6%8F%90%E7%BA%BF%E6%9C%A8%E5%81%B6.html" title="提线木偶">提线木偶</a>：如果炼金术士本应获得提线木偶的能力，那么他不会拥有该能力并改为提线木偶一定在场。</li>
+<li><a href="../pages/%E4%B8%BB%E8%B0%8B.html" title="主谋">主谋</a>：如果炼金术士本应获得主谋的能力，那么他不会拥有该能力并改为主谋一定不在场。</li>
+<li><a href="../pages/%E8%A1%97%E5%A4%B4%E9%A3%8E%E7%90%B4%E6%89%8B.html" title="街头风琴手">街头风琴手</a>：如果炼金术士获得街头风琴手的能力，街头风琴手一定在场。如果炼金术士和街头风琴手都是清醒的，改为他们都醉酒。</li>
+</ul>
+</ul>
+<ul>
+<li>相克规则（与华灯系列角色）：</li>
+<ul>
+<li><a href="../pages/%E8%9B%8A%E9%9B%95.html" title="蛊雕">蛊雕</a>：如果炼金术士本应获得蛊雕的能力，那么他不会拥有该能力并改为蛊雕一定在场。每次处决后，存活的炼金术士可以公开猜测一名存活玩家是蛊雕：如果猜对了，恶魔当晚必须选择蛊雕。</li>
+</ul>
+</ul>
+<h2 id="提示与技巧">提示与技巧</h2>
+<p>待更新</p>
+<h2 id="伪装成炼金术士">伪装成炼金术士</h2>
+<p>待更新</p>
+<h2 id="角色信息">角色信息</h2>
+<ul>
+<li>英文名：Alchemist</li>
+</ul>
+<ul>
+<li>所属剧本：<a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html" title="实验性角色">实验性角色</a>、<a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html" title="黯月初升">黯月初升</a>卡牌版</li>
+</ul>
+<ul>
+<li>角色类型：<a href="../pages/%E9%95%87%E6%B0%91.html" title="镇民">镇民</a></li>
+</ul>
+<ul>
+<li>角色能力类型：<a href="../pages/%E8%8E%B7%E5%BE%97%E8%83%BD%E5%8A%9B.html" title="获得能力">获得能力</a>、<a href="../pages/%E8%AE%BE%E7%BD%AE%E8%B0%83%E6%95%B4.html" title="设置调整">设置调整</a></li>
+</ul></div>
+    <div class="page-meta">最后修改于 2026-07-01T08:46:47Z，编辑者 <b>Beiyu</b> ｜ 页面 6,461 字节 ｜ <a href="https://clocktower-wiki.gstonegames.com/index.php?title=%E7%82%BC%E9%87%91%E6%9C%AF%E5%A3%AB" target="_blank" rel="noopener">查看原页面</a> ｜ <div class="comment">编辑摘要：/* 规则细节 */</div></div>
+    <div class="backlinks"><b>链入此页的页面（38）</b><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a><a href="../pages/%E7%82%BC%E9%87%91%E6%9C%AF%E5%A3%AB.html">炼金术士</a><a href="../pages/%E5%86%9C%E5%A4%AB.html">农夫</a><a href="../pages/%E6%8F%90%E7%BA%BF%E6%9C%A8%E5%81%B6.html">提线木偶</a><a href="../pages/%E7%81%B5%E8%A8%80%E5%B8%88.html">灵言师</a><a href="../pages/%E7%B2%BE%E7%A5%9E%E7%97%85%E6%82%A3%E8%80%85.html">精神病患者</a><a href="../pages/%E5%AF%A1%E5%A6%87.html">寡妇</a><a href="../pages/%E8%8E%B7%E5%BE%97%E8%83%BD%E5%8A%9B.html">获得能力</a><a href="../pages/%E8%AE%BE%E7%BD%AE%E8%B0%83%E6%95%B4.html">设置调整</a><a href="../pages/%E9%97%B4%E8%B0%8D.html">间谍</a><a href="../pages/%E4%B8%BB%E8%B0%8B.html">主谋</a><a href="../pages/%E9%95%9C%E5%83%8F%E5%8F%8C%E5%AD%90.html">镜像双子</a><a href="../pages/%E9%95%87%E6%B0%91.html">镇民</a><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a><a href="../pages/%E8%A1%97%E5%A4%B4%E9%A3%8E%E7%90%B4%E6%89%8B.html">街头风琴手</a><a href="../pages/%E9%AA%91%E5%A3%AB.html">骑士</a><a href="../pages/%E9%B9%B0%E8%BA%AB%E5%A5%B3%E5%A6%96.html">鹰身女妖</a><a href="../pages/%E6%B2%B8%E5%8F%8D%E7%9B%88%E5%A4%A9.html">沸反盈天</a><a href="../pages/%E5%BA%97%E5%B0%8F%E4%BA%8C.html">店小二</a><a href="../pages/%E7%8B%90%E5%AA%9A%E5%A8%98.html">狐媚娘</a><a href="../pages/%E5%A4%9C%E6%99%9A%E8%A1%8C%E5%8A%A8%E9%A1%BA%E5%BA%8F%E4%B8%80%E8%A7%88.html">夜晚行动顺序一览</a><a href="../pages/%E4%BA%BA%E9%97%B4%E6%9A%97%E6%9C%88%E5%A4%9C.html">人间暗月夜</a><a href="../pages/%E8%A1%8C%E6%88%90%E4%B8%8B%E5%AD%A4%E4%B9%A1.html">行成下孤乡</a><a href="../pages/%E9%B8%A3%E9%A3%8E%E5%99%AC%E5%90%8E%E6%B5%AA.html">鸣风噬后浪</a><a href="../pages/%E5%BC%82%E5%9C%B0%E4%BC%97%E6%AC%A2%E6%9D%A5.html">异地众欢来</a><a href="../pages/%E8%9B%8A%E9%9B%95.html">蛊雕</a><a href="../pages/%E7%99%BD%E7%8B%90%E8%A1%8C%E4%B8%9B%E9%87%8C.html">白狐行丛里</a><a href="../pages/%E9%9B%86%E5%90%8E%E4%BA%BA%E4%B9%8B%E8%A8%80.html">集后人之言</a><a href="../pages/%E5%8D%83%E9%9D%A2%E4%BC%97%E5%8D%B1%E7%84%89.html">千面众危焉</a><a href="../pages/%E5%8F%AC%E5%94%A4%E5%B8%88.html">召唤师</a><a href="../pages/%E8%A7%84%E5%88%99%E8%B0%83%E6%95%B4%E6%8F%90%E5%89%8D%E5%85%AC%E7%A4%BA.html">规则调整提前公示</a><a href="../pages/%E7%A7%91%E5%AD%A6%E6%80%AA%E4%BA%BA.html">科学怪人</a><a href="../pages/%E7%A7%89%E5%85%AC%E5%8A%9E%E4%BA%8B.html">秉公办事</a><a href="../pages/%E4%BA%8B%E6%95%85%E9%99%90%E5%9C%BA.html">事故限场</a><a href="../pages/%E9%BB%91%E5%A4%9C%E9%97%AE%E7%99%BD%E5%A4%A9.html">黑夜问白天</a><a href="../pages/%E9%9A%90%E5%A3%AB.html">隐士</a><a href="../pages/%E4%BA%A1%E9%AD%82.html">亡魂</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

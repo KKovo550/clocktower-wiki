@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>主谋 - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">主谋</h1>
+    <div class="tagline">来自钟楼百科</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#提示与技巧">提示与技巧</a></li><li class="lvl2"><a href="#对抗主谋">对抗主谋</a></li><li class="lvl2"><a href="#角色信息">角色信息</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E4%B8%BB%E8%B0%8B">查找包含此角色的剧本 →</a></p><p><a href="../pages/%E4%B8%BB%E8%B0%8B.html" class="image-link" title="主谋"><img alt="Mastermind.png" style="width:200px" class="" loading="lazy" data-source-image="../images/Mastermind.png" src="../assets/media/Mastermind.preview.webp" width="600" height="600" decoding="async"></a></p>
+<h2 id="背景故事">背景故事</h2>
+<p><em>“怪物的触手被钉在了教堂大门上。母亲和孩子们在街上跳舞。棒极了。一切都在按我的计划进行。”</em></p>
+<h2 id="角色能力">角色能力</h2>
+<p><strong>如果恶魔因为死于处决而因此导致游戏结束时，再额外进行一个夜晚和一个白天。在那个白天如果有玩家被处决，他的阵营落败。</strong></p>
+<h2 id="角色简介">角色简介</h2>
+<p>主谋在恶魔死亡后仍然有方法获胜。</p>
+<ul>
+<li>如果最后一名存活的恶魔死于处决，游戏继续。玩家们不会得知刚死去的是恶魔。在下一个白天，如果一名善良玩家被处决——无论该玩家是否死于处决——邪恶阵营获胜。如果一名邪恶玩家被处决，或者没有人被处决，则善良阵营获胜。</li>
+</ul>
+<ul>
+<li>已死亡的恶魔无法进行攻击，如常失去自己的能力。在这个额外的夜晚和白天，其他角色的能力会正常生效。</li>
+</ul>
+<ul>
+<li>如果恶魔死亡且只剩余两名存活玩家，游戏仍然会额外进行一天——邪恶阵营不会因为只剩两名存活玩家而获胜，而善良阵营也不会因为杀死了恶魔而获胜。主谋的能力为“额外进行一天一夜”，此能力会覆盖游戏常规规则。</li>
+</ul>
+<h2 id="范例">范例</h2>
+<p>（注：以下范例都假设为主谋在场）</p>
+<p><a href="../pages/%E6%B2%99%E5%B7%B4%E6%B4%9B%E6%96%AF.html" title="沙巴洛斯">沙巴洛斯</a>死亡。在下一个白天，<a href="../pages/%E6%95%99%E6%8E%88.html" title="教授">教授</a>被处决且死亡。邪恶阵营获胜。</p>
+<p><a href="../pages/%E7%8F%80.html" title="珀">珀</a>死亡。在下一个白天，<a href="../pages/%E6%95%99%E7%88%B6.html" title="教父">教父</a>被处决，但因为<a href="../pages/%E9%AD%94%E9%AC%BC%E4%BB%A3%E8%A8%80%E4%BA%BA.html" title="魔鬼代言人">魔鬼代言人</a>的保护而依然存活。然而，由于一名邪恶玩家被处决，善良阵营获胜。</p>
+<p><a href="../pages/%E5%83%B5%E6%80%96.html" title="僵怖">僵怖</a>被处决，且看起来已经死亡。<a href="../pages/%E4%B8%BB%E8%B0%8B.html" title="主谋">主谋</a>的能力还未触发，因为处决<a href="../pages/%E5%83%B5%E6%80%96.html" title="僵怖">僵怖</a>并未导致游戏结束。当<a href="../pages/%E5%83%B5%E6%80%96.html" title="僵怖">僵怖</a>被第二次处决并真的死去时，<a href="../pages/%E4%B8%BB%E8%B0%8B.html" title="主谋">主谋</a>的能力才会触发，并会让游戏额外进行一天一夜。</p>
+<p>场上有三名玩家存活。恶魔死亡。在下一个白天，只有两名玩家存活，善良阵营决定不进行处决。当夜幕降临，只有两名玩家存活但恶魔已经死亡，因此善良阵营获胜。</p>
+<h2 id="运作方式">运作方式</h2>
+<p>如果恶魔死于处决且游戏即将结束，继续进行游戏。（如常添加帷幕标记。不要说出恶魔已经死了。）</p>
+<p>明天，如果一名善良玩家被处决，宣布游戏结束且邪恶阵营获胜，但是如果一名邪恶玩家被处决，或没有玩家被处决，宣布游戏结束且善良阵营获胜。</p>
+<h2 id="提示标记">提示标记</h2>
+<p>无</p>
+<h2 id="规则细节">规则细节</h2>
+<ul>
+<li>相克规则：</li>
+<ul>
+<li><a href="../pages/%E5%93%88%E8%BF%AA%E5%AF%82%E4%BA%9A.html" title="哈迪寂亚">哈迪寂亚</a>：如果哈迪寂亚死于处决，且主谋存活，当晚哈迪寂亚要选择三名善良玩家：如果他们都选择存活，邪恶阵营获胜。否则，善良阵营获胜。</li>
+<li><a href="../pages/%E7%97%A2%E8%9B%AD.html" title="痢蛭">痢蛭</a>：如果主谋存活且痢蛭的宿主死于处决，痢蛭存活但失去能力。</li>
+<li><a href="../pages/%E7%82%BC%E9%87%91%E6%9C%AF%E5%A3%AB.html" title="炼金术士">炼金术士</a>：如果炼金术士本应获得主谋的能力，那么他不会拥有该能力并改为主谋一定不在场。</li>
+<li><a href="../pages/%E4%BA%A1%E9%AA%A8%E9%AD%94.html" title="亡骨魔">亡骨魔</a>：如果亡骨魔死亡，被亡骨魔杀死的主谋依然保留能力。</li>
+</ul>
+</ul>
+<ul>
+<li>相克规则（与华灯系列角色）：</li>
+<ul>
+<li><a href="../pages/%E6%A2%BC%E6%9D%8C.html" title="梼杌">梼杌</a>：主谋在梼杌的能力判断中被当作“不具有能力”。</li>
+<li><a href="../pages/%E5%A7%91%E8%8E%B7%E9%B8%9F.html" title="姑获鸟">姑获鸟</a>：如果姑获鸟死亡，获得主谋能力的姑获鸟保留主谋的能力。</li>
+</ul>
+</ul>
+<h2 id="提示与技巧">提示与技巧</h2>
+<ul>
+<li><a href="../pages/%E4%B8%BB%E8%B0%8B.html" title="主谋">主谋</a>是一个即使在恶魔死后仍会延续恶魔的邪恶企划的爪牙，给邪恶阵营第二次胜利的机会。你玩的是终极的长线游戏，甚至连你自己的团队都努力活得更久……而从不宣布你的存在。</li>
+</ul>
+<ul>
+<li>几乎不惜一切代价活下去——你的能力是邪恶阵营的后备计划和最后手段，如果你死了，它就不会激活。与你的恶魔协调以进行一次强有力的虚张声势并讨好善良阵营 - 对你来说，不在晚上行动的角色（所以你不会引起<a href="../pages/%E4%BE%8D%E5%A5%B3.html" title="侍女">侍女</a>的怀疑）以及善良团队想要的保护角色是一个好的选择，如<a href="../pages/%E5%92%8C%E5%B9%B3%E4%B8%BB%E4%B9%89%E8%80%85.html" title="和平主义者">和平主义者</a>、<a href="../pages/%E8%8C%B6%E8%89%BA%E5%B8%88.html" title="茶艺师">茶艺师</a>或<a href="../pages/%E5%90%9F%E6%B8%B8%E8%AF%97%E4%BA%BA.html" title="吟游诗人">吟游诗人</a>。</li>
+</ul>
+<ul>
+<li>作为<a href="../pages/%E4%B8%BB%E8%B0%8B.html" title="主谋">主谋</a>，时机就是一切。善良阵营知道你可能潜伏着，如果他们确信已经杀死了恶魔，他们所要做的就是不触发你的能力。为了智取他们，尽量在善良阵营不怀疑你在场的时候处决恶魔。一般来说，这意味着处决应该发生在游戏的早期（大多数恶魔会存活几天），或者如果他们认为他们正在处决的玩家不是恶魔。<a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html" title="黯月初升">黯月初升</a>是唯一一个可以让您的恶魔在第一天死亡的剧本，这大概率是一件好事！</li>
+</ul>
+<ul>
+<li>鼓励你的小镇接受处决！虽然大多数善良阵营不需要任何额外的帮助就会不分青红皂白处决，但确保他们每天都积极地处决将使他们准备好在恶魔死去后继续保持处决习惯。毕竟你不希望他们害怕你的威胁！提醒他们处决会获得信息（测试<a href="../pages/%E6%B0%B4%E6%89%8B.html" title="水手">水手</a>或<a href="../pages/%E8%8C%B6%E8%89%BA%E5%B8%88.html" title="茶艺师">茶艺师</a>的能力，寻找<a href="../pages/%E9%AD%94%E9%AC%BC%E4%BB%A3%E8%A8%80%E4%BA%BA.html" title="魔鬼代言人">魔鬼代言人</a>的存在），并且处决恶魔，善良阵营真的不能浪费任何机会以找到那些邪恶的玩家。这些都是实话，这让你看起来更加善良且值得信赖！</li>
+</ul>
+<ul>
+<li>说服善良阵营是另一个爪牙在场。伪装成一个外来者来模拟<a href="../pages/%E6%95%99%E7%88%B6.html" title="教父">教父</a>的存在。将不寻常的死亡计数归咎于<a href="../pages/%E5%88%BA%E5%AE%A2.html" title="刺客">刺客</a>的存在（而不是<a href="../pages/%E8%B5%8C%E5%BE%92.html" title="赌徒">赌徒</a>、<a href="../pages/%E9%80%A0%E8%B0%A3%E8%80%85.html" title="造谣者">造谣者</a>或<a href="../pages/%E4%BF%AE%E8%A1%A5%E5%8C%A0.html" title="修补匠">修补匠</a>的能力）。如果一个玩家被处决但没有死？这肯定是<a href="../pages/%E9%AD%94%E9%AC%BC%E4%BB%A3%E8%A8%80%E4%BA%BA.html" title="魔鬼代言人">魔鬼代言人</a>在场的有力证据！如果善良阵营全心全意地相信他们知道哪些除你之外的爪牙在场，那么他们会更愿意进行最后的处决，特别是如果你已经使用其他一些技巧与你的恶魔协调好这次死亡！</li>
+</ul>
+<ul>
+<li>通过说服恶魔（和其他爪牙）偶尔避免在夜间杀人，让善良阵营陷入虚假的安全感。一个晚上（或两个）没有杀戮，而善良阵营已经知道他们可以在这样的夜晚之后安全地处决，他们更有可能在没有杀戮的夜晚后处决，因为恶魔已经被处决。</li>
+</ul>
+<ul>
+<li>如果恶魔死于处决，那就尽你所能在那天晚上让一个玩家死亡。告诉<a href="../pages/%E5%88%BA%E5%AE%A2.html" title="刺客">刺客</a>使用他们的能力。说服<a href="../pages/%E8%B5%8C%E5%BE%92.html" title="赌徒">赌徒</a>猜你的角色。协助<a href="../pages/%E9%80%A0%E8%B0%A3%E8%80%85.html" title="造谣者">造谣者</a>做出真实的陈述。请求说书人杀死<a href="../pages/%E4%BF%AE%E8%A1%A5%E5%8C%A0.html" title="修补匠">修补匠</a>。如果玩家认为晚上的死亡是由恶魔造成的，那么他们明天再次处决的可能性就会大大增加。</li>
+</ul>
+<h2 id="对抗主谋">对抗主谋</h2>
+<p>当你要对抗主谋的时候，这里有几件事你应该记住：</p>
+<ul>
+<li>在<a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html" title="黯月初升">黯月初升</a>中，所有其他爪牙都会给出暗示他们在场的证据。<a href="../pages/%E9%AD%94%E9%AC%BC%E4%BB%A3%E8%A8%80%E4%BA%BA.html" title="魔鬼代言人">魔鬼代言人</a>防止玩家因处决而死亡，<a href="../pages/%E5%88%BA%E5%AE%A2.html" title="刺客">刺客</a>在夜间造成额外死亡，<a href="../pages/%E6%95%99%E7%88%B6.html" title="教父">教父</a>也是如此。如果你能看到这些线索，你就可以确定游戏中没有<a href="../pages/%E4%B8%BB%E8%B0%8B.html" title="主谋">主谋</a>。如果游戏中没有<a href="../pages/%E4%B8%BB%E8%B0%8B.html" title="主谋">主谋</a>，则在不确定玩家是好是坏时，您无需谨慎处决。</li>
+</ul>
+<ul>
+<li>但是，如果您看不到<a href="../pages/%E9%AD%94%E9%AC%BC%E4%BB%A3%E8%A8%80%E4%BA%BA.html" title="魔鬼代言人">魔鬼代言人</a>、<a href="../pages/%E6%95%99%E7%88%B6.html" title="教父">教父</a>或<a href="../pages/%E5%88%BA%E5%AE%A2.html" title="刺客">刺客</a>在场的证据，则您可能遇到一个<a href="../pages/%E4%B8%BB%E8%B0%8B.html" title="主谋">主谋</a>在策划一切，在这种情况下，通常最好假设他是存在的。</li>
+</ul>
+<ul>
+<li>如果有一个夜晚没有人死亡，那么对第二天处决的人要非常谨慎。甚至可能根本不处决。只要在夜里有人死亡，恶魔还活着的可能性很大……但如果恶魔是<a href="../pages/%E5%83%B5%E6%80%96.html" title="僵怖">僵怖</a>，情况可能就不是这样了。但在大多数情况下，夜间死亡意味着您可以安全地在第二天进行处决，而夜间没有死亡意味着您应该怀疑您昨天处决的玩家实际上是恶魔的可能性。</li>
+</ul>
+<ul>
+<li>如果死了，<a href="../pages/%E4%B8%BB%E8%B0%8B.html" title="主谋">主谋</a>就不能使用他的能力。尽可能多地处决玩家，希望能在恶魔之前杀死<a href="../pages/%E4%B8%BB%E8%B0%8B.html" title="主谋">主谋</a>。就像<a href="../pages/%E9%AD%94%E9%AC%BC%E4%BB%A3%E8%A8%80%E4%BA%BA.html" title="魔鬼代言人">魔鬼代言人</a>一样，<a href="../pages/%E4%B8%BB%E8%B0%8B.html" title="主谋">主谋</a>存活的时间越长，善良阵营的麻烦就越多，尽早杀死他。多去造成死亡，尽力找出哪些玩家可能是爪牙。最后，祝你好运。</li>
+</ul>
+<h2 id="角色信息">角色信息</h2>
+<ul>
+<li>英文名：Mastermind</li>
+</ul>
+<ul>
+<li>所属剧本：<a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html" title="黯月初升">黯月初升</a></li>
+</ul>
+<ul>
+<li>角色类型：<a href="../pages/%E7%88%AA%E7%89%99.html" title="爪牙">爪牙</a></li>
+</ul>
+<ul>
+<li>角色能力类型：<a href="../pages/%E5%A4%84%E5%86%B3.html" title="处决">处决</a>、<a href="../pages/%E6%AD%BB%E4%BA%A1%E8%A7%A6%E5%8F%91%E8%83%BD%E5%8A%9B.html" title="死亡触发能力">死亡触发能力</a>、<a href="../pages/%E7%89%B9%E6%AE%8A%E8%83%9C%E5%88%A9%E5%A4%B1%E8%B4%A5%E6%9D%A1%E4%BB%B6.html" title="特殊胜利失败条件">特殊胜利失败条件</a></li>
+</ul>
+<p><em>其他称呼（非官方，仅方便索引用）：幕后主使、邪脑</em></p></div>
+    <div class="page-meta">最后修改于 2026-06-13T02:37:13Z，编辑者 <b>Zack</b> ｜ 页面 8,025 字节 ｜ <a href="https://clocktower-wiki.gstonegames.com/index.php?title=%E4%B8%BB%E8%B0%8B" target="_blank" rel="noopener">查看原页面</a> ｜ <div class="comment">编辑摘要：/* 规则细节 */</div></div>
+    <div class="backlinks"><b>链入此页的页面（42）</b><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a><a href="../pages/%E6%B0%B4%E6%89%8B.html">水手</a><a href="../pages/%E4%BE%8D%E8%87%A3.html">侍臣</a><a href="../pages/%E5%90%9F%E6%B8%B8%E8%AF%97%E4%BA%BA.html">吟游诗人</a><a href="../pages/%E7%82%BC%E9%87%91%E6%9C%AF%E5%A3%AB.html">炼金术士</a><a href="../pages/%E8%8C%B6%E8%89%BA%E5%B8%88.html">茶艺师</a><a href="../pages/%E5%A4%84%E5%86%B3.html">处决</a><a href="../pages/%E5%9B%9E%E6%BA%AF%E5%9E%8B%E8%83%BD%E5%8A%9B.html">回溯型能力</a><a href="../pages/%E6%97%A0%E7%A5%9E%E8%AE%BA%E8%80%85.html">无神论者</a><a href="../pages/%E5%B7%A5%E7%A8%8B%E5%B8%88.html">工程师</a><a href="../pages/%E9%AD%94%E6%9C%AF%E5%B8%88.html">魔术师</a><a href="../pages/%E5%BC%82%E7%AB%AF%E5%88%86%E5%AD%90.html">异端分子</a><a href="../pages/%E5%91%8A%E5%AF%86%E8%80%85.html">告密者</a><a href="../pages/%E7%82%B8%E5%BC%B9%E4%BA%BA.html">炸弹人</a><a href="../pages/%E6%8F%90%E7%BA%BF%E6%9C%A8%E5%81%B6.html">提线木偶</a><a href="../pages/%E5%93%88%E8%BF%AA%E5%AF%82%E4%BA%9A.html">哈迪寂亚</a><a href="../pages/%E7%97%A2%E8%9B%AD.html">痢蛭</a><a href="../pages/%E4%BA%A1%E9%AA%A8%E9%AD%94.html">亡骨魔</a><a href="../pages/%E6%AD%BB%E4%BA%A1%E8%A7%A6%E5%8F%91%E8%83%BD%E5%8A%9B.html">死亡触发能力</a><a href="../pages/%E7%89%B9%E6%AE%8A%E8%83%9C%E5%88%A9%E5%A4%B1%E8%B4%A5%E6%9D%A1%E4%BB%B6.html">特殊胜利失败条件</a><a href="../pages/%E4%BF%AE%E8%A1%A5%E5%8C%A0.html">修补匠</a><a href="../pages/%E7%96%AF%E5%AD%90.html">疯子</a><a href="../pages/%E6%95%99%E7%88%B6.html">教父</a><a href="../pages/%E9%AD%94%E9%AC%BC%E4%BB%A3%E8%A8%80%E4%BA%BA.html">魔鬼代言人</a><a href="../pages/%E5%88%BA%E5%AE%A2.html">刺客</a><a href="../pages/%E4%B8%BB%E8%B0%8B.html">主谋</a><a href="../pages/%E5%83%B5%E6%80%96.html">僵怖</a><a href="../pages/%E7%88%AA%E7%89%99.html">爪牙</a><a href="../pages/%E5%AD%A6%E5%BE%92.html">学徒</a><a href="../pages/%E5%B7%AB%E6%AF%92%E5%B8%88.html">巫毒师</a><a href="../pages/%E5%85%AC%E7%88%B5%E5%A4%AB%E4%BA%BA.html">公爵夫人</a><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a><a href="../pages/%E6%A2%BC%E6%9D%8C.html">梼杌</a><a href="../pages/%E5%B8%BD%E5%8C%A0.html">帽匠</a><a href="../pages/%E7%AC%AC%E4%B8%80%E5%B1%8A%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A%E5%89%A7%E6%9C%AC%E5%88%9B%E4%BD%9C%E5%A4%A7%E8%B5%9B.html">第一届华灯初上剧本创作大赛</a><a href="../pages/%E7%99%BD%E7%8B%90%E8%A1%8C%E4%B8%9B%E9%87%8C.html">白狐行丛里</a><a href="../pages/%E8%A7%84%E5%88%99%E8%B0%83%E6%95%B4%E6%8F%90%E5%89%8D%E5%85%AC%E7%A4%BA.html">规则调整提前公示</a><a href="../pages/%E9%9D%99%E5%80%99%E4%BD%B3%E9%9F%B3.html">静候佳音</a><a href="../pages/%E5%A0%A4%E4%B8%B0%E4%B9%8B%E9%A6%96.html">堤丰之首</a><a href="../pages/%E9%98%B4%E9%98%B3%E9%9A%BE%E8%BE%A8.html">阴阳难辨</a><a href="../pages/%E5%A7%91%E8%8E%B7%E9%B8%9F.html">姑获鸟</a><a href="../pages/%E6%98%8E%E4%BA%89%E6%9A%97%E6%96%97.html">明争暗斗</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

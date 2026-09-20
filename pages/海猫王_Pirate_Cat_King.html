@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>海猫王 Pirate Cat King - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">海猫王 Pirate Cat King<span class="ns-badge">奥德赛</span></h1>
+    <div class="tagline">来自钟楼百科 · 摘自《奥德赛 Odyssey》百科 · 外来者</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#夜晚行动顺序">夜晚行动顺序</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#游玩与对抗技巧">游玩与对抗技巧</a></li><li class="lvl2"><a href="#伪装成该角色">伪装成该角色</a></li><li class="lvl2"><a href="#出现剧本">出现剧本</a></li><li class="lvl2"><a href="#整体设计">整体设计</a></li><li class="lvl2"><a href="#创意来源">创意来源</a></li><li class="lvl2"><a href="#图标画师">图标画师</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E6%B5%B7%E7%8C%AB%E7%8E%8B">查找包含此角色的剧本 →</a></p><div class="charinfo"><div class="charinfo-img"><a href="../files/%E6%96%87%E4%BB%B6_%E6%B5%B7%E7%8C%AB%E7%8E%8B.png.html"><img alt="海猫王 Pirate Cat King" data-source-image="../images/%E6%B5%B7%E7%8C%AB%E7%8E%8B.png" src="../assets/media/海猫王.preview.webp" width="600" height="600" decoding="async"></a></div><div class="charinfo-meta"><div class="row"><span class="k">角色类型</span><span class="v"><a href="../pages/%E5%A4%96%E6%9D%A5%E8%80%85.html" title="外来者">外来者</a></span></div><div class="row"><span class="k">英文名</span><span class="v">Pirate Cat King</span></div><div class="row"><span class="k">角色ID</span><span class="v">055</span></div><div class="row"><span class="k">角色归属</span><span class="v">角色拓展包《奥德赛》</span></div><div class="row"><span class="k">能力标签</span><span class="v"><a href="../pages/%E6%AD%BB%E4%BA%A1%E8%A7%A6%E5%8F%91%E8%83%BD%E5%8A%9B.html" title="死亡触发能力">死亡触发能力</a></span></div><div class="row"><span class="k">角色定位</span><span class="v">自证、邪恶增强</span></div><div class="row"><span class="k">首发日期</span><span class="v">2026.4.11</span></div><div class="row"><span class="k">角色授权</span><span class="v">开放（任意剧本创作可用，不要修改能力）</span></div><div class="row"><span class="k">出处</span><span class="v"><a class="external" href="https://www.yuque.com/u48069482/taiyi" target="_blank" rel="noopener">《奥德赛 Odyssey》百科</a></span></div></div></div><h2 id="背景故事">背景故事</h2>
+<p><em>"财富、名声、势力 —— 拥有整个世界一切的猫人，海猫王哥尔・D・喵杰，他在临刑前的一句话，让全世界的人都奔向了大海！</em></p>
+<p><strong>想要我的宝藏吗喵？想要的话可以全部给你，去找吧喵！我把所有宝藏都放在那里了喵！</strong></p>
+<p><em>于是，所有猫子汉航向伟大的航路，追逐梦想，世界迎来了大海猫时代！"</em></p>
+<h2 id="角色简介"><span style="color:rgb(64, 64, 64);">角色简介</span></h2>
+<p>海猫王坐拥全世界的宝藏！想得到它吗！交出你的投票标记！</p>
+<h2 id="角色能力">角色能力</h2>
+<div class="callout callout-info">
+<p>死亡玩家可以上交投票标记成为寻宝人。审判日降临时，如果你已经死亡，所有寻宝人平分12枚投票标记。</p>
+</div>
+<h2 id="范例">范例</h2>
+<ul>
+<li>第二个白天，死亡的投毒者公开选择海猫王并上交了投票标记，说书人公开回应“你成为了本场游戏的第一个寻宝人”。当天晚上，海猫王死亡。第三个白天，死亡的占卜师公开选择海猫王并上交了投票标记，说书人公开回应“你成为了本场游戏的第二个寻宝人”，但因为海猫王已经死亡，说书人并没有标记占卜师为“寻宝人”。审判日降临时，投毒者获得了12枚投票标记，并且她在当天一次投票中全部使用了。</li>
+<li>第二个白天，死亡的投毒者公开选择海猫王并上交了投票标记。第三个白天，死亡的占卜师公开选择海猫王并上交了投票标记。第四个白天，死亡的圣徒、共情者公开选择海猫王并上交了投票标记。说书人公开回应了每名上交投票标记的玩家。之后的晚上，海猫王死亡。审判日降临时，死亡的投毒者、占卜师、圣徒、共情者各获得了3枚投票标记。</li>
+<li>第二个白天，死亡的投毒者公开选择海猫王并上交了投票标记。第三个白天，死亡的占卜师公开选择海猫王并上交了投票标记。第四个白天，死亡的圣徒、共情者公开选择海猫王并上交了投票标记。说书人公开回应了每名上交投票标记的玩家。审判日降临时，海猫王还活着，没有人获得投票标记。</li>
+<li>第二个白天，死亡的投毒者上交了投票标记。第三个白天，死亡的占卜师上交了投票标记。第四个白天，死亡的圣徒、共情者上交了投票标记。说书人公开回应了每名上交投票标记的玩家，但其实海猫王并不在场。审判日降临时，没有人获得投票标记。</li>
+</ul>
+<h2 id="运作方式">运作方式</h2>
+<p>每个白天，持有投票标记的死亡玩家可以公开选择海猫王并上交自己的投票标记。你需要公开回应该玩家“本场游戏的第x个寻宝人出现了！”或类似的回复，然后收走他所有的投票标记，即使海猫王不在场或海猫王中毒醉酒。如果此时海猫王还存活并具有能力，在上交投票标记的玩家角色标记旁放置“寻宝人”提示标记。</p>
+<p>在宣布审判日降临后的第一时间，如果海猫王已经死亡，拿出12枚投票标记，按人数平均分配给被放置了“寻宝人”提示标记的玩家。给每人尽量多的相同数量的投票标记，多余无法平分的部分由说书人回收。</p>
+<h2 id="夜晚行动顺序">夜晚行动顺序</h2>
+<ul>
+<li>首个夜晚</li>
+<ul>
+<li>夜序数值：/</li>
+<li>前位角色：/</li>
+<li>行动提示：/</li>
+</ul>
+<li>其他夜晚</li>
+<ul>
+<li>夜序数值：/</li>
+<li>前位角色：/</li>
+<li>行动提示：/</li>
+</ul>
+</ul>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>寻宝人*5</li>
+<ul>
+<li>放置时机：当一名死亡玩家公开上交投票标记时。</li>
+<li>放置条件：当海猫王存活且具有能力时。</li>
+<li>移除时机：当海猫王离场时。</li>
+</ul>
+</ul>
+<h2 id="规则细节">规则细节</h2>
+<ul>
+<li><strong>投票标记：</strong>指玩家死亡时获得的投票用指示物。玩家在死亡后会获得一枚投票标记。死亡玩家只有使用投票标记才可以投票。每名玩家有没有、有多少枚投票标记都是公开可查的。</li>
+<li>与官方的定义不同，在奥德赛中，持有多枚投票标记的玩家可以在一次提名中全部使用以投出多票，或是使用任意数量的投票标记以投出对应票数。如果玩家需要同时使用多枚投票标记，需要在举手投票时比出对应的数字，方便说书人唱票。在说书人唱票后会收走对应票数的投票标记。</li>
+<li><strong>上交投票标记：</strong>指死亡玩家（旅行者除外）在白天时，为触发某一个角色的能力，而公开选择某个角色并将持有的投票标记交给说书人的行为，该玩家会失去所有持有的投票标记。没有投票标记的玩家无法上交投票标记。上交投票标记是公开的、所有玩家可见的，且只能在白天进行。只要具有上交投票标记能力的角色存在于剧本中，即使该角色不在场，玩家们也可以公开选择该角色并上交投票标记。如果剧本中存在多个上交投票标记的角色，玩家在上交时需要声明本次上交要选择哪一个角色。如果剧本中仅有一个上交投票标记的角色，则可以略过选择角色的步骤。</li>
+<li>即使海猫王不在场、死亡、中毒醉酒，当有玩家声称他要上交投票标记时，你也要像海猫王具有能力时一样公开回应并收走该玩家的投票标记。但不要标记该玩家为“寻宝人”。</li>
+<li><strong>审判日：</strong>指游戏的首个存活玩家不足5名（不计算旅行者）的白天。在审判日，说书人会第一时间公开宣布今天是审判日。一局游戏最多只会存在一个审判日，如果游戏没有在审判日结束，之后的白天即使存活玩家不足5名，也不被当做审判日。如果游戏提前结束（如特胜或恶魔死亡），则本局游戏可能没有审判日。<strong>审判日降临前：</strong>指审判日到来之前的游戏时段。<strong>审判日降临时：</strong>指审判日到来的那一刻（通常为首个除旅行者外的存活玩家不足5名的黎明）。<strong>审判日降临后：</strong>审判日及审判日之后的游戏时段。</li>
+<li>进入审判日时，如果海猫王的能力可以被触发，那么立即分配12枚投票标记。</li>
+<li>在进入审判日时，如果海猫王还存活，或死亡但中毒醉酒，不分配投票标记。在当天剩余的时间里，即使海猫王恢复清醒健康或死亡，也不再分配投票标记。</li>
+<li>12枚投票标记需要均分给每一名“寻宝人”。如果无法完全均分，给每人尽量多的相同数量的投票标记，多余无法平分的部分由说书人回收。</li>
+<li>海猫王自己一定无法参与“宝藏”的分配，因为只有死亡才能获得投票标记，有投票标记才可以上交投票标记。而海猫王死亡后，成为“寻宝人”的能力渠道就消失了。</li>
+<li>旅行者玩家不可以上交投票标记（旅行者隔绝原则）。</li>
+</ul>
+<h2 id="游玩与对抗技巧">游玩与对抗技巧</h2>
+<ul>
+<li>如果你是海猫王。作为一名善良玩家，你肯定不希望你的“宝藏”流入邪恶玩家的口袋！所以你可以隐藏好自己，直到你死亡。或者是努力活到审判日，这样谁都拿不走你的“宝藏”！或者你可以私底下告诉一两个你认为是善良的玩家，让他们去寻宝，以求在审判日获得你的“宝藏”！</li>
+<li>如果你是海猫王。如果你在你存活的时候发现疑似邪恶的玩家上交了投票标记成为寻宝人，立即鼓励其他善良玩家也这么做！如果让12枚投票标记都落入一个邪恶玩家之手，这局游戏你就已经输了一大半！</li>
+<li>如果你是善良玩家。你不是海猫王，但是你可以将自己伪装成海猫王，以欺骗邪恶玩家放弃他们的投票标记！但是千万注意，善良玩家也可能会被你欺骗！</li>
+<li>如果你是邪恶玩家。时刻紧盯在场外来者以及注意观察他们是什么角色。如果你发现海猫王在场，至少派出一名死亡玩家成为寻宝人通常是不错的买卖。即使最后分不到“宝藏”，你们也不过损失了一枚投票标记而已。</li>
+<li>如果你是恶魔。如果大量死亡的善良玩家参与了寻宝活动，这意味着他们浪费了大量的投票标记！记住，海猫王需要在审判日死亡才会触发能力！你只需要刻意避开海猫王，让他存活到审判日。这些愚蠢的善良玩家就会永远失去他们的投资。当然，他们也可以选择在审判日来临前处决海猫王，但这无疑给你增加了更多的生存机会。如果有必要，你也可以让爪牙在这一天成为寻宝人，以分一杯羹。</li>
+<li>如果你是邪恶玩家。如果你可以让海猫王在审判日白天中毒或是立场或是失去能力，不管什么都好，只要让他的能力无法正常触发就行！这样会令所有的寻宝人血本无归！他们将会丧失在最后一天的投票权。</li>
+</ul>
+<h2 id="伪装成该角色">伪装成该角色</h2>
+<ul>
+<li>伪装为海猫王并诱骗大量善良玩家上交他们的投票标记，会给邪恶阵营带来巨大的好处！这些蠢蛋会在最后一天失去他们的投票权！</li>
+<li>如果你要伪装为海猫王，记住，大家往往希望海猫王在最后一天之前死亡！这样既能让寻宝人拿到投票标记，也能自证你是海猫王。所以如果你是恶魔的话，你被处决的风险会非常大。</li>
+<li>如果你要伪装为海猫王，记住，你并没有真的“宝藏”可以分享给大家。所以，就算你在审判日死亡了，你也无法在最后一个白天证明你是海猫王。如果你没打算在审判日自爆是邪恶的话，最好提前准备好关于你的能力为什么没有正常生效的说辞。</li>
+</ul>
+<h2 id="出现剧本">出现剧本</h2>
+<ul>
+<li><em>暂无</em></li>
+</ul>
+<h2 id="整体设计">整体设计</h2>
+<ul>
+<li>太一</li>
+</ul>
+<h2 id="创意来源">创意来源</h2>
+<ul>
+<li>太一</li>
+</ul>
+<h2 id="图标画师">图标画师</h2>
+<ul>
+<li>Lei.</li>
+</ul></div>
+    <div class="page-meta">最后修改于 2026-09-08T05:11:28.000Z，编辑者 <b>未知</b> ｜ 页面 9,631 字节 ｜ <a href="https://www.yuque.com/u48069482/taiyi/uahfgufn94uyeugi" target="_blank" rel="noopener">查看原页面</a></div>
+    <div class="backlinks"><b>链入此页的页面（3）</b><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">奥德赛 Odyssey</a><a href="../pages/%E4%BD%BF%E7%94%A8%E6%8A%95%E7%A5%A8%E6%A0%87%E8%AE%B0_%E4%B8%8A%E4%BA%A4%E6%8A%95%E7%A5%A8%E6%A0%87%E8%AE%B0_Use_Vote_Token_Give_up_Vote_Token.html">使用投票标记/上交投票标记 Use Vote Token/Give up Vote Token</a><a href="../pages/%E5%AE%A1%E5%88%A4%E6%97%A5_Judgment_Day.html">审判日 Judgment Day</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

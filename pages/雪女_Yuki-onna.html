@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>雪女 Yuki-onna - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">雪女 Yuki-onna<span class="ns-badge">奥德赛</span></h1>
+    <div class="tagline">来自钟楼百科 · 摘自《奥德赛 Odyssey》百科 · 爪牙</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#夜晚行动顺序">夜晚行动顺序</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#游玩与对抗技巧">游玩与对抗技巧</a></li><li class="lvl2"><a href="#出现剧本">出现剧本</a></li><li class="lvl2"><a href="#整体设计">整体设计</a></li><li class="lvl2"><a href="#创意来源">创意来源</a></li><li class="lvl2"><a href="#图标画师">图标画师</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E9%9B%AA%E5%A5%B3">查找包含此角色的剧本 →</a></p><div class="charinfo"><div class="charinfo-img"><a href="../files/%E6%96%87%E4%BB%B6_%E9%9B%AA%E5%A5%B3.png.html"><img alt="雪女 Yuki-onna" data-source-image="../images/%E9%9B%AA%E5%A5%B3.png" src="../assets/media/雪女.preview.webp" width="600" height="600" decoding="async"></a></div><div class="charinfo-meta"><div class="row"><span class="k">角色类型</span><span class="v"><a href="../pages/%E7%88%AA%E7%89%99.html" title="爪牙">爪牙</a></span></div><div class="row"><span class="k">英文名</span><span class="v">Yuki-onna</span></div><div class="row"><span class="k">角色ID</span><span class="v">062</span></div><div class="row"><span class="k">角色归属</span><span class="v">角色拓展包《奥德赛》</span></div><div class="row"><span class="k">能力标签</span><span class="v"><a href="../pages/%E4%B8%AD%E6%AF%92.html" title="中毒">中毒</a>、<a href="../pages/%E8%BF%9B%E5%9C%BA%E8%83%BD%E5%8A%9B.html" title="进场能力">进场能力</a>、<a href="../pages/%E6%AD%BB%E4%BA%A1%E8%A7%A6%E5%8F%91%E8%83%BD%E5%8A%9B.html" title="死亡触发能力">死亡触发能力</a></span></div><div class="row"><span class="k">角色定位</span><span class="v">中毒爪牙</span></div><div class="row"><span class="k">发布日期</span><span class="v">2026.4.21</span></div><div class="row"><span class="k">角色授权</span><span class="v">开放（任意剧本创作皆可使用，不要改能力）</span></div><div class="row"><span class="k">出处</span><span class="v"><a class="external" href="https://www.yuque.com/u48069482/taiyi" target="_blank" rel="noopener">《奥德赛 Odyssey》百科</a></span></div></div></div><h2 id="背景故事">背景故事</h2>
+<p><em>"情断香销月似钩，痴魂逐雪向冥幽。冰风吊影心难定，冻雨侵衣恨未收。怨结寒霜穿肌骨，恨作长绳锁罪尤。生死相缠无了日，爱恨成囚永不休。"</em></p>
+<h2 id="角色简介"><span style="color:rgb(64, 64, 64);">角色简介</span></h2>
+<p>雪女的痴怨跨越生死，在每个阶段降下剧毒。</p>
+<h2 id="角色能力">角色能力</h2>
+<div class="callout callout-info">
+<p>在你存活与死亡的首个夜晚，你要分别选择一名玩家：他中毒。</p>
+</div>
+<h2 id="范例">范例</h2>
+<ul>
+<li>第一个夜晚，雪女选择了占卜师，占卜师中毒了。第三个白天，雪女死于处决，占卜师恢复健康。当晚，雪女再次选择了占卜师，占卜师中毒了。</li>
+<li>第一个夜晚，雪女选择了贵族，贵族中毒了。第二个夜晚，雪女被恶魔杀死，贵族恢复健康。雪女选择了占卜师，占卜师中毒了。</li>
+<li>第一个夜晚，雪女选择了贵族，贵族中毒了。第二个夜晚，雪女被因为造谣者能力死亡，贵族恢复健康。雪女选择了占卜师，占卜师中毒了。</li>
+<li>第一个夜晚，雪女选择了占卜师，占卜师中毒了。雪女整局游戏都活着，占卜师一直处于中毒状态。</li>
+</ul>
+<h2 id="运作方式">运作方式</h2>
+<p>在首个夜晚，唤醒雪女让她指向一名玩家。使用雪女的“生毒”标记那名玩家，他开始中毒。让雪女重新入睡。雪女死亡或离场时，移除他的“生毒”提示，他恢复健康。</p>
+<p>如果雪女在白天死亡，当晚在轮到雪女的行动顺序时唤醒雪女，让她指向一名玩家。使用雪女的“死毒”标记那名玩家，他开始中毒。让雪女重新入睡。</p>
+<p>如果雪女在夜晚死亡，在造成她死亡的角色能力结算完毕后，紧接着唤醒雪女并让她指向一名玩家。使用雪女的“死毒”标记那名玩家，他开始中毒。让雪女重新入睡。</p>
+<h2 id="夜晚行动顺序">夜晚行动顺序</h2>
+<ul>
+<li>首个夜晚</li>
+<ul>
+<li>夜序数值：4610</li>
+<li>前位角色：投毒者</li>
+<li>行动提示：让他选择一名玩家。</li>
+</ul>
+<li>其他夜晚</li>
+<ul>
+<li>夜序数值：1410</li>
+<li>前位角色：投毒者</li>
+<li>行动提示：让他选择一名玩家。</li>
+</ul>
+</ul>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>生毒</li>
+<ul>
+<li>放置时机：在首个夜晚雪女选择一名玩家后时放置。</li>
+<li>放置条件：如果雪女在选择玩家时清醒健康，则放置在她选择的玩家对应的角色标记旁。</li>
+<li>移除时机：雪女死亡或离场时。</li>
+</ul>
+<li>死毒</li>
+<ul>
+<li>放置时机：在雪女死亡后的首个夜晚选择一名玩家后时放置。</li>
+<li>放置条件：如果雪女在选择玩家时清醒健康，则放置在她选择的玩家对应的角色标记旁。</li>
+<li>移除时机：雪女离场时。</li>
+</ul>
+</ul>
+<h2 id="规则细节">规则细节</h2>
+<ul>
+<li>注意区分雪女的两种毒。在雪女死亡时，此前因雪女中毒（生毒）的玩家会因为雪女死亡失去能力而立即恢复健康。</li>
+<li>雪女死亡后令人中毒（死毒）的能力不会因为雪女是死亡的所以失效，此能力为死亡触发能力。只要死亡的雪女还在场，该中毒效果会一直存在。</li>
+<li>如果雪女白天死亡，她会在夜晚轮到雪女的行动顺序时被唤醒并使用能力。</li>
+<li>如果雪女在夜晚死亡，她会在造成她死亡的角色能力结算完毕后，紧接着被唤醒并使用能力。雪女的“其他夜晚行动顺序”仅作为雪女在白天死亡时的行动顺序。</li>
+<li>如果一名存活玩家被变成雪女，当晚她会被唤醒并且使用能力（生毒）。</li>
+<li>如果一名死亡玩家被变成雪女，当晚她会被唤醒并且使用能力（死毒）。</li>
+<li>雪女的能力不能选择旅行者玩家（旅行者隔绝原则）。</li>
+</ul>
+<h2 id="游玩与对抗技巧">游玩与对抗技巧</h2>
+<ul>
+<li>如果你是雪女。在首个夜晚，选择那些看起来拿到了强力角色的玩家！或是你认为水平很高的玩家！因为没有任何基于游戏的信息，所以，放心大胆选吧，这需要一点点运气。</li>
+<li>如果你是雪女。你发现你在首个夜晚令一名重要玩家中毒，并造成了较大影响。尽量不要死亡，以保持他中毒。当然如果你不小心死了，你可以继续选择他并让他中毒。但是这样本局游戏你就没办法让其他玩家中毒了。</li>
+<li>如果你是雪女。你发现你毒了一个无关紧要的玩家，且有更重要的玩家急需你的中毒。想办法寻求死亡，最好是被处决。实在不行让恶魔把你杀死。</li>
+<li>如果你是善良玩家。记住，雪女只有死亡了才可以让新的玩家中毒。所以你不必像投毒者一样担心每天有不同玩家中毒的可能性。最多只会有2名玩家因为雪女中毒，且还是在雪女死亡的前提下。</li>
+<li>如果你是善良玩家。雪女首夜选择玩家没有太多参考，更多的是盲选。所以，重要玩家首夜被毒的概率不高。如果你发现一名重要玩家疑似因为雪女中毒，很有可能是雪女死亡后再次选择了他，尝试在死亡玩家当中找出谁是那个雪女。</li>
+</ul>
+<h2 id="出现剧本">出现剧本</h2>
+<ul>
+<li><em>暂无</em></li>
+</ul>
+<h2 id="整体设计">整体设计</h2>
+<ul>
+<li>太一</li>
+</ul>
+<h2 id="创意来源">创意来源</h2>
+<ul>
+<li>太一</li>
+</ul>
+<h2 id="图标画师">图标画师</h2>
+<ul>
+<li>Lei.</li>
+</ul></div>
+    <div class="page-meta">最后修改于 2026-09-08T05:13:46.000Z，编辑者 <b>未知</b> ｜ 页面 5,014 字节 ｜ <a href="https://www.yuque.com/u48069482/taiyi/hveakogg3hhm9gow" target="_blank" rel="noopener">查看原页面</a></div>
+    <div class="backlinks"><b>链入此页的页面（1）</b><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">奥德赛 Odyssey</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>持续检测型能力 - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">持续检测型能力</h1>
+    <div class="tagline">来自钟楼百科</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#能力简介">能力简介</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#相关角色">相关角色</a></li></ul></div>
+    <div class="mw-parser-output"><p>&lt;&lt;返回<a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html" title="角色能力类别总览">角色能力类别总览</a></p>
+<h2 id="能力简介">能力简介</h2>
+<p>部分角色的能力，会持续性地对某一个条件进行检测，并根据检测结果产生不同的能力效果。</p>
+<p>这部分的角色能力通常由“检测条件”与“产生效果”两个部分。当检测的前置条件满足时，就会根据能力产生相应的效果。</p>
+<p>如果该角色的能力持续正常生效，则对于前置条件的检测则会持续进行，并根据当前的条件满足与否动态进行变化，并因此影响能力结果。</p>
+<h2 id="范例">范例</h2>
+<p><a href="../pages/%E5%8D%A0%E5%8D%9C%E5%B8%88.html" title="占卜师">占卜师</a>的干扰项玩家转为了邪恶阵营。由于<a href="../pages/%E5%8D%A0%E5%8D%9C%E5%B8%88.html" title="占卜师">占卜师</a>的能力需要持续有一位善良角色作为他的干扰项，因此此时说书人需要立即将占卜师的干扰项提示标记转移到任意一名其他的善良角色标记旁放置。</p>
+<p><a href="../pages/%E5%93%B2%E5%AD%A6%E5%AE%B6.html" title="哲学家">哲学家</a>在使用完限次能力后，会持续检测他所选择的角色是否在场。一旦任何时候该角色在场了，该角色就会立即醉酒。</p>
+<h2 id="相关角色">相关角色</h2>
+<ul>
+<li><strong>暗流涌动</strong></li>
+<ul>
+<li><a href="../pages/%E5%8D%A0%E5%8D%9C%E5%B8%88.html" title="占卜师">占卜师</a>（镇民）（检测条件：场上是否有一名善良阵营的玩家成为占卜师的干扰项；检测结果：若否，则将干扰项标记转移到任意一名善良阵营玩家的角色标记旁。）</li>
+</ul>
+</ul>
+<ul>
+<li><strong>黯月初升</strong></li>
+<ul>
+<li><a href="../pages/%E8%8C%B6%E8%89%BA%E5%B8%88.html" title="茶艺师">茶艺师</a>（镇民）（检测条件：与茶艺师邻近的两名存活玩家是否均为善良阵营；检测结果：若是，则这两名玩家都不会死亡。）</li>
+</ul>
+</ul>
+<ul>
+<li><strong>梦殒春宵</strong></li>
+<ul>
+<li><a href="../pages/%E5%93%B2%E5%AD%A6%E5%AE%B6.html" title="哲学家">哲学家</a>（镇民）（检测条件：哲学家是否使用了自己的能力且所选择的角色是否在场；检测结果：若均为是，则对应的角色醉酒。）</li>
+<li><a href="../pages/%E5%A5%B3%E5%B7%AB.html" title="女巫">女巫</a>（爪牙）（检测条件：场上存活的玩家数量是否大于三名；检测结果：若否，则女巫失去能力。）</li>
+<li><a href="../pages/%E4%BA%A1%E9%AA%A8%E9%AD%94.html" title="亡骨魔">亡骨魔</a>（恶魔）（检测条件1：被亡骨魔杀死的玩家是否仍为爪牙；检测结果：若否，则移除保留能力标记；检测条件2：该爪牙邻近的镇民玩家；检测结果：需要保证该爪牙某一顺时针或逆时针方向上，与之最邻近的镇民玩家会因为亡骨魔的能力而处于中毒状态。）</li>
+<li><a href="../pages/%E8%AF%BA-%E8%BE%BE%E9%B2%BA.html" title="诺-达鲺">诺-达鲺</a>（恶魔）（检测条件：与诺-达鲺邻近的镇民玩家；检测结果：让这些邻近的镇民玩家中毒。）</li>
+</ul>
+</ul>
+<ul>
+<li><strong>实验性角色</strong></li>
+<ul>
+<li><a href="../pages/%E6%9D%91%E5%A4%AB.html" title="村夫">村夫</a>（镇民）（检测条件：是否有超过一名村夫在场且尚未放置醉酒标记；检测结果：若是，则将村夫的醉酒标记放置到任意一名村夫的角色标记旁。）</li>
+<li><a href="../pages/%E9%A3%9F%E4%BA%BA%E6%97%8F.html" title="食人族">食人族</a>（镇民）（检测条件：上一个因为处决而死亡的玩家的阵营和角色；检测结果：获得该玩家的角色能力；如果该玩家的阵营为邪恶，则会中毒直到下一次处决发生。）</li>
+<li><a href="../pages/%E6%9D%82%E6%8A%80%E6%BC%94%E5%91%98.html" title="杂技演员">杂技演员</a>（镇民）（检测条件：杂技演员选择的玩家是否醉酒或中毒；检测结果：若是，杂技演员死亡。）</li>
+<li><a href="../pages/%E5%8D%8A%E5%85%BD%E4%BA%BA.html" title="半兽人">半兽人</a>（镇民）（检测条件：场上是否有一名善良阵营的玩家被标记为失足；检测结果：若否，则将失足标记转移到任意一名善良阵营玩家的角色标记旁。）</li>
+<li><a href="../pages/%E4%BC%A0%E6%95%99%E5%A3%AB.html" title="传教士">传教士</a>（镇民）（检测条件：因传教士而失去能力的爪牙玩家是否仍为爪牙；检测结果：若否，则移除失去能力标记。）</li>
+<li><a href="../pages/%E7%A7%91%E5%AD%A6%E6%80%AA%E4%BA%BA.html" title="科学怪人">科学怪人</a>（爪牙）（检测条件1：当前获得善良角色能力的恶魔是否存活且仍是恶魔；检测结果：若是，则无事发生，否则检测是否有存活恶魔，若是则让该恶魔获得一个不在场的善良角色的能力，并让之前获得能力的恶魔失去能力；如果之前获得能力的恶魔获得的是死亡触发或死后能力保留的能力，则不会让该恶魔在死亡时失去能力；检测条件2：恶魔拥有的善良角色的能力对应的角色是否在场；检测结果：若是，则重新获得一个不在场的善良角色的能力。）</li>
+<li><a href="../pages/%E7%97%A2%E8%9B%AD.html" title="痢蛭">痢蛭</a>（恶魔）（检测条件：被痢蛭在其首个夜晚选择的玩家——即被“寄生”的玩家是否处于死亡状态；检测结果：若是，则痢蛭死亡。）</li>
+</ul>
+</ul>
+<ul>
+<li><strong>华灯初上</strong></li>
+<ul>
+<li><a href="../pages/%E7%86%8A%E5%AD%A9%E5%AD%90.html" title="熊孩子">熊孩子</a>（镇民）（检测条件：熊孩子当晚所选择的角色是否在场；检测结果：若是，则对应的角色产生错误信息。）</li>
+<li><a href="../pages/%E6%88%8F%E5%AD%90.html" title="戏子">戏子</a>（镇民）（检测条件：检测是否有善良玩家角色是戏子或获得了戏子的能力；检测结果：若是，则所有善良玩家变成戏子）</li>
+<li><a href="../pages/%E8%B5%B6%E5%B0%B8%E4%BA%BA.html" title="赶尸人">赶尸人</a>（爪牙）（检测条件：检测与赶尸人邻近的镇民玩家；检测结果：赶尸人的“首次死亡时进入活尸状态”能力对这些玩家生效。）</li>
+<li><a href="../pages/%E6%B7%B7%E6%B2%8C.html" title="混沌">混沌</a>（恶魔）（检测条件：在混沌的中毒效果生效期间检测所有玩家的阵营；检测结果：让善良玩家中毒。)</li>
+</ul>
+</ul>
+<ul>
+<li><strong>山雨欲来</strong></li>
+<ul>
+<li><a href="../pages/%E7%8B%B8%E7%8C%AB.html" title="狸猫">狸猫</a>（镇民）（检测条件：狸猫选择的玩家是否仍为善良角色；检测结果：若否，则移除太子标记。）</li>
+<li><a href="../pages/%E6%8E%AE%E5%AE%A2.html" title="掮客">掮客</a>（镇民）（检测条件：掮客选择的两名玩家是否仍为同一阵营；检测结果：若否，则移除熟客标记。）</li>
+<li><a href="../pages/%E9%85%92%E4%BF%9D.html" title="酒保">酒保</a>（外来者）（检测条件：与酒保邻近的非旅行者的善良玩家；检测结果：让这些玩家其中之一醉酒。）</li>
+<li><a href="../pages/%E5%85%A5%E6%AE%93%E5%B8%88.html" title="入殓师">入殓师</a>（外来者）（检测条件：场上除旅行者外存活的玩家数量是否大于四名；检测结果：若否，则入殓师失去能力。）</li>
+<li><a href="../pages/%E9%85%BF%E9%85%92%E5%B8%88.html" title="酿酒师">酿酒师</a>（爪牙）（检测条件：酿酒师所选择的角色是否在场且酿酒师给出的信息是否在合理范围内；检测结果：若是，则对应的角色在通过自身能力获取信息时会得知酿酒师给出的信息。）</li>
+</ul>
+</ul></div>
+    <div class="page-meta">最后修改于 2026-07-01T12:55:28Z，编辑者 <b>Zack</b> ｜ 页面 5,694 字节 ｜ <a href="https://clocktower-wiki.gstonegames.com/index.php?title=%E6%8C%81%E7%BB%AD%E6%A3%80%E6%B5%8B%E5%9E%8B%E8%83%BD%E5%8A%9B" target="_blank" rel="noopener">查看原页面</a> ｜ <div class="comment">编辑摘要：/* 相关角色 */</div></div>
+    <div class="backlinks"><b>链入此页的页面（24）</b><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a><a href="../pages/%E8%8C%B6%E8%89%BA%E5%B8%88.html">茶艺师</a><a href="../pages/%E9%A3%9F%E4%BA%BA%E6%97%8F.html">食人族</a><a href="../pages/%E5%8D%8A%E5%85%BD%E4%BA%BA.html">半兽人</a><a href="../pages/%E4%BC%A0%E6%95%99%E5%A3%AB.html">传教士</a><a href="../pages/%E6%9D%82%E6%8A%80%E6%BC%94%E5%91%98.html">杂技演员</a><a href="../pages/%E7%97%A2%E8%9B%AD.html">痢蛭</a><a href="../pages/%E4%BA%A1%E9%AA%A8%E9%AD%94.html">亡骨魔</a><a href="../pages/%E8%AF%BA-%E8%BE%BE%E9%B2%BA.html">诺-达鲺</a><a href="../pages/%E5%8D%A0%E5%8D%9C%E5%B8%88.html">占卜师</a><a href="../pages/%E5%93%B2%E5%AD%A6%E5%AE%B6.html">哲学家</a><a href="../pages/%E5%A5%B3%E5%B7%AB.html">女巫</a><a href="../pages/%E6%88%8F%E5%AD%90.html">戏子</a><a href="../pages/%E7%86%8A%E5%AD%A9%E5%AD%90.html">熊孩子</a><a href="../pages/%E8%B5%B6%E5%B0%B8%E4%BA%BA.html">赶尸人</a><a href="../pages/%E6%B7%B7%E6%B2%8C.html">混沌</a><a href="../pages/%E6%8E%AE%E5%AE%A2.html">掮客</a><a href="../pages/%E5%85%A5%E6%AE%93%E5%B8%88.html">入殓师</a><a href="../pages/%E9%85%BF%E9%85%92%E5%B8%88.html">酿酒师</a><a href="../pages/%E6%9D%91%E5%A4%AB.html">村夫</a><a href="../pages/%E7%A7%91%E5%AD%A6%E6%80%AA%E4%BA%BA.html">科学怪人</a><a href="../pages/%E7%8B%B8%E7%8C%AB.html">狸猫</a><a href="../pages/%E9%85%92%E4%BF%9D.html">酒保</a><a href="../pages/%E6%AF%92%E5%B0%BE_Venomtail.html">毒尾 Venomtail</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

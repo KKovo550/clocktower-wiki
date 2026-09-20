@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>掮客 - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">掮客</h1>
+    <div class="tagline">来自钟楼百科</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#角色信息">角色信息</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E6%8E%AE%E5%AE%A2">查找包含此角色的剧本 →</a></p><p><a href="../pages/%E6%8E%AE%E5%AE%A2.html" class="image-link" title="掮客"><img alt="Qianke.png" style="width:200px" class="" loading="lazy" data-source-image="../images/Qianke.png" src="../assets/media/Qianke.preview.webp" width="591" height="591" decoding="async"></a></p>
+<h2 id="背景故事">背景故事</h2>
+<p><em>“买卖不成情义在。”</em></p>
+<h2 id="角色能力">角色能力</h2>
+<p><strong>每个夜晚，你要选择两名存活玩家：如果他们阵营相同，今晚任何玩家使用自身能力选择他们之一作为目标时，改为选中另一名玩家。</strong></p>
+<h2 id="角色简介">角色简介</h2>
+<p>掮客促成两名阵营相同的玩家的合作，使得其他玩家的选择被转换。</p>
+<ul>
+<li>在夜晚时，掮客选择的两名存活玩家如果阵营相同，任何玩家使用自身能力选择他们之一时，在其能力生效前，选择的目标会转移到另一名玩家的身上。随后，这项能力效果会以另一名玩家作为新的目标来结算。</li>
+</ul>
+<ul>
+<li>如果掮客选择的两名存活玩家阵营不相同，那么，任何玩家使用自身能力选择他们之一作为目标时，不会发生转移。</li>
+</ul>
+<ul>
+<li>使用能力被掮客转移目标的玩家不会得知自己的选择目标被更换。掮客也不会得知是否有玩家因此被转移了选择的目标。</li>
+</ul>
+<ul>
+<li>只有需要玩家做出选择的能力才能被掮客转移目标。无需进行选择的能力，无法被掮客转移目标。</li>
+</ul>
+<ul>
+<li>掮客的能力只会在夜晚生效。在白天时，他的能力不会产生任何效果。</li>
+</ul>
+<h2 id="范例">范例</h2>
+<p><a href="../pages/%E6%8E%AE%E5%AE%A2.html" title="掮客">掮客</a>选择了<a href="../pages/%E5%AE%88%E9%B8%A6%E4%BA%BA.html" title="守鸦人">守鸦人</a>和<a href="../pages/%E8%89%BA%E6%9C%AF%E5%AE%B6.html" title="艺术家">艺术家</a>。恶魔攻击了<a href="../pages/%E8%89%BA%E6%9C%AF%E5%AE%B6.html" title="艺术家">艺术家</a>，<a href="../pages/%E5%AE%88%E9%B8%A6%E4%BA%BA.html" title="守鸦人">守鸦人</a>死亡并触发了自己的能力。</p>
+<p><a href="../pages/%E9%AD%94%E9%AC%BC%E4%BB%A3%E8%A8%80%E4%BA%BA.html" title="魔鬼代言人">魔鬼代言人</a>选择让自己处决不死。在第二个夜晚，<a href="../pages/%E6%8E%AE%E5%AE%A2.html" title="掮客">掮客</a>选择了<a href="../pages/%E9%AD%94%E9%AC%BC%E4%BB%A3%E8%A8%80%E4%BA%BA.html" title="魔鬼代言人">魔鬼代言人</a>和<a href="../pages/%E7%8F%80.html" title="珀">珀</a>。<a href="../pages/%E9%AD%94%E9%AC%BC%E4%BB%A3%E8%A8%80%E4%BA%BA.html" title="魔鬼代言人">魔鬼代言人</a>选择了<a href="../pages/%E7%8F%80.html" title="珀">珀</a>。<a href="../pages/%E9%AD%94%E9%AC%BC%E4%BB%A3%E8%A8%80%E4%BA%BA.html" title="魔鬼代言人">魔鬼代言人</a>继续受到处决不死的保护，且能够在下一个夜晚继续选择保护自己，因为他上一次选择的玩家是<a href="../pages/%E7%8F%80.html" title="珀">珀</a>。</p>
+<p><a href="../pages/%E6%8E%AE%E5%AE%A2.html" title="掮客">掮客</a>选择了<a href="../pages/%E9%99%8C%E5%AE%A2.html" title="陌客">陌客</a>和<a href="../pages/%E5%8E%A8%E5%B8%88.html" title="厨师">厨师</a>。<a href="../pages/%E5%B0%8F%E6%81%B6%E9%AD%94.html" title="小恶魔">小恶魔</a>攻击了<a href="../pages/%E5%8E%A8%E5%B8%88.html" title="厨师">厨师</a>，说书人决定让<a href="../pages/%E9%99%8C%E5%AE%A2.html" title="陌客">陌客</a>被当作邪恶阵营从而不触发掮客的转移目标效果，<a href="../pages/%E5%8E%A8%E5%B8%88.html" title="厨师">厨师</a>死亡了。</p>
+<h2 id="运作方式">运作方式</h2>
+<p>每个夜晚，唤醒掮客。让掮客指向任意两名存活玩家。让掮客重新入睡。如果这两名玩家阵营相同，将“熟客”提示标记放置到所选的两名玩家的角色标记旁。今晚，任何玩家使用自身能力选择他们之一作为目标时，改为选中另一名玩家。</p>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>熟客（共2枚）</li>
+</ul>
+<p>放置时机：在掮客夜晚行动并选择了玩家后。</p>
+<p>放置条件：如果掮客选择的玩家阵营相同，在这两名玩家的角色标记旁分别各放置一个此标记。若此时掮客醉酒中毒，不放置该标记。</p>
+<p>移除时机：在黄昏时，或掮客死亡或离场时。</p>
+<p>特殊说明：由于掮客的能力是持续检测，当熟客的阵营不同时，也会移除熟客标记。</p>
+<h2 id="规则细节">规则细节</h2>
+<ul>
+<li>掮客会持续检测被选择的玩家的阵营，一旦他们当中出现了阵营变化导致这两名玩家阵营不同，掮客会立即失去对这两名玩家更换选择目标的能力。</li>
+</ul>
+<ul>
+<li>更多规则与细节详情请查看<a href="../pages/%E6%9B%B4%E6%8D%A2%E9%80%89%E6%8B%A9%E7%9B%AE%E6%A0%87.html" title="更换选择目标">更换选择目标</a>。</li>
+</ul>
+<ul>
+<li>特定角色互动：</li>
+<ul>
+<li><a href="../pages/%E5%88%BA%E5%AE%A2.html" title="刺客">刺客</a>：如果刺客攻击了掮客选择的玩家，那名玩家会直接死亡，并不会将刺客的效果转移到另一名玩家身上。</li>
+</ul>
+</ul>
+<ul>
+<li>相克规则：</li>
+<ul>
+<li><a href="../pages/%E7%97%A2%E8%9B%AD.html" title="痢蛭">痢蛭</a>：痢蛭的宿主及其中毒效果无法被转移。</li>
+</ul>
+</ul>
+<h2 id="角色信息">角色信息</h2>
+<ul>
+<li>英文名：Broker</li>
+</ul>
+<ul>
+<li>所属角色合集：<a href="../pages/%E5%B1%B1%E9%9B%A8%E6%AC%B2%E6%9D%A5.html" title="山雨欲来">山雨欲来</a></li>
+</ul>
+<ul>
+<li>创意来源：CC2Irving</li>
+</ul>
+<ul>
+<li>角色类型：<a href="../pages/%E9%95%87%E6%B0%91.html" title="镇民">镇民</a></li>
+</ul>
+<ul>
+<li>角色能力类型：<a href="../pages/%E6%9B%B4%E6%8D%A2%E9%80%89%E6%8B%A9%E7%9B%AE%E6%A0%87.html" title="更换选择目标">更换选择目标</a>、<a href="../pages/%E6%8C%81%E7%BB%AD%E6%A3%80%E6%B5%8B%E5%9E%8B%E8%83%BD%E5%8A%9B.html" title="持续检测型能力">持续检测型能力</a></li>
+</ul></div>
+    <div class="page-meta">最后修改于 2026-05-13T05:31:24Z，编辑者 <b>Zack</b> ｜ 页面 3,466 字节 ｜ <a href="https://clocktower-wiki.gstonegames.com/index.php?title=%E6%8E%AE%E5%AE%A2" target="_blank" rel="noopener">查看原页面</a> ｜ <div class="comment">编辑摘要：/* 背景故事 */</div></div>
+    <div class="backlinks"><b>链入此页的页面（9）</b><a href="../pages/%E7%97%A2%E8%9B%AD.html">痢蛭</a><a href="../pages/%E6%8C%81%E7%BB%AD%E6%A3%80%E6%B5%8B%E5%9E%8B%E8%83%BD%E5%8A%9B.html">持续检测型能力</a><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a><a href="../pages/%E6%9B%B4%E6%8D%A2%E9%80%89%E6%8B%A9%E7%9B%AE%E6%A0%87.html">更换选择目标</a><a href="../pages/%E5%A4%9C%E6%99%9A%E8%A1%8C%E5%8A%A8%E9%A1%BA%E5%BA%8F%E4%B8%80%E8%A7%88.html">夜晚行动顺序一览</a><a href="../pages/%E5%B1%B1%E9%9B%A8%E6%AC%B2%E6%9D%A5.html">山雨欲来</a><a href="../pages/%E6%8E%AE%E5%AE%A2.html">掮客</a><a href="../pages/%E7%A7%BB%E8%8A%B1%E6%8E%A5%E6%9C%A8.html">移花接木</a><a href="../pages/%E7%A7%89%E5%85%AC%E5%8A%9E%E4%BA%8B.html">秉公办事</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

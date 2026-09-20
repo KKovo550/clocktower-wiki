@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>米诺陶 Minotaur - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">米诺陶 Minotaur<span class="ns-badge">奥德赛</span></h1>
+    <div class="tagline">来自钟楼百科 · 摘自《奥德赛 Odyssey》百科 · 恶魔</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#夜晚行动顺序">夜晚行动顺序</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#游玩与对抗技巧">游玩与对抗技巧</a></li><li class="lvl2"><a href="#出现剧本">出现剧本</a></li><li class="lvl2"><a href="#整体设计">整体设计</a></li><li class="lvl2"><a href="#创意来源">创意来源</a></li><li class="lvl2"><a href="#图标画师">图标画师</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E7%B1%B3%E8%AF%BA%E9%99%B6">查找包含此角色的剧本 →</a></p><div class="charinfo"><div class="charinfo-img"><a href="../files/%E6%96%87%E4%BB%B6_%E7%B1%B3%E8%AF%BA%E9%99%B6.png.html"><img alt="米诺陶 Minotaur" data-source-image="../images/%E7%B1%B3%E8%AF%BA%E9%99%B6.png" src="../assets/media/米诺陶.preview.webp" width="600" height="600" decoding="async"></a></div><div class="charinfo-meta"><div class="row"><span class="k">角色类型</span><span class="v"><a href="../pages/%E6%81%B6%E9%AD%94.html" title="恶魔">恶魔</a></span></div><div class="row"><span class="k">英文名</span><span class="v">Minotaur</span></div><div class="row"><span class="k">角色ID</span><span class="v">106</span></div><div class="row"><span class="k">角色归属</span><span class="v">角色拓展包《奥德赛》</span></div><div class="row"><span class="k">能力标签</span><span class="v"><a href="../pages/%E5%A4%84%E5%86%B3.html" title="处决">处决</a>、<a href="../pages/%E7%89%B9%E6%AE%8A%E8%83%9C%E5%88%A9%E5%A4%B1%E8%B4%A5%E6%9D%A1%E4%BB%B6.html" title="特殊胜利失败条件">特殊胜利失败条件</a></span></div><div class="row"><span class="k">角色定位</span><span class="v">特胜恶魔</span></div><div class="row"><span class="k">发布日期</span><span class="v">2026.6.28</span></div><div class="row"><span class="k">角色授权</span><span class="v">开放（任意剧本创作皆可使用，不要改能力）</span></div><div class="row"><span class="k">出处</span><span class="v"><a class="external" href="https://www.yuque.com/u48069482/taiyi" target="_blank" rel="noopener">《奥德赛 Odyssey》百科</a></span></div></div></div><h2 id="背景故事">背景故事</h2>
+<p><em>"你知道迷宫的真正妙处吗？不是让人迷路，而是让人以为每一步都踩在正确的方向上。千百年来，我每每拖着伤蹄逃跑，看起来已是强弩之末。他们追着我穿过一扇又一扇石门，以为那是通往胜利的捷径。可这里没有指路的线团，没有回头的标记。那些看似通达的巷道，每一道拐都通向翻板或钉坑。每一次迫近，每一次‘即将得手’，不过是我量身定做的错觉。当他们兴奋地迎接‘胜利’时，等待他们的只有迷宫深处那无垠的黑暗。"</em></p>
+<h2 id="角色简介"><span style="color:rgb(64, 64, 64);">角色简介</span></h2>
+<p>米诺陶佯装失利，实则引诱善良阵营走向失败的陷阱。</p>
+<h2 id="角色能力">角色能力</h2>
+<div class="callout callout-info">
+<p>每个夜晚*，你要选择一名存活玩家：他死亡。审判日降临前，如果所有邪恶玩家均死于处决，你的阵营获胜。</p>
+</div>
+<h2 id="范例">范例</h2>
+<ul>
+<li>12人局。第一个白天，男爵死于处决。第二个白天，投毒者死于处决。第三个白天，米诺陶死于处决，邪恶阵营获胜。</li>
+<li>15人局。第一个白天，男爵死于处决。第二个白天，占卜师死于处决。第三个白天，投毒者死于处决。第四个白天，间谍死于处决。第五个白天，米诺陶死于处决，邪恶阵营获胜。</li>
+<li>10人局。第一个白天，男爵死于处决。第二个白天，占卜师死于处决。第三个白天，投毒者死于处决。第四个白天，审判日，米诺陶死于处决，善良阵营获胜。</li>
+</ul>
+<h2 id="运作方式">运作方式</h2>
+<p>除首个夜晚以外的每个夜晚，唤醒米诺陶。让米诺陶指向任意一名存活的玩家。让米诺陶重新入睡。被选择的玩家死亡——在那名玩家的角色标记旁放置米诺陶的“死亡”提示标记。</p>
+<p>当一名邪恶玩家死于处决时，如果此时审判日还未降临，且所有其他邪恶玩家都已死于处决，宣布邪恶阵营获胜。</p>
+<h2 id="夜晚行动顺序">夜晚行动顺序</h2>
+<ul>
+<li>首个夜晚</li>
+<ul>
+<li>夜序数值：/</li>
+<li>前位角色：/</li>
+<li>行动提示：/</li>
+</ul>
+<li>其他夜晚</li>
+<ul>
+<li>夜序数值：4910</li>
+<li>前位角色：小恶魔</li>
+<li>行动提示：让他选择一名存活玩家。</li>
+</ul>
+</ul>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>死亡</li>
+<ul>
+<li>放置时机：在米诺陶选择了玩家后放置。</li>
+<li>放置条件：如果米诺陶选择的玩家当前存活，且能被米诺陶杀死，，那么在该玩家的角色标记旁放置。</li>
+<li>移除时机：在黎明时宣布死亡玩家后，说书人可以任由自己方便来进行移除。</li>
+</ul>
+</ul>
+<h2 id="规则细节">规则细节</h2>
+<ul>
+<li><strong>审判日：</strong>指游戏的首个存活玩家不足5名（不计算旅行者）的白天。在审判日，说书人会第一时间公开宣布今天是审判日。一局游戏最多只会存在一个审判日，如果游戏没有在审判日结束，之后的白天即使存活玩家不足5名，也不被当做审判日。如果游戏提前结束（如特胜或恶魔死亡），则本局游戏可能没有审判日。<strong>审判日降临前：</strong>指审判日到来之前的游戏时段。<strong>审判日降临时：</strong>指审判日到来的那一刻（通常为首个除旅行者外的存活玩家不足5名的黎明）。<strong>审判日降临后：</strong>审判日及审判日之后的游戏时段。</li>
+<li>米诺陶不能选择已死亡的玩家。如果米诺陶选择了已经死亡的玩家（不管是之前死亡的还是当晚死亡的），让他重新选择。</li>
+<li>只有所有邪恶玩家都死于处决时，才能触发米诺陶的特胜能力。这也就意味着，只要有一名邪恶玩家死于处决以外的原因，米诺陶的特胜能力就无法被触发。</li>
+<li>邪恶旅行者不被米诺陶的能力看作邪恶玩家，米诺陶的能力不可以选择旅行者玩家（旅行者隔绝原则）。</li>
+</ul>
+<h2 id="游玩与对抗技巧">游玩与对抗技巧</h2>
+<ul>
+<li>如果你是米诺陶。在游戏之初就想好本局的获胜方式。如果你希望特胜，就需要所有爪牙英勇地赴死，而你需要把赴死的指令告知所有爪牙。</li>
+<li>如果你是米诺陶。如果你特胜的计划被中断，比如有爪牙死于非处决原因，或是在审判日降临前的处决次数已经不足以处决剩余邪恶玩家时。你就需要立即改变策略，以传统的方式活到游戏的最后一刻。</li>
+<li>如果你是其他恶魔。即使你不是米诺陶，你也可以在关键时刻让爪牙赴死。这会令善良阵营认为在场恶魔是米诺陶，从而改变他们的处决策略，从而为你争取到更多的生存空间。</li>
+<li>如果你是善良玩家。如果你认为善良阵营正在高歌猛进，处决了一个又一个你们认为的邪恶玩家，请注意！在场恶魔极有可能是米诺陶。如果米诺陶在场，且他作为最后一个邪恶玩家被处决，那么你们就会落败。如果你们察觉到恶魔可能是米诺陶，改变你们的处决策略，提前处决更像是恶魔的玩家，或是将疑似恶魔的玩家留到审判日再行处决。</li>
+</ul>
+<h2 id="出现剧本">出现剧本</h2>
+<ul>
+<li><em>暂无</em></li>
+</ul>
+<h2 id="整体设计">整体设计</h2>
+<ul>
+<li>太一</li>
+</ul>
+<h2 id="创意来源">创意来源</h2>
+<ul>
+<li>太一</li>
+</ul>
+<h2 id="图标画师">图标画师</h2>
+<ul>
+<li>Lei.</li>
+</ul></div>
+    <div class="page-meta">最后修改于 2026-09-08T05:27:58.000Z，编辑者 <b>未知</b> ｜ 页面 5,038 字节 ｜ <a href="https://www.yuque.com/u48069482/taiyi/xiwksvwz6cqros0l" target="_blank" rel="noopener">查看原页面</a></div>
+    <div class="backlinks"><b>链入此页的页面（2）</b><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">奥德赛 Odyssey</a><a href="../pages/%E5%AE%A1%E5%88%A4%E6%97%A5_Judgment_Day.html">审判日 Judgment Day</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

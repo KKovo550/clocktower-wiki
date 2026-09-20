@@ -1,0 +1,14 @@
+.night-controls{position:sticky;top:calc(var(--wiki-header-height,68px) + 8px);z-index:5;background:#f5f8fdf5;border:1px solid #dbe5f3;border-radius:16px;padding:18px 20px;margin:24px 0;box-shadow:0 6px 18px #264c7510}
+.night-tabs{display:flex;gap:6px;flex-wrap:wrap}.night-controls button{font:inherit;font-size:13px;cursor:pointer;border:1px solid #d8e3f2;border-radius:9px;padding:8px 14px;background:white;color:#42628a}
+.night-tabs button[aria-pressed=true]{background:#2c609f;color:#fff;border-color:#2c609f}
+.night-search{display:flex;flex-wrap:wrap;align-items:end;gap:12px;margin-top:14px}.night-search label{display:grid;gap:4px;font-size:12px;color:#60748f}.night-search label:first-child{flex:1;min-width:min(200px,100%)}
+.night-search input,.night-search select{box-sizing:border-box;width:100%;font:inherit;font-size:14px;padding:9px 12px;border:1px solid #ccd9e9;border-radius:9px;background:#fff;color:#2e486b;min-height:40px}
+#night-count{font-size:13px;color:#3c628d;margin:10px 0 0}.night-controls .night-help{font-size:11px;color:#728298;margin:5px 0 0}
+.night-columns{display:grid;grid-template-columns:minmax(0,1fr);gap:24px}.night-columns.is-comparing{grid-template-columns:repeat(2,minmax(0,1fr))}
+.night-section{min-width:0}.night-list{display:grid;gap:10px}.night-row{display:flex;gap:14px;align-items:start;padding:16px 18px;border:1px solid #e0e8f2;background:#fff;border-radius:13px;box-shadow:0 3px 10px #29476d05}
+.night-number{flex:none;min-width:30px;padding-top:12px;color:#7b97b9;font-size:15px;font-weight:650;font-variant-numeric:tabular-nums}
+.night-instruction{min-width:0;flex:1;color:#4c607a;font-size:14px;line-height:1.9}.night-instruction p{margin:0!important}.night-instruction img{width:46px;height:46px;object-fit:contain;vertical-align:middle;margin:0 10px 4px 0}.night-instruction b{color:#294a73;font-size:16px}
+.night-row[hidden],.night-section[hidden]{display:none}#night-empty{padding:24px;background:#f5f8fd;border-radius:12px;color:#73859d;text-align:center}
+@media(max-width:1000px){.night-columns.is-comparing{grid-template-columns:1fr}}
+@media(max-width:640px){.night-controls{position:static;padding:14px}.night-row{padding:12px;gap:8px}.night-number{min-width:25px}.night-instruction{font-size:13px}}
+@media print{.night-controls,#night-empty{display:none}.night-columns{display:block}.night-row{break-inside:avoid;box-shadow:none}}

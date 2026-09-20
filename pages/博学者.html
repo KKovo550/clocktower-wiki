@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>博学者 - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">博学者</h1>
+    <div class="tagline">来自钟楼百科</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#提示与技巧">提示与技巧</a></li><li class="lvl2"><a href="#伪装成博学者">伪装成博学者</a></li><li class="lvl2"><a href="#角色信息">角色信息</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E5%8D%9A%E5%AD%A6%E8%80%85">查找包含此角色的剧本 →</a></p><p><a href="../pages/%E5%8D%9A%E5%AD%A6%E8%80%85.html" class="image-link" title="博学者"><img alt="Savant.png" style="width:200px" class="" loading="lazy" data-source-image="../images/Savant.png" src="../assets/media/Savant.preview.webp" width="600" height="600" decoding="async"></a></p>
+<h2 id="背景故事">背景故事</h2>
+<p><em>“地上有七十二根火柴……今天的太阳落得更早，月亮还是按时升起……一块破布……庄园里的邪恶之物……三个又三个……我们相信的事物和他真正看到的不一样……绿光代表镁……残留物，但是图案不太对……地上有七十二根火柴……”</em></p>
+<h2 id="角色能力">角色能力</h2>
+<p><strong>每个白天，你可以私下询问说书人以得知两条信息：一个是正确的，一个是错误的。</strong></p>
+<h2 id="角色简介">角色简介</h2>
+<p>博学者能得知惊人的信息，每一个白天，甚至每一局游戏里他能得到的信息都不会相同，但其中一半是错误的。</p>
+<ul>
+<li>每个白天，说书人选择两条信息提供给博学者……发挥创造力！一条必须是正确的，一条必须是错误的，博学者不知道哪条对哪条错。</li>
+</ul>
+<ul>
+<li>是否与说书人交谈取决于博学者而非说书人。博学者从说书人处获取信息不是公开交流，因此其他玩家不能旁听。博学者会秘密地获取信息。</li>
+</ul>
+<ul>
+<li>博学者可以选择不从说书人那里获取信息，如果他愿意的话。</li>
+</ul>
+<ul>
+<li>醉酒或中毒的博学者可能会得到两条正确信息或两条错误信息。</li>
+</ul>
+<h2 id="范例">范例</h2>
+<p><a href="../pages/%E5%8D%9A%E5%AD%A6%E8%80%85.html" title="博学者">博学者</a>得知“所有戴眼镜的玩家都是善良的”以及“坐在黑色沙发上的玩家之一是爪牙”。</p>
+<p><a href="../pages/%E5%8D%9A%E5%AD%A6%E8%80%85.html" title="博学者">博学者</a>得知“<a href="../pages/%E8%88%9E%E8%9B%87%E4%BA%BA.html" title="舞蛇人">舞蛇人</a>存在于游戏中”和“昨晚每个玩家都得到了真实的信息”。</p>
+<p><a href="../pages/%E5%8D%9A%E5%AD%A6%E8%80%85.html" title="博学者">博学者</a>得知“恶魔是女性玩家”和“小八属于邪恶阵营”。</p>
+<p><a href="../pages/%E5%8D%9A%E5%AD%A6%E8%80%85.html" title="博学者">博学者</a>得知“小文和小米属于同一个阵营”和“只有一名外来者在场”。</p>
+<h2 id="运作方式">运作方式</h2>
+<p>每个白天仅限一次，如果博学者要求与你进行私聊，请和他一起离开玩家围成的圆圈，保证你们的私聊不会被偷听。然后以耳语的方式告知博学者一真一假两条信息。（如果你无法立刻想出两条信息，要么多想一会儿，要么让博学者几分钟后再来找你。）</p>
+<p>保证你提供的信息有用并且与游戏有关。避免提供恶魔是谁这种信息，否则可能导致游戏快速结束。如果你无法决定告知博学者什么信息，你可以选择提供类似于镇民能力能够获取的信息。</p>
+<h2 id="提示标记">提示标记</h2>
+<p>无</p>
+<h2 id="规则细节">规则细节</h2>
+<ul>
+<li>博学者在中文社区内的“谜题”式信息方式引起了设计师的兴趣，对于“是否应该给博学者提供谜题类信息”，设计师的回复如下（原文翻译）：“从规则上来讲，给出这样的信息是不允许的，因为这种含糊不清的内容并不能算是‘正确’或是‘错误’的信息。然而，如果说书人愿意以这样的方式给出信息，也没有任何问题。因为这允许了新人玩家在伪装自己是博学者时有更为宽松的要求——他们不需要编造明显正确或是错误的信息便能成功地伪装。说书人能够在一定限度内去‘犯一些错’，而这会使得玩家们也因此在伪装上更为容易。编造谜题也会让游戏变得更加有趣。”</li>
+<li>如果你在作为说书人时想要给出谜题类的信息，那么你需要注意适时给出更为严肃的信息来“以假乱真”，或是适当协助邪恶玩家进行一些谜题的伪造，来帮助他们显得更像是真正从你这里获得了谜题类信息一样。</li>
+</ul>
+<h2 id="提示与技巧">提示与技巧</h2>
+<ul>
+<li>在每天你可以得到一条真信息和一条假信息。最简单的运用方式就是选择一条你认为是真信息的然后去推理。例如，说书人告诉你a)有畸形秀演员在场b)你的邻座都是善良的，而现在没有证据表明畸形秀演员在场，那么你只需要假设你的邻座确实都是善良的。有可能这是错误的，但是你必须要做出一个"最好的假设"。</li>
+</ul>
+<ul>
+<li>在某些情况下，你的其中一条信息会被证实是正确的，那么另一条就是错误的。或者其中一条被证实是错误，则另一条就会是正确的。这将为你让你得知大量信息。例如，如果你得知a)有一个金发玩家是爪牙b)有三个外来者在场，如果大量证据表明爪牙已经死去了（而死去的玩家中没有金发玩家），那么你可以大胆认为场上确实有三个外来者。</li>
+</ul>
+<ul>
+<li>有些时候你可以尝试去验证你其中一条的真假，这同样会给你带来很多信息。例如，如果你得知a)恶魔穿着衬衫或b)坐在黑色沙发上的玩家都是善良的。那么你可以故意去处决所有穿着衬衫的玩家，而如果游戏仍然继续，恶魔仍然在夜里行动，那么你就知道恶魔没有穿衬衫，所以所有坐在黑色沙发上的玩家就都是善良的。</li>
+</ul>
+<ul>
+<li>如果你能判断你哪条信息是错的，那么假信息就和真信息一样有用。当你在颠倒真假信息时，注意不要犯逻辑错误。例如，你得知"女巫昨晚选择了一名善良玩家"，如果你认为这条信息是错的，那么相反的信息并不一定是"女巫昨晚选择了一名邪恶玩家"，因为也许并没有女巫在场，又或者女巫已经死了。你唯一能够知道的是所有善良玩家昨晚都没有被女巫诅咒所以可以放心提名。</li>
+</ul>
+<ul>
+<li>每一天你可以得到两条信息。要立刻分辨出哪一条是真信息可能不太容易，但随着游戏进行，你可以将后续的信息与之前的信息对比，从而得出具体的结论。例如，如果你在第一天得知a)有舞蛇人在场或b)所有戴帽子的玩家是善良的。然后在第三天，你得知a)有一个新的玩家在昨晚成为了恶魔b)爪牙已经死了，那么这些信息就有所交互。如果你假设恶魔已经被舞蛇人换了，那么你就可以推断至少有一个戴帽子的玩家是邪恶的，并且爪牙仍然还活着。</li>
+</ul>
+<ul>
+<li>告诉大家你在每天得到的信息，可以让大家帮助你记住。一旦游戏不断推进，你可能很难记住说书人说的所有信息。毕竟，你需要成为一名真正的博学者！告诉大家你的信息以确保这些信息不会被遗忘。或者，如果你有很好的记忆力（或者你能悄悄的写下来，又或者说书人允许你写下来做记录），那么你可以保持低调，然后在后续一次性揭露你的爆炸信息。</li>
+</ul>
+<ul>
+<li>为了获得更多信息，你需要尽可能的多活几天。你可以装作是那些恶魔不太愿意去攻击的对象，如：贤者、钟表匠或者已经使用能力的女裁缝等，或者你也可以保持沉默。你活的越久，你能得到的信息就越多。但是也不要藏的太久……你需要适当的早些告诉大家你的信息，来帮助大家处决邪恶玩家，否则由于女巫、洗脑师或者畸形秀演员等能力，你们之中会有越来越多的人死去。如果有镜像双子或者涡流在场，那么利用你的信息对大家进行纠正将会尤其的有用。</li>
+</ul>
+<ul>
+<li>注意说书人使用的词汇——如果你做了小小的变更有可能会出现截然不同的结果。由于对说书人而言如果博学者在游戏中将会非常困难，因为他们需要编造一些对你有用但又不能对邪恶阵营太过不公平的信息，所以说书人通常会非常谨慎的给出信息。要准确的记住说书人给出的信息，以免产生混淆。例如，如果说书人说"所有爪牙都坐在蓝色沙发上"而你告诉大家"蓝色沙发上的玩家都是爪牙"，那么你就犯了一个逻辑错误。又或者，如果说书人说"恶魔戴着眼镜"，而你告诉大家"恶魔就是戴眼镜的人"，请注意，这里的说法略微不同——如果恶魔在你不注意的情况下摘下眼镜，而你一直告诉大家恶魔戴着眼镜，你就错了。</li>
+</ul>
+<ul>
+<li>每一天都要去找说书人，以尽可能的获取更多的信息。随着你每天都去找说书人，你就会得到更多的信息，当然恶魔也更有可能去杀你。博学者对于恶魔而言是一个非常危险的角色，所以如果恶魔看见你在每天都去找说书人，那么即使你没有说明你自己的角色，恶魔也可能会在晚上攻击你。</li>
+</ul>
+<ul>
+<li>你也可以在前期不去找说书人。这样会导致你获取更少的信息，但同时更容易存活。而你在当时获取的信息有可能会更有价值。在通常情况下，如果只有3、4、5名玩家存活时，你的信息会更有用，因为它会指向更少的玩家。例如，在12人存活时，得知两名玩家中有一个是爪牙是比较简单的，但是如果只有3个玩家存活，那就会变得非常简单。</li>
+</ul>
+<h2 id="伪装成博学者">伪装成博学者</h2>
+<ul>
+<li>让你的信息简单一点！这不仅可以让你可以更容易伪装，而且如果善良玩家相信了你的信息会更容易破坏他们的逻辑。例如，试着给出这样的信息a)我的邻座有一个邪恶玩家b)本局游戏中有钟表匠。这样的陈述可以帮助你的恶魔（伪装成钟表匠的队友）或者污蔑你的邻座玩家。</li>
+</ul>
+<ul>
+<li>你也可以给出复杂而混乱的信息！虽然这也许会比较困难，但你可能会使善良玩家们在试图搞清楚你的信息的同时将他们的注意力从其他邪恶玩家身上转移。例如，你的信息可以是a)有更多的邪恶玩家在离你更近的位置，或b)邪恶玩家们有一个善良玩家在他们中间。这些狡猾的说法可能需要一段时间才能够辨别。</li>
+</ul>
+<ul>
+<li>向说书人咨询他一般会提供什么样的信息。不管如何，你每天都至少需要去找说书人——不同的说书人会根据他们的个人风格和游戏设置的不同而给出不同的信息。你不会从说书人那里得到具体的信息（因为你实际上不是博学者），但是说书人肯定会给你一些想法上的建议，或者有关在场人物或座位上的提示。</li>
+</ul>
+<ul>
+<li>不要说的太过于具体——因为太具体的信息很容易被推翻。例如，如果你很确切的说"张三是城镇公告员"而他其实不是，那么你的另一条信息就必然会是真的……而如果另一条信息牵扯了你的邪恶阵营就会显得很麻烦。</li>
+</ul>
+<ul>
+<li>你可以给出两个假信息或者两个真信息。例如那些你想要掩盖的真信息（比如关于你们邪恶阵营的）。要掩盖真相，你可以将其描述为明显像是真信息的假信息，或者你可以通过说两条假信息来破坏善良玩家们的逻辑思路。例如，如果恶魔是诺-达鲺，你可以说a)恶魔是诺-达鲺b)呆瓜是善良的。如果呆瓜已经被通过其他方式证实了他是善良玩家（例如他死后神谕者得知了关于他的信息），那么玩家通常会认为恶魔的类型不是诺-达鲺。</li>
+</ul>
+<ul>
+<li>运用你的信息让善良玩家们相互猜忌！告诉大家坐在沙发上的玩家里有一个是邪恶的。或者声明一些相互矛盾的信息——例如，现在场上有一个筑梦师与哲学家，你可以这样说你的信息a)场上有一个筑梦师b)场上有一个哲学家。这会离间善良玩家，使他们相互怀疑，这不失为保护邪恶阵营和制造混乱的好方法。</li>
+</ul>
+<ul>
+<li>给出那些会走向你期望的情况的信息。这可能会比较困难，但是如果你成功的话会得到对应的回报。这个方法的目的是提供一些在某些特征上重合的信息，无论大家接受哪条信息是真或假，都可以确保对于某件事情而言是真的或假的。例如，假设你想保护你的恶魔同伴，但他是女性玩家且坐在你旁边，那么你可以说a)恶魔是男性玩家b)我的两个邻座玩家都是善良的。这样无论大家认为哪一个是错的，都可能会漏掉原本的恶魔！</li>
+</ul>
+<h2 id="角色信息">角色信息</h2>
+<ul>
+<li>英文名：Savant</li>
+</ul>
+<ul>
+<li>所属剧本：<a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html" title="梦殒春宵">梦殒春宵</a></li>
+</ul>
+<ul>
+<li>角色类型：<a href="../pages/%E9%95%87%E6%B0%91.html" title="镇民">镇民</a></li>
+</ul>
+<ul>
+<li>角色能力类型：<a href="../pages/%E8%8E%B7%E5%8F%96%E4%BF%A1%E6%81%AF.html" title="获取信息">获取信息</a>、<a href="../pages/%E6%8B%9C%E8%AE%BF%E8%AF%B4%E4%B9%A6%E4%BA%BA.html" title="拜访说书人">拜访说书人</a></li>
+</ul></div>
+    <div class="page-meta">最后修改于 2025-03-28T05:30:46Z，编辑者 <b>Zack</b> ｜ 页面 11,833 字节 ｜ <a href="https://clocktower-wiki.gstonegames.com/index.php?title=%E5%8D%9A%E5%AD%A6%E8%80%85" target="_blank" rel="noopener">查看原页面</a> ｜ <div class="comment">编辑摘要：/* 提示与技巧 */</div></div>
+    <div class="backlinks"><b>链入此页的页面（62）</b><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a><a href="../pages/%E6%96%B9%E5%8F%A4.html">方古</a><a href="../pages/%E6%8B%9C%E8%AE%BF%E8%AF%B4%E4%B9%A6%E4%BA%BA.html">拜访说书人</a><a href="../pages/%E5%8D%8A%E5%85%BD%E4%BA%BA.html">半兽人</a><a href="../pages/%E5%B0%86%E5%86%9B.html">将军</a><a href="../pages/%E5%93%A5%E5%B8%83%E6%9E%97.html">哥布林</a><a href="../pages/%E6%8F%90%E7%BA%BF%E6%9C%A8%E5%81%B6.html">提线木偶</a><a href="../pages/%E5%AF%A1%E5%A6%87.html">寡妇</a><a href="../pages/%E5%88%A9%E7%BB%B4%E5%9D%A6.html">利维坦</a><a href="../pages/%E4%BA%A1%E9%AA%A8%E9%AD%94.html">亡骨魔</a><a href="../pages/%E6%95%B0%E5%AD%A6%E5%AE%B6.html">数学家</a><a href="../pages/%E8%AF%BA-%E8%BE%BE%E9%B2%BA.html">诺-达鲺</a><a href="../pages/%E6%B6%A1%E6%B5%81.html">涡流</a><a href="../pages/%E4%BA%92%E5%8A%A8%E5%B9%B2%E6%89%B0.html">互动干扰</a><a href="../pages/%E8%8E%B7%E5%8F%96%E4%BF%A1%E6%81%AF.html">获取信息</a><a href="../pages/%E4%B8%AD%E6%AF%92.html">中毒</a><a href="../pages/%E7%95%B8%E5%BD%A2%E7%A7%80%E6%BC%94%E5%91%98.html">畸形秀演员</a><a href="../pages/%E7%90%86%E5%8F%91%E5%B8%88.html">理发师</a><a href="../pages/%E5%8D%9A%E5%AD%A6%E8%80%85.html">博学者</a><a href="../pages/%E6%9D%82%E8%80%8D%E8%89%BA%E4%BA%BA.html">杂耍艺人</a><a href="../pages/%E8%B4%A4%E8%80%85.html">贤者</a><a href="../pages/%E5%A5%B3%E5%B7%AB.html">女巫</a><a href="../pages/%E6%B4%97%E8%84%91%E5%B8%88.html">洗脑师</a><a href="../pages/%E9%BA%BB%E8%84%B8%E5%B7%AB%E5%A9%86.html">麻脸巫婆</a><a href="../pages/%E9%95%87%E6%B0%91.html">镇民</a><a href="../pages/%E7%AA%83%E7%AA%83%E7%A7%81%E8%AF%AD.html">窃窃私语</a><a href="../pages/%E6%B5%81%E8%8E%BA.html">流莺</a><a href="../pages/%E9%AA%97%E4%BA%BA%E7%B2%BE.html">骗人精</a><a href="../pages/%E9%A5%95%E9%A4%AE.html">饕餮</a><a href="../pages/%E7%AC%AC%E4%B8%80%E5%B1%8A%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A%E5%89%A7%E6%9C%AC%E5%88%9B%E4%BD%9C%E5%A4%A7%E8%B5%9B.html">第一届华灯初上剧本创作大赛</a><a href="../pages/%E4%BA%BA%E9%97%B4%E6%9A%97%E6%9C%88%E5%A4%9C.html">人间暗月夜</a><a href="../pages/%E9%AA%91%E8%99%8E%E7%94%9F%E6%AD%BB%E8%A1%8C.html">骑虎生死行</a><a href="../pages/%E8%A1%8C%E6%88%90%E4%B8%8B%E5%AD%A4%E4%B9%A1.html">行成下孤乡</a><a href="../pages/%E8%8E%AB%E8%A8%80%E4%B8%89%E5%8D%83%E6%AD%BB.html">莫言三千死</a><a href="../pages/%E9%B8%A3%E9%A3%8E%E5%99%AC%E5%90%8E%E6%B5%AA.html">鸣风噬后浪</a><a href="../pages/%E5%B9%BB%E5%BD%B1%E7%94%BB%E5%AE%89%E5%8D%B1.html">幻影画安危</a><a href="../pages/%E8%B0%9C%E6%A2%A6%E5%BE%85%E6%AD%8C%E8%88%9E.html">谜梦待歌舞</a><a href="../pages/%E5%BC%82%E5%9C%B0%E4%BC%97%E6%AC%A2%E6%9D%A5.html">异地众欢来</a><a href="../pages/%E9%A3%8E%E4%BA%91%E5%AD%B0%E6%88%8F%E8%A8%80.html">风云孰戏言</a><a href="../pages/%E9%A3%8E%E8%B5%B7%E7%BB%88%E7%9B%B8%E8%AF%86.html">风起终相识</a><a href="../pages/%E9%85%BF%E9%85%92%E5%B8%88.html">酿酒师</a><a href="../pages/%E6%97%A0%E4%BD%95%E6%9C%89%E4%B9%8B%E4%B9%A1.html">无何有之乡</a><a href="../pages/%E7%99%BD%E7%8B%90%E8%A1%8C%E4%B8%9B%E9%87%8C.html">白狐行丛里</a><a href="../pages/%E9%9B%86%E5%90%8E%E4%BA%BA%E4%B9%8B%E8%A8%80.html">集后人之言</a><a href="../pages/%E4%BE%A0%E4%BA%91%E6%95%88%E8%89%AF%E5%85%9A.html">侠云效良党</a><a href="../pages/%E5%8D%83%E9%9D%A2%E4%BC%97%E5%8D%B1%E7%84%89.html">千面众危焉</a><a href="../pages/%E5%AF%B9%E5%A2%9F%E9%9A%BE%E6%AC%A2%E9%B8%A3.html">对墟难欢鸣</a><a href="../pages/%E6%9E%AF%E6%9C%A8%E9%80%A2%E6%98%A5.html">枯木逢春</a><a href="../pages/%E8%8E%AB%E9%80%86%E4%B9%8B%E4%BA%A4.html">莫逆之交</a><a href="../pages/%E5%87%B6%E8%AF%A1%E9%9A%BE%E8%BE%A8.html">凶诡难辨</a><a href="../pages/%E7%8B%AC%E5%8D%A0%E9%B3%8C%E5%A4%B4.html">独占鳌头</a><a href="../pages/%E4%B8%80%E9%99%90%E7%94%9F%E6%9C%BA.html">一限生机</a><a href="../pages/%E9%BB%91%E5%A4%9C%E9%97%AE%E7%99%BD%E5%A4%A9.html">黑夜问白天</a><a href="../pages/%E4%BA%A1%E7%81%B5%E8%AE%AE%E4%BC%9A.html">亡灵议会</a><a href="../pages/%E6%8C%91%E7%81%AF%E7%9C%8B%E5%89%91.html">挑灯看剑</a><a href="../pages/%E8%BF%9F%E8%A7%81%E5%88%86%E6%99%93.html">迟见分晓</a><a href="../pages/%E6%97%A0%E5%90%8D%E6%97%85%E5%AE%A2.html">无名旅客</a><a href="../pages/%E7%8B%A1%E5%85%94%E4%B8%89%E7%AA%9F.html">狡兔三窟</a><a href="../pages/%E5%86%A5%E6%B2%B3%E9%82%AA%E6%B8%A1.html">冥河邪渡</a><a href="../pages/%E4%B8%80%E5%BE%80%E5%B7%AB%E5%89%8D.html">一往巫前</a><a href="../pages/%E8%AF%A1%E8%AF%88%E6%9D%B0%E5%85%8B.html">诡诈杰克</a><a href="../pages/%E9%87%91%E6%88%88%E9%93%81%E9%A9%ACV2.0.html">金戈铁马V2.0</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

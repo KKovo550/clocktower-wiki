@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>帽匠 - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">帽匠</h1>
+    <div class="tagline">来自钟楼百科</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#提示与技巧">提示与技巧</a></li><li class="lvl2"><a href="#伪装成帽匠">伪装成帽匠</a></li><li class="lvl2"><a href="#角色信息">角色信息</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E5%B8%BD%E5%8C%A0">查找包含此角色的剧本 →</a></p><p><a href="../pages/%E5%B8%BD%E5%8C%A0.html" class="image-link" title="帽匠"><img alt="Hatter.png" style="width:200px" class="" loading="lazy" data-source-image="../images/Hatter.png" src="../assets/media/Hatter.preview.webp" width="591" height="591" decoding="async"></a></p>
+<h2 id="背景故事">背景故事</h2>
+<p><em>“一顶帽子。凉顶帽子。三顶帽子。帽子开会。刺顶帽子。污顶帽子。六顶帽子。戴好帽子。”</em></p>
+<h2 id="角色能力">角色能力</h2>
+<p><strong>如果你死亡，当晚爪牙和恶魔玩家可以选择变成新的爪牙和恶魔角色。</strong></p>
+<h2 id="角色简介">角色简介</h2>
+<p>帽匠允许邪恶角色的玩家改变自己的角色。</p>
+<ul>
+<li>帽匠的能力使得所有邪恶角色的玩家可以选择变成与自己原本角色类型相同的角色。</li>
+</ul>
+<ul>
+<li>这些玩家可以选择不改变自己的角色。</li>
+</ul>
+<ul>
+<li>如果一名玩家变成了新的角色，他会获得新角色的能力，即使是一项“在你的首个夜晚”能力或是一项“每局游戏限一次”但此前已被其他玩家使用过的能力。</li>
+</ul>
+<ul>
+<li>一旦玩家的角色变化，他此前的角色能力不再在本局游戏中生效。</li>
+</ul>
+<ul>
+<li>如果一名玩家在死亡后再变成帽匠，邪恶角色的玩家无法在当晚因此改变自己的角色。</li>
+</ul>
+<ul>
+<li>一旦某名玩家选择变成了某个角色后，其他玩家便无法选择变成同一角色。如果某名玩家选择变成了一个已在场的角色，那么那个角色对应的玩家必须选择变成一个新的角色。</li>
+</ul>
+<h2 id="范例">范例</h2>
+<p><a href="../pages/%E5%B8%BD%E5%8C%A0.html" title="帽匠">帽匠</a>死亡了。<a href="../pages/%E5%A5%A5%E8%B5%AB.html" title="奥赫">奥赫</a>选择变成了<a href="../pages/%E8%AF%BA-%E8%BE%BE%E9%B2%BA.html" title="诺-达鲺">诺-达鲺</a>，<a href="../pages/%E9%AD%94%E9%AC%BC%E4%BB%A3%E8%A8%80%E4%BA%BA.html" title="魔鬼代言人">魔鬼代言人</a>选择变成了<a href="../pages/%E7%BA%A2%E5%94%87%E5%A5%B3%E9%83%8E.html" title="红唇女郎">红唇女郎</a>。</p>
+<p><a href="../pages/%E4%BA%A1%E9%AA%A8%E9%AD%94.html" title="亡骨魔">亡骨魔</a>杀死了<a href="../pages/%E9%BA%BB%E8%84%B8%E5%B7%AB%E5%A9%86.html" title="麻脸巫婆">麻脸巫婆</a>，后来他又杀死了<a href="../pages/%E5%B8%BD%E5%8C%A0.html" title="帽匠">帽匠</a>。恶魔和爪牙都选择不改变自己的角色，因此<a href="../pages/%E4%BA%A1%E9%AA%A8%E9%AD%94.html" title="亡骨魔">亡骨魔</a>让<a href="../pages/%E9%BA%BB%E8%84%B8%E5%B7%AB%E5%A9%86.html" title="麻脸巫婆">麻脸巫婆</a>保留能力的效果仍然继续生效。</p>
+<p><a href="../pages/%E5%88%BA%E5%AE%A2.html" title="刺客">刺客</a>杀死了一名玩家。<a href="../pages/%E5%B8%BD%E5%8C%A0.html" title="帽匠">帽匠</a>被处决了。当晚，<a href="../pages/%E5%88%BA%E5%AE%A2.html" title="刺客">刺客</a>选择变成了<a href="../pages/%E4%B8%BB%E8%B0%8B.html" title="主谋">主谋</a>。<a href="../pages/%E4%B8%BB%E8%B0%8B.html" title="主谋">主谋</a>摇头想保留自己的角色，但说书人对他摇头，因为<a href="../pages/%E4%B8%BB%E8%B0%8B.html" title="主谋">主谋</a>角色已经被其他玩家选择了。说书人示意<a href="../pages/%E4%B8%BB%E8%B0%8B.html" title="主谋">主谋</a>重新选择，<a href="../pages/%E4%B8%BB%E8%B0%8B.html" title="主谋">主谋</a>选择了<a href="../pages/%E5%88%BA%E5%AE%A2.html" title="刺客">刺客</a>。随后新的<a href="../pages/%E5%88%BA%E5%AE%A2.html" title="刺客">刺客</a>使用自己的能力杀死了一名玩家。</p>
+<h2 id="运作方式">运作方式</h2>
+<p>如果帽匠死亡，在其角色标记旁放置“今晚茶会”提示标记。</p>
+<p>在当晚，一同唤醒所有爪牙和恶魔。对他们展示“该角色的能力对你生效”信息标记，然后展示帽匠角色标记。每名以此被唤醒的玩家可以选择摇头或指向角色列表上与自己当前角色类型相同的一个角色。如果一名玩家在做出自己的选择后会使得自己的角色与一名其他玩家选择的角色相同，对他摇头示意他重新选择。在选择完成后让他重新入睡。移除“今晚茶会”提示标记。根据这些玩家的选择，在魔典上执行相应的角色变化操作。</p>
+<p>可选规则：如果帽匠死亡，允许恶魔变成爪牙，且（仅）一名爪牙变成恶魔。这可能会在邪恶阵营内制造一些混乱，因为他们可能会尝试在夜晚用手势交流由谁来成为恶魔。</p>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>今晚茶会</li>
+</ul>
+<p>放置时机：帽匠死亡，且他清醒健康。</p>
+<p>放置条件：放置在帽匠角色标记旁。</p>
+<p>移除时机：完成帽匠能力的结算步骤后移除。</p>
+<h2 id="规则细节">规则细节</h2>
+<ul>
+<li>由说书人决定恶魔和爪牙在茶会中选择更换角色的先后顺序，且需要注意控制茶会的时间。如果认为同时睁眼会使得夜晚时间过长，或在容易出现善良爪牙/恶魔的剧本中导致邪恶阵营暴露，说书人也可以酌情分别独自唤醒这些玩家并执行角色变化的操作。</li>
+</ul>
+<ul>
+<li>如果帽匠在夜晚时由于恶魔的攻击而死亡，在茶会中产生的新恶魔在当晚无法再次攻击。</li>
+</ul>
+<ul>
+<li>相克规则：</li>
+<ul>
+<li><a href="../pages/%E5%8F%AC%E5%94%A4%E5%B8%88.html" title="召唤师">召唤师</a>：如果召唤师创造了第二个存活的恶魔，当晚的死亡由说书人决定。</li>
+<li><a href="../pages/%E5%86%9B%E5%9B%A2.html" title="军团">军团</a>：如果帽匠创造了军团，所有邪恶玩家会变成军团。如果军团在场，帽匠失去能力。</li>
+<li><a href="../pages/%E5%B0%8F%E6%80%AA%E5%AE%9D.html" title="小怪宝">小怪宝</a>：如果帽匠死亡，恶魔选择了小怪宝，则还需要选择变成一个爪牙角色。</li>
+<li><a href="../pages/%E5%88%A9%E7%BB%B4%E5%9D%A6.html" title="利维坦">利维坦</a>：利维坦不能在第五天之后加入游戏。</li>
+</ul>
+</ul>
+<ul>
+<li>相克规则（与华灯系列角色）：</li>
+<ul>
+<li><a href="../pages/%E6%A2%BC%E6%9D%8C.html" title="梼杌">梼杌</a>：如果梼杌变成了其他角色，因为梼杌而失去能力的爪牙会立即死亡。</li>
+</ul>
+</ul>
+<h2 id="提示与技巧">提示与技巧</h2>
+<ul>
+<li>避免死亡！一旦你死亡，邪恶团队就能相互联系并定下他们认为最强力的角色组合，打破之前游戏的平衡局势。并且，如果邪恶团队能在他们需要的时候无需代价就能完成此事，这会导致压倒性的局面。</li>
+</ul>
+<ul>
+<li>尽早死亡！你死得越早，邪恶团队越是不够时间去确定哪些邪恶角色能够最有效地对抗善良玩家。同时因为这样会导致爪牙和恶魔角色在后续表现的迹象与游戏早期存在矛盾，这种做法能够增加你被确证的概率，并且因此帮助大家确认在场的外来者数量。</li>
+</ul>
+<ul>
+<li>在游戏中期死亡是最糟糕的。正当善良团队已经掌握一些信息并以此追踪邪恶玩家时，你的能力会完全颠覆这些信息并使得这些信息变得难以解析，特别是在你们最需要利用这些信息针对剩下的邪恶玩家候选人缩小范围的时候。</li>
+</ul>
+<ul>
+<li>在你死后的第二天告诉所有人，你就是帽匠！不管是夜晚能力的选择还是提名和投票的决定，他们都需要相应地调整自己的思路来应对邪恶团队潜在的角色变换，以便有效地猎杀恶魔。</li>
+</ul>
+<ul>
+<li>在你死后，对比此时与游戏初期所发生的局势变化，你可以试试看根据这些信息找出爪牙和恶魔角色发生了什么改变。也许有些玩家原本可靠的信息变得奇怪，也许会有邪恶玩家候选人突然变得乐于去死，也许场上会出现你们无法解释的额外死亡。你们在帽匠死后获得的任何关于新出现的邪恶角色的信息，甚至比在通常游戏对局中更重要，因为你们用来分析邪恶角色的时间已经被缩短了。</li>
+</ul>
+<h2 id="伪装成帽匠">伪装成帽匠</h2>
+<ul>
+<li>你不想死亡！善良团队将会非常谨慎地对待是否杀死帽匠的问题，利用这个逻辑会让你的存活时间比利用其他方式更长。如果你能通过在你死后可能发生的事情来持续渲染人们对这些事情的恐惧，你甚至能以帽匠的伪装进入三人决赛圈和最终决赛。</li>
+</ul>
+<ul>
+<li>如果你死亡，看看你的邪恶同伴们能否伪装出爪牙或恶魔角色改变的迹象来支持你的伪装。这取决于剧本上有哪些邪恶角色。这个做法的好处远不止是把你认成好人，还能够让善良团队陷入一个无尽的猜疑链，他们会围绕着那些没有在场并且从未登场的恶魔角色展开推理。</li>
+</ul>
+<ul>
+<li>通常来说帽匠会胡言乱语！他会声称自己是其他角色，尝试着隐藏自己，尽可能长久地存活，这样邪恶团队就无法在最需要的时候利用帽匠改变角色。如果你最初的伪装露了马脚，或者这个伪装没有让你有充分理由逃避处决，那么帽匠对你来说是个很好的备用伪装。</li>
+</ul>
+<ul>
+<li>尝试分析你死后场上发生了什么变化来体现你真诚的努力，并以此获取别人的信任。你可能会成为善良团队逻辑链分崩离析的关键，因为你持续地输出各种各样爪牙与恶魔角色组合的理论来分散好人们的注意力，并且针对场上出现的任何情况都利用这些理论尽可能地扩展出更多合理解释，远远地超出引起这些情况的真实原因。</li>
+</ul>
+<ul>
+<li>如果你是伪装成帽匠的恶魔，你可以尝试着让游戏看起来是一些较弱的爪牙/恶魔在场。这会增加因你的死亡而造成的威胁，因为邪恶团队能够因此选择最强阵容，这对于任何善良团队来说都是非常可怕的，然后你有可能从头到尾存活下来。然而，你需要准备好充分的理由去解释为什么邪恶团队一直都没有找机会杀死你。因此，当你被剩余的存活玩家压榨自己的角色范围时，最好的方法可能是公开声明自己是其他角色，并且私下告诉那些死亡的善良玩家，自己是帽匠，以此获得他们的支持来保你的命。</li>
+</ul>
+<h2 id="角色信息">角色信息</h2>
+<ul>
+<li>英文名：Hatter</li>
+</ul>
+<ul>
+<li>所属剧本：<a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html" title="实验性角色">实验性角色</a>、<a href="../pages/%E6%97%A0%E4%BD%95%E6%9C%89%E4%B9%8B%E4%B9%A1.html" title="无何有之乡">无何有之乡</a>（快速上手剧本）</li>
+</ul>
+<ul>
+<li>角色类型：<a href="../pages/%E5%A4%96%E6%9D%A5%E8%80%85.html" title="外来者">外来者</a></li>
+</ul>
+<ul>
+<li>角色能力类型：<a href="../pages/%E6%AD%BB%E4%BA%A1%E8%A7%A6%E5%8F%91%E8%83%BD%E5%8A%9B.html" title="死亡触发能力">死亡触发能力</a>、<a href="../pages/%E8%A7%92%E8%89%B2%E5%8F%98%E5%8C%96.html" title="角色变化">角色变化</a>、<a href="../pages/%E6%9A%B4%E9%9C%B2%E8%A7%92%E8%89%B2.html" title="暴露角色">暴露角色</a></li>
+</ul></div>
+    <div class="page-meta">最后修改于 2026-07-02T11:06:08Z，编辑者 <b>Zack</b> ｜ 页面 8,239 字节 ｜ <a href="https://clocktower-wiki.gstonegames.com/index.php?title=%E5%B8%BD%E5%8C%A0" target="_blank" rel="noopener">查看原页面</a> ｜ <div class="comment">编辑摘要：/* 规则细节 */</div></div>
+    <div class="backlinks"><b>链入此页的页面（42）</b><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a><a href="../pages/%E6%9A%B4%E9%9C%B2%E8%A7%92%E8%89%B2.html">暴露角色</a><a href="../pages/%E5%86%9B%E5%9B%A2.html">军团</a><a href="../pages/%E5%88%A9%E7%BB%B4%E5%9D%A6.html">利维坦</a><a href="../pages/%E5%B0%8F%E6%80%AA%E5%AE%9D.html">小怪宝</a><a href="../pages/%E8%A7%92%E8%89%B2%E5%8F%98%E5%8C%96.html">角色变化</a><a href="../pages/%E6%AD%BB%E4%BA%A1%E8%A7%A6%E5%8F%91%E8%83%BD%E5%8A%9B.html">死亡触发能力</a><a href="../pages/%E5%A4%96%E6%9D%A5%E8%80%85.html">外来者</a><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a><a href="../pages/%E6%A2%BC%E6%9D%8C.html">梼杌</a><a href="../pages/%E5%A4%9C%E6%99%9A%E8%A1%8C%E5%8A%A8%E9%A1%BA%E5%BA%8F%E4%B8%80%E8%A7%88.html">夜晚行动顺序一览</a><a href="../pages/%E6%96%B0%E8%A7%92%E8%89%B2%E5%85%AC%E5%B8%83%E8%AE%A1%E5%88%92.html">新角色公布计划</a><a href="../pages/%E5%B8%BD%E5%8C%A0.html">帽匠</a><a href="../pages/%E7%AC%AC%E4%B8%80%E5%B1%8A%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A%E5%89%A7%E6%9C%AC%E5%88%9B%E4%BD%9C%E5%A4%A7%E8%B5%9B.html">第一届华灯初上剧本创作大赛</a><a href="../pages/%E4%BA%BA%E9%97%B4%E6%9A%97%E6%9C%88%E5%A4%9C.html">人间暗月夜</a><a href="../pages/%E9%AA%91%E8%99%8E%E7%94%9F%E6%AD%BB%E8%A1%8C.html">骑虎生死行</a><a href="../pages/%E8%A1%8C%E6%88%90%E4%B8%8B%E5%AD%A4%E4%B9%A1.html">行成下孤乡</a><a href="../pages/%E8%8E%AB%E8%A8%80%E4%B8%89%E5%8D%83%E6%AD%BB.html">莫言三千死</a><a href="../pages/%E5%B9%BB%E5%BD%B1%E7%94%BB%E5%AE%89%E5%8D%B1.html">幻影画安危</a><a href="../pages/%E8%B0%9C%E6%A2%A6%E5%BE%85%E6%AD%8C%E8%88%9E.html">谜梦待歌舞</a><a href="../pages/%E5%BC%82%E5%9C%B0%E4%BC%97%E6%AC%A2%E6%9D%A5.html">异地众欢来</a><a href="../pages/%E9%A3%8E%E4%BA%91%E5%AD%B0%E6%88%8F%E8%A8%80.html">风云孰戏言</a><a href="../pages/%E9%A3%8E%E8%B5%B7%E7%BB%88%E7%9B%B8%E8%AF%86.html">风起终相识</a><a href="../pages/%E8%9B%8A%E9%9B%95.html">蛊雕</a><a href="../pages/%E6%97%A0%E4%BD%95%E6%9C%89%E4%B9%8B%E4%B9%A1.html">无何有之乡</a><a href="../pages/%E7%99%BD%E7%8B%90%E8%A1%8C%E4%B8%9B%E9%87%8C.html">白狐行丛里</a><a href="../pages/%E9%9B%86%E5%90%8E%E4%BA%BA%E4%B9%8B%E8%A8%80.html">集后人之言</a><a href="../pages/%E4%BE%A0%E4%BA%91%E6%95%88%E8%89%AF%E5%85%9A.html">侠云效良党</a><a href="../pages/%E5%8D%83%E9%9D%A2%E4%BC%97%E5%8D%B1%E7%84%89.html">千面众危焉</a><a href="../pages/%E5%AF%B9%E5%A2%9F%E9%9A%BE%E6%AC%A2%E9%B8%A3.html">对墟难欢鸣</a><a href="../pages/%E5%8F%AC%E5%94%A4%E5%B8%88.html">召唤师</a><a href="../pages/%E8%A7%84%E5%88%99%E8%B0%83%E6%95%B4%E6%8F%90%E5%89%8D%E5%85%AC%E7%A4%BA.html">规则调整提前公示</a><a href="../pages/%E5%87%B6%E8%AF%A1%E9%9A%BE%E8%BE%A8.html">凶诡难辨</a><a href="../pages/%E9%9D%99%E5%80%99%E4%BD%B3%E9%9F%B3.html">静候佳音</a><a href="../pages/%E4%BF%A1%E5%8F%A3%E9%9B%8C%E9%BB%84.html">信口雌黄</a><a href="../pages/%E9%99%90.html">限</a><a href="../pages/%E5%B7%A1%E5%AF%9F.html">巡察</a><a href="../pages/%E7%81%AF%E7%A5%9E%E5%A5%91%E7%BA%A6.html">灯神契约</a><a href="../pages/%E6%8C%91%E7%81%AF%E7%9C%8B%E5%89%91.html">挑灯看剑</a><a href="../pages/%E5%B9%BD%E7%81%B5%E4%BE%A6%E6%8E%A2.html">幽灵侦探</a><a href="../pages/%E4%B8%80%E5%BE%80%E5%B7%AB%E5%89%8D.html">一往巫前</a><a href="../pages/%E8%85%B9%E8%AF%AD%E5%B8%88.html">腹语师</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

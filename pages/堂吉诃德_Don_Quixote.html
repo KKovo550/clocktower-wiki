@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>堂吉诃德 Don Quixote - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">堂吉诃德 Don Quixote<span class="ns-badge">奥德赛</span></h1>
+    <div class="tagline">来自钟楼百科 · 摘自《奥德赛 Odyssey》百科 · 外来者</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#夜晚行动顺序">夜晚行动顺序</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#游玩与对抗技巧">游玩与对抗技巧</a></li><li class="lvl2"><a href="#伪装成该角色">伪装成该角色</a></li><li class="lvl2"><a href="#出现剧本">出现剧本</a></li><li class="lvl2"><a href="#整体设计">整体设计</a></li><li class="lvl2"><a href="#创意来源">创意来源</a></li><li class="lvl2"><a href="#图标画师">图标画师</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E5%A0%82%E5%90%89%E8%AF%83%E5%BE%B7">查找包含此角色的剧本 →</a></p><div class="charinfo"><div class="charinfo-img"><a href="../files/%E6%96%87%E4%BB%B6_%E5%A0%82%E5%90%89%E8%AF%83%E5%BE%B7.png.html"><img alt="堂吉诃德 Don Quixote" data-source-image="../images/%E5%A0%82%E5%90%89%E8%AF%83%E5%BE%B7.png" src="../assets/media/堂吉诃德.preview.webp" width="600" height="600" decoding="async"></a></div><div class="charinfo-meta"><div class="row"><span class="k">角色类型</span><span class="v"><a href="../pages/%E5%A4%96%E6%9D%A5%E8%80%85.html" title="外来者">外来者</a></span></div><div class="row"><span class="k">英文名</span><span class="v">Don Quixote</span></div><div class="row"><span class="k">角色ID</span><span class="v">033</span></div><div class="row"><span class="k">角色归属</span><span class="v">角色拓展包《奥德赛》</span></div><div class="row"><span class="k">能力标签</span><span class="v"><a href="../pages/%E4%BA%92%E5%8A%A8%E5%B9%B2%E6%89%B0.html" title="互动干扰">互动干扰</a>、死后保留能力、<a href="../pages/%E8%8E%B7%E5%8F%96%E4%BF%A1%E6%81%AF.html" title="获取信息">获取信息</a>、<a href="../pages/%E8%BF%9B%E5%9C%BA%E8%83%BD%E5%8A%9B.html" title="进场能力">进场能力</a></span></div><div class="row"><span class="k">角色授权</span><span class="v">开放（任意剧本创作可用，不要修改能力）</span></div><div class="row"><span class="k">出处</span><span class="v"><a class="external" href="https://www.yuque.com/u48069482/taiyi" target="_blank" rel="noopener">《奥德赛 Odyssey》百科</a></span></div></div></div><h2 id="背景故事">背景故事</h2>
+<p>_<span style="color:rgb(64, 64, 64);">"</span>__看！那个巍峨的巨人，正挥舞着长长的手臂，等着我去挑战！什么？你说那是风车？不不不，你看错了，它们在动，在呼吸，在嘲笑我的迟疑。我的长矛已经准备好了，我的骏马在嘶鸣。别拦我，荣耀在召唤！"_</p>
+<h2 id="角色简介"><span style="color:rgb(64, 64, 64);">角色简介</span></h2>
+<p>堂吉诃德一生都在追寻错误的目标，但他从未放弃过。</p>
+<h2 id="角色能力">角色能力</h2>
+<div class="callout callout-info">
+<p>一名玩家会被镇民玩家的能力当做恶魔角色（风车），即使你已死亡。你可以从说书人处得知风车是谁，然后风车会改为另一名玩家。</p>
+</div>
+<h2 id="范例">范例</h2>
+<ul>
+<li>心上人是堂吉诃德的风车（被镇民能力当做恶魔角色）。第一个夜晚，占卜师选择自己和心上人并得知错误信息“是”。</li>
+<li>投毒者是堂吉诃德的风车。第一个夜晚，筑梦师选择了投毒者并得知错误信息“小恶魔、女裁缝”。</li>
+<li>男爵是堂吉诃德的风车。第一个夜晚，调香师选择了邪恶角色涡流，男爵得知了调香师在场。</li>
+<li>贵族是堂吉诃德的风车。第一个夜晚，女裁缝选择了贵族和筑梦师并得知正确信息“是”。（堂吉诃德的能力只会让受影响的玩家被当做恶魔类型或恶魔角色，而不会被当做邪恶阵营）</li>
+<li>贵族是堂吉诃德的风车。第一个白天，游歌者公开选择贵族，当晚游歌者得知错误信息“0”。</li>
+<li>贵族是堂吉诃德的风车。第一个白天，堂吉诃德询问说书人得知贵族玩家，堂吉诃德的风车立即从贵族变为了占卜师。第二个白天，堂吉诃德询问说书人得知占卜师玩家，堂吉诃德的风车立即从占卜师变为了投毒者。</li>
+</ul>
+<h2 id="运作方式">运作方式</h2>
+<p>在为首个夜晚做准备时，将堂吉诃德的“风车”提示标记放置在任意一名玩家的角色标记旁。</p>
+<p>每当有镇民的能力效果要判断被“风车”标记的玩家的角色或角色类型时，该玩家都会被当做恶魔以及恶魔角色，由你决定该玩家被当做哪种恶魔角色。</p>
+<p>在游戏中的任意时间里，堂吉诃德都可以私下拜访你，你要告知他谁是被“风车”所标记的那名玩家。在你告知堂吉诃德谁是被“风车”所标记的玩家后，立即将提示标记“风车”转移到另一名玩家的角色标记旁。</p>
+<h2 id="夜晚行动顺序">夜晚行动顺序</h2>
+<ul>
+<li>首个夜晚</li>
+<ul>
+<li>夜序数值：/</li>
+<li>前位角色：/</li>
+<li>行动提示：/</li>
+</ul>
+<li>其他夜晚</li>
+<ul>
+<li>夜序数值：/</li>
+<li>前位角色：/</li>
+<li>行动提示：/</li>
+</ul>
+</ul>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>风车</li>
+<ul>
+<li>放置时机：在为首个夜晚做准备时，或堂吉诃德拜访你之后。</li>
+<li>放置条件：将“风车”提示标记放置在任意一名玩家的角色标记旁。如果堂吉诃德拜访了你，你需要将“风车”移动到另一名玩家的角色标记旁（即使堂吉诃德中毒醉酒）。</li>
+<li>移除时机：当堂吉诃德离场时，或堂吉诃德拜访你之后。</li>
+</ul>
+</ul>
+<h2 id="规则细节">规则细节</h2>
+<ul>
+<li>《仲夏夜之梦》中能够被堂吉诃德影响的镇民有：调香师、筑梦师、牧师、游歌者、祈愿妖精（如果他许愿的能力与恶魔有关）、空中飞人（你可以把被堂吉诃德影响的玩家替代真正的恶魔当作空中飞人信息中的那个恶魔）。</li>
+<li>《仲夏夜之梦》中一定不会被堂吉诃德影响的镇民有：送报童（事实与否的判定会忽略互动干扰）、真心人、贵族、女裁缝、猫猫探险队、牛仔。</li>
+<li>堂吉诃德能力仅仅会影响镇民角色的能力，并不会影响其他角色（外来者、爪牙、恶魔）的能力或游戏规则。所以你不能在所有恶魔都死亡后，将堂吉诃德的风车当做存活的恶魔而使得游戏继续进行，因为堂吉诃德的能力无法影响游戏规则。也不能在独眼巨人选择风车后，把风车当做恶魔而告知独眼巨人错误的信息，因为独眼巨人是爪牙而不是镇民。</li>
+<li>堂吉诃德区别于陌客，并没有“可能”。在镇民玩家的能力判断被堂吉诃德影响的玩家时，你必须将该玩家当做某个恶魔角色或恶魔类型。</li>
+<li>任何玩家都可以成为被堂吉诃德的风车。可以是存活玩家，也可以是死亡玩家。可以是堂吉诃德自己，可以是镇民、外来者、爪牙甚至可以是恶魔。但是一旦确定谁是风车，在堂吉诃德拜访你之前，被堂吉诃德影响的玩家无法改变。</li>
+<li>一旦堂吉诃德拜访你，就意味着你需要将一名新的玩家标记为“风车”了。他已经知道之前被影响的玩家是谁了，那么接下来是让一名重要的玩家成为“风车”继续对局面进行影响，还是让一名不那么重要的玩家成为“风车”避免继续造成负面影响，你可以自行判断。</li>
+<li>当风车需要转移时，除了当前被标记风车的玩家外，任意一名玩家都可以是新的风车。</li>
+<li>堂吉诃德的拜访不限次数、不限时间，堂吉诃德可以在任意时间拜访你（类比解谜大师），更加建议让玩家在白天进行拜访，以免干扰夜晚行动，如果堂吉诃德来访时你不方便，你可以让他在你方便的时候再次来访。</li>
+<li>虽然堂吉诃德可以在一天中拜访任意次，但你需要提醒玩家频繁拜访并没有意义，因为他永远无法知道下一个被影响的是谁，在同一天频繁拜访获取不了任何有用的信息也改变不了任何结果。</li>
+<li>如果堂吉诃德在他中毒醉酒时拜访你，你可以告知他一名实际并没有被他影响的玩家。但你仍需要立即将提示标记“风车”移动到一名新的玩家的角色标记旁。</li>
+<li>堂吉诃德的前半段能力即使在堂吉诃德死后也会生效，所以即使堂吉诃德死亡也无法避免他能力带来的副作用。而后半段能力在他死后就无法使用了，所以堂吉诃德只可以在存活的时候拜访说书人。</li>
+<li>旅行者玩不会成为风车（旅行者隔绝原则）。</li>
+<li><strong>信息格式：</strong>某名玩家的名字或玩家编号。</li>
+<li><strong>错误信息格式：</strong>没有被标记“风车”的玩家的名字或玩家编号。</li>
+</ul>
+<h2 id="游玩与对抗技巧">游玩与对抗技巧</h2>
+<ul>
+<li>你是堂吉诃德，你可能会让善良阵营在追寻恶魔的道路上走向歧路。但是没关系！你随时可以通过拜访说书人得知谁被你影响了！然后排除掉可能的错误项。但是这样做的副作用也很明显，就是一名新的玩家会成为你们的干扰！是该早点使用你的能力排除掉错误项，还是尽可能的不使用你的能力以免造成更大的破坏，依托于你的智慧吧！毕竟你可是堂吉诃德！</li>
+<li>真心人、贵族、女裁缝、猫猫探险队、牛仔这些角色的能力是不会被你的能力所影响的！因为他们的能力要不是检测阵营要不就是检测是否说谎或是否为爪牙！这些都与你的能力无关！</li>
+<li>你得知的玩家不一定就不是恶魔！可能狡诈的说书人故意将恶魔设置为你的“风车”！这样可以干扰善良对恶魔种类的判断！亦或是让你认为他只是被你的能力所影响的一名善良玩家！</li>
+<li>如果你们锁定了一名恶魔，但是对于他有没有被你的能力所影响抱有疑虑，去拜访说书人！如果说书人告知你的并不是这名玩家，那么立即处决他！</li>
+</ul>
+<h2 id="伪装成该角色">伪装成该角色</h2>
+<ul>
+<li>伪装为堂吉诃德可以很好的为被锁定的恶魔开脱！不管你是一名爪牙还是恶魔本人。只要你说出自己是堂吉诃德，那么逻辑上来说场上的任何玩家都有可能会被镇民能力当做恶魔。特别是你假装拜访说书人后，声称自己获得的玩家就是被锁定的那名恶魔玩家。那么恶魔被今天处决的危险又会降低一些。</li>
+<li>注意！堂吉诃德在拜访说书人之前，他所影响的玩家不会改变。而在每次拜访之后，他影响的玩家都会立即改变。预先组织好你想表达的，不要露出太大破绽。</li>
+</ul>
+<h2 id="出现剧本">出现剧本</h2>
+<ul>
+<li>仲夏夜之梦</li>
+</ul>
+<h2 id="整体设计">整体设计</h2>
+<ul>
+<li>太一</li>
+</ul>
+<h2 id="创意来源">创意来源</h2>
+<ul>
+<li>太一</li>
+</ul>
+<h2 id="图标画师">图标画师</h2>
+<ul>
+<li>Lei.</li>
+</ul></div>
+    <div class="page-meta">最后修改于 2026-08-06T14:40:21.000Z，编辑者 <b>未知</b> ｜ 页面 8,177 字节 ｜ <a href="https://www.yuque.com/u48069482/taiyi/kw2eun2mdatgb8fz" target="_blank" rel="noopener">查看原页面</a></div>
+    <div class="backlinks"><b>链入此页的页面（2）</b><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">奥德赛 Odyssey</a><a href="../pages/%E4%BB%8E%E8%AF%B4%E4%B9%A6%E4%BA%BA%E5%A4%84_From_the_Storyteller.html">从说书人处 From the Storyteller</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

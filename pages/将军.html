@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>将军 - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">将军</h1>
+    <div class="tagline">来自钟楼百科</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#提示与技巧">提示与技巧</a></li><li class="lvl2"><a href="#伪装成将军">伪装成将军</a></li><li class="lvl2"><a href="#角色信息">角色信息</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E5%B0%86%E5%86%9B">查找包含此角色的剧本 →</a></p><p><a href="../pages/%E5%B0%86%E5%86%9B.html" class="image-link" title="将军"><img alt="General.png" style="width:200px" class="" loading="lazy" data-source-image="../images/General.png" src="../assets/media/General.preview.webp" width="600" height="600" decoding="async"></a></p>
+<h2 id="背景故事">背景故事</h2>
+<p><em>“我没时间跟你谈条件。”</em></p>
+<h2 id="角色能力">角色能力</h2>
+<p><strong>每个夜晚，你会得知说书人认为哪个阵营当前更有优势（善良/邪恶/均势）。</strong></p>
+<h2 id="角色简介">角色简介</h2>
+<p>将军清楚哪个阵营更具有优势。</p>
+<ul>
+<li>如果善良阵营更具优势，说书人会给出大拇指朝上的手势。如果邪恶阵营更具优势，说书人会给出大拇指朝下的手势。如果双方阵营势均力敌，或说书人并不确信哪一方更具优势，说书人会给出大拇指水平指向一侧的手势。</li>
+</ul>
+<ul>
+<li>说书人需要对阵营的优势做出判断。很多因素都会作为考量，例如每个阵营有多少存活的玩家，善良阵营获取的信息程度如何，邪恶阵营的伪装的取信程度如何，玩家们即将打算处决谁，或是恶魔玩家的游戏经验是否丰富。上述所有内容以及一些其他因素都会影响说书人的判断。</li>
+</ul>
+<ul>
+<li>说书人判断的是将军被唤醒的那一刻更具有优势的阵营。当晚较早时段里发生的事情也可能会影响判断。</li>
+</ul>
+<h2 id="范例">范例</h2>
+<p>有五名善良玩家和三名爪牙存活。即使现在恶魔玩家备受猜疑，极大可能会成为下一个处决对象，但此外<a href="../pages/%E7%BA%A2%E5%94%87%E5%A5%B3%E9%83%8E.html" title="红唇女郎">红唇女郎</a>在场且被认为是善良玩家。说书人给出了拇指向下的手势。</p>
+<p>善良阵营拥有了大量的信息，也确信了自己获得的信息的真伪。只有一名爪牙死亡。说书人给出了拇指向上的手势。</p>
+<p><a href="../pages/%E7%8F%80.html" title="珀">珀</a>的玩家是一名老手玩家，且与爪牙之间的协调分工十分默契。<a href="../pages/%E5%83%A7%E4%BE%A3.html" title="僧侣">僧侣</a>在每个夜晚都保护了<a href="../pages/%E5%8D%9A%E5%AD%A6%E8%80%85.html" title="博学者">博学者</a>，善良阵营也对谁是善良玩家有较为清晰的判断。然而，<a href="../pages/%E7%8F%80.html" title="珀">珀</a>极大可能会在明晚杀死三名玩家，所以很难确信哪一方究竟会赢。说书人给出了大拇指水平指向一侧的手势。</p>
+<h2 id="运作方式">运作方式</h2>
+<p>每个夜晚，唤醒将军。如果你认为善良阵营更具优势，给出拇指朝上的手势。如果你认为邪恶阵营更具优势，给出拇指朝下的手势。如果你不清楚哪一方更具优势，给出拇指水平指向一侧的手势。让将军重新入睡。</p>
+<h2 id="提示标记">提示标记</h2>
+<p>无</p>
+<h2 id="提示与技巧">提示与技巧</h2>
+<ul>
+<li>谨记，你的职能与说书人的个人看法会有互动。这种看法会不可避免地受到游戏机制外的因素影响。你们的玩家群体中是否有公认狡猾而邪恶的玩家？也许你的游戏中有人比其他人更具有（游戏）经验？何种策略和战术是你的说书人认为最有效的？这些乃至更多事物会影响到你每晚获得的信息。</li>
+</ul>
+<ul>
+<li>想一想每个白天/夜晚发生的事件，试着想象它们如何改变了游戏的平衡。在得知善良阵营即将获胜前你是否处决了某名玩家？也许他是邪恶的而这就是说书人相信局势转向对你有利的原因。也许他获得了错误的信息而他的死亡妨碍了邪恶阵营传递谎言的可能。</li>
+</ul>
+<ul>
+<li>记录下你的信息在每夜之间的变化。如果你能存活足够久，你基本上能得到一个折线图来反映出善良阵营的命运在游戏过程中如何变化。在最后一天时，你可以使用这些知识来证实剩余玩家的说法。</li>
+</ul>
+<ul>
+<li>注意其他玩家的发言，尤其是团队共识。如果团队确信特定玩家是邪恶的且应在明天处决，而这名玩家实际上也确实是是邪恶的，那么即使死亡的善良玩家更多，说书人也可能会告诉你善良阵营即将获胜。同理，如果团队直言不讳地表达对于某些善良玩家和他们信息的信任，那么说书人可能会告诉你善良阵营即将获胜。如果团队直言不讳地表达对于某些善良玩家的不信任，并且试图处决他们，反而是信任邪恶玩家而不处决他们，说书人可能会告诉你邪恶阵营即将获胜。</li>
+</ul>
+<ul>
+<li>如果你的信息在两晚之间发生了逆转（从善良即将获胜转向邪恶即将获胜或反之），这信息很有用。某些极端事项正在发生而你应当能猜出来。信息在“没有阵营即将获胜”之内盘桓（从某方即将获胜转向没有阵营即将获胜或反之）的话就不太有用。比如，第二晚得到善良阵营即将获胜而第三晚得到没有阵营即将获胜，这意味着一个不易察觉的局势改变，更难猜测到原因。</li>
+</ul>
+<ul>
+<li>如果你一直得到善良阵营即将获胜的信息，让善良阵营知道这点。甚至可以告诉他们“我并不知道我们哪里做对了，但继续保持我们正在做的事情”都是很有帮助的，因为即使你不知道细节，你也知道你们在正确的轨道上前行。警惕任何试图扭转团队主流叙事的玩家，或是任何突然支持处决新对象的玩家。</li>
+</ul>
+<ul>
+<li>如果你一直得到邪恶阵营即将获胜的信息，也让善良阵营知道这点，并立即采取相反的行动。如果邪恶阵营即将获胜，尝试一些全新的主张并说服团队同意。即使一个被所有人信任并被<a href="../pages/%E5%85%B1%E6%83%85%E8%80%85.html" title="共情者">共情者</a>鉴定为善良的<a href="../pages/%E5%9B%BE%E4%B9%A6%E7%AE%A1%E7%90%86%E5%91%98.html" title="图书管理员">图书管理员</a>（的信息）完全合理，如果你和你的团队花费一天时间假设他在说谎、他是邪恶或者他醉酒了，说书人可能也会决定在当晚告诉你善良阵营“即将获胜”（或者“没有阵营即将获胜”）。任何操作都比让邪恶阵营日复一日地持续迈向胜利要好，所以明智的做法也许是采取反常的行动或是探索看起来不太合理的想法或是怀疑似乎已被验证的信息。最糟糕的也不过是说书人继续告诉你邪恶阵营即将获胜，而最好的情况是说书人告诉你善良阵营即将获胜——但不管怎样，你都会了解一些重要信息。然而，恶魔可能在你了解这些之前就在夜晚杀死你，因此如果你能在不透露你在这么做的情况下干预团队整体信念或意图的话就更好了。</li>
+</ul>
+<h2 id="伪装成将军">伪装成将军</h2>
+<ul>
+<li>通过反复宣称你被告知善良阵营即将落败来让善良阵营持续处于不佳和多疑的状态中。</li>
+</ul>
+<ul>
+<li>构陷一个死亡的善良玩家，在他们被处决后说出说书人告知你善良阵营即将获胜。</li>
+</ul>
+<ul>
+<li>试着让善良玩家怀疑他们的信息，说出你被告知善良阵营即将落败，但你并不知道为什么。如果你知道善良阵营正在获得大量有用而正确的信息时，这方法尤其有效。</li>
+</ul>
+<ul>
+<li>如果你认为邪恶阵营即将获胜，即使是微弱优势，也要始终告诉团队善良阵营即将获胜而不是说没有阵营即将获胜。如果善良阵营在没有优势的情况下持续相信他们即将获胜，他们就会继续相信他们已经相信的而不会将怀疑目标转向一名新玩家。在最后一天，自信于他们在整个游戏中做出了正确决定和明智判断，他们很可能会基于错误信息处决错误的玩家。鼓励他们的过度自信。</li>
+</ul>
+<ul>
+<li>为了提供更具有伤害力的错误信息，可以以降低可信度为代价，给出在“善良阵营即将获胜”与“邪恶阵营即将获胜”之间波动剧烈的信息。这种信息意味着团队正在作出会左右游戏走向的重大决策，并且会产生令善良阵营错误地分析他们之前的假设和行动的效果。然而，如果你的信息太过狂野以至于和之前的行动完全不符，他们可能不会相信你而处决你。因此，这种策略更适合爪牙。</li>
+</ul>
+<ul>
+<li>为了更可信，可以以减少具伤害力的错误信息为代价，而从不在连续数晚中给出在“善良阵营即将获胜”与“邪恶阵营即将获胜”之间波动的信息。至少有一晚给出你被告知“没有阵营正在获胜”能使得从一个阵营跳转到另一个阵营即将获胜显得不那么突兀，而更多地像是几天间逐渐变化的结果。从一个阵营即将获胜向另一个阵营（即将获胜）的逐步转变更符合现实，因此善良阵营更有可能相信你是将军。然而，这种策略对善良阵营的决策影响较小，或者至少影响所需的时间较久。因此这种策略更适合恶魔。</li>
+</ul>
+<ul>
+<li>每当有重大情况发生在游戏中，比如善良阵营参与并几乎要处决一个公开的<a href="../pages/%E5%93%A5%E5%B8%83%E6%9E%97.html" title="哥布林">哥布林</a>，或是<a href="../pages/%E9%80%81%E8%91%AC%E8%80%85.html" title="送葬者">送葬者</a>告诉团队<a href="../pages/%E7%BA%A2%E5%94%87%E5%A5%B3%E9%83%8E.html" title="红唇女郎">红唇女郎</a>一定在场因为恶魔刚被处决，或是<a href="../pages/%E8%B4%9E%E6%B4%81%E8%80%85.html" title="贞洁者">贞洁者</a>导致一名玩家被处决，或是醒来时突然发现死亡的玩家宣称自己是<a href="../pages/%E5%91%86%E7%93%9C.html" title="呆瓜">呆瓜</a>，明确地转变你声称即将获胜的阵营。想必到此时为止你一直在传播关于哪个阵营即将获胜的错误信息。在一个重大情况之后，将军完全有理由知道新的一方即将获胜。利用好善良阵营的信念并借此机会向他们提供更具有戏剧色彩的错误信息。</li>
+</ul>
+<h2 id="角色信息">角色信息</h2>
+<ul>
+<li>英文名：General</li>
+</ul>
+<ul>
+<li>所属剧本：<a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html" title="实验性角色">实验性角色</a>、<a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html" title="暗流涌动">暗流涌动</a>卡牌版</li>
+</ul>
+<ul>
+<li>角色类型：<a href="../pages/%E9%95%87%E6%B0%91.html" title="镇民">镇民</a></li>
+</ul>
+<ul>
+<li>角色能力类型：<a href="../pages/%E8%8E%B7%E5%8F%96%E4%BF%A1%E6%81%AF.html" title="获取信息">获取信息</a></li>
+</ul></div>
+    <div class="page-meta">最后修改于 2023-04-20T01:39:30Z，编辑者 <b>Little Black</b> ｜ 页面 8,889 字节 ｜ <a href="https://clocktower-wiki.gstonegames.com/index.php?title=%E5%B0%86%E5%86%9B" target="_blank" rel="noopener">查看原页面</a></div>
+    <div class="backlinks"><b>链入此页的页面（27）</b><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a><a href="../pages/%E5%8D%8A%E5%85%BD%E4%BA%BA.html">半兽人</a><a href="../pages/%E5%B0%86%E5%86%9B.html">将军</a><a href="../pages/%E5%B0%8F%E7%B2%BE%E7%81%B5.html">小精灵</a><a href="../pages/%E5%BC%82%E7%AB%AF%E5%88%86%E5%AD%90.html">异端分子</a><a href="../pages/%E6%9A%B4%E9%A3%8E%E6%8D%95%E6%89%8B.html">暴风捕手</a><a href="../pages/%E8%8E%B7%E5%8F%96%E4%BF%A1%E6%81%AF.html">获取信息</a><a href="../pages/%E9%80%81%E8%91%AC%E8%80%85.html">送葬者</a><a href="../pages/%E9%95%87%E6%B0%91.html">镇民</a><a href="../pages/%E5%8F%AA%E6%89%8B%E9%81%AE%E5%A4%A9.html">只手遮天</a><a href="../pages/%E6%B2%B8%E5%8F%8D%E7%9B%88%E5%A4%A9.html">沸反盈天</a><a href="../pages/%E5%A4%9C%E6%99%9A%E8%A1%8C%E5%8A%A8%E9%A1%BA%E5%BA%8F%E4%B8%80%E8%A7%88.html">夜晚行动顺序一览</a><a href="../pages/%E9%AA%91%E8%99%8E%E7%94%9F%E6%AD%BB%E8%A1%8C.html">骑虎生死行</a><a href="../pages/%E9%B8%A3%E9%A3%8E%E5%99%AC%E5%90%8E%E6%B5%AA.html">鸣风噬后浪</a><a href="../pages/%E9%A3%8E%E4%BA%91%E5%AD%B0%E6%88%8F%E8%A8%80.html">风云孰戏言</a><a href="../pages/%E9%A3%8E%E8%B5%B7%E7%BB%88%E7%9B%B8%E8%AF%86.html">风起终相识</a><a href="../pages/%E7%99%BD%E7%8B%90%E8%A1%8C%E4%B8%9B%E9%87%8C.html">白狐行丛里</a><a href="../pages/%E4%BE%A0%E4%BA%91%E6%95%88%E8%89%AF%E5%85%9A.html">侠云效良党</a><a href="../pages/%E5%AF%B9%E5%A2%9F%E9%9A%BE%E6%AC%A2%E9%B8%A3.html">对墟难欢鸣</a><a href="../pages/%E7%A7%89%E5%85%AC%E5%8A%9E%E4%BA%8B.html">秉公办事</a><a href="../pages/%E7%8C%8E%E5%B7%AB%E8%A1%8C%E5%8A%A8.html">猎巫行动</a><a href="../pages/%E9%81%97%E5%BF%98%E4%B9%8B%E9%97%A8.html">遗忘之门</a><a href="../pages/%E6%A2%A6%E5%9B%9E%E5%A4%A7%E5%94%90.html">梦回大唐</a><a href="../pages/%E6%95%99%E7%9A%87.html">教皇</a><a href="../pages/%E8%BF%9F%E8%A7%81%E5%88%86%E6%99%93.html">迟见分晓</a><a href="../pages/%E5%86%A5%E6%B2%B3%E9%82%AA%E6%B8%A1.html">冥河邪渡</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

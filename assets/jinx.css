@@ -1,0 +1,18 @@
+.jinx-filters{display:flex;gap:14px;align-items:end;flex-wrap:wrap;padding:22px;margin:28px 0 14px;border:1px solid #dce6f3;border-radius:16px;background:#f5f8fd}
+.jinx-filters label{display:grid;gap:7px;font-size:12px;color:#586f8e}.jinx-filters label:first-child{flex:1;min-width:min(250px,100%)}
+.jinx-filters input,.jinx-filters select,.jinx-filters button{font:inherit;font-size:14px;min-height:42px;padding:9px 12px;border:1px solid #cfdbeb;border-radius:10px;background:white;color:#2f4664;max-width:100%;box-sizing:border-box}
+#jinx-count{font-size:13px;color:#62758f}.jinx-section{margin-top:32px}.jinx-group-note{font-size:12px;color:#6b7e96}
+.jinx-section[data-group="1"]>.jinx-group-note{color:#91632b}
+.jinx-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.jinx-card{border:1px solid #dfe7f2;border-radius:16px;background:#fff;padding:20px;box-shadow:0 4px 16px #234a7108;min-width:0}
+.jinx-pair{display:flex;gap:12px;align-items:start;flex-wrap:wrap;padding-bottom:16px;border-bottom:1px solid #e8edf5}
+.jinx-role{display:flex;align-items:center;gap:9px;min-width:0;padding:6px 10px;border-radius:12px;background:#f5f8fc;font-size:13px;font-weight:600;text-decoration:none;overflow-wrap:anywhere}
+.jinx-role:hover{background:#eaf2ff}.jinx-role img{width:48px;height:48px;object-fit:contain;flex:none}.jinx-placeholder{display:grid;place-items:center;width:48px;height:48px;color:#7287a3}
+.jinx-card .jinx-rule{font-size:14px;line-height:1.9;color:#4a5d76;margin:16px 0 0;overflow-wrap:anywhere}
+.jinx-card[hidden],.jinx-section[hidden]{display:none}
+@media(max-width:1000px){.jinx-grid{grid-template-columns:1fr}}
+@media(max-width:640px){.jinx-card{padding:16px}.jinx-filters{padding:16px}.jinx-filters label{width:100%}.jinx-role{padding:5px 8px}.jinx-role img{width:40px;height:40px}}
+@media(prefers-reduced-motion:no-preference){.jinx-role{transition:background-color .18s}.jinx-card:hover{box-shadow:0 6px 22px #234a7112}.jinx-card{transition:box-shadow .18s}}
+#jinx-count{min-height:24px;font-variant-numeric:tabular-nums}
+#jinx-empty{padding:28px 22px;border:1px dashed #cddbec;border-radius:14px;background:#f7faff;color:#6b7f9a;text-align:center}
+.jinx-filters input:focus{outline:2px solid #79a0d7;outline-offset:2px}

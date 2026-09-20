@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>政客 - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">政客</h1>
+    <div class="tagline">来自钟楼百科</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#提示与技巧">提示与技巧</a></li><li class="lvl2"><a href="#伪装成政客">伪装成政客</a></li><li class="lvl2"><a href="#角色信息">角色信息</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E6%94%BF%E5%AE%A2">查找包含此角色的剧本 →</a></p><p><a href="../pages/%E6%94%BF%E5%AE%A2.html" class="image-link" title="政客"><img alt="Politician.png" style="width:200px" class="" loading="lazy" data-source-image="../images/Politician.png" src="../assets/media/Politician.preview.webp" width="591" height="591" decoding="async"></a></p>
+<h2 id="背景故事">背景故事</h2>
+<p><em>“我很高兴你提出了这个问题。是的，我真的很高兴。但我仍然认为，问题的核心应该是在于……”</em></p>
+<h2 id="角色能力">角色能力</h2>
+<p><strong>如果你是对你的阵营落败负最大责任的人，你转变阵营并获胜，即使你已死亡。</strong></p>
+<h2 id="角色简介">角色简介</h2>
+<p>如果政客落败，政客可以转变他的阵营。</p>
+<ul>
+<li>当游戏结束时，如果政客是善良阵营落败负最大责任的人，政客会加入邪恶阵营并一起获胜。</li>
+</ul>
+<ul>
+<li>当决定谁获胜的关键时候，政客玩家应当非常有影响力。简单的散布错误信息或投票善良玩家通常是不够的——他需要比任何一个其他的善良玩家起到让善良阵营落败的关键作用，同时最好也是比任何一个邪恶玩家的作用大。由说书人决定政客是否符合条件。</li>
+</ul>
+<ul>
+<li>政客也可以和其他角色一样，以善良阵营获胜。</li>
+</ul>
+<ul>
+<li>中毒或醉酒的政客不能转变阵营。</li>
+</ul>
+<ul>
+<li>如果邪恶玩家的总数已经比初始设置多了一名，即使政客是对善良阵营落败负最大责任的人，由于圣洁之魂的存在，也不能转变阵营获胜。</li>
+</ul>
+<h2 id="范例">范例</h2>
+<p><a href="../pages/%E6%94%BF%E5%AE%A2.html" title="政客">政客</a>在整局游戏中都在尝试处决恶魔，但没有成功。在只剩三名玩家存活时，<a href="../pages/%E6%94%BF%E5%AE%A2.html" title="政客">政客</a>说服玩家们不要进行处决，因为有人宣称自己是<a href="../pages/%E9%95%87%E9%95%BF.html" title="镇长">镇长</a>。当天没有处决发生，但邪恶阵营获胜，因为有爪牙伪装成了<a href="../pages/%E9%95%87%E9%95%BF.html" title="镇长">镇长</a>。<a href="../pages/%E6%94%BF%E5%AE%A2.html" title="政客">政客</a>也一同获胜。</p>
+<p>在最后一天，<a href="../pages/%E6%94%BF%E5%AE%A2.html" title="政客">政客</a>为<a href="../pages/%E5%85%B1%E6%83%85%E8%80%85.html" title="共情者">共情者</a>投出了一票，并说服玩家们相信<a href="../pages/%E5%85%B1%E6%83%85%E8%80%85.html" title="共情者">共情者</a>是邪恶玩家。然而<a href="../pages/%E5%9C%A3%E5%BE%92.html" title="圣徒">圣徒</a>被处决了。说书人判断善良阵营的落败是善良阵营的集体决定导致的，而非听信了<a href="../pages/%E6%94%BF%E5%AE%A2.html" title="政客">政客</a>的糟糕的建议。善良阵营落败，<a href="../pages/%E6%94%BF%E5%AE%A2.html" title="政客">政客</a>也一同落败。</p>
+<p><a href="../pages/%E6%94%BF%E5%AE%A2.html" title="政客">政客</a>认为邪恶阵营正占据优势，因此声称自己是<a href="../pages/%E6%97%A0%E7%A5%9E%E8%AE%BA%E8%80%85.html" title="无神论者">无神论者</a>。说书人被处决。邪恶阵营获胜，<a href="../pages/%E6%94%BF%E5%AE%A2.html" title="政客">政客</a>也一同获胜。</p>
+<p>在最后一天，<a href="../pages/%E6%94%BF%E5%AE%A2.html" title="政客">政客</a>使得处决投票造成了平票的情况。在当晚，恶魔杀死了一名玩家，邪恶阵营获胜。<a href="../pages/%E6%94%BF%E5%AE%A2.html" title="政客">政客</a>也一同获胜。</p>
+<h2 id="运作方式">运作方式</h2>
+<p>当游戏结束时，考量政客玩家在本局游戏中所造成的影响，是否导致了某一方阵营获胜。如果政客在他的对立阵营获胜中做出了最重要的贡献，他转变阵营并与原本对应阵营的其他玩家一同获胜。在其他情况下，政客保留原本的阵营且按照常规的胜负条件来判断政客玩家的胜负。</p>
+<p>请注意政客仅会在游戏结束时才转变阵营，因此即使善良的政客在为邪恶阵营出力，他也依然会被当作是善良阵营。</p>
+<h2 id="提示标记">提示标记</h2>
+<p>无</p>
+<h2 id="规则细节">规则细节</h2>
+<ul>
+<li>相克规则：</li>
+<ul>
+<li><a href="../pages/%E9%BA%BB%E8%84%B8%E5%B7%AB%E5%A9%86.html" title="麻脸巫婆">麻脸巫婆</a>：被麻脸巫婆创造的邪恶政客无法因为自身能力转变为善良阵营。</li>
+<li><a href="../pages/%E7%BB%B4%E9%BD%90%E5%B0%94.html" title="维齐尔">维齐尔</a>：维齐尔的能力可能会将政客当作邪恶阵营。</li>
+<li><a href="../pages/%E7%A7%91%E5%AD%A6%E6%80%AA%E4%BA%BA.html" title="科学怪人">科学怪人</a>：恶魔无法拥有政客的能力。</li>
+<li><a href="../pages/%E5%86%9B%E5%9B%A2.html" title="军团">军团</a>：政客可能会被军团当作邪恶玩家。</li>
+</ul>
+</ul>
+<h2 id="提示与技巧">提示与技巧</h2>
+<ul>
+<li>从第一天开始以伪装现身，并且坚持。不要偏离你的宣称，不要改变你的故事，保持一贯性，作好假信息的静态来源，成为善良阵营能力拼凑真相的永久障碍。宣称自己是一个得知<a href="../pages/%E5%86%9B%E5%9B%A2.html" title="军团">军团</a>在场的<a href="../pages/%E8%89%BA%E6%9C%AF%E5%AE%B6.html" title="艺术家">艺术家</a>，并迫使善良阵营将这点纳入考虑。</li>
+</ul>
+<ul>
+<li>尽你所能伪装得极端并荒谬！如果善良阵营相信你，那你的伪装越离谱，你就越可能成为那个对落败负有最大责任的玩家！假装成<a href="../pages/%E6%97%A0%E7%A5%9E%E8%AE%BA%E8%80%85.html" title="无神论者">无神论者</a>！假装<a href="../pages/%E5%9C%A3%E5%BE%92.html" title="圣徒">圣徒</a>是你的<a href="../pages/%E9%95%9C%E5%83%8F%E5%8F%8C%E5%AD%90.html" title="镜像双子">镜像双子</a>！宣称你被舞蛇所魅惑，然后转变成了<a href="../pages/%E5%91%86%E7%93%9C.html" title="呆瓜">呆瓜</a>！用你疯狂的密谋主宰游戏，尽可能地传播错误信息。如果善良阵营相信你，你可以为邪恶阵营锁定胜利。即使他们没有，你所带来的浩劫也足以让善良阵营落败。</li>
+</ul>
+<ul>
+<li>安静而稳妥地进行伪装。尽你所能确保没有人怀疑你是政客，然后在最后的最后提供一条关键的误导信息。在最后一天带着一条错误的<a href="../pages/%E5%A5%B3%E8%A3%81%E7%BC%9D.html" title="女裁缝">女裁缝</a>信息现身，将一名善良玩家污蔑为邪恶的，然后拥抱胜利。</li>
+</ul>
+<ul>
+<li>编造一些假信息，并以此对一名特定玩家穷追猛打。假装是<a href="../pages/%E8%B0%83%E6%9F%A5%E5%91%98.html" title="调查员">调查员</a>、<a href="../pages/%E5%8D%A0%E5%8D%9C%E5%B8%88.html" title="占卜师">占卜师</a>或<a href="../pages/%E8%B5%8F%E9%87%91%E7%8C%8E%E4%BA%BA.html" title="赏金猎人">赏金猎人</a>并将一名其他玩家设为邪恶。如果他们是善良的，这可能是邪恶阵营获胜的决定性因素。即便你意外地被恶魔杀了，无论如何你还是赢了。</li>
+</ul>
+<ul>
+<li>注意特殊胜利能力角色。尝试触发这些能力。如果你能谋划出对<a href="../pages/%E5%93%A5%E5%B8%83%E6%9E%97.html" title="哥布林">哥布林</a>、善良双子或<a href="../pages/%E5%88%A9%E7%BB%B4%E5%9D%A6.html" title="利维坦">利维坦</a>游戏中的第二名善良玩家进行的处决，那你一定能确保你的胜利。</li>
+</ul>
+<ul>
+<li>确保说书人能看到你的努力。成为善良阵营失败的次要因素并不能达成你的目的。确保说书人知道你是对你们阵营落败负有最大责任的玩家。</li>
+</ul>
+<ul>
+<li>不要在外来者计数上捣乱。如果游戏中只有一名外来者在场，而其他某人宣称是陌客，不要挑战他们。保持隐蔽把善良阵营蒙在鼓里——简单来说，关于外来者人数的错误信息就足以赢得游戏。</li>
+</ul>
+<ul>
+<li>如果善良阵营看起来正朝着胜利前行，那就现身。要记得你也可以和善良阵营一起获胜。你所能提供的信息——哪些邪恶玩家支持你的邪恶计划，谁对你宣称和他角色相同有反应，乃至你是一个外来者——都可能是赢得游戏所需要的信息。</li>
+</ul>
+<ul>
+<li>尝试将那些能探查阵营（但不包含角色）的角色纳入你的谋划中。说服<a href="../pages/%E5%A5%B3%E8%A3%81%E7%BC%9D.html" title="女裁缝">女裁缝</a>检查你和一名确信善良的玩家，或是让<a href="../pages/%E6%9C%88%E4%B9%8B%E5%AD%90.html" title="月之子">月之子</a>在死后选择你。记住，你被当作善良阵营——让他们亲眼确认这点可以让他们信任你的欺诈宣称。</li>
+</ul>
+<ul>
+<li>让那些拥有强大限次能力的角色将能力消耗在你身上。说服<a href="../pages/%E7%8C%8E%E6%89%8B.html" title="猎手">猎手</a>射击你，指名<a href="../pages/%E8%B4%9E%E6%B4%81%E8%80%85.html" title="贞洁者">贞洁者</a>或是说服<a href="../pages/%E6%95%99%E6%8E%88.html" title="教授">教授</a>试着复活你。让他们把强大的能力用在<a href="../pages/%E6%94%BF%E5%AE%A2.html" title="政客">政客</a>身上，削减他们收集信息和取得进展上花费的努力。</li>
+</ul>
+<ul>
+<li>在最后一天的投票中拉平票。即使你已经死亡。这很卑鄙但很管用！如果善良阵营在最后一天不处决，之后恶魔在当晚杀人，邪恶阵营就会获胜。<a href="../pages/%E6%94%BF%E5%AE%A2.html" title="政客">政客</a>想以这种方式获胜的话，你必须是投下关键一票的玩家——如果善良阵营意外地平票，你还是落败了。你的能力要求“如果你是负有最大责任的玩家”。</li>
+</ul>
+<ul>
+<li>如果你认为其他存活的玩家都是邪恶的，那就不要在最后一天提名。这将阻止恶魔被提名。</li>
+</ul>
+<ul>
+<li>如果剧本上有政客，但你不是政客，那就要非常小心你信任的人。政客可能在场并在竭尽全力从中作梗，但他仍然被当作善良玩家。仅仅因为某个人在<a href="../pages/%E5%A5%B3%E8%A3%81%E7%BC%9D.html" title="女裁缝">女裁缝</a>、<a href="../pages/%E5%85%B1%E6%83%85%E8%80%85.html" title="共情者">共情者</a>或<a href="../pages/%E8%B4%B5%E6%97%8F.html" title="贵族">贵族</a>这样的角色面前表现得善良，也并不意味着你可以信任他们。即使你确信没有人醉酒或中毒。</li>
+</ul>
+<h2 id="伪装成政客">伪装成政客</h2>
+<ul>
+<li>通过暗示你是政客，而不是直接以政客角色现身来戏弄玩家团队会带来很多乐趣。通过夸张的表现，你可以让其他玩家产生双重怀疑。此外，如果剧本上有<a href="../pages/%E5%93%A5%E5%B8%83%E6%9E%97.html" title="哥布林">哥布林</a>，你可以暗示你是，让玩家产生三重怀疑。</li>
+</ul>
+<ul>
+<li>如果你是一名嗷嗷待宰的邪恶玩家，宣称你是政客来解释你阴暗和邪恶的行为。向大家保证如果他们让你存活你就做个善良的人。并且继续以此威胁他们（如果他们反悔你就做坏事）。然而，将政客用作备用伪装可能带来反效果，因为人们可能会想处决你来降低你的投票和提名能力。</li>
+</ul>
+<ul>
+<li>如果你认为善良阵营即将获胜，宣称你是政客，仅仅是为了给局势制造一个大麻烦。突然间增加了一个潜在的额外邪恶票在场，让团队必须将其纳入考虑，这给控制投票带来了更大的压力。</li>
+</ul>
+<ul>
+<li>谨慎地告诉一些人你是政客，这样你稍后的阴暗邪恶行为看起来就显得更为合理。那之后，无耻地提名<a href="../pages/%E5%9C%A3%E5%BE%92.html" title="圣徒">圣徒</a>并试图处决他们，或是试着让镜像双子中错误的那个被处决。</li>
+</ul>
+<ul>
+<li>秘密告诉一至两名玩家你是政客，并暗示他们可以制造价值换取你不破坏善良阵营。利用你可能转入邪恶阵营的威胁来让善良阵营帮你完成你的肮脏计划。没有什么比骗人做事更有趣了。你可以指导<a href="../pages/%E5%8D%8A%E5%85%BD%E4%BA%BA.html" title="半兽人">半兽人</a>选择夜晚的目标，让善良阵营淘汰<a href="../pages/%E7%BD%82%E7%B2%9F%E7%A7%8D%E6%A4%8D%E8%80%85.html" title="罂粟种植者">罂粟种植者</a>。</li>
+</ul>
+<ul>
+<li>在已经有人宣称是政客时伪装成政客！这会制造许多混乱和噪音，因为玩家不知道该相信哪名玩家。更重要的是，你可以通过加码和采取最邪恶的行动来倾泻这种胡搅蛮缠。</li>
+</ul>
+<h2 id="角色信息">角色信息</h2>
+<ul>
+<li>英文名：Politician</li>
+</ul>
+<ul>
+<li>所属剧本：<a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html" title="实验性角色">实验性角色</a>、<a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html" title="梦殒春宵">梦殒春宵</a>卡牌版</li>
+</ul>
+<ul>
+<li>角色类型：<a href="../pages/%E5%A4%96%E6%9D%A5%E8%80%85.html" title="外来者">外来者</a></li>
+</ul>
+<ul>
+<li>角色能力类型：<a href="../pages/%E7%89%B9%E6%AE%8A%E8%83%9C%E5%88%A9%E5%A4%B1%E8%B4%A5%E6%9D%A1%E4%BB%B6.html" title="特殊胜利失败条件">特殊胜利失败条件</a>、<a href="../pages/%E6%AD%BB%E5%90%8E%E8%83%BD%E5%8A%9B%E4%BF%9D%E7%95%99.html" title="死后能力保留">死后能力保留</a>、<a href="../pages/%E9%98%B5%E8%90%A5%E8%BD%AC%E5%8F%98.html" title="阵营转变">阵营转变</a></li>
+</ul></div>
+    <div class="page-meta">最后修改于 2026-06-13T02:16:26Z，编辑者 <b>Zack</b> ｜ 页面 8,927 字节 ｜ <a href="https://clocktower-wiki.gstonegames.com/index.php?title=%E6%94%BF%E5%AE%A2" target="_blank" rel="noopener">查看原页面</a> ｜ <div class="comment">编辑摘要：/* 规则细节 */</div></div>
+    <div class="backlinks"><b>链入此页的页面（29）</b><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a><a href="../pages/%E6%97%A0%E7%A5%9E%E8%AE%BA%E8%80%85.html">无神论者</a><a href="../pages/%E6%B0%94%E7%90%83%E9%A9%BE%E9%A9%B6%E5%91%98.html">气球驾驶员</a><a href="../pages/%E9%A3%9F%E4%BA%BA%E6%97%8F.html">食人族</a><a href="../pages/%E6%94%BF%E5%AE%A2.html">政客</a><a href="../pages/%E5%86%9B%E5%9B%A2.html">军团</a><a href="../pages/%E5%B0%8F%E6%80%AA%E5%AE%9D.html">小怪宝</a><a href="../pages/%E6%AD%BB%E5%90%8E%E8%83%BD%E5%8A%9B%E4%BF%9D%E7%95%99.html">死后能力保留</a><a href="../pages/%E7%89%B9%E6%AE%8A%E8%83%9C%E5%88%A9%E5%A4%B1%E8%B4%A5%E6%9D%A1%E4%BB%B6.html">特殊胜利失败条件</a><a href="../pages/%E9%98%B5%E8%90%A5%E8%BD%AC%E5%8F%98.html">阵营转变</a><a href="../pages/%E9%BA%BB%E8%84%B8%E5%B7%AB%E5%A9%86.html">麻脸巫婆</a><a href="../pages/%E5%A4%96%E6%9D%A5%E8%80%85.html">外来者</a><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a><a href="../pages/%E7%BB%B4%E9%BD%90%E5%B0%94.html">维齐尔</a><a href="../pages/%E9%AA%91%E8%99%8E%E7%94%9F%E6%AD%BB%E8%A1%8C.html">骑虎生死行</a><a href="../pages/%E5%B9%BB%E5%BD%B1%E7%94%BB%E5%AE%89%E5%8D%B1.html">幻影画安危</a><a href="../pages/%E5%BC%82%E5%9C%B0%E4%BC%97%E6%AC%A2%E6%9D%A5.html">异地众欢来</a><a href="../pages/%E9%A3%8E%E4%BA%91%E5%AD%B0%E6%88%8F%E8%A8%80.html">风云孰戏言</a><a href="../pages/%E6%97%A0%E4%BD%95%E6%9C%89%E4%B9%8B%E4%B9%A1.html">无何有之乡</a><a href="../pages/%E9%9B%86%E5%90%8E%E4%BA%BA%E4%B9%8B%E8%A8%80.html">集后人之言</a><a href="../pages/%E5%AF%B9%E5%A2%9F%E9%9A%BE%E6%AC%A2%E9%B8%A3.html">对墟难欢鸣</a><a href="../pages/%E8%A7%84%E5%88%99%E8%B0%83%E6%95%B4%E6%8F%90%E5%89%8D%E5%85%AC%E7%A4%BA.html">规则调整提前公示</a><a href="../pages/%E9%97%B2%E8%A8%80%E7%A2%8E%E8%AF%AD.html">闲言碎语</a><a href="../pages/%E7%A7%91%E5%AD%A6%E6%80%AA%E4%BA%BA.html">科学怪人</a><a href="../pages/%E5%86%B2%E5%8A%A8%E6%B6%88%E8%B4%B9.html">冲动消费</a><a href="../pages/%E7%81%AF%E7%A5%9E%E5%A5%91%E7%BA%A6.html">灯神契约</a><a href="../pages/%E9%94%A6%E5%A4%9C%E6%9C%AA%E5%A4%AE.html">锦夜未央</a><a href="../pages/%E4%B8%80%E5%BE%80%E5%B7%AB%E5%89%8D.html">一往巫前</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

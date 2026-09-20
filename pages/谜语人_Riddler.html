@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>谜语人 Riddler - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">谜语人 Riddler<span class="ns-badge">奥德赛</span></h1>
+    <div class="tagline">来自钟楼百科 · 摘自《奥德赛 Odyssey》百科 · 镇民</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#夜晚行动顺序">夜晚行动顺序</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#游玩与对抗技巧">游玩与对抗技巧</a></li><li class="lvl2"><a href="#伪装成该角色">伪装成该角色</a></li><li class="lvl2"><a href="#出现剧本">出现剧本</a></li><li class="lvl2"><a href="#整体设计">整体设计</a></li><li class="lvl2"><a href="#创意来源">创意来源</a></li><li class="lvl2"><a href="#图标画师">图标画师</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E8%B0%9C%E8%AF%AD%E4%BA%BA">查找包含此角色的剧本 →</a></p><div class="charinfo"><div class="charinfo-img"><a href="../files/%E6%96%87%E4%BB%B6_%E8%B0%9C%E8%AF%AD%E4%BA%BA.png.html"><img alt="谜语人 Riddler" data-source-image="../images/%E8%B0%9C%E8%AF%AD%E4%BA%BA.png" src="../assets/media/谜语人.preview.webp" width="600" height="600" decoding="async"></a></div><div class="charinfo-meta"><div class="row"><span class="k">角色类型</span><span class="v"><a href="../pages/%E9%95%87%E6%B0%91.html" title="镇民">镇民</a></span></div><div class="row"><span class="k">英文名</span><span class="v">Riddler</span></div><div class="row"><span class="k">角色ID</span><span class="v">070</span></div><div class="row"><span class="k">角色归属</span><span class="v">角色拓展包《奥德赛》</span></div><div class="row"><span class="k">能力标签</span><span class="v"><a href="../pages/%E8%8E%B7%E5%8F%96%E4%BF%A1%E6%81%AF.html" title="获取信息">获取信息</a></span></div><div class="row"><span class="k">角色定位</span><span class="v">持续信息镇民</span></div><div class="row"><span class="k">发布日期</span><span class="v">2026.5.16</span></div><div class="row"><span class="k">角色授权</span><span class="v">开放（任意剧本创作皆可使用，不要改能力）</span></div><div class="row"><span class="k">出处</span><span class="v"><a class="external" href="https://www.yuque.com/u48069482/taiyi" target="_blank" rel="noopener">《奥德赛 Odyssey》百科</a></span></div></div></div><h2 id="背景故事">背景故事</h2>
+<p><em>"不会吧不会吧，不会真有人猜不到吧？"</em></p>
+<h2 id="角色简介"><span style="color:rgb(64, 64, 64);">角色简介</span></h2>
+<p>谜语人每天都会得到一条令人抓狂的谜语。</p>
+<h2 id="角色能力">角色能力</h2>
+<div class="callout callout-info">
+<p>每个白天，你可以从说书人处得知一条谜语。谜语的谜底指向一个在场角色。</p>
+</div>
+<h2 id="范例">范例</h2>
+<ul>
+<li>第一个白天，谜语人拜访说书人得知“我听见了你冰冷的心跳”。谜底指向的是工程师，因为工程师会倾听机械运作。</li>
+<li>第一个白天，谜语人拜访说书人得知“金华火腿”。谜底指向的是水手，因为水手单字拆解的反义词为火腿。</li>
+<li>第一个白天，谜语人拜访说书人得知“6”。谜底指向的是赌徒，因为骰子有6个面。</li>
+<li>第一个白天，谜语人拜访说书人得知“4”。谜底指向的是教授，因为教授的图标中有4个原子。</li>
+<li>第一个白天，谜语人拜访说书人得知“5”。谜底指向的是气球驾驶员，因为气球驾驶员是5个字。</li>
+<li>第一个白天，谜语人拜访说书人得知“疯狂星期四”。谜底指向的是和平主义者，因为和平主义者的图标是只鸟（暗指鸡）。</li>
+<li>第一个白天，谜语人拜访说书人得知“大补”。谜底指向的是和平主义者，因为和平主义者的图标是只鸟（暗指鸡）。</li>
+<li>第一个白天，谜语人拜访说书人得知“生来成对卧，张口分山河”。谜底指向的是女裁缝。</li>
+</ul>
+<h2 id="运作方式">运作方式</h2>
+<p>每个白天仅限一次，如果谜语人要求与你进行私聊，请和他一起离开玩家围成的圆圈，保证你们的私聊不会被偷听。然后以耳语的方式告知谜语人一条谜语。</p>
+<p>谜语的谜底需要指向一个在场的角色。</p>
+<h2 id="夜晚行动顺序">夜晚行动顺序</h2>
+<ul>
+<li>首个夜晚</li>
+<ul>
+<li>夜序数值：/</li>
+<li>前位角色：/</li>
+<li>行动提示：/</li>
+</ul>
+<li>其他夜晚</li>
+<ul>
+<li>夜序数值：/</li>
+<li>前位角色：/</li>
+<li>行动提示：/</li>
+</ul>
+</ul>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>无</li>
+</ul>
+<h2 id="规则细节">规则细节</h2>
+<ul>
+<li>谜语人需要说书人具有强大的控场以及创新能力，否则容易产生谜语人过强或玩家不满等问题。在游玩带有谜语人的剧本时，最好提前跟玩家说明谜语人是一个半娱乐角色，谜语没有严谨唯一的谜底。</li>
+<li>谜语没有固定的格式，可以是一句短语、一串数字、一个符号甚至是一个动作。</li>
+<li>谜语需要说书人进行巧妙的构思。好的谜语应该是让玩家没那么容易猜到谜底，当你真正公布谜底的时候玩家们能够会心一笑。与其他“自由信息”镇民对于信息要求清晰无歧义不同，谜语人的设计就是需要说书人尽可能提供搞怪、迷惑、搞笑的信息。</li>
+<li>你可以根据谜语的难易程度来控制谜语人的强度。当善良弱势时，你可以给出更简单的谜语。当邪恶弱势时，你可以给出更难猜或更有误导性的谜语。</li>
+<li>谜语人的上限是每天得知一个在场角色，但是这样的强度对邪恶方来说是很不公平的。所以在大多数情况下，你需要通过谜语设计来规避谜语人达到这样的强度。通常来说，谜语能够同时指向剧本中一个以上的角色是相对平衡的。</li>
+<li>谜语人可以选择不从说书人那里获取谜语，如果他愿意的话。谜语人从说书人处获取谜语不是公开交流，因此其他玩家不能旁听。</li>
+<li>谜语人不会得知与旅行者角色相关的谜语（旅行者隔绝原则）。</li>
+<li><strong>信息格式</strong>：一句短语、一串数字、一个符号、一个动作或其他创新形式的谜语。</li>
+<li><strong>错误（虚假）信息格式</strong>：谜底不指向任何一个在场角色的谜语（一句短语、一串数字、一个符号、一个动作或其他创新形式的谜语）。</li>
+</ul>
+<h2 id="游玩与对抗技巧">游玩与对抗技巧</h2>
+<ul>
+<li>如果你是谜语人。尽可能地猜测出谜语的谜底指向的到底是哪个在场角色！如果你实在做不到，公布你的谜语让大家协助你。</li>
+<li>如果你是谜语人。如果你实在猜不出谜底，你可以使用排除法，将一些一定不是的角色排除出去。</li>
+<li>如果你是邪恶玩家。谜语人可以很弱，也可能会很强。尽可能误导大家对于谜底的猜测！让他们错误的判断在场角色。</li>
+</ul>
+<h2 id="伪装成该角色">伪装成该角色</h2>
+<ul>
+<li>如果你是一名不怕死的邪恶玩家。谜语随便编！一个数字、一句不明所以的话、甚至是一个动作！你甚至不用设计谜底！管他呢，让善良阵营慢慢猜去吧！</li>
+<li>如果你是恶魔。你要伪装为谜语人，那你对于谜语的设计就要相对慎重。不要轻易被大家认为你在胡编乱造，至少有一两个谜语能够清晰的指向一两个在场角色，这样你才会更加可信。</li>
+</ul>
+<h2 id="出现剧本">出现剧本</h2>
+<ul>
+<li><em>暂无</em></li>
+</ul>
+<h2 id="整体设计">整体设计</h2>
+<ul>
+<li>太一</li>
+</ul>
+<h2 id="创意来源">创意来源</h2>
+<ul>
+<li>太一</li>
+</ul>
+<h2 id="图标画师">图标画师</h2>
+<ul>
+<li>Lei.</li>
+</ul></div>
+    <div class="page-meta">最后修改于 2026-09-08T05:06:44.000Z，编辑者 <b>未知</b> ｜ 页面 4,843 字节 ｜ <a href="https://www.yuque.com/u48069482/taiyi/rdwwig06nxt2i37o" target="_blank" rel="noopener">查看原页面</a></div>
+    <div class="backlinks"><b>链入此页的页面（2）</b><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">奥德赛 Odyssey</a><a href="../pages/%E4%BB%8E%E8%AF%B4%E4%B9%A6%E4%BA%BA%E5%A4%84_From_the_Storyteller.html">从说书人处 From the Storyteller</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

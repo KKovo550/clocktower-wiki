@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>穷奇 - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">穷奇</h1>
+    <div class="tagline">来自钟楼百科</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#角色信息">角色信息</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E7%A9%B7%E5%A5%87">查找包含此角色的剧本 →</a></p><p><a href="../pages/%E7%A9%B7%E5%A5%87.html" class="image-link" title="穷奇"><img alt="Qiongqi.png" style="width:200px" class="" loading="lazy" data-source-image="../images/Qiongqi.png" src="../assets/media/Qiongqi.preview.webp" width="591" height="591" decoding="async"></a></p>
+<h2 id="背景故事">背景故事</h2>
+<p><em>“有兽焉，其状如牛，猬毛，名曰穷奇，音如獆狗，是食人。”</em></p>
+<h2 id="角色能力">角色能力</h2>
+<p><strong>每个夜晚*，你要选择一名玩家：他死亡。如果今天白天有外来者死亡，当晚改为你要选择一名玩家：他死亡，但被当作仍然存活，随后会有一名其他玩家死亡。[+1外来者]</strong></p>
+<h2 id="角色简介">角色简介</h2>
+<p>穷奇能够在有外来者死亡时兴风作浪，杀害更多的玩家，而善良玩家却全然不知。</p>
+<ul>
+<li>在设置阶段，如果穷奇在场，则用一个未出场的外来者角色标记替换一个镇民标记，然后再让玩家随机抽取角色。</li>
+</ul>
+<ul>
+<li>如果在白天有外来者死亡，穷奇的攻击会让玩家进入“活尸”状态。该玩家在城镇广场上会表现出“存活”，然而实际上已经死亡。在这种情况下再次死亡，玩家在城镇广场上的状态也就会变成死亡状态。</li>
+</ul>
+<ul>
+<li>只有能够被穷奇杀死的玩家才能因为穷奇的攻击而进入“活尸”状态。如果玩家的死亡由于某些原因被阻止，他就不会进入“活尸”状态，而是正常存活。</li>
+</ul>
+<ul>
+<li>“活尸”状态下的玩家死亡时，相关的“死亡时触发的能力”不会触发，因为玩家在此之前已经进入了死亡状态（且之前进入死亡状态时，自身被当作存活而没有触发“死亡时触发的能力”）。而“得知自己死亡”的能力会正常触发，因为这些能力会持续保留到玩家“得知自己死亡”时。</li>
+</ul>
+<ul>
+<li>“活尸”状态与醉酒中毒相似：玩家会失去自身的能力，如果玩家的能力会让他自己获得信息，则有可能获得错误信息。</li>
+</ul>
+<ul>
+<li>“活尸”状态是一次性变化。即使之后穷奇中毒醉酒或是死亡，“活尸”玩家在城镇广场上的状态依旧不会发生变化。但此时“活尸”玩家在参与能力互动时，不再被当作存活状态，而是处于死亡状态。</li>
+</ul>
+<ul>
+<li>因为在除首个夜晚以外的每个夜晚穷奇都会被唤醒，因此他也不会得知当天白天是否有外来者死亡了。</li>
+</ul>
+<h2 id="范例">范例</h2>
+<p>白天，<a href="../pages/%E7%95%B8%E5%BD%A2%E7%A7%80%E6%BC%94%E5%91%98.html" title="畸形秀演员">畸形秀演员</a>因为自己的能力被处决。当晚，<a href="../pages/%E7%A9%B7%E5%A5%87.html" title="穷奇">穷奇</a>攻击了<a href="../pages/%E9%99%8C%E5%AE%A2.html" title="陌客">陌客</a>，随后说书人选择让<a href="../pages/%E5%93%B2%E5%AD%A6%E5%AE%B6.html" title="哲学家">哲学家</a>死亡。在黎明时，说书人向所有玩家宣布<a href="../pages/%E5%93%B2%E5%AD%A6%E5%AE%B6.html" title="哲学家">哲学家</a>对应的玩家死亡。除了<a href="../pages/%E7%A9%B7%E5%A5%87.html" title="穷奇">穷奇</a>以外，没有人知道实际上<a href="../pages/%E9%99%8C%E5%AE%A2.html" title="陌客">陌客</a>也已经死亡了。</p>
+<p>场上有两名处于“活尸”状态的玩家，以及三名存活玩家。当天白天，<a href="../pages/%E5%88%BA%E5%AE%A2.html" title="刺客">刺客</a>被处决并死亡。由于<a href="../pages/%E7%A9%B7%E5%A5%87.html" title="穷奇">穷奇</a>仍然存活，且场上实际存活的玩家只有两名，说书人宣布邪恶阵营获胜。</p>
+<h2 id="运作方式">运作方式</h2>
+<p>每个白天，如果有外来者死亡，将穷奇的“死于今日”提示标记放置到该玩家的角色标记旁。</p>
+<p>除了首个夜晚外的每个夜晚，唤醒穷奇，并让他指向任意一名玩家。让穷奇重新入睡。</p>
+<p>如果穷奇的“死于今日”提示标记未被放置，那么穷奇选择的玩家死亡，在他角色标记旁放置“死亡”提示标记（除非该玩家受到其他原因影响导致不会死亡）。</p>
+<p>如果穷奇的“死于今日”提示标记已被放置，且穷奇选择的玩家当前处于存活状态，并能够成功被穷奇杀死，那么穷奇选择的玩家进入“活尸”状态。（从现在起，他处于死亡状态，但会被当作存活。）在魔典中该玩家的角色标记上添加帷幕标记，但不要在黎明时宣布该玩家已经死亡，也不要在城镇广场上将该玩家的生命标记翻面。随后，再在任意一名玩家的角色标记旁放置“死亡”提示标记。</p>
+<p>在黎明时，移除“死于今日”提示标记，并宣布当晚放置了穷奇的“死亡”提示标记的玩家死亡。</p>
+<p>处于“活尸”状态下的玩家在进行城镇广场的相关操作时，按该玩家仍然存活来进行。他能够在每个白天的提名阶段正常发起提名，并能够参与任意次数的投票。</p>
+<p>为了避免游戏在存活人数较多的时候突然结束，从而使得游戏体验变得糟糕，建议在场上“被当作存活”的玩家人数大于等于2人时，让穷奇的能力中由说书人决定的死亡对“被当作存活”的玩家生效。这样在玩家人数大于等于5人时，游戏不会因为实际存活人数较少而突然结束。在计算这些“被当作存活”的玩家数量时，由非穷奇造成的效果也统一计算在内。同时如果还有其他可以交由说书人处理的死亡效果，如军团、小怪宝等，也应该优先考虑让“被当作存活”的玩家死亡。通常来说，保持场上大多数时候最多只有一名玩家“被当作存活”，少部分时候有两名玩家“被当作存活”，这样是比较正常的游戏体验。</p>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>死于今日</li>
+</ul>
+<p>放置时机：在白天时，如果有外来者死亡，不论死亡原因为何，在该玩家的角色标记旁放置。</p>
+<p>放置条件：在死亡的外来者角色标记旁放置，而不论此时穷奇是否醉酒中毒。如果一天有多名外来者死亡，也只会有一个“死于今日”标记被放置。该标记会用于提醒说书人穷奇的选择是否会创造“活尸”。</p>
+<p>移除时机：在穷奇夜晚行动后，说书人可以任由自己方便来进行移除。</p>
+<p>特殊说明：由于穷奇的能力为回溯型能力，因此如果穷奇在游戏中途产生，仍然要根据当前情况补放标记，而不是因为没有放置标记便无法使穷奇创造“活尸”。</p>
+<ul>
+<li>死亡</li>
+</ul>
+<p>放置时机：在穷奇夜晚行动并选择了玩家后放置。</p>
+<p>放置条件：穷奇选择的玩家当前存活，且能被穷奇杀死，且穷奇未醉酒中毒，那么在该玩家的角色标记旁放置（如果白天有外来者死亡，由说书人来决定该标记的放置），用以提醒说书人在黎明时分宣布当晚的死亡玩家。</p>
+<p>移除时机：在黎明时宣布死亡玩家后，说书人可以任由自己方便来进行移除。</p>
+<h2 id="规则细节">规则细节</h2>
+<ul>
+<li>特定角色互动：</li>
+<ul>
+<li><a href="../pages/%E9%A9%B1%E9%AD%94%E4%BA%BA.html" title="驱魔人">驱魔人</a>：如果白天有外来者死亡，且当晚驱魔人选中了穷奇，即使穷奇不会因为自己的能力被唤醒，仍然会有一名玩家因为穷奇的能力而死亡。</li>
+<li><a href="../pages/%E8%B5%B6%E5%B0%B8%E4%BA%BA.html" title="赶尸人">赶尸人</a>：如果穷奇的特殊行动攻击了与赶尸人邻近的镇民玩家，该玩家当前存活且能够死亡，那么该玩家会进入“死亡但被当作存活”状态（该状态由穷奇导致）。如果穷奇的特殊行动攻击了“死亡但被当作存活”的玩家，且该玩家能够死亡，该玩家会直接死亡。</li>
+<li><a href="../pages/%E5%91%86%E7%93%9C.html" title="呆瓜">呆瓜</a>/<a href="../pages/%E6%9C%88%E4%B9%8B%E5%AD%90.html" title="月之子">月之子</a>：“活尸”状态的呆瓜和月之子在得知自己死亡后，能力会正常触发，因为他们的能力会在死亡后持续保留直至得知自己死讯的时候。</li>
+</ul>
+</ul>
+<h2 id="角色信息">角色信息</h2>
+<ul>
+<li>英文名：Qiong Qi</li>
+</ul>
+<ul>
+<li>所属角色合集：<a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html" title="华灯初上">华灯初上</a></li>
+</ul>
+<ul>
+<li>创意来源：清清</li>
+</ul>
+<ul>
+<li>角色类型：恶魔</li>
+</ul>
+<ul>
+<li>角色能力类型：<a href="../pages/%E4%BA%92%E5%8A%A8%E5%B9%B2%E6%89%B0.html" title="互动干扰">互动干扰</a>、<a href="../pages/%E8%AE%BE%E7%BD%AE%E8%B0%83%E6%95%B4.html" title="设置调整">设置调整</a>、<a href="../pages/%E9%A2%9D%E5%A4%96%E6%AD%BB%E4%BA%A1.html" title="额外死亡">额外死亡</a>、<a href="../pages/%E5%9B%9E%E6%BA%AF%E5%9E%8B%E8%83%BD%E5%8A%9B.html" title="回溯型能力">回溯型能力</a></li>
+</ul></div>
+    <div class="page-meta">最后修改于 2026-04-20T09:32:42Z，编辑者 <b>Beiyu</b> ｜ 页面 7,120 字节 ｜ <a href="https://clocktower-wiki.gstonegames.com/index.php?title=%E7%A9%B7%E5%A5%87" target="_blank" rel="noopener">查看原页面</a> ｜ <div class="comment">编辑摘要：/* 角色简介 */</div></div>
+    <div class="backlinks"><b>链入此页的页面（24）</b><a href="../pages/%E5%9B%9E%E6%BA%AF%E5%9E%8B%E8%83%BD%E5%8A%9B.html">回溯型能力</a><a href="../pages/%E9%A2%9D%E5%A4%96%E6%AD%BB%E4%BA%A1.html">额外死亡</a><a href="../pages/%E4%BA%92%E5%8A%A8%E5%B9%B2%E6%89%B0.html">互动干扰</a><a href="../pages/%E8%AE%BE%E7%BD%AE%E8%B0%83%E6%95%B4.html">设置调整</a><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a><a href="../pages/%E8%B5%B6%E5%B0%B8%E4%BA%BA.html">赶尸人</a><a href="../pages/%E7%A9%B7%E5%A5%87.html">穷奇</a><a href="../pages/%E5%A4%9C%E6%99%9A%E8%A1%8C%E5%8A%A8%E9%A1%BA%E5%BA%8F%E4%B8%80%E8%A7%88.html">夜晚行动顺序一览</a><a href="../pages/%E7%AC%AC%E4%B8%80%E5%B1%8A%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A%E5%89%A7%E6%9C%AC%E5%88%9B%E4%BD%9C%E5%A4%A7%E8%B5%9B.html">第一届华灯初上剧本创作大赛</a><a href="../pages/%E4%BA%BA%E9%97%B4%E6%9A%97%E6%9C%88%E5%A4%9C.html">人间暗月夜</a><a href="../pages/%E9%AA%91%E8%99%8E%E7%94%9F%E6%AD%BB%E8%A1%8C.html">骑虎生死行</a><a href="../pages/%E8%A1%8C%E6%88%90%E4%B8%8B%E5%AD%A4%E4%B9%A1.html">行成下孤乡</a><a href="../pages/%E8%8E%AB%E8%A8%80%E4%B8%89%E5%8D%83%E6%AD%BB.html">莫言三千死</a><a href="../pages/%E9%B8%A3%E9%A3%8E%E5%99%AC%E5%90%8E%E6%B5%AA.html">鸣风噬后浪</a><a href="../pages/%E5%B9%BB%E5%BD%B1%E7%94%BB%E5%AE%89%E5%8D%B1.html">幻影画安危</a><a href="../pages/%E8%B0%9C%E6%A2%A6%E5%BE%85%E6%AD%8C%E8%88%9E.html">谜梦待歌舞</a><a href="../pages/%E5%BC%82%E5%9C%B0%E4%BC%97%E6%AC%A2%E6%9D%A5.html">异地众欢来</a><a href="../pages/%E9%A3%8E%E4%BA%91%E5%AD%B0%E6%88%8F%E8%A8%80.html">风云孰戏言</a><a href="../pages/%E9%A3%8E%E8%B5%B7%E7%BB%88%E7%9B%B8%E8%AF%86.html">风起终相识</a><a href="../pages/%E7%99%BD%E7%8B%90%E8%A1%8C%E4%B8%9B%E9%87%8C.html">白狐行丛里</a><a href="../pages/%E4%BE%A0%E4%BA%91%E6%95%88%E8%89%AF%E5%85%9A.html">侠云效良党</a><a href="../pages/%E5%8D%83%E9%9D%A2%E4%BC%97%E5%8D%B1%E7%84%89.html">千面众危焉</a><a href="../pages/%E5%AF%B9%E5%A2%9F%E9%9A%BE%E6%AC%A2%E9%B8%A3.html">对墟难欢鸣</a><a href="../pages/%E7%A7%89%E5%85%AC%E5%8A%9E%E4%BA%8B.html">秉公办事</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

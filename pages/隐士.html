@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>隐士 - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">隐士</h1>
+    <div class="tagline">来自钟楼百科</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#提示与技巧">提示与技巧</a></li><li class="lvl2"><a href="#伪装成隐士">伪装成隐士</a></li><li class="lvl2"><a href="#角色信息">角色信息</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E9%9A%90%E5%A3%AB">查找包含此角色的剧本 →</a></p><p><a href="../pages/%E9%9A%90%E5%A3%AB.html" class="image-link" title="隐士"><img alt="hermit.png" style="width:200px" class="" loading="lazy" data-source-image="../images/Hermit.png" src="../assets/media/Hermit.preview.webp" width="591" height="591" decoding="async"></a></p>
+<h2 id="背景故事">背景故事</h2>
+<p><em>“于尘寰遗忘之境，有光静静亮着，不问归期。”</em></p>
+<h2 id="角色能力">角色能力</h2>
+<p><strong>你拥有所有外来者能力。[-0~1外来者]</strong></p>
+<h2 id="角色简介">角色简介</h2>
+<p>隐士没有自己的命运，他活在他人的命运之中。</p>
+<ul>
+<li>隐士同时拥有角色列表中所有其他外来者的能力。他不会拥有不存在于角色列表中的外来者能力。</li>
+</ul>
+<ul>
+<li>即使角色列表包含超过4名外来者，隐士也会拥有所有外来者的能力。</li>
+</ul>
+<ul>
+<li>如果有一名外来者的能力类型是死后能力保留，例如陌客，隐士会在死亡时保留他的能力，但不保留其他类型的能力。</li>
+</ul>
+<ul>
+<li>如果隐士拥有酒鬼的能力，他不会得知自己是隐士，而他也同时拥有其他外来者的能力。一个同时拥有酒鬼和陌客能力的隐士可以被当作一名邪恶角色。</li>
+</ul>
+<ul>
+<li>如果隐士获得了具有相克规则的角色能力，那么这条相克规则对隐士也适用。</li>
+</ul>
+<ul>
+<li>由于隐士的设置调整，在初始设置需要移除一名外来者角色时，你可以移除隐士——这样外来者的数量就会少一名。如果你这样做了，隐士可以作为恶魔的伪装之一。</li>
+</ul>
+<h2 id="范例">范例</h2>
+<p>小文是<a href="../pages/%E9%9A%90%E5%A3%AB.html" title="隐士">隐士</a>，拥有<a href="../pages/%E5%91%86%E7%93%9C.html" title="呆瓜">呆瓜</a>、<a href="../pages/%E7%AE%A1%E5%AE%B6.html" title="管家">管家</a>和<a href="../pages/%E9%99%8C%E5%AE%A2.html" title="陌客">陌客</a>的能力。每个夜晚，由于<a href="../pages/%E7%AE%A1%E5%AE%B6.html" title="管家">管家</a>的能力，他要选择一名玩家作为他的主人。<a href="../pages/%E5%AE%88%E9%B8%A6%E4%BA%BA.html" title="守鸦人">守鸦人</a>死亡时选择了小文，小文的<a href="../pages/%E9%99%8C%E5%AE%A2.html" title="陌客">陌客</a>能力让他得知了<a href="../pages/%E5%A0%A4%E4%B8%B0%E4%B9%8B%E9%A6%96.html" title="堤丰之首">堤丰之首</a>。小文死于处决了，由于<a href="../pages/%E5%91%86%E7%93%9C.html" title="呆瓜">呆瓜</a>的能力，他需要选择一名玩家。小文选择了<a href="../pages/%E5%B7%AB%E5%B8%88.html" title="巫师">巫师</a>，善良阵营落败。</p>
+<p>小佳是<a href="../pages/%E9%9A%90%E5%A3%AB.html" title="隐士">隐士</a>，拥有<a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a>、<a href="../pages/%E7%95%B8%E5%BD%A2%E7%A7%80%E6%BC%94%E5%91%98.html" title="畸形秀演员">畸形秀演员</a>和<a href="../pages/%E5%BF%83%E4%B8%8A%E4%BA%BA.html" title="心上人">心上人</a>的能力。她以为她是<a href="../pages/%E9%A9%B1%E9%AD%94%E4%BA%BA.html" title="驱魔人">驱魔人</a>，每个夜晚都选择了一名玩家。小佳认为她可能是<a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a>，说书人认为她正在“疯狂”地证明自己是<a href="../pages/%E9%85%92%E9%AC%BC.html" title="酒鬼">酒鬼</a>，由于<a href="../pages/%E7%95%B8%E5%BD%A2%E7%A7%80%E6%BC%94%E5%91%98.html" title="畸形秀演员">畸形秀演员</a>的能力，说书人处决了她。小佳死于处决后，由于<a href="../pages/%E5%BF%83%E4%B8%8A%E4%BA%BA.html" title="心上人">心上人</a>的能力，<a href="../pages/%E7%82%BC%E9%87%91%E6%9C%AF%E5%A3%AB.html" title="炼金术士">炼金术士</a>醉酒了。</p>
+<h2 id="运作方式">运作方式</h2>
+<p>设置游戏时，你可以移除一个外来者并添加一名镇民，或者不改变外来者数量。</p>
+<p>当你认为合适的时候，以其他外来者角色的运作方式来让隐士行动，包括在夜晚唤醒隐士，以及任意使用其他外来者的提示标记。如果隐士和其他外来者同时在场，使用隐士的“1”、“2”、“3”提示标记作为替代。</p>
+<p>如果多个外来者的能力产生了一定冲突，你可以自创一条规则来解决，并在游戏开始前告知所有玩家。例如，隐士同时获得了管家和狂热者的能力，你可以告知玩家，隐士必须要在主人投票的时候投票。</p>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>1&amp;2&amp;3</li>
+<p>说明：当隐士和需要使用提示标记的外来者同时在场时，用隐士的“1”（或‘2’或‘3’）标记作为该角色的标记作为替代，用法与该外来者角色的提示标记一致。</p>
+</ul>
+<h2 id="规则细节">规则细节</h2>
+<ul>
+<li>相克规则：（如同角色简介中所写）如果隐士获得了具有相克规则的角色能力，那么这条相克规则对隐士也适用。</li>
+</ul>
+<h2 id="提示与技巧">提示与技巧</h2>
+<ul>
+<li>告诉所有人你是<a href="../pages/%E9%9A%90%E5%A3%AB.html" title="隐士">隐士</a>！你拥有角色列表中所有外来者的能力，所以善良玩家得知你是<a href="../pages/%E9%9A%90%E5%A3%AB.html" title="隐士">隐士</a>之后，会把可能影响他们的外来者能力纳入考量！然而，如果你拥有<a href="../pages/%E7%95%B8%E5%BD%A2%E7%A7%80%E6%BC%94%E5%91%98.html" title="畸形秀演员">畸形秀演员</a>的能力，声称自己是<a href="../pages/%E9%9A%90%E5%A3%AB.html" title="隐士">隐士</a>意味着你正在“疯狂”地证明你是外来者，说书人可能会在任何时候处决你！</li>
+</ul>
+<ul>
+<li>声称自己是一个拥有强大能力的镇民来吸引邪恶玩家在夜晚的攻击。如果你拥有的能力会在你存活的时候对小镇产生巨大的影响，比如<a href="../pages/%E5%9C%A3%E5%BE%92.html" title="圣徒">圣徒</a>和<a href="../pages/%E7%8B%82%E7%83%AD%E8%80%85.html" title="狂热者">狂热者</a>，那么在夜晚死亡一定是个不错的决定。</li>
+</ul>
+<ul>
+<li>认真考虑你的能力是否会互相影响，因为可能会出现一些意外麻烦。例如，如果你拥有<a href="../pages/%E5%9C%A3%E5%BE%92.html" title="圣徒">圣徒</a>和<a href="../pages/%E7%95%B8%E5%BD%A2%E7%A7%80%E6%BC%94%E5%91%98.html" title="畸形秀演员">畸形秀演员</a>的能力，当你“疯狂”地证明自己是外来者时，你可能会因<a href="../pages/%E7%95%B8%E5%BD%A2%E7%A7%80%E6%BC%94%E5%91%98.html" title="畸形秀演员">畸形秀演员</a>的能力而被处决，并且当你死于处决时，<a href="../pages/%E5%9C%A3%E5%BE%92.html" title="圣徒">圣徒</a>的能力会让你的阵营落败。</li>
+</ul>
+<ul>
+<li>私下询问说书人你获得的多个能力之间的运作交互！有些时候能力的组合并不会很容易理解，但确保自己理解说书人的规则一定是有帮助的！例如，如果你拥有了<a href="../pages/%E7%AE%A1%E5%AE%B6.html" title="管家">管家</a>和<a href="../pages/%E7%8B%82%E7%83%AD%E8%80%85.html" title="狂热者">狂热者</a>的能力，说书人可能规定你必须要在主人投票的时候投票，或者也可能是你任何时候只能拥有其中一种能力。不论哪种规则，你都需要知道说书人如何运作你的角色能力。</li>
+</ul>
+<ul>
+<li>认真阅读剧本中的相克规则！<a href="../pages/%E9%9A%90%E5%A3%AB.html" title="隐士">隐士</a>不存在任何相克规则，但如果有外来者包含相克规则，那么这条相克规则对<a href="../pages/%E9%9A%90%E5%A3%AB.html" title="隐士">隐士</a>同样适用。如果<a href="../pages/%E9%9A%90%E5%A3%AB.html" title="隐士">隐士</a>拥有<a href="../pages/%E7%98%9F%E7%96%AB%E5%8C%BB%E7%94%9F.html" title="瘟疫医生">瘟疫医生</a>的能力，<a href="../pages/%E7%BA%A2%E5%94%87%E5%A5%B3%E9%83%8E.html" title="红唇女郎">红唇女郎</a>在角色列表之中，当<a href="../pages/%E9%9A%90%E5%A3%AB.html" title="隐士">隐士</a>死亡时，根据<a href="../pages/%E7%98%9F%E7%96%AB%E5%8C%BB%E7%94%9F.html" title="瘟疫医生">瘟疫医生</a>&amp;<a href="../pages/%E7%BA%A2%E5%94%87%E5%A5%B3%E9%83%8E.html" title="红唇女郎">红唇女郎</a>的相克规则，说书人也会把<a href="../pages/%E7%BA%A2%E5%94%87%E5%A5%B3%E9%83%8E.html" title="红唇女郎">红唇女郎</a>的能力给一个存活的爪牙。或者说，如果<a href="../pages/%E9%BA%BB%E8%84%B8%E5%B7%AB%E5%A9%86.html" title="麻脸巫婆">麻脸巫婆</a>、<a href="../pages/%E5%BC%82%E7%AB%AF%E5%88%86%E5%AD%90.html" title="异端分子">异端分子</a>和<a href="../pages/%E9%9A%90%E5%A3%AB.html" title="隐士">隐士</a>在角色列表之中，由于<a href="../pages/%E9%BA%BB%E8%84%B8%E5%B7%AB%E5%A9%86.html" title="麻脸巫婆">麻脸巫婆</a>&amp;<a href="../pages/%E5%BC%82%E7%AB%AF%E5%88%86%E5%AD%90.html" title="异端分子">异端分子</a>的相克规则，<a href="../pages/%E9%BA%BB%E8%84%B8%E5%B7%AB%E5%A9%86.html" title="麻脸巫婆">麻脸巫婆</a>无法创造<a href="../pages/%E9%9A%90%E5%A3%AB.html" title="隐士">隐士</a>。</li>
+</ul>
+<ul>
+<li>基于你获得的所有能力，思考你最好什么时机慷慨赴死！如果你拥有<a href="../pages/%E5%91%86%E7%93%9C.html" title="呆瓜">呆瓜</a>的能力，当你信任的玩家还存活时，你可能最好早点死亡。但如果你同时拥有<a href="../pages/%E5%BF%83%E4%B8%8A%E4%BA%BA.html" title="心上人">心上人</a>的能力时，过早的死亡意味着一名玩家在后面的游戏会一直醉酒。你要明白，作为一名外来者，你的能力会伤害这个宁静的小镇，但你可以把这个伤害降到尽你所能的最小！</li>
+</ul>
+<ul>
+<li>如果初始只有两名外来者在场，找到可以保护你的善良玩家！如果你是唯一一个外来者，那你就可以证明自己是<a href="../pages/%E9%9A%90%E5%A3%AB.html" title="隐士">隐士</a>了。</li>
+</ul>
+<ul>
+<li>注意其他声称自己是外来者的玩家。因为你的能力可能会减少一个外来者，所以其他外来者可能是邪恶玩家伪装的，或者他们在说谎！</li>
+</ul>
+<ul>
+<li>注意你不得不做的事情！如果你是<a href="../pages/%E7%8B%82%E7%83%AD%E8%80%85.html" title="狂热者">狂热者</a>，当五名及以上玩家存活时你都需要投票；但当你是一个拥有<a href="../pages/%E7%8B%82%E7%83%AD%E8%80%85.html" title="狂热者">狂热者</a>、<a href="../pages/%E5%91%86%E7%93%9C.html" title="呆瓜">呆瓜</a>和<a href="../pages/%E6%9C%88%E4%B9%8B%E5%AD%90.html" title="月之子">月之子</a>能力的<a href="../pages/%E9%9A%90%E5%A3%AB.html" title="隐士">隐士</a>时，你不仅要记得每次提名时投票，还需要记得在死亡时进行<a href="../pages/%E5%91%86%E7%93%9C.html" title="呆瓜">呆瓜</a>和<a href="../pages/%E6%9C%88%E4%B9%8B%E5%AD%90.html" title="月之子">月之子</a>的选择！</li>
+</ul>
+<h2 id="伪装成隐士">伪装成隐士</h2>
+<ul>
+<li>注意有多少名玩家声称自己是外来者。如果说书人给了你<a href="../pages/%E9%9A%90%E5%A3%AB.html" title="隐士">隐士</a>作为伪装之一，那就好好利用——说书人可能特意把<a href="../pages/%E9%9A%90%E5%A3%AB.html" title="隐士">隐士</a>移除来让你有空间去伪装一名外来者。或者，说书人也可能给你一个不同的外来者作为伪装，因为<a href="../pages/%E9%9A%90%E5%A3%AB.html" title="隐士">隐士</a>的能力减少了一个外来者。</li>
+</ul>
+<ul>
+<li>质疑其他声称自己是外来者的玩家。因为你的能力可能已经移除了一个外来者玩家了，所以场上不应该存在那么多外来者。</li>
+</ul>
+<ul>
+<li>私下询问说书人你获得的多个能力之间的运作交互！有些时候能力的组合并不会很容易理解，但确保自己理解说书人的规则一定是有帮助的！例如，如果你拥有了<a href="../pages/%E7%AE%A1%E5%AE%B6.html" title="管家">管家</a>和<a href="../pages/%E7%8B%82%E7%83%AD%E8%80%85.html" title="狂热者">狂热者</a>的能力，说书人可能规定你必须要在主人投票的时候投票，或者也可能是你任何时候只能拥有其中一种能力。不论哪种规则，你都需要知道说书人如何运作你的角色能力。</li>
+<ul>
+<li>任何一个玩家都有可能去和说书人确认规则，所以如果你没有提前确认<a href="../pages/%E9%9A%90%E5%A3%AB.html" title="隐士">隐士</a>在这个剧本中如何运作，伪装<a href="../pages/%E9%9A%90%E5%A3%AB.html" title="隐士">隐士</a>是有一定风险的。如果你声称你的能力以某种方式运作，而一名善良玩家询问说书人获得了不同的答案，你可能就会被抓住了。</li>
+</ul>
+</ul>
+<ul>
+<li>注意你伪装时而不得不做的事情！如果你是<a href="../pages/%E7%8B%82%E7%83%AD%E8%80%85.html" title="狂热者">狂热者</a>，当五名及以上玩家存活时你都需要投票；但当你是一个拥有<a href="../pages/%E7%8B%82%E7%83%AD%E8%80%85.html" title="狂热者">狂热者</a>、<a href="../pages/%E5%91%86%E7%93%9C.html" title="呆瓜">呆瓜</a>和<a href="../pages/%E6%9C%88%E4%B9%8B%E5%AD%90.html" title="月之子">月之子</a>能力的<a href="../pages/%E9%9A%90%E5%A3%AB.html" title="隐士">隐士</a>时，你不仅要记得每次提名时投票，还需要记得在死亡时进行<a href="../pages/%E5%91%86%E7%93%9C.html" title="呆瓜">呆瓜</a>和<a href="../pages/%E6%9C%88%E4%B9%8B%E5%AD%90.html" title="月之子">月之子</a>的选择！</li>
+<ul>
+<li>除了伪装自己正拥有这些能力以外，别忘了这些能力带来的结果。如果你声称自己是<a href="../pages/%E9%AD%94%E5%83%8F.html" title="魔像">魔像</a>，但提名了没有造成死亡，你应该声称那名玩家是恶魔，或者你自己在提名时中毒或者醉酒了。</li>
+</ul>
+</ul>
+<h2 id="角色信息">角色信息</h2>
+<ul>
+<li>英文名：Hermit</li>
+</ul>
+<ul>
+<li>所属剧本：<a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html" title="实验性角色">实验性角色</a></li>
+</ul>
+<ul>
+<li>角色类型：<a href="../pages/%E5%A4%96%E6%9D%A5%E8%80%85.html" title="外来者">外来者</a></li>
+</ul>
+<ul>
+<li>角色能力类型：<a href="../pages/%E8%8E%B7%E5%BE%97%E8%83%BD%E5%8A%9B.html" title="获得能力">获得能力</a>、<a href="../pages/%E8%AE%BE%E7%BD%AE%E8%B0%83%E6%95%B4.html" title="设置调整">设置调整</a></li>
+</ul></div>
+    <div class="page-meta">最后修改于 2025-06-14T14:47:24Z，编辑者 <b>Zack</b> ｜ 页面 8,415 字节 ｜ <a href="https://clocktower-wiki.gstonegames.com/index.php?title=%E9%9A%90%E5%A3%AB" target="_blank" rel="noopener">查看原页面</a> ｜ <div class="comment">编辑摘要：/* 伪装成隐士 */</div></div>
+    <div class="backlinks"><b>链入此页的页面（12）</b><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a><a href="../pages/%E8%8E%B7%E5%BE%97%E8%83%BD%E5%8A%9B.html">获得能力</a><a href="../pages/%E8%AE%BE%E7%BD%AE%E8%B0%83%E6%95%B4.html">设置调整</a><a href="../pages/%E5%A4%96%E6%9D%A5%E8%80%85.html">外来者</a><a href="../pages/%E6%96%B0%E8%A7%92%E8%89%B2%E5%85%AC%E5%B8%83%E8%AE%A1%E5%88%92.html">新角色公布计划</a><a href="../pages/%E9%9A%90%E5%A3%AB.html">隐士</a><a href="../pages/%E7%BF%BB%E4%BA%91%E8%A6%86%E9%9B%A8.html">翻云覆雨</a><a href="../pages/%E9%94%A6%E5%A4%9C%E6%9C%AA%E5%A4%AE.html">锦夜未央</a><a href="../pages/%E9%A6%96%E5%B8%AD%E5%BE%8B%E5%B8%88.html">首席律师</a><a href="../pages/%E6%A2%A6%E5%9B%9E%E5%A4%A7%E5%94%90.html">梦回大唐</a><a href="../pages/%E8%85%B9%E8%AF%AD%E5%B8%88.html">腹语师</a><a href="../pages/%E5%A4%A9%E6%89%8D%E5%9C%A8%E5%B7%A6.html">天才在左</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

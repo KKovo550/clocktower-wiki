@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>叫花子 - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">叫花子</h1>
+    <div class="tagline">来自钟楼百科</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#角色信息">角色信息</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E5%8F%AB%E8%8A%B1%E5%AD%90">查找包含此角色的剧本 →</a></p><p><a href="../pages/%E5%8F%AB%E8%8A%B1%E5%AD%90.html" class="image-link" title="叫花子"><img alt="Jiaohuazi.png" style="width:200px" class="" loading="lazy" data-source-image="../images/Jiaohuazi.png" src="../assets/media/Jiaohuazi.preview.webp" width="591" height="591" decoding="async"></a></p>
+<h2 id="背景故事">背景故事</h2>
+<p><em>“瞧一瞧，看一看，这里来个穷要饭。</em></p>
+<p><em>给个馍，给口汤，祝恁长命又健康。</em></p>
+<p><em>行行好，行行妙，施舍得人呱呱叫。</em></p>
+<p><em>让额走，额就走，⽼板伸出富贵⼿。”</em></p>
+<h2 id="角色能力">角色能力</h2>
+<p><strong>每个白天限一次，你可以公开选择一名其他玩家，让他选择一个非恶魔角色：你可能会获得这个角色的能力，直到下个黎明。</strong></p>
+<h2 id="角色简介">角色简介</h2>
+<p>叫花子通过向其他玩家“乞讨”来获得能力。</p>
+<ul>
+<li>叫花子在使用自己的能力选择一名玩家之后，该玩家不能拒绝触发叫花子的能力效果。</li>
+</ul>
+<ul>
+<li>只有被列在剧本的角色列表中的能力才能被叫花子获得。</li>
+</ul>
+<ul>
+<li>叫花子并非每次都能够成功获得能力。如果说书人认为一项角色的能力不会对游戏中的某一方造成巨大的优势或者劣势，那么叫花子就能够成功获得这个角色的能力。</li>
+</ul>
+<ul>
+<li>叫花子获得能力后，不会改变自己的角色。他还是叫花子，并且会在下一次黎明到来时失去这项能力。</li>
+</ul>
+<ul>
+<li>如果叫花子获得的能力是在游戏的首个夜晚产生作用的，该能力会在当晚的所有会造成死亡的效果对应的角色行动完毕后产生作用。</li>
+</ul>
+<h2 id="范例">范例</h2>
+<p>善良的<a href="../pages/%E5%8F%AB%E8%8A%B1%E5%AD%90.html" title="叫花子">叫花子</a>选择了一名善良玩家，该玩家选择了<a href="../pages/%E5%88%BA%E5%AE%A2.html" title="刺客">刺客</a>。说书人判断善良<a href="../pages/%E5%8F%AB%E8%8A%B1%E5%AD%90.html" title="叫花子">叫花子</a>获得<a href="../pages/%E5%88%BA%E5%AE%A2.html" title="刺客">刺客</a>能力会对游戏造成较大的不平衡，因此<a href="../pages/%E5%8F%AB%E8%8A%B1%E5%AD%90.html" title="叫花子">叫花子</a>没有成功获得<a href="../pages/%E5%88%BA%E5%AE%A2.html" title="刺客">刺客</a>的能力。当晚，在轮到<a href="../pages/%E5%88%BA%E5%AE%A2.html" title="刺客">刺客</a>行动时，<a href="../pages/%E5%8F%AB%E8%8A%B1%E5%AD%90.html" title="叫花子">叫花子</a>没有被说书人唤醒并行动。</p>
+<p>邪恶的<a href="../pages/%E5%8F%AB%E8%8A%B1%E5%AD%90.html" title="叫花子">叫花子</a>选择了一名邪恶玩家，该玩家选择了<a href="../pages/%E8%A7%A3%E8%B0%9C%E5%A4%A7%E5%B8%88.html" title="解谜大师">解谜大师</a>。说书人让<a href="../pages/%E5%8F%AB%E8%8A%B1%E5%AD%90.html" title="叫花子">叫花子</a>成功获得了<a href="../pages/%E8%A7%A3%E8%B0%9C%E5%A4%A7%E5%B8%88.html" title="解谜大师">解谜大师</a>的能力，并因此让<a href="../pages/%E5%BC%84%E8%87%A3.html" title="弄臣">弄臣</a>醉酒。随后，<a href="../pages/%E5%BC%84%E8%87%A3.html" title="弄臣">弄臣</a>在当天白天被处决，并且是他这局游戏首次被处决。说书人宣布<a href="../pages/%E5%BC%84%E8%87%A3.html" title="弄臣">弄臣</a>死亡。</p>
+<h2 id="运作方式">运作方式</h2>
+<p>每个白天，如果叫花子声明使用他的能力，宣布让所有玩家安静。让叫花子选择一名其他玩家，随后，让该玩家从剧本角色列表上选择任意一个非恶魔角色。</p>
+<p>如果你决定不让叫花子获得这个角色的能力，无事发生。</p>
+<p>如果你决定让叫花子获得这个角色的能力，那么：</p>
+<p>如果该角色在场，将叫花子的“乞讨”提示标记放置在该角色标记旁。如果该角色不在场，将该角色标记替换叫花子的角色标记，随后在该角色标记旁放置叫花子的“是叫花子”提示标记。从现在起，叫花子获得了该角色的能力。如果这个角色会在夜晚被唤醒，那么在对应角色将要行动时，唤醒叫花子。如果该角色已在场，你可以自由决定是先唤醒原角色对应的玩家还是先唤醒叫花子玩家来进行行动。</p>
+<p>在下个黎明到来时，移除叫花子的“乞讨”提示标记，或移除“是叫花子”提示标记并将角色标记恢复成叫花子。</p>
+<p>在网页在线魔典中，由于切换角色会使得旅行者角色变得不可见，因此为了避免玩家得知叫花子是否成功获得了一项能力，统一使用“乞讨”标记，并辅以自定义提示标记进行记录。</p>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>乞讨&amp;是叫花子</li>
+</ul>
+<p>放置时机：在叫花子使用能力，并且你允许叫花子获得一项角色能力之后。</p>
+<p>放置条件：将“乞讨”标记放置在获得能力的角色标记旁，或用“是叫花子”标记叫花子玩家。</p>
+<p>移除时机：下个黎明时，或叫花子死亡或离场时。</p>
+<h2 id="角色信息">角色信息</h2>
+<ul>
+<li>英文名：Pauper</li>
+</ul>
+<ul>
+<li>所属角色合集：<a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html" title="华灯初上">华灯初上</a></li>
+</ul>
+<ul>
+<li>创意来源：痴愚</li>
+</ul>
+<ul>
+<li>角色类型：旅行者</li>
+</ul>
+<ul>
+<li>角色能力类型：<a href="../pages/%E8%8E%B7%E5%BE%97%E8%83%BD%E5%8A%9B.html" title="获得能力">获得能力</a></li>
+</ul></div>
+    <div class="page-meta">最后修改于 2024-04-18T06:30:23Z，编辑者 <b>Little Black</b> ｜ 页面 3,775 字节 ｜ <a href="https://clocktower-wiki.gstonegames.com/index.php?title=%E5%8F%AB%E8%8A%B1%E5%AD%90" target="_blank" rel="noopener">查看原页面</a> ｜ <div class="comment">编辑摘要：/* 角色信息 */</div></div>
+    <div class="backlinks"><b>链入此页的页面（3）</b><a href="../pages/%E8%8E%B7%E5%BE%97%E8%83%BD%E5%8A%9B.html">获得能力</a><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a><a href="../pages/%E5%8F%AB%E8%8A%B1%E5%AD%90.html">叫花子</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

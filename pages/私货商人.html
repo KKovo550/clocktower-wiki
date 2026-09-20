@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>私货商人 - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">私货商人</h1>
+    <div class="tagline">来自钟楼百科</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#角色信息">角色信息</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E7%A7%81%E8%B4%A7%E5%95%86%E4%BA%BA">查找包含此角色的剧本 →</a></p><p><a href="../pages/%E7%A7%81%E8%B4%A7%E5%95%86%E4%BA%BA.html" class="image-link" title="私货商人"><img alt="Bootlegger.png" style="width:200px" class="" loading="lazy" data-source-image="../images/Bootlegger.png" src="../assets/media/Bootlegger.preview.webp" width="591" height="591" decoding="async"></a></p>
+<h2 id="背景故事">背景故事</h2>
+<p><em>“我刚从老家搞来一批新货，一种我亲手酿的玩意儿，我给它起名叫‘灵冢雾’——想来点儿吗？”</em></p>
+<h2 id="角色能力">角色能力</h2>
+<p><strong>这个剧本包含有自制角色或自制规则。</strong></p>
+<h2 id="角色简介">角色简介</h2>
+<p>私货商人可以让你为你的游戏自定义角色或规则。</p>
+<ul>
+<li>私货商人允许说书人使用自己或他人创造的非官方角色，或允许他在游戏中使用非标准规则。</li>
+</ul>
+<ul>
+<li>如果剧本列表上有自定义角色，或游戏中包含自定义规则，说书人需要在游戏开始前讲这些内容介绍给所有玩家。</li>
+</ul>
+<ul>
+<li>私货商人允许剧本中夹杂复数数量的自定义角色或规则。</li>
+</ul>
+<ul>
+<li>只要当前剧本中包含有至少一个自定义角色，这个奇遇角色就会生效，且只能通过切换到一个不包含任何自定义角色的剧本来将其移除。（译注：这一项功能为国外app的功能，但也希望各位说书人在使用集石在线魔典的时候也遵循这个规则）</li>
+</ul>
+<ul>
+<li>私货商人是仅能在官方app（国内为在线魔典）上使用的奇遇角色。</li>
+</ul>
+<ul>
+<li>尽管这个角色的名字之前有很多备选方案，但在决定它名字的一次激烈的投票中，“私货商人”成功击败了“私酿世家的霍姆布鲁菲斯蜀黍”。</li>
+</ul>
+<h2 id="范例">范例</h2>
+<p>角色列表包含了自制角色——“佃农”。说书人宣布<a href="../pages/%E7%A7%81%E8%B4%A7%E5%95%86%E4%BA%BA.html" title="私货商人">私货商人</a>加入了游戏，然后解释了“佃农”的运作方式。</p>
+<p>说书人想要主持一场带有自定义规则（或者称之为房规）的游戏。说书人宣布<a href="../pages/%E7%A7%81%E8%B4%A7%E5%95%86%E4%BA%BA.html" title="私货商人">私货商人</a>加入了游戏，并解释了自定义规则的内容以及这项规则会对游戏带来什么样的影响。</p>
+<h2 id="运作方式">运作方式</h2>
+<p>在游戏开始前，如果你的剧本中包含有自定义角色或规则，宣布私货商人加入了游戏。将私货商人角色标记放入魔典中。</p>
+<p>随后，为所有玩家介绍本次游戏中包含的自定义角色和规则的相关内容。当所有玩家都清楚了解这些角色和规则后，就可以正常开始游戏了。</p>
+<p>你可以在宣布自定义规则时，对官方规则进行修改调整。但请注意，《染》这款游戏经过了数年的大量测试，游戏规则实际上已经非常成熟了。如果你修改这些规则，可能会导致游戏体验无法达到玩家的预期。我们建议你在尝试向陌生的玩家推荐你的自定义规则前，先与你的朋友一起游玩测试，以确保你的自定义规则能够容易被所有人接受，并且在大部分情形下都能为玩家带来较为良好的体验。</p>
+<h2 id="角色信息">角色信息</h2>
+<ul>
+<li>英文名：Bootlegger</li>
+</ul>
+<ul>
+<li>角色类型：<a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html" title="奇遇角色">奇遇角色</a></li>
+</ul></div>
+    <div class="page-meta">最后修改于 2025-11-11T13:16:48Z，编辑者 <b>Zack</b> ｜ 页面 2,713 字节 ｜ <a href="https://clocktower-wiki.gstonegames.com/index.php?title=%E7%A7%81%E8%B4%A7%E5%95%86%E4%BA%BA" target="_blank" rel="noopener">查看原页面</a></div>
+    <div class="backlinks"><b>链入此页的页面（6）</b><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a><a href="../pages/%E7%A7%81%E8%B4%A7%E5%95%86%E4%BA%BA.html">私货商人</a><a href="../pages/%E6%96%B0%E8%A7%92%E8%89%B2%E5%85%AC%E5%B8%83%E8%AE%A1%E5%88%92.html">新角色公布计划</a><a href="../pages/%E8%A7%84%E5%88%99%E8%B0%83%E6%95%B4%E6%8F%90%E5%89%8D%E5%85%AC%E7%A4%BA.html">规则调整提前公示</a><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a><a href="../pages/%E6%A2%A6%E5%9B%9E%E5%A4%A7%E5%94%90.html">梦回大唐</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

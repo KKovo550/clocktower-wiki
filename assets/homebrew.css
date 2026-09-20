@@ -1,0 +1,17 @@
+.homebrew-filters{display:flex;gap:16px;align-items:end;flex-wrap:wrap;margin:24px 0;padding:20px;background:#f5f6f8;border-radius:16px}
+.homebrew-filters label{display:grid;gap:8px}.homebrew-filters label:first-child{flex:1;min-width:min(260px,100%)}
+.homebrew-filters input,.homebrew-filters select,.homebrew-filters button{font:inherit;padding:10px 14px;border:1px solid #c7cbd1;border-radius:10px;background:#fff;min-height:44px;max-width:100%}
+.homebrew-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px 16px;padding:24px;background:#f7f8fb;border-radius:16px}
+.homebrew-card{min-width:0;text-align:center;overflow-wrap:anywhere}
+.homebrew-role-link{display:flex;flex-direction:column;align-items:center;gap:20px;height:100%;box-sizing:border-box;padding:16px 8px 20px;border-radius:12px;text-decoration:none}
+.homebrew-role-link:hover{background:#edf1f7;text-decoration:none}.homebrew-role-link:focus-visible{outline:3px solid #528ae3;outline-offset:2px;background:#edf1f7}
+.homebrew-icon{display:flex;align-items:center;justify-content:center;width:100%;height:170px}
+.homebrew-grid .homebrew-icon img{display:block;width:170px;height:170px;max-width:100%;object-fit:contain;margin:0;border:0;box-shadow:none;background:transparent}
+.homebrew-name{font-size:14px;line-height:1.6}.homebrew-no-icon{font-size:64px;color:#8b94a3}
+@media(max-width:1100px){.homebrew-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:700px){.homebrew-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 8px;padding:12px}.homebrew-icon{height:140px}.homebrew-grid .homebrew-icon img{width:140px;height:140px}.homebrew-role-link{gap:12px;padding:12px 4px}.homebrew-name{font-size:13px}}
+.homebrew-card[hidden]{display:none}.homebrew-note{padding:14px 18px;border-radius:12px;background:#edf4ff}
+.homebrew-article{max-width:960px;line-height:1.85}.homebrew-article .homebrew-portrait{width:220px;height:auto;max-width:100%;object-fit:contain}
+.homebrew-article details{padding:12px 16px;border:1px solid #dde1e7;border-radius:12px;margin:16px 0}.homebrew-article summary{cursor:pointer}
+.homebrew-article blockquote{margin:16px 0;padding:12px 20px;background:#f5f7fa;border-left:3px solid #528ae3;border-radius:8px}
+.homebrew-article pre{overflow:auto;max-width:100%;padding:16px;background:#f5f6f8;border-radius:12px}.homebrew-article a{overflow-wrap:anywhere}

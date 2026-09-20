@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>暴君 - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">暴君</h1>
+    <div class="tagline">来自钟楼百科</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#角色信息">角色信息</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E6%9A%B4%E5%90%9B">查找包含此角色的剧本 →</a></p><p><a href="../pages/%E6%9A%B4%E5%90%9B.html" class="image-link" title="暴君"><img alt="Baojun_new.png" style="width:200px" class="" loading="lazy" data-source-image="../images/Baojun_new.png" src="../assets/media/Baojun_new.preview.webp" width="432" height="432" decoding="async"></a></p>
+<h2 id="背景故事">背景故事</h2>
+<p><em>“天子之怒，伏尸百万，流血千里。”</em></p>
+<h2 id="角色能力">角色能力</h2>
+<p><strong>每个夜晚*，你要选择一名玩家：他死亡。</strong></p>
+<p><strong>如果你杀死了与爪牙邻近的玩家，下个夜晚你可以选择至多两名玩家：他们死亡。</strong></p>
+<h2 id="角色简介">角色简介</h2>
+<p>暴君可以通过杀害臣子身边的玩家来进行暴虐。</p>
+<ul>
+<li>如果暴君上个夜晚杀死了与爪牙邻近的玩家，那么下个夜晚暴君可以选择杀害至多两名玩家。</li>
+</ul>
+<ul>
+<li>如果与爪牙邻近的玩家因为某些原因没有被暴君杀死，那么暴君只能选择一名玩家。</li>
+</ul>
+<ul>
+<li>如果暴君在“暴虐”杀戮时再次杀死了与爪牙邻近的玩家，下个夜晚，暴君仍可以继续“暴虐”杀戮。</li>
+</ul>
+<ul>
+<li>暴君在“暴虐”杀戮时可以不进行选择，也可以只攻击一名玩家。</li>
+</ul>
+<h2 id="范例">范例</h2>
+<p><a href="../pages/%E6%9A%B4%E5%90%9B.html" title="暴君">暴君</a>攻击了与<a href="../pages/%E5%A5%B3%E5%B7%AB.html" title="女巫">女巫</a>邻近的<a href="../pages/%E9%A9%B1%E9%AD%94%E4%BA%BA.html" title="驱魔人">驱魔人</a>。<a href="../pages/%E9%A9%B1%E9%AD%94%E4%BA%BA.html" title="驱魔人">驱魔人</a>死亡。在下一个夜晚，<a href="../pages/%E6%9A%B4%E5%90%9B.html" title="暴君">暴君</a>可以选择至多两名玩家进行攻击。</p>
+<p><a href="../pages/%E6%9A%B4%E5%90%9B.html" title="暴君">暴君</a>选择了与<a href="../pages/%E6%8A%95%E6%AF%92%E8%80%85.html" title="投毒者">投毒者</a>邻近的<a href="../pages/%E9%80%A0%E8%B0%A3%E8%80%85.html" title="造谣者">造谣者</a>。但是<a href="../pages/%E9%80%A0%E8%B0%A3%E8%80%85.html" title="造谣者">造谣者</a>由于受到<a href="../pages/%E6%97%85%E5%BA%97%E8%80%81%E6%9D%BF.html" title="旅店老板">旅店老板</a>的保护，依然存活。下一天夜晚，<a href="../pages/%E6%9A%B4%E5%90%9B.html" title="暴君">暴君</a>只能选择一名玩家进行攻击。</p>
+<p><a href="../pages/%E6%9A%B4%E5%90%9B.html" title="暴君">暴君</a>上一天杀死了与<a href="../pages/%E7%A7%91%E5%AD%A6%E6%80%AA%E4%BA%BA.html" title="科学怪人">科学怪人</a>邻近的<a href="../pages/%E5%8D%A0%E5%8D%9C%E5%B8%88.html" title="占卜师">占卜师</a>。当晚，暴君杀死了<a href="../pages/%E6%B4%97%E8%A1%A3%E5%A6%87.html" title="洗衣妇">洗衣妇</a>以及与<a href="../pages/%E5%93%A5%E5%B8%83%E6%9E%97.html" title="哥布林">哥布林</a>邻近的<a href="../pages/%E5%85%B1%E6%83%85%E8%80%85.html" title="共情者">共情者</a>。下个夜晚，<a href="../pages/%E6%9A%B4%E5%90%9B.html" title="暴君">暴君</a>依然可以选择至多两名玩家进行攻击。</p>
+<h2 id="运作方式">运作方式</h2>
+<p>除了首个夜晚以外的每个夜晚，唤醒暴君。让暴君选择一名玩家。让暴君重新入睡。将“死亡”提示标记放置到该玩家的角色标记旁。如果暴君杀死了与爪牙邻近的玩家，将“暴虐”提示标记放置到暴君的角色标记旁。</p>
+<p>如果唤醒暴君行动时标有“暴虐”，暴君可以选择至多两名玩家。如果暴君依次选择了两名玩家，按照选择的顺序，每名所选的玩家依次死亡，将“死亡”提示标记放置到这些玩家的角色标记旁。</p>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>死亡</li>
+</ul>
+<p>放置时机：在暴君夜晚行动并选择了玩家后放置。</p>
+<p>放置条件：暴君选择的玩家当前存活，且能够被暴君杀死，且暴君未醉酒中毒，那么在该玩家的角色标记旁放置，用以提醒说书人在黎明时分宣布当晚的死亡玩家。</p>
+<p>移除时机：在黎明宣布死亡玩家后，说书人可以任由自己方便来进行移除。</p>
+<ul>
+<li>暴虐</li>
+</ul>
+<p>放置时机：在暴君夜晚行动时杀死了与爪牙邻近的玩家后放置。</p>
+<p>放置条件：在暴君夜晚行动时杀死了与爪牙邻近的玩家后，放置在暴君角色标记旁。</p>
+<p>移除时机：在下一个夜晚，轮到暴君夜晚行动并结算完行动效果（此时说书人需要提醒他可以选择至多两名玩家作为攻击目标）后移除。</p>
+<h2 id="角色信息">角色信息</h2>
+<ul>
+<li>英文名：Pok-kkun</li>
+</ul>
+<ul>
+<li>所属角色合集：<a href="../pages/%E5%B1%B1%E9%9B%A8%E6%AC%B2%E6%9D%A5.html" title="山雨欲来">山雨欲来</a></li>
+</ul>
+<ul>
+<li>创意来源：咖啡</li>
+</ul>
+<ul>
+<li>角色类型：<a href="../pages/%E6%81%B6%E9%AD%94.html" title="恶魔">恶魔</a></li>
+</ul>
+<ul>
+<li>角色能力类型：<a href="../pages/%E9%A2%9D%E5%A4%96%E6%AD%BB%E4%BA%A1.html" title="额外死亡">额外死亡</a>、<a href="../pages/%E5%9B%9E%E6%BA%AF%E5%9E%8B%E8%83%BD%E5%8A%9B.html" title="回溯型能力">回溯型能力</a>、<a href="../pages/%E9%82%BB%E8%BF%91.html" title="邻近">邻近</a></li>
+</ul></div>
+    <div class="page-meta">最后修改于 2026-07-06T07:59:53Z，编辑者 <b>Zack</b> ｜ 页面 3,080 字节 ｜ <a href="https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9A%B4%E5%90%9B" target="_blank" rel="noopener">查看原页面</a> ｜ <div class="comment">编辑摘要：/* 范例 */</div></div>
+    <div class="backlinks"><b>链入此页的页面（7）</b><a href="../pages/%E5%9B%9E%E6%BA%AF%E5%9E%8B%E8%83%BD%E5%8A%9B.html">回溯型能力</a><a href="../pages/%E9%A2%9D%E5%A4%96%E6%AD%BB%E4%BA%A1.html">额外死亡</a><a href="../pages/%E9%82%BB%E8%BF%91.html">邻近</a><a href="../pages/%E5%A4%9C%E6%99%9A%E8%A1%8C%E5%8A%A8%E9%A1%BA%E5%BA%8F%E4%B8%80%E8%A7%88.html">夜晚行动顺序一览</a><a href="../pages/%E5%B1%B1%E9%9B%A8%E6%AC%B2%E6%9D%A5.html">山雨欲来</a><a href="../pages/%E6%9A%B4%E5%90%9B.html">暴君</a><a href="../pages/%E9%87%91%E6%88%88%E9%93%81%E9%A9%ACV2.0.html">金戈铁马V2.0</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

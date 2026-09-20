@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>牛仔 Cowboy - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">牛仔 Cowboy<span class="ns-badge">奥德赛</span></h1>
+    <div class="tagline">来自钟楼百科 · 摘自《奥德赛 Odyssey》百科 · 镇民</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#夜晚行动顺序">夜晚行动顺序</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#游玩与对抗技巧">游玩与对抗技巧</a></li><li class="lvl2"><a href="#伪装成该角色">伪装成该角色</a></li><li class="lvl2"><a href="#出现剧本">出现剧本</a></li><li class="lvl2"><a href="#整体设计">整体设计</a></li><li class="lvl2"><a href="#创意来源">创意来源</a></li><li class="lvl2"><a href="#图标画师">图标画师</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E7%89%9B%E4%BB%94">查找包含此角色的剧本 →</a></p><div class="charinfo"><div class="charinfo-img"><a href="../files/%E6%96%87%E4%BB%B6_%E7%89%9B%E4%BB%94.png.html"><img alt="牛仔 Cowboy" data-source-image="../images/%E7%89%9B%E4%BB%94.png" src="../assets/media/牛仔.preview.webp" width="600" height="600" decoding="async"></a></div><div class="charinfo-meta"><div class="row"><span class="k">角色类型</span><span class="v"><a href="../pages/%E9%95%87%E6%B0%91.html" title="镇民">镇民</a></span></div><div class="row"><span class="k">英文名</span><span class="v">Cowboy</span></div><div class="row"><span class="k">角色ID</span><span class="v">028</span></div><div class="row"><span class="k">角色归属</span><span class="v">角色拓展包《奥德赛》</span></div><div class="row"><span class="k">能力标签</span><span class="v"><a href="../pages/%E8%BF%9B%E5%9C%BA%E8%83%BD%E5%8A%9B.html" title="进场能力">进场能力</a>、<a href="../pages/%E6%9A%B4%E9%9C%B2%E8%A7%92%E8%89%B2.html" title="暴露角色">暴露角色</a>、<a href="../pages/%E5%A4%84%E5%86%B3.html" title="处决">处决</a>、<a href="../pages/%E6%8F%90%E5%90%8D.html" title="提名">提名</a></span></div><div class="row"><span class="k">角色授权</span><span class="v">开放（任意剧本创作可用，不要修改能力）</span></div><div class="row"><span class="k">出处</span><span class="v"><a class="external" href="https://www.yuque.com/u48069482/taiyi" target="_blank" rel="noopener">《奥德赛 Odyssey》百科</a></span></div></div></div><h2 id="背景故事">背景故事</h2>
+<p><em><span style="color:rgb(64, 64, 64);">"当倒数结束，我拔枪的速度，便是你余生的长度。"</span></em></p>
+<h2 id="角色简介"><span style="color:rgb(64, 64, 64);">角色简介</span></h2>
+<p>牛仔会与他的宿敌展开决斗。</p>
+<h2 id="角色能力">角色能力</h2>
+<div class="callout callout-info">
+<p>在首个夜晚，一名爪牙会得知牛仔在场。每当他发起提名，你会在当晚被唤醒。你们中首次被对方提名的玩家立即被处决。</p>
+</div>
+<h2 id="范例">范例</h2>
+<ul>
+<li>第一个夜晚，投毒者得知牛仔在场。第一个白天，牛仔提名投毒者，投毒者立即被处决并死亡。说书人宣布入夜。</li>
+<li>第一个夜晚，投毒者得知牛仔在场。第一个白天，说书人宣布进入提名环节，牛仔和投毒者同时提名对方，说书人先听见投毒者的提名，牛仔立即被处决并死亡。说书人宣布入夜。</li>
+<li>第一个夜晚，投毒者得知牛仔在场。第一个白天，投毒者提名了一名玩家。当天晚上，牛仔被唤醒。</li>
+<li>第一个夜晚，投毒者得知牛仔在场。第一个白天，投毒者没有提名。第二个夜晚，牛仔没有被唤醒。第二个白天，牛仔提名了小恶魔，然后投毒者提名了牛仔，牛仔立即被处决并死亡。说书人宣布入夜。</li>
+<li>第一个夜晚，投毒者得知牛仔在场。第一个白天，投毒者被一名其他玩家提名并死于处决，当天晚上牛仔没有被唤醒。第二个白天，牛仔提名了已经死亡的投毒者，投毒者立即被处决。说书人宣布入夜。</li>
+<li>第一个夜晚，投毒者得知牛仔在场。第一个白天，牛仔中毒了，牛仔提名投毒者，提名正常进行。下一个白天，牛仔恢复了健康，投毒者提名了牛仔，提名正常进行（牛仔能力因中毒已经被浪费）。</li>
+</ul>
+<h2 id="运作方式">运作方式</h2>
+<p>在为首个夜晚做准备时，将牛仔的“宿敌”标记放置在一个爪牙角色标记旁。在首个夜晚时，唤醒该爪牙，提示他牛仔在场，然后让他重新入睡。</p>
+<p>每个白天，如果“宿敌”发起提名，则将“发起提名”提示标记放置在“宿敌”的角色标记旁边。</p>
+<p>除首夜以外的每个夜晚，如果“宿敌”被标记为“发起提名”，唤醒牛仔，然后让牛仔重新入睡。在黎明时，移除“发起提名”提示标记。</p>
+<p>当牛仔提名“宿敌”，或“宿敌”提名牛仔，且“了断”提示标记没有被放置在场上。立即宣布被提名的玩家被处决。然后将“了断”提示标记放置在场上。</p>
+<h2 id="夜晚行动顺序">夜晚行动顺序</h2>
+<ul>
+<li>首个夜晚</li>
+<ul>
+<li>夜序数值：2201</li>
+<li>前位角色：落难少女</li>
+<li>行动提示：唤醒一名爪牙，告知他牛仔在场。</li>
+</ul>
+<li>其他夜晚</li>
+<ul>
+<li>夜序数值：11711</li>
+<li>前位角色：城镇公告员</li>
+<li>行动提示：如果得知牛仔在场的爪牙发起了提名，唤醒牛仔。</li>
+</ul>
+</ul>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>宿敌</li>
+<ul>
+<li>放置时机：在为首个夜晚做准备时。</li>
+<li>放置条件：将“宿敌”提示标记放置在一个爪牙角色标记旁。</li>
+<li>移除时机：牛仔死亡或离场时。</li>
+</ul>
+<li>发起提名</li>
+<ul>
+<li>放置时机：当“宿敌”发起提名时。</li>
+<li>放置条件：将“发起提名”提示标记放置“宿敌”角色标记旁。</li>
+<li>移除时机：在黎明时。</li>
+</ul>
+<li>了断</li>
+<ul>
+<li>放置时机：当牛仔提名“宿敌”，或“宿敌”提名牛仔时。</li>
+<li>放置条件：在牛仔角色标记旁放置。不论牛仔是否醉酒中毒，都要放置该标记。</li>
+<li>移除时机：牛仔死亡或离场时。</li>
+</ul>
+</ul>
+<h2 id="规则细节">规则细节</h2>
+<ul>
+<li>牛仔的宿敌在游戏开始时就会确定，且不会改变。无论宿敌变成什么角色或阵营。</li>
+<li>在极少数情况下，如果游戏开始时，场上没有爪牙，那么牛仔就没有宿敌。</li>
+<li>游戏中途被创造的牛仔没有宿敌，不会有爪牙得知他在场。约等于他没有可用的能力。</li>
+<li>如果牛仔的宿敌已经死亡，但是他们还没有相互提名过。牛仔提名已死亡的宿敌，依旧会立即触发处决。</li>
+<li>最好清楚的向大家宣布提名何时开始。如果牛仔和宿敌同时提名对方，由你来分辨谁先提名。如果你实在无法分辨，可以宣布重新进入提名或用其他小游戏来决定谁先提名（比如德国心脏病中的拍铃，或者放置一张卡拍在桌上，倒数后看谁先拿走。线上可以采用说书人在群里发“开始”，其他玩家发送文字“我提名xx”的形式，按消息的先后顺序进行提名）。</li>
+<li>如果牛仔或宿敌在牛仔中毒醉酒状态下相互提名，会浪费首次提名的机会（“了断”标记仍然会被放置在魔典中），在牛仔恢复健康清醒后，他们再相互提名不会触发处决。</li>
+<li>如果牛仔中毒醉酒，你可以在不该唤醒他的夜晚唤醒他，或是在该唤醒他的夜晚不唤醒他。以达成合理欺骗。</li>
+<li><strong>错误（虚假）信息格式：</strong>唤醒牛仔不是信息，没有错误信息格式，涡流不影响是否唤醒牛仔。</li>
+</ul>
+<h2 id="游玩与对抗技巧">游玩与对抗技巧</h2>
+<ul>
+<li>在游戏早期公开你是牛仔是非常危险的举动，你的宿敌可能会抢先一步提名你。当然这也不一定是坏事，这起码证明你们当中有一名牛仔和一个爪牙，但如果倒在地上的是那个爪牙就更好了。</li>
+<li>忽视那些你已经提名过的玩家，或是提名过你的玩家，他们不会是你的宿敌（前提是你没有中毒醉酒）。</li>
+<li>你可以每天都进行一些看似漫不经心的提名，也许上天眷顾你，一发就选中了你的宿敌呢？</li>
+<li>你也可以前期不进行提名，这样容易被你的宿敌看出你是牛仔。在收集几个夜晚的信息后精准出击，一击毙命。</li>
+<li>如果你是一名得知牛仔在场的爪牙（宿敌），尽快找到谁是牛仔并观察牛仔有没有把你当做宿敌，再采取行动。</li>
+<li>如果你是一名得知牛仔在场的爪牙（宿敌），处理牛仔最好的办法可能是拜托你的恶魔大哥在夜晚杀死牛仔，或者在他中毒时提名他或让他提名你。因为即使你通过提名处决了他，这也一定证实了你们中有一名牛仔与一个爪牙，如果你不公开宣称自己才是那个牛仔，那么在其他人眼中你就一定是那个爪牙了。</li>
+<li>如果你是一名得知牛仔在场的爪牙（宿敌），牛仔公开表示了自己是牛仔，你也可以公开表示自己是牛仔。但是这样你们当天会陷入一场你死我活的决斗。如果你运气足够好，不仅能成功打败他，也许还能让大家相信你才是那个真正的牛仔。</li>
+</ul>
+<h2 id="伪装成该角色">伪装成该角色</h2>
+<ul>
+<li>牛仔是一个较难伪装的角色。如果你整局游戏都没有触发你的能力处决一名玩家或被处决，你很难让其他玩家相信你就是一名牛仔。</li>
+<li>如果你想伪装为牛仔，且你活到了游戏后期，那么你应该提前想好怎么向其他玩家解释为何你的能力发动不了。一般来说你的“宿敌”已经死亡是一个比较合理的解释。但其他玩家仍有可能要求你提名死亡的玩家试图触发处决来证实你是一个牛仔。</li>
+</ul>
+<h2 id="出现剧本">出现剧本</h2>
+<ul>
+<li>仲夏夜之梦</li>
+</ul>
+<h2 id="整体设计">整体设计</h2>
+<ul>
+<li>太一</li>
+</ul>
+<h2 id="创意来源">创意来源</h2>
+<ul>
+<li>提线政客</li>
+</ul>
+<h2 id="图标画师">图标画师</h2>
+<ul>
+<li>Lei.</li>
+</ul></div>
+    <div class="page-meta">最后修改于 2026-07-23T19:54:03.000Z，编辑者 <b>未知</b> ｜ 页面 7,205 字节 ｜ <a href="https://www.yuque.com/u48069482/taiyi/gaanfsmscdx3420y" target="_blank" rel="noopener">查看原页面</a></div>
+    <div class="backlinks"><b>链入此页的页面（1）</b><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">奥德赛 Odyssey</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

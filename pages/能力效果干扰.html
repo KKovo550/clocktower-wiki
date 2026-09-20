@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>能力效果干扰 - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">能力效果干扰</h1>
+    <div class="tagline">来自钟楼百科</div>
+    
+    <div class="mw-parser-output"><p>&lt;&lt;返回<a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html" title="角色能力类别总览">角色能力类别总览</a></p>
+<h2 id="能力简介">能力简介</h2>
+<p>部分角色能力能够干扰其他角色的能力，使得受到干扰的角色能力部分或全部失效。根据具体的干扰能力的不同，受到干扰的玩家可能会得知自己的能力失效，也可能无从得知。</p>
+<p>在处理能力失效这一结果时，关于说书人与玩家能力之间的交互逻辑，可以参考<a href="../pages/%E4%B8%AD%E6%AF%92.html" title="中毒">中毒</a>页面的相关内容。</p>
+<p>在受到其他角色干扰而使得自身的能力失效时，会被<a href="../pages/%E6%95%B0%E5%AD%A6%E5%AE%B6.html" title="数学家">数学家</a>检测到。</p>
+<h2 id="相关角色">相关角色</h2>
+<ul>
+<li><strong>暗流涌动</strong></li>
+<ul>
+<li><a href="../pages/%E4%B9%9E%E4%B8%90.html" title="乞丐">乞丐</a>（旅行者）（免疫中毒醉酒干扰）</li>
+</ul>
+</ul>
+<ul>
+<li><strong>黯月初升</strong></li>
+<ul>
+<li><a href="../pages/%E9%A9%B1%E9%AD%94%E4%BA%BA.html" title="驱魔人">驱魔人</a>（镇民）（让恶魔无法因为自身能力被唤醒）</li>
+<li><a href="../pages/%E5%88%BA%E5%AE%A2.html" title="刺客">刺客</a>（爪牙）（无视阻止死亡的能力）</li>
+</ul>
+</ul>
+<ul>
+<li><strong>梦殒春宵</strong></li>
+<ul>
+<li><a href="../pages/%E6%B6%A1%E6%B5%81.html" title="涡流">涡流</a>（恶魔）（让镇民玩家的角色能力必定产生错误信息）</li>
+<li><a href="../pages/%E5%92%96%E5%95%A1%E5%B8%88.html" title="咖啡师">咖啡师</a>（旅行者）（让效果对象免疫中毒醉酒干扰并必定获取正确信息）</li>
+</ul>
+</ul>
+<ul>
+<li><strong>实验性角色</strong></li>
+<ul>
+<li><a href="../pages/%E4%BC%A0%E6%95%99%E5%A3%AB.html" title="传教士">传教士</a>（镇民）（让爪牙失去能力）</li>
+<li><a href="../pages/%E7%BD%82%E7%B2%9F%E7%A7%8D%E6%A4%8D%E8%80%85.html" title="罂粟种植者">罂粟种植者</a>（镇民）（让恶魔和爪牙无法获取相应信息）</li>
+<li><a href="../pages/%E8%AF%A1%E8%AF%88%E6%9D%B0%E5%85%8B.html" title="诡诈杰克">诡诈杰克</a>（奇遇角色）（让玩家获取正确信息/错误信息）</li>
+</ul>
+</ul>
+<ul>
+<li><strong>传奇角色</strong></li>
+<ul>
+<li><a href="../pages/%E9%AA%97%E4%BA%BA%E7%B2%BE.html" title="骗人精">骗人精</a>（干扰善良玩家获取信息真伪）</li>
+<li><a href="../pages/%E7%8E%A9%E5%85%B7%E5%8C%A0.html" title="玩具匠">玩具匠</a>（恶魔至少放弃攻击一次）</li>
+</ul>
+</ul>
+<ul>
+<li><strong>华灯初上</strong></li>
+<ul>
+<li><a href="../pages/%E5%92%8C%E5%B0%9A.html" title="和尚">和尚</a>（镇民）（使能力失效）</li>
+<li><a href="../pages/%E7%86%8A%E5%AD%A9%E5%AD%90.html" title="熊孩子">熊孩子</a>（镇民）（让目标产生错误信息）</li>
+<li><a href="../pages/%E6%A2%BC%E6%9D%8C.html" title="梼杌">梼杌</a>（恶魔）（让爪牙失去能力）</li>
+</ul>
+</ul>
+<ul>
+<li><strong>山雨欲来</strong></li>
+<ul>
+<li><a href="../pages/%E9%85%BF%E9%85%92%E5%B8%88.html" title="酿酒师">酿酒师</a>（爪牙）（让目标通过自身能力获取特定信息）</li>
+</ul>
+</ul></div>
+    <div class="page-meta">最后修改于 2026-03-19T23:05:25Z，编辑者 <b>Beiyu</b> ｜ 页面 1,668 字节 ｜ <a href="https://clocktower-wiki.gstonegames.com/index.php?title=%E8%83%BD%E5%8A%9B%E6%95%88%E6%9E%9C%E5%B9%B2%E6%89%B0" target="_blank" rel="noopener">查看原页面</a> ｜ <div class="comment">编辑摘要：/* 相关角色 */</div></div>
+    <div class="backlinks"><b>链入此页的页面（17）</b><a href="../pages/%E9%A9%B1%E9%AD%94%E4%BA%BA.html">驱魔人</a><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a><a href="../pages/%E7%BD%82%E7%B2%9F%E7%A7%8D%E6%A4%8D%E8%80%85.html">罂粟种植者</a><a href="../pages/%E4%BC%A0%E6%95%99%E5%A3%AB.html">传教士</a><a href="../pages/%E6%B6%A1%E6%B5%81.html">涡流</a><a href="../pages/%E5%88%BA%E5%AE%A2.html">刺客</a><a href="../pages/%E4%B9%9E%E4%B8%90.html">乞丐</a><a href="../pages/%E5%92%96%E5%95%A1%E5%B8%88.html">咖啡师</a><a href="../pages/%E7%8E%A9%E5%85%B7%E5%8C%A0.html">玩具匠</a><a href="../pages/%E9%AA%97%E4%BA%BA%E7%B2%BE.html">骗人精</a><a href="../pages/%E5%92%8C%E5%B0%9A.html">和尚</a><a href="../pages/%E7%86%8A%E5%AD%A9%E5%AD%90.html">熊孩子</a><a href="../pages/%E6%A2%BC%E6%9D%8C.html">梼杌</a><a href="../pages/%E9%85%BF%E9%85%92%E5%B8%88.html">酿酒师</a><a href="../pages/%E5%BD%B1%E5%93%8D.html">影响</a><a href="../pages/%E8%AF%A1%E8%AF%88%E6%9D%B0%E5%85%8B.html">诡诈杰克</a><a href="../pages/%E5%B9%BB_Illus.html">幻 Illus</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

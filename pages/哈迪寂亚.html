@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>哈迪寂亚 - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">哈迪寂亚</h1>
+    <div class="tagline">来自钟楼百科</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#提示与技巧">提示与技巧</a></li><li class="lvl2"><a href="#对抗哈迪寂亚">对抗哈迪寂亚</a></li><li class="lvl2"><a href="#角色信息">角色信息</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E5%93%88%E8%BF%AA%E5%AF%82%E4%BA%9A">查找包含此角色的剧本 →</a></p><p><a href="../pages/%E5%93%88%E8%BF%AA%E5%AF%82%E4%BA%9A.html" class="image-link" title="哈迪寂亚"><img alt="Alhadikhia.png" style="width:200px" class="" loading="lazy" data-source-image="../images/Alhadikhia.png" src="../assets/media/Alhadikhia.preview.webp" width="600" height="600" decoding="async"></a></p>
+<h2 id="背景故事">背景故事</h2>
+<p><em>“沉默是金。”（阿拉伯语）</em></p>
+<h2 id="角色能力">角色能力</h2>
+<p><strong>每个夜晚*，你可以选择三名玩家（所有玩家都会得知你选了谁）：他们分别秘密决定自己的生死，然后如果他们都存活则都死亡。</strong></p>
+<h2 id="角色简介">角色简介</h2>
+<p>哈迪寂亚会让三名玩家一同陷入囚徒困境——究竟谁会选择死亡，来让其他人得以存活？</p>
+<ul>
+<li>哈迪寂亚可以在除首个夜晚以外的每个夜晚选择三名玩家。所有玩家都会得知哈迪寂亚选择了哪些玩家。在前一名被选择的玩家秘密做出自己的选择之后，才会公布下一名被选择的玩家。</li>
+</ul>
+<ul>
+<li>在夜晚哈迪寂亚的能力生效期间，所有玩家必须保持沉默。从说书人首次宣布一名玩家被选择开始，直至说书人宣布哈迪寂亚的能力结算完毕。</li>
+</ul>
+<ul>
+<li>如果哈迪寂亚没有进行选择，说书人不会发出声明，当晚不会有玩家因哈迪寂亚的能力死亡。</li>
+</ul>
+<ul>
+<li>在能力结算期间，说书人会大声询问被选择的玩家如何决定自己的生死。如果该玩家点头，那么他存活。如果他摇头，那么他死亡。通过这个方式，可以让已经死亡的玩家复活。</li>
+</ul>
+<ul>
+<li>如果在结算完毕这些玩家的选择之后他们都存活，那么他们会死亡。选择了死亡，但因为某些效果使得仍然存活的玩家也会因此再次死亡。</li>
+</ul>
+<ul>
+<li>哈迪寂亚可以不进行选择，当这种情况发生时，说书人不会宣布哈迪寂亚在场并选择玩家的播报，夜晚继续进行，没有任何迹象表明恶魔还活着。</li>
+</ul>
+<h2 id="范例">范例</h2>
+<p><a href="../pages/%E5%93%88%E8%BF%AA%E5%AF%82%E4%BA%9A.html" title="哈迪寂亚">哈迪寂亚</a>选择了小文，小兰，和小美。小文选择死亡。小兰选择死亡。小美选择存活。在黎明时，人们发现小文和小兰死了，但小美活着。</p>
+<p><a href="../pages/%E5%93%88%E8%BF%AA%E5%AF%82%E4%BA%9A.html" title="哈迪寂亚">哈迪寂亚</a>选择了小艾，小莱和死亡的道哥。小艾选择存活。小莱选择存活。道哥选择存活，所以他被复活了。然后因为所有被选择的玩家都存活，因此他们都死亡。</p>
+<p><a href="../pages/%E5%93%88%E8%BF%AA%E5%AF%82%E4%BA%9A.html" title="哈迪寂亚">哈迪寂亚</a>没有做出选择，说书人不会宣布<a href="../pages/%E5%93%88%E8%BF%AA%E5%AF%82%E4%BA%9A.html" title="哈迪寂亚">哈迪寂亚</a>在场并选择玩家的播报。夜晚继续进行。</p>
+<h2 id="运作方式">运作方式</h2>
+<p>除首个夜晚外的每个夜晚，唤醒哈迪寂亚。他可以选择三名玩家。如果他这么做了，用“1”，“2”，“3”的提示标记标记他们，与哈迪寂亚选择的顺序相同。让哈迪寂亚入睡。唤醒标记着“1”的玩家并且说“哈迪寂亚选择了”和那名玩家的名字，随后询问“你选择活着吗？”他可以点头或摇头。让他入睡。如果他选择了存活，去掉他的帷幕标记（如果有的话）；如果他选择了死亡，为他添加帷幕标记。为标记着“2”和“3”的玩家重复这个流程。如果这三名玩家都存活（也就是没有人挂着帷幕标记），为他们三个都添加帷幕标记。他们死亡。宣布保持安静的时间结束了。</p>
+<p>每个黎明，宣布标记着“1”，“2”，“3”的玩家哪些存活和哪些死亡。即使一名玩家的生死状态没有在夜晚改变，你也要这么做。</p>
+<p>如有必要，你可以让所有玩家在哈迪寂亚的能力生效期间保持安静。这也包含了通过语言之外的方式发出的声音。这样可以阻止玩家向他人传递自己选择了存活与否的信号。</p>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>1&amp;2&amp;3</li>
+</ul>
+<p>放置时机：在哈迪寂亚夜晚行动并选择了玩家后。</p>
+<p>放置条件：在哈迪寂亚选择的玩家的角色标记旁，根据哈迪寂亚选择的先后顺序进行放置。如果哈迪寂亚醉酒中毒，不放置这些标记。</p>
+<p>移除时机：结算完哈迪寂亚的角色能力后移除。</p>
+<ul>
+<li>选择生&amp;选择死（仅线上魔典使用，因为帷幕标记的放置会立马被玩家看到）</li>
+</ul>
+<p>放置时机：在说书人结算哈迪寂亚的夜晚行动时，根据对应玩家的选择放置。</p>
+<p>放置条件：选择死且能被哈迪寂亚杀死的玩家，其角色标记旁会放置“选择死”标记，选择生且能被哈迪寂亚复活的玩家，其角色标记旁会放置“选择生”标记。随后，如果这些玩家现在都处于存活状态，那么这些玩家中能被哈迪寂亚杀死的玩家，其角色标记旁会放置“选择死”标记，用以提醒说书人在黎明时分宣布当晚的死亡或复活玩家。</p>
+<p>移除时机：在黎明时宣布死亡和复活玩家后，说书人可以任由自己方便来进行移除。</p>
+<h2 id="规则细节">规则细节</h2>
+<ul>
+<li>已死亡的玩家如果选择“活着”，会被复活。</li>
+</ul>
+<ul>
+<li>“如果他们都存活”判断条件不会关注这些玩家是如何做出选择的，而只看在这些选择结算后玩家是否存活。选择“死去”的存活玩家如果受到免死能力的保护，会因此存活并计入“如果他们都存活”的判断条件。</li>
+</ul>
+<ul>
+<li>如果哈迪寂亚醉酒或中毒，他在使用自己的能力时不会产生任何效果：玩家们不会被告知哈迪寂亚的效果生效，哈迪寂亚的选择不会被宣布，被他选择的玩家不会被唤醒，不会有玩家因此被杀死或被复活，等等。</li>
+</ul>
+<ul>
+<li>当哈迪寂亚死亡时，他如常失去自己的能力。此前被他杀死或复活的玩家依然保持当前的生死状态。哈迪寂亚的能力不会再继续产生效果。在黎明时，如常宣布玩家生死状态的改变情况。</li>
+</ul>
+<ul>
+<li>相克规则：</li>
+<ul>
+<li><a href="../pages/%E7%BA%A2%E5%94%87%E5%A5%B3%E9%83%8E.html" title="红唇女郎">红唇女郎</a>：如果即将出现两名存活的恶魔，其中之一是由红唇女郎转变的，则红唇女郎变成的恶魔会变回红唇女郎。</li>
+<li><a href="../pages/%E4%B8%BB%E8%B0%8B.html" title="主谋">主谋</a>：如果哈迪寂亚死于处决，且主谋存活，当晚哈迪寂亚要选择三名善良玩家：如果他们都选择存活，邪恶阵营获胜。否则，善良阵营获胜。</li>
+<li><a href="../pages/%E5%85%AC%E4%B8%BB.html" title="公主">公主</a>：如果公主在首个白天提名并处决了一名玩家，没有人会因为哈迪寂亚而死亡。(公主与哈迪寂亚角色互动结果本应如此，此条仅做说明)</li>
+</ul>
+</ul>
+<h2 id="提示与技巧">提示与技巧</h2>
+<ul>
+<li>第二晚开始，所有人都知道<a href="../pages/%E5%93%88%E8%BF%AA%E5%AF%82%E4%BA%9A.html" title="哈迪寂亚">哈迪寂亚</a>在场。就没有必要去聊“哪个恶魔在场”这个事了。</li>
+</ul>
+<ul>
+<li>为了最大化每夜的死亡数量，去选3名善良玩家。善良玩家通常选择存活，这意味着3人都会死亡。这有可能提示善良阵营：死亡的玩家都属于善良阵营，但是这是值得的。当其他的邪恶玩家都存活时这个策略特别有用，因为邪恶阵营会在接下来的游戏中拥有重要的投票优势。</li>
+</ul>
+<ul>
+<li>时不时选择一个邪恶玩家，让他看起来更像善良角色，或者保证每晚至少有一人死亡。新手<a href="../pages/%E5%93%88%E8%BF%AA%E5%AF%82%E4%BA%9A.html" title="哈迪寂亚">哈迪寂亚</a>总是选择善良玩家，所以选择一些邪恶的玩家会很有帮助，尤其是在早期。最好的结果是你选择的两名善良玩家死亡，而你选择的唯一邪恶玩家存活。但让3人一起死亡也是非常有用的，因为为这样可以更快让游戏结束。尽量避免两名善良玩家活着，而唯一邪恶玩家死去的情况。你选的邪恶玩家应该掌握其他玩家将要选择什么的提示。</li>
+</ul>
+<ul>
+<li>在某个阶段选择自己，尤其是当所有其他玩家之前已经被选择过时。如果成为唯一没被选择过的玩家会让你显得非常可疑。为了避免这种情况，选择一个晚上——只需确定你选择了另外两个很可能选择死亡的玩家，因为你需要选择活着。与爪牙提前沟通好，让他们在你选择存活的时候选择死亡，保证你不会意外自杀，因为第三个玩家选择什么并不重要。</li>
+</ul>
+<ul>
+<li>掌握哪些角色在场的信息，越多越好。有些角色，比如<a href="../pages/%E5%AE%88%E9%B8%A6%E4%BA%BA.html" title="守鸦人">守鸦人</a>、<a href="../pages/%E8%B4%A4%E8%80%85.html" title="贤者">贤者</a>或<a href="../pages/%E5%86%9C%E5%A4%AB.html" title="农夫">农夫</a>，会想在晚上死去。有些角色，比如<a href="../pages/%E5%8D%96%E8%8A%B1%E5%A5%B3%E5%AD%A9.html" title="卖花女孩">卖花女孩</a>、<a href="../pages/%E6%B0%94%E7%90%83%E9%A9%BE%E9%A9%B6%E5%91%98.html" title="气球驾驶员">气球驾驶员</a>或<a href="../pages/%E7%BD%82%E7%B2%9F%E7%A7%8D%E6%A4%8D%E8%80%85.html" title="罂粟种植者">罂粟种植者</a>，会想要活下去。一些角色，比如<a href="../pages/%E5%8E%A8%E5%B8%88.html" title="厨师">厨师</a>、<a href="../pages/%E6%B8%94%E5%A4%AB.html" title="渔夫">渔夫</a>或<a href="../pages/%E7%8C%8E%E6%89%8B.html" title="猎手">猎手</a>，可能不确定想死还是想活，这取决于他们的能力之前或者之后是否足够有用。如果你知道玩家对应的角色，你可以选择三名想要活下去的玩家，或者三名不想活下去的玩家。两者往往都很有帮助。</li>
+</ul>
+<ul>
+<li>偶尔选择死亡的爪牙。你可以复活爪牙，这可能至关重要，尤其是如果他们能够再次使用能力，如<a href="../pages/%E5%88%BA%E5%AE%A2.html" title="刺客">刺客</a>或<a href="../pages/%E6%8A%95%E6%AF%92%E8%80%85.html" title="投毒者">投毒者</a>。活着的爪牙也可以更频繁地投票——非常好用。注意选择那些会直接暴露能力的爪牙，比如<a href="../pages/%E9%BA%BB%E8%84%B8%E5%B7%AB%E5%A9%86.html" title="麻脸巫婆">麻脸巫婆</a>或<a href="../pages/%E6%B4%97%E8%84%91%E5%B8%88.html" title="洗脑师">洗脑师</a>。如果这些能力的公开特点过于明显，以至于让善良玩家得知哪些人是爪牙，这就得不偿失了。</li>
+</ul>
+<ul>
+<li>偶尔选择死去的善良玩家。尽管让这些善良玩家恢复能力肯定没什么帮助，但他们会被当成爪牙，这会混淆善良阵营的视线。同样，你几乎可以确定死亡玩家会选择存活，利用这一点来决定选择其他目标玩家。类似的，每一个你能够预知的生死抉择都意味着你可以更明智地选择目标。</li>
+</ul>
+<ul>
+<li>出于不确定性或者恐惧，某些玩家总是选择会选择存活。有机会的话，同时选择三个这类玩家作为目标。</li>
+</ul>
+<ul>
+<li>和你的爪牙交流，他们可能为你提供一些晚上应该选谁或者不选谁的信息。你和爪牙交流的重要性远超一般恶魔，因为你不仅要选择你想杀死的角色，而且要选择角色的组合。你的爪牙可能会提供一些关于他们是什么角色、是否可以死于晚上以及他们之后会咋样的信息。</li>
+</ul>
+<ul>
+<li>如果要在晚上选中一名邪恶玩家，甚至是你自己，请计划一下第二天说什么。事先考虑过的话，更容易为选择存活（或死亡，视情况而定）找到有效的理由。避免在没有预先告知的情况下让爪牙选择生或死，这样他们只能匆忙地为自己的选择想出理由。如果你的盟友允许你死去（比如<a href="../pages/%E7%BA%A2%E5%94%87%E5%A5%B3%E9%83%8E.html" title="红唇女郎">红唇女郎</a>），那么提前计划好自己的夜间抉择和理由也是一种很好的做法。</li>
+</ul>
+<h2 id="对抗哈迪寂亚">对抗哈迪寂亚</h2>
+<ul>
+<li>不要害怕在晚上选择死去。总会有玩家死亡的，问题只是谁死以及几个人会死亡。如果你承担得起死亡的代价，那就选择死去。这意味着，通常承担不起死亡的代价的玩家会在夜间存活。</li>
+</ul>
+<ul>
+<li>如果玩家经历夜间抉择存活下来，可以假定他属于善良阵营，或者至少不是恶魔。在新手局尤其如此。通常<a href="../pages/%E5%93%88%E8%BF%AA%E5%AF%82%E4%BA%9A.html" title="哈迪寂亚">哈迪寂亚</a>不会在夜间选择自己，所以尽量不要处决这些经历夜间抉择的玩家，确保这一点可能就意味着在结束前处决恶魔。</li>
+</ul>
+<ul>
+<li>如果玩家在晚上死得蹊跷，询问原因。善良玩家通常会有一个很好的理由来说明他们为何选择存活或者死去。一旦理由不具有说服力，你可能就找到了一个邪恶玩家。</li>
+</ul>
+<ul>
+<li>如果玩家复活，不要处决他们。你可能不知道他们是哪个角色，但他们不是恶魔！</li>
+</ul>
+<ul>
+<li>集体讨论你计划的夜间抉择的倾向。如果你表明你会选择死去，一旦你被<a href="../pages/%E5%93%88%E8%BF%AA%E5%AF%82%E4%BA%9A.html" title="哈迪寂亚">哈迪寂亚</a>选中，那意味被选中的其他玩家可以选择存活。如果你表明你会选择存活，这意味着其他两名玩家将需要考虑选择死去，以避免所有玩家都选存活（导致三人都死亡）。</li>
+</ul>
+<ul>
+<li>恶魔很可能会密切关注每个玩家的选择倾向，并据此选择能力的目标。可以在不告诉任何人的情况下在最后一刻改变主意，打乱恶魔的计划。</li>
+</ul>
+<ul>
+<li>特别注意只有 4 或 5 名玩家还活着的夜晚。与大多数每晚只杀死一名玩家的恶魔不同，<a href="../pages/%E5%93%88%E8%BF%AA%E5%AF%82%E4%BA%9A.html" title="哈迪寂亚">哈迪寂亚</a>每晚可以杀死三名玩家。如果在有 4 或 5 名玩家活着的情况下进入夜间阶段，如果善良玩家选择不当，则游戏结束。这一晚非常重要，务必花点时间思考，做出正确的决定。</li>
+</ul>
+<ul>
+<li>不要违背游戏精神，钻规则的空子打破“沉默”规则（向其他玩家表明你的选择是什么）。在夜晚时，安静地结算哈迪寂亚的能力，这样玩家就不会互相交流他们的想法。这使游戏更有趣。不要在技术性问题上违反规则，因为说书人会因此调整规则以禁止这种行为。</li>
+</ul>
+<h2 id="角色信息">角色信息</h2>
+<ul>
+<li>英文名：Al-Hadikhia</li>
+</ul>
+<ul>
+<li>所属剧本：<a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html" title="实验性角色">实验性角色</a>、<a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html" title="梦殒春宵">梦殒春宵</a>卡牌版</li>
+</ul>
+<ul>
+<li>角色类型：<a href="../pages/%E6%81%B6%E9%AD%94.html" title="恶魔">恶魔</a></li>
+</ul>
+<ul>
+<li>角色能力类型：<a href="../pages/%E9%A2%9D%E5%A4%96%E6%AD%BB%E4%BA%A1.html" title="额外死亡">额外死亡</a>、<a href="../pages/%E5%A4%8D%E6%B4%BB.html" title="复活">复活</a>、<a href="../pages/%E6%9A%B4%E9%9C%B2%E8%A7%92%E8%89%B2.html" title="暴露角色">暴露角色</a></li>
+</ul>
+<ul>
+<li>角色背景相关：哈迪寂亚在阿拉伯语里的意思是“沉默的选择”。</li>
+</ul>
+<p><em>其他称呼（非官方，仅方便索引用）：囚徒末路、血肉囚笼</em></p></div>
+    <div class="page-meta">最后修改于 2026-06-13T02:58:54Z，编辑者 <b>Zack</b> ｜ 页面 12,469 字节 ｜ <a href="https://clocktower-wiki.gstonegames.com/index.php?title=%E5%93%88%E8%BF%AA%E5%AF%82%E4%BA%9A" target="_blank" rel="noopener">查看原页面</a> ｜ <div class="comment">编辑摘要：/* 规则细节 */</div></div>
+    <div class="backlinks"><b>链入此页的页面（25）</b><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a><a href="../pages/%E6%9A%B4%E9%9C%B2%E8%A7%92%E8%89%B2.html">暴露角色</a><a href="../pages/%E5%B7%A5%E7%A8%8B%E5%B8%88.html">工程师</a><a href="../pages/%E9%AD%94%E5%83%8F.html">魔像</a><a href="../pages/%E8%A7%A3%E8%B0%9C%E5%A4%A7%E5%B8%88.html">解谜大师</a><a href="../pages/%E5%93%88%E8%BF%AA%E5%AF%82%E4%BA%9A.html">哈迪寂亚</a><a href="../pages/%E9%A2%9D%E5%A4%96%E6%AD%BB%E4%BA%A1.html">额外死亡</a><a href="../pages/%E5%A4%8D%E6%B4%BB.html">复活</a><a href="../pages/%E5%83%A7%E4%BE%A3.html">僧侣</a><a href="../pages/%E7%BA%A2%E5%94%87%E5%A5%B3%E9%83%8E.html">红唇女郎</a><a href="../pages/%E4%B8%BB%E8%B0%8B.html">主谋</a><a href="../pages/%E9%BA%BB%E8%84%B8%E5%B7%AB%E5%A9%86.html">麻脸巫婆</a><a href="../pages/%E6%81%B6%E9%AD%94.html">恶魔</a><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a><a href="../pages/%E5%8F%AA%E6%89%8B%E9%81%AE%E5%A4%A9.html">只手遮天</a><a href="../pages/%E5%A4%9C%E6%99%9A%E8%A1%8C%E5%8A%A8%E9%A1%BA%E5%BA%8F%E4%B8%80%E8%A7%88.html">夜晚行动顺序一览</a><a href="../pages/%E8%A1%8C%E6%88%90%E4%B8%8B%E5%AD%A4%E4%B9%A1.html">行成下孤乡</a><a href="../pages/%E5%85%A5%E6%AE%93%E5%B8%88.html">入殓师</a><a href="../pages/%E7%99%BD%E7%8B%90%E8%A1%8C%E4%B8%9B%E9%87%8C.html">白狐行丛里</a><a href="../pages/%E8%A7%84%E5%88%99%E8%B0%83%E6%95%B4%E6%8F%90%E5%89%8D%E5%85%AC%E7%A4%BA.html">规则调整提前公示</a><a href="../pages/%E7%A7%89%E5%85%AC%E5%8A%9E%E4%BA%8B.html">秉公办事</a><a href="../pages/%E5%86%B2%E5%8A%A8%E6%B6%88%E8%B4%B9.html">冲动消费</a><a href="../pages/%E6%98%BE%E6%88%91%E7%A5%9E%E9%80%9A.html">显我神通</a><a href="../pages/%E5%85%AC%E4%B8%BB.html">公主</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

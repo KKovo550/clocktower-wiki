@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>村夫 - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">村夫</h1>
+    <div class="tagline">来自钟楼百科</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#提示与技巧">提示与技巧</a></li><li class="lvl2"><a href="#伪装成村夫">伪装成村夫</a></li><li class="lvl2"><a href="#角色信息">角色信息</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E6%9D%91%E5%A4%AB">查找包含此角色的剧本 →</a></p><p><a href="../pages/%E6%9D%91%E5%A4%AB.html" class="image-link" title="村夫"><img alt="Villageidiot.png" style="width:200px" class="" loading="lazy" data-source-image="../images/Villageidiot.png" src="../assets/media/Villageidiot.preview.webp" width="591" height="591" decoding="async"></a></p>
+<h2 id="背景故事">背景故事</h2>
+<p><em>“玫瑰花是蓝色哒！草桂花是红色哒！哦豁，俺说反啦！”</em></p>
+<h2 id="角色能力">角色能力</h2>
+<p><strong>每个夜晚，你要选择一名玩家：你会得知他的阵营。[+0~2村夫，复数村夫中有一人醉酒]</strong></p>
+<h2 id="角色简介">角色简介</h2>
+<p>村夫结伴而行，他们能得知玩家的阵营。</p>
+<ul>
+<li>由说书人在进行游戏设置时决定哪一名村夫醉酒。</li>
+</ul>
+<ul>
+<li>在场村夫的数量可能是1、2或3，这与一局游戏的玩家人数无关。</li>
+</ul>
+<ul>
+<li>如果在场村夫的数量为1，他会是清醒的。</li>
+</ul>
+<ul>
+<li>醉酒的村夫仍然可能会得知正确信息。</li>
+</ul>
+<ul>
+<li>在游戏设置时如果添加了额外的村夫，他们会替换其他的镇民角色标记。</li>
+</ul>
+<ul>
+<li>如果村夫在游戏过程中被创造，只有被创造的村夫会发生角色变化。不会有其他玩家因此变成村夫。</li>
+</ul>
+<ul>
+<li>多名村夫在夜晚会分别独自行动，而不是一同被唤醒。</li>
+</ul>
+<ul>
+<li>如果所有清醒的村夫都离场，剩余的醉酒村夫仍然保持醉酒状态。</li>
+</ul>
+<ul>
+<li>如果一名清醒的村夫因为其他效果醉酒或中毒，处于醉酒状态的村夫仍然保持醉酒状态。</li>
+</ul>
+<h2 id="范例">范例</h2>
+<p>道哥、小莱和小米都是<a href="../pages/%E6%9D%91%E5%A4%AB.html" title="村夫">村夫</a>，道哥醉酒。在夜晚时，他们都选择了<a href="../pages/%E5%8D%A1%E6%89%8E%E5%8A%9B.html" title="卡扎力">卡扎力</a>小艾。道哥得知小艾是善良玩家。小莱和小米得知小艾是邪恶玩家。</p>
+<p>小八和小明是<a href="../pages/%E6%9D%91%E5%A4%AB.html" title="村夫">村夫</a>，小明醉酒。小美是邪恶玩家，并且伪装成<a href="../pages/%E6%9D%91%E5%A4%AB.html" title="村夫">村夫</a>。小八选择了小美并得知她是邪恶玩家。小明选择了<a href="../pages/%E5%BC%82%E7%AB%AF%E5%88%86%E5%AD%90.html" title="异端分子">异端分子</a>并得知他是善良玩家。小美声称自己选择了小八并得知他是邪恶玩家。</p>
+<h2 id="运作方式">运作方式</h2>
+<p>在游戏设置时，将角色标记放入盲抽袋之前，使用额外的村夫角色标记替换掉其中的0~2个镇民角色标记。在为首个夜晚做准备时，（如果有超过一名村夫在场，）将村夫的“醉酒”提示标记放置到其中一个村夫角色标记旁。</p>
+<p>每个夜晚，唤醒任意一名村夫。让他指向一名玩家。对他给出拇指向上或向下的手势。让他重新入睡。重复这个操作，直到所有村夫玩家都进行了夜晚行动。</p>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>醉酒</li>
+</ul>
+<p>放置时机：在为首个夜晚做准备时。</p>
+<p>放置条件：如果有超过一名村夫在场，则将该标记放置到其中一个村夫角色标记旁。</p>
+<p>村夫的醉酒同为设置调整和持续检测能力。一旦在场村夫的数量增加至2人，且尚未放置醉酒标记，说书人需要立即将该醉酒标记放置到其中一个村夫角色标记旁。</p>
+<p>移动时机：见与麻脸巫婆的相克规则。</p>
+<p>移除时机：在该村夫离场时。</p>
+<h2 id="规则细节">规则细节</h2>
+<ul>
+<li>“复数村夫中有一人醉酒”这一项能力既是设置调整能力（需要在为首夜准备时进行调整），又是持续检测型能力。在游戏过程中，只要村夫的在场数量超过1人，且村夫的醉酒提示标记尚未被放置，就需要立即放置该标记。</li>
+</ul>
+<ul>
+<li>只要村夫在场，即使村夫的在场数量不足3人，说书人都无法将村夫作为恶魔的伪装提供给恶魔。然而如果有酒鬼或是提线木偶以为自己是村夫，将村夫作为伪装提供给恶魔不算是“YBD”。</li>
+</ul>
+<ul>
+<li>根据角色标记的实物限制原则，当村夫数量为3人时，不建议再为学徒等角色提供村夫的角色能力。同时，如果有任何村夫在场，也不建议让酒鬼认为自己是村夫。</li>
+</ul>
+<ul>
+<li><a href="../pages/%E5%93%B2%E5%AD%A6%E5%AE%B6.html" title="哲学家">哲学家</a>、<a href="../pages/%E9%A3%9F%E4%BA%BA%E6%97%8F.html" title="食人族">食人族</a>、<a href="../pages/%E5%AD%A6%E5%BE%92.html" title="学徒">学徒</a>等角色的获得能力效果，不会参与到“村夫在场数量”的计算之中。也就是说，如果村夫在场数量为1人，那么即使有其他具有村夫能力的角色，这些角色包括村夫在内就都不会因为村夫的能力而醉酒。（在统计相克规则中的在场数量时，仍然会参与计算，这是由于受到角色标记的实物数量限制导致的。）</li>
+</ul>
+<ul>
+<li>特定角色互动：</li>
+<ul>
+<li><a href="../pages/%E5%8D%A1%E6%89%8E%E5%8A%9B.html" title="卡扎力">卡扎力</a>：如果有复数个村夫在场，卡扎力的设置调整优先生效，其他的村夫因卡扎力的能力变成了爪牙，剩下的那名村夫一定是清醒的，因为这时村夫已经只有一个了。</li>
+</ul>
+</ul>
+<ul>
+<li>相克规则：</li>
+<ul>
+<li><a href="../pages/%E9%BA%BB%E8%84%B8%E5%B7%AB%E5%A9%86.html" title="麻脸巫婆">麻脸巫婆</a>：如果村夫在场数量不足3人，麻脸巫婆可以创造新的村夫。如果她这么做，村夫的醉酒效果可能会更换目标。</li>
+<li><a href="../pages/%E7%A7%91%E5%AD%A6%E6%80%AA%E4%BA%BA.html" title="科学怪人">科学怪人</a>：如果村夫在场数量不足3人，科学怪人可以让恶魔拥有村夫的能力。</li>
+</ul>
+</ul>
+<ul>
+<li>相克规则（与华灯系列角色）：</li>
+<ul>
+<li><a href="../pages/%E6%82%9F%E9%81%93%E8%80%85.html" title="悟道者">悟道者</a>：如果村夫在场数量不足3人，悟道者可以变成新的村夫。如果因此使得村夫的在场数量超过1人，会有一名村夫醉酒。</li>
+</ul>
+</ul>
+<h2 id="提示与技巧">提示与技巧</h2>
+<ul>
+<li>找到你的村夫同伴。要想知道你们之中有谁醉酒了，最简单的方式就是比对你们的信息，找出其中相同之处和不同之处。同时，如果你是唯一的村夫，那么就说明你是清醒的！</li>
+</ul>
+<ul>
+<li>与其他村夫合作，一起选择同一名玩家。这可以帮助你们确定你们谁醉酒了（如果其中有人的信息与其他人不同），或者确定是否有人在伪装成村夫（如果你们所有的信息都相同）。</li>
+</ul>
+<ul>
+<li>如果正好只有两名村夫，而你们又无法确定谁醉酒了，那么一定要选择不同的玩家，这样你们仍然可以获得信息。如果你们两人始终选择相同的目标，将无法获得任何有效信息。</li>
+</ul>
+<ul>
+<li>记住，有三人宣称自己是村夫并不能证明你们之中任何人是善良玩家。注意那些潜藏的邪恶玩家，如果村夫实际数量没有那么多，那么邪恶玩家就有机会伪装成村夫，并让你看起来像是醉酒了，但其实你并没有醉酒！</li>
+</ul>
+<ul>
+<li>你也可以不必理会其他的村夫，假设你的信息就是正确的。如果所有的村夫都这么做，那么你们的能力效果叠加时总是会产生正向的收益。</li>
+</ul>
+<ul>
+<li>尝试处决你认为醉酒的村夫以防万一，因为他们有可能实际上是邪恶玩家。</li>
+</ul>
+<ul>
+<li>如果你确信某一玩家的阵营，那么就选择他，来检验自己是否是醉酒的。</li>
+</ul>
+<ul>
+<li>但请注意，说书人仍然有可能向醉酒的村夫提供正确信息，以防止村夫的能力过于强大。</li>
+</ul>
+<ul>
+<li>在透露自己是村夫之前先等待一小段时间。如果有三名或更多的玩家声称自己是村夫，你就知道他们之中至少有一人在撒谎。</li>
+</ul>
+<h2 id="伪装成村夫">伪装成村夫</h2>
+<ul>
+<li>如果你发现了一对村夫，伪装成第三个村夫。将醉酒村夫的信息说成是正确信息，以此混淆视听。</li>
+</ul>
+<ul>
+<li>如果你发现了一对村夫，伪装成第三个村夫。确认清醒村夫的信息是正确信息，以此获得大家的信任，甚至不惜把你的邪恶同伴推出去，然后在后续游戏中利用大家对你的信任。</li>
+</ul>
+<ul>
+<li>如果你得到了村夫作为伪装，思考是否想要让多名邪恶玩家一同声称自己是村夫。单独的村夫固然容易引起怀疑，但多名邪恶玩家声称自己是村夫会让你们之间的关系绑定在一起，一同成为潜在的怀疑对象。如果善良阵营没有处决村夫的打算，那么就让恶魔来伪装成村夫吧。</li>
+</ul>
+<ul>
+<li>作为恶魔，即使你的伪装里没有村夫，你仍然可以安全地伪装成村夫。只是如果已经有三名玩家声称自己是村夫了，那么你得迅速准备好你的备用计划。</li>
+</ul>
+<ul>
+<li>暂时以村夫作为你的角色宣称，直到你想要暴露你实际想要伪装的角色为止。这是个很好的掩护，你可以在不暴露你真实想法的情况下传递你的“真实”信息。</li>
+</ul>
+<ul>
+<li>如果你从恶魔那里得知村夫在他的伪装角色中，请留意那些假装成村夫的善良玩家。他们实际上可能是非常强力的镇民，又或者是带有极端负面效果的外来者，例如<a href="../pages/%E8%90%BD%E9%9A%BE%E5%B0%91%E5%A5%B3.html" title="落难少女">落难少女</a>或<a href="../pages/%E5%BC%82%E7%AB%AF%E5%88%86%E5%AD%90.html" title="异端分子">异端分子</a>。</li>
+</ul>
+<h2 id="角色信息">角色信息</h2>
+<ul>
+<li>英文名：Village Idiot</li>
+</ul>
+<ul>
+<li>所属剧本：<a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html" title="实验性角色">实验性角色</a>、<a href="../pages/%E6%97%A0%E4%BD%95%E6%9C%89%E4%B9%8B%E4%B9%A1.html" title="无何有之乡">无何有之乡</a>（快速上手剧本）</li>
+</ul>
+<ul>
+<li>角色类型：<a href="../pages/%E9%95%87%E6%B0%91.html" title="镇民">镇民</a></li>
+</ul>
+<ul>
+<li>角色能力类型：<a href="../pages/%E8%AE%BE%E7%BD%AE%E8%B0%83%E6%95%B4.html" title="设置调整">设置调整</a>、<a href="../pages/%E8%8E%B7%E5%8F%96%E4%BF%A1%E6%81%AF.html" title="获取信息">获取信息</a>、<a href="../pages/%E9%86%89%E9%85%92.html" title="醉酒">醉酒</a>、<a href="../pages/%E6%8C%81%E7%BB%AD%E6%A3%80%E6%B5%8B%E5%9E%8B%E8%83%BD%E5%8A%9B.html" title="持续检测型能力">持续检测型能力</a></li>
+</ul></div>
+    <div class="page-meta">最后修改于 2024-10-22T15:45:09Z，编辑者 <b>Zack</b> ｜ 页面 8,089 字节 ｜ <a href="https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9D%91%E5%A4%AB" target="_blank" rel="noopener">查看原页面</a> ｜ <div class="comment">编辑摘要：/* 规则细节 */</div></div>
+    <div class="backlinks"><b>链入此页的页面（27）</b><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a><a href="../pages/%E8%8E%B7%E5%8F%96%E4%BF%A1%E6%81%AF.html">获取信息</a><a href="../pages/%E8%AE%BE%E7%BD%AE%E8%B0%83%E6%95%B4.html">设置调整</a><a href="../pages/%E9%86%89%E9%85%92.html">醉酒</a><a href="../pages/%E6%8C%81%E7%BB%AD%E6%A3%80%E6%B5%8B%E5%9E%8B%E8%83%BD%E5%8A%9B.html">持续检测型能力</a><a href="../pages/%E9%BA%BB%E8%84%B8%E5%B7%AB%E5%A9%86.html">麻脸巫婆</a><a href="../pages/%E9%95%87%E6%B0%91.html">镇民</a><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a><a href="../pages/%E6%82%9F%E9%81%93%E8%80%85.html">悟道者</a><a href="../pages/%E5%A4%9C%E6%99%9A%E8%A1%8C%E5%8A%A8%E9%A1%BA%E5%BA%8F%E4%B8%80%E8%A7%88.html">夜晚行动顺序一览</a><a href="../pages/%E6%96%B0%E8%A7%92%E8%89%B2%E5%85%AC%E5%B8%83%E8%AE%A1%E5%88%92.html">新角色公布计划</a><a href="../pages/%E5%8D%A1%E6%89%8E%E5%8A%9B.html">卡扎力</a><a href="../pages/%E8%9B%8A%E9%9B%95.html">蛊雕</a><a href="../pages/%E9%85%BF%E9%85%92%E5%B8%88.html">酿酒师</a><a href="../pages/%E7%A7%BB%E8%8A%B1%E6%8E%A5%E6%9C%A8.html">移花接木</a><a href="../pages/%E6%9D%91%E5%A4%AB.html">村夫</a><a href="../pages/%E6%97%A0%E4%BD%95%E6%9C%89%E4%B9%8B%E4%B9%A1.html">无何有之乡</a><a href="../pages/%E5%AF%84%E6%A2%A6%E4%BB%96%E4%B9%A1.html">寄梦他乡</a><a href="../pages/%E6%8A%A5%E4%B8%A7%E5%A5%B3%E5%A6%96.html">报丧女妖</a><a href="../pages/%E7%A7%91%E5%AD%A6%E6%80%AA%E4%BA%BA.html">科学怪人</a><a href="../pages/%E4%BE%8F%E5%84%92.html">侏儒</a><a href="../pages/%E9%B8%A9.html">鸩</a><a href="../pages/%E7%8C%8E%E5%B7%AB%E8%A1%8C%E5%8A%A8.html">猎巫行动</a><a href="../pages/%E5%86%B2%E5%8A%A8%E6%B6%88%E8%B4%B9.html">冲动消费</a><a href="../pages/%E8%BD%AE%E5%88%B0%E4%BD%A0%E4%BA%86.html">轮到你了</a><a href="../pages/%E4%B8%83%E6%AD%A5%E6%88%90%E8%AF%97.html">七步成诗</a><a href="../pages/%E8%BF%9F%E8%A7%81%E5%88%86%E6%99%93.html">迟见分晓</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

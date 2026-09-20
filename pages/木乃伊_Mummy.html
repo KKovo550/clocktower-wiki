@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>木乃伊 Mummy - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">木乃伊 Mummy<span class="ns-badge">奥德赛</span></h1>
+    <div class="tagline">来自钟楼百科 · 摘自《奥德赛 Odyssey》百科 · 镇民</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#夜晚行动顺序">夜晚行动顺序</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#游玩与对抗技巧">游玩与对抗技巧</a></li><li class="lvl2"><a href="#伪装成该角色">伪装成该角色</a></li><li class="lvl2"><a href="#设计要点解析">设计要点解析</a></li><li class="lvl2"><a href="#出现剧本">出现剧本</a></li><li class="lvl2"><a href="#整体设计">整体设计</a></li><li class="lvl2"><a href="#创意来源">创意来源</a></li><li class="lvl2"><a href="#图标画师">图标画师</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E6%9C%A8%E4%B9%83%E4%BC%8A">查找包含此角色的剧本 →</a></p><div class="charinfo"><div class="charinfo-img"><a href="../files/%E6%96%87%E4%BB%B6_%E6%9C%A8%E4%B9%83%E4%BC%8A.png.html"><img alt="木乃伊 Mummy" data-source-image="../images/%E6%9C%A8%E4%B9%83%E4%BC%8A.png" src="../assets/media/木乃伊.preview.webp" width="600" height="600" decoding="async"></a></div><div class="charinfo-meta"><div class="row"><span class="k">角色类型</span><span class="v"><a href="../pages/%E9%95%87%E6%B0%91.html" title="镇民">镇民</a></span></div><div class="row"><span class="k">英文名</span><span class="v">Mummy</span></div><div class="row"><span class="k">角色ID</span><span class="v">043</span></div><div class="row"><span class="k">角色归属</span><span class="v">角色拓展包《奥德赛》</span></div><div class="row"><span class="k">能力标签</span><span class="v"><a href="../pages/%E6%AD%BB%E4%BA%A1%E8%A7%A6%E5%8F%91%E8%83%BD%E5%8A%9B.html" title="死亡触发能力">死亡触发能力</a>、<a href="../pages/%E5%A4%84%E5%86%B3.html" title="处决">处决</a>、<a href="../pages/%E5%A4%8D%E6%B4%BB.html" title="复活">复活</a></span></div><div class="row"><span class="k">角色定位</span><span class="v">功能镇民</span></div><div class="row"><span class="k">发布日期</span><span class="v">2026.6.27</span></div><div class="row"><span class="k">角色授权</span><span class="v">开放（任意剧本创作皆可使用，不要改能力）</span></div><div class="row"><span class="k">出处</span><span class="v"><a class="external" href="https://www.yuque.com/u48069482/taiyi" target="_blank" rel="noopener">《奥德赛 Odyssey》百科</a></span></div></div></div><h2 id="背景故事">背景故事</h2>
+<p>_"阿努比斯称量了我的灵魂，准许我重返人间。我的裹尸布下没有私心，只有从冥界带回的冰冷答案。__<span style="color:rgb(64, 64, 64);">"</span>_</p>
+<h2 id="角色简介"><span style="color:rgb(64, 64, 64);">角色简介</span></h2>
+<p>如果木乃伊死于邪恶玩家之手，他会在审判日复活。</p>
+<h2 id="角色能力">角色能力</h2>
+<div class="callout callout-info">
+<p>如果你死于邪恶玩家发起的提名处决或能力，审判日降临时，你复活。</p>
+</div>
+<h2 id="范例">范例</h2>
+<ul>
+<li>第一个白天，木乃伊死于恶魔发起的提名。在审判日，说书人宣布木乃伊复活。</li>
+<li>第一个白天，木乃伊死于善良玩家发起的提名。本局游戏中，木乃伊的复活能力不会被触发。</li>
+<li>第二个夜晚，恶魔杀死了木乃伊。在审判日，说书人宣布木乃伊复活。</li>
+<li>第二个夜晚，造谣者杀死了木乃伊。本局游戏中，木乃伊的复活能力不会被触发。</li>
+</ul>
+<h2 id="运作方式">运作方式</h2>
+<p>木乃伊死亡时，如果他死于邪恶玩家拥有的能力或是邪恶玩家发起的提名处决。在木乃伊的角色标记旁放置“等待复活”的提示标记。</p>
+<p>在宣布审判日降临后的第一时间，如果木乃伊是死亡的且被标记了“等待复活”，移除木乃伊的帷幕标记并宣布木乃伊复活。</p>
+<h2 id="夜晚行动顺序">夜晚行动顺序</h2>
+<ul>
+<li>首个夜晚</li>
+<ul>
+<li>夜序数值：/</li>
+<li>前位角色：/</li>
+<li>行动提示：/</li>
+</ul>
+<li>其他夜晚</li>
+<ul>
+<li>夜序数值：/</li>
+<li>前位角色：/</li>
+<li>行动提示：/</li>
+</ul>
+</ul>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>等待复活</li>
+<ul>
+<li>放置时机：木乃伊死亡时。</li>
+<li>放置条件：木乃伊死于邪恶玩家发起的提名处决或能力，放置此标记。</li>
+<li>移除时机：木乃伊离场或复活后。</li>
+</ul>
+</ul>
+<h2 id="规则细节">规则细节</h2>
+<ul>
+<li><strong>审判日：</strong>指游戏的首个存活玩家不足5名（不计算旅行者）的白天。在审判日，说书人会第一时间公开宣布今天是审判日。一局游戏最多只会存在一个审判日，如果游戏没有在审判日结束，之后的白天即使存活玩家不足5名，也不被当做审判日。如果游戏提前结束（如特胜或恶魔死亡），则本局游戏可能没有审判日。<strong>审判日降临前：</strong>指审判日到来之前的游戏时段。<strong>审判日降临时：</strong>指审判日到来的那一刻（通常为首个除旅行者外的存活玩家不足5名的黎明）。<strong>审判日降临后：</strong>审判日及审判日之后的游戏时段。</li>
+<li><strong>复活：</strong>指死亡玩家由死亡重新回到存活状态。生死状态是公开可见的，一般情况下，说书人会公开宣布哪一名玩家复活了。</li>
+<li>如果木乃伊死于善良玩家发起的提名处决或能力，木乃伊不会复活。</li>
+<li>木乃伊在一局游戏中最多只会复活一次（审判日最多只有一个）。</li>
+<li>如果木乃伊在死亡时没有使用或上交投票标记，他会在复活后失去之前得到的投票标记。</li>
+<li>旅行者玩家不会被木乃伊的能力当做邪恶玩家，邪恶旅行者提名并处决了木乃伊，木乃伊不会复活（旅行者隔绝原则）。</li>
+</ul>
+<h2 id="游玩与对抗技巧">游玩与对抗技巧</h2>
+<ul>
+<li>如果你是木乃伊。你最好归宿是赶在审判日来之前死亡，不管用什么方式。</li>
+<li>如果你是木乃伊。如果你死于处决，且复活了。那么提名你的玩家就一定是邪恶的了。</li>
+<li>如果你是木乃伊。你可以隐藏自己的角色，然后在审判日复活，这会大大打乱邪恶方的计划。</li>
+<li>如果你是恶魔。木乃伊的存在可能会令善良方可利用的处决轮次增加，要提防这一点。</li>
+<li>如果你是恶魔。尽量不要攻击或提名木乃伊，如果他一直活着，那他就没有任何作用。</li>
+</ul>
+<h2 id="伪装成该角色">伪装成该角色</h2>
+<ul>
+<li>木乃伊往往会主动寻求死亡，如果你想伪装为木乃伊，最好是请求其他玩家来提名并处决你。但这往往意味着相当高的死亡风险。</li>
+<li>你可以利用你在审判日没有复活这一点，去“证明”提名你的玩家是一名善良玩家。</li>
+</ul>
+<h2 id="设计要点解析">设计要点解析</h2>
+<ul>
+<li>复活与信息设计的结合。</li>
+<li>增加邪恶方在决赛圈的压力。</li>
+</ul>
+<h2 id="出现剧本">出现剧本</h2>
+<ul>
+<li><em>暂无</em></li>
+</ul>
+<h2 id="整体设计">整体设计</h2>
+<ul>
+<li>太一</li>
+</ul>
+<h2 id="创意来源">创意来源</h2>
+<ul>
+<li>太一</li>
+</ul>
+<h2 id="图标画师">图标画师</h2>
+<ul>
+<li>Lei.</li>
+</ul></div>
+    <div class="page-meta">最后修改于 2026-07-24T05:41:47.000Z，编辑者 <b>未知</b> ｜ 页面 4,175 字节 ｜ <a href="https://www.yuque.com/u48069482/taiyi/ok088n7enn8359n8" target="_blank" rel="noopener">查看原页面</a></div>
+    <div class="backlinks"><b>链入此页的页面（2）</b><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">奥德赛 Odyssey</a><a href="../pages/%E5%AE%A1%E5%88%A4%E6%97%A5_Judgment_Day.html">审判日 Judgment Day</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

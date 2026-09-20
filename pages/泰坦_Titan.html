@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>泰坦 Titan - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">泰坦 Titan<span class="ns-badge">奥德赛</span></h1>
+    <div class="tagline">来自钟楼百科 · 摘自《奥德赛 Odyssey》百科 · 外来者</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#夜晚行动顺序">夜晚行动顺序</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#游玩与对抗技巧">游玩与对抗技巧</a></li><li class="lvl2"><a href="#出现剧本">出现剧本</a></li><li class="lvl2"><a href="#整体设计">整体设计</a></li><li class="lvl2"><a href="#创意来源">创意来源</a></li><li class="lvl2"><a href="#图标画师">图标画师</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E6%B3%B0%E5%9D%A6">查找包含此角色的剧本 →</a></p><div class="charinfo"><div class="charinfo-img"><a href="../files/%E6%96%87%E4%BB%B6_%E6%B3%B0%E5%9D%A6.png.html"><img alt="泰坦 Titan" data-source-image="../images/%E6%B3%B0%E5%9D%A6.png" src="../assets/media/泰坦.preview.webp" width="600" height="600" decoding="async"></a></div><div class="charinfo-meta"><div class="row"><span class="k">角色类型</span><span class="v"><a href="../pages/%E5%A4%96%E6%9D%A5%E8%80%85.html" title="外来者">外来者</a></span></div><div class="row"><span class="k">英文名</span><span class="v">Titan</span></div><div class="row"><span class="k">角色ID</span><span class="v">066</span></div><div class="row"><span class="k">角色归属</span><span class="v">角色拓展包《奥德赛》</span></div><div class="row"><span class="k">能力标签</span><span class="v"><a href="../pages/%E8%AE%BE%E7%BD%AE%E8%B0%83%E6%95%B4.html" title="设置调整">设置调整</a>、<a href="../pages/%E9%98%B5%E8%90%A5%E8%BD%AC%E5%8F%98.html" title="阵营转变">阵营转变</a>、<a href="../pages/%E8%8E%B7%E5%BE%97%E8%83%BD%E5%8A%9B.html" title="获得能力">获得能力</a></span></div><div class="row"><span class="k">角色定位</span><span class="v">异形外来者</span></div><div class="row"><span class="k">发布日期</span><span class="v">2026.5.17</span></div><div class="row"><span class="k">角色授权</span><span class="v">开放（任意剧本创作皆可使用，不要改能力）</span></div><div class="row"><span class="k">出处</span><span class="v"><a class="external" href="https://www.yuque.com/u48069482/taiyi" target="_blank" rel="noopener">《奥德赛 Odyssey》百科</a></span></div></div></div><h2 id="背景故事">背景故事</h2>
+<p><em>"我曾手托苍穹，如今却只想把它扯落。诸神称我为‘恶’，那我便是至恶，是吞噬一切光明的原初黑暗。我已将残躯献祭给比深渊更古老的意志，换取滔天伟力。弹指星辰碎，吐息万物凋。这一次，没有救赎，只有跪在我脚下、永恒绝望的众神。"</em></p>
+<h2 id="角色简介"><span style="color:rgb(64, 64, 64);">角色简介</span></h2>
+<p>强大的外来者泰坦以爪牙的身份加入游戏。</p>
+<h2 id="角色能力">角色能力</h2>
+<div class="callout callout-info">
+<p>在首个夜晚，你转变为邪恶，并获得所有不在场爪牙的能力。[泰坦在配置时被当作爪牙]</p>
+</div>
+<h2 id="范例">范例</h2>
+<ul>
+<li>9人局。泰坦在场。因为泰坦替换了唯一的爪牙，所以没有爪牙在场。首个夜晚，恶魔没有得知谁是爪牙，因为泰坦是外来者而不是爪牙。泰坦转变为邪恶阵营，并得知自己获得了投毒者、间谍、教父、魔鬼代言人的能力，并在当晚分别被唤醒并使用了这些能力。泰坦获得教父的能力并没有改变外来者数量，因为这是改变配置的能力。</li>
+<li>12人局。泰坦在场。场上只有一名爪牙（教父），因为泰坦替换了一名爪牙。首个夜晚，恶魔得知教父玩家是爪牙，教父得知小恶魔玩家是恶魔。泰坦转变为邪恶阵营，并得知自己获得了主谋、麻脸巫婆、刺客的能力。</li>
+<li>15人局。泰坦在场。场上只有2名爪牙（教父、刺客），因为泰坦替换了一名爪牙。首个夜晚，恶魔得知教父、刺客玩家是爪牙，教父、刺客玩家得知小恶魔玩家是恶魔。泰坦转变为邪恶阵营，并得知自己获得了主谋、麻脸巫婆的能力。</li>
+<li>第三个夜晚，麻脸巫婆将占卜师转变为泰坦，泰坦既不会转变为邪恶阵营，也不会获得爪牙能力。因为泰坦的能力只在首个夜晚会被触发。</li>
+</ul>
+<h2 id="运作方式">运作方式</h2>
+<p>设置游戏时，泰坦会被当做爪牙。如果你要加入泰坦，泰坦的角色标记会占用一个爪牙位置。你不可以将泰坦作为外来者加入游戏。</p>
+<p>在游戏的首个夜晚，唤醒并告知泰坦你转变为邪恶阵营并向他展示所有不在场的爪牙角色标记，然后在泰坦的角色标记旁放置这些爪牙角色标记，这代表这泰坦获得了这些爪牙的能力。从现在开始，按照泰坦具有这些爪牙的能力一样来进行运作。</p>
+<h2 id="夜晚行动顺序">夜晚行动顺序</h2>
+<ul>
+<li>首个夜晚</li>
+<ul>
+<li>夜序数值：141</li>
+<li>前位角色：堤丰之首</li>
+<li>行动提示：唤醒泰坦并告知他转变为邪恶阵营，并向他展示所有不在场的爪牙角色标记。</li>
+</ul>
+<li>其他夜晚</li>
+<ul>
+<li>夜序数值：/</li>
+<li>前位角色：/</li>
+<li>行动提示：/</li>
+</ul>
+</ul>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>爪牙1/爪牙2/爪牙3/爪牙4</li>
+<ul>
+<li>说明：当泰坦和需要使用提示标记的爪牙同时在场时，用泰坦的“爪牙1”（或‘爪牙2’或‘爪牙3’或‘爪牙4’）标记作为该角色的标记作为替代，用法与该爪牙角色的提示标记一致。</li>
+</ul>
+</ul>
+<h2 id="规则细节">规则细节</h2>
+<ul>
+<li>因为泰坦同时获得角色列表中所有不在场爪牙角色的能力。他不会拥有不存在于角色列表中的爪牙能力。</li>
+<li>如果泰坦拥有的爪牙的能力具有改变初始设置的功能，这些功能不会生效。</li>
+<li>如果泰坦中毒醉酒，泰坦会同时失去所有爪牙的能力。</li>
+<li>如果有一名爪牙的能力类型是死后能力保留，例如间谍，泰坦会在死亡时保留他的能力，但不保留其他类型的能力。</li>
+<li>如果泰坦获得了具有相克规则的角色能力，那么这条相克规则对泰坦也适用。</li>
+<li>游戏开始后，泰坦不是爪牙，所以泰坦不会得知谁是恶魔谁是爪牙。相对的，恶魔信息中也不会出现泰坦玩家（恶魔得知的爪牙玩家中不包括泰坦）。</li>
+<li>在初始配置时，你必须将泰坦当做爪牙。这意味着如果你要加入泰坦，就必须替换掉一个原本的爪牙。泰坦不会作为外来者被加入游戏。</li>
+<li>泰坦的能力要求是游戏的首个夜晚，而不是“你的首个夜晚”。所以如果一名玩家在游戏中途变为泰坦，他不会转变为邪恶，也不会获得爪牙能力。</li>
+</ul>
+<h2 id="游玩与对抗技巧">游玩与对抗技巧</h2>
+<ul>
+<li>如果你是泰坦。把自己当作一个另类的爪牙，你拥有强大的能力，但你不知道谁是你的队友。谨慎的使用这些能力，尽快判断出你的队友是谁。</li>
+<li>如果你是泰坦。你可以通过你自身的能力判断在场爪牙有哪些，并帮助你找到谁可能是你的队友。</li>
+<li>如果你是泰坦。最好不要轻易向其他人透露你是泰坦，因为泰坦对于善良阵营来说，甚至比爪牙更恐怖，他们可能会迫不及待的处决你。</li>
+<li>如果你是善良玩家。如果你觉得正在生效的爪牙能力超出了应有的爪牙数量，很可能是泰坦在场！</li>
+<li>如果你是善良玩家。泰坦没有办法和他的邪恶队友互认，所以场面上会有一些混乱，邪恶的能力可能会彼此攻击，甚至杀死对方。</li>
+</ul>
+<h2 id="出现剧本">出现剧本</h2>
+<ul>
+<li><em>暂无</em></li>
+</ul>
+<h2 id="整体设计">整体设计</h2>
+<ul>
+<li>太一</li>
+</ul>
+<h2 id="创意来源">创意来源</h2>
+<ul>
+<li>太一</li>
+</ul>
+<h2 id="图标画师">图标画师</h2>
+<ul>
+<li>Lei.</li>
+</ul></div>
+    <div class="page-meta">最后修改于 2026-09-08T05:11:45.000Z，编辑者 <b>未知</b> ｜ 页面 5,122 字节 ｜ <a href="https://www.yuque.com/u48069482/taiyi/txcn77rwaym1lenz" target="_blank" rel="noopener">查看原页面</a></div>
+    <div class="backlinks"><b>链入此页的页面（1）</b><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">奥德赛 Odyssey</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

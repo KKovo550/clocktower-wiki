@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>维齐尔 - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">维齐尔</h1>
+    <div class="tagline">来自钟楼百科</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#提示与技巧">提示与技巧</a></li><li class="lvl2"><a href="#对抗维齐尔">对抗维齐尔</a></li><li class="lvl2"><a href="#角色信息">角色信息</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E7%BB%B4%E9%BD%90%E5%B0%94">查找包含此角色的剧本 →</a></p><p><a href="../pages/%E7%BB%B4%E9%BD%90%E5%B0%94.html" class="image-link" title="维齐尔"><img alt="Vizier.png" style="width:200px" class="" loading="lazy" data-source-image="../images/Vizier.png" src="../assets/media/Vizier.preview.webp" width="591" height="591" decoding="async"></a></p>
+<h2 id="背景故事">背景故事</h2>
+<p><em>“出色的判决，陛下。冲撞主教这样的小罪的确值得您的‘正义’与‘仁慈’。而您只需要在花园里散散心，参观参观画廊，欣赏欣赏冯·斯特劳夫的雕塑作品。放轻松，陛下。把一切……都交给我。”</em></p>
+<h2 id="角色能力">角色能力</h2>
+<p><strong>所有玩家都知道你是维齐尔。</strong></p>
+<p><strong>你在白天时不会死亡。</strong></p>
+<p><strong>如果一次提名中有善良玩家投票，你可以让被提名者立即被处决。</strong></p>
+<h2 id="角色简介">角色简介</h2>
+<p>维齐尔能够处决玩家，无需经过镇子的同意。</p>
+<ul>
+<li>在第一个白天，所有玩家都会得知维齐尔在场，并且知道是哪一名玩家。</li>
+</ul>
+<ul>
+<li>在白天时，维齐尔不会因为任何原因死亡。</li>
+</ul>
+<ul>
+<li>在一次提名的投票被统计后，如果维齐尔选择处决被提名者（且至少有一名善良玩家参与投票），那么被提名者会立即被处决。这算在每个白天的一次处决之内。</li>
+</ul>
+<ul>
+<li>在一次提名的投票被统计后，如果维齐尔选择处决被提名者（且没有任何善良玩家参与投票），那么无事发生。</li>
+</ul>
+<ul>
+<li>即使被提名者得票在存活玩家的半数以下，维齐尔仍然能够执行处决。即使有其他玩家得票比此次被提名者多，维齐尔仍然能够执行处决。</li>
+</ul>
+<ul>
+<li>维齐尔无需在每个白天都使用自己的能力来造成强制处决。</li>
+</ul>
+<h2 id="范例">范例</h2>
+<p><a href="../pages/%E5%9B%BD%E7%8E%8B.html" title="国王">国王</a>被提名了。有五名玩家投票，维齐尔没有使用他的能力。<a href="../pages/%E7%82%B8%E5%BC%B9%E4%BA%BA.html" title="炸弹人">炸弹人</a>被提名了，有八名玩家投票。维齐尔使用了他的能力，<a href="../pages/%E7%82%B8%E5%BC%B9%E4%BA%BA.html" title="炸弹人">炸弹人</a>立即被处决。</p>
+<p>恶魔得到了7票，处于“即将被处决”状态。维齐尔提名了<a href="../pages/%E7%90%86%E5%8F%91%E5%B8%88.html" title="理发师">理发师</a>小八。两名邪恶玩家和一名善良玩家投了票。<a href="../pages/%E7%BB%B4%E9%BD%90%E5%B0%94.html" title="维齐尔">维齐尔</a>宣布使用能力处决了小八。恶魔今天得以幸存了。</p>
+<p><a href="../pages/%E7%BB%B4%E9%BD%90%E5%B0%94.html" title="维齐尔">维齐尔</a>被提名并处决了，但没有因此死亡。当晚，恶魔杀死了<a href="../pages/%E7%BB%B4%E9%BD%90%E5%B0%94.html" title="维齐尔">维齐尔</a>。</p>
+<h2 id="运作方式">运作方式</h2>
+<p>当首个夜晚结束时，对所有玩家宣布维齐尔在场，并告知是哪一名玩家。</p>
+<p>如果一次提名的投票统计结束，且至少有一名善良玩家参与投票，且维齐尔宣布被提名者被处决，那么那名玩家被处决并死亡。今天白天不会再发生更多的提名，投票和处决了。</p>
+<h2 id="规则细节">规则细节</h2>
+<ul>
+<li>如果维齐尔受到非相克规则的角色带来的醉酒或中毒的效果影响，那么他能够在白天死亡，并且无法选择立即执行处决，但玩家不会知道这一点，直到维齐尔尝试这么做为止。</li>
+</ul>
+<ul>
+<li>如果维齐尔在游戏中途被创造，所有玩家都会立即得知谁是维齐尔。然而如果维齐尔的角色中途发生了变化，玩家不会立即得知这一消息（因为暴露角色的能力来源消失了）。</li>
+</ul>
+<ul>
+<li>相克规则：</li>
+<ul>
+<li><a href="../pages/%E8%B0%83%E6%9F%A5%E5%91%98.html" title="调查员">调查员</a>：说书人不会宣布维齐尔在场。</li>
+<li><a href="../pages/%E4%BC%A0%E6%95%99%E5%A3%AB.html" title="传教士">传教士</a>：如果维齐尔失去能力，他会得知此事，但不会在白天死亡。</li>
+<li><a href="../pages/%E4%BE%8D%E8%87%A3.html" title="侍臣">侍臣</a>：如果维齐尔失去能力，他会得知此事，但不会在白天死亡。</li>
+<li><a href="../pages/%E9%AD%94%E6%9C%AF%E5%B8%88.html" title="魔术师">魔术师</a>：如果维齐尔在场，魔术师不会拥有能力，但他会免疫维齐尔的能力。</li>
+<li><a href="../pages/%E6%88%8F%E6%B3%95%E5%B8%88.html" title="戏法师">戏法师</a>：说书人不会宣布维齐尔在场。</li>
+<li><a href="../pages/%E6%94%BF%E5%AE%A2.html" title="政客">政客</a>：维齐尔的能力可能会将政客当作邪恶阵营。</li>
+<li><a href="../pages/%E7%8B%82%E7%83%AD%E8%80%85.html" title="狂热者">狂热者</a>：维齐尔的能力可能会将狂热者当作邪恶阵营。</li>
+<li><a href="../pages/%E6%81%90%E6%83%A7%E4%B9%8B%E7%81%B5.html" title="恐惧之灵">恐惧之灵</a>：在恐惧之灵因为自己的能力被唤醒时，维齐尔会一同被唤醒。他会得知恐惧之灵选择了哪名玩家，并且无法使用自己的能力让那名玩家立即被处决。</li>
+<li><a href="../pages/%E5%B0%8F%E6%80%AA%E5%AE%9D.html" title="小怪宝">小怪宝</a>：如果维齐尔正照看小怪宝，他会在被处决时死亡。</li>
+</ul>
+</ul>
+<ul>
+<li>相克规则（与华灯系列角色）：</li>
+<ul>
+<li><a href="../pages/%E5%A7%91%E8%8E%B7%E9%B8%9F.html" title="姑获鸟">姑获鸟</a>：姑获鸟无法获得维齐尔的能力。</li>
+</ul>
+</ul>
+<h2 id="提示与技巧">提示与技巧</h2>
+<ul>
+<li>显然——你的能力就是处决别人！归根结底，你的能力就是处决任何你想要处决的人，所以不去使用这个能力是没有意义的。放下顾虑去处决，带着愉悦去处决，随心所欲地去处决！</li>
+</ul>
+<ul>
+<li>不要总是去处决！善良玩家将会把你选择处决或不选择处决的行为解读成一种信息，所以那些你选择不去处决的玩家常常和你选择处决的玩家一样重要。</li>
+</ul>
+<ul>
+<li>对于善良阵营来说，当你执行强制处决时什么样的玩家投了票也是很容易理解的信息。如果你在只有一名玩家投票的时候执行强制处决，那这名投票的玩家就会被证明是善良玩家，并且你在随后的游戏中无法指望有人会投票给他，因为善良玩家们没有理由再给这名玩家投上哪怕一票。</li>
+</ul>
+<ul>
+<li>所有人都知道你是谁，所以不要太明显地和你的邪恶队友交谈——因为所有人都知道你是谁，所以你不需要伪装角色，因此在大多数时间里你不能真的去声称自己是维齐尔以外的角色。无论如何，你只需要向你的邪恶队友交谈以上内容就足够了。</li>
+</ul>
+<ul>
+<li>与所有人交谈！即使是善良玩家也会重视这个了解你的想法的机会，并试图从你的状态解读出你的计划。你也可以在这个过程中与邪恶玩家交谈以便赶上他们的计划。</li>
+</ul>
+<ul>
+<li>相信你自己对于其他玩家状态的解读，以及城镇广场上的信息提示——这些可能是你获取信息的主要方式！</li>
+</ul>
+<ul>
+<li>如果你的邪恶队友与你相邻，在夜晚时和他们窃窃私语。这是你能与你的同伴交谈的仅有机会之一。你可以用这种方式获取信息并从邪恶阵营的视角去了解现在正在发生的事情，却不用担心会给他们造成过多嫌疑。</li>
+</ul>
+<ul>
+<li>你需要掩盖你的意图并制定策略去解释你为何没有去处决特定玩家——有时你将需要在恶魔获得投票时不进行强制处决，因此事先对某些玩家没有被强制处决而设置一个合理的否定是非常重要的。</li>
+</ul>
+<h2 id="对抗维齐尔">对抗维齐尔</h2>
+<ul>
+<li>对于判断谁是善良玩家而言，维齐尔对善良阵营来说是一个很好的信息来源。从维齐尔强制处决的投票中提取出谁是善良玩家这种信息往往是困难的，但绝对值得去做，显而易见的是，最好的信息就是只投了一票维齐尔就执行强制处决，从而证明那名投票的玩家是善良的，即使在随后的游戏中维齐尔选择只有三或四票的提名进行处决，这仍然是不错的信息。</li>
+</ul>
+<ul>
+<li>对于维齐尔选择强制处决的玩家和不选择强制处决的玩家都给予同样多的关注。维齐尔不能在每天的第一次提名就进行处决，否则最终被提名的恶魔将很难解释为什么自己没有被处决。所以维齐尔在选择处决谁的时候需要使用一些狡猾的手段来迷惑好人。你需要设法看穿这些狡猾的伎俩，找出他的处决意图里真正的局限性在哪！</li>
+</ul>
+<ul>
+<li>你知道维齐尔不是恶魔。他属于邪恶阵营，所以他会影响那些检测阵营的能力；但同样是因为维齐尔不是恶魔，所以他不需要被考虑为除了邪恶的维齐尔以外的其他任何信息，具有选择能力的角色不会去选择他。</li>
+</ul>
+<ul>
+<li>在决赛日，如果维齐尔仍然存活，只需要对非恶魔玩家的一张善良玩家投票就可以让维齐尔获胜。然而，你拥有一些强有力的信息来说服你的善良队友——如果你所指控的玩家不是恶魔，维齐尔应该就已经强制处决并获胜了，所以维齐尔没有强制处决的事实意味着你无法接受除了你所指控的玩家，还有任何善良玩家在其他的提名里投票。</li>
+</ul>
+<ul>
+<li>确保所有在白天时使用的能力在提名开始前已经使用。一旦开始提名阶段，白天可能会因为维齐尔的强制处决而随时结束，所以你需要在提名开始前抽出时间使用那些在白天使用的能力。</li>
+</ul>
+<ul>
+<li>要记住，提名是你们对抗维齐尔的主要武器——如果维齐尔没有进行强制处决，不再发起提名可能是通过投票处决那些维齐尔不愿意强制处决的玩家的最佳方式。</li>
+</ul>
+<ul>
+<li>利用好那些与处决和死亡有互动的善良能力，设法欺骗维齐尔使用能力来验证这些角色。例如，如果维齐尔好几次试图处决与茶艺师相邻的玩家，这些玩家却没有死亡，这能够铁证茶艺师的角色。</li>
+</ul>
+<ul>
+<li>向维齐尔窃窃私语或者“不小心”透露一些信息可能会推迟他的强制处决——要记住，当所有人都知道维齐尔是邪恶玩家时，他只能掌握那些他设法弄清楚的公聊信息，因此如果你设计“泄露”一些可以影响维齐尔强制处决的信息让维齐尔无意中听到，你就能完全误导他对游戏局势的影响。</li>
+</ul>
+<ul>
+<li>需要非常具有目的性地选择你要投票的玩家。每次维齐尔选择进行强制处决，这会给你们带来信息，但每次他选择不进行处决，这也会带来一点信息。设法操纵维齐尔去处决特定玩家会给你们带来大量信息，这些信息不一定是他们想披露给你们的。</li>
+</ul>
+<h2 id="角色信息">角色信息</h2>
+<ul>
+<li>英文名：Vizier</li>
+</ul>
+<ul>
+<li>所属剧本：<a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html" title="实验性角色">实验性角色</a>、<a href="../pages/%E5%8F%AA%E6%89%8B%E9%81%AE%E5%A4%A9.html" title="只手遮天">只手遮天</a>（快速上手剧本）</li>
+</ul>
+<ul>
+<li>角色类型：<a href="../pages/%E7%88%AA%E7%89%99.html" title="爪牙">爪牙</a></li>
+</ul>
+<ul>
+<li>角色能力类型：<a href="../pages/%E6%8A%95%E7%A5%A8.html" title="投票">投票</a>、<a href="../pages/%E5%A4%84%E5%86%B3.html" title="处决">处决</a>、<a href="../pages/%E6%9A%B4%E9%9C%B2%E8%A7%92%E8%89%B2.html" title="暴露角色">暴露角色</a>、<a href="../pages/%E5%85%8D%E6%AD%BB.html" title="免死">免死</a></li>
+</ul></div>
+    <div class="page-meta">最后修改于 2026-06-13T03:19:16Z，编辑者 <b>Zack</b> ｜ 页面 9,264 字节 ｜ <a href="https://clocktower-wiki.gstonegames.com/index.php?title=%E7%BB%B4%E9%BD%90%E5%B0%94" target="_blank" rel="noopener">查看原页面</a> ｜ <div class="comment">编辑摘要：/* 规则细节 */</div></div>
+    <div class="backlinks"><b>链入此页的页面（29）</b><a href="../pages/%E4%BE%8D%E8%87%A3.html">侍臣</a><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a><a href="../pages/%E6%9A%B4%E9%9C%B2%E8%A7%92%E8%89%B2.html">暴露角色</a><a href="../pages/%E5%A4%84%E5%86%B3.html">处决</a><a href="../pages/%E6%B0%94%E7%90%83%E9%A9%BE%E9%A9%B6%E5%91%98.html">气球驾驶员</a><a href="../pages/%E9%AD%94%E6%9C%AF%E5%B8%88.html">魔术师</a><a href="../pages/%E4%BC%A0%E6%95%99%E5%A3%AB.html">传教士</a><a href="../pages/%E6%94%BF%E5%AE%A2.html">政客</a><a href="../pages/%E6%81%90%E6%83%A7%E4%B9%8B%E7%81%B5.html">恐惧之灵</a><a href="../pages/%E5%B0%8F%E6%80%AA%E5%AE%9D.html">小怪宝</a><a href="../pages/%E8%B0%83%E6%9F%A5%E5%91%98.html">调查员</a><a href="../pages/%E8%8E%B7%E5%8F%96%E4%BF%A1%E6%81%AF.html">获取信息</a><a href="../pages/%E5%85%8D%E6%AD%BB.html">免死</a><a href="../pages/%E6%8A%95%E7%A5%A8.html">投票</a><a href="../pages/%E7%88%AA%E7%89%99.html">爪牙</a><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a><a href="../pages/%E7%BB%B4%E9%BD%90%E5%B0%94.html">维齐尔</a><a href="../pages/%E5%8F%AA%E6%89%8B%E9%81%AE%E5%A4%A9.html">只手遮天</a><a href="../pages/%E5%A4%9C%E6%99%9A%E8%A1%8C%E5%8A%A8%E9%A1%BA%E5%BA%8F%E4%B8%80%E8%A7%88.html">夜晚行动顺序一览</a><a href="../pages/%E6%96%B0%E8%A7%92%E8%89%B2%E5%85%AC%E5%B8%83%E8%AE%A1%E5%88%92.html">新角色公布计划</a><a href="../pages/%E7%AC%AC%E4%B8%80%E5%B1%8A%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A%E5%89%A7%E6%9C%AC%E5%88%9B%E4%BD%9C%E5%A4%A7%E8%B5%9B.html">第一届华灯初上剧本创作大赛</a><a href="../pages/%E5%8D%A1%E6%89%8E%E5%8A%9B.html">卡扎力</a><a href="../pages/%E8%A1%8C%E6%88%90%E4%B8%8B%E5%AD%A4%E4%B9%A1.html">行成下孤乡</a><a href="../pages/%E8%A7%84%E5%88%99%E8%B0%83%E6%95%B4%E6%8F%90%E5%89%8D%E5%85%AC%E7%A4%BA.html">规则调整提前公示</a><a href="../pages/%E6%88%8F%E6%B3%95%E5%B8%88.html">戏法师</a><a href="../pages/%E7%8B%82%E7%83%AD%E8%80%85.html">狂热者</a><a href="../pages/%E5%A0%A4%E4%B8%B0%E4%B9%8B%E9%A6%96.html">堤丰之首</a><a href="../pages/%E7%A7%89%E5%85%AC%E5%8A%9E%E4%BA%8B.html">秉公办事</a><a href="../pages/%E5%A7%91%E8%8E%B7%E9%B8%9F.html">姑获鸟</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

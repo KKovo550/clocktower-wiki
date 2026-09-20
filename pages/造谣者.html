@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>造谣者 - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">造谣者</h1>
+    <div class="tagline">来自钟楼百科</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#提示与技巧">提示与技巧</a></li><li class="lvl2"><a href="#伪装成造谣者">伪装成造谣者</a></li><li class="lvl2"><a href="#角色信息">角色信息</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E9%80%A0%E8%B0%A3%E8%80%85">查找包含此角色的剧本 →</a></p><p><a href="../pages/%E9%80%A0%E8%B0%A3%E8%80%85.html" class="image-link" title="造谣者"><img alt="Gossip.png" style="width:200px" class="" loading="lazy" data-source-image="../images/Gossip.png" src="../assets/media/Gossip.preview.webp" width="600" height="600" decoding="async"></a></p>
+<h2 id="背景故事">背景故事</h2>
+<p><em>“巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉。巴拉。”</em></p>
+<h2 id="角色能力">角色能力</h2>
+<p><strong>每个白天，你可以公开发表一个声明。如果该声明正确，在当晚会有一名玩家死亡。</strong></p>
+<h2 id="角色简介">角色简介</h2>
+<p>造谣者会故意编造谎言，希望能借此揭开真相。</p>
+<ul>
+<li>每个白天，造谣者可以公开发表一个声明。如果该声明是正确的，说书人会在当晚杀死一名玩家。如果声明是错误的，那就没有玩家会因造谣者而死。</li>
+</ul>
+<ul>
+<li>含糊不清的词语、低声细语、说书人无法判断对错的声明、或是发表声明时有人没听到等情况下，声明都不作数。如同猎手的能力，说书人和每一名玩家都必须要听到并明确造谣者发表的声明，明白造谣者正在使用自己的能力，以此来让说书人判定接下来会发生什么。</li>
+</ul>
+<ul>
+<li>如果造谣者在白天处于醉酒或中毒时发表了一个正确的声明，但当晚造谣者能力触发时他恢复了清醒和健康，那么说书人仍然会杀死一名玩家。</li>
+</ul>
+<h2 id="范例">范例</h2>
+<p>在白天，<a href="../pages/%E9%80%A0%E8%B0%A3%E8%80%85.html" title="造谣者">造谣者</a>说：“我是<a href="../pages/%E9%80%A0%E8%B0%A3%E8%80%85.html" title="造谣者">造谣者</a>。我的公开声明是：恶魔戴着帽子。”恶魔没有戴帽子。当晚，没有玩家因<a href="../pages/%E9%80%A0%E8%B0%A3%E8%80%85.html" title="造谣者">造谣者</a>的能力而死亡。</p>
+<p>与<a href="../pages/%E9%80%A0%E8%B0%A3%E8%80%85.html" title="造谣者">造谣者</a>邻近的玩家分别是善良的旅行者和<a href="../pages/%E5%92%8C%E5%B9%B3%E4%B8%BB%E4%B9%89%E8%80%85.html" title="和平主义者">和平主义者</a>。在白天，醉酒的<a href="../pages/%E9%80%A0%E8%B0%A3%E8%80%85.html" title="造谣者">造谣者</a>说：“我的两个邻近玩家都是善良的。”在黄昏，醉酒的<a href="../pages/%E9%80%A0%E8%B0%A3%E8%80%85.html" title="造谣者">造谣者</a>恢复清醒。当晚，<a href="../pages/%E4%BE%8D%E5%A5%B3.html" title="侍女">侍女</a>死亡。</p>
+<p>在白天，<a href="../pages/%E9%80%A0%E8%B0%A3%E8%80%85.html" title="造谣者">造谣者</a>发表了一个正确的声明。当晚，<a href="../pages/%E9%80%A0%E8%B0%A3%E8%80%85.html" title="造谣者">造谣者</a>被恶魔杀死。<a href="../pages/%E9%80%A0%E8%B0%A3%E8%80%85.html" title="造谣者">造谣者</a>失去了自己的能力，因此不会有任何人因为他正确的声明而死亡。</p>
+<h2 id="运作方式">运作方式</h2>
+<p>每个白天，如果造谣者发表了一个明确且正确的公开声明，将造谣者的“死亡”提示标记放置到魔典左侧的中央，来提醒自己当晚需要放置该标记。</p>
+<p>除了首个夜晚以外的每个夜晚，如果今天白天造谣者发表了一个明确且正确的公开声明，你选择任意一名玩家死亡——将“死亡”提示标记放置到该玩家的角色标记旁。</p>
+<p>在选择因造谣者能力而死亡的玩家时，我们推荐你选择能够死亡的角色，不要选择那些受到能力保护而无法死亡的角色（例如弄臣或茶艺师的能力）。当声明造成死亡时，造谣者才能得到更多信息。这对善良阵营更有帮助，也会让游戏更加有趣。</p>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>死亡</li>
+</ul>
+<p>放置时机：在造谣者发表了公开声明后。</p>
+<p>放置条件：如果造谣者发表的公开声明清晰且正确，则将此标记放置在魔典中央，用以提醒说书人在轮到造谣者的夜晚顺序时选择一名玩家死亡。不论造谣者醉酒中毒，只要声明正确，那么都需要放置标记。</p>
+<p>特殊说明：由于造谣者的能力为回溯型能力，因此如果造谣者在游戏中途产生，仍然要根据当前情况补放标记（如果那个玩家在白天进行了公开声明且为真），而不是因为没有放置标记便不在夜晚继续处理造谣者的能力生效情况。</p>
+<p>移动条件：在轮到造谣者的夜晚行动时，将此标记移动至任意一名玩家的角色标记旁，用以提醒说书人在黎明时分宣布当晚的死亡玩家（应倾向于选择能够死亡的玩家）。若此时造谣者醉酒中毒，或造谣者死亡或离场，则直接移除该标记。</p>
+<p>移除时机：在黎明时宣布了死亡玩家之后，或造谣者死亡或离场时移除。</p>
+<h2 id="提示与技巧">提示与技巧</h2>
+<ul>
+<li>克服对死亡的恐惧！很多<a href="../pages/%E9%80%A0%E8%B0%A3%E8%80%85.html" title="造谣者">造谣者</a>都会试探性地使用他们的能力，因为他们担心会意外造成死亡。虽然你确实应该对任何可能导致死亡的能力保持谨慎，但信息的潜在收益足以弥补风险。要每天使用你的能力！</li>
+</ul>
+<ul>
+<li>类似于<a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html" title="梦殒春宵">梦殒春宵</a>剧本中的<a href="../pages/%E8%89%BA%E6%9C%AF%E5%AE%B6.html" title="艺术家">艺术家</a>，你是一个极其灵活和多才多艺的信息收集者。由于你可以就任何事情发表你喜欢的任何声明，你可以弥补善良阵营中的空白，验证其他玩家的信息，或者提出每个人都非常想知道但无法解决的问题！充分利用这一点，善良阵营的玩家将感谢你。</li>
+</ul>
+<ul>
+<li>你的声明要准确！当你试图弄清楚某人是否因你的能力而死亡时，一个可能是真的或假的模糊声明（例如“恶魔昨天污蔑了一位善良玩家为邪恶的。”）对你没有帮助。取而代之的是，做出可能绝对正确或错误的二元声明（“昨天恶魔被提名。”）</li>
+</ul>
+<ul>
+<li>故意说出你认为是错误的声明。这降低了你的能力杀死玩家的风险，但仍然能让你获取信息。如果没有人死（或者至少，你认为没有人因你的能力而死），那么你可以颠倒你的说法以获得真相！ （例如，故意说“<a href="../pages/%E4%BE%8D%E5%A5%B3.html" title="侍女">侍女</a>不在游戏中”，因为其他玩家自称是<a href="../pages/%E4%BE%8D%E5%A5%B3.html" title="侍女">侍女</a>。当没有死亡发生时，你可以更相信他们的说法！）</li>
+</ul>
+<ul>
+<li>故意说出你认为是正确的声明！这有两个原因，一，如果有人因为你的能力而死，很难否认你是<a href="../pages/%E9%80%A0%E8%B0%A3%E8%80%85.html" title="造谣者">造谣者</a>（前提是你可以追溯这名玩家的死亡是因为你的能力，而不是其他原因。但如果是<a href="../pages/%E6%B2%99%E5%B7%B4%E6%B4%9B%E6%96%AF.html" title="沙巴洛斯">沙巴洛斯</a>或<a href="../pages/%E7%8F%80.html" title="珀">珀</a>这样的多刀恶魔这在游戏中，这个方法会不太有效！）。二，如果有人因为你的能力而死，那么你可以非常确信这个说法是真实的（毕竟故意说虚假的声明并不能说明你的能力失效，所以如果你怀疑自己能力失效，可以用这个方法确认！）</li>
+</ul>
+<ul>
+<li>要谨慎考虑你声明时的游戏状态和时间。如果你在游戏末期声明真确，那么晚上额外的死亡可能导致邪恶团队获得胜利。由于活着的玩家数量很少，为了安全起见，尽量避免做任何可能导致额外死亡的声明。</li>
+</ul>
+<ul>
+<li>不确定你能做出什么样的声明？下面有一些例子！</li>
+<ul>
+<li>“恶魔是<a href="../pages/%E5%83%B5%E6%80%96.html" title="僵怖">僵怖</a>。”</li>
+<li>“Steven是邪恶的。”</li>
+<li>“邪恶的玩家们邻座。”</li>
+<li>“<a href="../pages/%E5%88%BA%E5%AE%A2.html" title="刺客">刺客</a>已经使用了他的能力。”</li>
+<li>“小明是<a href="../pages/%E4%BE%8D%E8%87%A3.html" title="侍臣">侍臣</a>。”</li>
+<li>“我的邻座是善良玩家。”</li>
+</ul>
+</ul>
+<h2 id="伪装成造谣者">伪装成造谣者</h2>
+<p>当你要伪装成造谣者的时候，这里有几件事你应该记住：</p>
+<ul>
+<li>作为造谣者，大概有两种方法可以虚张声势——安全的方式和冒险的方式。安全的方法是做出安全的声明，并尽最大努力向群体提供无用的信息——这样，善良阵营玩家很可能相信你是善良的，但忽略了你的信息。就像虚张声势一样，这往往是安全的，但是在大家讨论中缺乏虚假信息可能会在游戏后期使你暴露。更冒险的虚张声势的方式是让你的<a href="../pages/%E9%80%A0%E8%B0%A3%E8%80%85.html" title="造谣者">造谣者</a>声明尽可能有争议，并尽最大努力说服大家你的虚假声明是真实的，而你的真实声明是假的 - 这造成了很多混乱和不确定性。就像是假扮<a href="../pages/%E5%8D%A0%E5%8D%9C%E5%B8%88.html" title="占卜师">占卜师</a>一样，这最初可能风险更大，但游戏中虚假信息的增加可能会对你有利。</li>
+</ul>
+<ul>
+<li>一般来说，应该故意给出虚假的声明。由于没有真正的<a href="../pages/%E9%80%A0%E8%B0%A3%E8%80%85.html" title="造谣者">造谣者</a>来使用能力使玩家死亡，因此给出虚假声明看起来更可靠，因为它与夜晚的较低死亡人数相匹配。</li>
+</ul>
+<ul>
+<li>你不能单凭扮演造谣者就使玩家死亡，所以要小心说出你认为“真实”的声明。但是，如果你是一个想要被处决以拯救恶魔的爪牙，那么你当然要给出看起来可疑的真实声明！但是，如果恶魔是一个多刀恶魔，如<a href="../pages/%E6%B2%99%E5%B7%B4%E6%B4%9B%E6%96%AF.html" title="沙巴洛斯">沙巴洛斯</a>或<a href="../pages/%E7%8F%80.html" title="珀">珀</a>，那么给出常规的真实声明很容易被相信。基本上，根据夜晚死亡人数协调你的声明 - 当死亡人数很多时，真实的声明更可信，当死亡人数较少时，虚假声明更可信。</li>
+</ul>
+<ul>
+<li>如果发生了不寻常的死亡（例如<a href="../pages/%E5%88%BA%E5%AE%A2.html" title="刺客">刺客</a>或<a href="../pages/%E6%95%99%E7%88%B6.html" title="教父">教父</a>导致的），可以说服大家相信你的虚假声明是真的。更大胆的是！如果像<a href="../pages/%E4%BF%AE%E8%A1%A5%E5%8C%A0.html" title="修补匠">修补匠</a>、<a href="../pages/%E8%B5%8C%E5%BE%92.html" title="赌徒">赌徒</a>或<a href="../pages/%E7%A5%96%E6%AF%8D.html" title="祖母">祖母</a>这样的善良玩家在夜晚死亡，你可以说服别人，你的声明不仅是真实的，而且<a href="../pages/%E4%BF%AE%E8%A1%A5%E5%8C%A0.html" title="修补匠">修补匠</a>、<a href="../pages/%E8%B5%8C%E5%BE%92.html" title="赌徒">赌徒</a>或<a href="../pages/%E7%A5%96%E6%AF%8D.html" title="祖母">祖母</a>可能在撒谎。</li>
+</ul>
+<h2 id="角色信息">角色信息</h2>
+<ul>
+<li>英文名：Gossip</li>
+</ul>
+<ul>
+<li>所属剧本：<a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html" title="黯月初升">黯月初升</a></li>
+</ul>
+<ul>
+<li>角色类型：<a href="../pages/%E9%95%87%E6%B0%91.html" title="镇民">镇民</a></li>
+</ul>
+<ul>
+<li>角色能力类型：<a href="../pages/%E5%85%AC%E5%BC%80%E8%A7%A6%E5%8F%91%E8%83%BD%E5%8A%9B.html" title="公开触发能力">公开触发能力</a>、<a href="../pages/%E5%9B%9E%E6%BA%AF%E5%9E%8B%E8%83%BD%E5%8A%9B.html" title="回溯型能力">回溯型能力</a>、<a href="../pages/%E9%A2%9D%E5%A4%96%E6%AD%BB%E4%BA%A1.html" title="额外死亡">额外死亡</a></li>
+</ul></div>
+    <div class="page-meta">最后修改于 2023-11-23T02:18:24Z，编辑者 <b>Little Black</b> ｜ 页面 8,476 字节 ｜ <a href="https://clocktower-wiki.gstonegames.com/index.php?title=%E9%80%A0%E8%B0%A3%E8%80%85" target="_blank" rel="noopener">查看原页面</a></div>
+    <div class="backlinks"><b>链入此页的页面（55）</b><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a><a href="../pages/%E6%B0%B4%E6%89%8B.html">水手</a><a href="../pages/%E4%BE%8D%E5%A5%B3.html">侍女</a><a href="../pages/%E9%A9%B1%E9%AD%94%E4%BA%BA.html">驱魔人</a><a href="../pages/%E9%80%A0%E8%B0%A3%E8%80%85.html">造谣者</a><a href="../pages/%E4%BE%8D%E8%87%A3.html">侍臣</a><a href="../pages/%E5%9B%9E%E6%BA%AF%E5%9E%8B%E8%83%BD%E5%8A%9B.html">回溯型能力</a><a href="../pages/%E6%97%A0%E7%A5%9E%E8%AE%BA%E8%80%85.html">无神论者</a><a href="../pages/%E9%A3%9F%E4%BA%BA%E6%97%8F.html">食人族</a><a href="../pages/%E5%86%9C%E5%A4%AB.html">农夫</a><a href="../pages/%E9%A2%9D%E5%A4%96%E6%AD%BB%E4%BA%A1.html">额外死亡</a><a href="../pages/%E5%85%AC%E5%BC%80%E8%A7%A6%E5%8F%91%E8%83%BD%E5%8A%9B.html">公开触发能力</a><a href="../pages/%E8%8E%B7%E5%8F%96%E4%BF%A1%E6%81%AF.html">获取信息</a><a href="../pages/%E4%BF%AE%E8%A1%A5%E5%8C%A0.html">修补匠</a><a href="../pages/%E6%9C%88%E4%B9%8B%E5%AD%90.html">月之子</a><a href="../pages/%E8%8E%BD%E5%A4%AB.html">莽夫</a><a href="../pages/%E6%95%99%E7%88%B6.html">教父</a><a href="../pages/%E4%B8%BB%E8%B0%8B.html">主谋</a><a href="../pages/%E6%99%AE%E5%8D%A1.html">普卡</a><a href="../pages/%E6%B2%99%E5%B7%B4%E6%B4%9B%E6%96%AF.html">沙巴洛斯</a><a href="../pages/%E7%8F%80.html">珀</a><a href="../pages/%E9%95%87%E6%B0%91.html">镇民</a><a href="../pages/%E5%93%AA%E4%BA%9B%E6%98%AF%E2%80%9C%E5%8F%AF%E4%BB%A5%E4%BD%86%E4%B8%8D%E5%BB%BA%E8%AE%AE%E2%80%9D.html">哪些是“可以但不建议”</a><a href="../pages/%E5%A5%B3%E8%88%8D%E7%9B%91.html">女舍监</a><a href="../pages/%E6%B3%95%E5%AE%98.html">法官</a><a href="../pages/%E5%B7%AB%E6%AF%92%E5%B8%88.html">巫毒师</a><a href="../pages/%E5%8F%AA%E6%89%8B%E9%81%AE%E5%A4%A9.html">只手遮天</a><a href="../pages/%E7%A6%81%E5%8D%AB%E5%86%9B.html">禁卫军</a><a href="../pages/%E6%9B%B4%E6%8D%A2%E9%80%89%E6%8B%A9%E7%9B%AE%E6%A0%87.html">更换选择目标</a><a href="../pages/%E5%A4%9C%E6%99%9A%E8%A1%8C%E5%8A%A8%E9%A1%BA%E5%BA%8F%E4%B8%80%E8%A7%88.html">夜晚行动顺序一览</a><a href="../pages/%E7%AC%AC%E4%B8%80%E5%B1%8A%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A%E5%89%A7%E6%9C%AC%E5%88%9B%E4%BD%9C%E5%A4%A7%E8%B5%9B.html">第一届华灯初上剧本创作大赛</a><a href="../pages/%E4%BA%BA%E9%97%B4%E6%9A%97%E6%9C%88%E5%A4%9C.html">人间暗月夜</a><a href="../pages/%E9%AA%91%E8%99%8E%E7%94%9F%E6%AD%BB%E8%A1%8C.html">骑虎生死行</a><a href="../pages/%E8%8E%AB%E8%A8%80%E4%B8%89%E5%8D%83%E6%AD%BB.html">莫言三千死</a><a href="../pages/%E9%B8%A3%E9%A3%8E%E5%99%AC%E5%90%8E%E6%B5%AA.html">鸣风噬后浪</a><a href="../pages/%E5%B9%BB%E5%BD%B1%E7%94%BB%E5%AE%89%E5%8D%B1.html">幻影画安危</a><a href="../pages/%E8%B0%9C%E6%A2%A6%E5%BE%85%E6%AD%8C%E8%88%9E.html">谜梦待歌舞</a><a href="../pages/%E5%BC%82%E5%9C%B0%E4%BC%97%E6%AC%A2%E6%9D%A5.html">异地众欢来</a><a href="../pages/%E7%A7%BB%E8%8A%B1%E6%8E%A5%E6%9C%A8.html">移花接木</a><a href="../pages/%E5%AF%84%E6%A2%A6%E4%BB%96%E4%B9%A1.html">寄梦他乡</a><a href="../pages/%E7%99%BD%E7%8B%90%E8%A1%8C%E4%B8%9B%E9%87%8C.html">白狐行丛里</a><a href="../pages/%E9%9B%86%E5%90%8E%E4%BA%BA%E4%B9%8B%E8%A8%80.html">集后人之言</a><a href="../pages/%E4%BE%A0%E4%BA%91%E6%95%88%E8%89%AF%E5%85%9A.html">侠云效良党</a><a href="../pages/%E5%8D%83%E9%9D%A2%E4%BC%97%E5%8D%B1%E7%84%89.html">千面众危焉</a><a href="../pages/%E5%8D%81%E4%B8%89%E8%A1%8C.html">十三行</a><a href="../pages/%E8%8E%AB%E9%80%86%E4%B9%8B%E4%BA%A4.html">莫逆之交</a><a href="../pages/%E5%87%B6%E8%AF%A1%E9%9A%BE%E8%BE%A8.html">凶诡难辨</a><a href="../pages/%E4%BF%A1%E5%8F%A3%E9%9B%8C%E9%BB%84.html">信口雌黄</a><a href="../pages/%E7%94%BB%E7%9A%AE.html">画皮</a><a href="../pages/%E6%9A%B4%E5%90%9B.html">暴君</a><a href="../pages/%E6%98%BE%E6%88%91%E7%A5%9E%E9%80%9A.html">显我神通</a><a href="../pages/%E9%94%99%E4%BD%8D%E6%97%B6%E7%A9%BA.html">错位时空</a><a href="../pages/%E6%8C%91%E7%81%AF%E7%9C%8B%E5%89%91.html">挑灯看剑</a><a href="../pages/%E6%97%A0%E5%90%8D%E6%97%85%E5%AE%A2.html">无名旅客</a><a href="../pages/%E5%A4%A9%E6%89%8D%E5%9C%A8%E5%B7%A6.html">天才在左</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

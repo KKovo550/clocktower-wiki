@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>城镇公告员 - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">城镇公告员</h1>
+    <div class="tagline">来自钟楼百科</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#提示与技巧">提示与技巧</a></li><li class="lvl2"><a href="#伪装成城镇公告员">伪装成城镇公告员</a></li><li class="lvl2"><a href="#角色信息">角色信息</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E5%9F%8E%E9%95%87%E5%85%AC%E5%91%8A%E5%91%98">查找包含此角色的剧本 →</a></p><p><a href="../pages/%E5%9F%8E%E9%95%87%E5%85%AC%E5%91%8A%E5%91%98.html" class="image-link" title="城镇公告员"><img alt="Towncrier.png" style="width:200px" class="" loading="lazy" data-source-image="../images/Towncrier.png" src="../assets/media/Towncrier.preview.webp" width="600" height="600" decoding="async"></a></p>
+<h2 id="背景故事">背景故事</h2>
+<p><em>“号外！号外！迷宫中的巫术！天才博学者揭露了一切谜团！城镇有危险了！号外！”</em></p>
+<h2 id="角色能力">角色能力</h2>
+<p><strong>每个夜晚*，你会得知在今天白天时是否有爪牙发起过提名。</strong></p>
+<h2 id="角色简介">角色简介</h2>
+<p>城镇公告员得知爪牙是否提名。</p>
+<ul>
+<li>每个夜晚，城镇公告员都会得知“是”或“否”。</li>
+</ul>
+<ul>
+<li>他不会得知哪些玩家是爪牙或有多少爪牙进行了提名，只会得知今天白天是否有爪牙发起了提名。</li>
+</ul>
+<h2 id="范例">范例</h2>
+<p>今天白天，仅有一名镇民玩家发起提名。当晚，<a href="../pages/%E5%9F%8E%E9%95%87%E5%85%AC%E5%91%8A%E5%91%98.html" title="城镇公告员">城镇公告员</a>得知了“否”。</p>
+<p>今天白天，有四名玩家发起提名。其中两名玩家是爪牙。有很多玩家投票，但无人被处决，当晚，<a href="../pages/%E5%9F%8E%E9%95%87%E5%85%AC%E5%91%8A%E5%91%98.html" title="城镇公告员">城镇公告员</a>得知了“是”。</p>
+<p>一名爪牙流放了一名旅行者。当晚，<a href="../pages/%E5%9F%8E%E9%95%87%E5%85%AC%E5%91%8A%E5%91%98.html" title="城镇公告员">城镇公告员</a>得知了“否”，因为发起流放不是提名。</p>
+<h2 id="运作方式">运作方式</h2>
+<p>每个黎明，在城镇公告员角色标记旁放置“爪牙未提名”提示标记，并移除“爪牙已提名”提示标记（如果有）。</p>
+<p>每个白天，如果有任何爪牙发起提名，则将“爪牙未提名”提示标记替换为“爪牙已提名”提示标记。</p>
+<p>除了第一个夜晚的每个夜晚都唤醒城镇公告员。如果城镇公告员被标记为“爪牙未提名”，摇头告知否。如果城镇公告员被标记为“爪牙已提名”，点头告知是。让城镇公告员重新入睡。然后移除“爪牙已提名”标记，如果有的话。</p>
+<p>如果你忘记了爪牙是否在白天提名，在夜晚分别单独唤醒每名爪牙玩家。每次唤醒一名玩家并对他展示“你今天提名了吗？”信息标记。他必须诚实回答，然后重新入睡。随后再唤醒下一名爪牙玩家。</p>
+<h2 id="提示标记">提示标记</h2>
+<p>只要剧本中有城镇公告员，且城镇公告员在该剧本中能够中途被创造出来，或能被其他角色获取到能力，则不论城镇公告员是否在场，都应该及时记录爪牙是否提名的情况，并在有城镇公告员出现且在夜晚行动顺序轮到他时反馈给城镇公告员。</p>
+<ul>
+<li>爪牙未提名</li>
+</ul>
+<p>放置时机：每个黎明。</p>
+<p>放置条件：如果城镇公告员在场，放置在城镇公告员角色标记旁，否则放置在魔典中央。</p>
+<p>移除条件：当满足“爪牙已提名”放置的条件时，将此标记进行替换。</p>
+<ul>
+<li>爪牙已提名</li>
+</ul>
+<p>放置时机：有任何爪牙玩家在提名流程中提名了一名玩家并被说书人成功受理时。</p>
+<p>放置条件：用此标记替换“爪牙未提名”标记。</p>
+<p>移除条件：在黎明时。</p>
+<h2 id="规则细节">规则细节</h2>
+<p>无</p>
+<h2 id="提示与技巧">提示与技巧</h2>
+<ul>
+<li>注意每天都有谁发起了提名！这应该很容易理解，因为你在每晚得到的信息只有在知道有谁提名时才能有用。邪恶玩家可能会对你撒谎，而且每天会发生大量的事情，即便是善良玩家也可能会在几天后忘记提名的情况。</li>
+</ul>
+<ul>
+<li>尽可能多的让不同的人去提名，提名的人越多你就越能发挥自己的能力去推动游戏的进程。</li>
+</ul>
+<ul>
+<li>与占卜师不同，当你得到信息"否"时并不能给你太多有用信息。因为有可能实际上恶魔潜藏在其中。相反，如果你得到"是"则会很有价值——这会让你发现爪牙，你可以尽可能让他们被处决。</li>
+</ul>
+<ul>
+<li>要当心女巫！因为她们和你一样也希望更多的人发起提名，因为这会提高他的诅咒生效的机会。试着去推测女巫会对谁使用能力（例如那些很积极的玩家或者经常提名的玩家）并鼓励其他人去提名。</li>
+</ul>
+<ul>
+<li>如果镜像双子在场，你可以让他们其中的一个进行提名，这可以帮助你了解谁是真正的爪牙！你只需要结合其他镇民的信息来确保你的信息正确，排除涡流或者其他会导致你能力失效的风险；毕竟如果弄错镜像双子，那么游戏就结束了！</li>
+</ul>
+<ul>
+<li>你和卖花女孩有着特别的协同作用，因为你们都是对于提名及处决投注精力的玩家。当你在关注谁提名时，同时也特别关注是谁投票了。这不仅可以毫不费力的帮助到你的队友，而且可以让他免除暴露自己给恶魔的风险。</li>
+</ul>
+<ul>
+<li>如果你在游戏早期发现了一个爪牙，那么你们最好是把他处决了。而如果你是在游戏后期发现一个爪牙。那么你们可能考虑留着他而去处决其他人。毕竟，游戏的目标是找到恶魔并处决，而不是爪牙。</li>
+</ul>
+<h2 id="伪装成城镇公告员">伪装成城镇公告员</h2>
+<p>当你要伪装成城镇公告员的时候，这里有几件事你应该记住：</p>
+<ul>
+<li>运用你的能力去指挥大家谁去提名，去提名谁。善良玩家会渴望从你的信息中来证实他们不是爪牙，你可以利用这一点来要求玩家去提名。如果你是女巫或你们有女巫，这样会尤其的有效，因为你可以迫使别人提名……然后他们会死去。（如果你让他去提名导致了这一切，那么他可能会很不高兴~）</li>
+</ul>
+<ul>
+<li>给出相反的信息来帮助你的队友看起来是善良的，让善良玩家看起来是邪恶的。也就是说当爪牙提名了，你说没有，当爪牙没有提名，你说有，这很简单。</li>
+</ul>
+<ul>
+<li>在游戏后期，说明正确的信息来暴露你的爪牙队友。这会让你看起来更像是善良的，因为你在帮助大家处决邪恶玩家，善良阵营会更加的信任你。但是如果你越晚这样去做，他们也就越不可能去处决这个爪牙。</li>
+</ul>
+<ul>
+<li>在最后一天（或接近最后一天）去暗示恶魔是爪牙。如果他们相信你，善良阵营的玩家们可能不太希望去浪费处决机会去处决看起来是爪牙的恶魔。不过切记不要过早这样去做，否则他们可能为了安全起见把恶魔处决了~</li>
+</ul>
+<ul>
+<li>你是否有镜像双子队友呢？你可以告诉大家镜像双子中善良的那位触发了你的能力！虽然大家依然会谨慎的处决这名玩家，但这也可能只是抹黑这个善良玩家的第一步直到获取意想不到的胜利。</li>
+</ul>
+<ul>
+<li>一旦所有爪牙都死了，就不要再去指控其他善良玩家是爪牙了。在梦殒春宵中，爪牙的行为会很公开，比如麻脸巫婆改变角色，女巫杀死提名的人。如果善良玩家发现没有这些明显的迹象了，那么他们会怀疑还在说有爪牙活着的城镇公告员。</li>
+</ul>
+<h2 id="角色信息">角色信息</h2>
+<ul>
+<li>英文名：Town Crier</li>
+</ul>
+<ul>
+<li>所属剧本：<a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html" title="梦殒春宵">梦殒春宵</a></li>
+</ul>
+<ul>
+<li>角色类型：<a href="../pages/%E9%95%87%E6%B0%91.html" title="镇民">镇民</a></li>
+</ul>
+<ul>
+<li>角色能力类型：<a href="../pages/%E8%8E%B7%E5%8F%96%E4%BF%A1%E6%81%AF.html" title="获取信息">获取信息</a>、<a href="../pages/%E6%8F%90%E5%90%8D.html" title="提名">提名</a>、<a href="../pages/%E5%9B%9E%E6%BA%AF%E5%9E%8B%E8%83%BD%E5%8A%9B.html" title="回溯型能力">回溯型能力</a></li>
+</ul></div>
+    <div class="page-meta">最后修改于 2024-12-25T07:44:12Z，编辑者 <b>HuaQu</b> ｜ 页面 6,621 字节 ｜ <a href="https://clocktower-wiki.gstonegames.com/index.php?title=%E5%9F%8E%E9%95%87%E5%85%AC%E5%91%8A%E5%91%98" target="_blank" rel="noopener">查看原页面</a> ｜ <div class="comment">编辑摘要：/* 提示与技巧 */</div></div>
+    <div class="backlinks"><b>链入此页的页面（45）</b><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a><a href="../pages/%E5%9B%9E%E6%BA%AF%E5%9E%8B%E8%83%BD%E5%8A%9B.html">回溯型能力</a><a href="../pages/%E6%B0%94%E7%90%83%E9%A9%BE%E9%A9%B6%E5%91%98.html">气球驾驶员</a><a href="../pages/%E5%BC%82%E6%95%99%E9%A2%86%E8%A2%96.html">异教领袖</a><a href="../pages/%E7%82%B8%E5%BC%B9%E4%BA%BA.html">炸弹人</a><a href="../pages/%E5%93%A5%E5%B8%83%E6%9E%97.html">哥布林</a><a href="../pages/%E6%8F%90%E7%BA%BF%E6%9C%A8%E5%81%B6.html">提线木偶</a><a href="../pages/%E4%BA%A1%E9%AA%A8%E9%AD%94.html">亡骨魔</a><a href="../pages/%E8%AF%BA-%E8%BE%BE%E9%B2%BA.html">诺-达鲺</a><a href="../pages/%E6%B6%A1%E6%B5%81.html">涡流</a><a href="../pages/%E8%8E%B7%E5%8F%96%E4%BF%A1%E6%81%AF.html">获取信息</a><a href="../pages/%E6%8F%90%E5%90%8D.html">提名</a><a href="../pages/%E5%9F%8E%E9%95%87%E5%85%AC%E5%91%8A%E5%91%98.html">城镇公告员</a><a href="../pages/%E5%BF%83%E4%B8%8A%E4%BA%BA.html">心上人</a><a href="../pages/%E5%A5%B3%E8%A3%81%E7%BC%9D.html">女裁缝</a><a href="../pages/%E6%9D%82%E8%80%8D%E8%89%BA%E4%BA%BA.html">杂耍艺人</a><a href="../pages/%E9%95%87%E6%B0%91.html">镇民</a><a href="../pages/%E5%B1%A0%E5%A4%AB.html">屠夫</a><a href="../pages/%E6%84%9A%E8%80%85%E6%AC%A2%E5%AE%B4.html">愚者欢宴</a><a href="../pages/%E5%A4%9C%E6%99%9A%E8%A1%8C%E5%8A%A8%E9%A1%BA%E5%BA%8F%E4%B8%80%E8%A7%88.html">夜晚行动顺序一览</a><a href="../pages/%E9%AA%91%E8%99%8E%E7%94%9F%E6%AD%BB%E8%A1%8C.html">骑虎生死行</a><a href="../pages/%E8%A1%8C%E6%88%90%E4%B8%8B%E5%AD%A4%E4%B9%A1.html">行成下孤乡</a><a href="../pages/%E8%8E%AB%E8%A8%80%E4%B8%89%E5%8D%83%E6%AD%BB.html">莫言三千死</a><a href="../pages/%E5%B9%BB%E5%BD%B1%E7%94%BB%E5%AE%89%E5%8D%B1.html">幻影画安危</a><a href="../pages/%E8%B0%9C%E6%A2%A6%E5%BE%85%E6%AD%8C%E8%88%9E.html">谜梦待歌舞</a><a href="../pages/%E9%A3%8E%E8%B5%B7%E7%BB%88%E7%9B%B8%E8%AF%86.html">风起终相识</a><a href="../pages/%E9%85%BF%E9%85%92%E5%B8%88.html">酿酒师</a><a href="../pages/%E7%99%BD%E7%8B%90%E8%A1%8C%E4%B8%9B%E9%87%8C.html">白狐行丛里</a><a href="../pages/%E9%9B%86%E5%90%8E%E4%BA%BA%E4%B9%8B%E8%A8%80.html">集后人之言</a><a href="../pages/%E5%8D%83%E9%9D%A2%E4%BC%97%E5%8D%B1%E7%84%89.html">千面众危焉</a><a href="../pages/%E5%AF%B9%E5%A2%9F%E9%9A%BE%E6%AC%A2%E9%B8%A3.html">对墟难欢鸣</a><a href="../pages/%E6%9E%AF%E6%9C%A8%E9%80%A2%E6%98%A5.html">枯木逢春</a><a href="../pages/%E8%A7%84%E5%88%99%E8%B0%83%E6%95%B4%E6%8F%90%E5%89%8D%E5%85%AC%E7%A4%BA.html">规则调整提前公示</a><a href="../pages/%E9%97%B2%E8%A8%80%E7%A2%8E%E8%AF%AD.html">闲言碎语</a><a href="../pages/%E4%B8%87%E6%97%A0%E5%BC%82%E5%A4%B1.html">万无异失</a><a href="../pages/%E7%8C%8E%E5%B7%AB%E8%A1%8C%E5%8A%A8.html">猎巫行动</a><a href="../pages/%E5%86%B2%E5%8A%A8%E6%B6%88%E8%B4%B9.html">冲动消费</a><a href="../pages/%E4%BA%A1%E7%81%B5%E8%AE%AE%E4%BC%9A.html">亡灵议会</a><a href="../pages/%E9%94%99%E4%BD%8D%E6%97%B6%E7%A9%BA.html">错位时空</a><a href="../pages/%E5%85%AC%E4%B8%BB.html">公主</a><a href="../pages/%E9%94%A6%E5%A4%9C%E6%9C%AA%E5%A4%AE.html">锦夜未央</a><a href="../pages/%E8%BF%9F%E8%A7%81%E5%88%86%E6%99%93.html">迟见分晓</a><a href="../pages/%E7%8B%A1%E5%85%94%E4%B8%89%E7%AA%9F.html">狡兔三窟</a><a href="../pages/%E5%86%A5%E6%B2%B3%E9%82%AA%E6%B8%A1.html">冥河邪渡</a><a href="../pages/%E6%B1%9F%E5%9F%8E%E5%90%AF.html">江城启</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>钟表匠 - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">钟表匠</h1>
+    <div class="tagline">来自钟楼百科</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#提示与技巧">提示与技巧</a></li><li class="lvl2"><a href="#伪装成钟表匠">伪装成钟表匠</a></li><li class="lvl2"><a href="#角色信息">角色信息</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E9%92%9F%E8%A1%A8%E5%8C%A0">查找包含此角色的剧本 →</a></p><p><a href="../pages/%E9%92%9F%E8%A1%A8%E5%8C%A0.html" class="image-link" title="钟表匠"><img alt="Clockmaker.png" style="width:200px" class="" loading="lazy" data-source-image="../images/Clockmaker.png" src="../assets/media/Clockmaker.preview.webp" width="600" height="600" decoding="async"></a></p>
+<h2 id="背景故事">背景故事</h2>
+<p><em>“不要打扰我。时钟的滴答声必须延续下去，它的每一圈循环都象征着生命，它的每一圈循环都包含着世间万物——世间的所有答案——它是一个无比神圣的机器。好了，我必须工作了。”</em></p>
+<h2 id="角色能力">角色能力</h2>
+<p><strong>在你的首个夜晚，你会得知恶魔与爪牙之间最近的距离。（邻座的玩家距离为1）</strong></p>
+<h2 id="角色简介">角色简介</h2>
+<p>钟表匠能得知恶魔与爪牙之间最近的距离。</p>
+<ul>
+<li>钟表匠只在第一个夜晚得知该信息。</li>
+</ul>
+<ul>
+<li>距离指代恶魔与爪牙之间坐着的玩家数量，从恶魔旁边的玩家开始，到最近的爪牙结束，顺时针或逆时针均可。</li>
+</ul>
+<h2 id="范例">范例</h2>
+<p><a href="../pages/%E6%96%B9%E5%8F%A4.html" title="方古">方古</a>坐在<a href="../pages/%E9%BA%BB%E8%84%B8%E5%B7%AB%E5%A9%86.html" title="麻脸巫婆">麻脸巫婆</a>旁边。<a href="../pages/%E9%92%9F%E8%A1%A8%E5%8C%A0.html" title="钟表匠">钟表匠</a>得知了“1”。</p>
+<p><a href="../pages/%E8%AF%BA-%E8%BE%BE%E9%B2%BA.html" title="诺-达鲺">诺-达鲺</a>顺时针方向依次坐着<a href="../pages/%E7%AD%91%E6%A2%A6%E5%B8%88.html" title="筑梦师">筑梦师</a>、<a href="../pages/%E8%88%9E%E8%9B%87%E4%BA%BA.html" title="舞蛇人">舞蛇人</a>，然后是<a href="../pages/%E9%95%9C%E5%83%8F%E5%8F%8C%E5%AD%90.html" title="镜像双子">镜像双子</a>。<a href="../pages/%E8%AF%BA-%E8%BE%BE%E9%B2%BA.html" title="诺-达鲺">诺-达鲺</a>逆时针方依次坐着<a href="../pages/%E7%95%B8%E5%BD%A2%E7%A7%80%E6%BC%94%E5%91%98.html" title="畸形秀演员">畸形秀演员</a>、<a href="../pages/%E5%BF%83%E4%B8%8A%E4%BA%BA.html" title="心上人">心上人</a>、<a href="../pages/%E5%93%B2%E5%AD%A6%E5%AE%B6.html" title="哲学家">哲学家</a>、<a href="../pages/%E8%B4%A4%E8%80%85.html" title="贤者">贤者</a>，然后是<a href="../pages/%E5%A5%B3%E5%B7%AB.html" title="女巫">女巫</a>。因为<a href="../pages/%E5%A5%B3%E5%B7%AB.html" title="女巫">女巫</a>与恶魔的距离为五，而<a href="../pages/%E9%95%9C%E5%83%8F%E5%8F%8C%E5%AD%90.html" title="镜像双子">镜像双子</a>与恶魔的距离为三，所以<a href="../pages/%E9%92%9F%E8%A1%A8%E5%8C%A0.html" title="钟表匠">钟表匠</a>得知了“3”。</p>
+<p><a href="../pages/%E6%96%B9%E5%8F%A4.html" title="方古">方古</a>与两名旅行者相邻，一善一恶。<a href="../pages/%E6%B4%97%E8%84%91%E5%B8%88.html" title="洗脑师">洗脑师</a>与其中一名旅行者相邻。在第一个晚上，<a href="../pages/%E9%92%9F%E8%A1%A8%E5%8C%A0.html" title="钟表匠">钟表匠</a>得知了“2”，因为邪恶的旅行者不是爪牙。</p>
+<h2 id="运作方式">运作方式</h2>
+<p>在第一个夜晚，唤醒钟表匠。对他用手势比划数字来表示恶魔与爪牙之间最近的距离(1，2，3等）。让钟表匠重新入睡。</p>
+<h2 id="提示标记">提示标记</h2>
+<p>无</p>
+<h2 id="规则细节">规则细节</h2>
+<ul>
+<li>当<a href="../pages/%E9%92%9F%E8%A1%A8%E5%8C%A0.html" title="钟表匠">钟表匠</a>即将被唤醒之前，说书人会根据当前场上的情况给出实时的信息。这意味着钟表匠得知的信息可能会与游戏初始时的情况有所不同，因为有一些角色的能力能够在游戏的过程中改变玩家的角色（如<a href="../pages/%E9%BA%BB%E8%84%B8%E5%B7%AB%E5%A9%86.html" title="麻脸巫婆">麻脸巫婆</a>和<a href="../pages/%E7%90%86%E5%8F%91%E5%B8%88.html" title="理发师">理发师</a>等）。</li>
+</ul>
+<ul>
+<li><a href="../pages/%E9%92%9F%E8%A1%A8%E5%8C%A0.html" title="钟表匠">钟表匠</a>在获得信息时，说书人需要每次抽取两名玩家（其中一名为恶魔，另一名为爪牙，必须是两名不同的玩家）进行距离计算，直到将场上所有的“恶魔-爪牙”组合遍历完毕。这一过程类似于<a href="../pages/%E5%8E%A8%E5%B8%88.html" title="厨师">厨师</a>，会进行多次判断，因此某些角色可能会在不同的玩家组合中被当作为不同的结果（如<a href="../pages/%E9%97%B4%E8%B0%8D.html" title="间谍">间谍</a>、<a href="../pages/%E9%99%8C%E5%AE%A2.html" title="陌客">陌客</a>、照看<a href="../pages/%E5%B0%8F%E6%80%AA%E5%AE%9D.html" title="小怪宝">小怪宝</a>的爪牙等）。最后，说书人会将这些距离值中的最小值作为信息提供给<a href="../pages/%E9%92%9F%E8%A1%A8%E5%8C%A0.html" title="钟表匠">钟表匠</a>。</li>
+</ul>
+<ul>
+<li>在计算距离时，距离值等同于：恶魔与爪牙这两名玩家之间的玩家数量+1。因此，<a href="../pages/%E9%92%9F%E8%A1%A8%E5%8C%A0.html" title="钟表匠">钟表匠</a>能得知的最小数字为“1”。（然而，在极端情况下，如果场上缺乏某种类型的角色，如无恶魔或无爪牙的时候，钟表匠会得知“0”。）</li>
+</ul>
+<ul>
+<li>在抽取两名玩家的组合时，即使是已死亡的玩家也依然会被<a href="../pages/%E9%92%9F%E8%A1%A8%E5%8C%A0.html" title="钟表匠">钟表匠</a>进行探查。</li>
+</ul>
+<ul>
+<li>相克规则：</li>
+<ul>
+<li><a href="../pages/%E5%8F%AC%E5%94%A4%E5%B8%88.html" title="召唤师">召唤师</a>：召唤师会被钟表匠当作恶魔。</li>
+</ul>
+</ul>
+<h2 id="提示与技巧">提示与技巧</h2>
+<ul>
+<li>你不必立即提供你的信息；等待一两天以便你可以在邪恶阵营放松警惕的时候观察其他玩家来发现可疑之处。</li>
+</ul>
+<ul>
+<li>如果你能找出一个爪牙那么你的信息将会变得非常有用。弄清楚谁是爪牙，你就可以确定谁更有嫌疑是恶魔。你需要和其他善良角色合作尝试揭露真相。许多玩家有着辨识出邪恶阵营的能力（如神谕者和女裁缝）或是辨识恶魔与爪牙的能力（如卖花女孩、城镇公告员甚至是舞蛇人）。</li>
+</ul>
+<ul>
+<li>如果你得到一个特别大的数字（＞3），那么爪牙们很可能坐的很近并离恶魔很远。同样的如果你得到一个很小的数字（＜2），那么其中一个爪牙里恶魔的距离很近。你可以利用这些信息来观察他们是否有对话，或有其他玩家的互动与你的信息匹配。</li>
+</ul>
+<ul>
+<li>如果你有怀疑是恶魔的对象，你可以利用你的信息来寻找可能是爪牙的玩家，然后观察他们，他们提供的信息以及有什么信息是关于他们的。相比于恶魔（知道三个不在场角色）爪牙们倾向于努力的隐藏自己，你可以好好利用爪牙们的弱点来确认谁是恶魔。</li>
+</ul>
+<ul>
+<li>你的信息将随着游戏推进以及玩家逐渐死亡变得越发的有用。由于邪恶的玩家不太可能会在夜晚时死去，他们往往想要活的更长来互相支持对方以及他们的观点，因此他们相比于游戏开始时会变得越来越容易暴露。观察仍然活着的玩家中是否能匹配你的信息；如果他们在暗中支持对方，那么他们很有可能是潜藏的邪恶玩家。</li>
+</ul>
+<ul>
+<li>所有你即将面对的爪牙都有明显的表现，也就是说即使他们死了，也会有明显的现象。如果你注意到突然间没有人再因为女巫诅咒而死，被洗脑师洗脑，或者因为麻脸巫婆改变角色，那么很有可能你们已经处决了这些爪牙。弄清楚这些可以让你回推出谁会是恶魔！镜像双子是一个例外，因为你通常会在很早的时候就得知他们在场。这也意味着你可能在很早就确定（最多）四个有可能是恶魔的玩家。</li>
+</ul>
+<h2 id="伪装成钟表匠">伪装成钟表匠</h2>
+<p>当你要伪装成钟表匠的时候，这里有几件事你应该记住：</p>
+<ul>
+<li>作为钟表匠，最普通也最简单的伪装方法就是在第一天的时候告诉大家错误的信息。因为你知道恶魔和爪牙之间相互的距离，而这个错误的信息很可能在几天里使善良阵营的玩家们陷入困惑。请记住"1"表示恶魔和爪牙相邻。</li>
+</ul>
+<ul>
+<li>提供正确的钟表匠信息实际上对于邪恶阵营也非常有帮助。如果大家认为你是善良的，选择相信你的信息，那么他们可能就不会在使用钟表匠信息的时候把你当做是爪牙或者恶魔，也因此他们无法发现谁实际上会是恶魔。如果他们认为你是邪恶的，那么他们很有可能会认为你给出的是错误的信息，因此也会阻碍他们找到真正的恶魔。</li>
+</ul>
+<ul>
+<li>如果你是恶魔选择要伪装成钟表匠，那么在第一天活下来显得尤为重要。作为梦殒春宵中唯一一个在首夜就能得到信息的角色，并且无法再获取任何信息，善良阵营的玩家们将更倾向于在第一天将钟表匠处决掉。等到第二天或之后，你再揭示你钟表匠的角色，将有助于你从游戏早期、风险更大的时期中活下来。</li>
+</ul>
+<ul>
+<li>提供假信息时，选择提供小数字可能更好。如果你提供的数字快要到人数的一半了，这就暗示了恶魔和爪牙实际基本面对面而坐了。此外，如果本局有多个爪牙，那么较大的数字就意味着这些爪牙都坐在一起了，而玩家们很可能不会相信这一点。较小的数字可以和较大数字一样令人困惑。所以，请慎重考虑你将要选择的数字。</li>
+</ul>
+<ul>
+<li>由于善良阵营的玩家们很容易通过爪牙能力所表现的现象消失来推测谁是爪牙，所以在夜晚杀死爪牙不是一个明智的选择。例如，善良阵营的玩家会认为他们处决了麻脸巫婆（因为他们发现没有人再发生角色改变），那么去杀死可能证明或反驳你的钟表匠信息的会是恶魔的玩家会让你很难受，然而如果你在晚上杀死了麻脸巫婆，那么善良玩家们更倾向于认为他们在白天确实处决了麻脸巫婆。这可能会帮助或阻碍你的目标，取决于善良玩家们相信什么，尤其是是否相信涡流在场。</li>
+</ul>
+<h2 id="角色信息">角色信息</h2>
+<ul>
+<li>英文名：Clockmaker</li>
+</ul>
+<ul>
+<li>所属剧本：<a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html" title="梦殒春宵">梦殒春宵</a></li>
+</ul>
+<ul>
+<li>角色类型：<a href="../pages/%E9%95%87%E6%B0%91.html" title="镇民">镇民</a></li>
+</ul>
+<ul>
+<li>角色能力类型：<a href="../pages/%E8%8E%B7%E5%8F%96%E4%BF%A1%E6%81%AF.html" title="获取信息">获取信息</a>、<a href="../pages/%E8%BF%9B%E5%9C%BA%E8%83%BD%E5%8A%9B.html" title="进场能力">进场能力</a></li>
+</ul></div>
+    <div class="page-meta">最后修改于 2026-06-13T03:10:58Z，编辑者 <b>Zack</b> ｜ 页面 7,648 字节 ｜ <a href="https://clocktower-wiki.gstonegames.com/index.php?title=%E9%92%9F%E8%A1%A8%E5%8C%A0" target="_blank" rel="noopener">查看原页面</a> ｜ <div class="comment">编辑摘要：/* 规则细节 */</div></div>
+    <div class="backlinks"><b>链入此页的页面（51）</b><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a><a href="../pages/%E9%92%9F%E8%A1%A8%E5%8C%A0.html">钟表匠</a><a href="../pages/%E7%AD%91%E6%A2%A6%E5%B8%88.html">筑梦师</a><a href="../pages/%E9%A3%9F%E4%BA%BA%E6%97%8F.html">食人族</a><a href="../pages/%E7%82%B8%E5%BC%B9%E4%BA%BA.html">炸弹人</a><a href="../pages/%E6%81%90%E6%83%A7%E4%B9%8B%E7%81%B5.html">恐惧之灵</a><a href="../pages/%E5%93%A5%E5%B8%83%E6%9E%97.html">哥布林</a><a href="../pages/%E6%8F%90%E7%BA%BF%E6%9C%A8%E5%81%B6.html">提线木偶</a><a href="../pages/%E7%B2%BE%E7%A5%9E%E7%97%85%E6%82%A3%E8%80%85.html">精神病患者</a><a href="../pages/%E5%AF%A1%E5%A6%87.html">寡妇</a><a href="../pages/%E7%97%A2%E8%9B%AD.html">痢蛭</a><a href="../pages/%E4%BA%A1%E9%AA%A8%E9%AD%94.html">亡骨魔</a><a href="../pages/%E6%95%B0%E5%AD%A6%E5%AE%B6.html">数学家</a><a href="../pages/%E8%AF%BA-%E8%BE%BE%E9%B2%BA.html">诺-达鲺</a><a href="../pages/%E8%8E%B7%E5%BE%97%E8%83%BD%E5%8A%9B.html">获得能力</a><a href="../pages/%E4%BA%92%E5%8A%A8%E5%B9%B2%E6%89%B0.html">互动干扰</a><a href="../pages/%E8%BF%9B%E5%9C%BA%E8%83%BD%E5%8A%9B.html">进场能力</a><a href="../pages/%E8%8E%B7%E5%8F%96%E4%BF%A1%E6%81%AF.html">获取信息</a><a href="../pages/%E7%90%86%E5%8F%91%E5%B8%88.html">理发师</a><a href="../pages/%E5%A5%B3%E8%A3%81%E7%BC%9D.html">女裁缝</a><a href="../pages/%E5%93%B2%E5%AD%A6%E5%AE%B6.html">哲学家</a><a href="../pages/%E6%9D%82%E8%80%8D%E8%89%BA%E4%BA%BA.html">杂耍艺人</a><a href="../pages/%E6%B4%97%E8%84%91%E5%B8%88.html">洗脑师</a><a href="../pages/%E9%BA%BB%E8%84%B8%E5%B7%AB%E5%A9%86.html">麻脸巫婆</a><a href="../pages/%E9%95%87%E6%B0%91.html">镇民</a><a href="../pages/%E6%97%A0%E4%B8%8A%E6%84%89%E6%82%A6.html">无上愉悦</a><a href="../pages/%E6%B5%81%E8%8E%BA.html">流莺</a><a href="../pages/%E9%9B%86%E9%AA%A8%E8%80%85.html">集骨者</a><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a><a href="../pages/%E9%98%B4%E9%98%B3%E5%B8%88.html">阴阳师</a><a href="../pages/%E6%84%9A%E8%80%85%E6%AC%A2%E5%AE%B4.html">愚者欢宴</a><a href="../pages/%E5%A4%9C%E6%99%9A%E8%A1%8C%E5%8A%A8%E9%A1%BA%E5%BA%8F%E4%B8%80%E8%A7%88.html">夜晚行动顺序一览</a><a href="../pages/%E7%AC%AC%E4%B8%80%E5%B1%8A%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A%E5%89%A7%E6%9C%AC%E5%88%9B%E4%BD%9C%E5%A4%A7%E8%B5%9B.html">第一届华灯初上剧本创作大赛</a><a href="../pages/%E9%AA%91%E8%99%8E%E7%94%9F%E6%AD%BB%E8%A1%8C.html">骑虎生死行</a><a href="../pages/%E8%A1%8C%E6%88%90%E4%B8%8B%E5%AD%A4%E4%B9%A1.html">行成下孤乡</a><a href="../pages/%E9%B8%A3%E9%A3%8E%E5%99%AC%E5%90%8E%E6%B5%AA.html">鸣风噬后浪</a><a href="../pages/%E5%B9%BB%E5%BD%B1%E7%94%BB%E5%AE%89%E5%8D%B1.html">幻影画安危</a><a href="../pages/%E5%BC%82%E5%9C%B0%E4%BC%97%E6%AC%A2%E6%9D%A5.html">异地众欢来</a><a href="../pages/%E9%A3%8E%E8%B5%B7%E7%BB%88%E7%9B%B8%E8%AF%86.html">风起终相识</a><a href="../pages/%E7%99%BD%E7%8B%90%E8%A1%8C%E4%B8%9B%E9%87%8C.html">白狐行丛里</a><a href="../pages/%E9%9B%86%E5%90%8E%E4%BA%BA%E4%B9%8B%E8%A8%80.html">集后人之言</a><a href="../pages/%E5%8D%83%E9%9D%A2%E4%BC%97%E5%8D%B1%E7%84%89.html">千面众危焉</a><a href="../pages/%E5%AF%B9%E5%A2%9F%E9%9A%BE%E6%AC%A2%E9%B8%A3.html">对墟难欢鸣</a><a href="../pages/%E5%8F%AC%E5%94%A4%E5%B8%88.html">召唤师</a><a href="../pages/%E8%A7%84%E5%88%99%E8%B0%83%E6%95%B4%E6%8F%90%E5%89%8D%E5%85%AC%E7%A4%BA.html">规则调整提前公示</a><a href="../pages/%E4%B8%80%E9%99%90%E7%94%9F%E6%9C%BA.html">一限生机</a><a href="../pages/%E4%B8%87%E6%97%A0%E5%BC%82%E5%A4%B1.html">万无异失</a><a href="../pages/%E6%9A%97%E5%BA%A6%E9%99%88%E4%BB%93.html">暗度陈仓</a><a href="../pages/%E9%B8%A9.html">鸩</a><a href="../pages/%E7%AC%91%E5%8C%A0.html">笑匠</a><a href="../pages/%E4%B8%80%E5%BE%80%E5%B7%AB%E5%89%8D.html">一往巫前</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

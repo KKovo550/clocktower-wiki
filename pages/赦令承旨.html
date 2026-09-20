@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>赦令承旨 - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">赦令承旨</h1>
+    <div class="tagline">来自钟楼百科</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#受到赦令承旨效果影响的角色能力一览">受到赦令承旨效果影响的角色能力一览</a></li><li class="lvl2"><a href="#角色信息">角色信息</a></li></ul></div>
+    <div class="mw-parser-output"><h2 id="背景故事">背景故事</h2>
+<p><em>“奉天承运皇帝，诏曰：大赦天下。”</em></p>
+<h2 id="角色能力">角色能力</h2>
+<p><strong>解除所有角色能力在进行选择时的限制条件。</strong></p>
+<h2 id="角色简介">角色简介</h2>
+<p>（省流：解除限制是为了方便新手玩家不用过多关注角色交互的详细方式，同时给部分角色提供一些新的运作形式）</p>
+<p>（部分角色在解除限制之后可能会过强，因此需要谨慎决定在什么自定义剧本中加入这个传奇角色）</p>
+<h2 id="受到赦令承旨效果影响的角色能力一览">受到赦令承旨效果影响的角色能力一览</h2>
+<p>此处列举所有受到影响的角色能力在解除限制条件之后的选择方式。</p>
+<ul>
+<li>暗流涌动</li>
+<ul>
+<li><a href="../pages/%E5%83%A7%E4%BE%A3.html" title="僧侣">僧侣</a>：每个夜晚*，你要选择<code><s><span style="color:grey">除你以外的</span></s></code>一名玩家：当晚恶魔的负面能力对他无效。</li>
+<li><a href="../pages/%E7%AE%A1%E5%AE%B6.html" title="管家">管家</a>：每个夜晚，你要选择<code><s><span style="color:grey">除你以外的</span></s></code>一名玩家：明天白天，只有他投票时你才能投票。</li>
+</ul>
+</ul>
+<ul>
+<li>黯月初升</li>
+<ul>
+<li><a href="../pages/%E6%B0%B4%E6%89%8B.html" title="水手">水手</a>：每个夜晚，你要选择一名<code><s><span style="color:grey">存活的</span></s></code>玩家：你或他之一会醉酒直到下个黄昏。你不会死亡。</li>
+<li><a href="../pages/%E4%BE%8D%E5%A5%B3.html" title="侍女">侍女</a>：每个夜晚，你要选择<code><s><span style="color:grey">除你以外的</span></s></code>两名<code><s><span style="color:grey">存活的</span></s></code>玩家：你会得知他们中有几人在当晚因其自身能力而被唤醒。</li>
+<li><a href="../pages/%E9%A9%B1%E9%AD%94%E4%BA%BA.html" title="驱魔人">驱魔人</a>：每个夜晚*，你要选择一名玩家<code><s><span style="color:grey">（与上个夜晚不同）</span></s></code>：如果你选中了恶魔，他会得知你是驱魔人，但他当晚不会因其自身能力而被唤醒。</li>
+<li><a href="../pages/%E6%95%99%E6%8E%88.html" title="教授">教授</a>：每局游戏限一次，在夜晚时*，你可以选择一名<code><s><span style="color:grey">死亡的</span></s></code>玩家：如果他是镇民，你会将他起死回生。</li>
+<li><a href="../pages/%E6%9C%88%E4%B9%8B%E5%AD%90.html" title="月之子">月之子</a>：当你得知你死亡时，你要公开选择一名<code><s><span style="color:grey">存活的</span></s></code>玩家。如果他是善良的，在当晚他会死亡。</li>
+<li><a href="../pages/%E9%AD%94%E9%AC%BC%E4%BB%A3%E8%A8%80%E4%BA%BA.html" title="魔鬼代言人">魔鬼代言人</a>：每个夜晚，你要选择一名玩家<code><s><span style="color:grey">（与上个夜晚不同）</span></s></code>：如果明天白天他被处决，他不会死亡。</li>
+</ul>
+</ul>
+<ul>
+<li>梦殒春宵</li>
+<ul>
+<li><a href="../pages/%E7%AD%91%E6%A2%A6%E5%B8%88.html" title="筑梦师">筑梦师</a>：每个夜晚，你要选择除<code><s><span style="color:grey">你及</span></s></code>旅行者以外的一名玩家：你会得知一个善良角色和一个邪恶角色，该玩家是其中一个角色。</li>
+<li><a href="../pages/%E8%88%9E%E8%9B%87%E4%BA%BA.html" title="舞蛇人">舞蛇人</a>：每个夜晚，你要选择一名<code><s><span style="color:grey">存活的</span></s></code>玩家：如果你选中了恶魔，你和他交换角色和阵营，然后他中毒。</li>
+<li><a href="../pages/%E5%A5%B3%E8%A3%81%E7%BC%9D.html" title="女裁缝">女裁缝</a>：每局游戏限一次，在夜晚时，你可以选择<code><s><span style="color:grey">除你以外的</span></s></code>两名玩家：你会得知他们是否为同一阵营。</li>
+<li><a href="../pages/%E7%90%86%E5%8F%91%E5%B8%88.html" title="理发师">理发师</a>：如果你死亡，在当晚恶魔可以选择两名玩家<code><s><span style="color:grey">（不能选择其他恶魔）</span></s></code>交换角色。</li>
+<li><a href="../pages/%E5%91%86%E7%93%9C.html" title="呆瓜">呆瓜</a>：当你得知你死亡时，你要公开选择一名<code><s><span style="color:grey">存活的</span></s></code>玩家：如果他是邪恶的，你的阵营落败。</li>
+</ul>
+</ul>
+<ul>
+<li>实验性角色</li>
+<ul>
+<li><a href="../pages/%E5%8D%8A%E5%85%BD%E4%BA%BA.html" title="半兽人">半兽人</a>：每个夜晚*，你要选择一名<code><s><span style="color:grey">存活的</span></s></code>玩家：如果他是善良的，他死亡，并且当晚不会再有其他玩家死亡。</li>
+<li><a href="../pages/%E5%B7%A1%E5%B1%B1%E4%BA%BA.html" title="巡山人">巡山人</a>：每局游戏限一次，在夜晚时，你可以选择一名<code><s><span style="color:grey">存活的</span></s></code>玩家：如果你选中了落难少女，她会变成一个不在场的镇民角色。[+落难少女]</li>
+<li><a href="../pages/%E7%97%A2%E8%9B%AD.html" title="痢蛭">痢蛭</a>：每个夜晚*，你要选择一名玩家：他死亡。在你的首个夜晚，你要选择一名<code><s><span style="color:grey">存活的</span></s></code>玩家：他中毒，只有他死亡时你才会一同死亡。</li>
+</ul>
+</ul>
+<ul>
+<li>旅行者</li>
+<ul>
+<li><a href="../pages/%E5%AE%98%E5%91%98.html" title="官员">官员</a>：每个夜晚，你要选择<code><s><span style="color:grey">除你以外的</span></s></code>一名玩家：明天白天，他的投票算作三票。</li>
+<li><a href="../pages/%E6%9E%AA%E6%89%8B.html" title="枪手">枪手</a>：每个白天，当首次投票被统计后，你可以选择一名<code><s><span style="color:grey">刚投过票的</span></s></code>玩家：他死亡。</li>
+<li><a href="../pages/%E7%AA%83%E8%B4%BC.html" title="窃贼">窃贼</a>：每个夜晚，你要选择<code><s><span style="color:grey">除你以外的</span></s></code>一名玩家：明天白天他的投票会被算作负数。</li>
+<li><a href="../pages/%E9%9B%86%E9%AA%A8%E8%80%85.html" title="集骨者">集骨者</a>：每局游戏限一次，在夜晚时*，你可以选择一名<code><s><span style="color:grey">死亡的</span></s></code>玩家：他重新获得能力直到下个黄昏。</li>
+</ul>
+</ul>
+<ul>
+<li>华灯初上</li>
+<ul>
+<li><a href="../pages/%E6%AD%8C%E4%BC%B6.html" title="歌伶">歌伶</a>：每局游戏限一次，在白天时，你可以提议所有玩家观看你的演出，并从<code><s><span style="color:grey">同意参加的</span></s></code>玩家中选择你的观众。如果恶魔成为了观众，你会在当晚死亡。</li>
+<li><a href="../pages/%E9%80%86%E8%87%A3.html" title="逆臣">逆臣</a>：在你的首个夜晚，你要选择<code><s><span style="color:grey">除你以外的</span></s></code>一名玩家：如果他先死于处决，你转变为邪恶；如果你先死于处决，他转变为邪恶。</li>
+<li><a href="../pages/%E9%A5%95%E9%A4%AE.html" title="饕餮">饕餮</a>：每个夜晚*，你要选择任意数量的<code><s><span style="color:grey">非旅行者玩家或一名旅行者</span></s></code>玩家：如果他们的角色类型均不相同，他们死亡。[+1外来者]</li>
+</ul>
+</ul>
+<h2 id="角色信息">角色信息</h2>
+<ul>
+<li>英文名：Royal Messenger</li>
+</ul>
+<ul>
+<li>所属角色合集：<a href="../pages/%E5%B1%B1%E9%9B%A8%E6%AC%B2%E6%9D%A5.html" title="山雨欲来">山雨欲来</a></li>
+</ul>
+<ul>
+<li>创意来源：Richard Black</li>
+</ul>
+<ul>
+<li>角色类型：传奇角色</li>
+</ul></div>
+    <div class="page-meta">最后修改于 2026-05-13T05:36:04Z，编辑者 <b>Zack</b> ｜ 页面 5,587 字节 ｜ <a href="https://clocktower-wiki.gstonegames.com/index.php?title=%E8%B5%A6%E4%BB%A4%E6%89%BF%E6%97%A8" target="_blank" rel="noopener">查看原页面</a> ｜ <div class="comment">编辑摘要：/* 背景故事 */</div></div>
+    <div class="backlinks"><b>链入此页的页面（1）</b><a href="../pages/%E5%B1%B1%E9%9B%A8%E6%AC%B2%E6%9D%A5.html">山雨欲来</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

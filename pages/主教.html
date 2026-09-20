@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>主教 - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">主教</h1>
+    <div class="tagline">来自钟楼百科</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#提示与技巧作为善良">提示与技巧（作为善良）</a></li><li class="lvl2"><a href="#提示与技巧作为邪恶">提示与技巧（作为邪恶）</a></li><li class="lvl2"><a href="#角色信息">角色信息</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E4%B8%BB%E6%95%99">查找包含此角色的剧本 →</a></p><p><a href="../pages/%E4%B8%BB%E6%95%99.html" class="image-link" title="主教"><img alt="bishop.png" style="width:200px" class="" loading="lazy" data-source-image="../images/Bishop.png" src="../assets/media/Bishop.preview.webp" width="600" height="600" decoding="async"></a></p>
+<h2 id="背景故事">背景故事</h2>
+<p><em>“我以圣父，圣子，圣灵的名义...乞求主神保佑我们。”</em></p>
+<h2 id="角色能力">角色能力</h2>
+<p><strong>只有说书人可以发起提名。每个白天说书人至少要提名一名你对立阵营的玩家。</strong></p>
+<h2 id="角色简介">角色简介</h2>
+<p>主教使得所有玩家无法进行提名。取而代之的是由说书人来进行所有的提名。</p>
+<ul>
+<li>在提名过程中，将由说书人发起提名，而不是由玩家发起提名。说书人可以根据自己的意愿提名或多或少的玩家。为了更加公平，说书人每一天必须提名至少一名与主教阵营相反的玩家。</li>
+</ul>
+<ul>
+<li>主教不会改变投票的规则，每名玩家都可以正常进行投票。</li>
+</ul>
+<ul>
+<li>由于旅行者会被流放，而不是被处决，任何玩家都可以发起对主教或其他旅行者的流放。</li>
+</ul>
+<h2 id="范例">范例</h2>
+<p><a href="../pages/%E4%B8%BB%E6%95%99.html" title="主教">主教</a>是善良的。在第一个白天，说书人提名了恶魔、爪牙以及两个镇民。第二个白天，说书人提名了一个爪牙和一个外来者。</p>
+<p><a href="../pages/%E4%B8%BB%E6%95%99.html" title="主教">主教</a>是邪恶的。说书人还没有提名任何人。然而说书人在今天必须提名至少一名善良的玩家，所以他选择提名<a href="../pages/%E5%90%9F%E6%B8%B8%E8%AF%97%E4%BA%BA.html" title="吟游诗人">吟游诗人</a>。下一个白天，说书人提名了四名善良的玩家和恶魔，主教在这天被流放了，现在玩家们可以正常继续提名处决玩家。</p>
+<h2 id="运作方式">运作方式</h2>
+<p>每个黎明，用“提名邪恶方”提示标记善良的主教，或用“提名善良方”提示标记邪恶的主教。</p>
+<p>在提名阶段，玩家们不能发起提名，只有你可以。（投票像平常一样进行。）当你提名了与主教阵营相反的一名玩家，移除主教的提示标记。你不能在还没移除主教的提示标记之前结束提名。</p>
+<p>通常你可以每天提名三至五名玩家，其中至少有一名玩家是邪恶的。你不需要在每一天都提名恶魔，但你应该在最后一天提名所有的存活玩家。提名哪名玩家完全取决于你，但通常当主教是善良的，你最好要多提名邪恶玩家，当主教是邪恶的，最好要尽可能少地提名邪恶玩家。</p>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>提名善良方&amp;提名邪恶方</li>
+</ul>
+<p>放置时机：在黎明时。</p>
+<p>放置条件：根据主教的阵营，如果他是善良的，则放置“提名邪恶方”；如果他是邪恶的，则放置“提名善良方”。将对应的提示标记放置在主教的角色标记旁。</p>
+<p>移除时机：提名阶段，当说书人提名了一名与提示标记内容所对应的阵营的玩家时。</p>
+<h2 id="提示与技巧作为善良">提示与技巧（作为善良）</h2>
+<ul>
+<li>密切关注说书人在每个白天提名了谁。每个白天，说书人都必须提名至少一位邪恶玩家。通常来说，说书人只会提名一位邪恶玩家以及几位善良玩家。日复一日地观察，缩小可能的邪恶玩家的范围。例如，如果在第一个白天，说书人提名了<a href="../pages/%E5%BC%84%E8%87%A3.html" title="弄臣">弄臣</a>，<a href="../pages/%E4%BE%8D%E5%A5%B3.html" title="侍女">侍女</a>和<a href="../pages/%E4%BF%AE%E8%A1%A5%E5%8C%A0.html" title="修补匠">修补匠</a>；在下一个白天说书人提名了<a href="../pages/%E4%BF%AE%E8%A1%A5%E5%8C%A0.html" title="修补匠">修补匠</a>，<a href="../pages/%E9%A9%B1%E9%AD%94%E4%BA%BA.html" title="驱魔人">驱魔人</a>，<a href="../pages/%E7%A5%96%E6%AF%8D.html" title="祖母">祖母</a>和<a href="../pages/%E6%B0%B4%E6%89%8B.html" title="水手">水手</a>，你就可以假设要么<a href="../pages/%E4%BF%AE%E8%A1%A5%E5%8C%A0.html" title="修补匠">修补匠</a>是邪恶的，要么<a href="../pages/%E4%BF%AE%E8%A1%A5%E5%8C%A0.html" title="修补匠">修补匠</a>是善良的且每组中有一个角色是邪恶的。</li>
+</ul>
+<ul>
+<li>活下来。你知道你是善良的。你知道你每天都能获取有用的信息。然而，其他玩家做不到这一点。他们所看到的可能就只是一位玩家在尽力避免自己被提名处决，仅此而已。你需要说服善良阵营让你保持存活——即便这样做并不符合他们的最大利益。分享你所知道的，或者按他们的想法投票——想尽一切办法让自己活下来，这样你才有足够的时间去收集有关玩家阵营的线索。</li>
+</ul>
+<ul>
+<li>在最后一天，说书人绝对会提名恶魔。如果说书人在最后一天只提名了2位玩家，你就可以把恶魔嫌疑人从3位缩减到2位。这很重要。如果你能说服其他玩家你是善良的，那他们也能从中获益。</li>
+</ul>
+<ul>
+<li>随着游戏进程的推进，你会越来越强大。如果有12名玩家存活，说书人可以提名很多位玩家。但如果只有四位玩家存活，说书人就至多可以提名四位玩家。你会希望说书人在每个白天提名2-3位玩家，越少越好。但你没法控制说书人的行为，你能做的就是重点关注被提名玩家数量最少的那一天。</li>
+</ul>
+<h2 id="提示与技巧作为邪恶">提示与技巧（作为邪恶）</h2>
+<ul>
+<li>尽你所能说服大家你是善良的。有些旅行者其实并不真正在意大家是否相信他是善良的。像<a href="../pages/%E6%B3%95%E5%AE%98.html" title="法官">法官</a>或是<a href="../pages/%E5%B7%AB%E6%AF%92%E5%B8%88.html" title="巫毒师">巫毒师</a>这样的角色，不管善良玩家怎么想，他们都可以使用自己的能力并从中获得收益。但是如果善良玩家从你身上嗅到了一丝丝邪恶的气息，他们就会立刻流放你，那你的能力就没什么帮助了。然而，如果你可以活过几个白天，你的能力就能带来毁灭性的打击，因为不仅邪恶玩家不会被提名（一般情况下，说书人可能会经常这样做来维持邪恶玩家的形象），而且善良阵营还会一门心思地在被提名玩家当中寻找谁是邪恶的…这样他们所得出的所有结论都将是错误的。</li>
+</ul>
+<ul>
+<li>尽可能多地投票。对此你有完美的理由——被提名玩家有可能是邪恶的！毕竟…你是个善良<a href="../pages/%E4%B8%BB%E6%95%99.html" title="主教">主教</a>，不是吗？如果善良阵营相信你是善良的，他们就也会给每一位可能被处决的玩家投票。<a href="../pages/%E4%B8%BB%E6%95%99.html" title="主教">主教</a>不在场的情况下，一天中所有的提名都有可能是对善良玩家的提名。但如果<a href="../pages/%E4%B8%BB%E6%95%99.html" title="主教">主教</a>在场，就总有机会去杀死一名邪恶玩家。如果你已经说服了大家你是善良的，剩下你要做的就是…投票，投票，再投票。</li>
+</ul>
+<ul>
+<li>在最后一天，问问大家是否想要流放你。大多数说书人会在最后一天提名恶魔，而不管你是什么阵营，因而就算你死了也没多大损失。而且，你申请流放自己这件事通常反而会帮助你免于被处决。</li>
+</ul>
+<ul>
+<li>不论何时，如果这个白天只有善良玩家被提名，你就需要在接下来的白天里尽可能地花时间来让大家注意到这样一个”事实”——昨天被提名者中至少有一位是邪恶的。假设有4位玩家在昨天被提名了，你就可以让这四位玩家看起来非常有嫌疑，并且可能会让其中的一位（或者两位甚至三位！）在接下来的白天里被处决。你引导善良阵营自相残杀的每一天，恶魔都将存活下来，邪恶方的投票总是会倾向于帮助邪恶方自己的。即便你没有让这几位玩家被处决，你也可以将大家讨论的内容从某个更危险的话题上转移，进而去讨论一个完全没用的话题——“这四位玩家中哪位是邪恶的？”。你可以通过这样的方式浪费善良阵营的时间和精力，让他们致力于研究一个毫无意义的方向。</li>
+</ul>
+<h2 id="角色信息">角色信息</h2>
+<ul>
+<li>英文名：Bishop</li>
+</ul>
+<ul>
+<li>推荐剧本：<a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html" title="黯月初升">黯月初升</a></li>
+</ul>
+<ul>
+<li>角色类型：<a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html" title="旅行者">旅行者</a></li>
+</ul>
+<ul>
+<li>角色能力类型：<a href="../pages/%E6%8F%90%E5%90%8D.html" title="提名">提名</a></li>
+</ul></div>
+    <div class="page-meta">最后修改于 2025-05-30T03:40:54Z，编辑者 <b>Zack</b> ｜ 页面 6,955 字节 ｜ <a href="https://clocktower-wiki.gstonegames.com/index.php?title=%E4%B8%BB%E6%95%99" target="_blank" rel="noopener">查看原页面</a> ｜ <div class="comment">编辑摘要：/* 提示与技巧（作为善良） */</div></div>
+    <div class="backlinks"><b>链入此页的页面（5）</b><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a><a href="../pages/%E6%8F%90%E5%90%8D.html">提名</a><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a><a href="../pages/%E5%92%8C%E5%B9%B3%E4%B8%BB%E4%B9%89%E8%80%85.html">和平主义者</a><a href="../pages/%E4%B8%BB%E6%95%99.html">主教</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

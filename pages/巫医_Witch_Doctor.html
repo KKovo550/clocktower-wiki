@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>巫医 Witch Doctor - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">巫医 Witch Doctor<span class="ns-badge">奥德赛</span></h1>
+    <div class="tagline">来自钟楼百科 · 摘自《奥德赛 Odyssey》百科 · 爪牙</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#夜晚行动顺序">夜晚行动顺序</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#游玩与对抗技巧">游玩与对抗技巧</a></li><li class="lvl2"><a href="#出现剧本">出现剧本</a></li><li class="lvl2"><a href="#整体设计">整体设计</a></li><li class="lvl2"><a href="#创意来源">创意来源</a></li><li class="lvl2"><a href="#图标画师">图标画师</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E5%B7%AB%E5%8C%BB">查找包含此角色的剧本 →</a></p><div class="charinfo"><div class="charinfo-img"><a href="../files/%E6%96%87%E4%BB%B6_%E5%B7%AB%E5%8C%BB.png.html"><img alt="巫医 Witch Doctor" data-source-image="../images/%E5%B7%AB%E5%8C%BB.png" src="../assets/media/巫医.preview.webp" width="600" height="600" decoding="async"></a></div><div class="charinfo-meta"><div class="row"><span class="k">角色类型</span><span class="v"><a href="../pages/%E7%88%AA%E7%89%99.html" title="爪牙">爪牙</a></span></div><div class="row"><span class="k">英文名</span><span class="v">Witch Doctor</span></div><div class="row"><span class="k">角色ID</span><span class="v">057</span></div><div class="row"><span class="k">角色归属</span><span class="v">角色拓展包《奥德赛》</span></div><div class="row"><span class="k">能力标签</span><span class="v"><a href="../pages/%E4%B8%AD%E6%AF%92.html" title="中毒">中毒</a>、死亡延迟</span></div><div class="row"><span class="k">角色授权</span><span class="v">开放（任意剧本创作可用，不要修改能力）</span></div><div class="row"><span class="k">出处</span><span class="v"><a class="external" href="https://www.yuque.com/u48069482/taiyi" target="_blank" rel="noopener">《奥德赛 Odyssey》百科</a></span></div></div></div><p><a href="../files/%E6%96%87%E4%BB%B6_%E5%B7%AB%E5%8C%BB.png.html" class="image-link" title="文件:巫医.png"><img alt="巫医.png" style="width:240px" class="" loading="lazy" data-source-image="../images/%E5%B7%AB%E5%8C%BB.png" src="../assets/media/巫医.preview.webp" width="600" height="600" decoding="async"></a></p>
+<h2 id="背景故事">背景故事</h2>
+<p><em>“当蛇杖叩响大地，丛林烟雾升起，请细嗅这曼陀罗与乌头交织的迷香。莫要抗拒这神赐，这是金刚不坏，这是心醉神迷，这是世间极乐。”</em></p>
+<h2 id="角色简介"><span style="color:rgb(64, 64, 64);">角色简介</span></h2>
+<p>因巫医中毒的玩家受到的死亡会被延迟，直到他不再受到巫医保护。</p>
+<h2 id="角色能力">角色能力</h2>
+<div class="callout callout-info">
+<p>每个夜晚，你要选择一名玩家：他中毒且死亡延迟，直到你改变选择。</p>
+</div>
+<h2 id="范例">范例</h2>
+<ul>
+<li>第一个夜晚，巫医选择了贵族，贵族中毒了且在当晚获得了错误的信息。下一个白天，贵族被处决但他没有死亡（死亡延迟）。第二个夜晚，巫医选择了占卜师，贵族的死亡延迟效果消失，贵族死亡。</li>
+<li>第二个夜晚，巫医选择了占卜师，恶魔攻击了占卜师，但占卜师因为巫医的能力并没有死亡（死亡延迟），占卜师因为中毒获得了错误信息。下个白天，占卜师被处决，但占卜师因为巫医的能力并没有死亡（死亡延迟）。第三个夜晚，巫医依旧选择了占卜师，占卜师因为中毒获得了错误信息。只剩4人的夜晚，巫医选择了自己，占卜师的死亡延迟效果消失，占卜师死亡。恶魔杀死了一名其他玩家。场上只剩下两名存活玩家，邪恶获胜。</li>
+<li>第四个夜晚，巫医选择了小恶魔，小恶魔中毒了且在当晚攻击了占卜师，但因为小恶魔中毒占卜师并没有死亡。下一个白天，小恶魔被处决但他没有死亡（死亡延迟）。第五个夜晚，巫医依旧选择了小恶魔，小恶魔的死亡继续被延迟。下一个白天，巫医被处决，小恶魔的死亡延迟效果消失，巫医与小恶魔一同死亡。善良阵营获胜。</li>
+<li>第一个夜晚，巫医选择了僧侣，僧侣中毒。第一个白天，僧侣被处决但没有死亡（死亡延迟）。第二个白天，巫医被处决，僧侣的死亡延迟效果消失，巫医与僧侣一同死亡。</li>
+<li>第二个夜晚，巫医选择了报丧女妖，小恶魔攻击了报丧女妖，报丧女妖没有死亡（死亡延迟）。第三个夜晚，巫医选择了其他玩家，报丧女妖死亡，报丧女妖的能力没有被触发，因为报丧女妖看作被巫医杀死。</li>
+<li>第一个夜晚，巫医选择了自己，巫医因为中毒失去了所有能力，所以他并没有受到不会死亡的保护。</li>
+</ul>
+<h2 id="运作方式">运作方式</h2>
+<p>每个夜晚，唤醒巫医。让巫医指向任意一名玩家。被选择的玩家中毒且被死亡延迟——将“巫毒”提示标记放置在被选择的玩家角色标记旁。让巫医重新入睡。当巫医选择了一名新的玩家时，移除“巫毒”提示标记。</p>
+<p>如果被放置了“巫毒”提示标记的玩家将要死亡，他的死亡会被延迟，将“延迟死亡”提示标记放置在该玩家角色标记旁。当被放置了“延迟死亡”提示标记的玩家不再受到巫医能力影响时（包括巫医选择了一名新玩家，或巫医死亡、离场、中毒醉酒、失去能力），他立即死亡。并移除“延迟死亡”提示标记。</p>
+<h2 id="夜晚行动顺序">夜晚行动顺序</h2>
+<ul>
+<li>首个夜晚</li>
+<ul>
+<li>夜序数值：4610</li>
+<li>前位角色：投毒者</li>
+<li>行动提示：让他选择一名玩家。</li>
+</ul>
+<li>其他夜晚</li>
+<ul>
+<li>夜序数值：1410</li>
+<li>前位角色：投毒者</li>
+<li>行动提示：让他选择一名玩家。</li>
+</ul>
+</ul>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>巫毒</li>
+<ul>
+<li>放置时机：在巫医夜晚行动并选择了玩家后。</li>
+<li>放置条件：在巫医选择的玩家角色标记旁放置。若此时巫医醉酒中毒，不放置该标记。</li>
+<li>移除时机：巫医选择了一名新的玩家时，或巫医死亡或离场时。 </li>
+</ul>
+<li>延迟死亡</li>
+<ul>
+<li>放置时机：在被放置了“巫毒”提示标记的玩家即将死亡时</li>
+<li>放置条件：在被放置了“巫毒”提示标记的玩家角色标记旁放置。若此时巫医醉酒中毒，不放置该标记。</li>
+<li>移除时机：巫医选择了一名新的玩家时，或巫医死亡、离场、中毒醉酒、失去能力时。如果此时是夜晚，则等到黎明时再移除，用以提醒说书人在黎明时分宣布当晚的死亡玩家。</li>
+</ul>
+</ul>
+<h2 id="规则细节">规则细节</h2>
+<ul>
+<li><strong>死亡延迟：</strong>指玩家将要死亡时暂时不会死亡，而将死亡延后到死亡延迟效果结束或消失时再发生。死亡延迟会延后的死亡包括处决及角色能力导致的死亡。  </li>
+<li>为简化各类能力结算，被巫医延迟死亡的玩家真正死亡时，会被看作是死于巫医的能力，而不是被延迟死亡时的死因（此处可能与女武神的能力不同）。因此不会触发“被恶魔杀死”及“死于处决”等类型的能力。</li>
+<li>因巫医能力延迟死亡的玩家，在死亡时不再中毒。如：守鸦人被巫医选择后被处决，当晚巫医选择了新的目标，守鸦人的死亡延迟效果结束并死亡。此时守鸦人会死亡且他现在并没有中毒，因此能力会正确发动。</li>
+<li>因巫医能力延迟死亡的玩家，在巫医能力消失时，会立即死亡。如：还剩3名存活玩家时，巫医死于处决，被他延迟死亡的恶魔立即死亡。善良获胜。</li>
+<li>如果巫医选择了自己，他会因为中毒而失去所有能力，所以他无法延迟自己的死亡。使自己中毒的巫医选择了一名其他玩家后，巫医会立即恢复健康且让他选择的玩家中毒。</li>
+<li>只要巫医重复选择同一名玩家，该玩家受到的死亡就会一直被延迟，即使该玩家受到多次死亡，也不会死亡。直到该玩家不再受到巫医能力影响时，他才会立即死亡。</li>
+<li>巫医不可以选择旅行者玩家（旅行者隔绝原则）。</li>
+</ul>
+<h2 id="游玩与对抗技巧">游玩与对抗技巧</h2>
+<ul>
+<li>记住，你的能力至少有三种用途。第一种是通过中毒干扰其他玩家能力。第二种是让玩家被处决是不会死亡（暂时的），用以保护特定玩家或是伪造其他角色的能力。第三种是与恶魔配合将当夜的死亡转移到之后的夜晚，以达成伪造平安夜或其他目的。请自行发挥想象力，尽可能地利用巫医的能力打出精彩的操作！</li>
+<li>如果你想要选择恶魔，记住两点。第一，恶魔会因为你的能力中毒，从而无法杀死他的目标。第二，如果恶魔在被你保护期间被处决，他不会立即死亡，但他会在失去你能力保护之后立即死亡。</li>
+<li>你可以在夜晚与恶魔选择同一个目标，制造平安夜。然后你在其他夜晚选择新的目标，制造多人死于同一夜晚的假象。</li>
+<li>你是善良玩家。如果你认为自己因为巫医中毒了，你可以尝试处决自己，如果你死了，你前一晚一定没有因为巫医中毒。</li>
+<li>你是善良玩家。如果你被处决但没有死亡，但你在当晚死亡了，且当晚死亡的不止你一个人。那你前一晚大概率是被巫医选择了，且他在当晚选择了新的目标。</li>
+<li>你是善良玩家。如果你们多次处决了一名疑似恶魔的玩家，但他都没有死亡，且夜晚都是平安夜。那么极大概率有一名巫医在暗处不断地给恶魔续命了。请放弃处决他转而去寻找并处决那名躲在暗处的巫医。</li>
+<li>巫医没法保护自己，如果你找到了巫医，尽快处决他。</li>
+</ul>
+<h2 id="出现剧本">出现剧本</h2>
+<ul>
+<li><em>暂无</em></li>
+</ul>
+<h2 id="整体设计">整体设计</h2>
+<ul>
+<li>太一</li>
+</ul>
+<h2 id="创意来源">创意来源</h2>
+<ul>
+<li>太一</li>
+</ul>
+<h2 id="图标画师">图标画师</h2>
+<ul>
+<li>Lei.</li>
+</ul></div>
+    <div class="page-meta">最后修改于 2026-08-16T12:06:09.000Z，编辑者 <b>未知</b> ｜ 页面 7,444 字节 ｜ <a href="https://www.yuque.com/u48069482/taiyi/ynpq0bgy6ztql7xo" target="_blank" rel="noopener">查看原页面</a></div>
+    <div class="backlinks"><b>链入此页的页面（2）</b><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">奥德赛 Odyssey</a><a href="../pages/%E5%BB%B6%E8%BF%9F_Delay.html">延迟 Delay</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

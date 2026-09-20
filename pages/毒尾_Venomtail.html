@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>毒尾 Venomtail - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">毒尾 Venomtail<span class="ns-badge">奥德赛</span></h1>
+    <div class="tagline">来自钟楼百科 · 摘自《奥德赛 Odyssey》百科 · 爪牙</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#夜晚行动顺序">夜晚行动顺序</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#游玩与对抗技巧">游玩与对抗技巧</a></li><li class="lvl2"><a href="#出现剧本">出现剧本</a></li><li class="lvl2"><a href="#整体设计">整体设计</a></li><li class="lvl2"><a href="#创意来源">创意来源</a></li><li class="lvl2"><a href="#图标画师">图标画师</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E6%AF%92%E5%B0%BE">查找包含此角色的剧本 →</a></p><div class="charinfo"><div class="charinfo-img"><a href="../files/%E6%96%87%E4%BB%B6_%E6%AF%92%E5%B0%BE.png.html"><img alt="毒尾 Venomtail" data-source-image="../images/%E6%AF%92%E5%B0%BE.png" src="../assets/media/毒尾.preview.webp" width="600" height="600" decoding="async"></a></div><div class="charinfo-meta"><div class="row"><span class="k">角色类型</span><span class="v"><a href="../pages/%E7%88%AA%E7%89%99.html" title="爪牙">爪牙</a></span></div><div class="row"><span class="k">英文名</span><span class="v">Venomtail</span></div><div class="row"><span class="k">角色ID</span><span class="v">061</span></div><div class="row"><span class="k">角色归属</span><span class="v">角色拓展包《奥德赛》</span></div><div class="row"><span class="k">能力标签</span><span class="v"><a href="../pages/%E4%B8%AD%E6%AF%92.html" title="中毒">中毒</a>、<a href="../pages/%E8%AE%BE%E7%BD%AE%E8%B0%83%E6%95%B4.html" title="设置调整">设置调整</a>、<a href="../pages/%E9%82%BB%E8%BF%91.html" title="邻近">邻近</a>、<a href="../pages/%E6%8C%81%E7%BB%AD%E6%A3%80%E6%B5%8B%E5%9E%8B%E8%83%BD%E5%8A%9B.html" title="持续检测型能力">持续检测型能力</a>、<a href="../pages/%E8%BF%9B%E5%9C%BA%E8%83%BD%E5%8A%9B.html" title="进场能力">进场能力</a></span></div><div class="row"><span class="k">角色定位</span><span class="v">中毒爪牙</span></div><div class="row"><span class="k">发布日期</span><span class="v">2026.4.17</span></div><div class="row"><span class="k">角色授权</span><span class="v">开放（任意剧本创作皆可使用，不要改能力）</span></div><div class="row"><span class="k">出处</span><span class="v"><a class="external" href="https://www.yuque.com/u48069482/taiyi" target="_blank" rel="noopener">《奥德赛 Odyssey》百科</a></span></div></div></div><h2 id="背景故事">背景故事</h2>
+<p><em>"看到我身后这条漂亮的尾巴了吗？这可是花大价钱从外乡人那儿买的。它的每一节都是你中毒发黑的邻居，每一节都在无声地腐烂。它会越拖越长，越拖越沉。别急，等毒素爬满你的骨头，你也会被钉上去，永远跟着我晃荡。"</em></p>
+<h2 id="角色简介"><span style="color:rgb(64, 64, 64);">角色简介</span></h2>
+<p>毒尾将外来者转化为中毒的镇民，在身后拉起一条“毒”尾巴。</p>
+<h2 id="角色能力">角色能力</h2>
+<div class="callout callout-info">
+<p>你顺时针方向上最近的1+X名镇民中毒。[无外来者在场，X为因你减去的外来者数量]</p>
+</div>
+<h2 id="范例">范例</h2>
+<ul>
+<li>12人局，毒尾减少了2名外来者，所以有1+2共3名镇民中毒。毒尾是1号玩家。所以2号玩家（占卜师）、3号玩家（旅店老板）、4号玩家（守鸦人）都中毒了。</li>
+<li>12人局，毒尾、方古（+1外来者）在场。毒尾减少了3名外来者，所以会有1+3共4名镇民中毒。毒尾是1号玩家，方古是2号玩家。所以3号玩家（占卜师）、4号玩家（旅店老板）、5号玩家（守鸦人）、6号玩家（洗衣妇）都中毒了。</li>
+<li>12人局，毒尾、亡骨魔（-1外来者）在场。毒尾减少了1名外来者，所以会有1+1共2名镇民中毒。毒尾是1号玩家，亡骨魔是2号玩家。所以3号玩家（占卜师）、4号玩家（旅店老板）都中毒了。</li>
+<li>10人局，毒尾没有减少外来者，所以会有1+0共1名镇民中毒。毒尾是1号玩家，小恶魔是2号玩家，红唇女郎是3号玩家。4号玩家（占卜师）中毒了。</li>
+<li>10人局，毒尾没有减少外来者，所以会有1+0共1名镇民中毒。毒尾是1号玩家。2号玩家（占卜师）中毒了。第二个夜晚，麻脸巫婆把2号玩家变成了外来者，因为2号已经不再是镇民了，所以从现在开始，3号玩家（共情者）中毒了。</li>
+</ul>
+<h2 id="运作方式">运作方式</h2>
+<p>在初始设置时，将角色标记放入盲抽袋前，把所有外来者角色标记替换为镇民角色标记。</p>
+<p>在为首个夜晚进行准备时，计算毒尾减少了几名外来者。每减少一名外来者，就让毒尾顺时针方向上最近的一名镇民玩家中毒（顺延下去）——在他们角色标记旁放置“中毒”提示标记。</p>
+<p>如果一名因毒尾中毒的镇民变成了一个非镇民角色，立即移除他的“中毒”提示标记——他从现在开始不再因毒尾中毒。在毒尾顺时针方向上另寻一名最近的、且没有因毒尾中毒的镇民，并让他中毒。</p>
+<h2 id="夜晚行动顺序">夜晚行动顺序</h2>
+<ul>
+<li>首个夜晚</li>
+<ul>
+<li>夜序数值：/</li>
+<li>前位角色：/</li>
+<li>行动提示：/</li>
+</ul>
+<li>其他夜晚</li>
+<ul>
+<li>夜序数值：/</li>
+<li>前位角色：/</li>
+<li>行动提示：/</li>
+</ul>
+</ul>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>中毒*5</li>
+<ul>
+<li>放置时机：在为首个夜晚做准备时放置，或一名因毒尾中毒的镇民不再是镇民时放置。</li>
+<li>放置条件：放置在毒尾顺时针方向上最近的若干名镇民玩家的角色标记旁。</li>
+<li>特殊说明：动态检测会检毒尾及他顺时针方向上最近的镇民玩家是哪些玩家。一旦毒尾及其顺时针方向上最近的镇民玩家的座次或角色发生变化，就需要移动“中毒”标记至满足条件的玩家角色标记旁。</li>
+<li>移除时机：毒尾死亡或离场时。</li>
+</ul>
+</ul>
+<h2 id="规则细节">规则细节</h2>
+<ul>
+<li>在毒尾顺时针方向上最近的若干名镇民玩家中毒，无论这些镇民是存活还是死亡。如果毒尾死亡或者因为其他原因失去能力，那么这些镇民恢复健康。</li>
+<li>毒尾的效果会跳过顺时针方向上的非镇民角色。</li>
+<li>如果有玩家成为新的毒尾，或一个中毒的镇民变成了一个非镇民角色，都会根据新位置关系立刻改变中毒的玩家。</li>
+<li>只要初始设置时你加入了毒尾，那么就一定不能加入任何外来者。如果存在其他加减外来者的角色，优先计算其他外来者的加减数量，再去除所有外来者。根据实际因为毒尾的能力去除外来者的数量，决定有几名镇民会因为毒尾中毒。</li>
+</ul>
+<p><em>毒尾X值的详细计算公式为：</em></p>
+<p>$ \text{毒尾能力中的 } X \text{ 值}=\\ |\text{初始外来者数量}| + |\text{增加的外来者设置调整数量}| - |\text{减少的外来者设置调整数量}| $</p>
+<ul>
+<li>X值在初始设置时就已经确定，不会因为任何原因改变。如果毒尾在游戏中途被创造，该毒尾的X值一定为0。</li>
+</ul>
+<h2 id="游玩与对抗技巧">游玩与对抗技巧</h2>
+<ul>
+<li>如果你是毒尾。所有外来者均不在场，这意味着你天生自带了所有外来者的伪装！</li>
+<li>如果你是毒尾。尽量将场面上的外来者数量伪装成没有异样，这是你最重要的事情！如果场上没有人自称外来者，那么玩家们很快就会确定毒尾在场。如果你不希望由自己伪装为外来者（一旦玩家们确定毒尾在场，你就一定是邪恶玩家，且极有可能是那个毒尾，再顺着你找到所有中毒镇民。），你可以让其他队友伪装为外来者。这样即使毒尾在场败露，玩家们也无法通过假外来者的位置快速定位所有中毒的镇民。</li>
+<li>如果你是毒尾。你的死亡会让所有因你中毒的镇民恢复健康，注意这点。如果因你中毒的玩家中混杂着你的队友，特别是恶魔——他们可以伪装为因你中毒、或因你死亡而恢复健康的样子，从而获取其他玩家的信任。</li>
+<li>如果你是外来者。那么场上一定没有毒尾！不要去考虑任何毒尾存在的可能性——至少在游戏开始时毒尾一定不存在。</li>
+<li>如果你是镇民。如果你认为毒尾在场，那么声称自己是外来者的玩家就一定是邪恶的！尝试处决他们。并且在他们的顺时针方向上寻找疑似中毒的迹象。</li>
+<li>如果你是镇民。如果你和靠近你的几名镇民疑似中毒了，那么可能是毒尾在你们“上游”捣乱，尝试把他找出来并处决他，这样会令你们恢复健康。</li>
+<li>如果你是镇民。如果你已经找到了毒尾，在他“下游”的玩家未必都是善良的！可能会有其他邪恶玩家混在其中掩人耳目，注意区分。</li>
+</ul>
+<h2 id="出现剧本">出现剧本</h2>
+<ul>
+<li><em>暂无</em></li>
+</ul>
+<h2 id="整体设计">整体设计</h2>
+<ul>
+<li>太一</li>
+</ul>
+<h2 id="创意来源">创意来源</h2>
+<ul>
+<li>太一</li>
+</ul>
+<h2 id="图标画师">图标画师</h2>
+<ul>
+<li>Lei.</li>
+</ul></div>
+    <div class="page-meta">最后修改于 2026-09-08T05:13:37.000Z，编辑者 <b>未知</b> ｜ 页面 6,233 字节 ｜ <a href="https://www.yuque.com/u48069482/taiyi/pv0kuf5vgseowob8" target="_blank" rel="noopener">查看原页面</a></div>
+    <div class="backlinks"><b>链入此页的页面（2）</b><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">奥德赛 Odyssey</a><a href="../pages/%E5%8F%98%E9%87%8F_X_Variable_X.html">变量 X Variable X</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

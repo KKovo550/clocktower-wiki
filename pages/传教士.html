@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>传教士 - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">传教士</h1>
+    <div class="tagline">来自钟楼百科</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#提示与技巧">提示与技巧</a></li><li class="lvl2"><a href="#伪装成传教士">伪装成传教士</a></li><li class="lvl2"><a href="#角色信息">角色信息</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E4%BC%A0%E6%95%99%E5%A3%AB">查找包含此角色的剧本 →</a></p><p><a href="../pages/%E4%BC%A0%E6%95%99%E5%A3%AB.html" class="image-link" title="传教士"><img alt="Preacher.png" style="width:200px" class="" loading="lazy" data-source-image="../images/Preacher.png" src="../assets/media/Preacher.preview.webp" width="591" height="591" decoding="async"></a></p>
+<h2 id="背景故事">背景故事</h2>
+<p><em>“富有和健康总比贫穷和疾病要好。”</em></p>
+<h2 id="角色能力">角色能力</h2>
+<p><strong>每个夜晚，你要选择一名玩家：如果你选中了爪牙，他会得知被传教士选中。</strong></p>
+<p><strong>所有被你选中的爪牙失去能力。</strong></p>
+<h2 id="角色简介">角色简介</h2>
+<p>传教士会净化爪牙的能力。</p>
+<ul>
+<li>如果传教士选择了一名爪牙，爪牙会被唤醒得知他被布道了，并且他在传教士存活清醒健康的时候无法行动。</li>
+</ul>
+<ul>
+<li>如果传教士选择了不是爪牙的玩家，无事发生。</li>
+</ul>
+<ul>
+<li>传教士可以选择死亡玩家。</li>
+</ul>
+<ul>
+<li>如果传教士在醉酒或中毒的时候选择了一名玩家，那名玩家不会被传教士的能力影响。</li>
+</ul>
+<ul>
+<li>如果传教士醉酒或中毒，被布道的爪牙会重新获得能力，直到传教士恢复清醒健康。</li>
+</ul>
+<h2 id="范例">范例</h2>
+<p><a href="../pages/%E4%BC%A0%E6%95%99%E5%A3%AB.html" title="传教士">传教士</a>指向小艾，他是一名<a href="../pages/%E5%B7%A5%E7%A8%8B%E5%B8%88.html" title="工程师">工程师</a>，无事发生。<a href="../pages/%E4%BC%A0%E6%95%99%E5%A3%AB.html" title="传教士">传教士</a>指向了小茶，他是<a href="../pages/%E6%B4%97%E8%84%91%E5%B8%88.html" title="洗脑师">洗脑师</a>。小茶被唤醒得知了他被布道了，并且他没有被唤醒使用他的能力。</p>
+<p>道哥是<a href="../pages/%E4%BC%A0%E6%95%99%E5%A3%AB.html" title="传教士">传教士</a>。他指向小明，她是<a href="../pages/%E9%BA%BB%E8%84%B8%E5%B7%AB%E5%A9%86.html" title="麻脸巫婆">麻脸巫婆</a>。小明被唤醒得知她被布道了，并且不会被唤醒使用她的能力。下一个夜晚，<a href="../pages/%E6%8A%95%E6%AF%92%E8%80%85.html" title="投毒者">投毒者</a>选择了道哥。因为道哥现在中毒了，小明被唤醒使用了她的能力。</p>
+<h2 id="运作方式">运作方式</h2>
+<p>每个夜晚，唤醒传教士并让他选择一名玩家。如果他选中一名爪牙，在那名爪牙的角色标记旁放置“失去能力”提示标记。让传教士重新入睡。如可能，则唤醒今晚被传教士选中的爪牙，向他展示“该角色的能力对你生效”信息标记以及传教士角色标记。让这名爪牙重新入睡。</p>
+<p>在传教士存活期间，所有被标记“失去能力”的爪牙不会拥有能力。</p>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>失去能力</li>
+</ul>
+<p>放置时机：在传教士行动并选择了一名爪牙玩家后。</p>
+<p>放置条件：传教士清醒健康，那么将此标记放置在被他选中的爪牙玩家的角色标记旁。</p>
+<p>移除时机：传教士死亡或离场，或被标记的玩家角色不再是爪牙角色时移除。</p>
+<h2 id="规则细节">规则细节</h2>
+<ul>
+<li>关于传教士的“失去能力”与其他角色的醉酒中毒效果会有所不同，暂且作为“特例”进行处理。如果想要了解与其他情况下失去能力的效果的详细差别，请参考<a href="../pages/%E4%B8%AD%E6%AF%92.html" title="中毒">这里</a>。</li>
+</ul>
+<ul>
+<li>如果传教士死亡，这些爪牙恢复能力。已经使用了“每局游戏限一次”的能力的爪牙无法再次使用能力。受传教士影响的爪牙不会被告知传教士已经死亡，但他们可能会在再次被唤醒时意识到这一点。</li>
+</ul>
+<ul>
+<li>如果传教士醉酒或中毒，因传教士失去能力的爪牙恢复能力，但会在传教士恢复健康清醒后再次失去能力。</li>
+</ul>
+<ul>
+<li>如果被传教士选中的爪牙在之后变成其他角色类型的角色(也就是不再是爪牙)，那么他不再受到传教士能力的影响。此外，邪恶玩家不会仅仅因为属于邪恶阵营就受到传教士能力的影响，他需要明确地作为爪牙角色才能受到影响。</li>
+</ul>
+<ul>
+<li>同理，一名后来变成爪牙的非爪牙玩家不会因为在变成爪牙之前被传教士选择而受到其能力影响。如果他在变成爪牙后被传教士选中，传教士能力正常生效。</li>
+</ul>
+<ul>
+<li>如果因传教士而失去能力的爪牙在死亡后复活，他不会恢复能力，只要传教士仍然存活，他仍然失去能力。</li>
+</ul>
+<ul>
+<li>特定角色互动：</li>
+<ul>
+<li><a href="../pages/%E5%92%96%E5%95%A1%E5%B8%88.html" title="咖啡师">咖啡师</a>：被布道的爪牙获得咖啡师能力1不会恢复能力。</li>
+<li><a href="../pages/%E5%B7%A5%E7%A8%8B%E5%B8%88.html" title="工程师">工程师</a>：如果工程师做出行动，被布道的爪牙会被告知他的爪牙角色发生改变，但他会继续受到传教士影响，并且不会恢复能力。</li>
+<li><a href="../pages/%E5%B0%8F%E6%80%AA%E5%AE%9D.html" title="小怪宝">小怪宝</a>：正在持有小怪宝角色标记的爪牙被传教士选中，会失去他的爪牙能力，但保留小怪宝恶魔的能力。</li>
+<li><a href="../pages/%E6%95%B0%E5%AD%A6%E5%AE%B6.html" title="数学家">数学家</a>：那些原本该醒来或使用能力的爪牙，因为被布道而无法这样做时，会被数学家当作是他的能力未正常生效。</li>
+<li><a href="../pages/%E7%81%B5%E8%A8%80%E5%B8%88.html" title="灵言师">灵言师</a>：如果灵言师在首个夜晚被布道，他不会得知关键词。然而，如果传教士死亡或醉酒中毒，灵言师会在那个时候得知他的关键词。如果灵言师在其他夜晚被布道，在这之后说出关键词的玩家不会转变为邪恶但仍然消耗灵言师的能力，同样的情况适用于如果玩家在白天说出关键词，接着灵言师在夜晚被布道。玩家不能在灵言师得知关键词之前说出关键词，在灵言师被告知关键词之前，关键词实际上并不存在，所以提前使用相关词语不算作灵言师能力的一次使用，既没有消耗能力，也没有让玩家转变为邪恶。</li>
+<li><a href="../pages/%E9%99%8C%E5%AE%A2.html" title="陌客">陌客</a>：陌客可以被传教士当作是爪牙角色，并得知被传教士选中。通常来说你应该避免这样做——请注意，如果你这样做，陌客仍然保留能力——如果陌客失去能力，他会停止被当作爪牙，这意味着“布道”提示标记应该被移除并且因此陌客不再被布道，所以陌客重新恢复能力。</li>
+<li><a href="../pages/%E9%97%B4%E8%B0%8D.html" title="间谍">间谍</a>：间谍可以在被传教士选中时被当作非爪牙角色，并且避免受到传教士能力影响。</li>
+<li><a href="../pages/%E4%BA%A1%E9%AA%A8%E9%AD%94.html" title="亡骨魔">亡骨魔</a>：传教士可以选中在亡骨魔的保留能力效果下的死亡爪牙。在这种情况下，传教士的能力会更胜一筹，意味着爪牙会像被正常选中那样失去能力。在此之后，如果传教士死亡，受到影响的爪牙将恢复能力。</li>
+<li><a href="../pages/%E5%AF%A1%E5%A6%87.html" title="寡妇">寡妇</a>：如果寡妇在首个夜晚被传教士选中，那么他不能查看魔典并选择一名玩家中毒，也不会有一名善良玩家知道寡妇在场。然而，如果传教士死亡或醉酒中毒，寡妇会在那个时候查看魔典并选择一名玩家中毒，随后会有一名善良玩家知道寡妇在场。</li>
+</ul>
+</ul>
+<ul>
+<li>相克规则：</li>
+<ul>
+<li><a href="../pages/%E7%BB%B4%E9%BD%90%E5%B0%94.html" title="维齐尔">维齐尔</a>：如果维齐尔失去能力，他会得知此事，但不会在白天死亡。</li>
+<li><a href="../pages/%E5%8F%AC%E5%94%A4%E5%B8%88.html" title="召唤师">召唤师</a>：如果存活的召唤师失去能力，说书人会获得召唤师能力。</li>
+<li><a href="../pages/%E5%86%9B%E5%9B%A2.html" title="军团">军团</a>：如果传教士选中了军团，军团仍然保留能力，但传教士可能会得知自己选中了军团。</li>
+</ul>
+</ul>
+<h2 id="提示与技巧">提示与技巧</h2>
+<ul>
+<li>传教士的能力可以阻断爪牙的能力。但是他们会得知这点并且能在你死后夺回能力。虽然你无法得知你是否成功地命中一个爪牙，但你可以在次日小心观察你的目标，观察他们的行为是否发生了变化。如果他们有变化，并且似乎突然提升了对处决的热情，那么你很可能命中了一个爪牙。</li>
+</ul>
+<ul>
+<li>小心揭露你是传教士的事实！你的能力是邪恶阵营的眼中钉，能够做到比如缴械他们的<a href="../pages/%E7%82%B8%E5%BC%B9%E4%BA%BA.html" title="炸弹人">炸弹人</a>或是智取他们的<a href="../pages/%E7%81%B5%E8%A8%80%E5%B8%88.html" title="灵言师">灵言师</a>这样的事。仅是爪牙能力能被夺取这个威胁本身也足以瓦解邪恶阵营的精心谋划，从而使得你具有很高的死亡优先级。试着伪装成更无害的镇民，甚至是一个诸如<a href="../pages/%E7%AE%A1%E5%AE%B6.html" title="管家">管家</a>或是<a href="../pages/%E7%90%86%E5%8F%91%E5%B8%88.html" title="理发师">理发师</a>这样的外来者！</li>
+</ul>
+<ul>
+<li>如果一名玩家表现可疑并保持沉默，那他就是一个合适目标。尽管善良玩家与邪恶玩家都有试图低调的理由，但你的能力对那些并非爪牙而仅仅只是想遁出视线的善良玩家没有效果。在暗中狙击他们不会有任何损失。</li>
+</ul>
+<ul>
+<li>在第一天，仔细倾听那些公开宣称的人们。要记得爪牙不会获得伪装因而往往是最后才会公开现身的人。那些陷入同角色宣称或是仅在游戏后期才现身的玩家是你能力的合适目标。</li>
+</ul>
+<ul>
+<li>如果你必须在两个潜在爪牙之中选择一个，那就选择那个能造成最多持续输出的。命中一个已经杀人的<a href="../pages/%E5%88%BA%E5%AE%A2.html" title="刺客">刺客</a>对你的阵营而言不算多大成就，一个失去能力的<a href="../pages/%E5%AF%A1%E5%A6%87.html" title="寡妇">寡妇</a>仍然已经看过魔典，虽然他们失去了投毒的能力。一个<a href="../pages/%E9%BA%BB%E8%84%B8%E5%B7%AB%E5%A9%86.html" title="麻脸巫婆">麻脸巫婆</a>将会是一个更紧急的优先目标！</li>
+</ul>
+<ul>
+<li>一旦你死亡，并且你怀疑你已经无效化了一些爪牙，那此时现身是非常重要的事——你现在已经死亡，那些能力又恢复并对你的小镇构成了威胁！</li>
+</ul>
+<ul>
+<li>传教士可以以死亡玩家为目标！虽然这在大多数情况下没什么用，但这让你对<a href="../pages/%E4%BA%A1%E9%AA%A8%E9%AD%94.html" title="亡骨魔">亡骨魔</a>或是邪恶的<a href="../pages/%E9%9B%86%E9%AA%A8%E8%80%85.html" title="集骨者">集骨者</a>形成了奇妙的反制。一些未来会登场的爪牙可能在死亡后也保留他们的能力——但并不能在你的能力下保留！</li>
+</ul>
+<h2 id="伪装成传教士">伪装成传教士</h2>
+<ul>
+<li>伪装成传教士可能会有些难做，因为即使是真正的传教士也不会在游戏中获得多少反馈来支持他们的宣称。然而，你可以使用你伪装出的能力给其他玩家制造一些阴影或是建立一些信任。</li>
+</ul>
+<ul>
+<li>为了增加你伪装的可信度，你可以与邪恶阵营合作让爪牙能力消失！只需要使用一个具有公开信息的爪牙能力（例如<a href="../pages/%E5%A5%B3%E5%B7%AB.html" title="女巫">女巫</a>或是<a href="../pages/%E6%B4%97%E8%84%91%E5%B8%88.html" title="洗脑师">洗脑师</a>），然后通过选择邪恶玩家为目标一定时间来掩藏能力。随后你就可以将<a href="../pages/%E5%A5%B3%E5%B7%AB.html" title="女巫">女巫</a>没有制造死亡或是无人处于疯狂的情况归咎于任何一名你选中的倒霉无辜善良玩家，宣称由于你向他们传教而放逐了他们的能力！</li>
+</ul>
+<ul>
+<li>谨慎选择你控诉为爪牙的人！如果小镇相信你，他们就会认为那个人不是目标恶魔，并且既然你已经无效化了他们，大家就可能更愿意四处去处决未知的玩家而不是被你控诉的善良玩家！（当然如果你怀疑他们会这么操作，你可以故意抹黑你的恶魔——小镇会把他们当做一个失去能力的爪牙而无视他们一天！）</li>
+</ul>
+<ul>
+<li>如果某人的行为从前一晚到后一晚发生了巨大变化，你可以暗示这种行为变化是因为你是传教士并且你前一晚选择了他。这意味着他们突然做出的不同行动是因为他们得知了自己失去能力。</li>
+</ul>
+<ul>
+<li>你可以试着用你的能力来建立信任。你可以秘密地找到一名善良玩家，向他们透露你昨晚在他们身上使用了你的传教士能力。你可以继续暗示由于他们的行为看起来没有什么不同，你信任他们不是爪牙（显然你知道他们不是，但他们不知道这点）。这与<a href="../pages/%E7%AE%A1%E5%AE%B6.html" title="管家">管家</a>的伪装有异曲同工之妙——单靠传教士没有任何办法证明他们选择了谁，但仅靠选择和“澄清”就可以激发另一名玩家的信任。</li>
+</ul>
+<ul>
+<li>如果你的伪装快被识破了，可以宣称自己一直是传教士作为备选方案。传教士在现身后是邪恶阵营的主要目标，因此你说谎是合理的。这也可以作为从处决下存活的最后一搏，你可以警告说如果没有你，爪牙们会重新获得能力！</li>
+</ul>
+<ul>
+<li>故意在夜晚死去并作为传教士现身，然后抹黑一些善良玩家！你可以让恶魔杀了你，或者如果你是一个类似<a href="../pages/%E6%96%B9%E5%8F%A4.html" title="方古">方古</a>这样的恶魔你可以交棒。一个在夜晚死亡的传教士比一个被处决的传教士更可信。</li>
+</ul>
+<ul>
+<li>一旦你死亡并且你还有爪牙共犯存活，你可以说你是真正而诚信的传教士。只需要让他们在你死亡前隐藏能力，然后进入小镇公开制造麻烦（例如<a href="../pages/%E5%88%BA%E5%AE%A2.html" title="刺客">刺客</a>杀人或者<a href="../pages/%E9%AD%94%E9%AC%BC%E4%BB%A3%E8%A8%80%E4%BA%BA.html" title="魔鬼代言人">魔鬼代言人</a>阻止处决死亡）。</li>
+</ul>
+<ul>
+<li>指出你在选择了某名特定玩家之后就马上死亡了，而这个爪牙逍遥法外了！这很有风险，但是如果你成功了，小镇不仅会为你的死亡难过，还会迁怒于被你指名为爪牙的替罪羊！</li>
+</ul>
+<h2 id="角色信息">角色信息</h2>
+<ul>
+<li>英文名：Preacher</li>
+</ul>
+<ul>
+<li>所属剧本：<a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html" title="实验性角色">实验性角色</a>、<a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html" title="黯月初升">黯月初升</a>卡牌版</li>
+</ul>
+<ul>
+<li>角色类型：<a href="../pages/%E9%95%87%E6%B0%91.html" title="镇民">镇民</a></li>
+</ul>
+<ul>
+<li>角色能力类型：<a href="../pages/%E6%9A%B4%E9%9C%B2%E8%A7%92%E8%89%B2.html" title="暴露角色">暴露角色</a>、<a href="../pages/%E8%83%BD%E5%8A%9B%E6%95%88%E6%9E%9C%E5%B9%B2%E6%89%B0.html" title="能力效果干扰">能力效果干扰</a>、<a href="../pages/%E6%8C%81%E7%BB%AD%E6%A3%80%E6%B5%8B%E5%9E%8B%E8%83%BD%E5%8A%9B.html" title="持续检测型能力">持续检测型能力</a></li>
+</ul></div>
+    <div class="page-meta">最后修改于 2026-06-13T03:20:09Z，编辑者 <b>Zack</b> ｜ 页面 11,616 字节 ｜ <a href="https://clocktower-wiki.gstonegames.com/index.php?title=%E4%BC%A0%E6%95%99%E5%A3%AB" target="_blank" rel="noopener">查看原页面</a> ｜ <div class="comment">编辑摘要：/* 规则细节 */</div></div>
+    <div class="backlinks"><b>链入此页的页面（36）</b><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a><a href="../pages/%E6%9A%B4%E9%9C%B2%E8%A7%92%E8%89%B2.html">暴露角色</a><a href="../pages/%E5%B7%A5%E7%A8%8B%E5%B8%88.html">工程师</a><a href="../pages/%E4%BC%A0%E6%95%99%E5%A3%AB.html">传教士</a><a href="../pages/%E6%9D%82%E6%8A%80%E6%BC%94%E5%91%98.html">杂技演员</a><a href="../pages/%E7%81%B5%E8%A8%80%E5%B8%88.html">灵言师</a><a href="../pages/%E5%86%9B%E5%9B%A2.html">军团</a><a href="../pages/%E7%97%A2%E8%9B%AD.html">痢蛭</a><a href="../pages/%E8%83%BD%E5%8A%9B%E6%95%88%E6%9E%9C%E5%B9%B2%E6%89%B0.html">能力效果干扰</a><a href="../pages/%E4%B8%AD%E6%AF%92.html">中毒</a><a href="../pages/%E6%8C%81%E7%BB%AD%E6%A3%80%E6%B5%8B%E5%9E%8B%E8%83%BD%E5%8A%9B.html">持续检测型能力</a><a href="../pages/%E9%95%9C%E5%83%8F%E5%8F%8C%E5%AD%90.html">镜像双子</a><a href="../pages/%E9%95%87%E6%B0%91.html">镇民</a><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a><a href="../pages/%E7%BB%B4%E9%BD%90%E5%B0%94.html">维齐尔</a><a href="../pages/%E5%8D%8A%E4%BB%99.html">半仙</a><a href="../pages/%E6%A2%BC%E6%9D%8C.html">梼杌</a><a href="../pages/%E6%9B%B4%E6%8D%A2%E9%80%89%E6%8B%A9%E7%9B%AE%E6%A0%87.html">更换选择目标</a><a href="../pages/%E5%A4%9C%E6%99%9A%E8%A1%8C%E5%8A%A8%E9%A1%BA%E5%BA%8F%E4%B8%80%E8%A7%88.html">夜晚行动顺序一览</a><a href="../pages/%E4%BA%BA%E9%97%B4%E6%9A%97%E6%9C%88%E5%A4%9C.html">人间暗月夜</a><a href="../pages/%E8%A1%8C%E6%88%90%E4%B8%8B%E5%AD%A4%E4%B9%A1.html">行成下孤乡</a><a href="../pages/%E9%B8%A3%E9%A3%8E%E5%99%AC%E5%90%8E%E6%B5%AA.html">鸣风噬后浪</a><a href="../pages/%E5%B9%BB%E5%BD%B1%E7%94%BB%E5%AE%89%E5%8D%B1.html">幻影画安危</a><a href="../pages/%E5%BC%82%E5%9C%B0%E4%BC%97%E6%AC%A2%E6%9D%A5.html">异地众欢来</a><a href="../pages/%E8%9B%8A%E9%9B%95.html">蛊雕</a><a href="../pages/%E4%BE%A0%E4%BA%91%E6%95%88%E8%89%AF%E5%85%9A.html">侠云效良党</a><a href="../pages/%E5%8D%83%E9%9D%A2%E4%BC%97%E5%8D%B1%E7%84%89.html">千面众危焉</a><a href="../pages/%E5%8D%81%E4%B8%89%E8%A1%8C.html">十三行</a><a href="../pages/%E5%8F%AC%E5%94%A4%E5%B8%88.html">召唤师</a><a href="../pages/%E8%A7%84%E5%88%99%E8%B0%83%E6%95%B4%E6%8F%90%E5%89%8D%E5%85%AC%E7%A4%BA.html">规则调整提前公示</a><a href="../pages/%E7%81%AF%E7%A5%9E%E5%A5%91%E7%BA%A6.html">灯神契约</a><a href="../pages/%E5%85%AC%E4%B8%BB.html">公主</a><a href="../pages/%E6%A2%A6%E5%9B%9E%E5%A4%A7%E5%94%90.html">梦回大唐</a><a href="../pages/%E7%8B%A1%E5%85%94%E4%B8%89%E7%AA%9F.html">狡兔三窟</a><a href="../pages/%E6%B1%9F%E5%9F%8E%E5%90%AF.html">江城启</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

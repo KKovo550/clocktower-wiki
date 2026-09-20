@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>梼杌 - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">梼杌</h1>
+    <div class="tagline">来自钟楼百科</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#规则细节">规则细节</a></li><li class="lvl2"><a href="#角色信息">角色信息</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E6%A2%BC%E6%9D%8C">查找包含此角色的剧本 →</a></p><p><a href="../pages/%E6%A2%BC%E6%9D%8C.html" class="image-link" title="梼杌"><img alt="Taowu.png" style="width:200px" class="" loading="lazy" data-source-image="../images/Taowu.png" src="../assets/media/Taowu.preview.webp" width="591" height="591" decoding="async"></a></p>
+<h2 id="背景故事">背景故事</h2>
+<p><em>“有兽焉，其状如虎而大，毛长两尺，人面虎足，口牙，尾长一丈八尺，扰乱荒中，名梼杌。”</em></p>
+<h2 id="角色能力">角色能力</h2>
+<p><strong>每个夜晚*，你要选择一名玩家：他死亡。当你将要死亡时，改为一名存活且具有能力的爪牙失去能力。你不会得知恶魔信息。</strong></p>
+<h2 id="角色简介">角色简介</h2>
+<p>梼杌能够从自己的爪牙处汲取力量，并延长自己的生命。</p>
+<ul>
+<li>如果梼杌即将死亡时，有任何存活的爪牙具有能力，那么梼杌就不会死亡，并且其中一名爪牙会失去能力。如果所有存活的爪牙都不具有能力，那么梼杌仍然会死亡。</li>
+</ul>
+<ul>
+<li>“具有能力”与失去能力相反。判断一名爪牙是否“具有能力”，看的是该爪牙是否有任何失去能力的效果。如果有，那么该爪牙便“不具有能力”。如果没有，那么爪牙便“具有能力”。</li>
+</ul>
+<ul>
+<li>处于中毒或醉酒状态的爪牙不具有能力。能力有限定次数，且已经使用完毕的爪牙不具有能力。（这些能力通常在使用完后会放置“失去能力”提示标记。）受到<a href="../pages/%E4%BC%A0%E6%95%99%E5%A3%AB.html" title="传教士">传教士</a>的能力影响的爪牙不具有能力。受到梼杌本身的能力所影响的爪牙同样不具有能力。</li>
+</ul>
+<ul>
+<li>只有三名存活的玩家时，<a href="../pages/%E5%A5%B3%E5%B7%AB.html" title="女巫">女巫</a>仍然具有能力！（她具有的是“让自己失去能力的能力”，女巫就是这么的诡计多端！）换言之，在判断“具有能力”时，只需要关注相应的提示标记：中毒、醉酒、失去能力即可！让游戏和生活变得尽量简单！</li>
+</ul>
+<ul>
+<li>即使是善良阵营的爪牙，也能成为梼杌能力的生效对象，在失去能力的同时让梼杌免除一次死亡。</li>
+</ul>
+<ul>
+<li>梼杌不会获得恶魔信息。也就是说，在游戏的首个夜晚，他不会得知爪牙是谁，也不会得知三个不在场的善良角色作为自己的恶魔伪装。同样的，如果一名<a href="../pages/%E7%96%AF%E5%AD%90.html" title="疯子">疯子</a>以为自己是梼杌，也不会在首个夜晚获得任何“恶魔信息”。</li>
+</ul>
+<h2 id="范例">范例</h2>
+<p><a href="../pages/%E8%A1%97%E5%A4%B4%E9%A3%8E%E7%90%B4%E6%89%8B.html" title="街头风琴手">街头风琴手</a>在场。<a href="../pages/%E6%A2%BC%E6%9D%8C.html" title="梼杌">梼杌</a>被处决了，但没有死亡，并使得<a href="../pages/%E8%A1%97%E5%A4%B4%E9%A3%8E%E7%90%B4%E6%89%8B.html" title="街头风琴手">街头风琴手</a>失去了能力。下一个白天，在一次提名的投票开始时，玩家们发现说书人没有要求他们闭眼投票了。</p>
+<p><a href="../pages/%E6%A2%BC%E6%9D%8C.html" title="梼杌">梼杌</a>被处决了。场上有一个已经使用过能力的<a href="../pages/%E5%88%BA%E5%AE%A2.html" title="刺客">刺客</a>，以及一个受到<a href="../pages/%E4%BA%A1%E9%AA%A8%E9%AD%94.html" title="亡骨魔">亡骨魔</a>效果影响，死亡但保留能力的<a href="../pages/%E6%B4%97%E8%84%91%E5%B8%88.html" title="洗脑师">洗脑师</a>。因为没有存活且具有能力的爪牙，因此说书人宣布<a href="../pages/%E6%A2%BC%E6%9D%8C.html" title="梼杌">梼杌</a>死亡。</p>
+<h2 id="运作方式">运作方式</h2>
+<p>在游戏中的首个夜晚，将要唤醒恶魔提供恶魔信息时，不要唤醒梼杌。</p>
+<p>除了首个夜晚外的每个夜晚，唤醒梼杌，并让他指向任意一名玩家。让梼杌重新入睡。被梼杌选择的玩家死亡，在他角色标记旁放置“死亡”提示标记（除非该玩家受到其他原因影响导致不会死亡）。</p>
+<p>任何时候梼杌即将死亡时，如果场上有爪牙存活，且该爪牙的角色标记旁未放置任何“中毒”、“醉酒”、“失去能力”等导致爪牙失去能力的标记时，选择一名满足上述条件的爪牙，在该爪牙的角色标记旁放置梼杌的“失去能力”标记。梼杌不会因此死亡。（不要告诉玩家没有死亡的原因。）</p>
+<h2 id="提示标记">提示标记</h2>
+<ul>
+<li>死亡</li>
+</ul>
+<p>放置时机：在梼杌夜晚行动并选择了玩家后放置。</p>
+<p>放置条件：梼杌选择的玩家当前存活，且能被梼杌杀死，且梼杌未醉酒中毒，那么在该玩家的角色标记旁放置，用以提醒说书人在黎明时分宣布当晚的死亡玩家。</p>
+<p>移除时机：在黎明时宣布死亡玩家后，说书人可以任由自己方便来进行移除。</p>
+<ul>
+<li>失去能力</li>
+</ul>
+<p>放置时机：在梼杌即将死亡，并触发自己不会死亡的替代效果时放置。</p>
+<p>放置条件：放置在一名没有标记中毒/醉酒/失去能力的存活爪牙的角色标记旁。</p>
+<p>移除时机：在梼杌死亡或离场时移除。</p>
+<h2 id="规则细节">规则细节</h2>
+<p>因梼杌而失去能力的爪牙不会与说书人进行互动。例如：说书人不会唤醒因梼杌而失去能力的投毒者。</p>
+<ul>
+<li>特定角色互动：</li>
+<ul>
+<li><a href="../pages/%E7%BD%82%E7%B2%9F%E7%A7%8D%E6%A4%8D%E8%80%85.html" title="罂粟种植者">罂粟种植者</a>：在罂粟种植者死亡后，梼杌仍然会因为自己的能力限制，而无法知道谁是爪牙。</li>
+</ul>
+</ul>
+<ul>
+<li>相克规则：</li>
+<ul>
+<li><a href="../pages/%E7%BA%A2%E5%94%87%E5%A5%B3%E9%83%8E.html" title="红唇女郎">红唇女郎</a>/<a href="../pages/%E9%95%9C%E5%83%8F%E5%8F%8C%E5%AD%90.html" title="镜像双子">镜像双子</a>/<a href="../pages/%E4%B8%BB%E8%B0%8B.html" title="主谋">主谋</a>：这些角色在梼杌的能力判断中被当作“不具有能力”。</li>
+<li><a href="../pages/%E8%A1%97%E5%A4%B4%E9%A3%8E%E7%90%B4%E6%89%8B.html" title="街头风琴手">街头风琴手</a>：当梼杌被处决时，如果街头风琴手具有能力，说书人会宣布“无人被处决”。</li>
+<li><a href="../pages/%E6%8F%90%E7%BA%BF%E6%9C%A8%E5%81%B6.html" title="提线木偶">提线木偶</a>：梼杌不会得知谁是提线木偶。在梼杌使得提线木偶失去能力后，梼杌会得知对应的那一名提线木偶是谁，但提线木偶会仍然以为自己是一个善良角色。</li>
+<li><a href="../pages/%E5%B8%BD%E5%8C%A0.html" title="帽匠">帽匠</a>/<a href="../pages/%E9%BA%BB%E8%84%B8%E5%B7%AB%E5%A9%86.html" title="麻脸巫婆">麻脸巫婆</a>/<a href="../pages/%E5%B7%A5%E7%A8%8B%E5%B8%88.html" title="工程师">工程师</a>：如果梼杌变成了其他角色，因为梼杌而失去能力的爪牙会立即死亡。</li>
+<li><a href="../pages/%E8%88%9E%E8%9B%87%E4%BA%BA.html" title="舞蛇人">舞蛇人</a>/<a href="../pages/%E7%90%86%E5%8F%91%E5%B8%88.html" title="理发师">理发师</a>：如果梼杌的角色发生了交换，因为梼杌失去能力的爪牙依然失去能力。</li>
+</ul>
+</ul>
+<h2 id="角色信息">角色信息</h2>
+<ul>
+<li>英文名：Tao Wu</li>
+</ul>
+<ul>
+<li>所属角色合集：<a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html" title="华灯初上">华灯初上</a></li>
+</ul>
+<ul>
+<li>创意来源：清清</li>
+</ul>
+<ul>
+<li>角色类型：恶魔</li>
+</ul>
+<ul>
+<li>角色能力类型：<a href="../pages/%E8%83%BD%E5%8A%9B%E6%95%88%E6%9E%9C%E5%B9%B2%E6%89%B0.html" title="能力效果干扰">能力效果干扰</a>、<a href="../pages/%E5%85%8D%E6%AD%BB.html" title="免死">免死</a></li>
+</ul></div>
+    <div class="page-meta">最后修改于 2026-02-10T03:07:48Z，编辑者 <b>Beiyu</b> ｜ 页面 5,275 字节 ｜ <a href="https://clocktower-wiki.gstonegames.com/index.php?title=%E6%A2%BC%E6%9D%8C" target="_blank" rel="noopener">查看原页面</a> ｜ <div class="comment">编辑摘要：/* 规则细节 */</div></div>
+    <div class="backlinks"><b>链入此页的页面（30）</b><a href="../pages/%E8%88%9E%E8%9B%87%E4%BA%BA.html">舞蛇人</a><a href="../pages/%E5%B7%A5%E7%A8%8B%E5%B8%88.html">工程师</a><a href="../pages/%E6%8F%90%E7%BA%BF%E6%9C%A8%E5%81%B6.html">提线木偶</a><a href="../pages/%E5%85%8D%E6%AD%BB.html">免死</a><a href="../pages/%E8%83%BD%E5%8A%9B%E6%95%88%E6%9E%9C%E5%B9%B2%E6%89%B0.html">能力效果干扰</a><a href="../pages/%E4%B8%AD%E6%AF%92.html">中毒</a><a href="../pages/%E7%BA%A2%E5%94%87%E5%A5%B3%E9%83%8E.html">红唇女郎</a><a href="../pages/%E4%B8%BB%E8%B0%8B.html">主谋</a><a href="../pages/%E7%90%86%E5%8F%91%E5%B8%88.html">理发师</a><a href="../pages/%E9%95%9C%E5%83%8F%E5%8F%8C%E5%AD%90.html">镜像双子</a><a href="../pages/%E9%BA%BB%E8%84%B8%E5%B7%AB%E5%A9%86.html">麻脸巫婆</a><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a><a href="../pages/%E8%A1%97%E5%A4%B4%E9%A3%8E%E7%90%B4%E6%89%8B.html">街头风琴手</a><a href="../pages/%E6%A2%BC%E6%9D%8C.html">梼杌</a><a href="../pages/%E5%A4%9C%E6%99%9A%E8%A1%8C%E5%8A%A8%E9%A1%BA%E5%BA%8F%E4%B8%80%E8%A7%88.html">夜晚行动顺序一览</a><a href="../pages/%E5%B8%BD%E5%8C%A0.html">帽匠</a><a href="../pages/%E7%AC%AC%E4%B8%80%E5%B1%8A%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A%E5%89%A7%E6%9C%AC%E5%88%9B%E4%BD%9C%E5%A4%A7%E8%B5%9B.html">第一届华灯初上剧本创作大赛</a><a href="../pages/%E4%BA%BA%E9%97%B4%E6%9A%97%E6%9C%88%E5%A4%9C.html">人间暗月夜</a><a href="../pages/%E9%AA%91%E8%99%8E%E7%94%9F%E6%AD%BB%E8%A1%8C.html">骑虎生死行</a><a href="../pages/%E8%8E%AB%E8%A8%80%E4%B8%89%E5%8D%83%E6%AD%BB.html">莫言三千死</a><a href="../pages/%E9%B8%A3%E9%A3%8E%E5%99%AC%E5%90%8E%E6%B5%AA.html">鸣风噬后浪</a><a href="../pages/%E5%B9%BB%E5%BD%B1%E7%94%BB%E5%AE%89%E5%8D%B1.html">幻影画安危</a><a href="../pages/%E8%B0%9C%E6%A2%A6%E5%BE%85%E6%AD%8C%E8%88%9E.html">谜梦待歌舞</a><a href="../pages/%E5%BC%82%E5%9C%B0%E4%BC%97%E6%AC%A2%E6%9D%A5.html">异地众欢来</a><a href="../pages/%E7%99%BD%E7%8B%90%E8%A1%8C%E4%B8%9B%E9%87%8C.html">白狐行丛里</a><a href="../pages/%E9%9B%86%E5%90%8E%E4%BA%BA%E4%B9%8B%E8%A8%80.html">集后人之言</a><a href="../pages/%E5%8D%83%E9%9D%A2%E4%BC%97%E5%8D%B1%E7%84%89.html">千面众危焉</a><a href="../pages/%E7%A7%89%E5%85%AC%E5%8A%9E%E4%BA%8B.html">秉公办事</a><a href="../pages/%E5%AD%9F%E5%A9%86.html">孟婆</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>

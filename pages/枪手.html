@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>枪手 - 钟楼百科</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+</head>
+<body data-root="../">
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）"
+           autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+
+
+<div class="layout">
+  <nav class="sidebar"><h3>游戏信息</h3><ul><li><a href="../index.html">首页</a></li><li><a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a></li><li><a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a></li><li><a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a></li><li><a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a></li><li><a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a></li><li><a href="../pages/认证说书人查询.html">认证说书人</a></li></ul><h3>角色</h3><ul><li><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a></li><li><a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a></li><li><a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a></li><li><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a></li><li><a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a></li><li><a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a></li><li><a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a></li><li><a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a></li><li><a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a></li></ul><h3>奥德赛 Odyssey</h3><ul><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a></li><li><a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a></li></ul><h3>海外自制角色</h3><ul><li><a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a></li><li><a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a></li><li><a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a></li><li><a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a></li><li><a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a></li><li><a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a></li><li><a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a></li></ul><h3>剧本</h3><ul><li><a href="../script_lib/剧本库.html">剧本库</a></li><li><a href="../script_tool/剧本工具.html">剧本工具</a></li></ul><h3>工具</h3><ul><li><a href="../role_index/角色索引.html">全角色索引（技能筛选）</a></li><li><a href="../allpages.html">全部页面</a></li><li><a href="../recent.html">最近更改</a></li><li><a href="../files.html">图片列表</a></li><li><a href="../stats.html">统计</a></li><li><a href="#" id="wiki-random">随机页面</a></li></ul></nav>
+
+
+
+  <main class="content">
+    <h1 class="page-title">枪手</h1>
+    <div class="tagline">来自钟楼百科</div>
+    <div class="toc"><div class="toctitle">目录</div><ul><li class="lvl2"><a href="#背景故事">背景故事</a></li><li class="lvl2"><a href="#角色能力">角色能力</a></li><li class="lvl2"><a href="#角色简介">角色简介</a></li><li class="lvl2"><a href="#范例">范例</a></li><li class="lvl2"><a href="#运作方式">运作方式</a></li><li class="lvl2"><a href="#提示标记">提示标记</a></li><li class="lvl2"><a href="#提示与技巧作为善良">提示与技巧（作为善良）</a></li><li class="lvl2"><a href="#提示与技巧作为邪恶">提示与技巧（作为邪恶）</a></li><li class="lvl2"><a href="#角色信息">角色信息</a></li></ul></div>
+    <div class="mw-parser-output"><p class="role-script-link"><a href="../script_lib/剧本库.html?include=%E6%9E%AA%E6%89%8B">查找包含此角色的剧本 →</a></p><p><a href="../pages/%E6%9E%AA%E6%89%8B.html" class="image-link" title="枪手"><img alt="gunslinger.png" style="width:200px" class="" loading="lazy" data-source-image="../images/Gunslinger.png" src="../assets/media/Gunslinger.preview.webp" width="600" height="600" decoding="async"></a></p>
+<h2 id="背景故事">背景故事</h2>
+<p><em>“是时候得有人自己动手了。那个人...就是我。”</em></p>
+<h2 id="角色能力">角色能力</h2>
+<p><strong>每个白天，当首次投票被统计后，你可以选择一名刚投过票的玩家：他死亡。</strong></p>
+<h2 id="角色简介">角色简介</h2>
+<p>枪手会杀死投票的玩家。</p>
+<ul>
+<li>每个白天，在首次投票被统计后，枪手可以公开选择一名刚投过票的玩家，这名玩家会立刻死亡。枪手不一定非得杀死一名玩家——这完全取决于枪手。不管枪手是否在每一天的首次投票过后使用能力，枪手都无法在那之后杀死其他玩家。</li>
+</ul>
+<ul>
+<li>枪手需要主动使用能力，自行确认使用能力的时机告知说书人，并宣布自己的选择。</li>
+</ul>
+<ul>
+<li>流放表决不会受到能力的影响，因此枪手不能将他的能力用在那些支持流放表决的人身上。</li>
+</ul>
+<h2 id="范例">范例</h2>
+<p><a href="../pages/%E5%B0%8F%E6%81%B6%E9%AD%94.html" title="小恶魔">小恶魔</a>被提名了。场上还有十名玩家存活，五名玩家投票给了<a href="../pages/%E5%B0%8F%E6%81%B6%E9%AD%94.html" title="小恶魔">小恶魔</a>，所以<a href="../pages/%E5%B0%8F%E6%81%B6%E9%AD%94.html" title="小恶魔">小恶魔</a>即将被处决。<a href="../pages/%E6%9E%AA%E6%89%8B.html" title="枪手">枪手</a>选择并杀死了一名刚投过票的玩家。这名玩家死亡，游戏继续，但<a href="../pages/%E5%B0%8F%E6%81%B6%E9%AD%94.html" title="小恶魔">小恶魔</a>仍然处于即将被处决的状态。</p>
+<p>玩家们流放了<a href="../pages/%E6%9B%BF%E7%BD%AA%E7%BE%8A.html" title="替罪羊">替罪羊</a>。然后<a href="../pages/%E7%AE%A1%E5%AE%B6.html" title="管家">管家</a>被提名并在处决投票中获得1票。由于<a href="../pages/%E6%9B%BF%E7%BD%AA%E7%BE%8A.html" title="替罪羊">替罪羊</a>的流放表决不算作是首次投票，<a href="../pages/%E7%AE%A1%E5%AE%B6.html" title="管家">管家</a>的处决投票才算作是首次投票，所以<a href="../pages/%E6%9E%AA%E6%89%8B.html" title="枪手">枪手</a>选择并杀死了那名唯一投了票的玩家。今天接下来的所有处决投票，<a href="../pages/%E6%9E%AA%E6%89%8B.html" title="枪手">枪手</a>都不能再使用他的能力了，因为接下来的投票不属于首次投票。</p>
+<p><a href="../pages/%E5%85%B1%E6%83%85%E8%80%85.html" title="共情者">共情者</a>投票了，虽然他的票因<a href="../pages/%E7%AA%83%E8%B4%BC.html" title="窃贼">窃贼</a>的存在而变成了负票，<a href="../pages/%E6%9E%AA%E6%89%8B.html" title="枪手">枪手</a>依然可以选择杀死<a href="../pages/%E5%85%B1%E6%83%85%E8%80%85.html" title="共情者">共情者</a>。</p>
+<h2 id="运作方式">运作方式</h2>
+<p>每个白天，在首次处决投票被统计后，枪手可以宣布他想使用他的能力。如果他这么做，让他指向任何一名刚刚投过票的玩家。被选中的玩家死亡。</p>
+<p>如果枪手是一名新手玩家，你可以在他能够使用能力的时候提示他。</p>
+<p>当枪手想要使用他的能力的时候，你可以要求刚刚投了票的玩家再次举起手来，这样枪手就不会选错成一名刚刚没有投过票的玩家了。</p>
+<h2 id="提示标记">提示标记</h2>
+<p>无</p>
+<h2 id="提示与技巧作为善良">提示与技巧（作为善良）</h2>
+<ul>
+<li>太酷了，你就是<a href="../pages/%E6%9E%AA%E6%89%8B.html" title="枪手">枪手</a>！尽情享受吧！</li>
+</ul>
+<ul>
+<li>每个白天，你都有机会杀死一名玩家。充分利用这个机会，在你想要发动能力的时候记得要让说书人知道。每天都发动能力几乎可以让善良阵营击杀恶魔的效率翻倍。一般来说，每个白天+夜晚，会有2名玩家死亡——一个是被恶魔攻击了，一个是由于每日的处决。如果你在每个白天使用了能力，2/3的死亡都将由善良阵营的选择所决定。这可是很大的比例了。</li>
+</ul>
+<ul>
+<li>记得留意场上的氛围。有些时候，善良玩家不会希望你在每个白天都杀死一位玩家。如果你违背了他们的预期，他们可能就会尽可能早地流放你。如果你想要活着，就得保持谨慎且将自己的手指先从扳机上挪开。</li>
+</ul>
+<ul>
+<li>留意那些每天白天第一次提名都不投票的玩家。爪牙可能会有点放任自流，但恶魔玩家很快就会意识到当你在场时投票会是多么危险的一件事。即便恶魔认为当前你只有极小的概率会对他开枪，他也不会投票。用这条信息给你带来优势！处决那些看起来不太敢投票的玩家，有可能你就走运地选中了恶魔。或者你也可以想办法让恶魔投票，这样你就有机会单枪匹马地杀死他。</li>
+</ul>
+<ul>
+<li>有几个无辜的旁观者死亡也无所谓。不要害怕带走一个被认定的<a href="../pages/%E9%80%81%E8%91%AC%E8%80%85.html" title="送葬者">送葬者</a>或者是一个看起来有嫌疑的<a href="../pages/%E5%9C%A3%E5%BE%92.html" title="圣徒">圣徒</a>。只要你能杀死一到两个爪牙，这就都是值得的。</li>
+</ul>
+<ul>
+<li>如果你活到了场上仅剩3名玩家的时候（不包含旅行者），谨慎选择你的击杀对象。恶魔这个时候可能会扰乱你的心智并让你杀死爪牙（或者一位善良玩家），这样就会使玩家数减少到仅剩2位...邪恶阵营获胜。当心吧。</li>
+</ul>
+<ul>
+<li>忽略以上所有建议，坚决不用你的能力。坐着。等着。看着。冷静，安静且低调。观察大家的肢体语言，听他们在进行什么争论。当你认为你已经知道谁是恶魔的时候，什么都别说，等到那名玩家在白天第一次提名投票的那一刻——嘭！要么就是你出人意料地杀死了一位恶魔且赢得了游戏，要么就是你失手杀了个无名小卒。</li>
+</ul>
+<ul>
+<li>如果有三名或以上的旅行者在场，你可以认为其中大概有一位是邪恶阵营的。在他带来太多麻烦之前就把这名邪恶旅行者带走也是很值的。</li>
+</ul>
+<h2 id="提示与技巧作为邪恶">提示与技巧（作为邪恶）</h2>
+<ul>
+<li>像善良阵营的<a href="../pages/%E6%9E%AA%E6%89%8B.html" title="枪手">枪手</a>一样，每天都击杀一位玩家是最好的选择。毕竟你会知道一些内部信息，进而得知谁该杀，谁不该杀，就疯狂杀戮吧。你杀死越多的玩家，游戏就会越快来到最后一天，活着的邪恶玩家就会更多于善良玩家，这会让你的阵营拥有更多的投票权。但也要像个善良<a href="../pages/%E6%9E%AA%E6%89%8B.html" title="枪手">枪手</a>一样，采取行动之前先听听大家的意见，如果别人不想让你一通乱杀，你就也不要这么做。</li>
+</ul>
+<ul>
+<li>很显然，射杀恶魔是个糟糕的想法，除非这场游戏比较特殊，比如场上存在<a href="../pages/%E5%83%B5%E6%80%96.html" title="僵怖">僵怖</a>。幸运的是，你知道谁是恶魔，因此这也就不是个问题了。但你应该杀死爪牙吗？这得视情况而定。如果爪牙看起来很可疑，且你认为他不论怎样都可能马上被处决了，那这个时候对着这个爪牙的屁股来上一枪可能就是最好的选项了。你每击杀一个爪牙，就会使场上存活玩家数减1——这就意味着邪恶阵营距离获胜就又更近了一步。杀死像<a href="../pages/%E7%94%B7%E7%88%B5.html" title="男爵">男爵</a>或<a href="../pages/%E9%97%B4%E8%B0%8D.html" title="间谍">间谍</a>这样已经使用过能力的爪牙可能会比留着他们更有用。杀死爪牙也有可能引发麻烦，如果你选择了<a href="../pages/%E6%8A%95%E6%AF%92%E8%80%85.html" title="投毒者">投毒者</a>或者<a href="../pages/%E7%BA%A2%E5%94%87%E5%A5%B3%E9%83%8E.html" title="红唇女郎">红唇女郎</a>这样的角色，可能就是个错误。</li>
+</ul>
+<ul>
+<li>鼓励恶魔投票。因为你不会杀死他，他可以随意投票。再告诉大家不投票的那些玩家有可能就是恶魔。</li>
+</ul>
+<ul>
+<li>如果想活得更久，你也可以玩得保守一点。每个白天，杀死那名看起来最有嫌疑的玩家，而不论他声明的角色是什么。这会帮助你讨好善良阵营，因为你看上去像是在杀死邪恶玩家。你甚至可以问问他们希望你杀死谁。如果善良阵营玩家看到你一直在击杀他们所希望杀死的玩家，你就能活更长时间。</li>
+</ul>
+<ul>
+<li>你也可以把谨慎这两个字抛之脑后，击杀那些最危险，最强大的善良玩家来让他们失去能力。如果一个<a href="../pages/%E5%8D%A0%E5%8D%9C%E5%B8%88.html" title="占卜师">占卜师</a>一直能拿到非常棒的信息且被善良阵营所相信，你就可以快速且轻松地抹杀掉这个威胁。缺点就是在这之后善良阵营会迅速提议流放你。但在这种情况下也是值得的。另一种情况就是当<a href="../pages/%E5%A3%AB%E5%85%B5.html" title="士兵">士兵</a>在场时，善良阵营玩家几乎全都相信他，你几乎可以预见在最后一天的时候，在仅存的三名玩家之中还有一个<a href="../pages/%E5%A3%AB%E5%85%B5.html" title="士兵">士兵</a>，这麻烦可太大了。为了避免这种情况的出现，牺牲你自己来带走<a href="../pages/%E5%A3%AB%E5%85%B5.html" title="士兵">士兵</a>也是很值当的。</li>
+</ul>
+<ul>
+<li>如果善良玩家没那么聪明，以至于让你活到了仅剩三名玩家（不包括旅行者）存活的时刻，基本上你就已经赢了。只要第一次投票发生了，杀死一名非恶魔玩家就可以轻松夺取胜利了。</li>
+</ul>
+<h2 id="角色信息">角色信息</h2>
+<ul>
+<li>英文名：Gunslinger</li>
+</ul>
+<ul>
+<li>推荐剧本：<a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html" title="暗流涌动">暗流涌动</a></li>
+</ul>
+<ul>
+<li>角色类型：<a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html" title="旅行者">旅行者</a></li>
+</ul>
+<ul>
+<li>角色能力类型：<a href="../pages/%E6%8A%95%E7%A5%A8.html" title="投票">投票</a>、<a href="../pages/%E9%A2%9D%E5%A4%96%E6%AD%BB%E4%BA%A1.html" title="额外死亡">额外死亡</a></li>
+</ul></div>
+    <div class="page-meta">最后修改于 2023-04-23T14:19:55Z，编辑者 <b>HylaCrucis</b> ｜ 页面 7,681 字节 ｜ <a href="https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9E%AA%E6%89%8B" target="_blank" rel="noopener">查看原页面</a> ｜ <div class="comment">编辑摘要：/* 提示与技巧（作为邪恶） */</div></div>
+    <div class="backlinks"><b>链入此页的页面（12）</b><a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a><a href="../pages/%E5%85%B1%E6%83%85%E8%80%85.html">共情者</a><a href="../pages/%E9%A2%9D%E5%A4%96%E6%AD%BB%E4%BA%A1.html">额外死亡</a><a href="../pages/%E5%85%AC%E5%BC%80%E8%A7%A6%E5%8F%91%E8%83%BD%E5%8A%9B.html">公开触发能力</a><a href="../pages/%E6%8A%95%E7%A5%A8.html">投票</a><a href="../pages/%E5%9C%A3%E5%BE%92.html">圣徒</a><a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a><a href="../pages/%E7%AA%83%E8%B4%BC.html">窃贼</a><a href="../pages/%E6%9E%AA%E6%89%8B.html">枪手</a><a href="../pages/%E6%9C%AB%E6%97%A5%E9%A2%84%E8%A8%80%E8%80%85.html">末日预言者</a><a href="../pages/%E8%A1%97%E5%A4%B4%E9%A3%8E%E7%90%B4%E6%89%8B.html">街头风琴手</a><a href="../pages/%E8%B5%A6%E4%BB%A4%E6%89%BF%E6%97%A8.html">赦令承旨</a></div>
+  </main>
+</div>
+<footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+
+
+
+<script src="../assets/wiki.js"></script>
+</body>
+</html>
