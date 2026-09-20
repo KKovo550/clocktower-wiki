@@ -1,4 +1,4 @@
-var state={teams:[],tags:[],categories:[],q:'',sort:'relevance',all:false,scope:'all',wiki:false};
+var state={teams:[],tags:[],categories:[],sources:[],q:'',sort:'relevance',all:false,scope:'all',wiki:false};
 var $=function(id){return document.getElementById(id);};
 var expanded=Object.create(null), composing=false;
 function normalize(text){return String(text||'').normalize('NFKC').toLowerCase().trim();}
@@ -55,6 +55,8 @@ function kwOf(r){
 }
 function roleTags(r){return r.tags||[];}
 function matchTeam(r){return !state.teams.length||state.teams.indexOf(r.t)>=0;}
+function matchSource(r){return !(state.sources||[]).length||(state.sources||[]).some(function(s){return (r.sources||['other']).indexOf(s)>=0;});}
+function sourceLabel(id){var source=ROLE_SOURCES.find(function(s){return s.id===id;});return source?source.label:id;}
 function matchTags(r){
   if(!state.tags.length)return true;
   return state.all?state.tags.every(function(t){return hasTag(r,t);})
@@ -84,7 +86,7 @@ function relevance(r){
 function nightValue(value){return Number.isFinite(Number(value))&&Number(value)>0?Number(value):Infinity;}
 function byNight(a,b,key){var x=nightValue(a[key]),y=nightValue(b[key]);return x===y?0:x<y?-1:1;}
 function filterRoles(){
-  var out=ROLES.filter(function(r){return matchTeam(r)&&matchTags(r)&&matchQ(r)&&matchWiki(r)&&matchCategory(r);});
+  var out=ROLES.filter(function(r){return matchSource(r)&&matchTeam(r)&&matchTags(r)&&matchQ(r)&&matchWiki(r)&&matchCategory(r);});
   var ci=function(t){return TEAMORD.indexOf(t);};
   var names=function(a,b){return a.n.localeCompare(b.n,'zh')||a.id.localeCompare(b.id);};
   if(state.sort==='name')out.sort(function(a,b){return a.n.localeCompare(b.n,'zh');});
@@ -113,6 +115,7 @@ function cardHTML(r){
       '技能描述 '+((r.ab||'').length)+' 字</div>'+
     '<button type="button" class="expand-card" aria-expanded="'+!!expanded[r.id]+'">'+(expanded[r.id]?'收起补充信息':'展开补充信息')+'</button>'+
     '<div class="more">'+
+      '<div><span class="k">剧本来源：</span>'+esc((r.sources||['other']).map(sourceLabel).join('、'))+'</div>'+
       '<div><span class="k">能力类别：</span>'+esc((r.categories||[]).join('、')||'未归类')+'</div>'+
       (r.fl?('<div><span class="k">风味文本：</span>'+esc(r.fl)+'</div>'):'')+
       (rem.length?('<div><span class="k">提示标记：</span>'+esc(rem.join('、'))+'</div>'):'')+
@@ -129,6 +132,7 @@ function render(){
   $('copyNames').disabled=!list.length;
   $('copyJson').disabled=!list.length;
   var selected=[];
+  if((state.sources||[]).length)selected.push('剧本来源：'+state.sources.map(sourceLabel).join(' 或 '));
   if(state.teams.length)selected.push('角色类型：'+state.teams.map(function(t){return TEAMCN[t]||t;}).join(' 或 '));
   if((state.categories||[]).length)selected.push('能力类别：'+state.categories.join(' 或 '));
   if(state.tags.length)selected.push('技能：'+state.tags.join(state.all?' 且 ':' 或 '));
@@ -155,7 +159,7 @@ function render(){
 }
 function chipRow(host,items,pick,cls){
   // 每次都整条重建：以前是往 innerHTML 后面追加，点一次筛选条就翻一倍
-  var h='<span class="lab">'+(host.id==='teamChips'?'角色类型':host.id==='categoryChips'?'能力类别':'技能')+'</span>';
+  var h='<span class="lab">'+(host.id==='sourceChips'?'剧本来源':host.id==='teamChips'?'角色类型':host.id==='categoryChips'?'能力类别':'技能')+'</span>';
   items.forEach(function(it){
     var on=pick.indexOf(it.k)>=0;
     h+='<button type="button" aria-pressed="'+on+'" class="chip '+(cls||'')+' '+(on?'on':'')+'" data-k="'+esc(it.k)+'"'+
@@ -169,11 +173,13 @@ function drawChips(){
   var activeKey=active&&active.getAttribute?active.getAttribute('data-k'):null;
   var activeHost=active&&active.parentNode?active.parentNode.id:null;
   var tc={},gc={};
-  var categoryBase=ROLES.filter(function(r){return matchQ(r)&&matchWiki(r)&&matchTeam(r)&&matchTags(r);});
+  var sourceBase=ROLES.filter(function(r){return matchQ(r)&&matchWiki(r)&&matchTeam(r)&&matchTags(r)&&matchCategory(r);});
+  chipRow($('sourceChips'),ROLE_SOURCES.map(function(s){return {k:s.id,label:s.label,n:sourceBase.filter(function(r){return (r.sources||['other']).indexOf(s.id)>=0;}).length};}),state.sources||[],'');
+  var categoryBase=ROLES.filter(function(r){return matchSource(r)&&matchQ(r)&&matchWiki(r)&&matchTeam(r)&&matchTags(r);});
   var categoryItems=ABILITY_CATEGORIES.map(function(c){return {k:c.name,label:c.name,n:categoryBase.filter(function(r){return (r.categories||[]).indexOf(c.name)>=0;}).length};});
   categoryItems.push({k:'未归类',label:'未归类',n:categoryBase.filter(function(r){return !(r.categories||[]).length;}).length});
   chipRow($('categoryChips'),categoryItems,state.categories||[],'');
-  var base=ROLES.filter(function(r){return matchQ(r)&&matchWiki(r)&&matchCategory(r);});
+  var base=ROLES.filter(function(r){return matchSource(r)&&matchQ(r)&&matchWiki(r)&&matchCategory(r);});
   base.filter(matchTags).forEach(function(r){tc[r.t]=(tc[r.t]||0)+1;});
   var tagBase=base.filter(matchTeam);
   tagBase.forEach(function(r){roleTags(r).forEach(function(t){gc[t]=(gc[t]||0)+1;});});
@@ -186,6 +192,10 @@ function drawChips(){
     if(!builtinTag(t))tagItems.push({k:t,label:t+'（自定义）',
       n:tagBase.filter(function(r){return hasTag(r,t);}).length,hint:'自己加的关键词'});});
   chipRow($('tagChips'),tagItems,state.tags,'');
+  Array.prototype.forEach.call(document.querySelectorAll('#sourceChips .chip'),function(el){
+    el.onclick=function(){var k=el.getAttribute('data-k'),chosen=state.sources||[];
+      state.sources=chosen.indexOf(k)>=0?chosen.filter(function(s){return s!==k;}):chosen.concat([k]);refresh();};
+  });
   Array.prototype.forEach.call(document.querySelectorAll('#teamChips .chip'),function(el){
     el.onclick=function(){var k=el.getAttribute('data-k');
       state.teams=state.teams.indexOf(k)>=0?state.teams.filter(function(x){return x!==k;})
@@ -215,6 +225,7 @@ $('wikiOnly').addEventListener('change',function(){state.wiki=this.checked;refre
 $('sort').addEventListener('change',function(){state.sort=this.value;render();});
 $('allMode').addEventListener('change',function(){state.all=this.checked;refresh();});
 $('clearTeams').onclick=function(){state.teams=[];refresh();};
+$('clearSources').onclick=function(){state.sources=[];refresh();};
 $('clearTags').onclick=function(){state.tags=[];refresh();};
 $('clearCategories').onclick=function(){state.categories=[];refresh();};
 $('kwAdd').onclick=function(){
@@ -223,7 +234,7 @@ $('kwAdd').onclick=function(){
   if(!state.tags.some(function(t){return normalize(t)===normalize(v);}))state.tags.push(v);
   $('kw').value='';drawChips();render();};
 $('kw').addEventListener('keydown',function(e){if(e.key==='Enter'&&!e.isComposing&&e.keyCode!==229)$('kwAdd').click();});
-$('reset').onclick=function(){state={teams:[],tags:[],categories:[],q:'',sort:'relevance',all:false,scope:'all',wiki:false};
+$('reset').onclick=function(){state={teams:[],tags:[],categories:[],sources:[],q:'',sort:'relevance',all:false,scope:'all',wiki:false};
   $('q').value='';$('kw').value='';$('allMode').checked=false;$('wikiOnly').checked=false;
   $('sort').value='relevance';$('searchScope').value='all';refresh();};
 $('copyNames').onclick=function(){
