@@ -1,6 +1,6 @@
 (function(){
   'use strict';
-  var dialog,roles=[],icons={},plan,currentSvg='',previewUrl='',timer,revision=0,background='',backgroundRevision=0,iconPromise;
+  var dialog,roles=[],icons={},plan,currentSvg='',previewUrl='',timer,revision=0,background='',backgroundRevision=0,iconPromise,decorationPromise,decorationReady=false;
   var measureCanvas=document.createElement('canvas'),measureContext=measureCanvas.getContext('2d');
   function measure(value,size){measureContext.font=size+'px system-ui, "Microsoft YaHei", sans-serif';return measureContext.measureText(value).width;}
   function el(id){return document.getElementById(id);}
@@ -17,6 +17,24 @@
       document.head.appendChild(script);
     });return iconPromise;
   }
+  function loadDecorations(){
+    if(window.SCRIPT_ART_DECORATIONS)return Promise.resolve(window.SCRIPT_ART_DECORATIONS);
+    if(decorationPromise)return decorationPromise;
+    decorationPromise=new Promise(function(resolve,reject){
+      var script=document.createElement('script'),timeout=setTimeout(function(){decorationPromise=null;script.remove();reject(new Error('装饰资源加载超时。'));},15000);
+      script.src='assets/script-tool/art-decorations.js';
+      script.onload=function(){clearTimeout(timeout);resolve(window.SCRIPT_ART_DECORATIONS||[]);};
+      script.onerror=function(){clearTimeout(timeout);decorationPromise=null;script.remove();reject(new Error('装饰资源加载失败。'));};
+      document.head.appendChild(script);
+    });return decorationPromise;
+  }
+  function decorationOptions(){
+    [['artBackdrop','backgrounds','backgrounds-2'],['artPattern','patterns','patterns-0'],['artOrnament','ornaments','ornaments-0']].forEach(function(pair){
+      var select=el(pair[0]),previous=select.value;select.innerHTML='<option value="">无</option>';
+      (window.SCRIPT_ART_DECORATIONS||[]).filter(function(item){return item.group===pair[1];}).forEach(function(item){var option=document.createElement('option');option.value=item.id;option.textContent=item.label;select.appendChild(option);});
+      select.value=decorationReady?previous:pair[2];
+    });decorationReady=true;
+  }
   function readImage(file){
     return new Promise(function(resolve,reject){
       if(!/^image\/(png|jpeg|webp)$/.test(file.type)||file.size>12*1024*1024){reject(new Error('请选择 12 MB 以内的 PNG、JPG 或 WebP 图片。'));return;}
@@ -31,9 +49,9 @@
       image.onerror=function(){URL.revokeObjectURL(url);reject(new Error('图片损坏或格式不受支持。'));};image.src=url;
     });
   }
-  function options(){return {columns:el('artColumns').value,font:el('artFont').value,theme:el('artTheme').value,title:el('artTitle').value,author:el('artAuthor').value,subtitle:el('artSubtitle').value,total:roles.length,background:background};}
+  function options(){return {columns:el('artColumns').value,font:el('artFont').value,theme:el('artTheme').value,title:el('artTitle').value,author:el('artAuthor').value,subtitle:el('artSubtitle').value,total:roles.length,background:background,backdrop:background?'':el('artBackdrop').value,pattern:el('artPattern').value,ornament:el('artOrnament').value,decorations:window.SCRIPT_ART_DECORATIONS||[]};}
   function showPage(){
-    var index=Number(el('artPage').value)||0;
+    var index=0;
     currentSvg=ScriptArt.svg(plan,index,options(),icons,measure);
     if(previewUrl)URL.revokeObjectURL(previewUrl);
     previewUrl=URL.createObjectURL(new Blob([currentSvg],{type:'image/svg+xml;charset=utf-8'}));
@@ -43,33 +61,32 @@
     if(!dialog.open)return;
     try{
       plan=ScriptArt.layout(roles,options(),measure);
-      var previous=Number(el('artPage').value)||0;
-      el('artPage').innerHTML=plan.pages.map(function(_,i){return '<option value="'+i+'">第 '+(i+1)+' / '+plan.pages.length+' 页</option>';}).join('');
-      el('artPage').value=String(Math.min(previous,plan.pages.length-1));showPage();
+      showPage();
       var missing=roles.filter(function(role){return !icons[role.im]&&!icons[role.id];}).length;
-      message('已生成 '+plan.pages.length+' 页，下载当前预览页。'+(missing?' '+missing+' 个图标不可用，已使用文字占位。':''));
+      message('已生成一张完整图片 · '+plan.width+' × '+plan.height+'。'+(missing?' '+missing+' 个图标不可用，已使用文字占位。':''));
     }catch(error){currentSvg='';enabled(false);message(error.message);}
   }
   function queue(){currentSvg='';enabled(false);clearTimeout(timer);timer=setTimeout(render,160);}
   function saveBlob(blob,extension){
     var name=(el('artTitle').value.trim()||'剧本').replace(/[<>:"/\\|?*\x00-\x1f]/g,'_').slice(0,80);
     var a=document.createElement('a'),url=URL.createObjectURL(blob);
-    a.href=url;a.download=name+'-第'+(Number(el('artPage').value)+1)+'页.'+extension;
+    a.href=url;a.download=name+'-完整剧本.'+extension;
     document.body.appendChild(a);a.click();setTimeout(function(){a.remove();URL.revokeObjectURL(url);},30000);
   }
   async function downloadPng(){
     if(!currentSvg)return;
-    var svg=currentSvg,scale=Number(el('artScale').value),session=revision;
+    var svg=currentSvg,requested=Number(el('artScale').value),height=plan.height,width=plan.width,session=revision;
+    var scale=Math.min(requested,8192/height,8192/width,Math.sqrt(16000000/(width*height)));
     enabled(false);message('正在导出 PNG…');
     var url=URL.createObjectURL(new Blob([svg],{type:'image/svg+xml;charset=utf-8'}));
     try{
       var image=new Image();await new Promise(function(resolve,reject){image.onload=resolve;image.onerror=function(){reject(new Error('图片渲染失败，可尝试下载 SVG。'));};image.src=url;});
-      var canvas=document.createElement('canvas');canvas.width=1280*scale;canvas.height=1800*scale;
+      var canvas=document.createElement('canvas');canvas.width=Math.max(1,Math.floor(width*scale));canvas.height=Math.max(1,Math.floor(height*scale));
       canvas.getContext('2d').drawImage(image,0,0,canvas.width,canvas.height);
       var blob=await new Promise(function(resolve){canvas.toBlob(resolve,'image/png');});
       if(!blob)throw new Error('设备无法生成高清图片，请选择标准清晰度后重试。');
       if(session!==revision||!dialog.open||svg!==currentSvg)return;
-      saveBlob(blob,'png');message('PNG 已生成；如手机未自动保存，请使用浏览器的下载列表。');
+      saveBlob(blob,'png');message('完整 PNG 已生成（'+canvas.width+' × '+canvas.height+'）'+(scale<requested?'；超长图已适配设备尺寸，SVG 保留原尺寸。':'；如未自动保存，请使用浏览器的下载列表。'));
     }catch(error){if(session===revision&&dialog.open)message(error.message||'PNG 导出失败，可尝试 SVG。');}
     finally{URL.revokeObjectURL(url);if(session===revision&&dialog.open)enabled(!!currentSvg);}
   }
@@ -80,17 +97,17 @@
       '<label>剧本标题<input id="artTitle" maxlength="100"></label><label>作者<input id="artAuthor" maxlength="48"></label><label>副标题 / 备注<input id="artSubtitle" maxlength="65" placeholder="例如：适合 9–12 人 · 第三版"></label>'+
       '<div class="art-pair"><label>分栏<select id="artColumns"><option value="1">单列</option><option value="2" selected>双列</option><option value="3">三列</option></select></label><label>配色<select id="artTheme"><option value="cloud">云白</option><option value="paper">暖纸</option><option value="night">深夜</option></select></label></div>'+
       '<label>说明字号<select id="artFont"><option value="20">紧凑</option><option value="24" selected>标准</option><option value="28">大字</option></select></label>'+
+      '<label>素材背景<select id="artBackdrop"><option value="">无</option></select></label><div class="art-pair"><label>底纹<select id="artPattern"><option value="">无</option></select></label><label>装饰<select id="artOrnament"><option value="">无</option></select></label></div><p class="art-note">装饰素材来源：<a href="https://www.merlin-botc.com/create/art?lang=zh-CN" target="_blank" rel="noopener">Merlin Studio</a></p>'+
       '<label>自选背景<input type="file" id="artBackground" accept="image/png,image/jpeg,image/webp"></label><button type="button" class="btn" id="artRemoveBg">移除背景</button>'+
-      '<p class="art-note">图片只在本机处理。角色按类型分组，保留组内顺序；说明过长会自动续页。缺失或远程自定义图标使用文字占位。</p>'+
-      '<label>当前页面<select id="artPage"></select></label><label>PNG 清晰度<select id="artScale"><option value="1">标准 · 1280 × 1800</option><option value="2" selected>高清 · 2560 × 3600</option></select></label>'+
+      '<p class="art-note">图片只在本机处理。角色按类型分组，保留组内顺序；自动延长画布，全部内容合并为一张图片。缺失或远程自定义图标使用文字占位。</p>'+
+      '<label>PNG 清晰度<select id="artScale"><option value="1">标准 · 1280 像素宽</option><option value="2" selected>高清 · 2560 像素宽</option></select></label>'+
       '<div class="art-downloads"><button type="button" class="btn pri" id="artPng" disabled>下载 PNG</button><button type="button" class="btn" id="artSvg" disabled>下载 SVG</button></div><p id="artStatus" role="status" aria-live="polite"></p></section>'+
       '<section class="art-canvas" aria-label="剧本图片预览"><img id="artPreview" alt="当前页剧本图片预览"></section></div>';
     document.body.appendChild(dialog);
     el('artPreview').onerror=function(){enabled(false);message('预览图片未能显示，请调整设置后重试。');};
     el('artClose').onclick=function(){dialog.close();};
     dialog.addEventListener('close',function(){revision++;clearTimeout(timer);enabled(false);if(previewUrl){URL.revokeObjectURL(previewUrl);previewUrl='';}el('artPreview').removeAttribute('src');});
-    ['artTitle','artAuthor','artSubtitle','artColumns','artTheme','artFont'].forEach(function(id){el(id).addEventListener('input',queue);});
-    el('artPage').onchange=function(){clearTimeout(timer);render();};
+    ['artTitle','artAuthor','artSubtitle','artColumns','artTheme','artFont','artBackdrop','artPattern','artOrnament'].forEach(function(id){el(id).addEventListener('input',queue);});
     el('artRemoveBg').onclick=function(){backgroundRevision++;background='';el('artBackground').value='';render();};
     el('artBackground').onchange=async function(){
       var file=this.files[0],session=revision,bg=++backgroundRevision;if(!file)return;enabled(false);message('正在处理背景…');
@@ -106,9 +123,10 @@
     roles=sel.map(function(role){return Object.assign({},role);});
     el('artTitle').value=el('mname').value||'未命名剧本';el('artAuthor').value=el('mauthor').value;
     var session=++revision;dialog.showModal();enabled(false);message('正在准备角色图标…');
-    try{icons=Object.assign({},await loadIcons());}
-    catch(error){if(session!==revision||!dialog.open)return;icons={};message(error.message+' 将使用文字占位。');}
+    try{var loaded=await Promise.all([loadIcons(),loadDecorations()]);icons=Object.assign({},loaded[0]);}
+    catch(error){if(session!==revision||!dialog.open)return;icons=Object.assign({},window.SCRIPT_ART_ICONS||{});message(error.message+' 将使用文字占位。');}
     if(session!==revision||!dialog.open)return;
+    decorationOptions();
     roles.forEach(function(role){var image=role.im||role.iu;if(/^data:image\/(png|jpeg|webp);base64,/.test(image||''))icons[role.id]=image;});
     render();
   };

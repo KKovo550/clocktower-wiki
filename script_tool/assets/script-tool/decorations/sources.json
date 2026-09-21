@@ -1,0 +1,66 @@
+{
+  "source": "https://www.merlin-botc.com/create/art?lang=zh-CN",
+  "note": "原站公开制图资源；署名与权利归原作者，未声明新的素材许可。",
+  "items": [
+    {
+      "id": "backgrounds-0",
+      "group": "backgrounds",
+      "label": "净白",
+      "source": "https://www.merlin-botc.com/resources/art-assets/backgrounds/base_background/%E5%87%80%E7%99%BD.png",
+      "sha256": "85dd6507a9485bad03d5708e93831b292bd8a00240abff20915e3a1f15447560"
+    },
+    {
+      "id": "backgrounds-1",
+      "group": "backgrounds",
+      "label": "净黄",
+      "source": "https://www.merlin-botc.com/resources/art-assets/backgrounds/base_background/%E5%87%80%E9%BB%84.png",
+      "sha256": "e6edf5517d835dfb55b85e651ed80615d8114fbdf21440c9e27873ac216a34d6"
+    },
+    {
+      "id": "backgrounds-2",
+      "group": "backgrounds",
+      "label": "纸白",
+      "source": "https://www.merlin-botc.com/resources/art-assets/backgrounds/base_background/%E7%BA%B8%E7%99%BD.webp?v=20260905-art-perf1",
+      "sha256": "f6fb124be563cdb31817abd42be20621897d57b7bd4dbeb7ca1184f26974c213"
+    },
+    {
+      "id": "backgrounds-3",
+      "group": "backgrounds",
+      "label": "纸黄",
+      "source": "https://www.merlin-botc.com/resources/art-assets/backgrounds/base_background/%E7%BA%B8%E9%BB%84.png",
+      "sha256": "d962cef6160c6a4118fd6aedc10ef7a44c50977ecc40f9177baae670d060ef63"
+    },
+    {
+      "id": "patterns-0",
+      "group": "patterns",
+      "label": "西式底纹",
+      "source": "https://www.merlin-botc.com/resources/art-assets/backgrounds/background_pattern/%E8%A5%BF%E5%BC%8F%E5%BA%95%E7%BA%B9v2.webp?v=20260905-art-perf1",
+      "sha256": "bbd5aeed18abdfc17c5ea8e026fc0ac5bb47c97c2ea6fcb0fa19f8fa5de4de3f",
+      "height": 432
+    },
+    {
+      "id": "patterns-1",
+      "group": "patterns",
+      "label": "中式底纹",
+      "source": "https://www.merlin-botc.com/resources/art-assets/backgrounds/background_pattern/%E4%B8%AD%E5%BC%8F%E5%BA%95%E7%BA%B9.png",
+      "sha256": "53d74880d6009b2a57a5af696eaf67131bac57c891f81ac67f5b4d5b2e8db3f3",
+      "height": 432
+    },
+    {
+      "id": "ornaments-0",
+      "group": "ornaments",
+      "label": "经典风",
+      "source": "https://www.merlin-botc.com/resources/art-assets/ornaments/%E7%BB%8F%E5%85%B8%E9%A3%8E.png",
+      "sha256": "dc49282a64d1af18ad722813085a7b3a595bf16473fa09b931ed1c5aa2d9bb3c",
+      "height": 432
+    },
+    {
+      "id": "ornaments-1",
+      "group": "ornaments",
+      "label": "梅林风",
+      "source": "https://www.merlin-botc.com/resources/art-assets/ornaments/%E6%A2%85%E6%9E%97%E9%A3%8E.webp?v=20260905-art-perf1",
+      "sha256": "802478042f8a79d449ff9c9ef77897d456815b568f33bc7a4f1a7eb2c61adbcc",
+      "height": 432
+    }
+  ]
+}
