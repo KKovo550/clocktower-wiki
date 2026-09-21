@@ -59,5 +59,13 @@
     });
     return {selected:selected,custom:custom,name:str(meta.name,'剧本名称'),author:str(meta.author,'作者')};
   }
-  root.ScriptCore={normalize:normalize,parseImport:parseImport,parseJSON:function(text){return JSON.parse(String(text).replace(/^\uFEFF/,''));}};
+  function nightOrder(role,orders){
+    orders=orders||{};
+    var entry=Object.prototype.hasOwnProperty.call(orders,role.id)?orders[role.id]:null;
+    // Standard imports may omit the catalog's _gstone suffix.
+    if(!entry&&Object.prototype.hasOwnProperty.call(orders,role.id+'_gstone'))entry=orders[role.id+'_gstone'];
+    if(!entry||entry.n!==role.n)return {firstNight:role.f||0,otherNight:role.o||0};
+    return {firstNight:entry.f===null?(role.f||0):entry.f,otherNight:entry.o===null?(role.o||0):entry.o};
+  }
+  root.ScriptCore={normalize:normalize,parseImport:parseImport,nightOrder:nightOrder,parseJSON:function(text){return JSON.parse(String(text).replace(/^\uFEFF/,''));}};
 })(globalThis);

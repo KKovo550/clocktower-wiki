@@ -264,10 +264,11 @@ function exportObj(){
   if(a)meta.author=a;
   var out=[meta];
   sel.forEach(function(c){
+    var night=ScriptCore.nightOrder(c,SCRIPT_NIGHT_ORDER);
     out.push({id:(c.id||('custom_'+(c.n||''))),name:c.n,team:c.t,ability:c.ab,
       // 导出永远优先写官方图标 URL（iu）；只有表外自定义角色才退回 im
       image:c.images||c.iu||c.im||'',edition:c.ed||'',flavor:c.fl||'',
-      setup:c.s||0,firstNight:c.f||0,otherNight:c.o||0,
+      setup:c.s||0,firstNight:night.firstNight,otherNight:night.otherNight,
       reminders:c.r||[],remindersGlobal:c.rg||[],
       firstNightReminder:c.fr||'',otherNightReminder:c.or||''});
   });
@@ -289,7 +290,7 @@ document.getElementById('bExport').onclick=function(){
   if(report.errors.length){document.getElementById('script-checks').open=true;alert('请先修正明确问题：\n'+report.errors.join('\n'));return;}
   var txt=JSON.stringify(exportObj(),null,2);
   openDlg('<h3>导出 JSON</h3><textarea readonly>'+esc(txt)+'</textarea>'+
-    '<div class="tip">标准格式（_meta + 完整角色对象），可直接被 bloodstar / 官方工具载入。</div>'+
+    '<div class="tip">标准格式（_meta + 完整角色对象），可直接被 bloodstar / 官方工具载入。已收录角色使用本站夜晚行动顺序表；未定位的行动与表外角色保留原夜序。</div>'+
     '<div class="foot"><button class="btn" id="cp">复制</button>'+
     '<button class="btn pri" id="dl">下载 .json</button>'+
     '<button class="btn" onclick="closeDlg()">关闭</button></div>');
