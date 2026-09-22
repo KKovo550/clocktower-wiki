@@ -353,8 +353,9 @@ document.getElementById('bRandom').onclick=function(){
 };
 document.getElementById('bSort').onclick=function(){
   function key(c){
-    if(c.f) return [0, c.f];
-    if(c.o) return [1, c.o];
+    var night=ScriptCore.nightOrder(c,SCRIPT_NIGHT_ORDER);
+    if(night.firstNight) return [0, night.firstNight];
+    if(night.otherNight) return [1, night.otherNight];
     return [2, TEAMORD.indexOf(c.t)*1000 + sel.indexOf(c)];
   }
   sel.sort(function(a,b){var x=key(a),y=key(b);
@@ -362,10 +363,11 @@ document.getElementById('bSort').onclick=function(){
   renderAll();
 };
 document.getElementById('bNight').onclick=function(){
-  var first=sel.filter(function(c){return c.f;})
-    .sort(function(a,b){return a.f-b.f;});
-  var other=sel.filter(function(c){return c.o;})
-    .sort(function(a,b){return a.o-b.o;});
+  function ordered(field){
+    return sel.filter(function(c){return ScriptCore.nightOrder(c,SCRIPT_NIGHT_ORDER)[field];})
+      .sort(function(a,b){return ScriptCore.nightOrder(a,SCRIPT_NIGHT_ORDER)[field]-ScriptCore.nightOrder(b,SCRIPT_NIGHT_ORDER)[field];});
+  }
+  var first=ordered('firstNight'),other=ordered('otherNight');
   function li(c,k){return '<li>'+esc(c.n)+' <span style="color:#9a8a6e;font-size:11.5px">'+
     (c[k+((k==='f')?'r':'r')]||'')+'</span></li>';}
   var h='<h3>夜晚行动顺序</h3><div class="night">'+
@@ -377,7 +379,7 @@ document.getElementById('bNight').onclick=function(){
       (other.map(function(c){return '<li>'+esc(c.n)+
         (c.or?' <span style="color:#9a8a6e;font-size:11.5px">'+esc(c.or)+'</span>':'')+
         '</li>';}).join('')||'<li style="color:#9a8a6e">无</li>')+'</ol></div></div>'+
-    '<div class="tip">内置角色采用项目保存的社区推荐夜序（2026-09-16），仅列出角色行动，不含阶段步骤。未列出不代表无需行动，请结合角色规则核对；自定义角色使用导入的夜序。</div>'+
+    '<div class="tip">与导出 JSON 使用同一份本站夜晚行动顺序表；这里只显示已选角色，列表序号不是 JSON 中的全表夜序值。未定位的行动与表外角色保留原夜序。</div>'+
     '<div class="foot"><button class="btn" id="cpn">复制文本</button>'+
     '<button class="btn" onclick="closeDlg()">关闭</button></div>';
   openDlg(h);
