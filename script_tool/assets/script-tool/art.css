@@ -16,3 +16,13 @@
 #artDialog .btn{font:inherit;padding:9px 13px;border:1px solid #cbd8e9;border-radius:9px;background:#fff;color:#274b76;cursor:pointer}#artDialog .btn.pri{background:#285da9;color:#fff;border-color:#285da9}#artDialog .btn:focus-visible{outline:3px solid #92baff;outline-offset:2px}
 #artDialog button:disabled{opacity:.5;cursor:wait}
 @media(max-width:700px){#artDialog .art-workspace{grid-template-columns:1fr;padding:16px;gap:16px}#artDialog .art-header{padding:16px}#artDialog .art-canvas{padding:10px}#artDialog .art-controls{gap:10px}}
+
+#artDialog textarea{box-sizing:border-box;width:100%;min-height:90px;padding:10px;border:1px solid #cedaeb;border-radius:9px;background:#fff;font:inherit;color:#1b2c44;resize:vertical}
+#artDialog input[type="checkbox"]{width:auto;align-self:flex-start}
+.art-custom-jinx{padding:12px;border:1px solid #cedaeb;border-radius:10px;background:#fff}
+.art-custom-jinx summary{cursor:pointer;font-weight:600;margin-bottom:10px}
+#artCustomJinxList>div{border-top:1px solid #e0e5ec;padding:10px 0;overflow-wrap:anywhere}
+#artCustomJinxList p{white-space:pre-wrap}
+#artCustomJinxList button{margin-right:6px}
+
+.art-stage{position:relative}#artOverlay{position:absolute;inset:0;pointer-events:none}#artDialog .art-hit{position:absolute;pointer-events:auto;background:transparent;border:2px solid transparent;border-radius:5px;cursor:grab;padding:0}#artDialog .art-hit:hover,#artDialog .art-hit:focus-visible{border-color:#397bb8;background:#5e9ee519;outline:none}#artDialog .art-hit.art-drop{border-color:#c68a2f;background:#edc36640}#artRoleEditor{padding:12px;border:1px solid #aac3de;border-radius:10px;background:#fff}#artRoleEditor[hidden]{display:none}

@@ -170,7 +170,7 @@ function renderJinx(){
     if(ps.length<2) ps=j.name.split('与');
     ps=ps.map(function(x){return x.trim();});
     if(ps.length<2)return;
-    if(ps.every(function(p){return names[p.toLowerCase()];}))
+    if(j.roleIds?j.roleIds.every(function(id){return sel.some(function(r){return r.id===id;});}):ps.every(function(p){return names[p.toLowerCase()];}))
       hit.push({pair:ps.join(' & '), ab:j.ability});
   });
   var box=document.getElementById('jinxbox');

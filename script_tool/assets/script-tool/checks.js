@@ -18,7 +18,7 @@
    if(roles.filter(function(c){return ['townsfolk','outsider','minion','demon'].includes(c.t);}).length>9)suggestions.push('角色池较大，请核对汀西维尔规格；这不是开局人数判定。');
   }
   if(spec==='ravenswood'&&(counts.townsfolk||0)<9)suggestions.push('镇民选择少于 9 个，建议检查标准剧本的选择空间');
-  jinx.forEach(function(j){var pair=j.name.split(/&|与/).map(function(x){return x.trim();});if(pair.length>1&&pair.every(function(n){return names.has(n.toLowerCase());}))interactions.push({name:pair.join(' & '),text:j.ability});});
+  jinx.forEach(function(j){var pair=j.name.split(/&|与/).map(function(x){return x.trim();});if(pair.length>1&&(j.roleIds?j.roleIds.every(function(id){return roles.some(function(r){return r.id===id;});}):pair.every(function(n){return names.has(n.toLowerCase());})))interactions.push({name:pair.join(' & '),text:j.ability});});
   return {errors:errors,suggestions:suggestions,interactions:interactions,setup:setup,counts:counts};
  }
  root.ScriptChecks={analyze:analyze};
