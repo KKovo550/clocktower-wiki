@@ -10,6 +10,7 @@ if(window.BOTC_NIGHT){
     });
   });
 }
+var NIGHT_OVERRIDES=Object.create(null);
 var CUSTOM=[];                 // 用户自建角色
 var sel=[];                    // 已选角色
 var curTab='all', q='', saveKey='botc_script_tool_v1';
@@ -264,7 +265,7 @@ function exportObj(){
   if(a)meta.author=a;
   var out=[meta];
   sel.forEach(function(c){
-    var night=ScriptCore.nightOrder(c,SCRIPT_NIGHT_ORDER);
+    var night=ScriptCore.nightOrder(c,SCRIPT_NIGHT_ORDER,NIGHT_OVERRIDES);
     out.push({id:(c.id||('custom_'+(c.n||''))),name:c.n,team:c.t,ability:c.ab,
       // 导出永远优先写官方图标 URL（iu）；只有表外自定义角色才退回 im
       image:c.images||c.iu||c.im||'',edition:c.ed||'',flavor:c.fl||'',
@@ -320,7 +321,7 @@ document.getElementById('bImport').onclick=function(){
 function doImport(data){
   var result=ScriptCore.parseImport(data,CHARS);
   if((sel.length||document.getElementById('mname').value||document.getElementById('mauthor').value)&&!confirm('导入会替换当前剧本，继续？'))return false;
-  CUSTOM=result.custom; sel=result.selected;
+  CUSTOM=result.custom; sel=result.selected; NIGHT_OVERRIDES=Object.create(null);
   document.getElementById('mname').value=result.name;
   document.getElementById('mauthor').value=result.author;
   renderAll();
@@ -328,7 +329,7 @@ function doImport(data){
 
 document.getElementById('bClear').onclick=function(){
   if(!sel.length)return;
-  if(confirm('清空当前剧本？')){ sel=[]; document.getElementById('mname').value='';
+  if(confirm('清空当前剧本？')){ sel=[]; NIGHT_OVERRIDES=Object.create(null); document.getElementById('mname').value='';
     document.getElementById('mauthor').value=''; renderAll(); }
 };
 document.getElementById('bRandom').onclick=function(){
@@ -343,7 +344,7 @@ document.getElementById('bRandom').onclick=function(){
       var x=pool[i];pool[i]=pool[j];pool[j]=x;}
     return pool.slice(0,n);
   }
-  sel=[];
+  sel=[]; NIGHT_OVERRIDES=Object.create(null);
   ['townsfolk','outsider','minion','demon'].forEach(function(t){
     pick(t,need[t]).forEach(function(c){sel.push(c);});
   });
@@ -353,7 +354,7 @@ document.getElementById('bRandom').onclick=function(){
 };
 document.getElementById('bSort').onclick=function(){
   function key(c){
-    var night=ScriptCore.nightOrder(c,SCRIPT_NIGHT_ORDER);
+    var night=ScriptCore.nightOrder(c,SCRIPT_NIGHT_ORDER,NIGHT_OVERRIDES);
     if(night.firstNight) return [0, night.firstNight];
     if(night.otherNight) return [1, night.otherNight];
     return [2, TEAMORD.indexOf(c.t)*1000 + sel.indexOf(c)];
@@ -364,8 +365,8 @@ document.getElementById('bSort').onclick=function(){
 };
 document.getElementById('bNight').onclick=function(){
   function ordered(field){
-    return sel.filter(function(c){return ScriptCore.nightOrder(c,SCRIPT_NIGHT_ORDER)[field];})
-      .sort(function(a,b){return ScriptCore.nightOrder(a,SCRIPT_NIGHT_ORDER)[field]-ScriptCore.nightOrder(b,SCRIPT_NIGHT_ORDER)[field];});
+    return sel.filter(function(c){return ScriptCore.nightOrder(c,SCRIPT_NIGHT_ORDER,NIGHT_OVERRIDES)[field];})
+      .sort(function(a,b){return ScriptCore.nightOrder(a,SCRIPT_NIGHT_ORDER,NIGHT_OVERRIDES)[field]-ScriptCore.nightOrder(b,SCRIPT_NIGHT_ORDER,NIGHT_OVERRIDES)[field];});
   }
   var first=ordered('firstNight'),other=ordered('otherNight');
   function li(c,k){return '<li>'+esc(c.n)+' <span style="color:#9a8a6e;font-size:11.5px">'+
@@ -379,10 +380,41 @@ document.getElementById('bNight').onclick=function(){
       (other.map(function(c){return '<li>'+esc(c.n)+
         (c.or?' <span style="color:#9a8a6e;font-size:11.5px">'+esc(c.or)+'</span>':'')+
         '</li>';}).join('')||'<li style="color:#9a8a6e">无</li>')+'</ol></div></div>'+
-    '<div class="tip">与导出 JSON 使用同一份本站夜晚行动顺序表；这里只显示已选角色，列表序号不是 JSON 中的全表夜序值。未定位的行动与表外角色保留原夜序。</div>'+
-    '<div class="foot"><button class="btn" id="cpn">复制文本</button>'+
+    '<div class="tip">拖拽角色调整本夜顺序，也可用上下按钮移动。修改立即保存并用于 JSON 导出；首夜与其他夜晚独立调整。列表序号不是 JSON 中的夜序值。</div>'+
+    '<div class="foot"><button class="btn" id="resetNight">恢复默认夜序</button><button class="btn" id="cpn">复制文本</button>'+
     '<button class="btn" onclick="closeDlg()">关闭</button></div>';
   openDlg(h);
+  var dragged=null;
+  function move(list,field,from,to){
+    if(from===to)return;
+    // Reuse ordered slots, splitting ties so the chosen order exports exactly.
+    var slots=list.map(function(c){return ScriptCore.nightOrder(c,SCRIPT_NIGHT_ORDER,NIGHT_OVERRIDES)[field];});
+    for(var i=0;i<slots.length;i++){
+      if(i>0&&slots[i]<=slots[i-1])slots[i]=slots[i-1]+0.001;
+    }
+    list.splice(to,0,list.splice(from,1)[0]);
+    list.forEach(function(c,i){(NIGHT_OVERRIDES[c.id]||(NIGHT_OVERRIDES[c.id]={}))[field]=slots[i];});
+    save();document.getElementById('bNight').onclick();
+  }
+  document.querySelectorAll('#dlgBody .night ol').forEach(function(ol,night){
+    var list=night===0?first:other,field=night===0?'firstNight':'otherNight';
+    Array.from(ol.children).forEach(function(li,index){
+      if(!list.length)return;
+      li.draggable=true;li.classList.add('night-sortable');
+      li.addEventListener('dragstart',function(e){dragged={night:night,index:index};e.dataTransfer.effectAllowed='move';e.dataTransfer.setData('text/plain',String(index));});
+      li.addEventListener('dragover',function(e){if(dragged&&dragged.night===night){e.preventDefault();e.dataTransfer.dropEffect='move';}});
+      li.addEventListener('drop',function(e){e.preventDefault();if(dragged&&dragged.night===night)move(list,field,dragged.index,index);dragged=null;});
+      li.addEventListener('dragend',function(){dragged=null;});
+      [-1,1].forEach(function(delta){
+        var button=document.createElement('button');button.type='button';button.className='night-move';
+        button.textContent=delta<0?'↑':'↓';button.setAttribute('aria-label',(delta<0?'上移':'下移')+list[index].n);
+        button.disabled=index+delta<0||index+delta>=list.length;
+        button.onclick=function(){move(list,field,index,index+delta);var next=document.querySelectorAll('#dlgBody .night ol')[night].children[index+delta];next.querySelector(delta<0?'button':'button:last-child').focus();};
+        li.appendChild(button);
+      });
+    });
+  });
+  document.getElementById('resetNight').onclick=function(){NIGHT_OVERRIDES=Object.create(null);save();document.getElementById('bNight').onclick();};
   document.getElementById('cpn').onclick=function(){
     var t='【首夜】\n'+first.map(function(c,i){return (i+1)+'. '+c.n;}).join('\n')+
       '\n\n【其他夜晚】\n'+other.map(function(c,i){return (i+1)+'. '+c.n;}).join('\n');
@@ -417,6 +449,7 @@ document.getElementById('preset').onchange=function(){
   if(!v)return;
   var p=PRESETS[+v]; if(!p)return;
   if(sel.length && !confirm('载入「'+p.name+'」会覆盖当前剧本，继续？'))return;
+  NIGHT_OVERRIDES=Object.create(null);
   sel=p.idxs.map(function(i){return CHARS[i];});
   document.getElementById('mname').value=p.name;
   renderAll();
@@ -432,7 +465,7 @@ function save(){
   try{
     localStorage.setItem(saveKey,JSON.stringify({version:2,
       n:document.getElementById('mname').value,a:document.getElementById('mauthor').value,
-      s:document.getElementById('spec').value,custom:CUSTOM,
+      s:document.getElementById('spec').value,custom:CUSTOM,nightOverrides:NIGHT_OVERRIDES,
       sel:sel.map(function(c){return {id:c.id,name:c.n,custom:CUSTOM.indexOf(c)>=0};})}));
     status('已保存到此浏览器 · 重要剧本请导出 JSON 备份');
   }catch(e){status('本地保存失败，请立即导出 JSON 备份。');}
@@ -454,6 +487,13 @@ function load(){
     });
     custom.forEach(function(c){var known=CHARS.find(function(x){return x.id===c.id;});if(known&&known.im&&known.iu===c.iu)c.im=known.im;});
     CUSTOM=custom;sel=Array.from(new Set(selected));
+    NIGHT_OVERRIDES=Object.create(null);
+    if(d.nightOverrides&&typeof d.nightOverrides==='object')selected.forEach(function(c){
+      var entry=d.nightOverrides[c.id];if(!entry)return;
+      ['firstNight','otherNight'].forEach(function(field){if(Number.isFinite(entry[field])&&entry[field]>0){
+        (NIGHT_OVERRIDES[c.id]||(NIGHT_OVERRIDES[c.id]={}))[field]=entry[field];
+      }});
+    });
     document.getElementById('mname').value=d.n||'';
     document.getElementById('mauthor').value=d.a||'';
     document.getElementById('spec').value=['free','teensy','ravenswood'].includes(d.s)?d.s:'free';

@@ -149,3 +149,5 @@ kbd{background:#f1e9d8;border:1px solid var(--tan);border-radius:3px;padding:0 4
 .script-editor{background-image:none}
 @container(max-width:720px){.script-editor .cols{grid-template-columns:1fr}.script-editor .mine{position:static;max-height:none}.script-editor .grid{max-height:420px}}
 @media(max-width:600px){.script-editor .btn,.script-editor .tab{min-height:36px}.script-editor .mini{width:34px;height:34px}}
+
+.night-sortable{cursor:grab;padding:5px;border-bottom:1px solid #dfd4bf}.night-sortable:active{cursor:grabbing}.night-move{margin-left:5px;padding:2px 7px;cursor:pointer}.night-move:disabled{opacity:.35}

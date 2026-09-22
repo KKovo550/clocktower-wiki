@@ -59,13 +59,16 @@
     });
     return {selected:selected,custom:custom,name:str(meta.name,'剧本名称'),author:str(meta.author,'作者')};
   }
-  function nightOrder(role,orders){
+  function nightOrder(role,orders,overrides){
     orders=orders||{};
     var entry=Object.prototype.hasOwnProperty.call(orders,role.id)?orders[role.id]:null;
     // Standard imports may omit the catalog's _gstone suffix.
     if(!entry&&Object.prototype.hasOwnProperty.call(orders,role.id+'_gstone'))entry=orders[role.id+'_gstone'];
-    if(!entry||entry.n!==role.n)return {firstNight:role.f||0,otherNight:role.o||0};
-    return {firstNight:entry.f===null?(role.f||0):entry.f,otherNight:entry.o===null?(role.o||0):entry.o};
+    var result=(!entry||entry.n!==role.n)?{firstNight:role.f||0,otherNight:role.o||0}:
+      {firstNight:entry.f===null?(role.f||0):entry.f,otherNight:entry.o===null?(role.o||0):entry.o};
+    var custom=overrides&&Object.prototype.hasOwnProperty.call(overrides,role.id)?overrides[role.id]:null;
+    ['firstNight','otherNight'].forEach(function(field){if(custom&&Number.isFinite(custom[field])&&custom[field]>0&&result[field]>0)result[field]=custom[field];});
+    return result;
   }
   root.ScriptCore={normalize:normalize,parseImport:parseImport,nightOrder:nightOrder,parseJSON:function(text){return JSON.parse(String(text).replace(/^\uFEFF/,''));}};
 })(globalThis);
