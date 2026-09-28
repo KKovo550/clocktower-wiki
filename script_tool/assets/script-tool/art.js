@@ -50,6 +50,51 @@
       image.onerror=function(){URL.revokeObjectURL(url);reject(new Error('图片损坏或格式不受支持。'));};image.src=url;
     });
   }
+  var remoteIconCache=new Map();
+  function embedIcon(url){
+    if(remoteIconCache.has(url))return Promise.resolve(remoteIconCache.get(url));
+    return new Promise(function(resolve,reject){
+      var image=new Image(),done=false;
+      var timeout=setTimeout(function(){finish(new Error('图标加载超时'));},10000);
+      function finish(error,value){if(done)return;done=true;clearTimeout(timeout);image.onload=image.onerror=null;if(error)reject(error);else resolve(value);}
+      image.crossOrigin='anonymous';
+      image.onload=function(){try{
+        var width=image.naturalWidth||image.width,height=image.naturalHeight||image.height;
+        if(!width||!height)throw new Error('图标尺寸无效');
+        var scale=Math.min(1,256/width,256/height),canvas=document.createElement('canvas');
+        canvas.width=Math.max(1,Math.round(width*scale));canvas.height=Math.max(1,Math.round(height*scale));
+        canvas.getContext('2d').drawImage(image,0,0,canvas.width,canvas.height);
+        var data=canvas.toDataURL('image/png');
+        if(remoteIconCache.size>=256)remoteIconCache.delete(remoteIconCache.keys().next().value);
+        remoteIconCache.set(url,data);finish(null,data);
+      }catch(error){finish(error);}};
+      image.onerror=function(){finish(new Error('图标链接不可访问或不允许跨域导出'));};image.src=url;
+    });
+  }
+  async function prepareImportedIcons(session){
+    var catalog=new Map();
+    (typeof CHARS==='undefined'?[]:CHARS).forEach(function(role){var icon=icons[role.im]||icons[role.id];if(!icon)return;[role.iu].concat(role.images||[]).forEach(function(url){if(url)catalog.set(url,icon);});});
+    var queue=roles.slice(),completed=0,total=roles.length;
+    async function worker(){while(queue.length&&session===revision&&dialog.open){
+      var role=queue.shift();
+      var local=ScriptCore.catalogIcon(role,typeof CHARS==='undefined'?[]:CHARS,icons);
+      if(local)icons[role.id]=local;
+      if(!icons[role.im]&&!icons[role.id]){
+        var urls=Array.from(new Set([role.im,role.iu].concat(role.images||[]).filter(Boolean)));
+        for(var i=0;i<urls.length;i++){
+          if(session!==revision||!dialog.open)return;
+          try{var url=urls[i],data=catalog.get(url);
+            if(!data&&/^data:image\/(png|jpeg|webp);base64,/.test(url))data=url;
+            if(!data&&/^(https?:\/\/|data:image\/gif;base64,)/i.test(url))data=await embedIcon(url);
+            if(session!==revision||!dialog.open)return;
+            if(data){icons[role.id]=data;break;}
+          }catch(error){/* Try the next image in the imported array. */}
+        }
+      }
+      completed++;message('正在准备角色图标… '+completed+'/'+total);
+    }}
+    await Promise.all(Array.from({length:Math.min(4,total)},worker));
+  }
   function persistJinx(){
     try{localStorage.setItem(jinxStorageKey,JSON.stringify(customJinx));el('artJinxMessage').textContent='已保存到此浏览器，并应用于图片。';}
     catch(error){el('artJinxMessage').textContent='图片已更新，但浏览器保存失败；关闭页面前请下载图片。';}
@@ -78,8 +123,8 @@
     }catch(error){el('artJinxMessage').textContent='无法读取此前的自定义规则。';}
     clearJinxEditor();listJinx();
   }
-  var history=[],historyIndex=-1,restoring=false,originalOrder=[],activeRole='',sourceSignature='';
-  var historyFields=['artRatio','artJinx','artStyle','artRules','artTitle','artAuthor','artSubtitle','artColumns','artTheme','artFont','artBackdrop','artPattern','artOrnament'];
+  var history=[],historyIndex=-1,restoring=false,originalOrder=[],activeRole='',sourceSignature='',sourceTitle='',sourceAuthor='';
+  var historyFields=['artFrame','artVersion','artPlayers','artTitleStyle','artRatio','artJinx','artStyle','artRules','artTitle','artAuthor','artSubtitle','artColumns','artTheme','artFont','artBackdrop','artPattern','artOrnament'];
   function snapshot(){
     var fields={};historyFields.forEach(function(id){fields[id]=id==='artJinx'?el(id).checked:el(id).value;});
     return JSON.stringify({roles:roles,customJinx:customJinx,fields:fields,background:background});
@@ -95,6 +140,8 @@
     roles=state.roles;customJinx=state.customJinx;background=state.background;
     Object.keys(state.fields).forEach(function(id){if(id==='artJinx')el(id).checked=state.fields[id];else el(id).value=state.fields[id];});
     clearJinxEditor();listJinx();persistJinx();el('artRoleEditor').hidden=true;restoring=true;render();restoring=false;
+    // Rendering refreshes external night order; retain redo after that refresh.
+    history[historyIndex]=snapshot();
   }
   function editRole(id){
     var role=roles.find(function(r){return r.id===id;});if(!role)return;activeRole=id;
@@ -128,7 +175,7 @@
       button.addEventListener('dragend',function(){dragged='';overlay.querySelectorAll('.art-drop').forEach(function(b){b.classList.remove('art-drop');});});
     });
   }
-  function options(){return {showJinx:el('artJinx').checked,jinx:(typeof JINX==='undefined'?[]:JINX).concat(customJinx),style:el('artStyle').value,ratio:el('artRatio').value,rules:el('artRules').value,first:roles.filter(function(r){return r.artFirst>0;}).sort(function(a,b){return a.artFirst-b.artFirst;}),other:roles.filter(function(r){return r.artOther>0;}).sort(function(a,b){return a.artOther-b.artOther;}),columns:el('artColumns').value,font:el('artFont').value,theme:el('artTheme').value,title:el('artTitle').value,author:el('artAuthor').value,subtitle:el('artSubtitle').value,total:roles.length,background:background,backdrop:background?'':el('artBackdrop').value,pattern:el('artPattern').value,ornament:el('artOrnament').value,decorations:window.SCRIPT_ART_DECORATIONS||[]};}
+  function options(){return {frame:el('artFrame').value,version:el('artVersion').value,players:el('artPlayers').value,titleStyle:el('artTitleStyle').value,showJinx:el('artJinx').checked,jinx:(typeof JINX==='undefined'?[]:JINX).concat(customJinx),style:el('artStyle').value,ratio:el('artRatio').value,rules:el('artRules').value,first:roles.filter(function(r){return r.artFirst>0;}).sort(function(a,b){return a.artFirst-b.artFirst;}),other:roles.filter(function(r){return r.artOther>0;}).sort(function(a,b){return a.artOther-b.artOther;}),columns:el('artColumns').value,font:el('artFont').value,theme:el('artTheme').value,title:el('artTitle').value,author:el('artAuthor').value,subtitle:el('artSubtitle').value,total:roles.length,background:background,backdrop:background?'':el('artBackdrop').value,pattern:el('artPattern').value,ornament:el('artOrnament').value,decorations:window.SCRIPT_ART_DECORATIONS||[]};}
   function showPage(){
     var index=0;
     currentSvg=ScriptArt.svg(plan,index,options(),icons,measure);
@@ -138,13 +185,15 @@
   }
   function render(){
     if(!dialog.open)return;
+    // Night order belongs to the script, not to the image editor's undo history.
+    roles.forEach(function(role){var night=ScriptCore.nightOrder(role,typeof SCRIPT_NIGHT_ORDER==='undefined'?{}:SCRIPT_NIGHT_ORDER,typeof NIGHT_OVERRIDES==='undefined'?{}:NIGHT_OVERRIDES);role.artFirst=night.firstNight;role.artOther=night.otherNight;});
     el('artColumns').disabled=el('artStyle').value==='poster';
     el('artRatio').disabled=el('artStyle').value!=='poster';
     try{
       plan=ScriptArt.layout(roles,options(),measure);
       showPage();recordHistory();
       var missing=roles.filter(function(role){return !icons[role.im]&&!icons[role.id];}).length;
-      message('已生成一张完整图片 · '+plan.width+' × '+plan.height+'。'+(missing?' '+missing+' 个图标不可用，已使用文字占位。':''));
+      message('已生成一张完整图片 · '+plan.width+' × '+plan.height+'。'+(plan.bodyScale<0.9?' 当前固定比例已缩小正文，建议选择“随内容自动加长”以保留字号和留白。':'')+(missing?' '+missing+' 个图标不可用，已使用文字占位。请核对图片链接、网络或图片站的跨域限制；重新打开可重试。':''));
     }catch(error){currentSvg='';enabled(false);message(error.message);}
   }
   function queue(){currentSvg='';enabled(false);clearTimeout(timer);timer=setTimeout(render,160);}
@@ -178,14 +227,14 @@
       '<div class="art-downloads"><button type="button" class="btn" id="artUndo" disabled>撤销</button><button type="button" class="btn" id="artRedo" disabled>重做</button><button type="button" class="btn" id="artResetOrder">恢复角色排序</button></div><p class="art-note">点击画布上的角色编辑能力与相克，拖拽交换同类角色。修改仅用于制图；夜序仍沿用剧本工具设置。</p><section id="artRoleEditor" hidden><strong id="artRoleHeading"></strong><label>图片中的能力说明<textarea id="artRoleAbility" maxlength="20000"></textarea></label><button type="button" id="artRoleApply" class="btn">应用说明</button><button type="button" id="artRoleJinx" class="btn">添加相克</button><label>与同类角色交换<select id="artSwapTarget"></select></label><button type="button" id="artSwap" class="btn">交换位置</button><button type="button" id="artRoleClose" class="btn">收起</button></section>'+
       '<label><input type="checkbox" id="artJinx" checked>显示已选角色间的相克规则</label>'+
       '<details class="art-custom-jinx"><summary>自定义相克规则</summary><label>角色一<select id="artJinxRoleA"></select></label><label>角色二<select id="artJinxRoleB"></select></label><label>相克说明<textarea id="artJinxText" maxlength="2000" placeholder="填写这两个角色之间的特殊互动规则"></textarea></label><button type="button" class="btn" id="artJinxAdd">添加相克规则</button><button type="button" class="btn" id="artJinxCancel">取消修改</button><p id="artJinxMessage" role="status"></p><div id="artCustomJinxList"></div><p class="art-note">仅用于当前角色组合的制图，保存到此浏览器，不改变全站规则或剧本 JSON。</p></details>'+
-      '<label>图片比例<select id="artRatio"><option value="reference" selected>参考图比例 · 约 1:1.35</option><option value="auto">随内容自动加长</option></select></label>'+
+      '<label>图片比例<select id="artRatio"><option value="readable" selected>舒展排版 · 内容多时自动加长</option><option value="reference">固定参考比例 · 约 1:1.35</option><option value="auto">随内容自动加长</option></select></label>'+
       '<label>版式<select id="artStyle"><option value="poster" selected>参考图海报 · 阵营分区与两侧夜序</option><option value="simple">简洁分栏</option></select></label><label>特殊规则<textarea id="artRules" maxlength="2000" placeholder="例如：私货商人的特殊规则（可留空）"></textarea></label>'+
-      '<label>剧本标题<input id="artTitle" maxlength="100"></label><label>作者<input id="artAuthor" maxlength="48"></label><label>副标题 / 备注<input id="artSubtitle" maxlength="65" placeholder="例如：适合 9–12 人 · 第三版"></label>'+
+      '<label>夜序边栏<select id="artFrame"><option value="paper">柔和纸色</option><option value="charcoal">暗纹 · 朱红边线</option><option value="midnight">靛蓝 · 紫色边线</option></select></label><div class="art-pair"><label>版本号<input id="artVersion" maxlength="18" placeholder="例如：V 1.0"></label><label>适用人数<input id="artPlayers" maxlength="24" placeholder="例如：支持 7–15 人"></label></div><label>标题风格<select id="artTitleStyle"><option value="plain">简洁黑体</option><option value="epic" selected>立体海报 · 蓝紫描边</option><option value="brush">墨色书法</option><option value="classic">古典宋体</option><option value="gold">鎏金铭文</option><option value="crimson">暗红悬疑</option></select></label><label>剧本标题<input id="artTitle" maxlength="100"></label><label>作者<input id="artAuthor" maxlength="48"></label><label>副标题 / 备注<input id="artSubtitle" maxlength="65" placeholder="例如：适合 9–12 人 · 第三版"></label>'+
       '<div class="art-pair"><label>分栏<select id="artColumns"><option value="1">单列</option><option value="2" selected>双列</option><option value="3">三列</option></select></label><label>配色<select id="artTheme"><option value="cloud">云白</option><option value="paper">暖纸</option><option value="night">深夜</option></select></label></div>'+
       '<label>说明字号<select id="artFont"><option value="20">紧凑</option><option value="24" selected>标准</option><option value="28">大字</option></select></label>'+
       '<label>素材背景<select id="artBackdrop"><option value="">无</option></select></label><div class="art-pair"><label>底纹<select id="artPattern"><option value="">无</option></select></label><label>装饰<select id="artOrnament"><option value="">无</option></select></label></div><p class="art-note">装饰素材来源：<a href="https://www.merlin-botc.com/create/art?lang=zh-CN" target="_blank" rel="noopener">Merlin Studio</a></p>'+
       '<label>自选背景<input type="file" id="artBackground" accept="image/png,image/jpeg,image/webp"></label><button type="button" class="btn" id="artRemoveBg">移除背景</button>'+
-      '<p class="art-note">图片只在本机处理。角色按类型分组，保留组内顺序；参考图比例会紧凑排版并等比缩放内容，不裁切文字；也可选择自动加长。缺失或远程自定义图标使用文字占位。</p>'+
+      '<p class="art-note">图片只在本机处理。角色按类型分组，保留组内顺序；参考图比例会紧凑排版并等比缩放内容，不裁切文字；也可选择自动加长。导入图标会尝试联网加载并嵌入图片；失效或不允许跨域读取的图标使用文字占位。</p>'+
       '<label>PNG 清晰度<select id="artScale"><option value="1">标准 · 1280 像素宽</option><option value="2" selected>高清 · 2560 像素宽</option></select></label>'+
       '<div class="art-downloads"><button type="button" class="btn pri" id="artPng" disabled>下载 PNG</button><button type="button" class="btn" id="artSvg" disabled>下载 SVG</button></div><p id="artStatus" role="status" aria-live="polite"></p></section>'+
       '<section class="art-canvas" aria-label="剧本图片预览"><div class="art-stage"><img id="artPreview" alt="可点击角色编辑的剧本图片预览"><div id="artOverlay"></div></div></section></div>';
@@ -210,7 +259,7 @@
     el('artPreview').onerror=function(){enabled(false);message('预览图片未能显示，请调整设置后重试。');};
     el('artClose').onclick=function(){dialog.close();};
     dialog.addEventListener('close',function(){revision++;clearTimeout(timer);enabled(false);if(previewUrl){URL.revokeObjectURL(previewUrl);previewUrl='';}el('artPreview').removeAttribute('src');});
-    ['artRatio','artJinx','artStyle','artRules','artTitle','artAuthor','artSubtitle','artColumns','artTheme','artFont','artBackdrop','artPattern','artOrnament'].forEach(function(id){el(id).addEventListener('input',queue);});
+    ['artFrame','artVersion','artPlayers','artTitleStyle','artRatio','artJinx','artStyle','artRules','artTitle','artAuthor','artSubtitle','artColumns','artTheme','artFont','artBackdrop','artPattern','artOrnament'].forEach(function(id){el(id).addEventListener('input',queue);});
     el('artRemoveBg').onclick=function(){backgroundRevision++;background='';el('artBackground').value='';render();};
     el('artBackground').onchange=async function(){
       var file=this.files[0],session=revision,bg=++backgroundRevision;if(!file)return;enabled(false);message('正在处理背景…');
@@ -227,14 +276,18 @@
     if(fresh){sourceSignature=signature;history=[];historyIndex=-1;originalOrder=sel.map(function(r){return r.id;});
     roles=sel.map(function(role){var night=typeof ScriptCore!=='undefined'?ScriptCore.nightOrder(role,typeof SCRIPT_NIGHT_ORDER==='undefined'?{}:SCRIPT_NIGHT_ORDER,typeof NIGHT_OVERRIDES==='undefined'?{}:NIGHT_OVERRIDES):{firstNight:role.f||0,otherNight:role.o||0};return Object.assign({},role,{artFirst:night.firstNight,artOther:night.otherNight});});
     el('artJinxMessage').textContent='';prepareJinx();
-    el('artTitle').value=el('mname').value||'未命名剧本';el('artAuthor').value=el('mauthor').value;el('artRoleEditor').hidden=true;
+    el('artRoleEditor').hidden=true;
     }
+    if(fresh||sourceTitle!==el('mname').value)el('artTitle').value=el('mname').value||'未命名剧本';
+    if(fresh||sourceAuthor!==el('mauthor').value)el('artAuthor').value=el('mauthor').value;
+    sourceTitle=el('mname').value;sourceAuthor=el('mauthor').value;
     var session=++revision;dialog.showModal();enabled(false);message('正在准备角色图标…');
     try{var loaded=await Promise.all([loadIcons(),loadDecorations()]);icons=Object.assign({},loaded[0]);}
     catch(error){if(session!==revision||!dialog.open)return;icons=Object.assign({},window.SCRIPT_ART_ICONS||{});message(error.message+' 将使用文字占位。');}
     if(session!==revision||!dialog.open)return;
     decorationOptions();
-    roles.forEach(function(role){var image=role.im||role.iu;if(/^data:image\/(png|jpeg|webp);base64,/.test(image||''))icons[role.id]=image;});
+    await prepareImportedIcons(session);
+    if(session!==revision||!dialog.open)return;
     render();
   };
 })();

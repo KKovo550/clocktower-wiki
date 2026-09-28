@@ -14,6 +14,11 @@ var NIGHT_OVERRIDES=Object.create(null);
 var CUSTOM=[];                 // 用户自建角色
 var sel=[];                    // 已选角色
 var curTab='all', q='', saveKey='botc_script_tool_v1';
+var curSource='all';
+var SOURCE_LABELS={all:'全部来源',official:'官方角色',stars:'群星角色',yuque:'海外自制角色',odyssey:'奥德赛角色'};
+var SOURCE_BY_ID=new Map(CHARS.map(function(c){return [c.id,c.source];}));
+function roleSource(c){return SOURCE_BY_ID.get(c.id)||'custom';}
+function matchesSource(c){return curSource==='all'||roleSource(c)===curSource;}
 var lastList=[];               // 当前筛选结果，供回车/数字键使用
 
 /* ---------- 拼音（简写搜索） ---------- */
@@ -69,13 +74,18 @@ function initial(n){return (n||'?').trim().charAt(0);}
 
 /* ---------- 角色库 ---------- */
 function renderTabs(){
-  var counts={all:allChars().length};
-  allChars().forEach(function(c){counts[c.t]=(counts[c.t]||0)+1;});
-  var order=['all'].concat(TEAMORD).filter(function(t){return counts[t];});
+  var sourceTabs=document.getElementById('source-tabs');
+  if(sourceTabs)sourceTabs.innerHTML=Object.keys(SOURCE_LABELS).map(function(key){
+    var count=allChars().filter(function(c){return (key==='all'||roleSource(c)===key)&&(curTab==='all'||c.t===curTab)&&matchChar(c,q);}).length;
+    return '<button type="button" class="tab'+(curSource===key?' on':'')+'" data-source="'+key+'" aria-pressed="'+(curSource===key)+'">'+SOURCE_LABELS[key]+'<span class="c">'+count+'</span></button>';
+  }).join('');
+  var counts={all:0};
+  allChars().filter(function(c){return matchesSource(c)&&matchChar(c,q);}).forEach(function(c){counts.all++;counts[c.t]=(counts[c.t]||0)+1;});
+  var order=['all'].concat(TEAMORD);
   document.getElementById('tabs').innerHTML=order.map(function(t){
     var label=(t==='all')?'全部':(TEAMCN[t]||t);
-    return '<button type="button" class="tab'+(curTab===t?' on':'')+'" data-t="'+t+'">'+esc(label)+
-      '<span class="c">'+counts[t]+'</span></button>';
+    return '<button type="button" class="tab'+(curTab===t?' on':'')+'" data-t="'+t+'" aria-pressed="'+(curTab===t)+'">'+esc(label)+
+      '<span class="c">'+(counts[t]||0)+'</span></button>';
   }).join('');
 }
 function inSel(c){return sel.indexOf(c)>=0;}
@@ -97,6 +107,7 @@ function relevance(c,query){
 }
 function renderGrid(){
   var list=allChars().filter(function(c){
+    if(!matchesSource(c))return false;
     if(curTab!=='all'&&c.t!==curTab)return false;
     return matchChar(c,q);
   });
@@ -120,6 +131,7 @@ function renderGrid(){
       esc(c.t)+'" title="'+esc(c.n+'：'+c.ab)+'">'+num+img+
       '<div class="nm">'+esc(c.n)+'</div>'+
       (c.source==='yuque'?'<span class="homebrew-label">海外自制</span>':'')+
+      (c.source==='stars'?'<span class="homebrew-label">群星</span>':'')+
       '<div class="cid">'+esc(c.id||'')+'</div></div>';
   }).join('');
   var tip='';
@@ -163,16 +175,7 @@ function renderStat(){
   document.getElementById('stat').innerHTML=h;
 }
 function renderJinx(){
-  var names={}; sel.forEach(function(c){ names[c.n.toLowerCase()]=c.n; });
-  var hit=[];
-  JINX.forEach(function(j){
-    var ps=j.name.split('&');
-    if(ps.length<2) ps=j.name.split('与');
-    ps=ps.map(function(x){return x.trim();});
-    if(ps.length<2)return;
-    if(j.roleIds?j.roleIds.every(function(id){return sel.some(function(r){return r.id===id;});}):ps.every(function(p){return names[p.toLowerCase()];}))
-      hit.push({pair:ps.join(' & '), ab:j.ability});
-  });
+  var hit=ScriptCore.matchJinx(sel,JINX).map(function(match){return {pair:match.roles.map(function(r){return r.n;}).join(' & '),ab:match.text};});
   var box=document.getElementById('jinxbox');
   if(!hit.length){box.innerHTML='';return;}
   box.innerHTML='<div class="jinx"><b>相克提示（'+hit.length+' 条）</b>'+
@@ -204,6 +207,11 @@ function renderAll(){
 }
 
 /* ---------- 交互 ---------- */
+var sourceTabs=document.getElementById('source-tabs');
+if(sourceTabs)sourceTabs.addEventListener('click',function(e){
+  var button=e.target.closest('[data-source]'); if(!button)return;
+  curSource=button.getAttribute('data-source');renderTabs();renderGrid();
+});
 document.getElementById('tabs').addEventListener('click',function(e){
   var t=e.target.closest('.tab'); if(!t)return;
   curTab=t.getAttribute('data-t'); renderTabs(); renderGrid();
@@ -233,8 +241,8 @@ qEl.placeholder='搜索角色：名称 / 简写拼音(xyf=洗衣妇) / ID / 能�
 qEl.style.cssText='width:100%;padding:7px 12px;margin-bottom:8px;font:inherit;'+
   'font-size:14px;border:1px solid var(--tan);border-radius:15px;background:#fffdf8';
 document.querySelector('.lib').insertBefore(qEl, document.getElementById('tabs'));
-qEl.addEventListener('input',function(){q=qEl.value.trim().toLowerCase();renderGrid();});
-function clearQuery(){qEl.value='';q='';renderGrid();}
+qEl.addEventListener('input',function(){q=qEl.value.trim().toLowerCase();renderTabs();renderGrid();});
+function clearQuery(){qEl.value='';q='';renderTabs();renderGrid();}
 function addChar(c){
   if(sel.indexOf(c)<0) sel.push(c);
   clearQuery(); renderAll();
@@ -314,7 +322,7 @@ document.getElementById('bImport').onclick=function(){
     fr.onload=function(){document.getElementById('ta').value=fr.result;};
     fr.readAsText(this.files[0]);};
   document.getElementById('go').onclick=function(){
-    try{ doImport(ScriptCore.parseJSON(document.getElementById('ta').value)); closeDlg(); }
+    try{ if(doImport(ScriptCore.parseJSON(document.getElementById('ta').value))!==false)closeDlg(); }
     catch(err){ alert('解析失败：'+err.message); }
   };
 };
@@ -473,30 +481,11 @@ function save(){
 function load(){
   try{
     var raw=localStorage.getItem(saveKey);if(!raw)return false;
-    var d=JSON.parse(raw);
-    if(!d||!Array.isArray(d.sel)||!Array.isArray(d.custom))throw new Error('存档格式错误');
-    if(d.version!==undefined&&d.version!==2)throw new Error('不支持的存档版本');
-    var custom=d.custom.map(function(c){return ScriptCore.normalize({id:c.id,name:c.n,team:c.t,ability:c.ab,image:c.images||c.iu||c.im,
-      flavor:c.fl,edition:c.ed,setup:c.s,firstNight:c.f,otherNight:c.o,reminders:c.r,remindersGlobal:c.rg,firstNightReminder:c.fr,otherNightReminder:c.or});});
-    var selected=d.sel.map(function(k){
-      var c;
-      if(d.version===2){c=(k.custom?custom:CHARS).find(function(x){return x.id===k.id&&(!k.name||x.n===k.name||(x.source==='yuque'&&x.n===k.name.replace(/^[\s*★]+/,'')));});}
-      else if(typeof k==='string'&&/^C\d+$/.test(k))c=custom[+k.slice(1)];
-      else if(Number.isInteger(k))c=CHARS[k];
-      if(!c)throw new Error('存档包含无法识别的角色');return c;
-    });
-    custom.forEach(function(c){var known=CHARS.find(function(x){return x.id===c.id;});if(known&&known.im&&known.iu===c.iu)c.im=known.im;});
-    CUSTOM=custom;sel=Array.from(new Set(selected));
-    NIGHT_OVERRIDES=Object.create(null);
-    if(d.nightOverrides&&typeof d.nightOverrides==='object')selected.forEach(function(c){
-      var entry=d.nightOverrides[c.id];if(!entry)return;
-      ['firstNight','otherNight'].forEach(function(field){if(Number.isFinite(entry[field])&&entry[field]>0){
-        (NIGHT_OVERRIDES[c.id]||(NIGHT_OVERRIDES[c.id]={}))[field]=entry[field];
-      }});
-    });
-    document.getElementById('mname').value=d.n||'';
-    document.getElementById('mauthor').value=d.a||'';
-    document.getElementById('spec').value=['free','teensy','ravenswood'].includes(d.s)?d.s:'free';
+    var draft=ScriptCore.restoreDraft(JSON.parse(raw),CHARS);
+    CUSTOM=draft.custom;sel=draft.selected;NIGHT_OVERRIDES=draft.nightOverrides;
+    document.getElementById('mname').value=draft.name;
+    document.getElementById('mauthor').value=draft.author;
+    document.getElementById('spec').value=draft.spec;
     return true;
   }catch(e){storageBlocked=true;status('无法读取旧存档，已保护原始数据，当前修改不会自动保存。请导出备份后检查浏览器存储。');return false;}
 }

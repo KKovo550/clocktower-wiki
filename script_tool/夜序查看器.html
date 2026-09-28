@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN">
+  <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>剧本夜序查看器 - 钟楼资料库</title>
+<link rel="stylesheet" href="../assets/wiki.css">
+<link rel="stylesheet" href="assets/script-tool/app.css">
+<link rel="stylesheet" href="assets/script-tool/night-viewer.css">
+<link rel="stylesheet" href="../assets/modern-theme.css">
+<meta name="generator" content="Astro v7.3.3"></head>
+  <body data-root="../" class="script-tool-page">
+    
+<header class="site-header">
+  <a class="brand" href="../index.html">
+    <span class="brand-mark" aria-hidden="true">册</span>
+    <span class="brand-title">钟楼资料库<small>个人离线整理</small></span>
+  </a>
+  <span class="spacer"></span>
+  <a class="admin-link" style="flex-shrink:0;font-size:13px;color:#526b91;padding:8px 10px" href="https://clocktower-wiki-admin.clocktower-wiki.workers.dev/?page=script_tool%2F%E5%A4%9C%E5%BA%8F%E6%9F%A5%E7%9C%8B%E5%99%A8.html" target="_blank" rel="noopener">编辑此页</a>
+  <div class="search">
+    <input id="wiki-search-input" type="search" placeholder="搜索本站（按 / 聚焦）" autocomplete="off" aria-label="搜索">
+    <select id="wiki-search-category" aria-label="搜索分类">
+      <option value="">全部</option><option value="角色">角色</option>
+      <option value="剧本">剧本</option><option value="规则">规则</option><option value="其他">其他</option>
+    </select>
+    <div id="wiki-search-results" class="search-results"></div>
+    <div id="wiki-search-status" class="search-status" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+<div class="layout"><nav class="sidebar">
+  
+    <h3>游戏信息</h3>
+    <ul><li>
+      <a href="../index.html">首页</a>
+    </li><li>
+      <a href="../pages/%E8%A7%84%E5%88%99%E6%A6%82%E8%A6%81.html">规则概要</a>
+    </li><li>
+      <a href="../pages/%E9%87%8D%E8%A6%81%E7%BB%86%E8%8A%82.html">重要细节</a>
+    </li><li>
+      <a href="../pages/%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB.html">术语汇总</a>
+    </li><li>
+      <a href="../pages/%E7%BB%99%E8%AF%B4%E4%B9%A6%E4%BA%BA%E7%9A%84%E5%BB%BA%E8%AE%AE.html">给说书人的建议</a>
+    </li><li>
+      <a href="../pages/%E7%9B%B8%E5%85%8B%E8%A7%84%E5%88%99.html">相克规则</a>
+    </li><li>
+      <a href="../pages/认证说书人查询.html">认证说书人</a>
+    </li></ul>
+  
+    <h3>角色</h3>
+    <ul><li>
+      <a href="../pages/%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8.html">暗流涌动</a>
+    </li><li>
+      <a href="../pages/%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87.html">黯月初升</a>
+    </li><li>
+      <a href="../pages/%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5.html">梦殒春宵</a>
+    </li><li>
+      <a href="../pages/%E6%97%85%E8%A1%8C%E8%80%85.html">旅行者</a>
+    </li><li>
+      <a href="../pages/%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2.html">传奇角色</a>
+    </li><li>
+      <a href="../pages/%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2.html">实验性角色</a>
+    </li><li>
+      <a href="../pages/%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2.html">奇遇角色</a>
+    </li><li>
+      <a href="../pages/%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A.html">华灯初上</a>
+    </li><li>
+      <a href="../pages/%E8%A7%92%E8%89%B2%E8%83%BD%E5%8A%9B%E7%B1%BB%E5%88%AB%E6%80%BB%E8%A7%88.html">角色能力类别总览</a>
+    </li></ul>
+  
+    <h3>奥德赛 Odyssey</h3>
+    <ul><li>
+      <a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html">总览</a>
+    </li><li>
+      <a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">镇民</a>
+    </li><li>
+      <a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a>
+    </li><li>
+      <a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E7%88%AA%E7%89%99">爪牙</a>
+    </li><li>
+      <a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%81%B6%E9%AD%94">恶魔</a>
+    </li><li>
+      <a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a>
+    </li><li>
+      <a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a>
+    </li><li>
+      <a href="../pages/%E5%A5%A5%E5%BE%B7%E8%B5%9B_Odyssey.html#%E9%95%87%E6%B0%91">全部角色</a>
+    </li></ul>
+  
+    <h3>海外自制角色</h3>
+    <ul><li>
+      <a href="../pages/海外自制角色.html#%E6%80%BB%E8%A7%88">总览</a>
+    </li><li>
+      <a href="../pages/海外自制角色.html#%E9%95%87%E6%B0%91">镇民</a>
+    </li><li>
+      <a href="../pages/海外自制角色.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a>
+    </li><li>
+      <a href="../pages/海外自制角色.html#%E7%88%AA%E7%89%99">爪牙</a>
+    </li><li>
+      <a href="../pages/海外自制角色.html#%E6%81%B6%E9%AD%94">恶魔</a>
+    </li><li>
+      <a href="../pages/海外自制角色.html#%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2">传奇角色</a>
+    </li><li>
+      <a href="../pages/海外自制角色.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a>
+    </li></ul>
+  
+    <h3>群星</h3>
+    <ul><li>
+      <a href="../pages/群星角色运作大合集.html#%E6%80%BB%E8%A7%88">总览</a>
+    </li><li>
+      <a href="../pages/群星角色运作大合集.html#%E9%95%87%E6%B0%91">镇民</a>
+    </li><li>
+      <a href="../pages/群星角色运作大合集.html#%E5%A4%96%E6%9D%A5%E8%80%85">外来者</a>
+    </li><li>
+      <a href="../pages/群星角色运作大合集.html#%E7%88%AA%E7%89%99">爪牙</a>
+    </li><li>
+      <a href="../pages/群星角色运作大合集.html#%E6%81%B6%E9%AD%94">恶魔</a>
+    </li><li>
+      <a href="../pages/群星角色运作大合集.html#%E4%BC%A0%E5%A5%87%E4%B8%8E%E5%A5%87%E9%81%87%E8%A7%92%E8%89%B2">传奇与奇遇角色</a>
+    </li><li>
+      <a href="../pages/群星角色运作大合集.html#%E6%9C%AF%E8%AF%AD%E4%B8%8E%E6%A6%82%E5%BF%B5">术语与概念</a>
+    </li><li>
+      <a href="../pages/群星角色运作大合集.html#%E5%85%A8%E9%83%A8%E8%A7%92%E8%89%B2">全部角色</a>
+    </li></ul>
+  
+    <h3>剧本</h3>
+    <ul><li>
+      <a href="../script_lib/剧本库.html">剧本库</a>
+    </li><li>
+      <a href="../script_tool/剧本工具.html">剧本工具</a>
+    </li></ul>
+  
+    <h3>工具</h3>
+    <ul><li>
+      <a href="../script_tool/夜序查看器.html">剧本夜序查看器</a>
+    </li><li>
+      <a href="../role_index/角色索引.html">全角色索引（技能筛选）</a>
+    </li><li>
+      <a href="../allpages.html">全部页面</a>
+    </li><li>
+      <a href="../recent.html">最近更改</a>
+    </li><li>
+      <a href="../files.html">图片列表</a>
+    </li><li>
+      <a href="../stats.html">统计</a>
+    </li><li>
+      <a href="#" id="wiki-random">随机页面</a>
+    </li></ul>
+  
+</nav><main class="content night-viewer"><h1>剧本夜序查看器</h1>
+<p>导入剧本 JSON，仅显示其中角色的首夜和其他夜晚行动顺序。文件在本机读取，不上传。</p>
+<section class="night-import" aria-label="导入剧本">
+<label class="night-file">选择 JSON 文件<input id="nightFile" type="file" accept=".json,application/json"></label>
+<details><summary>或粘贴 JSON</summary><textarea id="nightJson" aria-label="剧本 JSON" rows="6" placeholder='[{"id":"_meta","name":"我的剧本"},"washerwoman","imp"]'></textarea><button id="nightLoad" type="button">显示行动顺序</button></details>
+<label>排序依据<select id="nightSource"><option value="json">优先使用 JSON 夜序</option><option value="wiki">使用本站夜间行动顺序表</option></select></label>
+<p class="night-help">JSON 中明确填写的夜序（包括 0）优先保留；未填写时使用本站数据。旧 JSON 全为 0 时，可切换到本站顺序表。这里只列角色行动，不含爪牙互认等阶段步骤。</p>
+<p id="nightStatus" role="status" aria-live="polite">等待导入剧本。</p>
+</section>
+<section class="night-import" id="nightPlayers" hidden aria-label="在场玩家"><h2>在场玩家</h2><form id="nightPlayerForm"><label>玩家名字（可留空）<input id="nightPlayerName" maxlength="40" placeholder="例如：1 号玩家"></label><label>角色<select id="nightPlayerRole"></select></label><button type="submit">添加玩家</button></form><ul id="nightPlayerList"></ul><label><input id="nightPresentOnly" type="checkbox">只显示在场角色的行动顺序</label><p class="night-help">选择本剧本中的角色添加玩家。同一角色可分配给多人，夜序中合并显示玩家名字。在场不等于存活，不会自动排除死亡后仍可能行动的角色。导入新剧本会重置玩家名单。</p></section><section id="nightResult" hidden><div class="night-result-heading"><div><h2 id="nightTitle"></h2><p id="nightSummary"></p></div><button type="button" id="nightCopy">复制夜序</button></div><div class="night-columns"><section><h2 id="nightFirstTitle">首夜</h2><ol id="nightFirst"></ol></section><section><h2 id="nightOtherTitle">其他夜晚</h2><ol id="nightOther"></ol></section></div><p id="nightExcluded"></p></section>
+</main></div><footer>
+  个人整理的离线资料与工具，非官方站点。百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
+</footer>
+<script src="assets/script-tool/data.js"></script><script src="assets/script-tool/core.js"></script><script src="assets/script-tool/night-viewer.js"></script><script src="../assets/wiki.js"></script>
+  </body>
+</html>

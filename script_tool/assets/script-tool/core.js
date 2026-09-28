@@ -2,6 +2,7 @@
 (function(root){
   'use strict';
   var teams=['townsfolk','outsider','minion','demon','traveller','fabled','loric'];
+  function identity(id){return String(id||'').trim().replace(/_gstone$/,'');}
   function str(value,field,fallback){
     if(value===undefined||value===null)return fallback||'';
     if(typeof value!=='string')throw new Error(field+' 必须是文本');
@@ -46,6 +47,7 @@
       if(typeof e!=='string'&&(!e||typeof e!=='object'||Array.isArray(e)))throw new Error('角色必须是 ID 或对象');
       var id=typeof e==='string'?e:e.id;
       var known=byId.get(id)||byId.get(id+'_gstone'),c;
+      if(!known){var candidates=chars.filter(function(role){return identity(role.id)===identity(id);});if(candidates.length===1)known=candidates[0];}
       if(typeof e==='string'||Object.keys(e).every(function(k){return k==='id';})){
         if(!known)throw new Error('无法识别角色 ID：'+id+'，请提供完整角色对象');c=known;
       }else{
@@ -64,11 +66,67 @@
     var entry=Object.prototype.hasOwnProperty.call(orders,role.id)?orders[role.id]:null;
     // Standard imports may omit the catalog's _gstone suffix.
     if(!entry&&Object.prototype.hasOwnProperty.call(orders,role.id+'_gstone'))entry=orders[role.id+'_gstone'];
+    if(!entry){var keys=Object.keys(orders).filter(function(id){return identity(id)===identity(role.id)&&orders[id].n===role.n;});if(keys.length===1)entry=orders[keys[0]];}
     var result=(!entry||entry.n!==role.n)?{firstNight:role.f||0,otherNight:role.o||0}:
       {firstNight:entry.f===null?(role.f||0):entry.f,otherNight:entry.o===null?(role.o||0):entry.o};
     var custom=overrides&&Object.prototype.hasOwnProperty.call(overrides,role.id)?overrides[role.id]:null;
     ['firstNight','otherNight'].forEach(function(field){if(custom&&Number.isFinite(custom[field])&&custom[field]>0&&result[field]>0)result[field]=custom[field];});
     return result;
   }
-  root.ScriptCore={normalize:normalize,parseImport:parseImport,nightOrder:nightOrder,parseJSON:function(text){return JSON.parse(String(text).replace(/^\uFEFF/,''));}};
+  function matchJinx(roles,rules){
+    var seen=new Set(),result=[];
+    (rules||[]).forEach(function(rule){
+      if(!rule||typeof rule.ability!=='string'||!rule.ability.trim())return;
+      var names=String(rule.name||'').split(/&|与/).map(function(n){return n.trim();});
+      var ids=Array.isArray(rule.roleIds)&&rule.roleIds.length===2?rule.roleIds:null;
+      if(!ids&&names.length!==2)return;
+      var pair=(ids||names).map(function(value){return roles.filter(function(role){return ids?identity(role.id)===identity(value):role.n===value;});});
+      if(pair.some(function(matches){return matches.length!==1;})||pair[0][0].id===pair[1][0].id)return;
+      var selected=pair.map(function(matches){return matches[0];}),text=rule.ability.trim();
+      var key=JSON.stringify([selected.map(function(r){return r.id;}).sort(),text]);
+      if(seen.has(key))return;seen.add(key);result.push({roles:selected,text:text});
+    });return result;
+  }
+  function restoreDraft(d,chars){
+    if(!d||!Array.isArray(d.sel)||!Array.isArray(d.custom)||d.sel.length>1000||d.custom.length>1000)throw new Error('存档格式错误');
+    if(d.version!==undefined&&d.version!==2)throw new Error('不支持的存档版本');
+    var custom=d.custom.map(function(c){
+      var role=normalize({id:c.id,name:c.n,team:c.t,ability:c.ab,image:c.images||c.iu||c.im,flavor:c.fl,edition:c.ed,setup:c.s,firstNight:c.f,otherNight:c.o,reminders:c.r,remindersGlobal:c.rg,firstNightReminder:c.fr,otherNightReminder:c.or});
+      var known=chars.find(function(x){return identity(x.id)===identity(role.id)&&x.n===role.n;});
+      if(known&&known.im&&known.iu===role.iu)role.im=known.im;
+      return role;
+    });
+    if(new Set(custom.map(function(c){return c.id;})).size!==custom.length)throw new Error('存档包含重复自定义角色 ID');
+    var overrides=Object.create(null),seen=new Set(),selected=[];
+    d.sel.forEach(function(key){
+      var role,oldId;
+      if(d.version===2){
+        if(!key||typeof key.id!=='string')throw new Error('存档角色格式错误');
+        oldId=key.id;
+        var id=key.id;
+        if(!key.custom&&id==='xizi_gstone'&&key.name==='戏子(改)')id='xizi_revised_gstone';
+        var matches=(key.custom?custom:chars).filter(function(c){return identity(c.id)===identity(id)&&(!key.name||c.n===key.name||(c.source==='yuque'&&c.n===key.name.replace(/^[\s*★]+/,'')));});
+        if(matches.length===1)role=matches[0];
+      }else if(typeof key==='string'&&/^C\d+$/.test(key))role=custom[+key.slice(1)];
+      else if(Number.isInteger(key))role=chars[key];
+      if(!role)throw new Error('存档包含无法识别的角色');
+      if(seen.has(role.id))throw new Error('存档包含重复角色 ID');
+      seen.add(role.id);selected.push(role);
+      var entry=d.nightOverrides&&Object.prototype.hasOwnProperty.call(d.nightOverrides,oldId||role.id)?d.nightOverrides[oldId||role.id]:null;
+      ['firstNight','otherNight'].forEach(function(field){if(entry&&Number.isFinite(entry[field])&&entry[field]>0)(overrides[role.id]||(overrides[role.id]={}))[field]=entry[field];});
+    });
+    return {custom:custom,selected:selected,nightOverrides:overrides,name:str(d.n,'剧本名称'),author:str(d.a,'作者'),spec:['free','teensy','ravenswood'].includes(d.s)?d.s:'free'};
+  }
+  function catalogIcon(role,chars,icons){
+    if(icons[role.im])return icons[role.im];
+    var same=chars.filter(function(c){return c.n===role.n;});
+    var exact=same.filter(function(c){return identity(c.id)===identity(role.id);});
+    function icon(candidates){return candidates.length===1?(icons[candidates[0].im]||icons[candidates[0].id]||''):'';}
+    var found=icon(exact);if(found)return found;
+    var team=function(t){return t==='traveler'?'traveller':t;};
+    same=same.filter(function(c){return team(c.t)===team(role.t);});
+    if(same.length>1){var ability=String(role.ab||'').replace(/\s/g,'');same=same.filter(function(c){return String(c.ab||'').replace(/\s/g,'')===ability;});}
+    return icon(same);
+  }
+  root.ScriptCore={normalize:normalize,parseImport:parseImport,restoreDraft:restoreDraft,nightOrder:nightOrder,matchJinx:matchJinx,catalogIcon:catalogIcon,parseJSON:function(text){return JSON.parse(String(text).replace(/^\uFEFF/,''));}};
 })(globalThis);

@@ -1,7 +1,7 @@
 (function(root){
  'use strict';
  function analyze(roles,spec,jinx){
-  var errors=[],suggestions=[],interactions=[],setup=[],seen=new Set(),names=new Set(roles.map(function(c){return c.n.toLowerCase();})),counts={};
+  var errors=[],suggestions=[],interactions=[],setup=[],seen=new Set(),counts={};
   roles.forEach(function(c){
    counts[c.t]=(counts[c.t]||0)+1;
    if(!c.id||!c.n)errors.push('角色缺少名称或 ID');
@@ -18,7 +18,7 @@
    if(roles.filter(function(c){return ['townsfolk','outsider','minion','demon'].includes(c.t);}).length>9)suggestions.push('角色池较大，请核对汀西维尔规格；这不是开局人数判定。');
   }
   if(spec==='ravenswood'&&(counts.townsfolk||0)<9)suggestions.push('镇民选择少于 9 个，建议检查标准剧本的选择空间');
-  jinx.forEach(function(j){var pair=j.name.split(/&|与/).map(function(x){return x.trim();});if(pair.length>1&&(j.roleIds?j.roleIds.every(function(id){return roles.some(function(r){return r.id===id;});}):pair.every(function(n){return names.has(n.toLowerCase());})))interactions.push({name:pair.join(' & '),text:j.ability});});
+  interactions=root.ScriptCore.matchJinx(roles,jinx).map(function(match){return {name:match.roles.map(function(r){return r.n;}).join(' & '),text:match.text};});
   return {errors:errors,suggestions:suggestions,interactions:interactions,setup:setup,counts:counts};
  }
  root.ScriptChecks={analyze:analyze};
