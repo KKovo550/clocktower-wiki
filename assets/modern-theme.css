@@ -137,3 +137,57 @@ body{background:linear-gradient(135deg,#eef3fb 0%,#f7f8fc 48%,#f0f5f8 100%)!impo
 @keyframes role-preview-in{from{opacity:0;transform:translateY(6px) scale(.99)}to{opacity:1;transform:translateY(0) scale(1)}}
 @keyframes role-preview-out{from{opacity:1;transform:translateY(0)}to{opacity:0;transform:translateY(4px)}}
 @media(prefers-reduced-motion:reduce){.role-preview-hover,.role-preview-hover.is-hiding{animation:none}}
+
+/* Mobile reading layout: original blue-and-white palette and a compact navigation row. */
+.mobile-top-nav,.sidebar-backdrop{display:none}
+@media(max-width:820px){
+ .site-header{display:grid;grid-template-columns:40px 40px minmax(0,1fr) auto;align-items:center;gap:8px;padding:12px max(14px,env(safe-area-inset-left));background:rgba(255,255,255,.94);border-bottom:1px solid #dce5f1;backdrop-filter:blur(10px);position:sticky;top:0;z-index:1010}
+ .site-header .brand,.site-header .spacer{display:none}
+ .site-header .sidebar-toggle{display:block;width:40px;height:44px;border:0;background:transparent;color:#4c607e;font-size:26px;line-height:1;padding:0;border-radius:6px;grid-column:1;grid-row:1}
+ .mobile-top-nav{display:flex;gap:14px;align-self:stretch;grid-column:1 / span 2;grid-row:2}
+ .mobile-top-nav a{display:flex;align-items:center;position:relative;min-height:44px;font-size:15px;font-weight:650;color:#245fc0;text-decoration:none;white-space:nowrap}
+ .mobile-top-nav a[aria-current=page]::after{content:"";position:absolute;height:3px;left:0;right:0;bottom:-12px;background:#2861bf}
+ .site-header .search{grid-column:3;grid-row:2;display:flex;min-width:0;width:auto;position:relative;gap:4px}
+ .site-header .search input{width:100%;min-width:0;height:38px;font-size:14px;padding:7px 10px;border:1px solid #e2e6ed;border-radius:22px;background:#f3f5f8;color:#303946}
+ .site-header .search input::placeholder{color:#727e8f;font-size:12px}
+ .site-header .search select{display:none}
+ .site-header .admin-link{grid-column:4;grid-row:2;font-size:12px!important;padding:8px 0!important;color:#245fc0!important;white-space:nowrap}
+ .site-header .search-results{position:fixed;top:var(--wiki-header-height,68px);left:12px;right:12px;width:auto;max-height:65dvh;overflow:auto;text-align:left}
+ .site-header .search-status{position:absolute;top:100%;right:0;font-size:11px;background:#fff;max-width:100%}
+ .layout{display:block;padding:18px 14px;max-width:100%;min-width:0}
+ .content{min-width:0;width:auto;padding:22px 18px 32px;background:#fff!important;border:1px solid #dfe7f2;border-radius:2px;box-shadow:none;font-size:16px;line-height:1.85}
+ .content h1.page-title{font-size:30px;color:#203653;font-weight:600;letter-spacing:0;margin-bottom:22px}
+ .mw-parser-output h2{font-size:22px;color:#253f60;border-bottom:1px solid #e7ebf1;padding-bottom:5px;margin-top:1.8em;font-weight:550}
+ .mw-parser-output h3{font-size:18px;color:#20344d}
+ .mw-parser-output p{margin:1em 0;line-height:1.85}
+ .tagline{color:#818998;line-height:1.6;margin-bottom:18px}
+ .toc,.gallery{border-radius:5px}
+ .gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 8px;padding:12px 8px}
+ .gallery .gallerybox{width:auto;min-width:0;margin:0}
+ .gallery .gallerybox img{max-width:100%;height:auto;object-fit:contain}
+ .gallerycaption{font-size:13px;line-height:1.6;overflow-wrap:anywhere}
+ .mobile-nav-ready .sidebar{display:block!important;position:fixed;top:var(--wiki-header-height,68px);bottom:0;left:0;z-index:1020;box-sizing:border-box;width:min(78vw,310px);padding:14px 14px max(28px,env(safe-area-inset-bottom));background:#f7f9fc!important;border-right:1px solid #dce5f1;overflow:auto;overscroll-behavior:contain;transform:translateX(-105%);visibility:hidden;transition:transform .22s ease,visibility .22s;font-size:16px;box-shadow:8px 0 24px #203d681a}
+ .mobile-nav-ready .sidebar #wiki-navigation{display:block!important}
+ .mobile-nav-ready .sidebar h3{font-size:16px;font-weight:750;letter-spacing:0;color:#5c6f89;margin:16px 0 8px;padding:0 8px}
+ .mobile-nav-ready .sidebar h3::before{display:none}
+ .mobile-nav-ready .sidebar a{min-height:44px;box-sizing:border-box;padding:10px 12px;color:#495363;border-radius:6px}
+ .mobile-nav-ready .sidebar a[aria-current=page]{background:#e7effc;color:#245fc0}
+ .mobile-nav-ready .sidebar-backdrop{position:fixed;inset:var(--wiki-header-height,68px) 0 0;z-index:1015;border:0;background:#18294133;opacity:0;visibility:hidden;display:block;transition:opacity .22s,visibility .22s;padding:0}
+ .mobile-nav-open{overflow:hidden}
+ .mobile-nav-open .sidebar{transform:translateX(0);visibility:visible}
+ .mobile-nav-open .sidebar-backdrop{opacity:1;visibility:visible}
+ .content.home-page{background:#f7f9fc!important;padding-bottom:22px;overflow:hidden}
+ .home-page .home-hero{padding:24px 18px;background:linear-gradient(135deg,#f7faff,#edf3fc);border-bottom-color:#dfe8f5}
+ .home-page .home-hero h1{font-size:28px;color:#253f60}
+ .home-page .home-hero>p{font-size:15px;color:#60748f}
+ .home-shortcuts{grid-template-columns:1fr;gap:10px}
+ .home-shortcuts>a{padding:14px 16px;background:#fff;border-color:#dce5f2;border-radius:6px}
+ .home-page>.toc{margin:18px;padding:14px;background:#f7f9fc;border-color:#e0e7f1;border-radius:5px}
+ .home-page>.mw-parser-output{display:block;padding:0 18px}
+ .home-section{padding:22px 0;margin:0;border:0;border-radius:0;background:transparent;box-shadow:none}
+ .home-page .home-section>h2{color:#253f60;border-bottom:1px solid #e7ebf1;padding-bottom:8px;font-size:22px;margin-bottom:16px}
+ footer{padding:20px 16px;border-color:#e4e8ee;color:#7c8593}
+}
+@media(max-width:360px){.site-header{gap:6px;padding-left:8px;padding-right:8px;grid-template-columns:32px 40px minmax(0,1fr) auto}.mobile-top-nav{gap:10px}.mobile-top-nav a{font-size:14px}.site-header .sidebar-toggle{width:32px}.site-header .admin-link{font-size:11px!important}.layout{padding:12px 8px}.content{padding:18px 14px}}
+@media(prefers-reduced-motion:reduce){.mobile-nav-ready .sidebar,.mobile-nav-ready .sidebar-backdrop{transition:none}}
+@media print{.mobile-top-nav,.sidebar-backdrop,.site-header .sidebar-toggle{display:none!important}}

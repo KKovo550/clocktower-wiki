@@ -39,12 +39,63 @@
     toggle.setAttribute('aria-controls', navigation.id);
     toggle.setAttribute('aria-expanded', 'false');
     toggle.addEventListener('click', function () {
+      if (document.body.classList && document.body.classList.contains('mobile-nav-ready')) return;
       var expanded = toggle.getAttribute('aria-expanded') !== 'true';
       toggle.setAttribute('aria-expanded', String(expanded));
       toggle.textContent = expanded ? '收起导航' : '展开导航';
     });
     sidebar.appendChild(toggle);
     sidebar.appendChild(navigation);
+    // Mobile drawer keeps the same navigation links and current-page highlight.
+    if (header && document.body.classList && window.matchMedia) {
+      var mobileMenu = window.matchMedia('(max-width: 820px)');
+      var backdrop = document.createElement('button');
+      backdrop.type = 'button';
+      backdrop.className = 'sidebar-backdrop';
+      backdrop.setAttribute('aria-label', '关闭导航');
+      backdrop.tabIndex = -1;
+      document.body.appendChild(backdrop);
+      header.insertBefore(toggle, header.firstChild);
+      document.body.classList.add('mobile-nav-ready');
+      toggle.innerHTML = '<span aria-hidden="true">☰</span>';
+      toggle.setAttribute('aria-label', '打开导航');
+      function setDrawer(open, returnFocus) {
+        open = Boolean(open && mobileMenu.matches);
+        document.body.classList.toggle('mobile-nav-open', open);
+        toggle.setAttribute('aria-expanded', String(open));
+        toggle.setAttribute('aria-label', open ? '关闭导航' : '打开导航');
+        toggle.innerHTML = '<span aria-hidden="true">' + (open ? '×' : '☰') + '</span>';
+        sidebar.inert = mobileMenu.matches && !open;
+        if (open) {
+          var firstLink = navigation.querySelector('a[href]');
+          if (firstLink) firstLink.focus();
+        } else if (returnFocus) toggle.focus();
+      }
+      // Replace the inline expansion behavior with drawer state.
+      toggle.addEventListener('click', function () {
+        setDrawer(!document.body.classList.contains('mobile-nav-open'), false);
+      });
+      backdrop.addEventListener('click', function () { setDrawer(false, true); });
+      navigation.addEventListener('click', function (event) {
+        if (event.target.closest('a[href]')) setDrawer(false, false);
+      });
+      document.addEventListener('keydown', function (event) {
+        if (!document.body.classList.contains('mobile-nav-open')) return;
+        if (event.key === 'Escape') { event.preventDefault(); setDrawer(false, true); }
+        if (event.key === 'Tab') {
+          var links = Array.from(navigation.querySelectorAll('a[href]'));
+          var focusables = [toggle].concat(links);
+          var index = focusables.indexOf(document.activeElement);
+          if (event.shiftKey && index <= 0) { event.preventDefault(); focusables[focusables.length - 1].focus(); }
+          else if (!event.shiftKey && (index === focusables.length - 1 || index < 0)) { event.preventDefault(); toggle.focus(); }
+        }
+      });
+      function resetDrawer() { setDrawer(false, false); }
+      if (mobileMenu.addEventListener) mobileMenu.addEventListener('change', resetDrawer);
+      else if (mobileMenu.addListener) mobileMenu.addListener(resetDrawer);
+      window.addEventListener('pageshow', resetDrawer);
+      setDrawer(false, false);
+    }
   }
   if (typeof URL !== 'undefined' && document.querySelector && document.querySelector('.gallerybox a img, .homebrew-card a img, .role-index, .charinfo-img img')) {
     var previewScript = document.createElement('script');
