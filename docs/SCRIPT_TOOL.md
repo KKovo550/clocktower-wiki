@@ -76,3 +76,9 @@ Windows 本地使用：可直接双击 `script_tool/剧本工具.html`。也可�
 维护：`scripts/prepare-ocr.mjs` 在构建前从锁定版本的 npm 包复制识别引擎和 WASM，保留许可证，并生成约 10 MB 的 `offline-worker.js`。它包含 Worker、非 SIMD LSTM 引擎和 gzip 模型，在离线模式拒绝访问外部资源。中英文模型为 Tesseract.js 默认的 [tessdata 模型](https://github.com/naptha/tessdata)，以 gzip 形式随站点保存；升级模型时需重新生成离线包并验证识别结果。匹配与离线加载测试为 `scripts/test-image-import.cjs`。
 
 
+
+## 手机相册导入与图片分享
+
+在“从图片导入剧本”中选择相册图片，可预览、每次旋转 90 度，或调整四边裁剪比例后开始识别。图片方向按浏览器的 EXIF 解码能力处理，预处理在本机完成，较大图片会缩小以控制内存。支持 PNG/JPEG/WebP；HEIC/HEIF 需要浏览器原生解码支持，不支持时请在相册转换成 JPEG/PNG。单张不超过 20 MB、3200 万像素。
+
+在剧本制图中点击“保存 / 分享图片”，生成 PNG 预览后可长按保存到相册、打开图片，或点击“系统分享”发送到支持的应用。系统文件分享取决于浏览器与系统支持，通常需要 HTTPS；不支持或取消分享时仍可下载 PNG。修改制图设置后需重新生成图片。

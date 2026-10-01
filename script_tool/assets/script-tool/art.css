@@ -26,3 +26,5 @@
 #artCustomJinxList button{margin-right:6px}
 
 .art-stage{position:relative}#artOverlay{position:absolute;inset:0;pointer-events:none}#artDialog .art-hit{position:absolute;pointer-events:auto;background:transparent;border:2px solid transparent;border-radius:5px;cursor:grab;padding:0}#artDialog .art-hit:hover,#artDialog .art-hit:focus-visible{border-color:#397bb8;background:#5e9ee519;outline:none}#artDialog .art-hit.art-drop{border-color:#c68a2f;background:#edc36640}#artRoleEditor{padding:12px;border:1px solid #aac3de;border-radius:10px;background:#fff}#artRoleEditor[hidden]{display:none}
+
+#artSavePanel[hidden]{display:none}#artSavePanel{padding:12px;border:1px solid #cbd9ed;border-radius:10px}#artSavePreview{width:100%;max-height:50vh;object-fit:contain;-webkit-touch-callout:default;user-select:auto}#artSavePanel .btn{min-height:44px}

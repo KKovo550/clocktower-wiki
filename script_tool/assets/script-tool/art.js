@@ -1,12 +1,13 @@
 (function(){
   'use strict';
   var dialog,roles=[],icons={},plan,currentSvg='',previewUrl='',timer,revision=0,background='',backgroundRevision=0,iconPromise,decorationPromise,decorationReady=false;
+  var savedBlob,savedURL='',savedName='';
   var customJinx=[],jinxEditing=-1,jinxStorageKey='';
   var measureCanvas=document.createElement('canvas'),measureContext=measureCanvas.getContext('2d');
   function measure(value,size){measureContext.font=size+'px system-ui, "Microsoft YaHei", sans-serif';return measureContext.measureText(value).width;}
   function el(id){return document.getElementById(id);}
   function message(value){el('artStatus').textContent=value;}
-  function enabled(value){el('artPng').disabled=!value;el('artSvg').disabled=!value;}
+  function enabled(value){el('artPng').disabled=!value;el('artSvg').disabled=!value;if(el('artSave'))el('artSave').disabled=!value;}
   function loadIcons(){
     if(window.SCRIPT_ART_ICONS)return Promise.resolve(window.SCRIPT_ART_ICONS);
     if(iconPromise)return iconPromise;
@@ -184,6 +185,7 @@
     el('artPreview').src=previewUrl;paintOverlay();enabled(true);
   }
   function render(){
+    resetSaved();
     if(!dialog.open)return;
     // Night order belongs to the script, not to the image editor's undo history.
     roles.forEach(function(role){var night=ScriptCore.nightOrder(role,typeof SCRIPT_NIGHT_ORDER==='undefined'?{}:SCRIPT_NIGHT_ORDER,typeof NIGHT_OVERRIDES==='undefined'?{}:NIGHT_OVERRIDES);role.artFirst=night.firstNight;role.artOther=night.otherNight;});
@@ -196,14 +198,26 @@
       message('已生成一张完整图片 · '+plan.width+' × '+plan.height+'。'+(plan.bodyScale<0.9?' 当前固定比例已缩小正文，建议选择“随内容自动加长”以保留字号和留白。':'')+(missing?' '+missing+' 个图标不可用，已使用文字占位。请核对图片链接、网络或图片站的跨域限制；重新打开可重试。':''));
     }catch(error){currentSvg='';enabled(false);message(error.message);}
   }
-  function queue(){currentSvg='';enabled(false);clearTimeout(timer);timer=setTimeout(render,160);}
+  function resetSaved(){
+    if(savedURL)URL.revokeObjectURL(savedURL);savedURL='';savedBlob=null;
+    if(el('artSavePanel')){el('artSavePanel').hidden=true;el('artSavePreview').removeAttribute('src');el('artSaveOpen').removeAttribute('href');}
+  }
+  async function shareSaved(){
+    var blob=savedBlob;if(!blob)return;
+    el('artShare').disabled=true;
+    try{var shared=window.ScriptMobileImages&&await window.ScriptMobileImages.share(blob,savedName);
+      if(savedBlob===blob&&dialog.open)message(shared?'系统分享已完成。':'此浏览器不支持文件分享，请长按预览保存，或打开图片、下载 PNG。');
+    }catch(error){if(savedBlob===blob&&dialog.open)message(error.name==='AbortError'?'已取消分享，图片仍可保存。':'分享未成功，请长按预览保存或下载 PNG。');}
+    finally{if(savedBlob===blob&&dialog.open)el('artShare').disabled=false;}
+  }
+  function queue(){resetSaved();currentSvg='';enabled(false);clearTimeout(timer);timer=setTimeout(render,160);}
   function saveBlob(blob,extension){
     var name=(el('artTitle').value.trim()||'剧本').replace(/[<>:"/\\|?*\x00-\x1f]/g,'_').slice(0,80);
     var a=document.createElement('a'),url=URL.createObjectURL(blob);
     a.href=url;a.download=name+'-完整剧本.'+extension;
     document.body.appendChild(a);a.click();setTimeout(function(){a.remove();URL.revokeObjectURL(url);},30000);
   }
-  async function downloadPng(){
+  async function downloadPng(previewOnly){
     if(!currentSvg)return;
     var svg=currentSvg,requested=Number(el('artScale').value),height=plan.height,width=plan.width,session=revision;
     var scale=Math.min(requested,8192/height,8192/width,Math.sqrt(16000000/(width*height)));
@@ -216,9 +230,9 @@
       var blob=await new Promise(function(resolve){canvas.toBlob(resolve,'image/png');});
       if(!blob)throw new Error('设备无法生成高清图片，请选择标准清晰度后重试。');
       if(session!==revision||!dialog.open||svg!==currentSvg)return;
-      saveBlob(blob,'png');message('完整 PNG 已生成（'+canvas.width+' × '+canvas.height+'）'+(scale<requested?'；超长图已适配设备尺寸，SVG 保留原尺寸。':'；如未自动保存，请使用浏览器的下载列表。'));
+      resetSaved();savedBlob=blob;savedURL=URL.createObjectURL(blob);savedName=(el('artTitle').value.trim()||'剧本').replace(/[<>:\"/\\|?*\x00-\x1f]/g,'_').slice(0,80)+'-完整剧本.png';el('artSavePreview').src=savedURL;el('artSaveOpen').href=savedURL;el('artSavePanel').hidden=false;el('artShare').disabled=false;if(!previewOnly)saveBlob(blob,'png');message('完整 PNG 已生成（'+canvas.width+' × '+canvas.height+'）'+(scale<requested?'；超长图已适配设备尺寸，SVG 保留原尺寸。':'；如未自动保存，请使用浏览器的下载列表。'));
     }catch(error){if(session===revision&&dialog.open)message(error.message||'PNG 导出失败，可尝试 SVG。');}
-    finally{URL.revokeObjectURL(url);if(session===revision&&dialog.open)enabled(!!currentSvg);}
+    finally{if(canvas){canvas.width=0;canvas.height=0;}URL.revokeObjectURL(url);if(session===revision&&dialog.open)enabled(!!currentSvg);}
   }
   function createDialog(){
     dialog=document.createElement('dialog');dialog.id='artDialog';dialog.setAttribute('aria-labelledby','artHeading');
@@ -236,7 +250,7 @@
       '<label>自选背景<input type="file" id="artBackground" accept="image/png,image/jpeg,image/webp"></label><button type="button" class="btn" id="artRemoveBg">移除背景</button>'+
       '<p class="art-note">图片只在本机处理。角色按类型分组，保留组内顺序；参考图比例会紧凑排版并等比缩放内容，不裁切文字；也可选择自动加长。导入图标会尝试联网加载并嵌入图片；失效或不允许跨域读取的图标使用文字占位。</p>'+
       '<label>PNG 清晰度<select id="artScale"><option value="1">标准 · 1280 像素宽</option><option value="2" selected>高清 · 2560 像素宽</option></select></label>'+
-      '<div class="art-downloads"><button type="button" class="btn pri" id="artPng" disabled>下载 PNG</button><button type="button" class="btn" id="artSvg" disabled>下载 SVG</button></div><p id="artStatus" role="status" aria-live="polite"></p></section>'+
+      '<div class="art-downloads"><button type="button" class="btn pri" id="artSave" disabled>保存 / 分享图片</button><button type="button" class="btn" id="artPng" disabled>下载 PNG</button><button type="button" class="btn" id="artSvg" disabled>下载 SVG</button></div><div id="artSavePanel" hidden><p>长按下方图片保存到相册，或点击系统分享。</p><img id="artSavePreview" alt="可长按保存的完整剧本 PNG"><div class="art-downloads"><button type="button" class="btn" id="artShare">系统分享</button><button type="button" class="btn" id="artSaveDownload">下载 PNG</button><a id="artSaveOpen" class="btn" target="_blank" rel="noopener">打开图片</a></div></div><p id="artStatus" role="status" aria-live="polite"></p></section>'+
       '<section class="art-canvas" aria-label="剧本图片预览"><div class="art-stage"><img id="artPreview" alt="可点击角色编辑的剧本图片预览"><div id="artOverlay"></div></div></section></div>';
     document.body.appendChild(dialog);
     el('artUndo').onclick=function(){travelHistory(-1);};el('artRedo').onclick=function(){travelHistory(1);};
@@ -258,7 +272,7 @@
     };
     el('artPreview').onerror=function(){enabled(false);message('预览图片未能显示，请调整设置后重试。');};
     el('artClose').onclick=function(){dialog.close();};
-    dialog.addEventListener('close',function(){revision++;clearTimeout(timer);enabled(false);if(previewUrl){URL.revokeObjectURL(previewUrl);previewUrl='';}el('artPreview').removeAttribute('src');});
+    dialog.addEventListener('close',function(){revision++;resetSaved();clearTimeout(timer);enabled(false);if(previewUrl){URL.revokeObjectURL(previewUrl);previewUrl='';}el('artPreview').removeAttribute('src');});
     ['artFrame','artVersion','artPlayers','artTitleStyle','artRatio','artJinx','artStyle','artRules','artTitle','artAuthor','artSubtitle','artColumns','artTheme','artFont','artBackdrop','artPattern','artOrnament'].forEach(function(id){el(id).addEventListener('input',queue);});
     el('artRemoveBg').onclick=function(){backgroundRevision++;background='';el('artBackground').value='';render();};
     el('artBackground').onchange=async function(){
@@ -266,7 +280,8 @@
       try{var result=await readImage(file);if(session===revision&&bg===backgroundRevision&&dialog.open){background=result;render();}}
       catch(error){if(session===revision&&bg===backgroundRevision&&dialog.open){message(error.message);enabled(!!currentSvg);}}
     };
-    el('artPng').onclick=downloadPng;
+    el('artPng').onclick=function(){return downloadPng(false);};
+    el('artSave').onclick=function(){return downloadPng(true);};el('artShare').onclick=shareSaved;el('artSaveDownload').onclick=function(){if(savedBlob)saveBlob(savedBlob,'png');};el('artScale').onchange=resetSaved;
     el('artSvg').onclick=function(){if(currentSvg)saveBlob(new Blob([currentSvg],{type:'image/svg+xml;charset=utf-8'}),'svg');};
   }
   document.getElementById('bArt').onclick=async function(){
