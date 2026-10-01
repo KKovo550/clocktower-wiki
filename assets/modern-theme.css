@@ -191,3 +191,19 @@ body{background:linear-gradient(135deg,#eef3fb 0%,#f7f8fc 48%,#f0f5f8 100%)!impo
 @media(max-width:360px){.site-header{gap:6px;padding-left:8px;padding-right:8px;grid-template-columns:32px 40px minmax(0,1fr) auto}.mobile-top-nav{gap:10px}.mobile-top-nav a{font-size:14px}.site-header .sidebar-toggle{width:32px}.site-header .admin-link{font-size:11px!important}.layout{padding:12px 8px}.content{padding:18px 14px}}
 @media(prefers-reduced-motion:reduce){.mobile-nav-ready .sidebar,.mobile-nav-ready .sidebar-backdrop{transition:none}}
 @media print{.mobile-top-nav,.sidebar-backdrop,.site-header .sidebar-toggle{display:none!important}}
+
+/* Reduce touch-device work and accommodate the software keyboard. */
+@media(max-width:820px){
+ .site-header{backdrop-filter:none}
+ .site-header .search input,.content :is(input:not([type=checkbox]):not([type=radio]):not([type=range]),select,textarea){font-size:16px}
+ .site-header .search-results{max-height:max(100px,calc(var(--wiki-viewport-height,100dvh) - var(--wiki-header-height) - 16px));overscroll-behavior:contain}
+ .mobile-nav-ready .sidebar{max-height:calc(var(--wiki-viewport-height,100dvh) - var(--wiki-header-height));scrollbar-gutter:auto}
+ .sidebar-toggle,.mobile-top-nav a,.sidebar a,.content :is(button,.btn){touch-action:manipulation}
+ .site-header .search-results a{min-height:44px}
+ .content :is(button,.btn){min-height:40px}
+ .content :is(input,select,textarea){scroll-margin-top:calc(var(--wiki-header-height) + 12px)}
+}
+@media(max-width:820px) and (hover:none){
+ .content,.role-index .grid>.card,.script-editor .lib .card,.homebrew-grid>.homebrew-card{animation:none!important}
+ .sidebar a,.gallerybox,.role-index .card,.script-editor .card{transition:none!important}
+}

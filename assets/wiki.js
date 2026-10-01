@@ -3,12 +3,23 @@
   // Sticky panels track the real header height, including wrapped search controls.
   var header = document.querySelector('.site-header');
   if (header && header.getBoundingClientRect && document.documentElement && document.documentElement.style) {
+    var lastHeaderHeight, lastViewportHeight;
     var updateHeaderSpace = function () {
-      document.documentElement.style.setProperty('--wiki-header-height', Math.ceil(header.getBoundingClientRect().height) + 'px');
+      var height = Math.ceil(header.getBoundingClientRect().height);
+      if (height !== lastHeaderHeight) {
+        document.documentElement.style.setProperty('--wiki-header-height', height + 'px');
+        lastHeaderHeight = height;
+      }
+      var viewportHeight = Math.floor(window.visualViewport ? window.visualViewport.height : window.innerHeight);
+      if (viewportHeight !== lastViewportHeight) {
+        document.documentElement.style.setProperty('--wiki-viewport-height', viewportHeight + 'px');
+        lastViewportHeight = viewportHeight;
+      }
     };
     updateHeaderSpace();
     if (typeof ResizeObserver !== 'undefined') new ResizeObserver(updateHeaderSpace).observe(header);
     else window.addEventListener('resize', updateHeaderSpace);
+    if (window.visualViewport) window.visualViewport.addEventListener('resize', updateHeaderSpace);
   }
 
   // 渐进增强：无 JavaScript 时导航保持可见，桌面端始终展开。
@@ -68,8 +79,8 @@
         sidebar.inert = mobileMenu.matches && !open;
         if (open) {
           var firstLink = navigation.querySelector('a[href]');
-          if (firstLink) firstLink.focus();
-        } else if (returnFocus) toggle.focus();
+          if (firstLink) firstLink.focus({ preventScroll: true });
+        } else if (returnFocus) toggle.focus({ preventScroll: true });
       }
       // Replace the inline expansion behavior with drawer state.
       toggle.addEventListener('click', function () {
@@ -97,7 +108,7 @@
       setDrawer(false, false);
     }
   }
-  if (typeof URL !== 'undefined' && document.querySelector && document.querySelector('.gallerybox a img, .homebrew-card a img, .role-index, .charinfo-img img')) {
+  if (typeof URL !== 'undefined' && (!window.matchMedia || window.matchMedia('(any-hover: hover)').matches) && document.querySelector && document.querySelector('.gallerybox a img, .homebrew-card a img, .role-index, .charinfo-img img')) {
     var previewScript = document.createElement('script');
     previewScript.src = new URL('./role-preview.js', document.currentScript ? document.currentScript.src : new URL((document.body.getAttribute('data-root') || '') + 'assets/wiki.js', document.baseURI)).href;
     document.head.appendChild(previewScript);
@@ -110,7 +121,7 @@
   var idx = [], ready = false, loading = false, composing = false, wanted = false, callbacks = [];
   var filter = document.getElementById('wiki-search-category');
   var status = document.getElementById('wiki-search-status');
-  var sel = -1, cur = [];
+  var sel = -1, cur = [], searchTimer;
   input.setAttribute('role', 'combobox');
   input.setAttribute('aria-autocomplete', 'list');
   input.setAttribute('aria-controls', box.id);
@@ -155,6 +166,8 @@
   }
 
   function close() {
+    if (searchTimer !== undefined) clearTimeout(searchTimer);
+    searchTimer = undefined;
     wanted = false;
     box.className = 'search-results';
     box.innerHTML = '';
@@ -220,12 +233,25 @@
   }
   input.addEventListener('compositionstart', function () { composing = true; close(); });
   input.addEventListener('compositionend', function () { composing = false; render(input.value.trim()); });
-  input.addEventListener('input', function () { if (!composing) render(input.value.trim()); });
+  input.addEventListener('input', function () {
+    if (searchTimer !== undefined) clearTimeout(searchTimer);
+    searchTimer = undefined;
+    if (composing) return;
+    var query = input.value.trim();
+    if (query && window.matchMedia && window.matchMedia('(max-width: 820px)').matches) {
+      searchTimer = setTimeout(function () { render(input.value.trim()); }, 140);
+    } else render(query);
+  });
   input.addEventListener('focus', function () { loadIndex(); if (input.value.trim()) render(input.value.trim()); });
   if (filter) filter.addEventListener('change', function () { render(input.value.trim()); });
   input.addEventListener('keydown', function (e) {
     if (e.isComposing || e.keyCode === 229) return;
     if (e.key === 'Escape') { close(); return; }
+    if (e.key === 'Enter' && searchTimer !== undefined) {
+      clearTimeout(searchTimer);
+      searchTimer = undefined;
+      render(input.value.trim());
+    }
     if (!input.value.trim() || box.className !== 'search-results on') return;
     if (e.key === 'ArrowDown') { e.preventDefault(); move(1); }
     else if (e.key === 'ArrowUp') { e.preventDefault(); move(-1); }
