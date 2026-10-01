@@ -3,6 +3,7 @@ const workerSourceURL=new URL('./gpu-worker-source.js',document.currentScript.sr
 let gpuSourceLoading=null,gpuDisabled=false,nextRequest=0;
 const channels={cpu:{worker:null,requests:new Map()},gpu:{worker:null,requests:new Map()}};
 window.ScriptPaddleBrowser={
+  dispose(){stopWorker('cpu',aborted());stopWorker('gpu',aborted());results.clear();},
   recognizeTitle(file,options={}){return recognizeCached(file,'title',options);},
   recognize(file,options={}){return recognizeCached(file,'roles',options);}
 };

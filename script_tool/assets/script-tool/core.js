@@ -37,14 +37,26 @@
       r:list(e.reminders,'提醒'),rg:list(e.remindersGlobal,'全局提醒'),
       fr:str(e.firstNightReminder,'首夜提示'),or:str(e.otherNightReminder,'其他夜提示')};
   }
+  function isRule(e){return !!e&&typeof e==='object'&&typeof e.team==='string'&&/^a\s+jinx(?:ed)?$/i.test(e.team.trim());}
+  function normalizeRule(e){
+    if(!isRule(e))throw new Error('未知剧本规则类型');
+    var id=str(e.id,'规则 ID'),name=str(e.name,'规则名称'),ability=str(e.ability,'规则说明');
+    if(!id.trim()||id==='_meta'||!name.trim()||!ability.trim())throw new Error('规则 ID、名称和说明不能为空');
+    return JSON.parse(JSON.stringify(e));
+  }
+  function ruleSections(rules,roles){
+    var result={jinx:[],other:[]};
+    (rules||[]).forEach(function(rule){if(matchJinx(roles,[rule]).length)result.jinx.push(rule);else result.other.push(rule);});return result;
+  }
   function parseImport(data,chars){
     if(!Array.isArray(data)||data.length>1000)throw new Error('顶层必须是数组，最多 1000 项');
-    var byId=new Map(chars.map(function(c){return [c.id,c];})),seen=new Set(),selected=[],custom=[],meta={};
+    var byId=new Map(chars.map(function(c){return [c.id,c];})),seen=new Set(),selected=[],custom=[],rules=[],entries=[],meta={};
     data.forEach(function(e){
       if(e&&typeof e==='object'&&!Array.isArray(e)&&e.id==='_meta'){
         if(meta.id)throw new Error('只能包含一份 _meta');meta=e;return;
       }
       if(typeof e!=='string'&&(!e||typeof e!=='object'||Array.isArray(e)))throw new Error('角色必须是 ID 或对象');
+      if(isRule(e)){var rule=normalizeRule(e);if(seen.has(identity(rule.id)))throw new Error('重复角色或规则 ID：'+rule.id);seen.add(identity(rule.id));rules.push(rule);return;}
       var id=typeof e==='string'?e:e.id;
       var known=byId.get(id)||byId.get(id+'_gstone'),c;
       if(!known){var candidates=chars.filter(function(role){return identity(role.id)===identity(id);});if(candidates.length===1)known=candidates[0];}
@@ -57,9 +69,9 @@
         custom.push(c);
       }
       if(seen.has(identity(c.id)))throw new Error('重复角色 ID：'+c.id);
-      seen.add(identity(c.id));selected.push(c);
+      seen.add(identity(c.id));selected.push(c);entries.push(e);
     });
-    return {selected:selected,custom:custom,name:str(meta.name,'剧本名称'),author:str(meta.author,'作者')};
+    return {selected:selected,custom:custom,rules:rules,entries:entries,name:str(meta.name,'剧本名称'),author:str(meta.author,'作者')};
   }
   function nightOrder(role,orders,overrides){
     orders=orders||{};
@@ -115,7 +127,9 @@
       var entry=d.nightOverrides&&Object.prototype.hasOwnProperty.call(d.nightOverrides,oldId||role.id)?d.nightOverrides[oldId||role.id]:null;
       ['firstNight','otherNight'].forEach(function(field){if(entry&&Number.isFinite(entry[field])&&entry[field]>0)(overrides[role.id]||(overrides[role.id]={}))[field]=entry[field];});
     });
-    return {custom:custom,selected:selected,nightOverrides:overrides,name:str(d.n,'剧本名称'),author:str(d.a,'作者'),spec:['free','teensy','ravenswood'].includes(d.s)?d.s:'free'};
+    if(d.rules!==undefined&&(!Array.isArray(d.rules)||d.rules.length>1000))throw new Error('存档规则格式错误');
+    var rules=(d.rules||[]).map(normalizeRule);rules.forEach(function(rule){if(seen.has(identity(rule.id)))throw new Error('存档包含重复规则 ID');seen.add(identity(rule.id));});
+    return {rules:rules,custom:custom,selected:selected,nightOverrides:overrides,name:str(d.n,'剧本名称'),author:str(d.a,'作者'),spec:['free','teensy','ravenswood'].includes(d.s)?d.s:'free'};
   }
   function catalogIcon(role,chars,icons){
     if(icons[role.im])return icons[role.im];
@@ -128,5 +142,5 @@
     if(same.length>1){var ability=String(role.ab||'').replace(/\s/g,'');same=same.filter(function(c){return String(c.ab||'').replace(/\s/g,'')===ability;});}
     return icon(same);
   }
-  root.ScriptCore={identity:identity,normalize:normalize,parseImport:parseImport,restoreDraft:restoreDraft,nightOrder:nightOrder,matchJinx:matchJinx,catalogIcon:catalogIcon,parseJSON:function(text){return JSON.parse(String(text).replace(/^\uFEFF/,''));}};
+  root.ScriptCore={isRule:isRule,ruleSections:ruleSections,identity:identity,normalize:normalize,parseImport:parseImport,restoreDraft:restoreDraft,nightOrder:nightOrder,matchJinx:matchJinx,catalogIcon:catalogIcon,parseJSON:function(text){return JSON.parse(String(text).replace(/^\uFEFF/,''));}};
 })(globalThis);

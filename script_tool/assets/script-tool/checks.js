@@ -25,7 +25,7 @@
 })(globalThis);
 function renderScriptChecks(){
  var box=document.getElementById('script-checks');if(!box)return;
- var result=ScriptChecks.analyze(sel,document.getElementById('spec').value,JINX),links=window.WORKFLOW_ROLE_LINKS||{};
+ var result=ScriptChecks.analyze(sel,document.getElementById('spec').value,JINX.concat(typeof SCRIPT_RULES==='undefined'?[]:SCRIPT_RULES)),links=window.WORKFLOW_ROLE_LINKS||{};
  function roleLink(name){return links[name]?'<a href="'+esc(links[name])+'" target="_blank" rel="noopener">'+esc(name)+' ↗</a>':esc(name);}
  function section(title,items){return '<h4>'+title+' · '+items.length+'</h4>'+(items.length?'<ul>'+items.map(function(item){return '<li>'+(typeof item==='string'?esc(item):item.name.split(' & ').map(roleLink).join(' & ')+'：'+esc(item.text))+'</li>';}).join('')+'</ul>':'<p class="check-muted">未发现</p>');}
  box.innerHTML='<summary>搭配检查 <span>'+result.errors.length+' 个明确问题 · '+result.suggestions.length+' 条建议 · '+result.interactions.length+' 条相克</span></summary><div class="check-body"><p>统计的是可选角色池，不是开局玩家配比。相克与设置调整不代表剧本无效。</p>'+section('明确问题',result.errors)+section('搭配建议',result.suggestions)+section('相克提醒',result.interactions)+section('设置调整',result.setup)+'<p><a href="../pages/相克规则.html" target="_blank" rel="noopener">相克规则</a> · <a href="../pages/设置调整.html" target="_blank" rel="noopener">设置调整说明</a></p></div>';

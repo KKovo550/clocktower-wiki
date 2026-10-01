@@ -3,7 +3,7 @@
   function build(data,chars,orders,source,players){
     var parsed=root.ScriptCore.parseImport(data,chars);
     if(!parsed.selected.length)throw new Error('剧本中没有角色。');
-    var entries=data.filter(function(e){return !(e&&e.id==='_meta');});
+    var entries=parsed.entries;
     var rows=parsed.selected.map(function(role,index){
       var input=entries[index],night=root.ScriptCore.nightOrder(role,orders);
       if(source!=='wiki'&&input&&typeof input==='object'){

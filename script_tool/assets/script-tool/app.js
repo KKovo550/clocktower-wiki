@@ -11,6 +11,7 @@ if(window.BOTC_NIGHT){
   });
 }
 var NIGHT_OVERRIDES=Object.create(null);
+var SCRIPT_RULES=[];            // 导入的相克与作者规则
 var CUSTOM=[];                 // 用户自建角色
 var sel=[];                    // 已选角色
 var curTab='all', q='', saveKey='botc_script_tool_v1';
@@ -179,7 +180,12 @@ function renderStat(){
   document.getElementById('stat').innerHTML=h;
 }
 function renderJinx(){
-  var hit=ScriptCore.matchJinx(sel,JINX).map(function(match){return {pair:match.roles.map(function(r){return r.n;}).join(' & '),ab:match.text};});
+  var rulesBox=document.getElementById('scriptRules');
+  if(!rulesBox){rulesBox=document.createElement('details');rulesBox.id='scriptRules';document.getElementById('jinxbox').after(rulesBox);}
+  rulesBox.hidden=!SCRIPT_RULES.length;rulesBox.replaceChildren();
+  if(SCRIPT_RULES.length){var summary=document.createElement('summary');summary.textContent='剧本相克 / 作者规则（'+SCRIPT_RULES.length+' 条）';rulesBox.appendChild(summary);SCRIPT_RULES.forEach(function(rule){var entry=document.createElement('div'),title=document.createElement('strong'),text=document.createElement('p');title.textContent=rule.name;text.textContent=rule.ability;entry.append(title,text);rulesBox.appendChild(entry);});}
+
+  var hit=ScriptCore.matchJinx(sel,JINX.concat(SCRIPT_RULES)).map(function(match){return {pair:match.roles.map(function(r){return r.n;}).join(' & '),ab:match.text};});
   var box=document.getElementById('jinxbox');
   if(!hit.length){box.innerHTML='';return;}
   box.innerHTML='<div class="jinx"><b>相克提示（'+hit.length+' 条）</b>'+
@@ -285,6 +291,7 @@ function exportObj(){
       reminders:c.r||[],remindersGlobal:c.rg||[],
       firstNightReminder:c.fr||'',otherNightReminder:c.or||''});
   });
+  if(typeof SCRIPT_RULES!=='undefined')out=out.concat(SCRIPT_RULES.map(function(rule){return JSON.parse(JSON.stringify(rule));}));
   return out;
 }
 function download(name,text){
@@ -299,7 +306,7 @@ function openDlg(html){document.getElementById('dlgBody').innerHTML=html;
 function closeDlg(){document.getElementById('dlg').close();}
 
 document.getElementById('bExport').onclick=function(){
-  var report=ScriptChecks.analyze(sel,document.getElementById('spec').value,JINX);
+  var report=ScriptChecks.analyze(sel,document.getElementById('spec').value,JINX.concat(SCRIPT_RULES));
   if(report.errors.length){document.getElementById('script-checks').open=true;alert('请先修正明确问题：\n'+report.errors.join('\n'));return;}
   var txt=JSON.stringify(exportObj(),null,2);
   openDlg('<h3>导出 JSON</h3><textarea readonly>'+esc(txt)+'</textarea>'+
@@ -332,20 +339,20 @@ document.getElementById('bImport').onclick=function(){
 };
 function doImport(data){
   var result=ScriptCore.parseImport(data,CHARS);
-  if((sel.length||document.getElementById('mname').value||document.getElementById('mauthor').value)&&!confirm('导入会替换当前剧本，继续？'))return false;
-  CUSTOM=result.custom; sel=result.selected; NIGHT_OVERRIDES=Object.create(null);
+  if((sel.length||document.getElementById('mname').value||document.getElementById('mauthor').value||SCRIPT_RULES.length)&&!confirm('导入会替换当前剧本，继续？'))return false;
+  CUSTOM=result.custom; SCRIPT_RULES=result.rules; sel=result.selected; NIGHT_OVERRIDES=Object.create(null);
   document.getElementById('mname').value=result.name;
   document.getElementById('mauthor').value=result.author;
   renderAll();
 }
 
 document.getElementById('bClear').onclick=function(){
-  if(!sel.length)return;
-  if(confirm('清空当前剧本？')){ sel=[]; NIGHT_OVERRIDES=Object.create(null); document.getElementById('mname').value='';
+  if(!sel.length&&!SCRIPT_RULES.length)return;
+  if(confirm('清空当前剧本？')){ SCRIPT_RULES=[];sel=[]; NIGHT_OVERRIDES=Object.create(null); document.getElementById('mname').value='';
     document.getElementById('mauthor').value=''; renderAll(); }
 };
 document.getElementById('bRandom').onclick=function(){
-  if(sel.length&&!confirm('随机生成会替换当前剧本，继续？'))return;
+  if((sel.length||SCRIPT_RULES.length)&&!confirm('随机生成会替换当前剧本，继续？'))return;
   var need={townsfolk:13,outsider:4,minion:4,demon:4};
   var spec=document.getElementById('spec').value;
   if(spec==='teensy') need={townsfolk:5,outsider:1,minion:1,demon:1};
@@ -356,7 +363,7 @@ document.getElementById('bRandom').onclick=function(){
       var x=pool[i];pool[i]=pool[j];pool[j]=x;}
     return pool.slice(0,n);
   }
-  sel=[]; NIGHT_OVERRIDES=Object.create(null);
+  SCRIPT_RULES=[];sel=[]; NIGHT_OVERRIDES=Object.create(null);
   ['townsfolk','outsider','minion','demon'].forEach(function(t){
     pick(t,need[t]).forEach(function(c){sel.push(c);});
   });
@@ -460,9 +467,9 @@ document.getElementById('preset').onchange=function(){
   var v=this.value; this.value='';
   if(!v)return;
   var p=PRESETS[+v]; if(!p)return;
-  if(sel.length && !confirm('载入「'+p.name+'」会覆盖当前剧本，继续？'))return;
+  if((sel.length||SCRIPT_RULES.length) && !confirm('载入「'+p.name+'」会覆盖当前剧本，继续？'))return;
   NIGHT_OVERRIDES=Object.create(null);
-  sel=p.idxs.map(function(i){return CHARS[i];});
+  SCRIPT_RULES=[];sel=p.idxs.map(function(i){return CHARS[i];});
   document.getElementById('mname').value=p.name;
   renderAll();
 };
@@ -477,7 +484,7 @@ function save(){
   try{
     localStorage.setItem(saveKey,JSON.stringify({version:2,
       n:document.getElementById('mname').value,a:document.getElementById('mauthor').value,
-      s:document.getElementById('spec').value,custom:CUSTOM,nightOverrides:NIGHT_OVERRIDES,
+      s:document.getElementById('spec').value,custom:CUSTOM,rules:SCRIPT_RULES,nightOverrides:NIGHT_OVERRIDES,
       sel:sel.map(function(c){return {id:c.id,name:c.n,custom:CUSTOM.indexOf(c)>=0};})}));
     status('已保存到此浏览器 · 重要剧本请导出 JSON 备份');
   }catch(e){status('本地保存失败，请立即导出 JSON 备份。');}
@@ -486,7 +493,7 @@ function load(){
   try{
     var raw=localStorage.getItem(saveKey);if(!raw)return false;
     var draft=ScriptCore.restoreDraft(JSON.parse(raw),CHARS);
-    CUSTOM=draft.custom;sel=draft.selected;NIGHT_OVERRIDES=draft.nightOverrides;
+    CUSTOM=draft.custom;SCRIPT_RULES=draft.rules;sel=draft.selected;NIGHT_OVERRIDES=draft.nightOverrides;
     document.getElementById('mname').value=draft.name;
     document.getElementById('mauthor').value=draft.author;
     document.getElementById('spec').value=draft.spec;
