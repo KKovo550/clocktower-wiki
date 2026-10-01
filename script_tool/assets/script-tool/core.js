@@ -23,7 +23,8 @@
   function normalize(e){
     var name=str(e.name,'名称',e.id),id=str(e.id,'ID','custom_'+name);
     if(!name.trim()||!id.trim()||id==='_meta')throw new Error('角色名称和 ID 不能为空或使用保留值');
-    var team=e.team==='traveler'?'traveller':(e.team||'townsfolk');
+    var team=str(e.team===undefined?e.type:e.team,'角色类型','townsfolk').trim().toLowerCase();
+    if(team==='traveler')team='traveller';if(team==='encounter')team='loric';
     if(!teams.includes(team))throw new Error('未知阵营：'+team);
     var images=Array.isArray(e.image)?e.image.map(function(value){if(typeof value!=='string')throw new Error('图标数组必须只包含文本');return str(value,'图标');}):null;
     var image=images?(images.find(function(value){return value;})||''):str(e.image,'图标');
@@ -31,7 +32,7 @@
     if(value&&!/^(https?:\/\/|(?:\.\.\/)?icons\/|data:image\/(?:png|jpeg|webp|gif);base64,)/i.test(value))throw new Error('图标仅支持 HTTP(S)、本地图标或位图 data URL');
     });
     if(e.setup!==undefined&&typeof e.setup!=='boolean'&&e.setup!==0&&e.setup!==1)throw new Error('setup 必须是布尔值或 0/1');
-    return {id:id,n:name,t:team,ab:str(e.ability,'能力'),im:image,iu:image,images:images,
+    return {id:id,n:name,t:team,ab:str(e.ability===undefined?(e.skill===undefined?e.description:e.skill):e.ability,'能力'),im:image,iu:image,images:images,raw:JSON.parse(JSON.stringify(e)),
       fl:str(e.flavor,'背景'),ed:str(e.edition,'版本'),s:e.setup||0,
       f:number(e.firstNight,'首夜顺序'),o:number(e.otherNight,'其他夜顺序'),
       r:list(e.reminders,'提醒'),rg:list(e.remindersGlobal,'全局提醒'),
@@ -71,7 +72,7 @@
       if(seen.has(identity(c.id)))throw new Error('重复角色 ID：'+c.id);
       seen.add(identity(c.id));selected.push(c);entries.push(e);
     });
-    return {selected:selected,custom:custom,rules:rules,entries:entries,name:str(meta.name,'剧本名称'),author:str(meta.author,'作者')};
+    return {selected:selected,custom:custom,rules:rules,entries:entries,meta:JSON.parse(JSON.stringify(meta)),name:str(meta.name,'剧本名称'),author:str(meta.author,'作者')};
   }
   function nightOrder(role,orders,overrides){
     orders=orders||{};
@@ -103,7 +104,8 @@
     if(!d||!Array.isArray(d.sel)||!Array.isArray(d.custom)||d.sel.length>1000||d.custom.length>1000)throw new Error('存档格式错误');
     if(d.version!==undefined&&d.version!==2)throw new Error('不支持的存档版本');
     var custom=d.custom.map(function(c){
-      var role=normalize({id:c.id,name:c.n,team:c.t,ability:c.ab,image:c.images||c.iu||c.im,flavor:c.fl,edition:c.ed,setup:c.s,firstNight:c.f,otherNight:c.o,reminders:c.r,remindersGlobal:c.rg,firstNightReminder:c.fr,otherNightReminder:c.or});
+      if(c.raw!==undefined&&(!c.raw||typeof c.raw!=='object'||Array.isArray(c.raw)))throw new Error('存档角色原始数据格式错误');
+      var role=normalize(Object.assign(Object.create(null),c.raw||{},{id:c.id,name:c.n,team:c.t,ability:c.ab,image:c.images||c.iu||c.im,flavor:c.fl,edition:c.ed,setup:c.s,firstNight:c.f,otherNight:c.o,reminders:c.r,remindersGlobal:c.rg,firstNightReminder:c.fr,otherNightReminder:c.or}));
       var known=chars.find(function(x){return identity(x.id)===identity(role.id)&&x.n===role.n;});
       if(known&&known.im)role.im=known.im;
       return role;
@@ -129,7 +131,8 @@
     });
     if(d.rules!==undefined&&(!Array.isArray(d.rules)||d.rules.length>1000))throw new Error('存档规则格式错误');
     var rules=(d.rules||[]).map(normalizeRule);rules.forEach(function(rule){if(seen.has(identity(rule.id)))throw new Error('存档包含重复规则 ID');seen.add(identity(rule.id));});
-    return {rules:rules,custom:custom,selected:selected,nightOverrides:overrides,name:str(d.n,'剧本名称'),author:str(d.a,'作者'),spec:['free','teensy','ravenswood'].includes(d.s)?d.s:'free'};
+    if(d.meta!==undefined&&(!d.meta||typeof d.meta!=='object'||Array.isArray(d.meta)))throw new Error('存档元数据格式错误');
+    return {meta:JSON.parse(JSON.stringify(d.meta||{})),rules:rules,custom:custom,selected:selected,nightOverrides:overrides,name:str(d.n,'剧本名称'),author:str(d.a,'作者'),spec:['free','teensy','ravenswood'].includes(d.s)?d.s:'free'};
   }
   function catalogIcon(role,chars,icons){
     if(icons[role.im])return icons[role.im];

@@ -30,9 +30,15 @@
     var columns=Number(options.columns)||2,font=Number(options.font)||24;
     if([1,2,3].indexOf(columns)<0||font<(options._fit?14:18)||font>32)throw new Error('无效的布局设置。');
     var poster=options.style==='poster';if(poster)columns=2;
-    var ruleLines=poster&&options.rules?wrap(options.rules,490,18,measure):[];
-    var width=1280,margin=96,gap=32,top=Math.max(260,ruleLines.length*27+125);
-    var compact=poster&&(options.ratio==='reference'||options.ratio==='readable');if(compact)top=options.rules?Math.min(Math.max(185,ruleLines.length*27+110),650):185;
+    var ruleBox=null;
+    if(options.rules){
+      var ruleLines=wrap(options.rules,poster?490:1048,18,measure),ruleHeight=ruleLines.length*27+65;
+      ruleBox={x:poster?660:96,y:poster?45:210,width:poster?530:1088,height:ruleHeight,lines:ruleLines,scale:poster&&options.ratio==='reference'?Math.min(1,530/ruleHeight):1};
+    }
+    var width=1280,margin=96,gap=32,top=260;
+    var compact=poster&&(options.ratio==='reference'||options.ratio==='readable');if(compact)top=185;
+    // Reserve the actual rendered rule box before laying out any role bands.
+    if(ruleBox)top=Math.max(top,ruleBox.y+ruleBox.height*ruleBox.scale+40);
     if(compact&&(options.subtitle||options.players))top=Math.max(top,options.subtitle&&options.players?249:225);
     var colWidth=(width-margin*2-gap*(columns-1))/columns,lineHeight=font*(compact?1.35:1.5),abilityY=poster?Math.max(58,font+36):62;
     var rows=[],jinxes=jinxFor(roles,options.showJinx===false?[]:options.jinx);
@@ -67,7 +73,7 @@
       if(options.ratio==='readable')targetHeight=Math.max(targetHeight,Math.ceil(y+100));
       var bodyScale=compact?Math.min(1,(targetHeight-top-90)/Math.max(1,y-top)):1;
       if(options.ratio==='reference'&&bodyScale<0.98&&font>18)return layout(roles,Object.assign({},options,{font:font-1,_fit:true}),measure);
-      return {pages:[items],width:width,height:targetHeight,font:font,lineHeight:lineHeight,abilityY:abilityY,bodyScale:bodyScale,bodyTop:top,railStep:compact?Math.min(58,(targetHeight-420)/Math.max(1,railCount)):58};
+      return {pages:[items],width:width,height:targetHeight,font:font,lineHeight:lineHeight,abilityY:abilityY,ruleBox:ruleBox,bodyScale:bodyScale,bodyTop:top,railStep:compact?Math.min(58,(targetHeight-420)/Math.max(1,railCount)):58};
     }
     function arrange(capacity){
       var items=[],column=0,y=top,lastTeam='',maxY=top;
@@ -85,7 +91,7 @@
     var high=rows.reduce(function(total,row){return total+row.height+54;},0);
     while(low<high){var mid=Math.floor((low+high)/2);if(arrange(mid).columns<=columns)high=mid;else low=mid+1;}
     var result=arrange(Math.max(1400,low));
-    return {pages:[result.items],width:width,height:Math.max(1800,Math.ceil(result.bottom+112)),font:font};
+    return {pages:[result.items],width:width,height:Math.max(1800,Math.ceil(result.bottom+112)),font:font,ruleBox:ruleBox,bodyTop:top};
   }
 
   function svg(layout,pageIndex,options,icons,measure){
@@ -133,14 +139,13 @@
     var subtitle=String(options.subtitle||'').slice(0,65),subtitleSize=20;
     while(subtitleSize>14&&measure(subtitle,subtitleSize)>titleWidth)subtitleSize--;
     text(96,options.players?198:174,subtitle,subtitleSize,palette[3]);
-    if(poster&&options.rules){
-      var ruleLines=wrap(options.rules,490,18,measure),boxHeight=ruleLines.length*27+65;
-      var ruleScale=options.ratio==='reference'?Math.min(1,530/boxHeight):1;
-      if(ruleScale<1)out.push('<g transform="translate('+(660*(1-ruleScale))+' '+(45*(1-ruleScale))+') scale('+ruleScale+')">');
-      out.push('<rect x="660" y="45" width="530" height="'+boxHeight+'" rx="8" fill="#eddbb5" stroke="#b59b6e"/>');
-      text(685,78,'❖ 特殊规则 ❖',24,'#72512f',700);
-      ruleLines.forEach(function(line,i){text(680,113+i*27,line,18,'#493e31');});
-      if(ruleScale<1)out.push('</g>');
+    if(layout.ruleBox){
+      var box=layout.ruleBox;
+      if(box.scale<1)out.push('<g transform="translate('+(box.x*(1-box.scale))+' '+(box.y*(1-box.scale))+') scale('+box.scale+')">');
+      out.push('<rect x="'+box.x+'" y="'+box.y+'" width="'+box.width+'" height="'+box.height+'" rx="8" fill="'+(poster?'#eddbb5':palette[0])+'" stroke="'+(poster?'#b59b6e':palette[3])+'"/>');
+      text(box.x+25,box.y+33,'❖ 特殊规则 ❖',24,poster?'#72512f':palette[2],700);
+      box.lines.forEach(function(line,i){text(box.x+20,box.y+68+i*27,line,18,poster?'#493e31':palette[2]);});
+      if(box.scale<1)out.push('</g>');
     }
     if(poster){
       var railStart=out.length;

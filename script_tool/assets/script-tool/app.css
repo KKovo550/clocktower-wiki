@@ -175,3 +175,12 @@ kbd{background:#f1e9d8;border:1px solid var(--tan);border-radius:3px;padding:0 4
 .wechat-use-notice{padding:12px;margin:12px 0;border:1px solid #dce5f1;border-radius:10px;background:#f7f9fc;color:#495363;font-size:13px;line-height:1.7}.wechat-use-notice strong{color:#253f60}.wechat-use-notice p{margin:6px 0}.wechat-use-notice .btn{min-height:44px;margin:4px 8px 4px 0;white-space:normal}.wechat-use-notice input{width:100%;box-sizing:border-box;font-size:16px;padding:8px;min-height:44px}.wechat-use-notice input[hidden]{display:none}
 
 #scriptRules[hidden]{display:none}#scriptRules{padding:12px;margin:12px 0;background:#f7f9fc;border:1px solid #dce5f1;border-radius:10px;font-size:13px;line-height:1.7;overflow-wrap:anywhere}#scriptRules summary{cursor:pointer;font-weight:600}#scriptRules>div{margin-top:12px}#scriptRules p{margin:4px 0;white-space:pre-wrap}
+
+.editor-mobile-jumps{display:none}
+@media(max-width:820px){
+ .script-editor .editor-mobile-jumps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;position:sticky;top:var(--wiki-header-height,68px);z-index:35;background:#fff;padding:8px 0;margin:0 0 14px;border-bottom:1px solid #dce5f1}
+ .editor-mobile-jumps a{display:flex;align-items:center;justify-content:center;gap:4px;min-height:44px;border:1px solid #dce5f1;border-radius:9px;background:#f7f9fc;color:#285da9;text-decoration:none;font-size:14px}
+ .editor-mobile-jumps a:active{background:#e4edfb}
+ .script-editor :is(#mname,#library-title,#selection-title){scroll-margin-top:calc(var(--wiki-header-height,68px) + 80px)}
+ #selectionCount{font-variant-numeric:tabular-nums}
+}
