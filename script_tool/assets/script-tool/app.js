@@ -16,8 +16,8 @@ var sel=[];                    // 已选角色
 var curTab='all', q='', saveKey='botc_script_tool_v1';
 var curSource='all';
 var SOURCE_LABELS={all:'全部来源',official:'官方角色',stars:'群星角色',yuque:'海外自制角色',odyssey:'奥德赛角色'};
-var SOURCE_BY_ID=new Map(CHARS.map(function(c){return [c.id,c.source];}));
-function roleSource(c){return SOURCE_BY_ID.get(c.id)||'custom';}
+var SOURCE_BY_ID=new Map(CHARS.map(function(c){return [ScriptCore.identity(c.id),c.source];}));
+function roleSource(c){return SOURCE_BY_ID.get(ScriptCore.identity(c.id))||'custom';}
 function matchesSource(c){return curSource==='all'||roleSource(c)===curSource;}
 var lastList=[];               // 当前筛选结果，供回车/数字键使用
 
@@ -67,7 +67,11 @@ function initialsOf(name){
   return s.toLowerCase();
 }
 
-function allChars(){return CHARS.concat(CUSTOM);}
+function allChars(){
+  var imported=new Map(CUSTOM.map(function(c){return [ScriptCore.identity(c.id),c];})),seen=new Set();
+  return CHARS.concat(CUSTOM).map(function(c){return imported.get(ScriptCore.identity(c.id))||c;}).filter(function(c){var key=ScriptCore.identity(c.id);if(seen.has(key))return false;seen.add(key);return true;});
+}
+function selectedIndex(c){return sel.findIndex(function(role){return ScriptCore.identity(role.id)===ScriptCore.identity(c.id);});}
 function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){
   return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
 function initial(n){return (n||'?').trim().charAt(0);}
@@ -88,7 +92,7 @@ function renderTabs(){
       '<span class="c">'+(counts[t]||0)+'</span></button>';
   }).join('');
 }
-function inSel(c){return sel.indexOf(c)>=0;}
+function inSel(c){return selectedIndex(c)>=0;}
 function matchChar(c,query){
   if(!query)return true;
   if((c.n+' '+(c.searchName||'')+' '+(c.id||'')+' '+c.ab).toLowerCase().indexOf(query)>=0)return true;
@@ -219,7 +223,7 @@ document.getElementById('tabs').addEventListener('click',function(e){
 document.getElementById('grid').addEventListener('click',function(e){
   var c=e.target.closest('.card'); if(!c)return;
   var ch=allChars()[+c.getAttribute('data-i')]; if(!ch)return;
-  var k=sel.indexOf(ch);
+  var k=selectedIndex(ch);
   if(k>=0) sel.splice(k,1); else sel.push(ch);
   renderAll();
 });
@@ -244,7 +248,7 @@ document.querySelector('.lib').insertBefore(qEl, document.getElementById('tabs')
 qEl.addEventListener('input',function(){q=qEl.value.trim().toLowerCase();renderTabs();renderGrid();});
 function clearQuery(){qEl.value='';q='';renderTabs();renderGrid();}
 function addChar(c){
-  if(sel.indexOf(c)<0) sel.push(c);
+  if(selectedIndex(c)<0) sel.push(c);
   clearQuery(); renderAll();
 }
 qEl.addEventListener('keydown',function(e){
@@ -275,8 +279,8 @@ function exportObj(){
   sel.forEach(function(c){
     var night=ScriptCore.nightOrder(c,SCRIPT_NIGHT_ORDER,NIGHT_OVERRIDES);
     out.push({id:(c.id||('custom_'+(c.n||''))),name:c.n,team:c.t,ability:c.ab,
-      // 导出永远优先写官方图标 URL（iu）；只有表外自定义角色才退回 im
-      image:c.images||c.iu||c.im||'',edition:c.ed||'',flavor:c.fl||'',
+      // 已收录角色使用统一图床；未匹配自定义角色保留导入图片。
+      image:ScriptCore.catalogIcon(c,CHARS,typeof HOSTED_ROLE_ICONS==='undefined'?{}:HOSTED_ROLE_ICONS)||c.images||c.iu||c.im||'',edition:c.ed||'',flavor:c.fl||'',
       setup:c.s||0,firstNight:night.firstNight,otherNight:night.otherNight,
       reminders:c.r||[],remindersGlobal:c.rg||[],
       firstNightReminder:c.fr||'',otherNightReminder:c.or||''});
@@ -447,7 +451,7 @@ document.getElementById('bCustom').onclick=function(){
       ab:document.getElementById('ca').value.trim(),
       im:document.getElementById('cm').value.trim(),
       fl:'',ed:'custom',s:0,f:0,o:0,r:[],rg:[],fr:'',or:''};
-    if(allChars().some(function(x){return x.id===c.id;})){alert('角色 ID 已存在，请使用其他 ID');return;}
+    if(allChars().some(function(x){return ScriptCore.identity(x.id)===ScriptCore.identity(c.id);})){alert('角色 ID 已存在，请使用其他 ID');return;}
     try{c=ScriptCore.normalize({id:c.id,name:c.n,team:c.t,ability:c.ab,image:c.im});}catch(e){alert(e.message);return;}
     CUSTOM.push(c); sel.push(c); closeDlg(); renderAll();
   };

@@ -53,11 +53,11 @@
       }else{
         c=normalize(e);
         // Keep exported official images offline when the matching local asset exists.
-        if(known&&known.im&&c.iu===known.iu)c.im=known.im;
+        if(known&&known.im)c.im=known.im;
         custom.push(c);
       }
-      if(seen.has(c.id))throw new Error('重复角色 ID：'+c.id);
-      seen.add(c.id);selected.push(c);
+      if(seen.has(identity(c.id)))throw new Error('重复角色 ID：'+c.id);
+      seen.add(identity(c.id));selected.push(c);
     });
     return {selected:selected,custom:custom,name:str(meta.name,'剧本名称'),author:str(meta.author,'作者')};
   }
@@ -93,7 +93,7 @@
     var custom=d.custom.map(function(c){
       var role=normalize({id:c.id,name:c.n,team:c.t,ability:c.ab,image:c.images||c.iu||c.im,flavor:c.fl,edition:c.ed,setup:c.s,firstNight:c.f,otherNight:c.o,reminders:c.r,remindersGlobal:c.rg,firstNightReminder:c.fr,otherNightReminder:c.or});
       var known=chars.find(function(x){return identity(x.id)===identity(role.id)&&x.n===role.n;});
-      if(known&&known.im&&known.iu===role.iu)role.im=known.im;
+      if(known&&known.im)role.im=known.im;
       return role;
     });
     if(new Set(custom.map(function(c){return c.id;})).size!==custom.length)throw new Error('存档包含重复自定义角色 ID');
@@ -110,8 +110,8 @@
       }else if(typeof key==='string'&&/^C\d+$/.test(key))role=custom[+key.slice(1)];
       else if(Number.isInteger(key))role=chars[key];
       if(!role)throw new Error('存档包含无法识别的角色');
-      if(seen.has(role.id))throw new Error('存档包含重复角色 ID');
-      seen.add(role.id);selected.push(role);
+      if(seen.has(identity(role.id)))throw new Error('存档包含重复角色 ID');
+      seen.add(identity(role.id));selected.push(role);
       var entry=d.nightOverrides&&Object.prototype.hasOwnProperty.call(d.nightOverrides,oldId||role.id)?d.nightOverrides[oldId||role.id]:null;
       ['firstNight','otherNight'].forEach(function(field){if(entry&&Number.isFinite(entry[field])&&entry[field]>0)(overrides[role.id]||(overrides[role.id]={}))[field]=entry[field];});
     });
@@ -119,8 +119,8 @@
   }
   function catalogIcon(role,chars,icons){
     if(icons[role.im])return icons[role.im];
-    var same=chars.filter(function(c){return c.n===role.n;});
-    var exact=same.filter(function(c){return identity(c.id)===identity(role.id);});
+    var same=chars.filter(function(c){return String(c.n||'').trim()===String(role.n||'').trim();});
+    var exact=chars.filter(function(c){return identity(c.id)===identity(role.id);});
     function icon(candidates){return candidates.length===1?(icons[candidates[0].im]||icons[candidates[0].id]||''):'';}
     var found=icon(exact);if(found)return found;
     var team=function(t){return t==='traveler'?'traveller':t;};
@@ -128,5 +128,5 @@
     if(same.length>1){var ability=String(role.ab||'').replace(/\s/g,'');same=same.filter(function(c){return String(c.ab||'').replace(/\s/g,'')===ability;});}
     return icon(same);
   }
-  root.ScriptCore={normalize:normalize,parseImport:parseImport,restoreDraft:restoreDraft,nightOrder:nightOrder,matchJinx:matchJinx,catalogIcon:catalogIcon,parseJSON:function(text){return JSON.parse(String(text).replace(/^\uFEFF/,''));}};
+  root.ScriptCore={identity:identity,normalize:normalize,parseImport:parseImport,restoreDraft:restoreDraft,nightOrder:nightOrder,matchJinx:matchJinx,catalogIcon:catalogIcon,parseJSON:function(text){return JSON.parse(String(text).replace(/^\uFEFF/,''));}};
 })(globalThis);

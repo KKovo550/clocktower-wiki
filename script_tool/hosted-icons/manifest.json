@@ -1,0 +1,3460 @@
+[
+  {
+    "id": "beggar_gstone",
+    "name": "乞丐",
+    "file": "fb9eebc05c0d8e794aacfb61b904e917336edf2c0dde42ec1b3d2d102c558cd0.png",
+    "sha256": "fb9eebc05c0d8e794aacfb61b904e917336edf2c0dde42ec1b3d2d102c558cd0",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/fb9eebc05c0d8e794aacfb61b904e917336edf2c0dde42ec1b3d2d102c558cd0.png"
+  },
+  {
+    "id": "scapegoat_gstone",
+    "name": "替罪羊",
+    "file": "d64bfb413f2745cfd4c8aed0987e433727aa693a659ea1cf92ac4c0cd7b45112.png",
+    "sha256": "d64bfb413f2745cfd4c8aed0987e433727aa693a659ea1cf92ac4c0cd7b45112",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/d64bfb413f2745cfd4c8aed0987e433727aa693a659ea1cf92ac4c0cd7b45112.png"
+  },
+  {
+    "id": "gunslinger_gstone",
+    "name": "枪手",
+    "file": "d55ff8cb6f587bf2c1b0f2a4e6f31e785a8514b088643091c38e270c29ef7cbf.png",
+    "sha256": "d55ff8cb6f587bf2c1b0f2a4e6f31e785a8514b088643091c38e270c29ef7cbf",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/d55ff8cb6f587bf2c1b0f2a4e6f31e785a8514b088643091c38e270c29ef7cbf.png"
+  },
+  {
+    "id": "thief_gstone",
+    "name": "窃贼",
+    "file": "2d0605b8f119e0e13c0c1b926d1de1963eae9416f151c0640319b82c310008cf.png",
+    "sha256": "2d0605b8f119e0e13c0c1b926d1de1963eae9416f151c0640319b82c310008cf",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/2d0605b8f119e0e13c0c1b926d1de1963eae9416f151c0640319b82c310008cf.png"
+  },
+  {
+    "id": "bureaucrat_gstone",
+    "name": "官员",
+    "file": "bc130406634f9ae67aafbd0ebc0fe0a5036c4e133bdd1881693d5acc6c70d61e.png",
+    "sha256": "bc130406634f9ae67aafbd0ebc0fe0a5036c4e133bdd1881693d5acc6c70d61e",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/bc130406634f9ae67aafbd0ebc0fe0a5036c4e133bdd1881693d5acc6c70d61e.png"
+  },
+  {
+    "id": "washerwoman_gstone",
+    "name": "洗衣妇",
+    "file": "7ade3a19942183920fc0ff0fcbf35b6a7e94e383a6c6742cf15dec196ffe59d3.png",
+    "sha256": "7ade3a19942183920fc0ff0fcbf35b6a7e94e383a6c6742cf15dec196ffe59d3",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/7ade3a19942183920fc0ff0fcbf35b6a7e94e383a6c6742cf15dec196ffe59d3.png"
+  },
+  {
+    "id": "librarian_gstone",
+    "name": "图书管理员",
+    "file": "f481820a515ce16229287a40a143e0f339bfab942aca5939bf257ce0fd4f63ae.png",
+    "sha256": "f481820a515ce16229287a40a143e0f339bfab942aca5939bf257ce0fd4f63ae",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/f481820a515ce16229287a40a143e0f339bfab942aca5939bf257ce0fd4f63ae.png"
+  },
+  {
+    "id": "investigator_gstone",
+    "name": "调查员",
+    "file": "3aca710a5afb56a85d8f5ca046da5bd65837b14dd48edfc5fef4fd04d7148585.png",
+    "sha256": "3aca710a5afb56a85d8f5ca046da5bd65837b14dd48edfc5fef4fd04d7148585",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/3aca710a5afb56a85d8f5ca046da5bd65837b14dd48edfc5fef4fd04d7148585.png"
+  },
+  {
+    "id": "chef_gstone",
+    "name": "厨师",
+    "file": "a59509e1b0047692f2e8271a8e1386183356e0b4142e020e2db9955de8667ac4.png",
+    "sha256": "a59509e1b0047692f2e8271a8e1386183356e0b4142e020e2db9955de8667ac4",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/a59509e1b0047692f2e8271a8e1386183356e0b4142e020e2db9955de8667ac4.png"
+  },
+  {
+    "id": "empath_gstone",
+    "name": "共情者",
+    "file": "5e57599cf48acc115dff6af8bdcc9955d450a526e1c6e1336441f75d3d9d5273.png",
+    "sha256": "5e57599cf48acc115dff6af8bdcc9955d450a526e1c6e1336441f75d3d9d5273",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/5e57599cf48acc115dff6af8bdcc9955d450a526e1c6e1336441f75d3d9d5273.png"
+  },
+  {
+    "id": "fortune_teller_gstone",
+    "name": "占卜师",
+    "file": "5840f7b59903a69e4bd5037473de0ae99a6130aafc8b0e6b6a93ac022fb38d49.png",
+    "sha256": "5840f7b59903a69e4bd5037473de0ae99a6130aafc8b0e6b6a93ac022fb38d49",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/5840f7b59903a69e4bd5037473de0ae99a6130aafc8b0e6b6a93ac022fb38d49.png"
+  },
+  {
+    "id": "undertaker_gstone",
+    "name": "送葬者",
+    "file": "cd16615e9a2d0fb856784c6a529cd81221f1d113b93f31c4d3ef0da01a3acd9a.png",
+    "sha256": "cd16615e9a2d0fb856784c6a529cd81221f1d113b93f31c4d3ef0da01a3acd9a",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/cd16615e9a2d0fb856784c6a529cd81221f1d113b93f31c4d3ef0da01a3acd9a.png"
+  },
+  {
+    "id": "monk_gstone",
+    "name": "僧侣",
+    "file": "9096ab3b493f89d23b997dd97e14959e83ca08f854971c08c186e6bffaea81b4.png",
+    "sha256": "9096ab3b493f89d23b997dd97e14959e83ca08f854971c08c186e6bffaea81b4",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/9096ab3b493f89d23b997dd97e14959e83ca08f854971c08c186e6bffaea81b4.png"
+  },
+  {
+    "id": "ravenkeeper_gstone",
+    "name": "守鸦人",
+    "file": "c4505af04bee8dd33e0eb56f51dc9254f81a82af44bcf5ba065b401d6f6cf9b9.png",
+    "sha256": "c4505af04bee8dd33e0eb56f51dc9254f81a82af44bcf5ba065b401d6f6cf9b9",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/c4505af04bee8dd33e0eb56f51dc9254f81a82af44bcf5ba065b401d6f6cf9b9.png"
+  },
+  {
+    "id": "virgin_gstone",
+    "name": "贞洁者",
+    "file": "b13d67ef07d9af0edd73119c5bc1ad9a49731d983b663357c319e4899acce1b8.png",
+    "sha256": "b13d67ef07d9af0edd73119c5bc1ad9a49731d983b663357c319e4899acce1b8",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/b13d67ef07d9af0edd73119c5bc1ad9a49731d983b663357c319e4899acce1b8.png"
+  },
+  {
+    "id": "slayer_gstone",
+    "name": "猎手",
+    "file": "5b9cccb9e72842fe54504926afcfe05582e4c7d3d9da660cff71100ea5219384.png",
+    "sha256": "5b9cccb9e72842fe54504926afcfe05582e4c7d3d9da660cff71100ea5219384",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/5b9cccb9e72842fe54504926afcfe05582e4c7d3d9da660cff71100ea5219384.png"
+  },
+  {
+    "id": "soldier_gstone",
+    "name": "士兵",
+    "file": "7466ad4f0b13f8480bdb7950152a84103d6aa77349ffe33ab11ff18476d05b74.png",
+    "sha256": "7466ad4f0b13f8480bdb7950152a84103d6aa77349ffe33ab11ff18476d05b74",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/7466ad4f0b13f8480bdb7950152a84103d6aa77349ffe33ab11ff18476d05b74.png"
+  },
+  {
+    "id": "mayor_gstone",
+    "name": "镇长",
+    "file": "6a5688e1930b8ef44938de48ec54197f82d3d86321f991294daa8a1706291211.png",
+    "sha256": "6a5688e1930b8ef44938de48ec54197f82d3d86321f991294daa8a1706291211",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/6a5688e1930b8ef44938de48ec54197f82d3d86321f991294daa8a1706291211.png"
+  },
+  {
+    "id": "butler_gstone",
+    "name": "管家",
+    "file": "46f5643a2df1cfa3143f0a96b0947f47ba3f661334c7e4a7ec689b817b4d3d66.png",
+    "sha256": "46f5643a2df1cfa3143f0a96b0947f47ba3f661334c7e4a7ec689b817b4d3d66",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/46f5643a2df1cfa3143f0a96b0947f47ba3f661334c7e4a7ec689b817b4d3d66.png"
+  },
+  {
+    "id": "drunk_gstone",
+    "name": "酒鬼",
+    "file": "80d923fb064528a4969302d3c43d13c774f88be102b5e0f612705bf73bca323c.png",
+    "sha256": "80d923fb064528a4969302d3c43d13c774f88be102b5e0f612705bf73bca323c",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/80d923fb064528a4969302d3c43d13c774f88be102b5e0f612705bf73bca323c.png"
+  },
+  {
+    "id": "recluse_gstone",
+    "name": "陌客",
+    "file": "b5da3fe18f702c414308ce113fabf2e2970e546b5d4662e34c295a9eaf629ce7.png",
+    "sha256": "b5da3fe18f702c414308ce113fabf2e2970e546b5d4662e34c295a9eaf629ce7",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/b5da3fe18f702c414308ce113fabf2e2970e546b5d4662e34c295a9eaf629ce7.png"
+  },
+  {
+    "id": "saint_gstone",
+    "name": "圣徒",
+    "file": "2210d85a2a79b31b2bc1870c2591f84289e730548b2714cd7acbbe77a724feb7.png",
+    "sha256": "2210d85a2a79b31b2bc1870c2591f84289e730548b2714cd7acbbe77a724feb7",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/2210d85a2a79b31b2bc1870c2591f84289e730548b2714cd7acbbe77a724feb7.png"
+  },
+  {
+    "id": "poisoner_gstone",
+    "name": "投毒者",
+    "file": "39a586664f671520e9b421f59960c905b8bde0b64ac530ef676402112ceb8def.png",
+    "sha256": "39a586664f671520e9b421f59960c905b8bde0b64ac530ef676402112ceb8def",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/39a586664f671520e9b421f59960c905b8bde0b64ac530ef676402112ceb8def.png"
+  },
+  {
+    "id": "spy_gstone",
+    "name": "间谍",
+    "file": "09f5514bf1b39a0017ddb27fd4ef51325714933a42bd302df4976e41302148b0.png",
+    "sha256": "09f5514bf1b39a0017ddb27fd4ef51325714933a42bd302df4976e41302148b0",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/09f5514bf1b39a0017ddb27fd4ef51325714933a42bd302df4976e41302148b0.png"
+  },
+  {
+    "id": "scarlet_woman_gstone",
+    "name": "红唇女郎",
+    "file": "4311ababe132e640289b5b5d7ed9f457091525cd183cc43bb3f3a815f005ba75.png",
+    "sha256": "4311ababe132e640289b5b5d7ed9f457091525cd183cc43bb3f3a815f005ba75",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/4311ababe132e640289b5b5d7ed9f457091525cd183cc43bb3f3a815f005ba75.png"
+  },
+  {
+    "id": "baron_gstone",
+    "name": "男爵",
+    "file": "88da0376a6a655a532bb45822a38e3798f204f7dadde5c62ce9f0bb9f5081a65.png",
+    "sha256": "88da0376a6a655a532bb45822a38e3798f204f7dadde5c62ce9f0bb9f5081a65",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/88da0376a6a655a532bb45822a38e3798f204f7dadde5c62ce9f0bb9f5081a65.png"
+  },
+  {
+    "id": "imp_gstone",
+    "name": "小恶魔",
+    "file": "40fa293b492b65d8361b06c7b6f95187aa3a063a902b3f972e2c2c8be1b8487e.png",
+    "sha256": "40fa293b492b65d8361b06c7b6f95187aa3a063a902b3f972e2c2c8be1b8487e",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/40fa293b492b65d8361b06c7b6f95187aa3a063a902b3f972e2c2c8be1b8487e.png"
+  },
+  {
+    "id": "voudon_gstone",
+    "name": "巫毒师",
+    "file": "e9669a6abccc195cf1b7bc8f54f03e0bc2902b958bef3a7dc8657fd5318a1b2a.png",
+    "sha256": "e9669a6abccc195cf1b7bc8f54f03e0bc2902b958bef3a7dc8657fd5318a1b2a",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/e9669a6abccc195cf1b7bc8f54f03e0bc2902b958bef3a7dc8657fd5318a1b2a.png"
+  },
+  {
+    "id": "bishop_gstone",
+    "name": "主教",
+    "file": "36b29005070c87f67f25a4c54d300a8a1d78d8b6073ccb61a63c83a9b389eca4.png",
+    "sha256": "36b29005070c87f67f25a4c54d300a8a1d78d8b6073ccb61a63c83a9b389eca4",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/36b29005070c87f67f25a4c54d300a8a1d78d8b6073ccb61a63c83a9b389eca4.png"
+  },
+  {
+    "id": "judge_gstone",
+    "name": "法官",
+    "file": "822a97bdba92d266347be3b85cee42c51f2a8f2f9747ae8d6e158d2357bf6d12.png",
+    "sha256": "822a97bdba92d266347be3b85cee42c51f2a8f2f9747ae8d6e158d2357bf6d12",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/822a97bdba92d266347be3b85cee42c51f2a8f2f9747ae8d6e158d2357bf6d12.png"
+  },
+  {
+    "id": "matron_gstone",
+    "name": "女舍监",
+    "file": "e33886e0440d430c737f6e2612ca54cb7e5f335fe62c3ed7486415f9aba2cfd9.png",
+    "sha256": "e33886e0440d430c737f6e2612ca54cb7e5f335fe62c3ed7486415f9aba2cfd9",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/e33886e0440d430c737f6e2612ca54cb7e5f335fe62c3ed7486415f9aba2cfd9.png"
+  },
+  {
+    "id": "apprentice_gstone",
+    "name": "学徒",
+    "file": "49f1e51ff50ad0cf1c50b7b1d79ca58760e4b3bd75867d62b6eea66285626eef.png",
+    "sha256": "49f1e51ff50ad0cf1c50b7b1d79ca58760e4b3bd75867d62b6eea66285626eef",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/49f1e51ff50ad0cf1c50b7b1d79ca58760e4b3bd75867d62b6eea66285626eef.png"
+  },
+  {
+    "id": "grandmother_gstone",
+    "name": "祖母",
+    "file": "ef880e2635677aecf7bfd4a4a583bb9c28d8b03d30beec6d6adead8b73013dae.png",
+    "sha256": "ef880e2635677aecf7bfd4a4a583bb9c28d8b03d30beec6d6adead8b73013dae",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/ef880e2635677aecf7bfd4a4a583bb9c28d8b03d30beec6d6adead8b73013dae.png"
+  },
+  {
+    "id": "sailor_gstone",
+    "name": "水手",
+    "file": "815c79acb0c25570b6af2637a5b9371a7daec2779bdf39dfa72b36d5fef39786.png",
+    "sha256": "815c79acb0c25570b6af2637a5b9371a7daec2779bdf39dfa72b36d5fef39786",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/815c79acb0c25570b6af2637a5b9371a7daec2779bdf39dfa72b36d5fef39786.png"
+  },
+  {
+    "id": "chambermaid_gstone",
+    "name": "侍女",
+    "file": "2fc2e8b0672938b6ebb38992ad76b406f4e20ba55e3157a33405f44f1a6e2875.png",
+    "sha256": "2fc2e8b0672938b6ebb38992ad76b406f4e20ba55e3157a33405f44f1a6e2875",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/2fc2e8b0672938b6ebb38992ad76b406f4e20ba55e3157a33405f44f1a6e2875.png"
+  },
+  {
+    "id": "exorcist_gstone",
+    "name": "驱魔人",
+    "file": "43a96805155094bc47f0ed4f2264c30765d58f5f11e1fdd947b603ff64781e37.png",
+    "sha256": "43a96805155094bc47f0ed4f2264c30765d58f5f11e1fdd947b603ff64781e37",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/43a96805155094bc47f0ed4f2264c30765d58f5f11e1fdd947b603ff64781e37.png"
+  },
+  {
+    "id": "innkeeper_gstone",
+    "name": "旅店老板",
+    "file": "207e1f5157feb7c9627d44176ae4c9ad20558efd89f470cba82f9096590fcb6e.png",
+    "sha256": "207e1f5157feb7c9627d44176ae4c9ad20558efd89f470cba82f9096590fcb6e",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/207e1f5157feb7c9627d44176ae4c9ad20558efd89f470cba82f9096590fcb6e.png"
+  },
+  {
+    "id": "gambler_gstone",
+    "name": "赌徒",
+    "file": "7aaf9a75997dc0ddb36ddce86f889b15a7951f416a2e0f369f23497b2eea6bbb.png",
+    "sha256": "7aaf9a75997dc0ddb36ddce86f889b15a7951f416a2e0f369f23497b2eea6bbb",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/7aaf9a75997dc0ddb36ddce86f889b15a7951f416a2e0f369f23497b2eea6bbb.png"
+  },
+  {
+    "id": "gossip_gstone",
+    "name": "造谣者",
+    "file": "ed63211e936f9baf2d122b776fb0fe9c7ca2ca679fc484a153fb1998d4153965.png",
+    "sha256": "ed63211e936f9baf2d122b776fb0fe9c7ca2ca679fc484a153fb1998d4153965",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/ed63211e936f9baf2d122b776fb0fe9c7ca2ca679fc484a153fb1998d4153965.png"
+  },
+  {
+    "id": "courtier_gstone",
+    "name": "侍臣",
+    "file": "3443a78414e2f2436431a8774dace98325e823da1ece49fb6c3594ec20716c1b.png",
+    "sha256": "3443a78414e2f2436431a8774dace98325e823da1ece49fb6c3594ec20716c1b",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/3443a78414e2f2436431a8774dace98325e823da1ece49fb6c3594ec20716c1b.png"
+  },
+  {
+    "id": "professor_gstone",
+    "name": "教授",
+    "file": "b00f5781389c97dc986239dfc7317e05726aefb05b06281b9612126437b120ef.png",
+    "sha256": "b00f5781389c97dc986239dfc7317e05726aefb05b06281b9612126437b120ef",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/b00f5781389c97dc986239dfc7317e05726aefb05b06281b9612126437b120ef.png"
+  },
+  {
+    "id": "minstrel_gstone",
+    "name": "吟游诗人",
+    "file": "d14b87448ad05998db7241d82ac6daa8b2b7c525c52af4467a3ec90528cf4faf.png",
+    "sha256": "d14b87448ad05998db7241d82ac6daa8b2b7c525c52af4467a3ec90528cf4faf",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/d14b87448ad05998db7241d82ac6daa8b2b7c525c52af4467a3ec90528cf4faf.png"
+  },
+  {
+    "id": "tea_lady_gstone",
+    "name": "茶艺师",
+    "file": "7382e12d6bfdea32a3509a264dec15f6baf2234021cf5aac7a0bfcf8a1dd458f.png",
+    "sha256": "7382e12d6bfdea32a3509a264dec15f6baf2234021cf5aac7a0bfcf8a1dd458f",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/7382e12d6bfdea32a3509a264dec15f6baf2234021cf5aac7a0bfcf8a1dd458f.png"
+  },
+  {
+    "id": "pacifist_gstone",
+    "name": "和平主义者",
+    "file": "2a882771bfd28aefe13e4b9e00b03926f70b0131ce23faf3bbc68bb60d85d27a.png",
+    "sha256": "2a882771bfd28aefe13e4b9e00b03926f70b0131ce23faf3bbc68bb60d85d27a",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/2a882771bfd28aefe13e4b9e00b03926f70b0131ce23faf3bbc68bb60d85d27a.png"
+  },
+  {
+    "id": "fool_gstone",
+    "name": "弄臣",
+    "file": "c6bad11ee2330747c540f1bfae1575305d068e16d00bc09a5fbba297ff7c7a85.png",
+    "sha256": "c6bad11ee2330747c540f1bfae1575305d068e16d00bc09a5fbba297ff7c7a85",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/c6bad11ee2330747c540f1bfae1575305d068e16d00bc09a5fbba297ff7c7a85.png"
+  },
+  {
+    "id": "tinker_gstone",
+    "name": "修补匠",
+    "file": "27bc0bbe55792f7e06a962b2bbbfd9352ba2aa10fea04dc69e1e6c5fbcb3befe.png",
+    "sha256": "27bc0bbe55792f7e06a962b2bbbfd9352ba2aa10fea04dc69e1e6c5fbcb3befe",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/27bc0bbe55792f7e06a962b2bbbfd9352ba2aa10fea04dc69e1e6c5fbcb3befe.png"
+  },
+  {
+    "id": "moonchild_gstone",
+    "name": "月之子",
+    "file": "4da2d49790bba35d130c5dc4faacde3bc93b90b6e0a4d640cd59fbeb2cbd0fcc.png",
+    "sha256": "4da2d49790bba35d130c5dc4faacde3bc93b90b6e0a4d640cd59fbeb2cbd0fcc",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/4da2d49790bba35d130c5dc4faacde3bc93b90b6e0a4d640cd59fbeb2cbd0fcc.png"
+  },
+  {
+    "id": "goon_gstone",
+    "name": "莽夫",
+    "file": "6cba2cdb40b555eb9e0c80011c7315f2d05853ae462f153a3958ffbdddc80366.png",
+    "sha256": "6cba2cdb40b555eb9e0c80011c7315f2d05853ae462f153a3958ffbdddc80366",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/6cba2cdb40b555eb9e0c80011c7315f2d05853ae462f153a3958ffbdddc80366.png"
+  },
+  {
+    "id": "lunatic_gstone",
+    "name": "疯子",
+    "file": "c75e7a4baf4fe6ca76fba0b28b7b1bdb4068ef4a32c7f1dd1e2544a7bd4d5cab.png",
+    "sha256": "c75e7a4baf4fe6ca76fba0b28b7b1bdb4068ef4a32c7f1dd1e2544a7bd4d5cab",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/c75e7a4baf4fe6ca76fba0b28b7b1bdb4068ef4a32c7f1dd1e2544a7bd4d5cab.png"
+  },
+  {
+    "id": "godfather_gstone",
+    "name": "教父",
+    "file": "889d246d8fb4fc6e6fb01d1a94de4eb66b5b4e0e971810c6b69dae5fe891005b.png",
+    "sha256": "889d246d8fb4fc6e6fb01d1a94de4eb66b5b4e0e971810c6b69dae5fe891005b",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/889d246d8fb4fc6e6fb01d1a94de4eb66b5b4e0e971810c6b69dae5fe891005b.png"
+  },
+  {
+    "id": "devils_advocate_gstone",
+    "name": "魔鬼代言人",
+    "file": "8db3003ee9dcb65714dc3ec47020e6251f730d92261318ca793e2926c4e45226.png",
+    "sha256": "8db3003ee9dcb65714dc3ec47020e6251f730d92261318ca793e2926c4e45226",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/8db3003ee9dcb65714dc3ec47020e6251f730d92261318ca793e2926c4e45226.png"
+  },
+  {
+    "id": "assassin_gstone",
+    "name": "刺客",
+    "file": "1edd57cde585f1e0ca3ab6da2675016fd5b0b0ce1f3bcd55bc8b4ab1fb086266.png",
+    "sha256": "1edd57cde585f1e0ca3ab6da2675016fd5b0b0ce1f3bcd55bc8b4ab1fb086266",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/1edd57cde585f1e0ca3ab6da2675016fd5b0b0ce1f3bcd55bc8b4ab1fb086266.png"
+  },
+  {
+    "id": "mastermind_gstone",
+    "name": "主谋",
+    "file": "d576fd2229b9c77b502247ea5a441aa16121104e3ec6afa9598ee3003c0e8ee8.png",
+    "sha256": "d576fd2229b9c77b502247ea5a441aa16121104e3ec6afa9598ee3003c0e8ee8",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/d576fd2229b9c77b502247ea5a441aa16121104e3ec6afa9598ee3003c0e8ee8.png"
+  },
+  {
+    "id": "zombuul_gstone",
+    "name": "僵怖",
+    "file": "b287799e731cb7dbaedc8adcf804149bf2650193899b695f253c7eecc1c78234.png",
+    "sha256": "b287799e731cb7dbaedc8adcf804149bf2650193899b695f253c7eecc1c78234",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/b287799e731cb7dbaedc8adcf804149bf2650193899b695f253c7eecc1c78234.png"
+  },
+  {
+    "id": "pukka_gstone",
+    "name": "普卡",
+    "file": "afdd79b7b0fcfdc67cc2d2b277a6649107da4fb4c51bef25a19644e854c15cc3.png",
+    "sha256": "afdd79b7b0fcfdc67cc2d2b277a6649107da4fb4c51bef25a19644e854c15cc3",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/afdd79b7b0fcfdc67cc2d2b277a6649107da4fb4c51bef25a19644e854c15cc3.png"
+  },
+  {
+    "id": "shabaloth_gstone",
+    "name": "沙巴洛斯",
+    "file": "00cb560c0f3cea3c77cb1751f7047c2cf6572d790db3f109e7a6695a05421436.png",
+    "sha256": "00cb560c0f3cea3c77cb1751f7047c2cf6572d790db3f109e7a6695a05421436",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/00cb560c0f3cea3c77cb1751f7047c2cf6572d790db3f109e7a6695a05421436.png"
+  },
+  {
+    "id": "po_gstone",
+    "name": "珀",
+    "file": "53a7fc3e348fbf3d0846bc5e8a6b0ac3f6c6a7a1e0bf11858e7c47636619362b.png",
+    "sha256": "53a7fc3e348fbf3d0846bc5e8a6b0ac3f6c6a7a1e0bf11858e7c47636619362b",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/53a7fc3e348fbf3d0846bc5e8a6b0ac3f6c6a7a1e0bf11858e7c47636619362b.png"
+  },
+  {
+    "id": "deviant_gstone",
+    "name": "怪咖",
+    "file": "40203826cfdaeb06b3c4adbcae94574eb1b9b9a529d6d81bea8de4764dbd9ef8.png",
+    "sha256": "40203826cfdaeb06b3c4adbcae94574eb1b9b9a529d6d81bea8de4764dbd9ef8",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/40203826cfdaeb06b3c4adbcae94574eb1b9b9a529d6d81bea8de4764dbd9ef8.png"
+  },
+  {
+    "id": "bone_collector_gstone",
+    "name": "集骨者",
+    "file": "889af0c195521a0d7e505f9db14dac8175a05dbd4817db3b4fd56118630229a7.png",
+    "sha256": "889af0c195521a0d7e505f9db14dac8175a05dbd4817db3b4fd56118630229a7",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/889af0c195521a0d7e505f9db14dac8175a05dbd4817db3b4fd56118630229a7.png"
+  },
+  {
+    "id": "butcher_gstone",
+    "name": "屠夫",
+    "file": "2a934b3a3710ca27dfea7f0173a5a946469bb55095a40f2119e7b3bfce8d35dc.png",
+    "sha256": "2a934b3a3710ca27dfea7f0173a5a946469bb55095a40f2119e7b3bfce8d35dc",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/2a934b3a3710ca27dfea7f0173a5a946469bb55095a40f2119e7b3bfce8d35dc.png"
+  },
+  {
+    "id": "harlot_gstone",
+    "name": "流莺",
+    "file": "4e37be72f651f2cf20e75114cf82c1fc627fae6ce5f691a774537ff65d6eefa7.png",
+    "sha256": "4e37be72f651f2cf20e75114cf82c1fc627fae6ce5f691a774537ff65d6eefa7",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/4e37be72f651f2cf20e75114cf82c1fc627fae6ce5f691a774537ff65d6eefa7.png"
+  },
+  {
+    "id": "barista_gstone",
+    "name": "咖啡师",
+    "file": "d47bbef3e3c4cd4292ab081ed1f62d1fae2428e3a64b5a8b5a98de71e6a160c5.png",
+    "sha256": "d47bbef3e3c4cd4292ab081ed1f62d1fae2428e3a64b5a8b5a98de71e6a160c5",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/d47bbef3e3c4cd4292ab081ed1f62d1fae2428e3a64b5a8b5a98de71e6a160c5.png"
+  },
+  {
+    "id": "clockmaker_gstone",
+    "name": "钟表匠",
+    "file": "3f4b7b1b94abe191ccea9d62084a47a14301016fde2e2a7ac6b723825f1ff126.png",
+    "sha256": "3f4b7b1b94abe191ccea9d62084a47a14301016fde2e2a7ac6b723825f1ff126",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/3f4b7b1b94abe191ccea9d62084a47a14301016fde2e2a7ac6b723825f1ff126.png"
+  },
+  {
+    "id": "dreamer_gstone",
+    "name": "筑梦师",
+    "file": "dd430f1ec1e4d49d976d37f58587a8a607bac533bcb4da2775eaab5a8e6c8a3f.png",
+    "sha256": "dd430f1ec1e4d49d976d37f58587a8a607bac533bcb4da2775eaab5a8e6c8a3f",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/dd430f1ec1e4d49d976d37f58587a8a607bac533bcb4da2775eaab5a8e6c8a3f.png"
+  },
+  {
+    "id": "snake_charmer_gstone",
+    "name": "舞蛇人",
+    "file": "c2fe00b4081ef3c9bfe6a653f395d001a8eeb5265c5b1a76ce6986214f147d23.png",
+    "sha256": "c2fe00b4081ef3c9bfe6a653f395d001a8eeb5265c5b1a76ce6986214f147d23",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/c2fe00b4081ef3c9bfe6a653f395d001a8eeb5265c5b1a76ce6986214f147d23.png"
+  },
+  {
+    "id": "mathematician_gstone",
+    "name": "数学家",
+    "file": "739dd0dbf11e503aec78f5a59dd0a6460c11fd47a684e19b0b7e067f24975ba9.png",
+    "sha256": "739dd0dbf11e503aec78f5a59dd0a6460c11fd47a684e19b0b7e067f24975ba9",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/739dd0dbf11e503aec78f5a59dd0a6460c11fd47a684e19b0b7e067f24975ba9.png"
+  },
+  {
+    "id": "flowergirl_gstone",
+    "name": "卖花女孩",
+    "file": "6254c5f792f21d56fcd61495876a22ea7c089012829c1802cbfd695588084974.png",
+    "sha256": "6254c5f792f21d56fcd61495876a22ea7c089012829c1802cbfd695588084974",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/6254c5f792f21d56fcd61495876a22ea7c089012829c1802cbfd695588084974.png"
+  },
+  {
+    "id": "town_crier_gstone",
+    "name": "城镇公告员",
+    "file": "646df1d38fe34c0354ed436dbcf279cda6677526ecdd9c88006190f5080083df.png",
+    "sha256": "646df1d38fe34c0354ed436dbcf279cda6677526ecdd9c88006190f5080083df",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/646df1d38fe34c0354ed436dbcf279cda6677526ecdd9c88006190f5080083df.png"
+  },
+  {
+    "id": "oracle_gstone",
+    "name": "神谕者",
+    "file": "5a8717673e8ad06d356623c55e78aa3dc3563747b3a792a87d54f139d651b122.png",
+    "sha256": "5a8717673e8ad06d356623c55e78aa3dc3563747b3a792a87d54f139d651b122",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/5a8717673e8ad06d356623c55e78aa3dc3563747b3a792a87d54f139d651b122.png"
+  },
+  {
+    "id": "savant_gstone",
+    "name": "博学者",
+    "file": "b34b6f1206322c724ee2d9ffac52be08e8faab7a7a70880c8efab8960388a66d.png",
+    "sha256": "b34b6f1206322c724ee2d9ffac52be08e8faab7a7a70880c8efab8960388a66d",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/b34b6f1206322c724ee2d9ffac52be08e8faab7a7a70880c8efab8960388a66d.png"
+  },
+  {
+    "id": "seamstress_gstone",
+    "name": "女裁缝",
+    "file": "0a48bba64890ae54b963f73e294c0d8883b0ea3c7f570d2b55d9f394f44e7979.png",
+    "sha256": "0a48bba64890ae54b963f73e294c0d8883b0ea3c7f570d2b55d9f394f44e7979",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/0a48bba64890ae54b963f73e294c0d8883b0ea3c7f570d2b55d9f394f44e7979.png"
+  },
+  {
+    "id": "philosopher_gstone",
+    "name": "哲学家",
+    "file": "df7053b0cfdf0542b7b980d0a2ea2a5d71d6642f011e1aabf628ba766fa0e215.png",
+    "sha256": "df7053b0cfdf0542b7b980d0a2ea2a5d71d6642f011e1aabf628ba766fa0e215",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/df7053b0cfdf0542b7b980d0a2ea2a5d71d6642f011e1aabf628ba766fa0e215.png"
+  },
+  {
+    "id": "artist_gstone",
+    "name": "艺术家",
+    "file": "af934edfa305567104727ccd4d431e2ec54e9f5c0f153d826c8754db37bc8056.png",
+    "sha256": "af934edfa305567104727ccd4d431e2ec54e9f5c0f153d826c8754db37bc8056",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/af934edfa305567104727ccd4d431e2ec54e9f5c0f153d826c8754db37bc8056.png"
+  },
+  {
+    "id": "juggler_gstone",
+    "name": "杂耍艺人",
+    "file": "254e9b5469acc3f53094271da8ea413b584ad646e5882fb4ea111ededb65eafc.png",
+    "sha256": "254e9b5469acc3f53094271da8ea413b584ad646e5882fb4ea111ededb65eafc",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/254e9b5469acc3f53094271da8ea413b584ad646e5882fb4ea111ededb65eafc.png"
+  },
+  {
+    "id": "sage_gstone",
+    "name": "贤者",
+    "file": "bd8f07f1b130516f50bee089f2962d449e114aece5cd8c1f1209d2a8c367c11d.png",
+    "sha256": "bd8f07f1b130516f50bee089f2962d449e114aece5cd8c1f1209d2a8c367c11d",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/bd8f07f1b130516f50bee089f2962d449e114aece5cd8c1f1209d2a8c367c11d.png"
+  },
+  {
+    "id": "mutant_gstone",
+    "name": "畸形秀演员",
+    "file": "ce9aa268ae133d65493546c5fa2a8939b0b9da4df258c6c8b89132d28c1763e2.png",
+    "sha256": "ce9aa268ae133d65493546c5fa2a8939b0b9da4df258c6c8b89132d28c1763e2",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/ce9aa268ae133d65493546c5fa2a8939b0b9da4df258c6c8b89132d28c1763e2.png"
+  },
+  {
+    "id": "sweetheart_gstone",
+    "name": "心上人",
+    "file": "2835329b276d1d42c461ccf55336cd0328b6e9ed1d980495f41062b7bc29c1c4.png",
+    "sha256": "2835329b276d1d42c461ccf55336cd0328b6e9ed1d980495f41062b7bc29c1c4",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/2835329b276d1d42c461ccf55336cd0328b6e9ed1d980495f41062b7bc29c1c4.png"
+  },
+  {
+    "id": "barber_gstone",
+    "name": "理发师",
+    "file": "874f1d94fdccbb7954908afb0c0f10646853cde04277a66a08c4b9cfb4023de4.png",
+    "sha256": "874f1d94fdccbb7954908afb0c0f10646853cde04277a66a08c4b9cfb4023de4",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/874f1d94fdccbb7954908afb0c0f10646853cde04277a66a08c4b9cfb4023de4.png"
+  },
+  {
+    "id": "klutz_gstone",
+    "name": "呆瓜",
+    "file": "8d85be53b753bb82adcb03cd2f4221ac73ca77f4039f311b29560c5f5acb8fc7.png",
+    "sha256": "8d85be53b753bb82adcb03cd2f4221ac73ca77f4039f311b29560c5f5acb8fc7",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/8d85be53b753bb82adcb03cd2f4221ac73ca77f4039f311b29560c5f5acb8fc7.png"
+  },
+  {
+    "id": "evil_twin_gstone",
+    "name": "镜像双子",
+    "file": "004f371b43bce0df12f3d2698739b285d63f562a3c525689d7dc5ee719d14350.png",
+    "sha256": "004f371b43bce0df12f3d2698739b285d63f562a3c525689d7dc5ee719d14350",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/004f371b43bce0df12f3d2698739b285d63f562a3c525689d7dc5ee719d14350.png"
+  },
+  {
+    "id": "witch_gstone",
+    "name": "女巫",
+    "file": "37585c872049e4a35473f8c7c730da20ebb431265712a232adf1f91814e9925e.png",
+    "sha256": "37585c872049e4a35473f8c7c730da20ebb431265712a232adf1f91814e9925e",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/37585c872049e4a35473f8c7c730da20ebb431265712a232adf1f91814e9925e.png"
+  },
+  {
+    "id": "cerenovus_gstone",
+    "name": "洗脑师",
+    "file": "addfb3a47a0929495ba0474368890a6a668c850764755ce4d81737182a53ef63.png",
+    "sha256": "addfb3a47a0929495ba0474368890a6a668c850764755ce4d81737182a53ef63",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/addfb3a47a0929495ba0474368890a6a668c850764755ce4d81737182a53ef63.png"
+  },
+  {
+    "id": "pit-hag_gstone",
+    "name": "麻脸巫婆",
+    "file": "b59d934d34cca7ee1bb9ba846ba252467bc0b7eb8bd96bb8061fae906dac8a60.png",
+    "sha256": "b59d934d34cca7ee1bb9ba846ba252467bc0b7eb8bd96bb8061fae906dac8a60",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/b59d934d34cca7ee1bb9ba846ba252467bc0b7eb8bd96bb8061fae906dac8a60.png"
+  },
+  {
+    "id": "fang_gu_gstone",
+    "name": "方古",
+    "file": "c0c1e4634799f985c0e18771e9f161dc83306ec7734b1efa395abeb18f8ac64e.png",
+    "sha256": "c0c1e4634799f985c0e18771e9f161dc83306ec7734b1efa395abeb18f8ac64e",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/c0c1e4634799f985c0e18771e9f161dc83306ec7734b1efa395abeb18f8ac64e.png"
+  },
+  {
+    "id": "vigormortis_gstone",
+    "name": "亡骨魔",
+    "file": "3dc96caf0124edb17d58c5842d0fbe33e632bc5e8b4347a4f088cf4d45fe9959.png",
+    "sha256": "3dc96caf0124edb17d58c5842d0fbe33e632bc5e8b4347a4f088cf4d45fe9959",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/3dc96caf0124edb17d58c5842d0fbe33e632bc5e8b4347a4f088cf4d45fe9959.png"
+  },
+  {
+    "id": "no_dashii_gstone",
+    "name": "诺-达鲺",
+    "file": "a84c3ea4269106d2063b29f60dd9f21f643c54ca48e988dd862be66070c1757b.png",
+    "sha256": "a84c3ea4269106d2063b29f60dd9f21f643c54ca48e988dd862be66070c1757b",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/a84c3ea4269106d2063b29f60dd9f21f643c54ca48e988dd862be66070c1757b.png"
+  },
+  {
+    "id": "vortox_gstone",
+    "name": "涡流",
+    "file": "74ae03ecf4bdbdbaf83588260df3fb7331afac38e268a2ebc8a3c045a18cfd5e.png",
+    "sha256": "74ae03ecf4bdbdbaf83588260df3fb7331afac38e268a2ebc8a3c045a18cfd5e",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/74ae03ecf4bdbdbaf83588260df3fb7331afac38e268a2ebc8a3c045a18cfd5e.png"
+  },
+  {
+    "id": "banxian_gstone",
+    "name": "半仙",
+    "file": "1ceffc15952812cf17ea63421b0dd855de039e0a420d257f029cb6bc7ac69645.png",
+    "sha256": "1ceffc15952812cf17ea63421b0dd855de039e0a420d257f029cb6bc7ac69645",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/1ceffc15952812cf17ea63421b0dd855de039e0a420d257f029cb6bc7ac69645.png"
+  },
+  {
+    "id": "bianlianshi_gstone",
+    "name": "变脸师",
+    "file": "9a503abffc70a333e428c0ac93ecf90ea3c6b941aa607c65dcfa1db83432ee8b.png",
+    "sha256": "9a503abffc70a333e428c0ac93ecf90ea3c6b941aa607c65dcfa1db83432ee8b",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/9a503abffc70a333e428c0ac93ecf90ea3c6b941aa607c65dcfa1db83432ee8b.png"
+  },
+  {
+    "id": "dagengren_gstone",
+    "name": "打更人",
+    "file": "29b369434e8587c1a4477a0b38a55fbcfc21535d746f4689e1bfa987e8c46ce2.png",
+    "sha256": "29b369434e8587c1a4477a0b38a55fbcfc21535d746f4689e1bfa987e8c46ce2",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/29b369434e8587c1a4477a0b38a55fbcfc21535d746f4689e1bfa987e8c46ce2.png"
+  },
+  {
+    "id": "dianxiaoer_gstone",
+    "name": "店小二",
+    "file": "6be14096bb0bcbbc628efe3325719e6a11d05d4aee811e6edef41a38d2d9c535.png",
+    "sha256": "6be14096bb0bcbbc628efe3325719e6a11d05d4aee811e6edef41a38d2d9c535",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/6be14096bb0bcbbc628efe3325719e6a11d05d4aee811e6edef41a38d2d9c535.png"
+  },
+  {
+    "id": "geling_gstone",
+    "name": "歌伶",
+    "file": "68df07695bdf3589e0f263029c7aaded24de866e5eee4eb2e45aaafe5f78bb31.png",
+    "sha256": "68df07695bdf3589e0f263029c7aaded24de866e5eee4eb2e45aaafe5f78bb31",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/68df07695bdf3589e0f263029c7aaded24de866e5eee4eb2e45aaafe5f78bb31.png"
+  },
+  {
+    "id": "heshang_gstone",
+    "name": "和尚",
+    "file": "0cd8e19a1691bbbeeef81e176f2182de20a59d026627c39db00c436690a3b91e.png",
+    "sha256": "0cd8e19a1691bbbeeef81e176f2182de20a59d026627c39db00c436690a3b91e",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/0cd8e19a1691bbbeeef81e176f2182de20a59d026627c39db00c436690a3b91e.png"
+  },
+  {
+    "id": "jinyiwei_gstone",
+    "name": "锦衣卫",
+    "file": "1758310c0fc1ce7c6a098ca6d4f192e7c57364b75c751190e63ef8d9130e47af.png",
+    "sha256": "1758310c0fc1ce7c6a098ca6d4f192e7c57364b75c751190e63ef8d9130e47af",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/1758310c0fc1ce7c6a098ca6d4f192e7c57364b75c751190e63ef8d9130e47af.png"
+  },
+  {
+    "id": "langzhong_gstone",
+    "name": "郎中",
+    "file": "7d047e9c55a58dba4ad99f125a9ae5ce1a69f867602b91e88bbd91b1ba96941f.png",
+    "sha256": "7d047e9c55a58dba4ad99f125a9ae5ce1a69f867602b91e88bbd91b1ba96941f",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/7d047e9c55a58dba4ad99f125a9ae5ce1a69f867602b91e88bbd91b1ba96941f.png"
+  },
+  {
+    "id": "qintianjian_gstone",
+    "name": "钦天监",
+    "file": "60872743fc602654df9b3eeee598f88d78d3df1998c69cbcff6113d6490460bb.png",
+    "sha256": "60872743fc602654df9b3eeee598f88d78d3df1998c69cbcff6113d6490460bb",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/60872743fc602654df9b3eeee598f88d78d3df1998c69cbcff6113d6490460bb.png"
+  },
+  {
+    "id": "wudaozhe_gstone",
+    "name": "悟道者",
+    "file": "815f1b28475790f2d66e92dd4bc169659a065304d44abb5a5f4beba2797f5fd8.png",
+    "sha256": "815f1b28475790f2d66e92dd4bc169659a065304d44abb5a5f4beba2797f5fd8",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/815f1b28475790f2d66e92dd4bc169659a065304d44abb5a5f4beba2797f5fd8.png"
+  },
+  {
+    "id": "xizi_gstone",
+    "name": "戏子",
+    "file": "d06ff14b174ed769bc596d9cfc61a3d69c5ccec5e363ff9e0b81cba3927fed8b.png",
+    "sha256": "d06ff14b174ed769bc596d9cfc61a3d69c5ccec5e363ff9e0b81cba3927fed8b",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/d06ff14b174ed769bc596d9cfc61a3d69c5ccec5e363ff9e0b81cba3927fed8b.png"
+  },
+  {
+    "id": "yinyangshi_gstone",
+    "name": "阴阳师",
+    "file": "6331da6a4c8c8a60755a726edd51f2c8e22e4fedf7e0ad97d77113e19c99f729.png",
+    "sha256": "6331da6a4c8c8a60755a726edd51f2c8e22e4fedf7e0ad97d77113e19c99f729",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/6331da6a4c8c8a60755a726edd51f2c8e22e4fedf7e0ad97d77113e19c99f729.png"
+  },
+  {
+    "id": "xionghaizi_gstone",
+    "name": "熊孩子",
+    "file": "6a8a60098d6b2d53197c88a3fd9564f7648b331116343497677d85492d4ed33d.png",
+    "sha256": "6a8a60098d6b2d53197c88a3fd9564f7648b331116343497677d85492d4ed33d",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/6a8a60098d6b2d53197c88a3fd9564f7648b331116343497677d85492d4ed33d.png"
+  },
+  {
+    "id": "nichen_gstone",
+    "name": "逆臣",
+    "file": "7a2804bf13919d67bcd9af031c00247985897e939903625bd0e38bf4bd9259cc.png",
+    "sha256": "7a2804bf13919d67bcd9af031c00247985897e939903625bd0e38bf4bd9259cc",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/7a2804bf13919d67bcd9af031c00247985897e939903625bd0e38bf4bd9259cc.png"
+  },
+  {
+    "id": "shaxing_gstone",
+    "name": "煞星",
+    "file": "3f872796dddc9a8035f422dcda7d6e1855a0005e4f72e745baa9a2cc17a154c5.png",
+    "sha256": "3f872796dddc9a8035f422dcda7d6e1855a0005e4f72e745baa9a2cc17a154c5",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/3f872796dddc9a8035f422dcda7d6e1855a0005e4f72e745baa9a2cc17a154c5.png"
+  },
+  {
+    "id": "shijie_gstone",
+    "name": "使节",
+    "file": "5916c85979c17c9c2019c344749ec6a5cd239864f8ba7c0d12a5aac088bf9eba.png",
+    "sha256": "5916c85979c17c9c2019c344749ec6a5cd239864f8ba7c0d12a5aac088bf9eba",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/5916c85979c17c9c2019c344749ec6a5cd239864f8ba7c0d12a5aac088bf9eba.png"
+  },
+  {
+    "id": "shusheng_gstone",
+    "name": "书生",
+    "file": "5411f91747e06870dd0d372ac1e2ca68b3960290662b30e4576a8b8fa7713b88.png",
+    "sha256": "5411f91747e06870dd0d372ac1e2ca68b3960290662b30e4576a8b8fa7713b88",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/5411f91747e06870dd0d372ac1e2ca68b3960290662b30e4576a8b8fa7713b88.png"
+  },
+  {
+    "id": "ganshiren_gstone",
+    "name": "赶尸人",
+    "file": "014fd494478eba393cafe1d6ecfb6bf8b06fd26d4d0a513f55f7b2b59f4d0e78.png",
+    "sha256": "014fd494478eba393cafe1d6ecfb6bf8b06fd26d4d0a513f55f7b2b59f4d0e78",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/014fd494478eba393cafe1d6ecfb6bf8b06fd26d4d0a513f55f7b2b59f4d0e78.png"
+  },
+  {
+    "id": "humeiniang_gstone",
+    "name": "狐媚娘",
+    "file": "a4576436a72d2f7c48d822b8adff8658a4e462d81386e377689c1798e62e7ebe.png",
+    "sha256": "a4576436a72d2f7c48d822b8adff8658a4e462d81386e377689c1798e62e7ebe",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/a4576436a72d2f7c48d822b8adff8658a4e462d81386e377689c1798e62e7ebe.png"
+  },
+  {
+    "id": "jinweijun_gstone",
+    "name": "禁卫军",
+    "file": "1bfd8b2f4c601074389b0115084df06b54bf28086b33392df89088155edf45cf.png",
+    "sha256": "1bfd8b2f4c601074389b0115084df06b54bf28086b33392df89088155edf45cf",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/1bfd8b2f4c601074389b0115084df06b54bf28086b33392df89088155edf45cf.png"
+  },
+  {
+    "id": "yangguren_gstone",
+    "name": "养蛊人",
+    "file": "5bd9cbd23f1817a49605cfac240d82b909e696f439b527db921524b8f39b20ed.png",
+    "sha256": "5bd9cbd23f1817a49605cfac240d82b909e696f439b527db921524b8f39b20ed",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/5bd9cbd23f1817a49605cfac240d82b909e696f439b527db921524b8f39b20ed.png"
+  },
+  {
+    "id": "hundun_gstone",
+    "name": "混沌",
+    "file": "1f8e1250e58477fe1f2eea64c33c9de5e1e899e912fcec29b6c7d01c3f5d878f.png",
+    "sha256": "1f8e1250e58477fe1f2eea64c33c9de5e1e899e912fcec29b6c7d01c3f5d878f",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/1f8e1250e58477fe1f2eea64c33c9de5e1e899e912fcec29b6c7d01c3f5d878f.png"
+  },
+  {
+    "id": "qiongqi_gstone",
+    "name": "穷奇",
+    "file": "b4fb07516243a1fcecda3dbf976afc6351274fdebae9f69edab36390a87f9f08.png",
+    "sha256": "b4fb07516243a1fcecda3dbf976afc6351274fdebae9f69edab36390a87f9f08",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/b4fb07516243a1fcecda3dbf976afc6351274fdebae9f69edab36390a87f9f08.png"
+  },
+  {
+    "id": "taotie_gstone",
+    "name": "饕餮",
+    "file": "43ebb2cc5a6dc7473c5f3e5d1ee035912c71af7dd71ec0970f46bc80e63f8c30.png",
+    "sha256": "43ebb2cc5a6dc7473c5f3e5d1ee035912c71af7dd71ec0970f46bc80e63f8c30",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/43ebb2cc5a6dc7473c5f3e5d1ee035912c71af7dd71ec0970f46bc80e63f8c30.png"
+  },
+  {
+    "id": "taowu_gstone",
+    "name": "梼杌",
+    "file": "7e6d27e6ff8ab6c1e6bef69ee0ece8e6939502ce42eba9bf2282c842fd71e4c8.png",
+    "sha256": "7e6d27e6ff8ab6c1e6bef69ee0ece8e6939502ce42eba9bf2282c842fd71e4c8",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/7e6d27e6ff8ab6c1e6bef69ee0ece8e6939502ce42eba9bf2282c842fd71e4c8.png"
+  },
+  {
+    "id": "gnome_gstone",
+    "name": "侏儒",
+    "file": "14df501f5f5a7815caea1af255be76b8051f7b203edfa6dc3d991c4177fac32c.png",
+    "sha256": "14df501f5f5a7815caea1af255be76b8051f7b203edfa6dc3d991c4177fac32c",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/14df501f5f5a7815caea1af255be76b8051f7b203edfa6dc3d991c4177fac32c.png"
+  },
+  {
+    "id": "gangster_gstone",
+    "name": "黑帮",
+    "file": "dd032de86e2aa28d6a2c42c7a158c6613e93508d6262ed08758de5c7ae42be6b.png",
+    "sha256": "dd032de86e2aa28d6a2c42c7a158c6613e93508d6262ed08758de5c7ae42be6b",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/dd032de86e2aa28d6a2c42c7a158c6613e93508d6262ed08758de5c7ae42be6b.png"
+  },
+  {
+    "id": "jiaohuazi_gstone",
+    "name": "叫花子",
+    "file": "5152f3d38903df8208b65a7b9511a2dcf152ca76ea73d271583dc7dd1bd382f3.png",
+    "sha256": "5152f3d38903df8208b65a7b9511a2dcf152ca76ea73d271583dc7dd1bd382f3",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/5152f3d38903df8208b65a7b9511a2dcf152ca76ea73d271583dc7dd1bd382f3.png"
+  },
+  {
+    "id": "diaomin_gstone",
+    "name": "刁民",
+    "file": "51705ff0bf9b0f1bb13a7aec17ab352b2b79248b0408a5173b2536f3217f6ca4.png",
+    "sha256": "51705ff0bf9b0f1bb13a7aec17ab352b2b79248b0408a5173b2536f3217f6ca4",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/51705ff0bf9b0f1bb13a7aec17ab352b2b79248b0408a5173b2536f3217f6ca4.png"
+  },
+  {
+    "id": "bingbi_gstone",
+    "name": "秉笔",
+    "file": "4bd70d38a8f35941e0d75ad35fb8f7ee4e8f8949969a4295d3024fdb114fc29f.png",
+    "sha256": "4bd70d38a8f35941e0d75ad35fb8f7ee4e8f8949969a4295d3024fdb114fc29f",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/4bd70d38a8f35941e0d75ad35fb8f7ee4e8f8949969a4295d3024fdb114fc29f.png"
+  },
+  {
+    "id": "chongfei_gstone",
+    "name": "宠妃",
+    "file": "afefb6d7163cf5603947a49f2e92b067f0d792cee2bcaff97a50119cbadcb9d6.png",
+    "sha256": "afefb6d7163cf5603947a49f2e92b067f0d792cee2bcaff97a50119cbadcb9d6",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/afefb6d7163cf5603947a49f2e92b067f0d792cee2bcaff97a50119cbadcb9d6.png"
+  },
+  {
+    "id": "daoke_gstone",
+    "name": "刀客",
+    "file": "0250ad44bdfa4bbfeb0afa81aaab2e3bf6e4d2291c50a240a42d7b32094d3335.png",
+    "sha256": "0250ad44bdfa4bbfeb0afa81aaab2e3bf6e4d2291c50a240a42d7b32094d3335",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/0250ad44bdfa4bbfeb0afa81aaab2e3bf6e4d2291c50a240a42d7b32094d3335.png"
+  },
+  {
+    "id": "daoshi_gstone",
+    "name": "道士",
+    "file": "8d3e64516b337cba30e8ef06ec9c6ad1f7a3ecbe469ffbb979965cde12a09386.png",
+    "sha256": "8d3e64516b337cba30e8ef06ec9c6ad1f7a3ecbe469ffbb979965cde12a09386",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/8d3e64516b337cba30e8ef06ec9c6ad1f7a3ecbe469ffbb979965cde12a09386.png"
+  },
+  {
+    "id": "fangshi_gstone",
+    "name": "方士",
+    "file": "8de688ab50ec2ea58717629d99ac3375cf93d37213e5e7a368d76871824d51c1.png",
+    "sha256": "8de688ab50ec2ea58717629d99ac3375cf93d37213e5e7a368d76871824d51c1",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/8de688ab50ec2ea58717629d99ac3375cf93d37213e5e7a368d76871824d51c1.png"
+  },
+  {
+    "id": "fengshuishi_gstone",
+    "name": "风水师",
+    "file": "6f876642c52146f580db52257a6d76ca4bd7f8319e2f5a40c1cce650f5280b01.png",
+    "sha256": "6f876642c52146f580db52257a6d76ca4bd7f8319e2f5a40c1cce650f5280b01",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/6f876642c52146f580db52257a6d76ca4bd7f8319e2f5a40c1cce650f5280b01.png"
+  },
+  {
+    "id": "limao_gstone",
+    "name": "狸猫",
+    "file": "d01052011db44e37c5559d63dac13a2e1dfc1d2101e49d55adfb16f9a2d9df31.png",
+    "sha256": "d01052011db44e37c5559d63dac13a2e1dfc1d2101e49d55adfb16f9a2d9df31",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/d01052011db44e37c5559d63dac13a2e1dfc1d2101e49d55adfb16f9a2d9df31.png"
+  },
+  {
+    "id": "qianke_gstone",
+    "name": "掮客",
+    "file": "a22f31133a38dbb29e380df4511043ec5aebe6e93f7acce7392aee6186eede0a.png",
+    "sha256": "a22f31133a38dbb29e380df4511043ec5aebe6e93f7acce7392aee6186eede0a",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/a22f31133a38dbb29e380df4511043ec5aebe6e93f7acce7392aee6186eede0a.png"
+  },
+  {
+    "id": "ranfangfangzhu_gstone",
+    "name": "染坊坊主",
+    "file": "2e85db13007ef16a06bab54e57c49b4b3eca2d276fcaf50ea324b706bbc2d590.png",
+    "sha256": "2e85db13007ef16a06bab54e57c49b4b3eca2d276fcaf50ea324b706bbc2d590",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/2e85db13007ef16a06bab54e57c49b4b3eca2d276fcaf50ea324b706bbc2d590.png"
+  },
+  {
+    "id": "shiguan_gstone",
+    "name": "史官",
+    "file": "ad1117079d2febebf4b33ad9580165a310921979a43ea5c83424789c2912688d.png",
+    "sha256": "ad1117079d2febebf4b33ad9580165a310921979a43ea5c83424789c2912688d",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/ad1117079d2febebf4b33ad9580165a310921979a43ea5c83424789c2912688d.png"
+  },
+  {
+    "id": "tixingguan_gstone",
+    "name": "提刑官",
+    "file": "3bca9f06dd5226d22171e3e3684bca717591ef501860646590209a5358bcf1f3.png",
+    "sha256": "3bca9f06dd5226d22171e3e3684bca717591ef501860646590209a5358bcf1f3",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/3bca9f06dd5226d22171e3e3684bca717591ef501860646590209a5358bcf1f3.png"
+  },
+  {
+    "id": "xuncha_gstone",
+    "name": "巡察",
+    "file": "5fc37738cbb153109640d196624700dd98091471a46a4735b4ad9e5941a175db.png",
+    "sha256": "5fc37738cbb153109640d196624700dd98091471a46a4735b4ad9e5941a175db",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/5fc37738cbb153109640d196624700dd98091471a46a4735b4ad9e5941a175db.png"
+  },
+  {
+    "id": "yanshi_gstone",
+    "name": "偃师",
+    "file": "8f43273b80cc8691a513c3d0fca0fc10d0453f6aca42e545f047ae51478a5fda.png",
+    "sha256": "8f43273b80cc8691a513c3d0fca0fc10d0453f6aca42e545f047ae51478a5fda",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/8f43273b80cc8691a513c3d0fca0fc10d0453f6aca42e545f047ae51478a5fda.png"
+  },
+  {
+    "id": "xizi_revised_gstone",
+    "name": "戏子(改)",
+    "file": "d06ff14b174ed769bc596d9cfc61a3d69c5ccec5e363ff9e0b81cba3927fed8b.png",
+    "sha256": "d06ff14b174ed769bc596d9cfc61a3d69c5ccec5e363ff9e0b81cba3927fed8b",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/d06ff14b174ed769bc596d9cfc61a3d69c5ccec5e363ff9e0b81cba3927fed8b.png"
+  },
+  {
+    "id": "yishi_gstone",
+    "name": "驿使",
+    "file": "551abf5e19c2c7cff64717c87f7c148c3109222d184f38f7eaba561562762975.png",
+    "sha256": "551abf5e19c2c7cff64717c87f7c148c3109222d184f38f7eaba561562762975",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/551abf5e19c2c7cff64717c87f7c148c3109222d184f38f7eaba561562762975.png"
+  },
+  {
+    "id": "yinluren_gstone",
+    "name": "引路人",
+    "file": "dd638b8175bf8c781b32567bac03e5379335573b97741b22f45c93b5b6ef8679.png",
+    "sha256": "dd638b8175bf8c781b32567bac03e5379335573b97741b22f45c93b5b6ef8679",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/dd638b8175bf8c781b32567bac03e5379335573b97741b22f45c93b5b6ef8679.png"
+  },
+  {
+    "id": "yongjiang_gstone",
+    "name": "俑匠",
+    "file": "4b5ed0f7bbfd5ffca32d010f3169ae14fec0af95a79a707196cd7a54eb7b4401.png",
+    "sha256": "4b5ed0f7bbfd5ffca32d010f3169ae14fec0af95a79a707196cd7a54eb7b4401",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/4b5ed0f7bbfd5ffca32d010f3169ae14fec0af95a79a707196cd7a54eb7b4401.png"
+  },
+  {
+    "id": "zhen_gstone",
+    "name": "鸩",
+    "file": "f81672fc3d8565d738e6a48fd9e9f1f352e9858c96aec136862f11dad68a74c6.png",
+    "sha256": "f81672fc3d8565d738e6a48fd9e9f1f352e9858c96aec136862f11dad68a74c6",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/f81672fc3d8565d738e6a48fd9e9f1f352e9858c96aec136862f11dad68a74c6.png"
+  },
+  {
+    "id": "zhifu_gstone",
+    "name": "知府",
+    "file": "89be3b819beda92026ed8e939c939c20172c0506d4f18953619ff97f0dd34387.png",
+    "sha256": "89be3b819beda92026ed8e939c939c20172c0506d4f18953619ff97f0dd34387",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/89be3b819beda92026ed8e939c939c20172c0506d4f18953619ff97f0dd34387.png"
+  },
+  {
+    "id": "jiubao_gstone",
+    "name": "酒保",
+    "file": "5d04b057c8b65ae3b65aecc0ba2076a6b45b37e5cbaca4ed8770ddc5ac0ae0fb.png",
+    "sha256": "5d04b057c8b65ae3b65aecc0ba2076a6b45b37e5cbaca4ed8770ddc5ac0ae0fb",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/5d04b057c8b65ae3b65aecc0ba2076a6b45b37e5cbaca4ed8770ddc5ac0ae0fb.png"
+  },
+  {
+    "id": "rulianshi_gstone",
+    "name": "入殓师",
+    "file": "e9736c0d56f4e62b8e79b95e16adfd4e6eee93c9daac34a071349ed9647c40e2.png",
+    "sha256": "e9736c0d56f4e62b8e79b95e16adfd4e6eee93c9daac34a071349ed9647c40e2",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/e9736c0d56f4e62b8e79b95e16adfd4e6eee93c9daac34a071349ed9647c40e2.png"
+  },
+  {
+    "id": "shutong_gstone",
+    "name": "书童",
+    "file": "7f2936747aa9871321674efa030052a7c41df9fa438ad638a6aaa046ab90b66f.png",
+    "sha256": "7f2936747aa9871321674efa030052a7c41df9fa438ad638a6aaa046ab90b66f",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/7f2936747aa9871321674efa030052a7c41df9fa438ad638a6aaa046ab90b66f.png"
+  },
+  {
+    "id": "huapi_gstone",
+    "name": "画皮",
+    "file": "f111546c59f053bea0f5c121a870c258464bac1b6a4618fdaa6cf94e77da5c8d.png",
+    "sha256": "f111546c59f053bea0f5c121a870c258464bac1b6a4618fdaa6cf94e77da5c8d",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/f111546c59f053bea0f5c121a870c258464bac1b6a4618fdaa6cf94e77da5c8d.png"
+  },
+  {
+    "id": "gudiao_gstone",
+    "name": "蛊雕",
+    "file": "bdbad25618c1c4c04b513a65c075c42664ecb035bc14ff494c025fbc7509629f.png",
+    "sha256": "bdbad25618c1c4c04b513a65c075c42664ecb035bc14ff494c025fbc7509629f",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/bdbad25618c1c4c04b513a65c075c42664ecb035bc14ff494c025fbc7509629f.png"
+  },
+  {
+    "id": "jinweijun2_gstone",
+    "name": "禁卫军2",
+    "file": "ea33539d3ec20a6f5304a7c12928baf2d5aa1de19815327ae7110c917cfd7f36.png",
+    "sha256": "ea33539d3ec20a6f5304a7c12928baf2d5aa1de19815327ae7110c917cfd7f36",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/ea33539d3ec20a6f5304a7c12928baf2d5aa1de19815327ae7110c917cfd7f36.png"
+  },
+  {
+    "id": "mengpo_gstone",
+    "name": "孟婆",
+    "file": "b177fdbd71178d03016ea7ea2baef8ddba9d53cc8a537d5b77ee3363caa63e62.png",
+    "sha256": "b177fdbd71178d03016ea7ea2baef8ddba9d53cc8a537d5b77ee3363caa63e62",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/b177fdbd71178d03016ea7ea2baef8ddba9d53cc8a537d5b77ee3363caa63e62.png"
+  },
+  {
+    "id": "niangjiushi_gstone",
+    "name": "酿酒师",
+    "file": "0233798226f00ee4a634948bad981c4fe3364b89781ba3dcea686789ec100945.png",
+    "sha256": "0233798226f00ee4a634948bad981c4fe3364b89781ba3dcea686789ec100945",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/0233798226f00ee4a634948bad981c4fe3364b89781ba3dcea686789ec100945.png"
+  },
+  {
+    "id": "baojun_gstone",
+    "name": "暴君",
+    "file": "945514adc9f7b9ba58b05331a01f103c81c8bb0e6e6be27c15b07491f14b2c7e.png",
+    "sha256": "945514adc9f7b9ba58b05331a01f103c81c8bb0e6e6be27c15b07491f14b2c7e",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/945514adc9f7b9ba58b05331a01f103c81c8bb0e6e6be27c15b07491f14b2c7e.png"
+  },
+  {
+    "id": "dianyuzhang_gstone",
+    "name": "典狱长",
+    "file": "0c7a95ef8caf2f82ce5305672d326970d92b3e34938423501f52d895b609b4fc.png",
+    "sha256": "0c7a95ef8caf2f82ce5305672d326970d92b3e34938423501f52d895b609b4fc",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/0c7a95ef8caf2f82ce5305672d326970d92b3e34938423501f52d895b609b4fc.png"
+  },
+  {
+    "id": "guhuoniao_gstone",
+    "name": "姑获鸟",
+    "file": "387db8d516ca74573dd72b271fbe4e6029a6f3b4981f2652ed1bec52b09f0bf4.png",
+    "sha256": "387db8d516ca74573dd72b271fbe4e6029a6f3b4981f2652ed1bec52b09f0bf4",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/387db8d516ca74573dd72b271fbe4e6029a6f3b4981f2652ed1bec52b09f0bf4.png"
+  },
+  {
+    "id": "jianning_gstone",
+    "name": "奸佞",
+    "file": "8e984b88500e7b5baabe75e243d1b10573639cd8d8ad402c5bc073e682bf9602.png",
+    "sha256": "8e984b88500e7b5baabe75e243d1b10573639cd8d8ad402c5bc073e682bf9602",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/8e984b88500e7b5baabe75e243d1b10573639cd8d8ad402c5bc073e682bf9602.png"
+  },
+  {
+    "id": "yanluo_gstone",
+    "name": "阎罗",
+    "file": "2973f98f4fef260590978b9b127325def226d67debf1c719b106b46bd2bd3fb9.png",
+    "sha256": "2973f98f4fef260590978b9b127325def226d67debf1c719b106b46bd2bd3fb9",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/2973f98f4fef260590978b9b127325def226d67debf1c719b106b46bd2bd3fb9.png"
+  },
+  {
+    "id": "lycanthrope_gstone",
+    "name": "半兽人",
+    "file": "42f0eaf642a8a6f818b82d1331fd14470358cfcfa4f7bce89962e3fab12655c6.png",
+    "sha256": "42f0eaf642a8a6f818b82d1331fd14470358cfcfa4f7bce89962e3fab12655c6",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/42f0eaf642a8a6f818b82d1331fd14470358cfcfa4f7bce89962e3fab12655c6.png"
+  },
+  {
+    "id": "banshee_gstone",
+    "name": "报丧女妖",
+    "file": "17ba7ec0b4eecd6372f9ea8651926c1e8a93e194596ae5ede66b2aa71ae60db2.png",
+    "sha256": "17ba7ec0b4eecd6372f9ea8651926c1e8a93e194596ae5ede66b2aa71ae60db2",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/17ba7ec0b4eecd6372f9ea8651926c1e8a93e194596ae5ede66b2aa71ae60db2.png"
+  },
+  {
+    "id": "choirboy_gstone",
+    "name": "唱诗男孩",
+    "file": "22c7fe1d3837c077d8b8f690125e3c8b7e38d5477a2dc3f70a1e0288f97205f4.png",
+    "sha256": "22c7fe1d3837c077d8b8f690125e3c8b7e38d5477a2dc3f70a1e0288f97205f4",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/22c7fe1d3837c077d8b8f690125e3c8b7e38d5477a2dc3f70a1e0288f97205f4.png"
+  },
+  {
+    "id": "preacher_gstone",
+    "name": "传教士",
+    "file": "d6e7155c61df046f37f6f5cb35d76cf8ff063e7af8073ab51006c483135576f1.png",
+    "sha256": "d6e7155c61df046f37f6f5cb35d76cf8ff063e7af8073ab51006c483135576f1",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/d6e7155c61df046f37f6f5cb35d76cf8ff063e7af8073ab51006c483135576f1.png"
+  },
+  {
+    "id": "villageidiot_gstone",
+    "name": "村夫",
+    "file": "e803998da6035f9d8c563f61a45c214c2ea4da534ce6b9eb0647e10f1dab44a0.png",
+    "sha256": "e803998da6035f9d8c563f61a45c214c2ea4da534ce6b9eb0647e10f1dab44a0",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/e803998da6035f9d8c563f61a45c214c2ea4da534ce6b9eb0647e10f1dab44a0.png"
+  },
+  {
+    "id": "engineer_gstone",
+    "name": "工程师",
+    "file": "415e572026c7139dd23c9bb3e31c26186960d8dbdcc03048cc543f92e571bf09.png",
+    "sha256": "415e572026c7139dd23c9bb3e31c26186960d8dbdcc03048cc543f92e571bf09",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/415e572026c7139dd23c9bb3e31c26186960d8dbdcc03048cc543f92e571bf09.png"
+  },
+  {
+    "id": "noble_gstone",
+    "name": "贵族",
+    "file": "2f60d52a7cedef64793a8dde368d139b093797577b5f90ec4b79b478a6d248fc.png",
+    "sha256": "2f60d52a7cedef64793a8dde368d139b093797577b5f90ec4b79b478a6d248fc",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/2f60d52a7cedef64793a8dde368d139b093797577b5f90ec4b79b478a6d248fc.png"
+  },
+  {
+    "id": "king_gstone",
+    "name": "国王",
+    "file": "59cb359d0f6da4098b357b2b40a8f1083d3ee77bf6ce092724f7f8ac0f6cdc16.png",
+    "sha256": "59cb359d0f6da4098b357b2b40a8f1083d3ee77bf6ce092724f7f8ac0f6cdc16",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/59cb359d0f6da4098b357b2b40a8f1083d3ee77bf6ce092724f7f8ac0f6cdc16.png"
+  },
+  {
+    "id": "general_gstone",
+    "name": "将军",
+    "file": "103d232babef1f168b56dc664e9bd9d7980cb6be7d0932355a05f0b3536ec817.png",
+    "sha256": "103d232babef1f168b56dc664e9bd9d7980cb6be7d0932355a05f0b3536ec817",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/103d232babef1f168b56dc664e9bd9d7980cb6be7d0932355a05f0b3536ec817.png"
+  },
+  {
+    "id": "alchemist_gstone",
+    "name": "炼金术士",
+    "file": "4a62e2c8cfc1f3b841dc7fe7f46a7330d57675beb093cdba049f925870ef4af5.png",
+    "sha256": "4a62e2c8cfc1f3b841dc7fe7f46a7330d57675beb093cdba049f925870ef4af5",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/4a62e2c8cfc1f3b841dc7fe7f46a7330d57675beb093cdba049f925870ef4af5.png"
+  },
+  {
+    "id": "magician_gstone",
+    "name": "魔术师",
+    "file": "e27b83447b4d3ae3da98b71dc7186b7bcfb2706d61b33cb97ae5aad184e7b6bd.png",
+    "sha256": "e27b83447b4d3ae3da98b71dc7186b7bcfb2706d61b33cb97ae5aad184e7b6bd",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/e27b83447b4d3ae3da98b71dc7186b7bcfb2706d61b33cb97ae5aad184e7b6bd.png"
+  },
+  {
+    "id": "farmer_gstone",
+    "name": "农夫",
+    "file": "f0970c7ebf370baf4138afd2d246ed5570c35ca59d09790eb661c04d1ccb822f.png",
+    "sha256": "f0970c7ebf370baf4138afd2d246ed5570c35ca59d09790eb661c04d1ccb822f",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/f0970c7ebf370baf4138afd2d246ed5570c35ca59d09790eb661c04d1ccb822f.png"
+  },
+  {
+    "id": "highpriestess_gstone",
+    "name": "女祭司",
+    "file": "d5afad13a3a7806e68a1b1ae5239dd3e64ef14594b3d7caf0e935c1041ee3971.png",
+    "sha256": "d5afad13a3a7806e68a1b1ae5239dd3e64ef14594b3d7caf0e935c1041ee3971",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/d5afad13a3a7806e68a1b1ae5239dd3e64ef14594b3d7caf0e935c1041ee3971.png"
+  },
+  {
+    "id": "knight_gstone",
+    "name": "骑士",
+    "file": "95fe302db85a077dba3e59d959b82e85dba91fc271246014e9241d32f1b90573.png",
+    "sha256": "95fe302db85a077dba3e59d959b82e85dba91fc271246014e9241d32f1b90573",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/95fe302db85a077dba3e59d959b82e85dba91fc271246014e9241d32f1b90573.png"
+  },
+  {
+    "id": "balloonist_gstone",
+    "name": "气球驾驶员",
+    "file": "79de69ea0918e4db61b7d9534486db386bb832e014ae19a497807d16d6116448.png",
+    "sha256": "79de69ea0918e4db61b7d9534486db386bb832e014ae19a497807d16d6116448",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/79de69ea0918e4db61b7d9534486db386bb832e014ae19a497807d16d6116448.png"
+  },
+  {
+    "id": "bounty_hunter_gstone",
+    "name": "赏金猎人",
+    "file": "b27ed5c88dcbab21ce48ed061a8718093bc1b0d02b692429ddc6647e6cd742c0.png",
+    "sha256": "b27ed5c88dcbab21ce48ed061a8718093bc1b0d02b692429ddc6647e6cd742c0",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/b27ed5c88dcbab21ce48ed061a8718093bc1b0d02b692429ddc6647e6cd742c0.png"
+  },
+  {
+    "id": "amnesiac_gstone",
+    "name": "失忆者",
+    "file": "1f305cfb04833cc6e17fc34dc0d6a084f38735411b618c63edc9a605f164b938.png",
+    "sha256": "1f305cfb04833cc6e17fc34dc0d6a084f38735411b618c63edc9a605f164b938",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/1f305cfb04833cc6e17fc34dc0d6a084f38735411b618c63edc9a605f164b938.png"
+  },
+  {
+    "id": "cannibal_gstone",
+    "name": "食人族",
+    "file": "457dda15d6ace7e2804b6fba59bf7fdf64d5435281903caaf6e1840f69036c69.png",
+    "sha256": "457dda15d6ace7e2804b6fba59bf7fdf64d5435281903caaf6e1840f69036c69",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/457dda15d6ace7e2804b6fba59bf7fdf64d5435281903caaf6e1840f69036c69.png"
+  },
+  {
+    "id": "steward_gstone",
+    "name": "事务官",
+    "file": "a1b5072b32f31815e80ec145d7df0f5f21e1308c4581d9b990d2d8f8f23d8d83.png",
+    "sha256": "a1b5072b32f31815e80ec145d7df0f5f21e1308c4581d9b990d2d8f8f23d8d83",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/a1b5072b32f31815e80ec145d7df0f5f21e1308c4581d9b990d2d8f8f23d8d83.png"
+  },
+  {
+    "id": "nightwatchman_gstone",
+    "name": "守夜人",
+    "file": "ae51d295e6fcbaf1836ded647c377570cd4a56db1c5cc78d003faf4d797a0e1f.png",
+    "sha256": "ae51d295e6fcbaf1836ded647c377570cd4a56db1c5cc78d003faf4d797a0e1f",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/ae51d295e6fcbaf1836ded647c377570cd4a56db1c5cc78d003faf4d797a0e1f.png"
+  },
+  {
+    "id": "atheist_gstone",
+    "name": "无神论者",
+    "file": "2ddf4bbffb1ac06322adc0074cf6b7d6267fb495f04efea52e0a9902d6d40821.png",
+    "sha256": "2ddf4bbffb1ac06322adc0074cf6b7d6267fb495f04efea52e0a9902d6d40821",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/2ddf4bbffb1ac06322adc0074cf6b7d6267fb495f04efea52e0a9902d6d40821.png"
+  },
+  {
+    "id": "alsaahir_gstone",
+    "name": "戏法师",
+    "file": "e1e8be31fbc88b5967a88b9539e727a0416b79b781a4212b1ba74c0ebd648003.png",
+    "sha256": "e1e8be31fbc88b5967a88b9539e727a0416b79b781a4212b1ba74c0ebd648003",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/e1e8be31fbc88b5967a88b9539e727a0416b79b781a4212b1ba74c0ebd648003.png"
+  },
+  {
+    "id": "pixie_gstone",
+    "name": "小精灵",
+    "file": "d320f3510e909adaa972cb2abbb3400e4b09d355ee34a22618457ddd0e2ee486.png",
+    "sha256": "d320f3510e909adaa972cb2abbb3400e4b09d355ee34a22618457ddd0e2ee486",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/d320f3510e909adaa972cb2abbb3400e4b09d355ee34a22618457ddd0e2ee486.png"
+  },
+  {
+    "id": "shugenja_gstone",
+    "name": "修行者",
+    "file": "e2f4c55e5b16548fdc5f66e98d00035092fbb8e6f340ee7c87305a503e640b63.png",
+    "sha256": "e2f4c55e5b16548fdc5f66e98d00035092fbb8e6f340ee7c87305a503e640b63",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/e2f4c55e5b16548fdc5f66e98d00035092fbb8e6f340ee7c87305a503e640b63.png"
+  },
+  {
+    "id": "huntsman_gstone",
+    "name": "巡山人",
+    "file": "5a497fc286651ab476c2892a91cc382ffbdf11c96aa56ea7c57ab710b4b04d01.png",
+    "sha256": "5a497fc286651ab476c2892a91cc382ffbdf11c96aa56ea7c57ab710b4b04d01",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/5a497fc286651ab476c2892a91cc382ffbdf11c96aa56ea7c57ab710b4b04d01.png"
+  },
+  {
+    "id": "cult_leader_gstone",
+    "name": "异教领袖",
+    "file": "2edb19f3b4862e28efe059b874e61d32c8677e7dd5bdcd34ae930471fcae8cda.png",
+    "sha256": "2edb19f3b4862e28efe059b874e61d32c8677e7dd5bdcd34ae930471fcae8cda",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/2edb19f3b4862e28efe059b874e61d32c8677e7dd5bdcd34ae930471fcae8cda.png"
+  },
+  {
+    "id": "poppy_grower_gstone",
+    "name": "罂粟种植者",
+    "file": "fad66a805c53b9f09986df25905d414b342b33746541059e12591ca7250b9411.png",
+    "sha256": "fad66a805c53b9f09986df25905d414b342b33746541059e12591ca7250b9411",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/fad66a805c53b9f09986df25905d414b342b33746541059e12591ca7250b9411.png"
+  },
+  {
+    "id": "fisherman_gstone",
+    "name": "渔夫",
+    "file": "6aed9e2493d217e897706926746a24defa914169062cd9a3ec7b12db23483692.png",
+    "sha256": "6aed9e2493d217e897706926746a24defa914169062cd9a3ec7b12db23483692",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/6aed9e2493d217e897706926746a24defa914169062cd9a3ec7b12db23483692.png"
+  },
+  {
+    "id": "acrobat_gstone",
+    "name": "杂技演员",
+    "file": "83cdc7eca12b6961e24d6a2895f171550ed7848e93f2844743b3dd2b4756084f.png",
+    "sha256": "83cdc7eca12b6961e24d6a2895f171550ed7848e93f2844743b3dd2b4756084f",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/83cdc7eca12b6961e24d6a2895f171550ed7848e93f2844743b3dd2b4756084f.png"
+  },
+  {
+    "id": "snitch_gstone",
+    "name": "告密者",
+    "file": "036f6e2e78a1f71fa400f169f8eeac56c51b45caa8bc1c548ed882b4a774f919.png",
+    "sha256": "036f6e2e78a1f71fa400f169f8eeac56c51b45caa8bc1c548ed882b4a774f919",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/036f6e2e78a1f71fa400f169f8eeac56c51b45caa8bc1c548ed882b4a774f919.png"
+  },
+  {
+    "id": "puzzlemaster_gstone",
+    "name": "解谜大师",
+    "file": "ad12bbc547f52893fd839ced12fb4bd55e3d6022b39df007da74be4a7efd507c.png",
+    "sha256": "ad12bbc547f52893fd839ced12fb4bd55e3d6022b39df007da74be4a7efd507c",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/ad12bbc547f52893fd839ced12fb4bd55e3d6022b39df007da74be4a7efd507c.png"
+  },
+  {
+    "id": "zealot_gstone",
+    "name": "狂热者",
+    "file": "bc706e5bf349c45c30d8301fd137508e52e13b62d86d537a3956825ca30398b2.png",
+    "sha256": "bc706e5bf349c45c30d8301fd137508e52e13b62d86d537a3956825ca30398b2",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/bc706e5bf349c45c30d8301fd137508e52e13b62d86d537a3956825ca30398b2.png"
+  },
+  {
+    "id": "damsel_gstone",
+    "name": "落难少女",
+    "file": "9bbf4d4b7c807efdba45a9a733c95c333b8b49b6f9a58c4d6df5615bef99ea2a.png",
+    "sha256": "9bbf4d4b7c807efdba45a9a733c95c333b8b49b6f9a58c4d6df5615bef99ea2a",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/9bbf4d4b7c807efdba45a9a733c95c333b8b49b6f9a58c4d6df5615bef99ea2a.png"
+  },
+  {
+    "id": "hatter_gstone",
+    "name": "帽匠",
+    "file": "245549c9e26c982dca1cad8f3e2349663cb002b4f0a909fa3078930e070a8ad0.png",
+    "sha256": "245549c9e26c982dca1cad8f3e2349663cb002b4f0a909fa3078930e070a8ad0",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/245549c9e26c982dca1cad8f3e2349663cb002b4f0a909fa3078930e070a8ad0.png"
+  },
+  {
+    "id": "golem_gstone",
+    "name": "魔像",
+    "file": "a0456f2a5c06854342261f961ef3eb92b1099f95ef22c1b5d507a4248e5a3b16.png",
+    "sha256": "a0456f2a5c06854342261f961ef3eb92b1099f95ef22c1b5d507a4248e5a3b16",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/a0456f2a5c06854342261f961ef3eb92b1099f95ef22c1b5d507a4248e5a3b16.png"
+  },
+  {
+    "id": "ogre_gstone",
+    "name": "食人魔",
+    "file": "57b4d009750864ff8c0e9a4ee7c7430cb86b36b981df65574ba37e79fd36e00a.png",
+    "sha256": "57b4d009750864ff8c0e9a4ee7c7430cb86b36b981df65574ba37e79fd36e00a",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/57b4d009750864ff8c0e9a4ee7c7430cb86b36b981df65574ba37e79fd36e00a.png"
+  },
+  {
+    "id": "plague_doctor_gstone",
+    "name": "瘟疫医生",
+    "file": "b570cbead8f1cecbfe487757351b109acaa309093009eb0f7af05f794f9f241f.png",
+    "sha256": "b570cbead8f1cecbfe487757351b109acaa309093009eb0f7af05f794f9f241f",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/b570cbead8f1cecbfe487757351b109acaa309093009eb0f7af05f794f9f241f.png"
+  },
+  {
+    "id": "heretic_gstone",
+    "name": "异端分子",
+    "file": "e16efc900ebac57dfab7845a47fc13c2356eef63f182c4d02b9db1c851f0e72b.png",
+    "sha256": "e16efc900ebac57dfab7845a47fc13c2356eef63f182c4d02b9db1c851f0e72b",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/e16efc900ebac57dfab7845a47fc13c2356eef63f182c4d02b9db1c851f0e72b.png"
+  },
+  {
+    "id": "politician_gstone",
+    "name": "政客",
+    "file": "6c15dd2dcdc695a4a89b2d1676c8d15b9709a16eef1dff388e212d4e8b26fcd4.png",
+    "sha256": "6c15dd2dcdc695a4a89b2d1676c8d15b9709a16eef1dff388e212d4e8b26fcd4",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/6c15dd2dcdc695a4a89b2d1676c8d15b9709a16eef1dff388e212d4e8b26fcd4.png"
+  },
+  {
+    "id": "goblin_gstone",
+    "name": "哥布林",
+    "file": "7faf35c99f5b54b013251a2a8f904caf7de872ab04ca9e9ab2893c14f4288b22.png",
+    "sha256": "7faf35c99f5b54b013251a2a8f904caf7de872ab04ca9e9ab2893c14f4288b22",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/7faf35c99f5b54b013251a2a8f904caf7de872ab04ca9e9ab2893c14f4288b22.png"
+  },
+  {
+    "id": "widow_gstone",
+    "name": "寡妇",
+    "file": "7f3fabed984dbc6e70b17da325350894fb7368299f5c1571f7161740f044943c.png",
+    "sha256": "7f3fabed984dbc6e70b17da325350894fb7368299f5c1571f7161740f044943c",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/7f3fabed984dbc6e70b17da325350894fb7368299f5c1571f7161740f044943c.png"
+  },
+  {
+    "id": "organ_grinder_gstone",
+    "name": "街头风琴手",
+    "file": "650ce7c7a6d01863222d91dcd8d192e1c1297c6824c8ed75810c5e412073e7ea.png",
+    "sha256": "650ce7c7a6d01863222d91dcd8d192e1c1297c6824c8ed75810c5e412073e7ea",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/650ce7c7a6d01863222d91dcd8d192e1c1297c6824c8ed75810c5e412073e7ea.png"
+  },
+  {
+    "id": "psychopath_gstone",
+    "name": "精神病患者",
+    "file": "0f506edf3e6a2b187715083d0cb530d213559e0afd3b263ec754d7cbc100f1c8.png",
+    "sha256": "0f506edf3e6a2b187715083d0cb530d213559e0afd3b263ec754d7cbc100f1c8",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/0f506edf3e6a2b187715083d0cb530d213559e0afd3b263ec754d7cbc100f1c8.png"
+  },
+  {
+    "id": "boffin_gstone",
+    "name": "科学怪人",
+    "file": "b267e0b51c2e2d261480499baa89971ef55dd95bc0fee9d2038423f046401a84.png",
+    "sha256": "b267e0b51c2e2d261480499baa89971ef55dd95bc0fee9d2038423f046401a84",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/b267e0b51c2e2d261480499baa89971ef55dd95bc0fee9d2038423f046401a84.png"
+  },
+  {
+    "id": "fearmonger_gstone",
+    "name": "恐惧之灵",
+    "file": "07fed14626c2ea29d238ea10d85ce850ddedd06100b48e6d429c2ba60b4966c1.png",
+    "sha256": "07fed14626c2ea29d238ea10d85ce850ddedd06100b48e6d429c2ba60b4966c1",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/07fed14626c2ea29d238ea10d85ce850ddedd06100b48e6d429c2ba60b4966c1.png"
+  },
+  {
+    "id": "mezepheles_gstone",
+    "name": "灵言师",
+    "file": "00bdf167b6aac097855fb34c4a3972fc39baf1d16086c9a35387197ee7b290ca.png",
+    "sha256": "00bdf167b6aac097855fb34c4a3972fc39baf1d16086c9a35387197ee7b290ca",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/00bdf167b6aac097855fb34c4a3972fc39baf1d16086c9a35387197ee7b290ca.png"
+  },
+  {
+    "id": "marionette_gstone",
+    "name": "提线木偶",
+    "file": "6fc81904594cff32f457583d9449ba9727b98f402e541a90a5d3359a36bdfea6.png",
+    "sha256": "6fc81904594cff32f457583d9449ba9727b98f402e541a90a5d3359a36bdfea6",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/6fc81904594cff32f457583d9449ba9727b98f402e541a90a5d3359a36bdfea6.png"
+  },
+  {
+    "id": "vizier_gstone",
+    "name": "维齐尔",
+    "file": "ba6fc1397724d6db90b5e3f0a540bd4c8952ca1b19a6c02a53e3084c063644c3.png",
+    "sha256": "ba6fc1397724d6db90b5e3f0a540bd4c8952ca1b19a6c02a53e3084c063644c3",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/ba6fc1397724d6db90b5e3f0a540bd4c8952ca1b19a6c02a53e3084c063644c3.png"
+  },
+  {
+    "id": "image-6_gstone",
+    "name": "巫师",
+    "file": "be201567c01b5783e9eccd4f9e97d04eb13ec7e1ca2430155593dd8ff52abaee.png",
+    "sha256": "be201567c01b5783e9eccd4f9e97d04eb13ec7e1ca2430155593dd8ff52abaee",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/be201567c01b5783e9eccd4f9e97d04eb13ec7e1ca2430155593dd8ff52abaee.png"
+  },
+  {
+    "id": "xaan_gstone",
+    "name": "限",
+    "file": "8ef21dcf44b1a9ee0ea8047eb3294ddff6005358ef4669cb1601b04a06ea51f7.png",
+    "sha256": "8ef21dcf44b1a9ee0ea8047eb3294ddff6005358ef4669cb1601b04a06ea51f7",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/8ef21dcf44b1a9ee0ea8047eb3294ddff6005358ef4669cb1601b04a06ea51f7.png"
+  },
+  {
+    "id": "harpy_gstone",
+    "name": "鹰身女妖",
+    "file": "da2f47d96f85526c79c9aaef98b4f726b97fa14667efa20f9e3c77afac9ac33d.png",
+    "sha256": "da2f47d96f85526c79c9aaef98b4f726b97fa14667efa20f9e3c77afac9ac33d",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/da2f47d96f85526c79c9aaef98b4f726b97fa14667efa20f9e3c77afac9ac33d.png"
+  },
+  {
+    "id": "boomdandy_gstone",
+    "name": "炸弹人",
+    "file": "38cde9d2e38143ad7b12eaa0a0271c08448c670ada67d8aaa5d6bb9b1a437556.png",
+    "sha256": "38cde9d2e38143ad7b12eaa0a0271c08448c670ada67d8aaa5d6bb9b1a437556",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/38cde9d2e38143ad7b12eaa0a0271c08448c670ada67d8aaa5d6bb9b1a437556.png"
+  },
+  {
+    "id": "summoner_gstone",
+    "name": "召唤师",
+    "file": "6b8c0739689235c1186010248d935f6b264ddf71873c914cc0ae7498631e7bd0.png",
+    "sha256": "6b8c0739689235c1186010248d935f6b264ddf71873c914cc0ae7498631e7bd0",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/6b8c0739689235c1186010248d935f6b264ddf71873c914cc0ae7498631e7bd0.png"
+  },
+  {
+    "id": "ojo_gstone",
+    "name": "奥赫",
+    "file": "62733b77f0cd3165afecfe1695894da7d2749f922829e488f83c2ac38cfead2a.png",
+    "sha256": "62733b77f0cd3165afecfe1695894da7d2749f922829e488f83c2ac38cfead2a",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/62733b77f0cd3165afecfe1695894da7d2749f922829e488f83c2ac38cfead2a.png"
+  },
+  {
+    "id": "riot_gstone",
+    "name": "暴乱",
+    "file": "6c3eb1a97ae421d6a1dbc968f4b19a0f148ccb2e2c86d9d37ef984ae26ac0a8d.png",
+    "sha256": "6c3eb1a97ae421d6a1dbc968f4b19a0f148ccb2e2c86d9d37ef984ae26ac0a8d",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/6c3eb1a97ae421d6a1dbc968f4b19a0f148ccb2e2c86d9d37ef984ae26ac0a8d.png"
+  },
+  {
+    "id": "lord_of_typhon_gstone",
+    "name": "堤丰之首",
+    "file": "d9512ea861eb702dcc222640a027729a7a11ae05f1401a86c8d8f7ff9b7417fe.png",
+    "sha256": "d9512ea861eb702dcc222640a027729a7a11ae05f1401a86c8d8f7ff9b7417fe",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/d9512ea861eb702dcc222640a027729a7a11ae05f1401a86c8d8f7ff9b7417fe.png"
+  },
+  {
+    "id": "al-hadikhia_gstone",
+    "name": "哈迪寂亚",
+    "file": "c868c56189cbe4b8e53e0bb07dfbc60dcd6777397357a23d28fd59b41aa626f4.png",
+    "sha256": "c868c56189cbe4b8e53e0bb07dfbc60dcd6777397357a23d28fd59b41aa626f4",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/c868c56189cbe4b8e53e0bb07dfbc60dcd6777397357a23d28fd59b41aa626f4.png"
+  },
+  {
+    "id": "legion_gstone",
+    "name": "军团",
+    "file": "ca43d8b95f162b1130efb308443d2f26f933227a1aa06782af28f75d4809faea.png",
+    "sha256": "ca43d8b95f162b1130efb308443d2f26f933227a1aa06782af28f75d4809faea",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/ca43d8b95f162b1130efb308443d2f26f933227a1aa06782af28f75d4809faea.png"
+  },
+  {
+    "id": "kazali_gstone",
+    "name": "卡扎力",
+    "file": "942972484a71393552f9ab6cc16849caafbfe63fec898c63caa131979cd65284.png",
+    "sha256": "942972484a71393552f9ab6cc16849caafbfe63fec898c63caa131979cd65284",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/942972484a71393552f9ab6cc16849caafbfe63fec898c63caa131979cd65284.png"
+  },
+  {
+    "id": "leviathan_gstone",
+    "name": "利维坦",
+    "file": "99c1a49fb7cf44bdb4e2b4bc235ddbcd1679ce40479add5e15857243224993bc.png",
+    "sha256": "99c1a49fb7cf44bdb4e2b4bc235ddbcd1679ce40479add5e15857243224993bc",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/99c1a49fb7cf44bdb4e2b4bc235ddbcd1679ce40479add5e15857243224993bc.png"
+  },
+  {
+    "id": "lleech_gstone",
+    "name": "痢蛭",
+    "file": "18bd12d6494e6cad5457252c397171f00bd0b911a1ae1e3da80b3730fc687e93.png",
+    "sha256": "18bd12d6494e6cad5457252c397171f00bd0b911a1ae1e3da80b3730fc687e93",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/18bd12d6494e6cad5457252c397171f00bd0b911a1ae1e3da80b3730fc687e93.png"
+  },
+  {
+    "id": "lil_monsta_gstone",
+    "name": "小怪宝",
+    "file": "0cf4f399417e9f333abb897bd9511573031dd36fdd7279e440e09b5dbaf651f3.png",
+    "sha256": "0cf4f399417e9f333abb897bd9511573031dd36fdd7279e440e09b5dbaf651f3",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/0cf4f399417e9f333abb897bd9511573031dd36fdd7279e440e09b5dbaf651f3.png"
+  },
+  {
+    "id": "yaggababble_gstone",
+    "name": "牙噶巴卜",
+    "file": "dcf4e04bf480db4f6926edc2aa6eb346a529856322306aaa98f84d8c1b84a4bd.png",
+    "sha256": "dcf4e04bf480db4f6926edc2aa6eb346a529856322306aaa98f84d8c1b84a4bd",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/dcf4e04bf480db4f6926edc2aa6eb346a529856322306aaa98f84d8c1b84a4bd.png"
+  },
+  {
+    "id": " 080",
+    "name": "仲裁者",
+    "file": "3289dad4e62586585601055d8b2d4c247479f5e69b3600d83d370d2319579b8f.png",
+    "sha256": "3289dad4e62586585601055d8b2d4c247479f5e69b3600d83d370d2319579b8f",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/3289dad4e62586585601055d8b2d4c247479f5e69b3600d83d370d2319579b8f.png"
+  },
+  {
+    "id": " 041",
+    "name": "倒吊人",
+    "file": "8ae3c64992aaa8be0bd4728bce0d93a773be69f4f9719067209af3f28a5e2146.png",
+    "sha256": "8ae3c64992aaa8be0bd4728bce0d93a773be69f4f9719067209af3f28a5e2146",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/8ae3c64992aaa8be0bd4728bce0d93a773be69f4f9719067209af3f28a5e2146.png"
+  },
+  {
+    "id": " 094",
+    "name": "公证人",
+    "file": "a5fce57aac659a791aa5938e51fea2716fb7e207515d827e105644c4d507067a.png",
+    "sha256": "a5fce57aac659a791aa5938e51fea2716fb7e207515d827e105644c4d507067a",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/a5fce57aac659a791aa5938e51fea2716fb7e207515d827e105644c4d507067a.png"
+  },
+  {
+    "id": "075",
+    "name": "圣骑士",
+    "file": "232477e9d688ea972524c291edae0dd76ac7a9e2256423e4f1cfc136e7ac9ab0.png",
+    "sha256": "232477e9d688ea972524c291edae0dd76ac7a9e2256423e4f1cfc136e7ac9ab0",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/232477e9d688ea972524c291edae0dd76ac7a9e2256423e4f1cfc136e7ac9ab0.png"
+  },
+  {
+    "id": " 092",
+    "name": "天平师",
+    "file": "7cad549375f0c2b3813efc50175b11b7cf182fe37135b87c9aceadc5d57bf2d9.png",
+    "sha256": "7cad549375f0c2b3813efc50175b11b7cf182fe37135b87c9aceadc5d57bf2d9",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/7cad549375f0c2b3813efc50175b11b7cf182fe37135b87c9aceadc5d57bf2d9.png"
+  },
+  {
+    "id": " 067",
+    "name": "德鲁伊",
+    "file": "190f3c33e31ae2b64195edb84d63063df8c64b8a21fc0843ec4dd61e9e760aab.png",
+    "sha256": "190f3c33e31ae2b64195edb84d63063df8c64b8a21fc0843ec4dd61e9e760aab",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/190f3c33e31ae2b64195edb84d63063df8c64b8a21fc0843ec4dd61e9e760aab.png"
+  },
+  {
+    "id": " 081",
+    "name": "忍者",
+    "file": "945024069b3b072b259d773a75c2471a3c35fad0331e61b814f5d7da2f88dc6c.png",
+    "sha256": "945024069b3b072b259d773a75c2471a3c35fad0331e61b814f5d7da2f88dc6c",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/945024069b3b072b259d773a75c2471a3c35fad0331e61b814f5d7da2f88dc6c.png"
+  },
+  {
+    "id": " 091",
+    "name": "捕虫少年",
+    "file": "32ef5d6731480c05666236ed794169462126661920e3c710c883c2b1b35f3495.png",
+    "sha256": "32ef5d6731480c05666236ed794169462126661920e3c710c883c2b1b35f3495",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/32ef5d6731480c05666236ed794169462126661920e3c710c883c2b1b35f3495.png"
+  },
+  {
+    "id": " 086",
+    "name": "故障机器人",
+    "file": "18db600936e31f7f26a2c6b32c6c650c2ea5a03da613a837ac016a1c95a1b004.png",
+    "sha256": "18db600936e31f7f26a2c6b32c6c650c2ea5a03da613a837ac016a1c95a1b004",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/18db600936e31f7f26a2c6b32c6c650c2ea5a03da613a837ac016a1c95a1b004.png"
+  },
+  {
+    "id": "085",
+    "name": "敲钟人",
+    "file": "ccaedf3b64f7285039dd1f2df457a4cfff6ca127ba5ef7076c6bf6afe7760f89.png",
+    "sha256": "ccaedf3b64f7285039dd1f2df457a4cfff6ca127ba5ef7076c6bf6afe7760f89",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/ccaedf3b64f7285039dd1f2df457a4cfff6ca127ba5ef7076c6bf6afe7760f89.png"
+  },
+  {
+    "id": " 050",
+    "name": "巫女",
+    "file": "de72c75b06005430d545657c67dc1420066d54b1339c61ef9b44e5552667040c.png",
+    "sha256": "de72c75b06005430d545657c67dc1420066d54b1339c61ef9b44e5552667040c",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/de72c75b06005430d545657c67dc1420066d54b1339c61ef9b44e5552667040c.png"
+  },
+  {
+    "id": " 093",
+    "name": "女爵",
+    "file": "b77fe92e2b0f2633f95b969d88d3c61654785527d65c75cacf918884ac5f9b45.png",
+    "sha256": "b77fe92e2b0f2633f95b969d88d3c61654785527d65c75cacf918884ac5f9b45",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/b77fe92e2b0f2633f95b969d88d3c61654785527d65c75cacf918884ac5f9b45.png"
+  },
+  {
+    "id": " 090",
+    "name": "半人马",
+    "file": "1b1ab5a00eb05da1de1505c0f8a7883b46daa29325f650482f58bb21444d64cc.png",
+    "sha256": "1b1ab5a00eb05da1de1505c0f8a7883b46daa29325f650482f58bb21444d64cc",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/1b1ab5a00eb05da1de1505c0f8a7883b46daa29325f650482f58bb21444d64cc.png"
+  },
+  {
+    "id": "013",
+    "name": "月光骑士",
+    "file": "39ba79053f6f2ae60039007014d9eedb3b4e769d93a26e97e8070cc2d682d526.png",
+    "sha256": "39ba79053f6f2ae60039007014d9eedb3b4e769d93a26e97e8070cc2d682d526",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/39ba79053f6f2ae60039007014d9eedb3b4e769d93a26e97e8070cc2d682d526.png"
+  },
+  {
+    "id": " 104",
+    "name": "武僧",
+    "file": "39f362fbe578b8fa8559895686df9705ca650f4db10b8ddfca826e8e1c5cc2f3.png",
+    "sha256": "39f362fbe578b8fa8559895686df9705ca650f4db10b8ddfca826e8e1c5cc2f3",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/39f362fbe578b8fa8559895686df9705ca650f4db10b8ddfca826e8e1c5cc2f3.png"
+  },
+  {
+    "id": " 109",
+    "name": "死眠少女",
+    "file": "621eb510d17b445223b38da3b889ddd62db5f7f8753542e6ea908bd8ba868c0a.png",
+    "sha256": "621eb510d17b445223b38da3b889ddd62db5f7f8753542e6ea908bd8ba868c0a",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/621eb510d17b445223b38da3b889ddd62db5f7f8753542e6ea908bd8ba868c0a.png"
+  },
+  {
+    "id": "003",
+    "name": "治安官",
+    "file": "9ff8d42788356a445c1f2eee7dd5affdccb7edbd13fd7d326af4c949a84438aa.png",
+    "sha256": "9ff8d42788356a445c1f2eee7dd5affdccb7edbd13fd7d326af4c949a84438aa",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/9ff8d42788356a445c1f2eee7dd5affdccb7edbd13fd7d326af4c949a84438aa.png"
+  },
+  {
+    "id": " 012",
+    "name": "浪人",
+    "file": "e064cb9c8167cfd85f0f84a85bf3a5cbb04f270e8ec7cbf35d5ed1d9c109b4ef.png",
+    "sha256": "e064cb9c8167cfd85f0f84a85bf3a5cbb04f270e8ec7cbf35d5ed1d9c109b4ef",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/e064cb9c8167cfd85f0f84a85bf3a5cbb04f270e8ec7cbf35d5ed1d9c109b4ef.png"
+  },
+  {
+    "id": "005",
+    "name": "游歌者",
+    "file": "d8ffc23f28cbba9854bffa906d255da08ce1c01da7f3ec288de3ccedc66e2154.png",
+    "sha256": "d8ffc23f28cbba9854bffa906d255da08ce1c01da7f3ec288de3ccedc66e2154",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/d8ffc23f28cbba9854bffa906d255da08ce1c01da7f3ec288de3ccedc66e2154.png"
+  },
+  {
+    "id": " 072",
+    "name": "海女",
+    "file": "b7704b8c3afe9e1178784e3b61fd6c26924e2a3568b6548133bdd58c74ff7067.png",
+    "sha256": "b7704b8c3afe9e1178784e3b61fd6c26924e2a3568b6548133bdd58c74ff7067",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/b7704b8c3afe9e1178784e3b61fd6c26924e2a3568b6548133bdd58c74ff7067.png"
+  },
+  {
+    "id": "030",
+    "name": "游侠",
+    "file": "a14f6d71039d1a930b0086f796adc75909b87c0d7f8f7dee70b389febc9d3625.png",
+    "sha256": "a14f6d71039d1a930b0086f796adc75909b87c0d7f8f7dee70b389febc9d3625",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/a14f6d71039d1a930b0086f796adc75909b87c0d7f8f7dee70b389febc9d3625.png"
+  },
+  {
+    "id": " 025",
+    "name": "殉教少女",
+    "file": "3b353e5f477d42a74efc5c316fcc682b28e649dd1e4cb7d864726673484897f7.png",
+    "sha256": "3b353e5f477d42a74efc5c316fcc682b28e649dd1e4cb7d864726673484897f7",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/3b353e5f477d42a74efc5c316fcc682b28e649dd1e4cb7d864726673484897f7.png"
+  },
+  {
+    "id": " 043",
+    "name": "木乃伊",
+    "file": "e9dab942a4a5bcb0f09cf753d6acd21c50fefe5eb128489e082cb247ffc72167.png",
+    "sha256": "e9dab942a4a5bcb0f09cf753d6acd21c50fefe5eb128489e082cb247ffc72167",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/e9dab942a4a5bcb0f09cf753d6acd21c50fefe5eb128489e082cb247ffc72167.png"
+  },
+  {
+    "id": " 048",
+    "name": "船长",
+    "file": "63024e5439163a845399ddc9a26531cb6caff1484f5b12645131c071ada10b15.png",
+    "sha256": "63024e5439163a845399ddc9a26531cb6caff1484f5b12645131c071ada10b15",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/63024e5439163a845399ddc9a26531cb6caff1484f5b12645131c071ada10b15.png"
+  },
+  {
+    "id": " 101",
+    "name": "美人鱼",
+    "file": "35d6d3f20e71571a6c78cdccdfb15460d781122e9f20224e3b61e78e40248eb1.png",
+    "sha256": "35d6d3f20e71571a6c78cdccdfb15460d781122e9f20224e3b61e78e40248eb1",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/35d6d3f20e71571a6c78cdccdfb15460d781122e9f20224e3b61e78e40248eb1.png"
+  },
+  {
+    "id": "098",
+    "name": "维京人",
+    "file": "0a29e7d6fb355af0987708a7ac7e07e8dc2894f1914ccafa97e2d374ef5d1b82.png",
+    "sha256": "0a29e7d6fb355af0987708a7ac7e07e8dc2894f1914ccafa97e2d374ef5d1b82",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/0a29e7d6fb355af0987708a7ac7e07e8dc2894f1914ccafa97e2d374ef5d1b82.png"
+  },
+  {
+    "id": " 004",
+    "name": "纹章官",
+    "file": "4a61877ce1aa488871d49d8a26ae16c0b3914ee13db055348811ce0effd2bce7.png",
+    "sha256": "4a61877ce1aa488871d49d8a26ae16c0b3914ee13db055348811ce0effd2bce7",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/4a61877ce1aa488871d49d8a26ae16c0b3914ee13db055348811ce0effd2bce7.png"
+  },
+  {
+    "id": "002",
+    "name": "猎魔人",
+    "file": "6035d26267c00c78225d2e113f5819e5f0910658b51447f61a6a3f77757d48a1.png",
+    "sha256": "6035d26267c00c78225d2e113f5819e5f0910658b51447f61a6a3f77757d48a1",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/6035d26267c00c78225d2e113f5819e5f0910658b51447f61a6a3f77757d48a1.png"
+  },
+  {
+    "id": " 087",
+    "name": "猎人",
+    "file": "1a9cfdc3ff6d8aa9ed05635f9697891dc11ac917bdbc46ff9f823394eee2f8e8.png",
+    "sha256": "1a9cfdc3ff6d8aa9ed05635f9697891dc11ac917bdbc46ff9f823394eee2f8e8",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/1a9cfdc3ff6d8aa9ed05635f9697891dc11ac917bdbc46ff9f823394eee2f8e8.png"
+  },
+  {
+    "id": " 028",
+    "name": "牛仔",
+    "file": "315daa322492ca61464fabc2b567abadd6362a8c663760aad9bfc0354a35a183.png",
+    "sha256": "315daa322492ca61464fabc2b567abadd6362a8c663760aad9bfc0354a35a183",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/315daa322492ca61464fabc2b567abadd6362a8c663760aad9bfc0354a35a183.png"
+  },
+  {
+    "id": "014",
+    "name": "湖中仙女",
+    "file": "cf5b7659ad85f6472f84d5f78f66a29012bac7dc2de4252163533ffe74df8a6e.png",
+    "sha256": "cf5b7659ad85f6472f84d5f78f66a29012bac7dc2de4252163533ffe74df8a6e",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/cf5b7659ad85f6472f84d5f78f66a29012bac7dc2de4252163533ffe74df8a6e.png"
+  },
+  {
+    "id": "049",
+    "name": "灵媒",
+    "file": "2357d9b07b8160d4f8e94d782c27f17a30d0b964e7e26f5c981558835221a6f1.png",
+    "sha256": "2357d9b07b8160d4f8e94d782c27f17a30d0b964e7e26f5c981558835221a6f1",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/2357d9b07b8160d4f8e94d782c27f17a30d0b964e7e26f5c981558835221a6f1.png"
+  },
+  {
+    "id": " 029",
+    "name": "猫猫探险队",
+    "file": "99cdaaa331cbef3695c5375872c0a0dc56ff954c3397c7cfe48f13ceb382be0c.png",
+    "sha256": "99cdaaa331cbef3695c5375872c0a0dc56ff954c3397c7cfe48f13ceb382be0c",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/99cdaaa331cbef3695c5375872c0a0dc56ff954c3397c7cfe48f13ceb382be0c.png"
+  },
+  {
+    "id": " 042",
+    "name": "王牌",
+    "file": "d8e2462062966c598161bd76a8f89a61a09813f27e3f90becbe98987625b79fa.png",
+    "sha256": "d8e2462062966c598161bd76a8f89a61a09813f27e3f90becbe98987625b79fa",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/d8e2462062966c598161bd76a8f89a61a09813f27e3f90becbe98987625b79fa.png"
+  },
+  {
+    "id": "001",
+    "name": "画家",
+    "file": "5468b585b34e573991b6293b1079e265aa059a2e2c6f1b088f8e23cd8ad1bc8d.png",
+    "sha256": "5468b585b34e573991b6293b1079e265aa059a2e2c6f1b088f8e23cd8ad1bc8d",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/5468b585b34e573991b6293b1079e265aa059a2e2c6f1b088f8e23cd8ad1bc8d.png"
+  },
+  {
+    "id": "105",
+    "name": "皮匠",
+    "file": "8d2fdd2505aa401a18e9e7a575e890eefcf7e23b68a8ddd0a519bc50b33816d1.png",
+    "sha256": "8d2fdd2505aa401a18e9e7a575e890eefcf7e23b68a8ddd0a519bc50b33816d1",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/8d2fdd2505aa401a18e9e7a575e890eefcf7e23b68a8ddd0a519bc50b33816d1.png"
+  },
+  {
+    "id": " 011",
+    "name": "真心人",
+    "file": "adb8f504c99a9516bdb9549bead6ccc7007f8b97e2c9775266875b99bf87cd44.png",
+    "sha256": "adb8f504c99a9516bdb9549bead6ccc7007f8b97e2c9775266875b99bf87cd44",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/adb8f504c99a9516bdb9549bead6ccc7007f8b97e2c9775266875b99bf87cd44.png"
+  },
+  {
+    "id": " 006",
+    "name": "空中飞人",
+    "file": "310d9d0374b50f91dc02b17a2ba54b68e9346007ccccac5bb8dd00027038aca9.png",
+    "sha256": "310d9d0374b50f91dc02b17a2ba54b68e9346007ccccac5bb8dd00027038aca9",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/310d9d0374b50f91dc02b17a2ba54b68e9346007ccccac5bb8dd00027038aca9.png"
+  },
+  {
+    "id": "100",
+    "name": "艺伎",
+    "file": "fba535a65caeb94312ca171b8596d43d5046533cceb0005c8a0155e06d3321b9.png",
+    "sha256": "fba535a65caeb94312ca171b8596d43d5046533cceb0005c8a0155e06d3321b9",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/fba535a65caeb94312ca171b8596d43d5046533cceb0005c8a0155e06d3321b9.png"
+  },
+  {
+    "id": " 069",
+    "name": "见闻家",
+    "file": "571d2916535b7910b046eec3833ddee1cf6cf034f30dd5a75cc585f4aae0e51b.png",
+    "sha256": "571d2916535b7910b046eec3833ddee1cf6cf034f30dd5a75cc585f4aae0e51b",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/571d2916535b7910b046eec3833ddee1cf6cf034f30dd5a75cc585f4aae0e51b.png"
+  },
+  {
+    "id": "023",
+    "name": "调香师",
+    "file": "42840128cc9c0df6336d327418f9b2e3dc5f395bd0134e1ecf8c7b3348b9e4b1.png",
+    "sha256": "42840128cc9c0df6336d327418f9b2e3dc5f395bd0134e1ecf8c7b3348b9e4b1",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/42840128cc9c0df6336d327418f9b2e3dc5f395bd0134e1ecf8c7b3348b9e4b1.png"
+  },
+  {
+    "id": "051",
+    "name": "超感者",
+    "file": "3fd67687b654b8d7340b8608a47ce608323dc3db82e4eeb98e63a6d1bbde5def.png",
+    "sha256": "3fd67687b654b8d7340b8608a47ce608323dc3db82e4eeb98e63a6d1bbde5def",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/3fd67687b654b8d7340b8608a47ce608323dc3db82e4eeb98e63a6d1bbde5def.png"
+  },
+  {
+    "id": "079",
+    "name": "邪术师",
+    "file": "94d88c1d9044bbfcd36d0e98a0755723aba1356dc0ce7c97ab0203dc9d0f2be9.png",
+    "sha256": "94d88c1d9044bbfcd36d0e98a0755723aba1356dc0ce7c97ab0203dc9d0f2be9",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/94d88c1d9044bbfcd36d0e98a0755723aba1356dc0ce7c97ab0203dc9d0f2be9.png"
+  },
+  {
+    "id": "102",
+    "name": "通灵师",
+    "file": "569db54f5297bf3a67f2de9e6fc78a4feb454c54376eedd445ed9613825ab93f.png",
+    "sha256": "569db54f5297bf3a67f2de9e6fc78a4feb454c54376eedd445ed9613825ab93f",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/569db54f5297bf3a67f2de9e6fc78a4feb454c54376eedd445ed9613825ab93f.png"
+  },
+  {
+    "id": "021",
+    "name": "送报童",
+    "file": "ef27ebe097eaed7433be6c160ba99d0d3b69f2575d4ce59c605e2479062c3028.png",
+    "sha256": "ef27ebe097eaed7433be6c160ba99d0d3b69f2575d4ce59c605e2479062c3028",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/ef27ebe097eaed7433be6c160ba99d0d3b69f2575d4ce59c605e2479062c3028.png"
+  },
+  {
+    "id": " 082",
+    "name": "近卫",
+    "file": "708c62a99c11a3cb52556abf455e45c14b5e759fcb5c98d11316525ac9ec6ac5.png",
+    "sha256": "708c62a99c11a3cb52556abf455e45c14b5e759fcb5c98d11316525ac9ec6ac5",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/708c62a99c11a3cb52556abf455e45c14b5e759fcb5c98d11316525ac9ec6ac5.png"
+  },
+  {
+    "id": "070",
+    "name": "谜语人",
+    "file": "7378e8680718d364460879452bb14a96cbe277ddbe862a33a84d233c816a33a3.png",
+    "sha256": "7378e8680718d364460879452bb14a96cbe277ddbe862a33a84d233c816a33a3",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/7378e8680718d364460879452bb14a96cbe277ddbe862a33a84d233c816a33a3.png"
+  },
+  {
+    "id": " 022",
+    "name": "调音师",
+    "file": "f3ac725a2a960f0ec8e8b76430da45ac51780ef6b747aa5f822234e234a7ff38.png",
+    "sha256": "f3ac725a2a960f0ec8e8b76430da45ac51780ef6b747aa5f822234e234a7ff38",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/f3ac725a2a960f0ec8e8b76430da45ac51780ef6b747aa5f822234e234a7ff38.png"
+  },
+  {
+    "id": " 076",
+    "name": "酒娘",
+    "file": "f9b4533afacafcfc92f3ac277ba4dbb243e40830b9012fda5b1e8bdf1d70af72.png",
+    "sha256": "f9b4533afacafcfc92f3ac277ba4dbb243e40830b9012fda5b1e8bdf1d70af72",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/f9b4533afacafcfc92f3ac277ba4dbb243e40830b9012fda5b1e8bdf1d70af72.png"
+  },
+  {
+    "id": "060",
+    "name": "阴阳师",
+    "file": "421a3b44e2b6db25456ad59daff4bde6afd8c024a026244938ed190c67747cdb.png",
+    "sha256": "421a3b44e2b6db25456ad59daff4bde6afd8c024a026244938ed190c67747cdb",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/421a3b44e2b6db25456ad59daff4bde6afd8c024a026244938ed190c67747cdb.png"
+  },
+  {
+    "id": " 077",
+    "name": "乌贼娘",
+    "file": "ee74c2ad2c06140bbc3c2306ce8b23f91c9cfd8f69a51b28f2d44b397d9acb6a.png",
+    "sha256": "ee74c2ad2c06140bbc3c2306ce8b23f91c9cfd8f69a51b28f2d44b397d9acb6a",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/ee74c2ad2c06140bbc3c2306ce8b23f91c9cfd8f69a51b28f2d44b397d9acb6a.png"
+  },
+  {
+    "id": "099",
+    "name": "化妆师",
+    "file": "6e47cf057ecce352b6bba3892aca50503446b6a63e295e6a5a3dd1424004150d.png",
+    "sha256": "6e47cf057ecce352b6bba3892aca50503446b6a63e295e6a5a3dd1424004150d",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/6e47cf057ecce352b6bba3892aca50503446b6a63e295e6a5a3dd1424004150d.png"
+  },
+  {
+    "id": " 053",
+    "name": "双面人",
+    "file": "377b40543b161d5100c9bb3607aeb29b7641d84c0a602308ac46fc688a5c6169.png",
+    "sha256": "377b40543b161d5100c9bb3607aeb29b7641d84c0a602308ac46fc688a5c6169",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/377b40543b161d5100c9bb3607aeb29b7641d84c0a602308ac46fc688a5c6169.png"
+  },
+  {
+    "id": "032",
+    "name": "地狱弃子",
+    "file": "ae3376487c35840d58c3d44968e2aceb5e6ff910f0ed24f782c361c37ec2185e.png",
+    "sha256": "ae3376487c35840d58c3d44968e2aceb5e6ff910f0ed24f782c361c37ec2185e",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/ae3376487c35840d58c3d44968e2aceb5e6ff910f0ed24f782c361c37ec2185e.png"
+  },
+  {
+    "id": "033",
+    "name": "堂吉诃德",
+    "file": "924fc97b9b1bf8a537a292d34d5c4329eadd4e92bc5b33b5ecd6a5f814eaef22.png",
+    "sha256": "924fc97b9b1bf8a537a292d34d5c4329eadd4e92bc5b33b5ecd6a5f814eaef22",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/924fc97b9b1bf8a537a292d34d5c4329eadd4e92bc5b33b5ecd6a5f814eaef22.png"
+  },
+  {
+    "id": " 007",
+    "name": "大小姐",
+    "file": "84a5e0b7fcf5332051d2e0c63f001ea063067cb3cd7049c7d0b94408b6ad0daa.png",
+    "sha256": "84a5e0b7fcf5332051d2e0c63f001ea063067cb3cd7049c7d0b94408b6ad0daa",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/84a5e0b7fcf5332051d2e0c63f001ea063067cb3cd7049c7d0b94408b6ad0daa.png"
+  },
+  {
+    "id": " 045",
+    "name": "养蜂人",
+    "file": "2c12e12dfd15ed1cc4527ee1edc6d814dcd6cd9418fabe27ad345458746295ef.png",
+    "sha256": "2c12e12dfd15ed1cc4527ee1edc6d814dcd6cd9418fabe27ad345458746295ef",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/2c12e12dfd15ed1cc4527ee1edc6d814dcd6cd9418fabe27ad345458746295ef.png"
+  },
+  {
+    "id": "096",
+    "name": "捣蛋鬼",
+    "file": "fe62816e69d345ff111a2e908e33c38b14c53d7e2aea354f4d492b09bfc2513d.png",
+    "sha256": "fe62816e69d345ff111a2e908e33c38b14c53d7e2aea354f4d492b09bfc2513d",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/fe62816e69d345ff111a2e908e33c38b14c53d7e2aea354f4d492b09bfc2513d.png"
+  },
+  {
+    "id": "097",
+    "name": "殉情者",
+    "file": "ffee185fd483cc70cc8418d4f2343f58fa375f8e44f463c174036dbd8e82ab47.png",
+    "sha256": "ffee185fd483cc70cc8418d4f2343f58fa375f8e44f463c174036dbd8e82ab47",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/ffee185fd483cc70cc8418d4f2343f58fa375f8e44f463c174036dbd8e82ab47.png"
+  },
+  {
+    "id": "107",
+    "name": "河童",
+    "file": "74f97609893cc593a79b7c58e071c5cab4fae2962258c15f22873c07367587e2.png",
+    "sha256": "74f97609893cc593a79b7c58e071c5cab4fae2962258c15f22873c07367587e2",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/74f97609893cc593a79b7c58e071c5cab4fae2962258c15f22873c07367587e2.png"
+  },
+  {
+    "id": " 066",
+    "name": "泰坦",
+    "file": "f22aad4169e3a2492dcdd4c7dad92adc11a8857d03993f422d65512acd5d3843.png",
+    "sha256": "f22aad4169e3a2492dcdd4c7dad92adc11a8857d03993f422d65512acd5d3843",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/f22aad4169e3a2492dcdd4c7dad92adc11a8857d03993f422d65512acd5d3843.png"
+  },
+  {
+    "id": "055",
+    "name": "海猫王",
+    "file": "e8e0485d791859c1cac5093f6c38667cd0867e96ab896bf6615962f5d70f65e1.png",
+    "sha256": "e8e0485d791859c1cac5093f6c38667cd0867e96ab896bf6615962f5d70f65e1",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/e8e0485d791859c1cac5093f6c38667cd0867e96ab896bf6615962f5d70f65e1.png"
+  },
+  {
+    "id": "027",
+    "name": "狼孩",
+    "file": "3f0b08dd7fd5a1770d042123239efa471c34fdc10cd14bfe6171bfa6721741d5.png",
+    "sha256": "3f0b08dd7fd5a1770d042123239efa471c34fdc10cd14bfe6171bfa6721741d5",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/3f0b08dd7fd5a1770d042123239efa471c34fdc10cd14bfe6171bfa6721741d5.png"
+  },
+  {
+    "id": "044",
+    "name": "猫猫合唱团",
+    "file": "a8d7c29f66189f107ab653a09c59b61de8826aec482d505bb1fc21cc68d11f9e.png",
+    "sha256": "a8d7c29f66189f107ab653a09c59b61de8826aec482d505bb1fc21cc68d11f9e",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/a8d7c29f66189f107ab653a09c59b61de8826aec482d505bb1fc21cc68d11f9e.png"
+  },
+  {
+    "id": "015",
+    "name": "白骑士",
+    "file": "9a3d3a8387b1f976e8a2c64282b6e644c04a1628f89adaf542c1a2574cbd1ddf.png",
+    "sha256": "9a3d3a8387b1f976e8a2c64282b6e644c04a1628f89adaf542c1a2574cbd1ddf",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/9a3d3a8387b1f976e8a2c64282b6e644c04a1628f89adaf542c1a2574cbd1ddf.png"
+  },
+  {
+    "id": "052",
+    "name": "盗血者",
+    "file": "9034648b5d140ff28cd88365f44cef1522de22bc6de4d8745a06591a996491c1.png",
+    "sha256": "9034648b5d140ff28cd88365f44cef1522de22bc6de4d8745a06591a996491c1",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/9034648b5d140ff28cd88365f44cef1522de22bc6de4d8745a06591a996491c1.png"
+  },
+  {
+    "id": "059",
+    "name": "石像鬼",
+    "file": "be0fbf3a9c55b31882d7359db19c7e896826c29b681e12e2e763f4b727b2e28d.png",
+    "sha256": "be0fbf3a9c55b31882d7359db19c7e896826c29b681e12e2e763f4b727b2e28d",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/be0fbf3a9c55b31882d7359db19c7e896826c29b681e12e2e763f4b727b2e28d.png"
+  },
+  {
+    "id": "095",
+    "name": "稻草人",
+    "file": "fbdb0fca0bfcb0d19cae7f2d9e8bf9a7c548d251d2ccc39df42834886c6cef1c.png",
+    "sha256": "fbdb0fca0bfcb0d19cae7f2d9e8bf9a7c548d251d2ccc39df42834886c6cef1c",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/fbdb0fca0bfcb0d19cae7f2d9e8bf9a7c548d251d2ccc39df42834886c6cef1c.png"
+  },
+  {
+    "id": " 068",
+    "name": "蘑菇仔",
+    "file": "e7f862d61b1e505366ca14fc57181b7aa5c0747b98e5b37e7024f2020f0bc0c9.png",
+    "sha256": "e7f862d61b1e505366ca14fc57181b7aa5c0747b98e5b37e7024f2020f0bc0c9",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/e7f862d61b1e505366ca14fc57181b7aa5c0747b98e5b37e7024f2020f0bc0c9.png"
+  },
+  {
+    "id": "026",
+    "name": "雪怪",
+    "file": "cb07780c12d74fba8b41f85b9a685b6f4a29ebb298d28e13d47901a32b1aae2e.png",
+    "sha256": "cb07780c12d74fba8b41f85b9a685b6f4a29ebb298d28e13d47901a32b1aae2e",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/cb07780c12d74fba8b41f85b9a685b6f4a29ebb298d28e13d47901a32b1aae2e.png"
+  },
+  {
+    "id": " 054",
+    "name": "黑帮律师",
+    "file": "296c88825854df91831b7e7e4171780d68421373200d314785c604ff7d47c7a3.png",
+    "sha256": "296c88825854df91831b7e7e4171780d68421373200d314785c604ff7d47c7a3",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/296c88825854df91831b7e7e4171780d68421373200d314785c604ff7d47c7a3.png"
+  },
+  {
+    "id": "035",
+    "name": "代号X",
+    "file": "7fc71c5c143286abd2cf57b429f5c72318985f8c33002e1f04536036a0483bdd.png",
+    "sha256": "7fc71c5c143286abd2cf57b429f5c72318985f8c33002e1f04536036a0483bdd",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/7fc71c5c143286abd2cf57b429f5c72318985f8c33002e1f04536036a0483bdd.png"
+  },
+  {
+    "id": " 056",
+    "name": "克隆",
+    "file": "4e8465c59cae46553c77c63e4db18b172dc1574c1faadc9d135cb8d918367fc1.png",
+    "sha256": "4e8465c59cae46553c77c63e4db18b172dc1574c1faadc9d135cb8d918367fc1",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/4e8465c59cae46553c77c63e4db18b172dc1574c1faadc9d135cb8d918367fc1.png"
+  },
+  {
+    "id": " 037",
+    "name": "双头巨人",
+    "file": "11ff6c570d3acb68867880784b95eb6a0ddb5ccce07f64953f0a098e55728efd.png",
+    "sha256": "11ff6c570d3acb68867880784b95eb6a0ddb5ccce07f64953f0a098e55728efd",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/11ff6c570d3acb68867880784b95eb6a0ddb5ccce07f64953f0a098e55728efd.png"
+  },
+  {
+    "id": "103",
+    "name": "夜叉",
+    "file": "71977a19d0d9c32dfeb1eae1d868befc1457e37cac57ec89e2420e14ad1578e2.png",
+    "sha256": "71977a19d0d9c32dfeb1eae1d868befc1457e37cac57ec89e2420e14ad1578e2",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/71977a19d0d9c32dfeb1eae1d868befc1457e37cac57ec89e2420e14ad1578e2.png"
+  },
+  {
+    "id": " 057",
+    "name": "巫医",
+    "file": "66055625adf63513afa9e1cac4b6ca1f97dce6c46e162f3f62eb350d6cfdbc90.png",
+    "sha256": "66055625adf63513afa9e1cac4b6ca1f97dce6c46e162f3f62eb350d6cfdbc90",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/66055625adf63513afa9e1cac4b6ca1f97dce6c46e162f3f62eb350d6cfdbc90.png"
+  },
+  {
+    "id": "112",
+    "name": "双生花",
+    "file": "fb58fb41c7e8b8044a74f3104c231054701e410a7ee2a2ba61557498d9848123.png",
+    "sha256": "fb58fb41c7e8b8044a74f3104c231054701e410a7ee2a2ba61557498d9848123",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/fb58fb41c7e8b8044a74f3104c231054701e410a7ee2a2ba61557498d9848123.png"
+  },
+  {
+    "id": " 034",
+    "name": "帕克",
+    "file": "6b5ff6158c89af5289787fd3cf7fcc8fd9ba3706048912da3d9e4ebadbac8bd9.png",
+    "sha256": "6b5ff6158c89af5289787fd3cf7fcc8fd9ba3706048912da3d9e4ebadbac8bd9",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/6b5ff6158c89af5289787fd3cf7fcc8fd9ba3706048912da3d9e4ebadbac8bd9.png"
+  },
+  {
+    "id": " 064",
+    "name": "幻",
+    "file": "d836bb6eb68287475fda007b0412018d8f91ae4aa7534f5d45f65124d6377a30.png",
+    "sha256": "d836bb6eb68287475fda007b0412018d8f91ae4aa7534f5d45f65124d6377a30",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/d836bb6eb68287475fda007b0412018d8f91ae4aa7534f5d45f65124d6377a30.png"
+  },
+  {
+    "id": "008",
+    "name": "斯芬克斯",
+    "file": "93572e2c6814a15b05213164fc8b780b92387a706f24753f336d72e503ccb10d.png",
+    "sha256": "93572e2c6814a15b05213164fc8b780b92387a706f24753f336d72e503ccb10d",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/93572e2c6814a15b05213164fc8b780b92387a706f24753f336d72e503ccb10d.png"
+  },
+  {
+    "id": " 061",
+    "name": "毒尾",
+    "file": "508e358a6e3d9d2dff9a8687bfe5e5f8e3f1556ea62c66268c5136f645196f45.png",
+    "sha256": "508e358a6e3d9d2dff9a8687bfe5e5f8e3f1556ea62c66268c5136f645196f45",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/508e358a6e3d9d2dff9a8687bfe5e5f8e3f1556ea62c66268c5136f645196f45.png"
+  },
+  {
+    "id": "046",
+    "name": "百臂巨人",
+    "file": "be2943d03a51ce2016d78e84910ff42201352dacb02136370476529eecaa9e06.png",
+    "sha256": "be2943d03a51ce2016d78e84910ff42201352dacb02136370476529eecaa9e06",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/be2943d03a51ce2016d78e84910ff42201352dacb02136370476529eecaa9e06.png"
+  },
+  {
+    "id": "036",
+    "name": "独眼巨人",
+    "file": "b4b482983219fa8142efb560ae6cd171208ff0bc8fe041c66328952fd66f2fc0.png",
+    "sha256": "b4b482983219fa8142efb560ae6cd171208ff0bc8fe041c66328952fd66f2fc0",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/b4b482983219fa8142efb560ae6cd171208ff0bc8fe041c66328952fd66f2fc0.png"
+  },
+  {
+    "id": " 084",
+    "name": "狐妖",
+    "file": "5cbd9eb0e659fe0987388f9ea47e436b82f13bba08220a6fcff56d12328a8840.png",
+    "sha256": "5cbd9eb0e659fe0987388f9ea47e436b82f13bba08220a6fcff56d12328a8840",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/5cbd9eb0e659fe0987388f9ea47e436b82f13bba08220a6fcff56d12328a8840.png"
+  },
+  {
+    "id": " 111",
+    "name": "毒爆",
+    "file": "6f9645b0585ba2e0f6b54caefd64121c0f52c94bf91d8204c110be880dc3306b.png",
+    "sha256": "6f9645b0585ba2e0f6b54caefd64121c0f52c94bf91d8204c110be880dc3306b",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/6f9645b0585ba2e0f6b54caefd64121c0f52c94bf91d8204c110be880dc3306b.png"
+  },
+  {
+    "id": " 024",
+    "name": "玩偶",
+    "file": "bf71f4859c2e51bd3d50c9e29c669e093e4223f966b1fc5b0a2fc1625654e460.png",
+    "sha256": "bf71f4859c2e51bd3d50c9e29c669e093e4223f966b1fc5b0a2fc1625654e460",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/bf71f4859c2e51bd3d50c9e29c669e093e4223f966b1fc5b0a2fc1625654e460.png"
+  },
+  {
+    "id": " 083",
+    "name": "晓",
+    "file": "40fda1239ca8bd6300e183914779e5d2d922e5018ac43d929d8937538893b070.png",
+    "sha256": "40fda1239ca8bd6300e183914779e5d2d922e5018ac43d929d8937538893b070",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/40fda1239ca8bd6300e183914779e5d2d922e5018ac43d929d8937538893b070.png"
+  },
+  {
+    "id": " 071",
+    "name": "萨满",
+    "file": "7e0e3047958a2e3ff319be4df92c09cab9a5a5dad4522a473062cd054125e405.png",
+    "sha256": "7e0e3047958a2e3ff319be4df92c09cab9a5a5dad4522a473062cd054125e405",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/7e0e3047958a2e3ff319be4df92c09cab9a5a5dad4522a473062cd054125e405.png"
+  },
+  {
+    "id": "113",
+    "name": "达摩",
+    "file": "573c5e7396129890467afd98d3e286f6c01128e5ae2866b7ae7daca31f42ed1d.png",
+    "sha256": "573c5e7396129890467afd98d3e286f6c01128e5ae2866b7ae7daca31f42ed1d",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/573c5e7396129890467afd98d3e286f6c01128e5ae2866b7ae7daca31f42ed1d.png"
+  },
+  {
+    "id": " 074",
+    "name": "逆蝶",
+    "file": "4242a1c9cda14085b7ca66a58944bc98e9818c9b9aec9f1015c785557b548543.png",
+    "sha256": "4242a1c9cda14085b7ca66a58944bc98e9818c9b9aec9f1015c785557b548543",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/4242a1c9cda14085b7ca66a58944bc98e9818c9b9aec9f1015c785557b548543.png"
+  },
+  {
+    "id": "062",
+    "name": "雪女",
+    "file": "979e53e11d001e31e04a2f5ae4fb053f6bb8e8269a3477367d36502abb88834d.png",
+    "sha256": "979e53e11d001e31e04a2f5ae4fb053f6bb8e8269a3477367d36502abb88834d",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/979e53e11d001e31e04a2f5ae4fb053f6bb8e8269a3477367d36502abb88834d.png"
+  },
+  {
+    "id": " 073",
+    "name": "骚客",
+    "file": "52f2ced6b9e6c20dd6ee17d39ced525ae03d288bc3e02033790ae10d83fa0f28.png",
+    "sha256": "52f2ced6b9e6c20dd6ee17d39ced525ae03d288bc3e02033790ae10d83fa0f28",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/52f2ced6b9e6c20dd6ee17d39ced525ae03d288bc3e02033790ae10d83fa0f28.png"
+  },
+  {
+    "id": "017",
+    "name": "麻醉师",
+    "file": "cc7e03dd166ca08565a49302d0746426879c61114874382d94eae32af02e3305.png",
+    "sha256": "cc7e03dd166ca08565a49302d0746426879c61114874382d94eae32af02e3305",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/cc7e03dd166ca08565a49302d0746426879c61114874382d94eae32af02e3305.png"
+  },
+  {
+    "id": " 009",
+    "name": "麻风侏儒",
+    "file": "f97e684e0a6e7c967f16e9ef07783a25f9bb7fae7befa23df0226fb92ff6ff9a.png",
+    "sha256": "f97e684e0a6e7c967f16e9ef07783a25f9bb7fae7befa23df0226fb92ff6ff9a",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/f97e684e0a6e7c967f16e9ef07783a25f9bb7fae7befa23df0226fb92ff6ff9a.png"
+  },
+  {
+    "id": "016",
+    "name": "黑骑士",
+    "file": "9bb0240845f30b45376d447ae14d162d57066de712a88cb050c27cb9f45af10d.png",
+    "sha256": "9bb0240845f30b45376d447ae14d162d57066de712a88cb050c27cb9f45af10d",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/9bb0240845f30b45376d447ae14d162d57066de712a88cb050c27cb9f45af10d.png"
+  },
+  {
+    "id": "019",
+    "name": "亚瑟",
+    "file": "257a3281900a14c36d38cd7887a019360b33289ddc139940312725de980442d5.png",
+    "sha256": "257a3281900a14c36d38cd7887a019360b33289ddc139940312725de980442d5",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/257a3281900a14c36d38cd7887a019360b33289ddc139940312725de980442d5.png"
+  },
+  {
+    "id": " 089",
+    "name": "克拉肯",
+    "file": "3b6b083acef01490fa4ffcd8bc7cf315202a77bde94a552e9d462f095fb71cb2.png",
+    "sha256": "3b6b083acef01490fa4ffcd8bc7cf315202a77bde94a552e9d462f095fb71cb2",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/3b6b083acef01490fa4ffcd8bc7cf315202a77bde94a552e9d462f095fb71cb2.png"
+  },
+  {
+    "id": " 010",
+    "name": "刻耳柏洛斯",
+    "file": "1c258cb539a0e6e41d1d62bcb1855b47ad3173fc14ab3c83a3fcf7b1d0f6cc88.png",
+    "sha256": "1c258cb539a0e6e41d1d62bcb1855b47ad3173fc14ab3c83a3fcf7b1d0f6cc88",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/1c258cb539a0e6e41d1d62bcb1855b47ad3173fc14ab3c83a3fcf7b1d0f6cc88.png"
+  },
+  {
+    "id": " 063",
+    "name": "劣魔",
+    "file": "fad383bbf633203fbcea9052be1a63c19e277443d1223387f6228fea039f41db.png",
+    "sha256": "fad383bbf633203fbcea9052be1a63c19e277443d1223387f6228fea039f41db",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/fad383bbf633203fbcea9052be1a63c19e277443d1223387f6228fea039f41db.png"
+  },
+  {
+    "id": " 088",
+    "name": "回响",
+    "file": "dee8665849ee58dce3f953f83ee2c7577b6475e0c431ba7a60750cef7dc4b672.png",
+    "sha256": "dee8665849ee58dce3f953f83ee2c7577b6475e0c431ba7a60750cef7dc4b672",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/dee8665849ee58dce3f953f83ee2c7577b6475e0c431ba7a60750cef7dc4b672.png"
+  },
+  {
+    "id": "018",
+    "name": "塞壬",
+    "file": "cce32a990726da9a186f1ab2b7629e02958aa37f512cec251b7d349575ce7cfa.png",
+    "sha256": "cce32a990726da9a186f1ab2b7629e02958aa37f512cec251b7d349575ce7cfa",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/cce32a990726da9a186f1ab2b7629e02958aa37f512cec251b7d349575ce7cfa.png"
+  },
+  {
+    "id": " 038",
+    "name": "大巫妖",
+    "file": "34e50a2308a71c7766bcac097202edd4b849c987095f710c3fead58b84d4cdfc.png",
+    "sha256": "34e50a2308a71c7766bcac097202edd4b849c987095f710c3fead58b84d4cdfc",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/34e50a2308a71c7766bcac097202edd4b849c987095f710c3fead58b84d4cdfc.png"
+  },
+  {
+    "id": " 040",
+    "name": "奇美拉",
+    "file": "c8a79ac0914440e6a7a2bca06b7486e5457077423fa10b48b184ca85d5b5ecef.png",
+    "sha256": "c8a79ac0914440e6a7a2bca06b7486e5457077423fa10b48b184ca85d5b5ecef",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/c8a79ac0914440e6a7a2bca06b7486e5457077423fa10b48b184ca85d5b5ecef.png"
+  },
+  {
+    "id": "065",
+    "name": "奸奇",
+    "file": "8c55ff7d9fef861336c331fad9bf0b0a8c6f6b8dfd3c551222bfea80675abe24.png",
+    "sha256": "8c55ff7d9fef861336c331fad9bf0b0a8c6f6b8dfd3c551222bfea80675abe24",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/8c55ff7d9fef861336c331fad9bf0b0a8c6f6b8dfd3c551222bfea80675abe24.png"
+  },
+  {
+    "id": " 110",
+    "name": "恐虐",
+    "file": "84ee156ba2338deb99e02675845fe2b8fa2d1495899ab0372cbc23b2015d9359.png",
+    "sha256": "84ee156ba2338deb99e02675845fe2b8fa2d1495899ab0372cbc23b2015d9359",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/84ee156ba2338deb99e02675845fe2b8fa2d1495899ab0372cbc23b2015d9359.png"
+  },
+  {
+    "id": "020",
+    "name": "恶堕",
+    "file": "2a4994d05506f32276bce9321a66f19769d8c602c2dfe5f4207f2d832db48382.png",
+    "sha256": "2a4994d05506f32276bce9321a66f19769d8c602c2dfe5f4207f2d832db48382",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/2a4994d05506f32276bce9321a66f19769d8c602c2dfe5f4207f2d832db48382.png"
+  },
+  {
+    "id": " 058",
+    "name": "海之子",
+    "file": "99ab5a9dc727156abce307a478935cc0a38133314e6a969ca617a3086195a509.png",
+    "sha256": "99ab5a9dc727156abce307a478935cc0a38133314e6a969ca617a3086195a509",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/99ab5a9dc727156abce307a478935cc0a38133314e6a969ca617a3086195a509.png"
+  },
+  {
+    "id": " 039",
+    "name": "海德拉",
+    "file": "291544f2d0ae29ce0f8715a7cb6db0a3f62f4e66df2adaf391b33e80ed7f1e02.png",
+    "sha256": "291544f2d0ae29ce0f8715a7cb6db0a3f62f4e66df2adaf391b33e80ed7f1e02",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/291544f2d0ae29ce0f8715a7cb6db0a3f62f4e66df2adaf391b33e80ed7f1e02.png"
+  },
+  {
+    "id": "106",
+    "name": "米诺陶",
+    "file": "c4b741551a65c985dc03fb720e493eb1a0ce4d05bd35057e4976ecc21ea0dcb6.png",
+    "sha256": "c4b741551a65c985dc03fb720e493eb1a0ce4d05bd35057e4976ecc21ea0dcb6",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/c4b741551a65c985dc03fb720e493eb1a0ce4d05bd35057e4976ecc21ea0dcb6.png"
+  },
+  {
+    "id": " 108",
+    "name": "纳垢",
+    "file": "69c3c2345ae5236035f58de6b119e2b674cb5a659da6f99a4d948d7dcf2c4ac2.png",
+    "sha256": "69c3c2345ae5236035f58de6b119e2b674cb5a659da6f99a4d948d7dcf2c4ac2",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/69c3c2345ae5236035f58de6b119e2b674cb5a659da6f99a4d948d7dcf2c4ac2.png"
+  },
+  {
+    "id": "114",
+    "name": "色孽",
+    "file": "73b69ca462c62b7cf7b535c951a2122e4f55a0dc084ad28dfe79c435ab5537f2.png",
+    "sha256": "73b69ca462c62b7cf7b535c951a2122e4f55a0dc084ad28dfe79c435ab5537f2",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/73b69ca462c62b7cf7b535c951a2122e4f55a0dc084ad28dfe79c435ab5537f2.png"
+  },
+  {
+    "id": " 047",
+    "name": "骷髅王",
+    "file": "65f10de6da3b869c36873fd39c0d69e2ef37a689b2f4284c035a1a7ea5b76a8d.png",
+    "sha256": "65f10de6da3b869c36873fd39c0d69e2ef37a689b2f4284c035a1a7ea5b76a8d",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/65f10de6da3b869c36873fd39c0d69e2ef37a689b2f4284c035a1a7ea5b76a8d.png"
+  },
+  {
+    "id": " 078",
+    "name": "龙卷",
+    "file": "aba341086705281f9d6e4731a85ea4710314e2cee1c9a6484d99e771a506fb46.png",
+    "sha256": "aba341086705281f9d6e4731a85ea4710314e2cee1c9a6484d99e771a506fb46",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/aba341086705281f9d6e4731a85ea4710314e2cee1c9a6484d99e771a506fb46.png"
+  },
+  {
+    "id": "0005",
+    "name": "地狱轮盘",
+    "file": "cb604e73e773f40fafba7e9778cfa175e292760c2fe2f975daa706d8b6cdc77f.png",
+    "sha256": "cb604e73e773f40fafba7e9778cfa175e292760c2fe2f975daa706d8b6cdc77f",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/cb604e73e773f40fafba7e9778cfa175e292760c2fe2f975daa706d8b6cdc77f.png"
+  },
+  {
+    "id": " 0004",
+    "name": "幸运星",
+    "file": "8003fbf66a45a897de01d06b7ac6cc4f8634e93ad28f645b91a889b7b393a891.png",
+    "sha256": "8003fbf66a45a897de01d06b7ac6cc4f8634e93ad28f645b91a889b7b393a891",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/8003fbf66a45a897de01d06b7ac6cc4f8634e93ad28f645b91a889b7b393a891.png"
+  },
+  {
+    "id": " 0003",
+    "name": "忘川",
+    "file": "d2c07623a05910cef397ebe77ea9517cc272ce5dbd6e99db85e676370394109a.png",
+    "sha256": "d2c07623a05910cef397ebe77ea9517cc272ce5dbd6e99db85e676370394109a",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/d2c07623a05910cef397ebe77ea9517cc272ce5dbd6e99db85e676370394109a.png"
+  },
+  {
+    "id": " 0001",
+    "name": "探戈",
+    "file": "71bac61a16aef347c81a38210e90520e719b0ac1616faf0b06ed494eebded9db.png",
+    "sha256": "71bac61a16aef347c81a38210e90520e719b0ac1616faf0b06ed494eebded9db",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/71bac61a16aef347c81a38210e90520e719b0ac1616faf0b06ed494eebded9db.png"
+  },
+  {
+    "id": " 0002",
+    "name": "病房监控",
+    "file": "3b8bf7b9c09e79e51f247b57237968688075f0d639187cbada6d84e758ee96a8.png",
+    "sha256": "3b8bf7b9c09e79e51f247b57237968688075f0d639187cbada6d84e758ee96a8",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/3b8bf7b9c09e79e51f247b57237968688075f0d639187cbada6d84e758ee96a8.png"
+  },
+  {
+    "id": " 031",
+    "name": "女武神",
+    "file": "1e55a9c13a39cf1c4905eb8f3537769c8287c5893b6e2ccd7c532dd20ad56883.png",
+    "sha256": "1e55a9c13a39cf1c4905eb8f3537769c8287c5893b6e2ccd7c532dd20ad56883",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/1e55a9c13a39cf1c4905eb8f3537769c8287c5893b6e2ccd7c532dd20ad56883.png"
+  },
+  {
+    "id": "yuxinshi_juanbing",
+    "name": "羽信使",
+    "file": "6c18c0bda64bab76fa5c5bda112051fba4c7f661411219ffa535cba976445b73.png",
+    "sha256": "6c18c0bda64bab76fa5c5bda112051fba4c7f661411219ffa535cba976445b73",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/6c18c0bda64bab76fa5c5bda112051fba4c7f661411219ffa535cba976445b73.png"
+  },
+  {
+    "id": "waijiaoguan_yanyumengxi",
+    "name": "外交官",
+    "file": "1a0b2f8a3cdf6032c749f13402ee31c2a464a3312285c185b95e5759965533e6.png",
+    "sha256": "1a0b2f8a3cdf6032c749f13402ee31c2a464a3312285c185b95e5759965533e6",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/1a0b2f8a3cdf6032c749f13402ee31c2a464a3312285c185b95e5759965533e6.png"
+  },
+  {
+    "id": "linghangyuan_heixing",
+    "name": "领航员",
+    "file": "adb71494a46ca085d33af2b8e90c97f31573482a8ebca5f3c69d91c04d42aa21.png",
+    "sha256": "adb71494a46ca085d33af2b8e90c97f31573482a8ebca5f3c69d91c04d42aa21",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/adb71494a46ca085d33af2b8e90c97f31573482a8ebca5f3c69d91c04d42aa21.png"
+  },
+  {
+    "id": "beidaozhe_coambar",
+    "name": "悲悼者",
+    "file": "ccd1bc7826b407930e724537cbcc1e413f4f517f5459c4283e272d226fc68475.png",
+    "sha256": "ccd1bc7826b407930e724537cbcc1e413f4f517f5459c4283e272d226fc68475",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/ccd1bc7826b407930e724537cbcc1e413f4f517f5459c4283e272d226fc68475.png"
+  },
+  {
+    "id": "shuizhanshi_zhiyanzhongbiaojiang",
+    "name": "水占师",
+    "file": "6e4a4c6a8c9933ad84cd7b895f8918ad5648030ff854927e03af8e0853060582.png",
+    "sha256": "6e4a4c6a8c9933ad84cd7b895f8918ad5648030ff854927e03af8e0853060582",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/6e4a4c6a8c9933ad84cd7b895f8918ad5648030ff854927e03af8e0853060582.png"
+  },
+  {
+    "id": "shouyaoren_tixianzhengke",
+    "name": "守钥人",
+    "file": "68d8bdb1f5078df0ee8f565b99369a6cfd16f15a036c444f263cc70a78f4f12a.png",
+    "sha256": "68d8bdb1f5078df0ee8f565b99369a6cfd16f15a036c444f263cc70a78f4f12a",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/68d8bdb1f5078df0ee8f565b99369a6cfd16f15a036c444f263cc70a78f4f12a.png"
+  },
+  {
+    "id": "hezhongmao_kaka",
+    "name": "盒中猫",
+    "file": "1d9cbc413d898ae73563c1152dfdf9701457da15408983f6ecbe6c5841aca09a.png",
+    "sha256": "1d9cbc413d898ae73563c1152dfdf9701457da15408983f6ecbe6c5841aca09a",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/1d9cbc413d898ae73563c1152dfdf9701457da15408983f6ecbe6c5841aca09a.png"
+  },
+  {
+    "id": "luxiangxuejia_zhangshunfeng",
+    "name": "颅相学家",
+    "file": "b6fa9f2c060de949c351225b8237124f9c29e9cb5fbcbc67e8040b91c96f29b6.png",
+    "sha256": "b6fa9f2c060de949c351225b8237124f9c29e9cb5fbcbc67e8040b91c96f29b6",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/b6fa9f2c060de949c351225b8237124f9c29e9cb5fbcbc67e8040b91c96f29b6.png"
+  },
+  {
+    "id": "anubisi_xiaolong",
+    "name": "阿努比斯",
+    "file": "a0159fd2ca1ae17782d38205073538be668c176b303fb0473a5bd3a8dead9e97.png",
+    "sha256": "a0159fd2ca1ae17782d38205073538be668c176b303fb0473a5bd3a8dead9e97",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/a0159fd2ca1ae17782d38205073538be668c176b303fb0473a5bd3a8dead9e97.png"
+  },
+  {
+    "id": "zhanzhengjisi_xiaoxic2h43g",
+    "name": "战争祭司",
+    "file": "806ebb49daed4ae86c9a3793e6d05d19e84114ec280774a97ff4374c7e681be6.png",
+    "sha256": "806ebb49daed4ae86c9a3793e6d05d19e84114ec280774a97ff4374c7e681be6",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/806ebb49daed4ae86c9a3793e6d05d19e84114ec280774a97ff4374c7e681be6.png"
+  },
+  {
+    "id": "kaoguxuejia_tiexuecuicuisha",
+    "name": "考古学家",
+    "file": "6bd125a1c9774ffc3540f2da3a55f5e3b336435984671bc7e88e0eace68e279f.png",
+    "sha256": "6bd125a1c9774ffc3540f2da3a55f5e3b336435984671bc7e88e0eace68e279f",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/6bd125a1c9774ffc3540f2da3a55f5e3b336435984671bc7e88e0eace68e279f.png"
+  },
+  {
+    "id": "mimaxuejia_axi",
+    "name": "密码学家",
+    "file": "446c06ba502c3577499c84ffbf23d6ccad7fa08403e49b097c3a374834f6ca2f.png",
+    "sha256": "446c06ba502c3577499c84ffbf23d6ccad7fa08403e49b097c3a374834f6ca2f",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/446c06ba502c3577499c84ffbf23d6ccad7fa08403e49b097c3a374834f6ca2f.png"
+  },
+  {
+    "id": "diantiguanliyuan_zz",
+    "name": "电梯管理员",
+    "file": "c32832d026010fccc4dfee27cd22a748c5ea89abe9dab6ac722e0e7908c275db.png",
+    "sha256": "c32832d026010fccc4dfee27cd22a748c5ea89abe9dab6ac722e0e7908c275db",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/c32832d026010fccc4dfee27cd22a748c5ea89abe9dab6ac722e0e7908c275db.png"
+  },
+  {
+    "id": "geduo_tixianzhengke",
+    "name": "鸽多",
+    "file": "54c23f566bc2f797f93334fb62e66c601a898e3812763ef24c43eaa53a3431d3.png",
+    "sha256": "54c23f566bc2f797f93334fb62e66c601a898e3812763ef24c43eaa53a3431d3",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/54c23f566bc2f797f93334fb62e66c601a898e3812763ef24c43eaa53a3431d3.png"
+  },
+  {
+    "id": "shengkongdeng_shanxueyuzhu",
+    "name": "声控灯",
+    "file": "f8fad9f000b0dd2fe7b2de81c5eb9dd1026420c08a0f4c4f2c4c87d4ada0d8c9.png",
+    "sha256": "f8fad9f000b0dd2fe7b2de81c5eb9dd1026420c08a0f4c4f2c4c87d4ada0d8c9",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/f8fad9f000b0dd2fe7b2de81c5eb9dd1026420c08a0f4c4f2c4c87d4ada0d8c9.png"
+  },
+  {
+    "id": "chuanyuezhe_jichen",
+    "name": "穿越者",
+    "file": "0dbab393823367824888b2161ebf013bf4e306e8a985cbb2605d1b3df15a7ff1.png",
+    "sha256": "0dbab393823367824888b2161ebf013bf4e306e8a985cbb2605d1b3df15a7ff1",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/0dbab393823367824888b2161ebf013bf4e306e8a985cbb2605d1b3df15a7ff1.png"
+  },
+  {
+    "id": "dipinglunzhe_heixing",
+    "name": "地平论者",
+    "file": "fa0b67f720a3fa6bc8c707ff5971dc10f4dce5b8b7ca567e5924c89ad6247766.png",
+    "sha256": "fa0b67f720a3fa6bc8c707ff5971dc10f4dce5b8b7ca567e5924c89ad6247766",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/fa0b67f720a3fa6bc8c707ff5971dc10f4dce5b8b7ca567e5924c89ad6247766.png"
+  },
+  {
+    "id": "beiguanzhuyizhe_zyz",
+    "name": "悲观主义者",
+    "file": "3f86e53254c43e7bf3f195eecb2179940e0249c5e82e0c213b3ba00d313710bf.png",
+    "sha256": "3f86e53254c43e7bf3f195eecb2179940e0249c5e82e0c213b3ba00d313710bf",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/3f86e53254c43e7bf3f195eecb2179940e0249c5e82e0c213b3ba00d313710bf.png"
+  },
+  {
+    "id": "emu_chiyu",
+    "name": "蛾母",
+    "file": "b40eed23125b1cbe695d3b8cf85e8a369f56d2a1fc135fe7dbf3aa5166ccad3d.png",
+    "sha256": "b40eed23125b1cbe695d3b8cf85e8a369f56d2a1fc135fe7dbf3aa5166ccad3d",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/b40eed23125b1cbe695d3b8cf85e8a369f56d2a1fc135fe7dbf3aa5166ccad3d.png"
+  },
+  {
+    "id": "lajiao_kaka",
+    "name": "“辣椒”",
+    "file": "0637fe3b162864500fb0f7f62ce1a405d05e7a07aae439a516d0f8f9889441d4.png",
+    "sha256": "0637fe3b162864500fb0f7f62ce1a405d05e7a07aae439a516d0f8f9889441d4",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/0637fe3b162864500fb0f7f62ce1a405d05e7a07aae439a516d0f8f9889441d4.png"
+  },
+  {
+    "id": "shandongzhe_dongyu",
+    "name": "煽动者",
+    "file": "3a3ea307ec2731d46f413874aaf32f1b81bdd04cdc0e26e77cdef5629368775c.png",
+    "sha256": "3a3ea307ec2731d46f413874aaf32f1b81bdd04cdc0e26e77cdef5629368775c",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/3a3ea307ec2731d46f413874aaf32f1b81bdd04cdc0e26e77cdef5629368775c.png"
+  },
+  {
+    "id": "guanzhongtaier_Naglfar",
+    "name": "罐中胎儿",
+    "file": "5c2b14bf8cc4dfeca11e90e7a752be72954572034107f5c8574918dcf77ab3a5.png",
+    "sha256": "5c2b14bf8cc4dfeca11e90e7a752be72954572034107f5c8574918dcf77ab3a5",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/5c2b14bf8cc4dfeca11e90e7a752be72954572034107f5c8574918dcf77ab3a5.png"
+  },
+  {
+    "id": "dingxuwangzi_jichen",
+    "name": "定序王子",
+    "file": "89a0fea02abceda0df4517b06de6a1bc35b964a9fb8a069ad3e50778af3b1b66.png",
+    "sha256": "89a0fea02abceda0df4517b06de6a1bc35b964a9fb8a069ad3e50778af3b1b66",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/89a0fea02abceda0df4517b06de6a1bc35b964a9fb8a069ad3e50778af3b1b66.png"
+  },
+  {
+    "id": "shenzhangzhifu_baibianxjun",
+    "name": "神杖之父",
+    "file": "aea47a7944b7dab02b290e6450b50a6be3ea45f83591b4ad60c52f70698c11f4.png",
+    "sha256": "aea47a7944b7dab02b290e6450b50a6be3ea45f83591b4ad60c52f70698c11f4",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/aea47a7944b7dab02b290e6450b50a6be3ea45f83591b4ad60c52f70698c11f4.png"
+  },
+  {
+    "id": "zhongli_tixianzhengke",
+    "name": "重力",
+    "file": "9590c30b9ac05cdd88acdd1707fec34b1bb0655e026fc9475d7904f0b782b3ed.png",
+    "sha256": "9590c30b9ac05cdd88acdd1707fec34b1bb0655e026fc9475d7904f0b782b3ed",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/9590c30b9ac05cdd88acdd1707fec34b1bb0655e026fc9475d7904f0b782b3ed.png"
+  },
+  {
+    "id": "jielv_xiaoxic2h43g",
+    "name": "戒律",
+    "file": "a9aaf03d4b0d6ea0fd6c651b48315f397d90909878eedb96bb44e9ce94ea788a.png",
+    "sha256": "a9aaf03d4b0d6ea0fd6c651b48315f397d90909878eedb96bb44e9ce94ea788a",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/a9aaf03d4b0d6ea0fd6c651b48315f397d90909878eedb96bb44e9ce94ea788a.png"
+  },
+  {
+    "id": "shengcai_shenqierxuesonger",
+    "name": "圣裁",
+    "file": "57f00599bbf6b20d037e3b73dde01a8ad7b31655adb2812912e40993d12bd03b.png",
+    "sha256": "57f00599bbf6b20d037e3b73dde01a8ad7b31655adb2812912e40993d12bd03b",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/57f00599bbf6b20d037e3b73dde01a8ad7b31655adb2812912e40993d12bd03b.png"
+  },
+  {
+    "id": "shenyuan_jichen",
+    "name": "深渊",
+    "file": "c281afedb27306d0453875fcfda7787e708ab34c7cd92986a0d6e669df9c0f8e.png",
+    "sha256": "c281afedb27306d0453875fcfda7787e708ab34c7cd92986a0d6e669df9c0f8e",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/c281afedb27306d0453875fcfda7787e708ab34c7cd92986a0d6e669df9c0f8e.png"
+  },
+  {
+    "id": "meiying_suziye",
+    "name": "魅影",
+    "file": "ca14126bf2c435583752609dc1aa5c9b377d0eec6b914982da2a2cba81008a2a.png",
+    "sha256": "ca14126bf2c435583752609dc1aa5c9b377d0eec6b914982da2a2cba81008a2a",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/ca14126bf2c435583752609dc1aa5c9b377d0eec6b914982da2a2cba81008a2a.png"
+  },
+  {
+    "id": "xunbaotuan_zz_xianxia",
+    "name": "寻宝团（线下）",
+    "file": "4482a881408a0f976a11da68bd00b0ba9047048ee340c24997279fbf1a0eb6f7.png",
+    "sha256": "4482a881408a0f976a11da68bd00b0ba9047048ee340c24997279fbf1a0eb6f7",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/4482a881408a0f976a11da68bd00b0ba9047048ee340c24997279fbf1a0eb6f7.png"
+  },
+  {
+    "id": "xunbaotuan_zz_xianshang",
+    "name": "寻宝团（线上）",
+    "file": "4482a881408a0f976a11da68bd00b0ba9047048ee340c24997279fbf1a0eb6f7.png",
+    "sha256": "4482a881408a0f976a11da68bd00b0ba9047048ee340c24997279fbf1a0eb6f7",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/4482a881408a0f976a11da68bd00b0ba9047048ee340c24997279fbf1a0eb6f7.png"
+  },
+  {
+    "id": "pingxingshikong_jichen",
+    "name": "平行时空",
+    "file": "9e0220e998cdac315d18f64a687ad6b2f338e5bab6c819cd77c791857707f42c.png",
+    "sha256": "9e0220e998cdac315d18f64a687ad6b2f338e5bab6c819cd77c791857707f42c",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/9e0220e998cdac315d18f64a687ad6b2f338e5bab6c819cd77c791857707f42c.png"
+  },
+  {
+    "id": "yueshi_heibaixiong",
+    "name": "乐师",
+    "file": "803fb2f6f2d7e8f4de46d6aa52a0f9e1f2b6306c70a51b8eea812197d2797428.png",
+    "sha256": "803fb2f6f2d7e8f4de46d6aa52a0f9e1f2b6306c70a51b8eea812197d2797428",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/803fb2f6f2d7e8f4de46d6aa52a0f9e1f2b6306c70a51b8eea812197d2797428.png"
+  },
+  {
+    "id": "naokongzhe_tixianzhengke",
+    "name": "脑控者",
+    "file": "757851bdc56647ad2b161317d5a051393f886c9ecfac83a8ba2c7046eac94ff4.png",
+    "sha256": "757851bdc56647ad2b161317d5a051393f886c9ecfac83a8ba2c7046eac94ff4",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/757851bdc56647ad2b161317d5a051393f886c9ecfac83a8ba2c7046eac94ff4.png"
+  },
+  {
+    "id": "taluozhanbushi_shenqiheixing",
+    "name": "塔罗占卜师",
+    "file": "d0298d17b863b9b00a1876fed59925335dd2a65beea20bb31f6bda7ade3155a6.png",
+    "sha256": "d0298d17b863b9b00a1876fed59925335dd2a65beea20bb31f6bda7ade3155a6",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/d0298d17b863b9b00a1876fed59925335dd2a65beea20bb31f6bda7ade3155a6.png"
+  },
+  {
+    "id": "yong_meiyouzanzhu",
+    "name": "蛹",
+    "file": "7c9cf3fcbab9d1713439058845ec80f3d553a1146cafb7e7ef914d6878381c84.png",
+    "sha256": "7c9cf3fcbab9d1713439058845ec80f3d553a1146cafb7e7ef914d6878381c84",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/7c9cf3fcbab9d1713439058845ec80f3d553a1146cafb7e7ef914d6878381c84.png"
+  },
+  {
+    "id": "maomaojuntuan_meiyouzanzhu",
+    "name": "猫猫军团",
+    "file": "7789c2c976c6cee78a530ac401f90ff235d088873b6c41caabc15f26006ced50.png",
+    "sha256": "7789c2c976c6cee78a530ac401f90ff235d088873b6c41caabc15f26006ced50",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/7789c2c976c6cee78a530ac401f90ff235d088873b6c41caabc15f26006ced50.png"
+  },
+  {
+    "id": "fengyi_meiyouzanzhu",
+    "name": "凤翼",
+    "file": "fab6ba9c7e0c8ab4d2df3c63ef1ea85b6bbd507622b75a429b3991f4bddf3ee3.png",
+    "sha256": "fab6ba9c7e0c8ab4d2df3c63ef1ea85b6bbd507622b75a429b3991f4bddf3ee3",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/fab6ba9c7e0c8ab4d2df3c63ef1ea85b6bbd507622b75a429b3991f4bddf3ee3.png"
+  },
+  {
+    "id": "f1431400-3621-4729-84b4-baaece0ac86e",
+    "name": "芭蕾舞者",
+    "file": "07f52ad07d52811ac3d47fddb2acd7733e7b9991d444893ac286d06321c64faa.png",
+    "sha256": "07f52ad07d52811ac3d47fddb2acd7733e7b9991d444893ac286d06321c64faa",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/07f52ad07d52811ac3d47fddb2acd7733e7b9991d444893ac286d06321c64faa.png"
+  },
+  {
+    "id": "blacksmith",
+    "name": "铁匠",
+    "file": "9d63714c495608318710450a63a50922cd9be55c96a07359b64c4ad33c618f3e.png",
+    "sha256": "9d63714c495608318710450a63a50922cd9be55c96a07359b64c4ad33c618f3e",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/9d63714c495608318710450a63a50922cd9be55c96a07359b64c4ad33c618f3e.png"
+  },
+  {
+    "id": "_pirate",
+    "name": "海盗",
+    "file": "1b19f59ed6dcff28febb232af34a90d79e6de6b33ad094822d5847138515a809.png",
+    "sha256": "1b19f59ed6dcff28febb232af34a90d79e6de6b33ad094822d5847138515a809",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/1b19f59ed6dcff28febb232af34a90d79e6de6b33ad094822d5847138515a809.png"
+  },
+  {
+    "id": "yuque_194993459",
+    "name": "学者",
+    "file": "b37d60bf7786d729af7c555694f5f45110edb567dbc5c04bd8e90ac1876adbd0.png",
+    "sha256": "b37d60bf7786d729af7c555694f5f45110edb567dbc5c04bd8e90ac1876adbd0",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/b37d60bf7786d729af7c555694f5f45110edb567dbc5c04bd8e90ac1876adbd0.png"
+  },
+  {
+    "id": "yuque_194994783",
+    "name": "天才",
+    "file": "7581ccb3e0e85c1b4bae7166b2e184ac5bbbb9b35ed184ae15294fdb30dec5a3.png",
+    "sha256": "7581ccb3e0e85c1b4bae7166b2e184ac5bbbb9b35ed184ae15294fdb30dec5a3",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/7581ccb3e0e85c1b4bae7166b2e184ac5bbbb9b35ed184ae15294fdb30dec5a3.png"
+  },
+  {
+    "id": "yuque_194997552",
+    "name": "猎犬饲养员",
+    "file": "5ea145b270de15a81253be5c750fa4519f678af52c23f67a9b4583f8a0ed8ed2.png",
+    "sha256": "5ea145b270de15a81253be5c750fa4519f678af52c23f67a9b4583f8a0ed8ed2",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/5ea145b270de15a81253be5c750fa4519f678af52c23f67a9b4583f8a0ed8ed2.png"
+  },
+  {
+    "id": "yuque_194998180",
+    "name": "放贷人",
+    "file": "052f506a12c6c50ac9f1fc1f504754334def9b0980b16e224541c0fbc5698a77.png",
+    "sha256": "052f506a12c6c50ac9f1fc1f504754334def9b0980b16e224541c0fbc5698a77",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/052f506a12c6c50ac9f1fc1f504754334def9b0980b16e224541c0fbc5698a77.png"
+  },
+  {
+    "id": "yuque_195006132",
+    "name": "诗人",
+    "file": "ef18e00dd971f1b93dc702344810cafb5787fb6a813e8d20f0a9be02411d332a.png",
+    "sha256": "ef18e00dd971f1b93dc702344810cafb5787fb6a813e8d20f0a9be02411d332a",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/ef18e00dd971f1b93dc702344810cafb5787fb6a813e8d20f0a9be02411d332a.png"
+  },
+  {
+    "id": "yuque_194996378",
+    "name": "少妇",
+    "file": "fed17772dd57f0919f62ed599593cd5da41b00789f46b3d2f5267424b74d68ec.png",
+    "sha256": "fed17772dd57f0919f62ed599593cd5da41b00789f46b3d2f5267424b74d68ec",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/fed17772dd57f0919f62ed599593cd5da41b00789f46b3d2f5267424b74d68ec.png"
+  },
+  {
+    "id": "yuque_194997234",
+    "name": "马厩男孩",
+    "file": "d4d26b7b285fc180b52891335d2fbbcb020d9215038403279db7d364afe4ca10.png",
+    "sha256": "d4d26b7b285fc180b52891335d2fbbcb020d9215038403279db7d364afe4ca10",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/d4d26b7b285fc180b52891335d2fbbcb020d9215038403279db7d364afe4ca10.png"
+  },
+  {
+    "id": "yuque_194997367",
+    "name": "猎巫人",
+    "file": "c17c1466ea9542ed4fe94bc476c1cf5a7b46ce6832dc28389e642f6e1302835a.png",
+    "sha256": "c17c1466ea9542ed4fe94bc476c1cf5a7b46ce6832dc28389e642f6e1302835a",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/c17c1466ea9542ed4fe94bc476c1cf5a7b46ce6832dc28389e642f6e1302835a.png"
+  },
+  {
+    "id": "hunter",
+    "name": "追猎者",
+    "file": "fed4578474af7e516039a8908cab4fd6ce1530254a03c50481633069a4ee34f1.png",
+    "sha256": "fed4578474af7e516039a8908cab4fd6ce1530254a03c50481633069a4ee34f1",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/fed4578474af7e516039a8908cab4fd6ce1530254a03c50481633069a4ee34f1.png"
+  },
+  {
+    "id": "yuque_194991406",
+    "name": "投机者",
+    "file": "d68a8a9cbe39bdbabfc537137997e8d260e414e81d8c5b434cae960a31c10214.png",
+    "sha256": "d68a8a9cbe39bdbabfc537137997e8d260e414e81d8c5b434cae960a31c10214",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/d68a8a9cbe39bdbabfc537137997e8d260e414e81d8c5b434cae960a31c10214.png"
+  },
+  {
+    "id": "yuque_194995528",
+    "name": "失眠者",
+    "file": "f71bbf96ee7237705bf749d098fb24af16f9104c6a72c2bdc145b25742dcdcbe.png",
+    "sha256": "f71bbf96ee7237705bf749d098fb24af16f9104c6a72c2bdc145b25742dcdcbe",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/f71bbf96ee7237705bf749d098fb24af16f9104c6a72c2bdc145b25742dcdcbe.png"
+  },
+  {
+    "id": "yuque_194998337",
+    "name": "大亨",
+    "file": "623ad595cbdb7a68539e79ac4a0c537c6b4731af1d2b846436f58cd37feed37f.png",
+    "sha256": "623ad595cbdb7a68539e79ac4a0c537c6b4731af1d2b846436f58cd37feed37f",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/623ad595cbdb7a68539e79ac4a0c537c6b4731af1d2b846436f58cd37feed37f.png"
+  },
+  {
+    "id": "yuque_194997610",
+    "name": "窥私者",
+    "file": "eeb563d7b2bd292ba327371ee18df2029c29791ef396f82ea305f6a823820af5.png",
+    "sha256": "eeb563d7b2bd292ba327371ee18df2029c29791ef396f82ea305f6a823820af5",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/eeb563d7b2bd292ba327371ee18df2029c29791ef396f82ea305f6a823820af5.png"
+  },
+  {
+    "id": "yuque_194993849",
+    "name": "占星师",
+    "file": "18be94548fb46239f66a16169a2b77b095c797baf8d315d7e15e5b2381ce58cd.png",
+    "sha256": "18be94548fb46239f66a16169a2b77b095c797baf8d315d7e15e5b2381ce58cd",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/18be94548fb46239f66a16169a2b77b095c797baf8d315d7e15e5b2381ce58cd.png"
+  },
+  {
+    "id": "yuque_194998403",
+    "name": "车夫",
+    "file": "ec4d0e1e3c624688b17950992c1ae625fb3d235c0c1b96f55ae59fea6a9b7ead.png",
+    "sha256": "ec4d0e1e3c624688b17950992c1ae625fb3d235c0c1b96f55ae59fea6a9b7ead",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/ec4d0e1e3c624688b17950992c1ae625fb3d235c0c1b96f55ae59fea6a9b7ead.png"
+  },
+  {
+    "id": "yuque_194998841",
+    "name": "悲剧演员",
+    "file": "7169f45f9d96d3a5bce8f125a0fc5980aaf33b41e99d32cc410cf7ccd3af2051.png",
+    "sha256": "7169f45f9d96d3a5bce8f125a0fc5980aaf33b41e99d32cc410cf7ccd3af2051",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/7169f45f9d96d3a5bce8f125a0fc5980aaf33b41e99d32cc410cf7ccd3af2051.png"
+  },
+  {
+    "id": "yuque_194992662",
+    "name": "药剂师",
+    "file": "31a178d48e962786b956b160962a84940a88d1a17166aec9f9ad0d2dc1c04a4a.png",
+    "sha256": "31a178d48e962786b956b160962a84940a88d1a17166aec9f9ad0d2dc1c04a4a",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/31a178d48e962786b956b160962a84940a88d1a17166aec9f9ad0d2dc1c04a4a.png"
+  },
+  {
+    "id": "safeguard",
+    "name": "保镖",
+    "file": "f666ac1aa404776c708f468ceacbbe38224fff94593cbb22de7e4d0db017adc5.png",
+    "sha256": "f666ac1aa404776c708f468ceacbbe38224fff94593cbb22de7e4d0db017adc5",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/f666ac1aa404776c708f468ceacbbe38224fff94593cbb22de7e4d0db017adc5.png"
+  },
+  {
+    "id": "yuque_194998370",
+    "name": "风笛手",
+    "file": "9e29e5a443fefa629d2acd67c638c104ce9b5e3ac85d2f4b77e5e4b2cb377335.png",
+    "sha256": "9e29e5a443fefa629d2acd67c638c104ce9b5e3ac85d2f4b77e5e4b2cb377335",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/9e29e5a443fefa629d2acd67c638c104ce9b5e3ac85d2f4b77e5e4b2cb377335.png"
+  },
+  {
+    "id": "yuque_194999096",
+    "name": "机修工",
+    "file": "ebfc2d72f553936c2e8e2f06bc2a9c9c76eb5d28292c3504448c5f6ac2031b28.png",
+    "sha256": "ebfc2d72f553936c2e8e2f06bc2a9c9c76eb5d28292c3504448c5f6ac2031b28",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/ebfc2d72f553936c2e8e2f06bc2a9c9c76eb5d28292c3504448c5f6ac2031b28.png"
+  },
+  {
+    "id": "yuque_194994054",
+    "name": "享乐主义者",
+    "file": "b34d0ab225c88dd4930137cbf26a9c563ffd84ea409607b062a161c4187bf069.png",
+    "sha256": "b34d0ab225c88dd4930137cbf26a9c563ffd84ea409607b062a161c4187bf069",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/b34d0ab225c88dd4930137cbf26a9c563ffd84ea409607b062a161c4187bf069.png"
+  },
+  {
+    "id": "yuque_194996433",
+    "name": "商人",
+    "file": "262c287f5c48b53a3c3764eed4813c700adeaac81070b855e6d3fa976085e042.png",
+    "sha256": "262c287f5c48b53a3c3764eed4813c700adeaac81070b855e6d3fa976085e042",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/262c287f5c48b53a3c3764eed4813c700adeaac81070b855e6d3fa976085e042.png"
+  },
+  {
+    "id": "yuque_194993985",
+    "name": "邮差",
+    "file": "d0e28cf5daed04682a0f72db7e1bb814265092ae18c33d55c6a111f9d5becbd8.png",
+    "sha256": "d0e28cf5daed04682a0f72db7e1bb814265092ae18c33d55c6a111f9d5becbd8",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/d0e28cf5daed04682a0f72db7e1bb814265092ae18c33d55c6a111f9d5becbd8.png"
+  },
+  {
+    "id": "yuque_194996844",
+    "name": "内奸",
+    "file": "53af0e4c4acac91016b48b1947c637f985fc49af2b16e3a1eaa4ab79a974f425.png",
+    "sha256": "53af0e4c4acac91016b48b1947c637f985fc49af2b16e3a1eaa4ab79a974f425",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/53af0e4c4acac91016b48b1947c637f985fc49af2b16e3a1eaa4ab79a974f425.png"
+  },
+  {
+    "id": "yuque_194993756",
+    "name": "修女",
+    "file": "73898f0859a293692e8661f2a0cb534151b8e118749851b34daa5952d2d4fd2b.png",
+    "sha256": "73898f0859a293692e8661f2a0cb534151b8e118749851b34daa5952d2d4fd2b",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/73898f0859a293692e8661f2a0cb534151b8e118749851b34daa5952d2d4fd2b.png"
+  },
+  {
+    "id": "yuque_194998069",
+    "name": "凤凰",
+    "file": "f4b4e236cba6f07f73f341024f3737f5f2b2e10f7012dfb5dd3831e66f098844.png",
+    "sha256": "f4b4e236cba6f07f73f341024f3737f5f2b2e10f7012dfb5dd3831e66f098844",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/f4b4e236cba6f07f73f341024f3737f5f2b2e10f7012dfb5dd3831e66f098844.png"
+  },
+  {
+    "id": "yuque_194996483",
+    "name": "女王",
+    "file": "bb60c5054410f1a91f86ce7df7921663adeb573daa514e38fd3e7e927b8b2c8e.png",
+    "sha256": "bb60c5054410f1a91f86ce7df7921663adeb573daa514e38fd3e7e927b8b2c8e",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/bb60c5054410f1a91f86ce7df7921663adeb573daa514e38fd3e7e927b8b2c8e.png"
+  },
+  {
+    "id": "yuque_194990970",
+    "name": "大力士",
+    "file": "95f7b8333faa84f5ee0223a322abe08220f2eaac0f337fdc787769f947f6f611.png",
+    "sha256": "95f7b8333faa84f5ee0223a322abe08220f2eaac0f337fdc787769f947f6f611",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/95f7b8333faa84f5ee0223a322abe08220f2eaac0f337fdc787769f947f6f611.png"
+  },
+  {
+    "id": "yuque_194996775",
+    "name": "女家教",
+    "file": "4aa822dfc209ede889c48e7c8cd389f83137c3005098ec696ea57607a689cc82.png",
+    "sha256": "4aa822dfc209ede889c48e7c8cd389f83137c3005098ec696ea57607a689cc82",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/4aa822dfc209ede889c48e7c8cd389f83137c3005098ec696ea57607a689cc82.png"
+  },
+  {
+    "id": "yuque_194994342",
+    "name": "流氓",
+    "file": "51f324c3301eff1587955cfe2d69f1c5ffb9986ae25001abca9a2c2dcb2ffc94.png",
+    "sha256": "51f324c3301eff1587955cfe2d69f1c5ffb9986ae25001abca9a2c2dcb2ffc94",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/51f324c3301eff1587955cfe2d69f1c5ffb9986ae25001abca9a2c2dcb2ffc94.png"
+  },
+  {
+    "id": "yuque_199017439",
+    "name": "幻形妖",
+    "file": "98245a9bbdc9abc9cb1d76a8a76c8b8db7f4600924dfe28404be24b030eb0d36.png",
+    "sha256": "98245a9bbdc9abc9cb1d76a8a76c8b8db7f4600924dfe28404be24b030eb0d36",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/98245a9bbdc9abc9cb1d76a8a76c8b8db7f4600924dfe28404be24b030eb0d36.png"
+  },
+  {
+    "id": "yuque_200002972",
+    "name": "讲师",
+    "file": "f622798b098ec5e9f271a155890c67f2ab2f1d6dced779be496eef2081bde1b6.png",
+    "sha256": "f622798b098ec5e9f271a155890c67f2ab2f1d6dced779be496eef2081bde1b6",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/f622798b098ec5e9f271a155890c67f2ab2f1d6dced779be496eef2081bde1b6.png"
+  },
+  {
+    "id": "yuque_199017430",
+    "name": "面包师",
+    "file": "42589084c803b05e42c4df0cf8e628af3c06d8672ea9efeedc5ea169577346c7.png",
+    "sha256": "42589084c803b05e42c4df0cf8e628af3c06d8672ea9efeedc5ea169577346c7",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/42589084c803b05e42c4df0cf8e628af3c06d8672ea9efeedc5ea169577346c7.png"
+  },
+  {
+    "id": "yuque_194998913",
+    "name": "保姆",
+    "file": "0345b957e734909cfb13dff020b2cee6d42a5edc3494fa18af4bffbd17ac302e.png",
+    "sha256": "0345b957e734909cfb13dff020b2cee6d42a5edc3494fa18af4bffbd17ac302e",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/0345b957e734909cfb13dff020b2cee6d42a5edc3494fa18af4bffbd17ac302e.png"
+  },
+  {
+    "id": "_prospector",
+    "name": "勘探者",
+    "file": "ddbf6caf1383efd8f699784ab1010b538bd63d94af00bceb9fe3597f47351729.png",
+    "sha256": "ddbf6caf1383efd8f699784ab1010b538bd63d94af00bceb9fe3597f47351729",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/ddbf6caf1383efd8f699784ab1010b538bd63d94af00bceb9fe3597f47351729.png"
+  },
+  {
+    "id": "yuque_194996557",
+    "name": "女教师",
+    "file": "37a53752b657024edde2adf183df8c8d336b2f8a20635a3fdbb22299e08b36e8.png",
+    "sha256": "37a53752b657024edde2adf183df8c8d336b2f8a20635a3fdbb22299e08b36e8",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/37a53752b657024edde2adf183df8c8d336b2f8a20635a3fdbb22299e08b36e8.png"
+  },
+  {
+    "id": "yuque_194994873",
+    "name": "清道夫",
+    "file": "0f77c9c69e7979ebaa96a1f42369db9f62bfda80e12b042221f9441b7c56b1a9.png",
+    "sha256": "0f77c9c69e7979ebaa96a1f42369db9f62bfda80e12b042221f9441b7c56b1a9",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/0f77c9c69e7979ebaa96a1f42369db9f62bfda80e12b042221f9441b7c56b1a9.png"
+  },
+  {
+    "id": "yuque_194996332",
+    "name": "审计员",
+    "file": "0e946bf523840cad7c5424b8806150608bf79f8eebf8004896ab139007a6923e.png",
+    "sha256": "0e946bf523840cad7c5424b8806150608bf79f8eebf8004896ab139007a6923e",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/0e946bf523840cad7c5424b8806150608bf79f8eebf8004896ab139007a6923e.png"
+  },
+  {
+    "id": "yuque_194994826",
+    "name": "手相师",
+    "file": "f5ed7c4715f1df40c5c9ed115b054026ee01c0588882537f5b7957dca7c5dfaa.png",
+    "sha256": "f5ed7c4715f1df40c5c9ed115b054026ee01c0588882537f5b7957dca7c5dfaa",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/f5ed7c4715f1df40c5c9ed115b054026ee01c0588882537f5b7957dca7c5dfaa.png"
+  },
+  {
+    "id": "yuque_194993350",
+    "name": "驯狮人",
+    "file": "467a4e91c4330ee4e9992bc9c11110331310b547b503750dd45deeb559a00939.png",
+    "sha256": "467a4e91c4330ee4e9992bc9c11110331310b547b503750dd45deeb559a00939",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/467a4e91c4330ee4e9992bc9c11110331310b547b503750dd45deeb559a00939.png"
+  },
+  {
+    "id": "yuque_194998318",
+    "name": "德鲁伊",
+    "file": "2496e1f91d374a602bd584ecb43b6a2b9fefce038231c1094e4c09f174e798f5.png",
+    "sha256": "2496e1f91d374a602bd584ecb43b6a2b9fefce038231c1094e4c09f174e798f5",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/2496e1f91d374a602bd584ecb43b6a2b9fefce038231c1094e4c09f174e798f5.png"
+  },
+  {
+    "id": "yuque_194998735",
+    "name": "病患",
+    "file": "9bcbb7b1cfdb3cc237b1ee53cbf98c3a75eb7ec89f1e3d589a3c027262e191d5.png",
+    "sha256": "9bcbb7b1cfdb3cc237b1ee53cbf98c3a75eb7ec89f1e3d589a3c027262e191d5",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/9bcbb7b1cfdb3cc237b1ee53cbf98c3a75eb7ec89f1e3d589a3c027262e191d5.png"
+  },
+  {
+    "id": "yuque_199017906",
+    "name": "不信教者",
+    "file": "25e377d7548fe3dec79179acf53935a33d7850ded892f503377dac2c731b8dcf.png",
+    "sha256": "25e377d7548fe3dec79179acf53935a33d7850ded892f503377dac2c731b8dcf",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/25e377d7548fe3dec79179acf53935a33d7850ded892f503377dac2c731b8dcf.png"
+  },
+  {
+    "id": "yuque_194994636",
+    "name": "外交官",
+    "file": "312227cae9d1c9dc89f2319a5cb191593348e31f29f68155642074e7f2d95885.png",
+    "sha256": "312227cae9d1c9dc89f2319a5cb191593348e31f29f68155642074e7f2d95885",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/312227cae9d1c9dc89f2319a5cb191593348e31f29f68155642074e7f2d95885.png"
+  },
+  {
+    "id": "yuque_194997781",
+    "name": "媒人",
+    "file": "8d5a0a5b775cbabca525c1efe5e8efb5033d536e5518be17a7068ffc0f4d29cd.png",
+    "sha256": "8d5a0a5b775cbabca525c1efe5e8efb5033d536e5518be17a7068ffc0f4d29cd",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/8d5a0a5b775cbabca525c1efe5e8efb5033d536e5518be17a7068ffc0f4d29cd.png"
+  },
+  {
+    "id": "yuque_194998023",
+    "name": "绞刑吏",
+    "file": "43630dafb7d992f224a1191fc4eb0b59a3d95d5456194e00324930d70b06cc02.png",
+    "sha256": "43630dafb7d992f224a1191fc4eb0b59a3d95d5456194e00324930d70b06cc02",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/43630dafb7d992f224a1191fc4eb0b59a3d95d5456194e00324930d70b06cc02.png"
+  },
+  {
+    "id": "yuque_194994495",
+    "name": "王子",
+    "file": "e74fffb818f9030112dd24303af9437933b87c8a349cde858ba9f41d13e678a1.png",
+    "sha256": "e74fffb818f9030112dd24303af9437933b87c8a349cde858ba9f41d13e678a1",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/e74fffb818f9030112dd24303af9437933b87c8a349cde858ba9f41d13e678a1.png"
+  },
+  {
+    "id": "yuque_194994258",
+    "name": "先知",
+    "file": "8cbb1824542bccf1a5bc9e1d459ac9dba1908f56746035ded6d2fc02d827d813.png",
+    "sha256": "8cbb1824542bccf1a5bc9e1d459ac9dba1908f56746035ded6d2fc02d827d813",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/8cbb1824542bccf1a5bc9e1d459ac9dba1908f56746035ded6d2fc02d827d813.png"
+  },
+  {
+    "id": "yuque_199017444",
+    "name": "麻风病人",
+    "file": "b3a7ef22056bac7eed8c14426bb322bae5125c456c090b2bada7f95ebc3bff46.png",
+    "sha256": "b3a7ef22056bac7eed8c14426bb322bae5125c456c090b2bada7f95ebc3bff46",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/b3a7ef22056bac7eed8c14426bb322bae5125c456c090b2bada7f95ebc3bff46.png"
+  },
+  {
+    "id": "yuque_199017433",
+    "name": "摩门教徒",
+    "file": "4bb5f05c84f9ec48b69e98aea69c7f57554965199c662d98e3b83c8e8f4918c4.png",
+    "sha256": "4bb5f05c84f9ec48b69e98aea69c7f57554965199c662d98e3b83c8e8f4918c4",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/4bb5f05c84f9ec48b69e98aea69c7f57554965199c662d98e3b83c8e8f4918c4.png"
+  },
+  {
+    "id": "yuque_194993210",
+    "name": "养蜂人",
+    "file": "bde7d28e2b78e837eb146a645cb95f3c13386cf167311d98daebf07a91756a59.png",
+    "sha256": "bde7d28e2b78e837eb146a645cb95f3c13386cf167311d98daebf07a91756a59",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/bde7d28e2b78e837eb146a645cb95f3c13386cf167311d98daebf07a91756a59.png"
+  },
+  {
+    "id": "yuque_194992504",
+    "name": "庸医",
+    "file": "64fdd520917fa1d472a04f91280955d18dc620583578a71a2f9e348f1bbc8ad8.png",
+    "sha256": "64fdd520917fa1d472a04f91280955d18dc620583578a71a2f9e348f1bbc8ad8",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/64fdd520917fa1d472a04f91280955d18dc620583578a71a2f9e348f1bbc8ad8.png"
+  },
+  {
+    "id": "yuque_199017447",
+    "name": "箍桶匠",
+    "file": "61eced14721d63c4c6e4db226cd94378be799f0da535a83513d97f4c3332e583.png",
+    "sha256": "61eced14721d63c4c6e4db226cd94378be799f0da535a83513d97f4c3332e583",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/61eced14721d63c4c6e4db226cd94378be799f0da535a83513d97f4c3332e583.png"
+  },
+  {
+    "id": "yuque_208120049",
+    "name": "巡林客",
+    "file": "ff85f96ff42dbcaad39487998ef08e2d9a8031018fd6ed75b77d7170878f66af.png",
+    "sha256": "ff85f96ff42dbcaad39487998ef08e2d9a8031018fd6ed75b77d7170878f66af",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/ff85f96ff42dbcaad39487998ef08e2d9a8031018fd6ed75b77d7170878f66af.png"
+  },
+  {
+    "id": "goldsmith_button",
+    "name": "金匠",
+    "file": "d2e03b2338578dcd4e4cbdfb72149b331fa66953beb243bfd451a253a7bb64e9.png",
+    "sha256": "d2e03b2338578dcd4e4cbdfb72149b331fa66953beb243bfd451a253a7bb64e9",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/d2e03b2338578dcd4e4cbdfb72149b331fa66953beb243bfd451a253a7bb64e9.png"
+  },
+  {
+    "id": "yuque_199958012",
+    "name": "小说家",
+    "file": "fc9161322a89ffac51210fbab5f9bb0d117ff9c82cec4f4311577b1fcf6ed118.png",
+    "sha256": "fc9161322a89ffac51210fbab5f9bb0d117ff9c82cec4f4311577b1fcf6ed118",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/fc9161322a89ffac51210fbab5f9bb0d117ff9c82cec4f4311577b1fcf6ed118.png"
+  },
+  {
+    "id": "yuque_203549228",
+    "name": "香料商",
+    "file": "85d1e07ec55bace5b985db540f6b17a49a83251664dd89aa0b79e703003a134d.png",
+    "sha256": "85d1e07ec55bace5b985db540f6b17a49a83251664dd89aa0b79e703003a134d",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/85d1e07ec55bace5b985db540f6b17a49a83251664dd89aa0b79e703003a134d.png"
+  },
+  {
+    "id": "yuque_195001052",
+    "name": "隐修者",
+    "file": "d32d4f1a38a752d93db675e527197b38c61e0399110ecc9445d93249b9a50976.png",
+    "sha256": "d32d4f1a38a752d93db675e527197b38c61e0399110ecc9445d93249b9a50976",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/d32d4f1a38a752d93db675e527197b38c61e0399110ecc9445d93249b9a50976.png"
+  },
+  {
+    "id": "prisoner",
+    "name": "囚犯",
+    "file": "26934912f8071af491154b424d34dce48f41c184955dcba3ae6a6be49f12f2b4.png",
+    "sha256": "26934912f8071af491154b424d34dce48f41c184955dcba3ae6a6be49f12f2b4",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/26934912f8071af491154b424d34dce48f41c184955dcba3ae6a6be49f12f2b4.png"
+  },
+  {
+    "id": "yuque_195001367",
+    "name": "骗子",
+    "file": "d83e9449e70e89e0adecdf20717917064542db8195c7d819d74b9023050c6b25.png",
+    "sha256": "d83e9449e70e89e0adecdf20717917064542db8195c7d819d74b9023050c6b25",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/d83e9449e70e89e0adecdf20717917064542db8195c7d819d74b9023050c6b25.png"
+  },
+  {
+    "id": "yuque_195001402",
+    "name": "牧驴人",
+    "file": "6c09404b9faab2f002a89b8cbc979aeb0bfa389d34d6fb1cb5c1144a3cb705d2.png",
+    "sha256": "6c09404b9faab2f002a89b8cbc979aeb0bfa389d34d6fb1cb5c1144a3cb705d2",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/6c09404b9faab2f002a89b8cbc979aeb0bfa389d34d6fb1cb5c1144a3cb705d2.png"
+  },
+  {
+    "id": "yuque_195001598",
+    "name": "流浪汉",
+    "file": "5074fc9740c5b9e7c9663f18e0b2d73599f5bedb283752fe037dac77cd2cdf59.png",
+    "sha256": "5074fc9740c5b9e7c9663f18e0b2d73599f5bedb283752fe037dac77cd2cdf59",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/5074fc9740c5b9e7c9663f18e0b2d73599f5bedb283752fe037dac77cd2cdf59.png"
+  },
+  {
+    "id": "yuque_199020281",
+    "name": "寻踪者",
+    "file": "ea7345422e68d5c5617f375d7de69cf4a2148e0e492e98d9b4df99c9f7d08bf7.png",
+    "sha256": "ea7345422e68d5c5617f375d7de69cf4a2148e0e492e98d9b4df99c9f7d08bf7",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/ea7345422e68d5c5617f375d7de69cf4a2148e0e492e98d9b4df99c9f7d08bf7.png"
+  },
+  {
+    "id": "yuque_195001646",
+    "name": "花花公子",
+    "file": "7f0e20e4f2296d628c1c9e0e686be0fb0088c6a38bea704cba83d6e77b5b3310.png",
+    "sha256": "7f0e20e4f2296d628c1c9e0e686be0fb0088c6a38bea704cba83d6e77b5b3310",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/7f0e20e4f2296d628c1c9e0e686be0fb0088c6a38bea704cba83d6e77b5b3310.png"
+  },
+  {
+    "id": "yuque_195002116",
+    "name": "佃农",
+    "file": "fd48d7835cb0c510dbd10f66dacea055cc1acfa5055cabe765ffbcdca124907a.png",
+    "sha256": "fd48d7835cb0c510dbd10f66dacea055cc1acfa5055cabe765ffbcdca124907a",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/fd48d7835cb0c510dbd10f66dacea055cc1acfa5055cabe765ffbcdca124907a.png"
+  },
+  {
+    "id": "yuque_203549175",
+    "name": "暴徒",
+    "file": "a62ffea40805dec061a0b882a417401254e2ec732b8b8f774c334118908cbfe3.png",
+    "sha256": "a62ffea40805dec061a0b882a417401254e2ec732b8b8f774c334118908cbfe3",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/a62ffea40805dec061a0b882a417401254e2ec732b8b8f774c334118908cbfe3.png"
+  },
+  {
+    "id": "yuque_199020284",
+    "name": "作秀狂",
+    "file": "5f09cfa7141e6b2154cf2802449e3eb423543a6fcdb9019472cba229ca4673d8.png",
+    "sha256": "5f09cfa7141e6b2154cf2802449e3eb423543a6fcdb9019472cba229ca4673d8",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/5f09cfa7141e6b2154cf2802449e3eb423543a6fcdb9019472cba229ca4673d8.png"
+  },
+  {
+    "id": "yuque_203953845",
+    "name": "贵妇",
+    "file": "5bcf32f047622c8296b508f28f1393a825b76f8fab2c2e02d438f7d59492d6e1.png",
+    "sha256": "5bcf32f047622c8296b508f28f1393a825b76f8fab2c2e02d438f7d59492d6e1",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/5bcf32f047622c8296b508f28f1393a825b76f8fab2c2e02d438f7d59492d6e1.png"
+  },
+  {
+    "id": "yuque_195001797",
+    "name": "孤儿",
+    "file": "268540a267d3d1d88b4a2103b280f32fe2cebacd10935a6caea8efc682713d06.png",
+    "sha256": "268540a267d3d1d88b4a2103b280f32fe2cebacd10935a6caea8efc682713d06",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/268540a267d3d1d88b4a2103b280f32fe2cebacd10935a6caea8efc682713d06.png"
+  },
+  {
+    "id": "yuque_203952058",
+    "name": "幸运儿",
+    "file": "71d7f326b9f5b6e1716c9fdb8b3e1108dea23064617b064154107bde0d905ef3.png",
+    "sha256": "71d7f326b9f5b6e1716c9fdb8b3e1108dea23064617b064154107bde0d905ef3",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/71d7f326b9f5b6e1716c9fdb8b3e1108dea23064617b064154107bde0d905ef3.png"
+  },
+  {
+    "id": "yuque_199020277",
+    "name": "走卒",
+    "file": "919f21d3e7062af6aa8b48307e145d588c01a9cebf2917f22a6cd6965f77c4aa.png",
+    "sha256": "919f21d3e7062af6aa8b48307e145d588c01a9cebf2917f22a6cd6965f77c4aa",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/919f21d3e7062af6aa8b48307e145d588c01a9cebf2917f22a6cd6965f77c4aa.png"
+  },
+  {
+    "id": "yuque_195002046",
+    "name": "公主",
+    "file": "ba9f945456f49361649e4c4d9c00f067f61b52183455d17198b3c44fcaac9275.png",
+    "sha256": "ba9f945456f49361649e4c4d9c00f067f61b52183455d17198b3c44fcaac9275",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/ba9f945456f49361649e4c4d9c00f067f61b52183455d17198b3c44fcaac9275.png"
+  },
+  {
+    "id": "yuque_199019895",
+    "name": "猫夫人",
+    "file": "f8ad8efe93be11e7094bd16d78021ccd60557c3b44828bddd2b23d4724f0dcf8.png",
+    "sha256": "f8ad8efe93be11e7094bd16d78021ccd60557c3b44828bddd2b23d4724f0dcf8",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/f8ad8efe93be11e7094bd16d78021ccd60557c3b44828bddd2b23d4724f0dcf8.png"
+  },
+  {
+    "id": "yuque_199019927",
+    "name": "劫犯",
+    "file": "637faa5211510c37d6d57fb45be45638dd447dbb17116c91f9d7881720a8cfe0.png",
+    "sha256": "637faa5211510c37d6d57fb45be45638dd447dbb17116c91f9d7881720a8cfe0",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/637faa5211510c37d6d57fb45be45638dd447dbb17116c91f9d7881720a8cfe0.png"
+  },
+  {
+    "id": "yuque_199020270",
+    "name": "宝钻精灵",
+    "file": "c32607dbc8020f34133105ebc3c268a69a2c0c9b3a7940e560400fb28e44b573.png",
+    "sha256": "c32607dbc8020f34133105ebc3c268a69a2c0c9b3a7940e560400fb28e44b573",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/c32607dbc8020f34133105ebc3c268a69a2c0c9b3a7940e560400fb28e44b573.png"
+  },
+  {
+    "id": "yuque_199811084",
+    "name": "乌鸦嘴",
+    "file": "0ec23e9b0eb53afe24ec5af2ee29daf769970e9608200b485e42a639b18115fa.png",
+    "sha256": "0ec23e9b0eb53afe24ec5af2ee29daf769970e9608200b485e42a639b18115fa",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/0ec23e9b0eb53afe24ec5af2ee29daf769970e9608200b485e42a639b18115fa.png"
+  },
+  {
+    "id": "yuque_203549178",
+    "name": "绝密档案",
+    "file": "fcb7619924b8e482cf9ad721fec3a490c4d6ae34b39db715edc2c85d042cdee4.png",
+    "sha256": "fcb7619924b8e482cf9ad721fec3a490c4d6ae34b39db715edc2c85d042cdee4",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/fcb7619924b8e482cf9ad721fec3a490c4d6ae34b39db715edc2c85d042cdee4.png"
+  },
+  {
+    "id": "bullfighter",
+    "name": "斗牛士",
+    "file": "fa23f674dc000c88f93f520bf2e030dcad2edecc250192224d78cc57761815c5.png",
+    "sha256": "fa23f674dc000c88f93f520bf2e030dcad2edecc250192224d78cc57761815c5",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/fa23f674dc000c88f93f520bf2e030dcad2edecc250192224d78cc57761815c5.png"
+  },
+  {
+    "id": "yuque_195000819",
+    "name": "马戏领班",
+    "file": "fdc31e663c3a8fa2378a9422c9d7ba1e8603c3772089bec393d8987129d0cefe.png",
+    "sha256": "fdc31e663c3a8fa2378a9422c9d7ba1e8603c3772089bec393d8987129d0cefe",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/fdc31e663c3a8fa2378a9422c9d7ba1e8603c3772089bec393d8987129d0cefe.png"
+  },
+  {
+    "id": "charoit",
+    "name": "战车",
+    "file": "72f8b9f31913993d30e4a3da8b240a8f052db4e0d01affe3c01110659ed51971.png",
+    "sha256": "72f8b9f31913993d30e4a3da8b240a8f052db4e0d01affe3c01110659ed51971",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/72f8b9f31913993d30e4a3da8b240a8f052db4e0d01affe3c01110659ed51971.png"
+  },
+  {
+    "id": "yuque_199810980",
+    "name": "癫人",
+    "file": "fd7044e23625aee70e4db712b325b4c28df6cca19c518d04facf3200351e22c2.png",
+    "sha256": "fd7044e23625aee70e4db712b325b4c28df6cca19c518d04facf3200351e22c2",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/fd7044e23625aee70e4db712b325b4c28df6cca19c518d04facf3200351e22c2.png"
+  },
+  {
+    "id": "yuque_195000292",
+    "name": "魔仆",
+    "file": "99dfc4b956a608c233899a64f186576528d202917b31694cea9d2a95f99c381d.png",
+    "sha256": "99dfc4b956a608c233899a64f186576528d202917b31694cea9d2a95f99c381d",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/99dfc4b956a608c233899a64f186576528d202917b31694cea9d2a95f99c381d.png"
+  },
+  {
+    "id": "yuque_199964816",
+    "name": "谜题魔",
+    "file": "17a88ef27d2bd4d510e9ee49a7844f2ceca328e100f3d012071bfc852df1fa76.png",
+    "sha256": "17a88ef27d2bd4d510e9ee49a7844f2ceca328e100f3d012071bfc852df1fa76",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/17a88ef27d2bd4d510e9ee49a7844f2ceca328e100f3d012071bfc852df1fa76.png"
+  },
+  {
+    "id": "yuque_199810919",
+    "name": "冒名客",
+    "file": "e71e3312df2817be5e5a1f6f133270811687d804d9b8d1bb6f9340668e7c63f9.png",
+    "sha256": "e71e3312df2817be5e5a1f6f133270811687d804d9b8d1bb6f9340668e7c63f9",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/e71e3312df2817be5e5a1f6f133270811687d804d9b8d1bb6f9340668e7c63f9.png"
+  },
+  {
+    "id": "yuque_194990941",
+    "name": "致幻师",
+    "file": "8923a8dcc5531d363c3a07b2c863dc7feca549ce0f2e1bab57628c73fcdf6700.png",
+    "sha256": "8923a8dcc5531d363c3a07b2c863dc7feca549ce0f2e1bab57628c73fcdf6700",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/8923a8dcc5531d363c3a07b2c863dc7feca549ce0f2e1bab57628c73fcdf6700.png"
+  },
+  {
+    "id": "yuque_200003954",
+    "name": "西西里人",
+    "file": "8647c16e3c33efb245abfcd0fbea43ef72fca6f87791d1b9b8d98d4c58de8996.png",
+    "sha256": "8647c16e3c33efb245abfcd0fbea43ef72fca6f87791d1b9b8d98d4c58de8996",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/8647c16e3c33efb245abfcd0fbea43ef72fca6f87791d1b9b8d98d4c58de8996.png"
+  },
+  {
+    "id": "yuque_199031253",
+    "name": "夜影",
+    "file": "c2cb74d317eea2c7482acb6be8c04f6fea1292f1ecd20b845f6d3e870ea4facd.png",
+    "sha256": "c2cb74d317eea2c7482acb6be8c04f6fea1292f1ecd20b845f6d3e870ea4facd",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/c2cb74d317eea2c7482acb6be8c04f6fea1292f1ecd20b845f6d3e870ea4facd.png"
+  },
+  {
+    "id": "yuque_199031325",
+    "name": "憎恶",
+    "file": "521908ffe7493f1a69c7476f4debe1947e241b5dabf05369c31a12a4f3882270.png",
+    "sha256": "521908ffe7493f1a69c7476f4debe1947e241b5dabf05369c31a12a4f3882270",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/521908ffe7493f1a69c7476f4debe1947e241b5dabf05369c31a12a4f3882270.png"
+  },
+  {
+    "id": "yuque_194999938",
+    "name": "桶栖者",
+    "file": "d904c89b2f782e59c09d495e4549950e889ff5487da416fd887d5ca73f11c547.png",
+    "sha256": "d904c89b2f782e59c09d495e4549950e889ff5487da416fd887d5ca73f11c547",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/d904c89b2f782e59c09d495e4549950e889ff5487da416fd887d5ca73f11c547.png"
+  },
+  {
+    "id": "yuque_208110868",
+    "name": "吸血鬼",
+    "file": "d7ad9274f7f0db581164b640785dae32867c516ef60b3bb6a4de2258e9102db6.png",
+    "sha256": "d7ad9274f7f0db581164b640785dae32867c516ef60b3bb6a4de2258e9102db6",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/d7ad9274f7f0db581164b640785dae32867c516ef60b3bb6a4de2258e9102db6.png"
+  },
+  {
+    "id": "yuque_195000973",
+    "name": "稻草人",
+    "file": "cad2627a50d5098f3f8826133e1a8f882d40120abf3d754b7e2d39e9e519baa4.png",
+    "sha256": "cad2627a50d5098f3f8826133e1a8f882d40120abf3d754b7e2d39e9e519baa4",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/cad2627a50d5098f3f8826133e1a8f882d40120abf3d754b7e2d39e9e519baa4.png"
+  },
+  {
+    "id": "yuque_199031365",
+    "name": "铜蛇帮",
+    "file": "8bb8ca16114f83509e91486566e546a15917f127d43f103a30c6599f802270e4.png",
+    "sha256": "8bb8ca16114f83509e91486566e546a15917f127d43f103a30c6599f802270e4",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/8bb8ca16114f83509e91486566e546a15917f127d43f103a30c6599f802270e4.png"
+  },
+  {
+    "id": "yuque_195001014",
+    "name": "参议员",
+    "file": "52d7d3a1e83d321297c68a9ad1997eb997934cdd0e1ae9a80aca90aca013f341.png",
+    "sha256": "52d7d3a1e83d321297c68a9ad1997eb997934cdd0e1ae9a80aca90aca013f341",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/52d7d3a1e83d321297c68a9ad1997eb997934cdd0e1ae9a80aca90aca013f341.png"
+  },
+  {
+    "id": "yuque_199031343",
+    "name": "恶棍",
+    "file": "b9fc41ef0a101f313b95b81b5deb51b31b4fe13aafa3a18f29ce897349a40b96.png",
+    "sha256": "b9fc41ef0a101f313b95b81b5deb51b31b4fe13aafa3a18f29ce897349a40b96",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/b9fc41ef0a101f313b95b81b5deb51b31b4fe13aafa3a18f29ce897349a40b96.png"
+  },
+  {
+    "id": "yuque_194999737",
+    "name": "赝品",
+    "file": "e89100ecf1903fb84d50b881bf08dd9eb7dfba96afa99c63fe182579f70de4b5.png",
+    "sha256": "e89100ecf1903fb84d50b881bf08dd9eb7dfba96afa99c63fe182579f70de4b5",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/e89100ecf1903fb84d50b881bf08dd9eb7dfba96afa99c63fe182579f70de4b5.png"
+  },
+  {
+    "id": "yuque_199031376",
+    "name": "浊瘴",
+    "file": "8eaddb3fa337b4360368e26164c88cd6b52329f43ebf3a15557c2420607dd9b7.png",
+    "sha256": "8eaddb3fa337b4360368e26164c88cd6b52329f43ebf3a15557c2420607dd9b7",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/8eaddb3fa337b4360368e26164c88cd6b52329f43ebf3a15557c2420607dd9b7.png"
+  },
+  {
+    "id": "yuque_195000144",
+    "name": "诺克斯之女",
+    "file": "4be01af42bb2191bc01c8d0088e69065225c5969d53ccd79fe634adc26b87563.png",
+    "sha256": "4be01af42bb2191bc01c8d0088e69065225c5969d53ccd79fe634adc26b87563",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/4be01af42bb2191bc01c8d0088e69065225c5969d53ccd79fe634adc26b87563.png"
+  },
+  {
+    "id": "yuque_195000061",
+    "name": "蛇发女妖",
+    "file": "d838ca6577c2e30550d778c5a69921b8ec3c45e26dee1064d85361a48af03a8f.png",
+    "sha256": "d838ca6577c2e30550d778c5a69921b8ec3c45e26dee1064d85361a48af03a8f",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/d838ca6577c2e30550d778c5a69921b8ec3c45e26dee1064d85361a48af03a8f.png"
+  },
+  {
+    "id": "yuque_208113222",
+    "name": "亡灵骑士",
+    "file": "b0d165d1b81d7970e7c0290ae7f2126250effc5cb3d4c14361515daa37bb347b.png",
+    "sha256": "b0d165d1b81d7970e7c0290ae7f2126250effc5cb3d4c14361515daa37bb347b",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/b0d165d1b81d7970e7c0290ae7f2126250effc5cb3d4c14361515daa37bb347b.png"
+  },
+  {
+    "id": "yuque_199031046",
+    "name": "浪劫",
+    "file": "348d1bc7f3ea5a43582d8f50e33d3fb7ef743671c8a40e702f9be5f0158e26ca.png",
+    "sha256": "348d1bc7f3ea5a43582d8f50e33d3fb7ef743671c8a40e702f9be5f0158e26ca",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/348d1bc7f3ea5a43582d8f50e33d3fb7ef743671c8a40e702f9be5f0158e26ca.png"
+  },
+  {
+    "id": "yuque_195002601",
+    "name": "夏柯怀特",
+    "file": "115b1207320f3fa859ed2bad54078c46fdd48044965d4af6c7ef9ed08b41f511.png",
+    "sha256": "115b1207320f3fa859ed2bad54078c46fdd48044965d4af6c7ef9ed08b41f511",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/115b1207320f3fa859ed2bad54078c46fdd48044965d4af6c7ef9ed08b41f511.png"
+  },
+  {
+    "id": "yuque_195003887",
+    "name": "多罗迈特",
+    "file": "881aea91720907adf9888f005153d05c04692424f3db4ea3dc950b5862a293c0.png",
+    "sha256": "881aea91720907adf9888f005153d05c04692424f3db4ea3dc950b5862a293c0",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/881aea91720907adf9888f005153d05c04692424f3db4ea3dc950b5862a293c0.png"
+  },
+  {
+    "id": "sissaphyth",
+    "name": "西西弗斯",
+    "file": "20f142ab6ea3a4289af436a698da440c4d2f743f3bdde1229bfa91c56418e1b2.png",
+    "sha256": "20f142ab6ea3a4289af436a698da440c4d2f743f3bdde1229bfa91c56418e1b2",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/20f142ab6ea3a4289af436a698da440c4d2f743f3bdde1229bfa91c56418e1b2.png"
+  },
+  {
+    "id": "yuque_200004043",
+    "name": "范扎兹",
+    "file": "a79e60e4f53af85f4baf1ae4cde668f621652f9ee5b2272f79f40257407c3e3f.png",
+    "sha256": "a79e60e4f53af85f4baf1ae4cde668f621652f9ee5b2272f79f40257407c3e3f",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/a79e60e4f53af85f4baf1ae4cde668f621652f9ee5b2272f79f40257407c3e3f.png"
+  },
+  {
+    "id": "lecadeau",
+    "name": "献礼",
+    "file": "74571380bcab5969abc5d56244c2654f27f359975a7f6eb529c7732f2e7813dc.png",
+    "sha256": "74571380bcab5969abc5d56244c2654f27f359975a7f6eb529c7732f2e7813dc",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/74571380bcab5969abc5d56244c2654f27f359975a7f6eb529c7732f2e7813dc.png"
+  },
+  {
+    "id": "yuque_200003347",
+    "name": "惠斯普",
+    "file": "7a6f6c9918146d6140da6e8a4232d67bf0fe5146c4444bbf8eaeb02c132692e8.png",
+    "sha256": "7a6f6c9918146d6140da6e8a4232d67bf0fe5146c4444bbf8eaeb02c132692e8",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/7a6f6c9918146d6140da6e8a4232d67bf0fe5146c4444bbf8eaeb02c132692e8.png"
+  },
+  {
+    "id": "yuque_195002553",
+    "name": "佐迪翁",
+    "file": "fd849e0c392e282c883268b7b893164bae3b6ff371c1d248621589427744a979.png",
+    "sha256": "fd849e0c392e282c883268b7b893164bae3b6ff371c1d248621589427744a979",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/fd849e0c392e282c883268b7b893164bae3b6ff371c1d248621589427744a979.png"
+  },
+  {
+    "id": "yuque_199810744",
+    "name": "齐'纳克",
+    "file": "d37ebae71248c32ecdc4b08f6f027940472b3d7a470aba0c3740dd9b1fe51db2.png",
+    "sha256": "d37ebae71248c32ecdc4b08f6f027940472b3d7a470aba0c3740dd9b1fe51db2",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/d37ebae71248c32ecdc4b08f6f027940472b3d7a470aba0c3740dd9b1fe51db2.png"
+  },
+  {
+    "id": "yuque_195003132",
+    "name": "提普-提普",
+    "file": "de24df84dd08a3a4b467e2141d6dfde5718de45ded1b928bbe4861d84862716c.png",
+    "sha256": "de24df84dd08a3a4b467e2141d6dfde5718de45ded1b928bbe4861d84862716c",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/de24df84dd08a3a4b467e2141d6dfde5718de45ded1b928bbe4861d84862716c.png"
+  },
+  {
+    "id": "yuque_199965616",
+    "name": "泽德拉丝",
+    "file": "9dd64a8b127955ce23b51ac3ae9670c6ca8dbb4a05588c1d38a07e5bd9f5b349.png",
+    "sha256": "9dd64a8b127955ce23b51ac3ae9670c6ca8dbb4a05588c1d38a07e5bd9f5b349",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/9dd64a8b127955ce23b51ac3ae9670c6ca8dbb4a05588c1d38a07e5bd9f5b349.png"
+  },
+  {
+    "id": "yuque_199031072",
+    "name": "伽迪斯",
+    "file": "27653c403ee25e6bd256997879ca28d2a989da703ab7d1c5be69dd402900a0fe.png",
+    "sha256": "27653c403ee25e6bd256997879ca28d2a989da703ab7d1c5be69dd402900a0fe",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/27653c403ee25e6bd256997879ca28d2a989da703ab7d1c5be69dd402900a0fe.png"
+  },
+  {
+    "id": "yuque_199031091",
+    "name": "九头蛇",
+    "file": "7041c55625334c73dcf64d58fd02cadb0037f6d7136ba21dcc7fbc02c0a2047d.png",
+    "sha256": "7041c55625334c73dcf64d58fd02cadb0037f6d7136ba21dcc7fbc02c0a2047d",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/7041c55625334c73dcf64d58fd02cadb0037f6d7136ba21dcc7fbc02c0a2047d.png"
+  },
+  {
+    "id": "yuque_195002575",
+    "name": "活体病毒",
+    "file": "1988dd94cc2acf2fc69c46eff381e78274a76b3d90509b1144b07d115c57ff0d.png",
+    "sha256": "1988dd94cc2acf2fc69c46eff381e78274a76b3d90509b1144b07d115c57ff0d",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/1988dd94cc2acf2fc69c46eff381e78274a76b3d90509b1144b07d115c57ff0d.png"
+  },
+  {
+    "id": "yuque_195002921",
+    "name": "神言",
+    "file": "5b7452990671edcba52fe7fe448540e045359085b87f71aebc80039385f612c0.png",
+    "sha256": "5b7452990671edcba52fe7fe448540e045359085b87f71aebc80039385f612c0",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/5b7452990671edcba52fe7fe448540e045359085b87f71aebc80039385f612c0.png"
+  },
+  {
+    "id": "yuque_199031065",
+    "name": "魂归者",
+    "file": "a3d77d453096c35ce5ed1151bb43b2b2513ef7b1cca94d81168947ba3a83d554.png",
+    "sha256": "a3d77d453096c35ce5ed1151bb43b2b2513ef7b1cca94d81168947ba3a83d554",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/a3d77d453096c35ce5ed1151bb43b2b2513ef7b1cca94d81168947ba3a83d554.png"
+  },
+  {
+    "id": "yuque_195003041",
+    "name": "蠕行恐惧",
+    "file": "1a208b99e7cdef55c80afe47761e4e3df377fb9d74e6cf62b1fd6bb8a3c9910e.png",
+    "sha256": "1a208b99e7cdef55c80afe47761e4e3df377fb9d74e6cf62b1fd6bb8a3c9910e",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/1a208b99e7cdef55c80afe47761e4e3df377fb9d74e6cf62b1fd6bb8a3c9910e.png"
+  },
+  {
+    "id": "yuque_195003482",
+    "name": "谎言女王",
+    "file": "a4e1022bcb967fd4ab197b7c0d3260051ac1051e4bfaa96cfa99cc86294f8e9e.png",
+    "sha256": "a4e1022bcb967fd4ab197b7c0d3260051ac1051e4bfaa96cfa99cc86294f8e9e",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/a4e1022bcb967fd4ab197b7c0d3260051ac1051e4bfaa96cfa99cc86294f8e9e.png"
+  },
+  {
+    "id": "yuque_203953955",
+    "name": "巴洛-弗",
+    "file": "6f69eec88d28fd54070c58843278a5af48f73ea1d72d0541a52e5ee72c07d6a1.png",
+    "sha256": "6f69eec88d28fd54070c58843278a5af48f73ea1d72d0541a52e5ee72c07d6a1",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/6f69eec88d28fd54070c58843278a5af48f73ea1d72d0541a52e5ee72c07d6a1.png"
+  },
+  {
+    "id": "yuque_195003422",
+    "name": "莉莉丝",
+    "file": "2795ee2303e068141f4a0650ef39ecf7c9bdee8819d4ebf8d64ccf7e09ef9a0d.png",
+    "sha256": "2795ee2303e068141f4a0650ef39ecf7c9bdee8819d4ebf8d64ccf7e09ef9a0d",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/2795ee2303e068141f4a0650ef39ecf7c9bdee8819d4ebf8d64ccf7e09ef9a0d.png"
+  },
+  {
+    "id": "yuque_195003160",
+    "name": "灵魂之槌",
+    "file": "dea2c8ebdae7cd01f3f11c9eece5f6bad4c6e2859d98e89bcad5ba5734227fa8.png",
+    "sha256": "dea2c8ebdae7cd01f3f11c9eece5f6bad4c6e2859d98e89bcad5ba5734227fa8",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/dea2c8ebdae7cd01f3f11c9eece5f6bad4c6e2859d98e89bcad5ba5734227fa8.png"
+  },
+  {
+    "id": "yuque_199031099",
+    "name": "寂灭",
+    "file": "1237f86149155f1c12a78f193a24451919c2ec8b1cae1ac510dcf526bf16cb57.png",
+    "sha256": "1237f86149155f1c12a78f193a24451919c2ec8b1cae1ac510dcf526bf16cb57",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/1237f86149155f1c12a78f193a24451919c2ec8b1cae1ac510dcf526bf16cb57.png"
+  },
+  {
+    "id": "yuque_199031145",
+    "name": "烘焙师",
+    "file": "3ae11f7e8e767b4dc87cf46b4b953959dc924140dabd216488860d8dd884af70.png",
+    "sha256": "3ae11f7e8e767b4dc87cf46b4b953959dc924140dabd216488860d8dd884af70",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/3ae11f7e8e767b4dc87cf46b4b953959dc924140dabd216488860d8dd884af70.png"
+  },
+  {
+    "id": "yuque_199031154",
+    "name": "动物管理员",
+    "file": "2e023a8e7a061d6c351b54669858137d9089c0ce4e8b2a873fbc3dfcafbce08c.png",
+    "sha256": "2e023a8e7a061d6c351b54669858137d9089c0ce4e8b2a873fbc3dfcafbce08c",
+    "url": "https://kkovo550.github.io/clocktower-wiki/script_tool/hosted-icons/2e023a8e7a061d6c351b54669858137d9089c0ce4e8b2a873fbc3dfcafbce08c.png"
+  }
+]
