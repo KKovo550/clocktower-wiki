@@ -171,3 +171,5 @@ kbd{background:#f1e9d8;border:1px solid var(--tan);border-radius:3px;padding:0 4
  .script-editor .grid{grid-template-columns:repeat(auto-fill,minmax(82px,1fr));max-height:55dvh;scrollbar-gutter:auto;padding:2px;gap:7px}
  .script-editor #saveStatus{overflow-wrap:anywhere;line-height:1.6}
 }
+
+.wechat-use-notice{padding:12px;margin:12px 0;border:1px solid #dce5f1;border-radius:10px;background:#f7f9fc;color:#495363;font-size:13px;line-height:1.7}.wechat-use-notice strong{color:#253f60}.wechat-use-notice p{margin:6px 0}.wechat-use-notice .btn{min-height:44px;margin:4px 8px 4px 0;white-space:normal}.wechat-use-notice input{width:100%;box-sizing:border-box;font-size:16px;padding:8px;min-height:44px}.wechat-use-notice input[hidden]{display:none}

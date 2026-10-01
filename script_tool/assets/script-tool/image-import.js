@@ -27,6 +27,23 @@
   var runtimeURL = new URL('./ocr/', document.currentScript && document.currentScript.src || new URL('assets/script-tool/image-import.js', document.baseURI).href).href;
   var button = document.createElement('button'); button.className = 'btn'; button.id = 'bImageImport'; button.textContent = '导入剧本图片';
   document.getElementById('bImport').after(button);
+  var inWechat=/MicroMessenger/i.test(root.navigator.userAgent||'');
+  function wechatNotice(dismissible){
+    var notice=document.createElement('aside');notice.className='wechat-use-notice';notice.setAttribute('aria-label','微信内使用提示');
+    var heading=document.createElement('strong');heading.textContent='你正在微信内打开剧本工具';
+    var text=document.createElement('p');text.textContent='图片识别可能受微信内浏览器限制。如果识别失败或页面重新加载，请点右上角“…”选择在浏览器打开，也可复制链接到 Safari 或 Chrome。当前草稿不会自动同步到其他浏览器，请先导出 JSON 备份。';
+    var copy=document.createElement('button');copy.type='button';copy.className='btn';copy.textContent='复制页面链接';
+    var feedback=document.createElement('p');feedback.setAttribute('role','status');feedback.setAttribute('aria-live','polite');
+    var link=document.createElement('input');link.type='text';link.readOnly=true;link.value=root.location.href;link.hidden=true;link.setAttribute('aria-label','页面链接，长按复制');
+    copy.onclick=async function(){
+      try{if(!root.navigator.clipboard||!root.navigator.clipboard.writeText)throw new Error('Clipboard unavailable');await root.navigator.clipboard.writeText(link.value);feedback.textContent='链接已复制，请粘贴到浏览器打开。';}
+      catch(error){link.hidden=false;link.focus();link.select();feedback.textContent='无法自动复制，请长按下方链接手动复制。';}
+    };
+    notice.append(heading,text,copy,link,feedback);
+    if(dismissible){var close=document.createElement('button');close.type='button';close.className='btn';close.textContent='收起提示';close.onclick=function(){notice.remove();};notice.append(close);}
+    return notice;
+  }
+  if(inWechat){var toolbar=document.querySelector('.script-editor .toolbar');if(toolbar)toolbar.before(wechatNotice(true));}
   var loading;
   var paddleLoading;
   function loadPaddleBrowser(){
@@ -80,6 +97,7 @@
       '<label>补选漏识别角色<select id="ocrExtra"></select></label><button class="btn" id="ocrAdd">添加角色</button>' +
       '<div id="ocrRoles"></div><div class="foot"><button class="btn pri" id="ocrApply">确认名单并导入</button><button class="btn" id="ocrCancel">取消</button></div>');
     var body = document.getElementById('dlgBody'), dlg = document.getElementById('dlg'), active = true, worker = null, selected = [], busy = false;
+    if(inWechat)body.querySelector('h3').after(wechatNotice(false));
     function el(id) { return body.querySelector('#' + id); }
     var catalog = root.CHARS;
     var continueRoles=false,imageRevision=0,paddleController=null;
@@ -132,7 +150,7 @@
         label.append(check, document.createTextNode(c.n + ' · ' + c.t + ' · ' + String(c.ab || '').slice(0, 45))); label.style.display = 'block'; list.appendChild(label); });
       el('ocrApply').disabled = busy || !selected.length;
     }
-    function dispose() { active = false; clearAlbumPreview(); if(paddleController)paddleController.abort(); if (worker) { worker.terminate().catch(function () {}); worker = null; } dlg.removeEventListener('close', dispose); }
+    function dispose() { active = false; if(root.ScriptPaddleBrowser&&root.ScriptPaddleBrowser.dispose)root.ScriptPaddleBrowser.dispose(); clearAlbumPreview(); if(paddleController)paddleController.abort(); if (worker) { worker.terminate().catch(function () {}); worker = null; } dlg.removeEventListener('close', dispose); }
     dlg.addEventListener('close', dispose);
     el('ocrCancel').onclick = root.closeDlg;
     el('ocrMatch').onclick = function () { selected = match(el('ocrText').value, catalog); render(); };
@@ -203,7 +221,7 @@
         el('ocrText').value = text; selected = match(text, catalog); render();
         el('ocrStatus').textContent = '识别完成，匹配到 ' + selected.length + ' 个角色。请校对名单并补选遗漏角色。';
       } catch (err) { if (current()) el('ocrStatus').textContent = '识别失败：' + (err && err.message ? err.message : String(err || '识别任务异常，请重试')) + '。你仍可手动粘贴角色名或补选角色。'; }
-      finally { paddleController=null; if (bitmap) bitmap.close(); if (worker) { await worker.terminate().catch(function () {}); worker = null; } if(workerURL)URL.revokeObjectURL(workerURL); busy = false; if (active) { el('ocrRun').disabled = false; render(); } }
+      finally { if(root.ScriptPaddleBrowser&&root.ScriptPaddleBrowser.dispose)root.ScriptPaddleBrowser.dispose();paddleController=null; if (bitmap) bitmap.close(); if (worker) { await worker.terminate().catch(function () {}); worker = null; } if(workerURL)URL.revokeObjectURL(workerURL); busy = false; if (active) { el('ocrRun').disabled = false; render(); } }
     };
     render();
   };
