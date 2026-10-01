@@ -151,3 +151,23 @@ kbd{background:#f1e9d8;border:1px solid var(--tan);border-radius:3px;padding:0 4
 @media(max-width:600px){.script-editor .btn,.script-editor .tab{min-height:36px}.script-editor .mini{width:34px;height:34px}}
 
 .night-sortable{cursor:grab;padding:5px;border-bottom:1px solid #dfd4bf}.night-sortable:active{cursor:grabbing}.night-move{margin-left:5px;padding:2px 7px;cursor:pointer}.night-move:disabled{opacity:.35}
+/* Mobile editor: keep every action within its panel and remove desktop fixed input widths. */
+@media(max-width:820px){
+ .script-tool-page .content.script-editor{padding:18px 12px 28px;min-width:0}
+ .script-editor .toolbar,.script-editor .lib,.script-editor .mine{padding:12px;min-width:0;max-width:100%;box-sizing:border-box}
+ .script-editor .script-fields{grid-template-columns:1fr;gap:12px}
+ .script-editor .toolbar input#mname,.script-editor .toolbar input#mauthor,.script-editor .script-fields select{width:100%;min-width:0;max-width:100%;box-sizing:border-box}
+ .script-editor .script-fields input,.script-editor .script-fields select{min-height:44px;font-size:16px}
+ .script-editor .script-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;justify-content:stretch}
+ .script-editor .script-action-hint{display:none}
+ .script-editor .script-actions .btn{min-width:0;width:100%;box-sizing:border-box;white-space:normal;overflow-wrap:anywhere;text-align:center;display:flex;justify-content:center;align-items:center;margin:0;min-height:44px;padding:10px 8px;font-size:14px}
+ .script-editor .cols{grid-template-columns:minmax(0,1fr);gap:16px}
+ .script-editor .mine{position:static;max-height:none;overflow:visible;scrollbar-gutter:auto}
+ .script-editor .editor-panel-heading{flex-wrap:wrap;align-items:flex-start;gap:12px}
+ .script-editor .panel-actions{width:100%;display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+ .script-editor .panel-actions .btn,.script-editor .selection-actions .btn{min-height:44px;white-space:normal}
+ .script-editor .tabs{gap:6px}
+ .script-editor .tab{min-height:40px}
+ .script-editor .grid{grid-template-columns:repeat(auto-fill,minmax(82px,1fr));max-height:55dvh;scrollbar-gutter:auto;padding:2px;gap:7px}
+ .script-editor #saveStatus{overflow-wrap:anywhere;line-height:1.6}
+}
