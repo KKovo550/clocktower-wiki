@@ -14,6 +14,21 @@
   // 渐进增强：无 JavaScript 时导航保持可见，桌面端始终展开。
   var sidebar = document.querySelector('.sidebar');
   if (sidebar) {
+    // Highlight the current page/section independently of pointer hover.
+    function updateCurrentNavigation() {
+      if (typeof URL === "undefined" || !window.location || !sidebar.querySelectorAll) return;
+      var current = new URL(window.location.href), links = Array.from(sidebar.querySelectorAll('a[href]'));
+      function decoded(value) { try { return decodeURIComponent(value); } catch (_) { return value; } }
+      var samePage = links.filter(function (link) {
+        var target = new URL(link.href, document.baseURI);
+        return target.origin === current.origin && decoded(target.pathname) === decoded(current.pathname);
+      });
+      var selected = samePage.find(function (link) { return decoded(new URL(link.href).hash) === decoded(current.hash); });
+      if (!selected) selected = samePage.find(function (link) { var hash = decoded(new URL(link.href).hash); return !hash || hash === '#总览'; });
+      links.forEach(function (link) { if (link === selected) link.setAttribute('aria-current', 'page'); else link.removeAttribute('aria-current'); });
+    }
+    updateCurrentNavigation();
+    if (window.addEventListener) window.addEventListener('hashchange', updateCurrentNavigation);
     var navigation = document.createElement('div');
     navigation.id = 'wiki-navigation';
     while (sidebar.firstChild) navigation.appendChild(sidebar.firstChild);
@@ -30,6 +45,11 @@
     });
     sidebar.appendChild(toggle);
     sidebar.appendChild(navigation);
+  }
+  if (typeof URL !== 'undefined' && document.querySelector && document.querySelector('.gallerybox a img, .homebrew-card a img, .role-index, .charinfo-img img')) {
+    var previewScript = document.createElement('script');
+    previewScript.src = new URL('./role-preview.js', document.currentScript ? document.currentScript.src : new URL((document.body.getAttribute('data-root') || '') + 'assets/wiki.js', document.baseURI)).href;
+    document.head.appendChild(previewScript);
   }
   var input = document.getElementById('wiki-search-input');
   var box = document.getElementById('wiki-search-results');

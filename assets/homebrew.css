@@ -15,3 +15,12 @@
 .homebrew-article details{padding:12px 16px;border:1px solid #dde1e7;border-radius:12px;margin:16px 0}.homebrew-article summary{cursor:pointer}
 .homebrew-article blockquote{margin:16px 0;padding:12px 20px;background:#f5f7fa;border-left:3px solid #528ae3;border-radius:8px}
 .homebrew-article pre{overflow:auto;max-width:100%;padding:16px;background:#f5f6f8;border-radius:12px}.homebrew-article a{overflow-wrap:anywhere}
+
+/* Use the same gallery geometry as Odyssey and Stars. */
+.homebrew-grid.gallery{grid-template-columns:repeat(var(--perrow,4),minmax(0,1fr));padding:14px;gap:16px;border-radius:12px}
+.homebrew-grid.gallery .homebrew-role-link{padding:0;gap:4px}
+.homebrew-grid.gallery .homebrew-icon{width:250px;max-width:100%;height:auto;aspect-ratio:1}
+.homebrew-grid.gallery .homebrew-icon img{width:100%;height:100%;object-fit:contain}
+.homebrew-grid.gallery .homebrew-name{font-size:12.5px;line-height:1.35}
+@media(max-width:820px){.homebrew-grid.gallery{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:480px){.homebrew-grid.gallery{grid-template-columns:minmax(0,1fr)}}

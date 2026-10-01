@@ -122,3 +122,18 @@ body{background:linear-gradient(135deg,#eef3fb 0%,#f7f8fc 48%,#f0f5f8 100%)!impo
 }
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 @media print{*,*::before,*::after{animation:none!important;transition:none!important}}
+
+/* Compact role tooltip: metadata, ability, and optional background story. */
+.role-preview{padding:10px 12px;border:1px solid rgba(160,145,110,.28);border-radius:10px;color:#292820;background:rgba(250,247,232,.96);overflow-wrap:anywhere}
+.role-preview-header h2{margin:0;font-size:13px;font-weight:400;line-height:1.5;color:inherit}
+.role-preview-name{font-weight:700;color:#1685ad}
+.role-preview-content p{margin:3px 0 0;line-height:1.5;white-space:pre-wrap;font-size:14px}
+.role-preview-content .role-preview-story{margin-top:5px;font-size:12px;font-style:italic;color:#777367}
+.gallerybox a img,.homebrew-card a img,.role-index .card>img,.charinfo-img img{cursor:pointer}
+.role-preview-hover{position:fixed;z-index:1000;margin:0;max-height:72dvh;overflow:auto;box-sizing:border-box;backdrop-filter:blur(10px);box-shadow:0 8px 28px rgba(24,44,78,.16);animation:role-preview-in .2s cubic-bezier(.2,.8,.2,1) both;transform-origin:top left}
+.role-preview-hover[hidden]{display:none}
+.role-preview-icon-link{display:inline-block}
+.role-preview-hover.is-hiding{animation:role-preview-out .13s ease-in both;pointer-events:none}
+@keyframes role-preview-in{from{opacity:0;transform:translateY(6px) scale(.99)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes role-preview-out{from{opacity:1;transform:translateY(0)}to{opacity:0;transform:translateY(4px)}}
+@media(prefers-reduced-motion:reduce){.role-preview-hover,.role-preview-hover.is-hiding{animation:none}}

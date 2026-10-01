@@ -1,0 +1,2 @@
+PaddleOCR.js and OpenCV: Apache-2.0. ONNX Runtime Web: MIT.
+See gpu-worker.js.LEGAL.txt for bundled notices.
