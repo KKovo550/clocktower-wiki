@@ -320,11 +320,13 @@
   }
   document.getElementById('bArt').onclick=async function(){
     if(!sel.length){alert('请先在剧本工具中添加角色，或导入剧本 JSON。');return;}
+    var imageRoles=sel.filter(function(role){return role.t!=='traveller'&&role.t!=='traveler';});
+    if(!imageRoles.length){alert('剧本图片不展示旅行者，请先添加其他类型的角色。');return;}
     if(!dialog)createDialog();
     var signature=JSON.stringify(sel);var fresh=signature!==sourceSignature;
     if(sourceTitle!==el('mname').value){logoRevision++;logo=null;el('artUseLogo').checked=false;el('artLogoFile').value='';}
-    if(fresh){sourceSignature=signature;history=[];historyIndex=-1;originalOrder=sel.map(function(r){return r.id;});
-    roles=sel.map(function(role){var night=typeof ScriptCore!=='undefined'?ScriptCore.nightOrder(role,typeof SCRIPT_NIGHT_ORDER==='undefined'?{}:SCRIPT_NIGHT_ORDER,typeof NIGHT_OVERRIDES==='undefined'?{}:NIGHT_OVERRIDES):{firstNight:role.f||0,otherNight:role.o||0};return Object.assign({},role,{artFirst:night.firstNight,artOther:night.otherNight});});
+    if(fresh){sourceSignature=signature;history=[];historyIndex=-1;originalOrder=imageRoles.map(function(r){return r.id;});
+    roles=imageRoles.map(function(role){var night=typeof ScriptCore!=='undefined'?ScriptCore.nightOrder(role,typeof SCRIPT_NIGHT_ORDER==='undefined'?{}:SCRIPT_NIGHT_ORDER,typeof NIGHT_OVERRIDES==='undefined'?{}:NIGHT_OVERRIDES):{firstNight:role.f||0,otherNight:role.o||0};return Object.assign({},role,{artFirst:night.firstNight,artOther:night.otherNight});});
     el('artJinxMessage').textContent='';prepareJinx();
     el('artRoleEditor').hidden=true;
     }
