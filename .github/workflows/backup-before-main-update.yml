@@ -12,7 +12,12 @@ jobs:
   backup-previous-main:
     runs-on: ubuntu-latest
     steps:
-      - name: Create immutable backup tag for previous main
+      - name: Check out full repository history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Save previous main as tag and recovery branch
         env:
           BEFORE_SHA: ${{ github.event.before }}
           RUN_NUMBER: ${{ github.run_number }}
@@ -22,25 +27,20 @@ jobs:
             exit 0
           fi
 
-          git init backup-repo
-          cd backup-repo
-          git remote add origin "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git"
-          git fetch --no-tags origin "$BEFORE_SHA"
+          git cat-file -e "$BEFORE_SHA^{commit}"
 
           SHORT_SHA="$(printf '%s' "$BEFORE_SHA" | cut -c1-8)"
           TAG="backup/main-before-${RUN_NUMBER}-${SHORT_SHA}"
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git tag -a "$TAG" "$BEFORE_SHA" -m "Automatic backup of main before update ${{ github.sha }}"
-          git push origin "refs/tags/$TAG"
 
-      - name: Move latest pre-update recovery branch
-        env:
-          BEFORE_SHA: ${{ github.event.before }}
-        run: |
-          if [ "$BEFORE_SHA" = "0000000000000000000000000000000000000000" ]; then
-            exit 0
+          if git rev-parse "$TAG" >/dev/null 2>&1; then
+            echo "Backup tag already exists: $TAG"
+          else
+            git tag -a "$TAG" "$BEFORE_SHA" -m "Automatic backup of main before update ${{ github.sha }}"
+            git push origin "refs/tags/$TAG"
           fi
-          cd backup-repo
-          git push --force origin "$BEFORE_SHA:refs/heads/backup/latest-before-main-update"
+
+          git branch -f backup/latest-before-main-update "$BEFORE_SHA"
+          git push --force origin backup/latest-before-main-update
