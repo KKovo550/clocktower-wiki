@@ -7,60 +7,242 @@
       "group": "backgrounds",
       "label": "净白",
       "source": "https://www.merlin-botc.com/resources/art-assets/backgrounds/base_background/%E5%87%80%E7%99%BD.png",
-      "sha256": "85dd6507a9485bad03d5708e93831b292bd8a00240abff20915e3a1f15447560"
+      "sha256": "609dbc507c51b395f541ac2e6337814ae7b8ec6d5e8dd70ce3aa65eb047d8ac0",
+      "originalSha256": "85dd6507a9485bad03d5708e93831b292bd8a00240abff20915e3a1f15447560",
+      "localFile": "config/script-art/backgrounds-0.webp"
     },
     {
       "id": "backgrounds-1",
       "group": "backgrounds",
       "label": "净黄",
       "source": "https://www.merlin-botc.com/resources/art-assets/backgrounds/base_background/%E5%87%80%E9%BB%84.png",
-      "sha256": "e6edf5517d835dfb55b85e651ed80615d8114fbdf21440c9e27873ac216a34d6"
+      "sha256": "25600ea530e9d887ae56e5312b08e4bc6f60a475ed07d5aa7a92344b07b157d4",
+      "originalSha256": "e6edf5517d835dfb55b85e651ed80615d8114fbdf21440c9e27873ac216a34d6",
+      "localFile": "config/script-art/backgrounds-1.webp"
     },
     {
       "id": "backgrounds-2",
       "group": "backgrounds",
       "label": "纸白",
       "source": "https://www.merlin-botc.com/resources/art-assets/backgrounds/base_background/%E7%BA%B8%E7%99%BD.webp?v=20260905-art-perf1",
-      "sha256": "f6fb124be563cdb31817abd42be20621897d57b7bd4dbeb7ca1184f26974c213"
+      "sha256": "bcf3fb75ae6c3027b6bbaad53715884226bcdb46a8f42bed5e5a69cde91992b2",
+      "originalSha256": "f6fb124be563cdb31817abd42be20621897d57b7bd4dbeb7ca1184f26974c213",
+      "localFile": "config/script-art/backgrounds-2.webp"
     },
     {
       "id": "backgrounds-3",
       "group": "backgrounds",
       "label": "纸黄",
       "source": "https://www.merlin-botc.com/resources/art-assets/backgrounds/base_background/%E7%BA%B8%E9%BB%84.png",
-      "sha256": "d962cef6160c6a4118fd6aedc10ef7a44c50977ecc40f9177baae670d060ef63"
+      "sha256": "93cc84617000d1528fb0b29f56dbae8bbaee00fbba3919ece175496a96f45880",
+      "originalSha256": "d962cef6160c6a4118fd6aedc10ef7a44c50977ecc40f9177baae670d060ef63",
+      "localFile": "config/script-art/backgrounds-3.webp"
     },
     {
       "id": "patterns-0",
       "group": "patterns",
       "label": "西式底纹",
       "source": "https://www.merlin-botc.com/resources/art-assets/backgrounds/background_pattern/%E8%A5%BF%E5%BC%8F%E5%BA%95%E7%BA%B9v2.webp?v=20260905-art-perf1",
-      "sha256": "bbd5aeed18abdfc17c5ea8e026fc0ac5bb47c97c2ea6fcb0fa19f8fa5de4de3f",
-      "height": 432
+      "sha256": "8aebfb4befbd9f6df18bf80ccaefa7e63ddb49c988fe6304a50bd10f853ac045",
+      "originalSha256": "bbd5aeed18abdfc17c5ea8e026fc0ac5bb47c97c2ea6fcb0fa19f8fa5de4de3f",
+      "localFile": "config/script-art/patterns-0.webp"
     },
     {
       "id": "patterns-1",
       "group": "patterns",
       "label": "中式底纹",
       "source": "https://www.merlin-botc.com/resources/art-assets/backgrounds/background_pattern/%E4%B8%AD%E5%BC%8F%E5%BA%95%E7%BA%B9.png",
-      "sha256": "53d74880d6009b2a57a5af696eaf67131bac57c891f81ac67f5b4d5b2e8db3f3",
-      "height": 432
+      "sha256": "0dac6a70f6105880cc46ae83349daf5e717e9dd6ab23acb5befd894d2e869a33",
+      "originalSha256": "53d74880d6009b2a57a5af696eaf67131bac57c891f81ac67f5b4d5b2e8db3f3",
+      "localFile": "config/script-art/patterns-1.webp"
     },
     {
       "id": "ornaments-0",
       "group": "ornaments",
       "label": "经典风",
       "source": "https://www.merlin-botc.com/resources/art-assets/ornaments/%E7%BB%8F%E5%85%B8%E9%A3%8E.png",
-      "sha256": "dc49282a64d1af18ad722813085a7b3a595bf16473fa09b931ed1c5aa2d9bb3c",
-      "height": 432
+      "sha256": "ce99a1afdfd681995a05817f1d508ae73d0e60a117ed0a777d6599411fa82c2b",
+      "originalSha256": "dc49282a64d1af18ad722813085a7b3a595bf16473fa09b931ed1c5aa2d9bb3c",
+      "localFile": "config/script-art/ornaments-0.webp"
     },
     {
       "id": "ornaments-1",
       "group": "ornaments",
       "label": "梅林风",
       "source": "https://www.merlin-botc.com/resources/art-assets/ornaments/%E6%A2%85%E6%9E%97%E9%A3%8E.webp?v=20260905-art-perf1",
-      "sha256": "802478042f8a79d449ff9c9ef77897d456815b568f33bc7a4f1a7eb2c61adbcc",
-      "height": 432
+      "sha256": "a3f2c650bc2beb33c1142e541c342da113287e69fd50821a26b3e347078dbfc8",
+      "originalSha256": "802478042f8a79d449ff9c9ef77897d456815b568f33bc7a4f1a7eb2c61adbcc",
+      "localFile": "config/script-art/ornaments-1.webp"
+    },
+    {
+      "id": "night-charcoal",
+      "group": "nightThemes",
+      "label": "诡雾灰 · 朱红边线",
+      "source": "https://www.merlin-botc.com/resources/art-assets/nightorder/nightorder_background/%E8%AF%A1%E9%9B%BE%E7%81%B0.png",
+      "kind": "image",
+      "dark": true,
+      "originalSha256": "68694a66cdd88333b262f16b6c1a3b5e42142566fec40c2521796a3f4f1a130f",
+      "extraSources": [
+        {
+          "source": "https://www.merlin-botc.com/resources/art-assets/filter/filter_1.png",
+          "sha256": "485ad68061d47fbc59e38aa1587add143178361933b165c2c29cb7431ffd8d1a"
+        }
+      ],
+      "derivation": "底纹与边线合成后按画布等比缩小",
+      "localFile": "config/script-art/night-charcoal.webp",
+      "sha256": "0ea05d4b64a2170b9df838fc3df30da5ac627e48d32abfe9f8121c0effd67804"
+    },
+    {
+      "id": "night-purple",
+      "group": "nightThemes",
+      "label": "凝夜紫 · 紫色边线",
+      "source": "https://www.merlin-botc.com/resources/art-assets/nightorder/nightorder_background/%E5%87%9D%E5%A4%9C%E7%B4%AB.webp",
+      "kind": "image",
+      "dark": true,
+      "originalSha256": "73054be726e5b7392945f1f6c5cca361f7812f5af67b0e3086f4d9f6817551f0",
+      "extraSources": [
+        {
+          "source": "https://www.merlin-botc.com/resources/art-assets/nightorder/filter/%E5%87%9D%E5%A4%9C%E7%B4%AB.webp",
+          "sha256": "9454cf5476aa77c1a1626924d355f353a317454faa79af375787d524223e0cf6"
+        }
+      ],
+      "derivation": "底纹与边线合成后按画布等比缩小",
+      "localFile": "config/script-art/night-purple.webp",
+      "sha256": "b216925783ec0a0f9e602f7137651ebda308fc41669ade52ef79dc5186c9e89c"
+    },
+    {
+      "id": "night-red",
+      "group": "nightThemes",
+      "label": "胭脂琉 · 赤色纹理",
+      "source": "https://www.merlin-botc.com/resources/art-assets/nightorder/nightorder_background/%E8%83%AD%E8%84%82%E7%90%89.png",
+      "kind": "image",
+      "dark": true,
+      "originalSha256": "bd67f89dd3bebc6cac912875c5f2c3c87e26d080890f602114a1e716eef1610a",
+      "extraSources": [
+        {
+          "source": "https://www.merlin-botc.com/resources/art-assets/nightorder/filter/%E8%83%AD%E8%84%82%E7%90%89.png",
+          "sha256": "14b3c2011f8e0500bf90cddb54d01adda2ce73fc81ffcaeeee2f78618fab3f77"
+        }
+      ],
+      "derivation": "底纹与边线合成后按画布等比缩小",
+      "localFile": "config/script-art/night-red.webp",
+      "sha256": "027c8d6ee52661e636033caf606dcf491206b0deec47b0bb65841e13ae4348c2"
+    },
+    {
+      "id": "night-ivory",
+      "group": "nightThemes",
+      "label": "壁玉白 · 浅色纹理",
+      "source": "https://www.merlin-botc.com/resources/art-assets/nightorder/nightorder_background/%E5%A3%81%E7%8E%89%E7%99%BD.png",
+      "kind": "image",
+      "dark": false,
+      "originalSha256": "23b60d33cb2afe6b306382b0f2f36899b1fe3111e117789f65cf2d203e43d0ba",
+      "extraSources": [
+        {
+          "source": "https://www.merlin-botc.com/resources/art-assets/nightorder/filter/%E5%A3%81%E7%8E%89%E7%99%BD.png",
+          "sha256": "51613397835df74911ca131e36ddaa5edcfc58155dad9f6398b2f286bf8505db"
+        }
+      ],
+      "derivation": "底纹与边线合成后按画布等比缩小",
+      "localFile": "config/script-art/night-ivory.webp",
+      "sha256": "88d1b14ccc46f1a442c24ee05446caa7ebf0b68156f26eddcd1b30c3835d76b6"
+    },
+    {
+      "id": "status-panel",
+      "group": "status",
+      "label": "特殊规则纸张",
+      "source": "https://www.merlin-botc.com/resources/art-assets/status/status-bg.webp",
+      "kind": "image",
+      "originalSha256": "733e95f0dc628efa88baee123f135bd557340a86206f2d4eafe576bf005f8d66",
+      "localFile": "config/script-art/status-panel.webp",
+      "sha256": "8dae0bfcdaa9899c72e91128b044b84bff22d087ceb6b6751da79597d908b717"
+    },
+    {
+      "id": "status-divider",
+      "group": "status",
+      "label": "特殊规则分隔线",
+      "source": "https://www.merlin-botc.com/resources/art-assets/status/status-divider.png",
+      "kind": "image",
+      "originalSha256": "c25b4a3163073e767f7bbda80d8fdb49180407deb1c773f43427d7132a64f8fd",
+      "aspect": 17.047619047619047,
+      "localFile": "config/script-art/status-divider.webp",
+      "sha256": "0e838230fbd872405811211fbdfcced618182fd1c3db66d47250ee24abd75cb1"
+    },
+    {
+      "id": "status-emblem",
+      "group": "status",
+      "label": "特殊规则纹章",
+      "source": "https://www.merlin-botc.com/resources/art-assets/status/status-title-icon.png",
+      "kind": "image",
+      "originalSha256": "fdc6a465f8ff3905e2c29b4d0fc81434ac9ac9c7fb8d9f0e68f08edd67af35d8",
+      "aspect": 0.9954545454545455,
+      "localFile": "config/script-art/status-emblem.webp",
+      "sha256": "dd9345c553dd0a5f7c53958950f6745fa8ba8e428c36e9e3a9c4ad8504a39913"
+    },
+    {
+      "id": "marker-dusk",
+      "group": "markers",
+      "label": "夜晚",
+      "source": "https://www.merlin-botc.com/resources/art-assets/nightorder/50px-Dusk%20-%20%E5%A4%9C%E6%99%9A%E6%A0%87%E8%AE%B0.png",
+      "kind": "image",
+      "originalSha256": "3c278ec4a2bee6285a360be325cbc52ebc235287e8214cd368388f7d3f71e56c",
+      "aspect": 1.0,
+      "localFile": "config/script-art/marker-dusk.webp",
+      "sha256": "5cc2f0a90698515d5b9d34c3daaa6b2d913d1f206d6c1820e6d43320f6b216f2"
+    },
+    {
+      "id": "marker-dawn",
+      "group": "markers",
+      "label": "黎明",
+      "source": "https://www.merlin-botc.com/resources/art-assets/nightorder/50px-Dawn%20-%20%E9%BB%8E%E6%98%8E%E5%9B%BE%E6%A0%87.png",
+      "kind": "image",
+      "originalSha256": "36b67fc9ec0e84d2c818d793a5ff97f5a5d782fcdc0c66b89ee09b5f0d2f9489",
+      "aspect": 1.0,
+      "localFile": "config/script-art/marker-dawn.webp",
+      "sha256": "1cb7b7efcd652a5d993164bea33f04448d1b5b5d3db24a48e92cde0b7d7ac724"
+    },
+    {
+      "id": "marker-minion",
+      "group": "markers",
+      "label": "爪牙信息",
+      "source": "https://www.merlin-botc.com/resources/art-assets/nightorder/50px-Mi%20-%20%E7%88%AA%E7%89%99%E5%9B%BE%E6%A0%87.png",
+      "kind": "image",
+      "originalSha256": "6b7d5eb9867fc95c4a0052f399a7380430d415d5bb2a8eba1ea8a711cc3123ee",
+      "aspect": 1.0,
+      "localFile": "config/script-art/marker-minion.webp",
+      "sha256": "f40c8846d68434a76a9cac47a809cfe8aba104d9ffcef2b5813b45c246563843"
+    },
+    {
+      "id": "marker-demon",
+      "group": "markers",
+      "label": "恶魔信息",
+      "source": "https://www.merlin-botc.com/resources/art-assets/nightorder/50px-Di%20-%20%E6%81%B6%E9%AD%94%E5%9B%BE%E6%A0%87.png",
+      "kind": "image",
+      "originalSha256": "220cc04b9630f56d72f2d869973243239658b63263ce022256a1bfbf4bfcf8fa",
+      "aspect": 1.0,
+      "localFile": "config/script-art/marker-demon.webp",
+      "sha256": "b1bcd81fc8b6123d0835df8aa454167f051ae0a1377442ccf591e96bf72cea7b"
+    },
+    {
+      "id": "footer-night",
+      "group": "caption",
+      "label": "非首夜说明",
+      "source": "https://www.merlin-botc.com/resources/art-assets/backgrounds/central_component.png",
+      "kind": "image",
+      "originalSha256": "a44208badac41c6f1ca0d1c997f87d9febcd32ef9d68228992c3f4b2e978b095",
+      "aspect": 2.1988950276243093,
+      "localFile": "config/script-art/footer-night.webp",
+      "sha256": "ab5a156622760c90880e8a28477a3c8283c1c8a20c5854fb6986cd9b54ca4217"
+    },
+    {
+      "id": "footer-terms",
+      "group": "footers",
+      "label": "可能 / 中毒 / 醉酒",
+      "source": "https://www.merlin-botc.com/resources/art-assets/Special%20Note/%E5%8F%AF%E8%83%BDv2.png",
+      "kind": "image",
+      "originalSha256": "71ea834f08711eea9035dc97811e169eb3e7824eeab663935c1f63e9a9a422d2",
+      "aspect": 5.632142857142857,
+      "localFile": "config/script-art/footer-terms.webp",
+      "sha256": "0e1f177068ed4af86e2e6b1fb369e21fa1d13868c55c676ccaf3a808cae07ff5"
     }
   ]
 }
