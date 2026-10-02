@@ -2,6 +2,7 @@
   'use strict';
   var dialog,roles=[],icons={},plan,currentSvg='',previewUrl='',timer,revision=0,background='',backgroundRevision=0,iconPromise,decorationPromise,decorationReady=false;
   var savedBlob,savedURL='',savedName='';
+  var logo=null,logoRevision=0;
   var customJinx=[],jinxEditing=-1,jinxStorageKey='';
   var measureCanvas=document.createElement('canvas'),measureContext=measureCanvas.getContext('2d');
   function measure(value,size){measureContext.font=size+'px system-ui, "Microsoft YaHei", sans-serif';return measureContext.measureText(value).width;}
@@ -31,22 +32,24 @@
     });return decorationPromise;
   }
   function decorationOptions(){
-    [['artBackdrop','backgrounds','backgrounds-3'],['artPattern','patterns','patterns-0'],['artOrnament','ornaments','ornaments-0'],['artFrame','nightThemes','night-charcoal'],['artFooter','footers','']].forEach(function(pair){
+    [['artBackdrop','backgrounds','backgrounds-2'],['artPattern','patterns','patterns-0'],['artOrnament','ornaments','ornaments-0'],['artFrame','nightThemes','night-charcoal'],['artFooter','footers','']].forEach(function(pair){
       var select=el(pair[0]),previous=select.value;select.innerHTML=pair[0]==='artFrame'?'<option value="paper">柔和纸色（无纹理）</option><option value="charcoal">深灰（无纹理）</option><option value="midnight">靛蓝（无纹理）</option>':'<option value="">无</option>';
       (window.SCRIPT_ART_DECORATIONS||[]).filter(function(item){return item.group===pair[1];}).forEach(function(item){var option=document.createElement('option');option.value=item.id;option.textContent=item.label;select.appendChild(option);});
       var value=decorationReady?previous:pair[2];
       select.value=Array.from(select.options).some(function(option){return option.value===value;})?value:pair[0]==='artBackdrop'&&select.options.length>1?select.options[1].value:pair[0]==='artFrame'?'paper':'';
     });decorationReady=true;
   }
-  function readImage(file){
+  function readImage(file,forLogo){
     return new Promise(function(resolve,reject){
-      if(!/^image\/(png|jpeg|webp)$/.test(file.type)||file.size>12*1024*1024){reject(new Error('请选择 12 MB 以内的 PNG、JPG 或 WebP 图片。'));return;}
+      var limit=forLogo?8:12;
+      if(!/^image\/(png|jpeg|webp)$/.test(file.type)||file.size>limit*1024*1024){reject(new Error('请选择 '+limit+' MB 以内的 PNG、JPG 或 WebP 图片。'));return;}
       var url=URL.createObjectURL(file),image=new Image();
       image.onload=function(){
         try{
-          var ratio=Math.min(1,2000/image.width,2000/image.height),canvas=document.createElement('canvas');
+          if(forLogo&&(!image.width||!image.height||image.width*image.height>16000000))throw new Error('Logo 图片过大，请缩小到 1600 万像素以内。');
+          var ratio=Math.min(1,(forLogo?1600:2000)/image.width,(forLogo?600:2000)/image.height),canvas=document.createElement('canvas');
           canvas.width=Math.max(1,Math.round(image.width*ratio));canvas.height=Math.max(1,Math.round(image.height*ratio));
-          canvas.getContext('2d').drawImage(image,0,0,canvas.width,canvas.height);resolve(canvas.toDataURL('image/png'));
+          canvas.getContext('2d').drawImage(image,0,0,canvas.width,canvas.height);var data=canvas.toDataURL('image/png');resolve(forLogo?{image:data,aspect:canvas.width/canvas.height}:data);
         }catch(error){reject(new Error('图片无法处理，请选择较小的图片。'));}finally{URL.revokeObjectURL(url);}
       };
       image.onerror=function(){URL.revokeObjectURL(url);reject(new Error('图片损坏或格式不受支持。'));};image.src=url;
@@ -126,13 +129,13 @@
     clearJinxEditor();listJinx();
   }
   var history=[],historyIndex=-1,restoring=false,originalOrder=[],activeRole='',sourceSignature='',sourceTitle='',sourceAuthor='',sourceMeta='';
-  var historyFields=['artFrame','artFooter','artVersion','artPlayers','artTitleStyle','artRatio','artJinx','artPure','artStyle','artRules','artTitle','artAuthor','artSubtitle','artColumns','artTheme','artFont','artBackdrop','artPattern','artOrnament'];
-  function booleanField(id){return id==='artJinx'||id==='artPure';}
+  var historyFields=['artUseLogo','artFrame','artFooter','artVersion','artPlayers','artTitleStyle','artRatio','artJinx','artPure','artStyle','artRules','artTitle','artAuthor','artSubtitle','artColumns','artTheme','artFont','artBackdrop','artPattern','artOrnament'];
+  function booleanField(id){return id==='artJinx'||id==='artPure'||id==='artUseLogo';}
   function view(mode){dialog.dataset.view=mode;dialog.scrollTop=0;el('artViewSettings').setAttribute('aria-pressed',String(mode==='settings'));el('artViewPreview').setAttribute('aria-pressed',String(mode==='preview'));}
   function focusSetting(id){view('settings');el(id).focus();}
   function snapshot(){
     var fields={};historyFields.forEach(function(id){fields[id]=booleanField(id)?el(id).checked:el(id).value;});
-    return JSON.stringify({roles:roles,customJinx:customJinx,fields:fields,background:background});
+    return JSON.stringify({roles:roles,customJinx:customJinx,fields:fields,background:background,logo:logo});
   }
   function recordHistory(){
     if(!restoring){var current=snapshot();if(history[historyIndex]!==current){history=history.slice(0,historyIndex+1);history.push(current);if(history.length>30)history.shift();historyIndex=history.length-1;}}
@@ -141,8 +144,8 @@
   function travelHistory(delta){
     clearTimeout(timer);if(history.length&&snapshot()!==history[historyIndex])recordHistory();
     var index=historyIndex+delta;if(index<0||index>=history.length)return;
-    clearTimeout(timer);backgroundRevision++;var state=JSON.parse(history[index]);historyIndex=index;
-    roles=state.roles;customJinx=state.customJinx;background=state.background;
+    clearTimeout(timer);backgroundRevision++;logoRevision++;var state=JSON.parse(history[index]);historyIndex=index;
+    roles=state.roles;customJinx=state.customJinx;background=state.background;logo=state.logo||null;
     Object.keys(state.fields).forEach(function(id){if(booleanField(id))el(id).checked=state.fields[id];else el(id).value=state.fields[id];});
     clearJinxEditor();listJinx();persistJinx();el('artRoleEditor').hidden=true;restoring=true;render();restoring=false;
     // Rendering refreshes external night order; retain redo after that refresh.
@@ -179,7 +182,7 @@
       button.addEventListener('dragend',function(){dragged='';overlay.querySelectorAll('.art-drop').forEach(function(b){b.classList.remove('art-drop');});});
     });
   }
-  function options(){var imported=ScriptCore.ruleSections(typeof SCRIPT_RULES==='undefined'?[]:SCRIPT_RULES,roles),pure=el('artPure').checked;return {pure:pure,nightTheme:pure?'':el('artFrame').value,footer:pure?'':el('artFooter').value,frame:el('artFrame').value,version:el('artVersion').value,players:el('artPlayers').value,titleStyle:el('artTitleStyle').value,showJinx:el('artJinx').checked,jinx:(typeof JINX==='undefined'?[]:JINX).concat(customJinx,imported.jinx),style:el('artStyle').value,ratio:el('artRatio').value,rules:[el('artRules').value].concat(imported.other.map(function(rule){return rule.name+'：'+rule.ability;})).filter(Boolean).join('\n'),first:roles.filter(function(r){return r.artFirst>0;}).sort(function(a,b){return a.artFirst-b.artFirst;}),other:roles.filter(function(r){return r.artOther>0;}).sort(function(a,b){return a.artOther-b.artOther;}),columns:el('artColumns').value,font:el('artFont').value,theme:el('artTheme').value,title:el('artTitle').value,author:el('artAuthor').value,subtitle:el('artSubtitle').value,total:roles.length,background:pure?'':background,backdrop:pure||background?'':el('artBackdrop').value,pattern:pure?'':el('artPattern').value,ornament:pure?'':el('artOrnament').value,decorations:window.SCRIPT_ART_DECORATIONS||[]};}
+  function options(){var imported=ScriptCore.ruleSections(typeof SCRIPT_RULES==='undefined'?[]:SCRIPT_RULES,roles),pure=el('artPure').checked;return {logo:el('artUseLogo').checked?logo:null,pure:pure,nightTheme:pure?'':el('artFrame').value,footer:pure?'':el('artFooter').value,frame:el('artFrame').value,version:el('artVersion').value,players:el('artPlayers').value,titleStyle:el('artTitleStyle').value,showJinx:el('artJinx').checked,jinx:(typeof JINX==='undefined'?[]:JINX).concat(customJinx,imported.jinx),style:el('artStyle').value,ratio:el('artRatio').value,rules:[el('artRules').value].concat(imported.other.map(function(rule){return rule.name+'：'+rule.ability;})).filter(Boolean).join('\n'),first:roles.filter(function(r){return r.artFirst>0;}).sort(function(a,b){return a.artFirst-b.artFirst;}),other:roles.filter(function(r){return r.artOther>0;}).sort(function(a,b){return a.artOther-b.artOther;}),columns:el('artColumns').value,font:el('artFont').value,theme:el('artTheme').value,title:el('artTitle').value,author:el('artAuthor').value,subtitle:el('artSubtitle').value,total:roles.length,background:pure?'':background,backdrop:pure||background?'':el('artBackdrop').value,pattern:pure?'':el('artPattern').value,ornament:pure?'':el('artOrnament').value,decorations:window.SCRIPT_ART_DECORATIONS||[]};}
   function showPage(){
     var index=0;
     currentSvg=ScriptArt.svg(plan,index,options(),icons,measure);
@@ -188,6 +191,8 @@
     el('artPreview').src=previewUrl;paintOverlay();enabled(true);
   }
   function render(){
+    el('artLogoPreview').hidden=!logo;el('artRemoveLogo').disabled=!logo;
+    if(logo)el('artLogoPreview').src=logo.image;else el('artLogoPreview').removeAttribute('src');
     resetSaved();
     if(!dialog.open)return;
     // Night order belongs to the script, not to the image editor's undo history.
@@ -243,13 +248,13 @@
     dialog.innerHTML='<div class="art-header"><div><p class="art-eyebrow">SCRIPT STUDIO</p><h2 id="artHeading">剧本制图</h2><p>把当前剧本排成一张可分享的角色说明图。</p></div><button type="button" id="artClose" class="btn">关闭</button></div>'+
       '<div class="art-mobile-tools" role="group" aria-label="制图工作区"><button type="button" class="btn" id="artViewSettings" aria-pressed="true">设置</button><button type="button" class="btn" id="artViewPreview" aria-pressed="false">预览</button><button type="button" class="btn pri" id="artQuickSave" disabled>保存 / 分享</button></div>'+
       '<div class="art-workspace"><section class="art-controls" aria-label="制图设置">'+
-      '<label>快速版式<select id="artPreset"><option value="">选择版式预设…</option><option value="comfortable">舒展海报 · 保留字号</option><option value="reference">参考海报 · 固定比例</option><option value="reading">阅读版 · 单列大字</option><option value="materials">参考图素材 · 暖纸树叶</option></select></label><p class="art-note">版式预设保留原素材；参考图素材预设使用暖纸、树叶与暗纹夜序。均保留角色与规则，可撤销。</p><label><input type="checkbox" id="artPure">一键纯净（隐藏背景、底纹和装饰）</label>'+
+      '<label>快速版式<select id="artPreset"><option value="">选择版式预设…</option><option value="comfortable">舒展海报 · 保留字号</option><option value="reference">参考海报 · 固定比例</option><option value="reading">阅读版 · 单列大字</option><option value="whitepaper">参考图素材 · 浅白树叶</option><option value="materials">暖纸树叶海报</option></select></label><p class="art-note">版式预设保留原素材；浅白与暖纸素材预设使用对应纸纹、树叶与暗纹夜序。均保留角色与规则，可撤销。</p><label><input type="checkbox" id="artPure">一键纯净（隐藏背景、底纹和装饰）</label>'+
       '<div class="art-downloads"><button type="button" class="btn" id="artUndo" disabled>撤销</button><button type="button" class="btn" id="artRedo" disabled>重做</button><button type="button" class="btn" id="artResetOrder">恢复角色排序</button></div><p class="art-note">点击画布上的角色编辑能力与相克，拖拽交换同类角色。修改仅用于制图；夜序仍沿用剧本工具设置。</p><section id="artRoleEditor" hidden><strong id="artRoleHeading"></strong><label>图片中的能力说明<textarea id="artRoleAbility" maxlength="20000"></textarea></label><button type="button" id="artRoleApply" class="btn">应用说明</button><button type="button" id="artRoleJinx" class="btn">添加相克</button><label>与同类角色交换<select id="artSwapTarget"></select></label><button type="button" id="artSwap" class="btn">交换位置</button><button type="button" id="artRoleClose" class="btn">收起</button></section>'+
       '<label><input type="checkbox" id="artJinx" checked>显示已选角色间的相克规则</label>'+
       '<details class="art-custom-jinx"><summary>自定义相克规则</summary><label>角色一<select id="artJinxRoleA"></select></label><label>角色二<select id="artJinxRoleB"></select></label><label>相克说明<textarea id="artJinxText" maxlength="2000" placeholder="填写这两个角色之间的特殊互动规则"></textarea></label><button type="button" class="btn" id="artJinxAdd">添加相克规则</button><button type="button" class="btn" id="artJinxCancel">取消修改</button><p id="artJinxMessage" role="status"></p><div id="artCustomJinxList"></div><p class="art-note">仅用于当前角色组合的制图，保存到此浏览器，不改变全站规则或剧本 JSON。</p></details>'+
       '<label>图片比例<select id="artRatio"><option value="readable" selected>舒展排版 · 内容多时自动加长</option><option value="reference">固定参考比例 · 约 1:1.35</option><option value="auto">随内容自动加长</option></select></label>'+
       '<label>版式<select id="artStyle"><option value="poster" selected>参考图海报 · 阵营分区与两侧夜序</option><option value="simple">简洁分栏</option></select></label><label>特殊规则<textarea id="artRules" maxlength="2000" placeholder="例如：私货商人的特殊规则（可留空）"></textarea></label>'+
-      '<label>夜序边栏<select id="artFrame"><option value="paper">柔和纸色</option><option value="charcoal">暗纹 · 朱红边线</option><option value="midnight">靛蓝 · 紫色边线</option></select></label><div class="art-pair"><label>版本号<input id="artVersion" maxlength="18" placeholder="例如：V 1.0"></label><label>适用人数<input id="artPlayers" maxlength="24" placeholder="例如：支持 7–15 人"></label></div><label>标题风格<select id="artTitleStyle"><option value="plain">简洁黑体</option><option value="epic" selected>立体海报 · 蓝紫描边</option><option value="brush">墨色书法</option><option value="classic">古典宋体</option><option value="gold">鎏金铭文</option><option value="crimson">暗红悬疑</option></select></label><label>剧本标题<input id="artTitle" maxlength="100"></label><label>作者<input id="artAuthor" maxlength="48"></label><label>副标题 / 备注<input id="artSubtitle" maxlength="65" placeholder="例如：适合 9–12 人 · 第三版"></label>'+
+      '<label>夜序边栏<select id="artFrame"><option value="paper">柔和纸色</option><option value="charcoal">暗纹 · 朱红边线</option><option value="midnight">靛蓝 · 紫色边线</option></select></label><div class="art-pair"><label>版本号<input id="artVersion" maxlength="18" placeholder="例如：V 1.0"></label><label>适用人数<input id="artPlayers" maxlength="24" placeholder="例如：支持 7–15 人"></label></div><label>标题 Logo 预设<select id="artTitleStyle"><option value="plain">简洁黑体</option><option value="epic" selected>立体海报 · 蓝紫描边</option><option value="brush">墨色书法</option><option value="classic">古典宋体</option><option value="gold">鎏金铭文</option><option value="crimson">暗红悬疑</option><option value="shards">蓝晶拼字</option><option value="ember">赤焰铜刻</option><option value="obsidian">黑金徽记</option><option value="jade">青玉古篆</option><option value="lunar">月夜秘仪</option><option value="violet">紫银幻境</option></select></label><details class="art-logo-controls"><summary>上传自己的 / AI 制作的 Logo</summary><label>Logo 图片（推荐透明 PNG）<input type="file" id="artLogoFile" accept="image/png,image/jpeg,image/webp"></label><label><input type="checkbox" id="artUseLogo">使用上传的 Logo 替代标题</label><img id="artLogoPreview" alt="上传的 Logo 预览" hidden><button type="button" id="artRemoveLogo" class="btn" disabled>移除 Logo</button><p class="art-note">支持 8 MB 以内的 PNG/JPG/WebP。Logo 只在本机处理，等比放入标题区；不改变角色与剧本 JSON。关闭使用选项可恢复文字预设。</p></details><label>剧本标题<input id="artTitle" maxlength="100"></label><label>作者<input id="artAuthor" maxlength="48"></label><label>副标题 / 备注<input id="artSubtitle" maxlength="65" placeholder="例如：适合 9–12 人 · 第三版"></label>'+
       '<div class="art-pair"><label>分栏<select id="artColumns"><option value="1">单列</option><option value="2" selected>双列</option><option value="3">三列</option></select></label><label>配色<select id="artTheme"><option value="cloud">云白</option><option value="paper">暖纸</option><option value="night">深夜</option></select></label></div>'+
       '<label>说明字号<select id="artFont"><option value="20">紧凑</option><option value="24" selected>标准</option><option value="28">大字</option></select></label>'+
       '<label>素材背景<select id="artBackdrop"><option value="">无</option></select></label><div class="art-pair"><label>底纹<select id="artPattern"><option value="">无</option></select></label><label>装饰<select id="artOrnament"><option value="">无</option></select></label></div><label>底部术语说明<select id="artFooter"><option value="">无</option></select></label><p class="art-note">装饰素材来源：<a href="https://www.merlin-botc.com/create/art?lang=zh-CN" target="_blank" rel="noopener">Merlin Studio</a></p>'+
@@ -262,9 +267,9 @@
     view('settings');el('artViewSettings').onclick=function(){view('settings');};el('artViewPreview').onclick=function(){view('preview');};
     el('artQuickSave').onclick=function(){view('settings');return downloadPng(true);};
     el('artPreset').onchange=function(){
-      var presets={comfortable:{artStyle:'poster',artRatio:'readable',artFont:'24',artColumns:'2',artTitleStyle:'epic'},reference:{artStyle:'poster',artRatio:'reference',artFont:'24',artColumns:'2',artTitleStyle:'epic'},reading:{artStyle:'simple',artRatio:'readable',artFont:'28',artColumns:'1',artTitleStyle:'plain'},materials:{artStyle:'poster',artRatio:'readable',artFont:'24',artColumns:'2',artTitleStyle:'epic',artBackdrop:'backgrounds-3',artPattern:'patterns-0',artOrnament:'ornaments-0',artFrame:'night-charcoal'}};
+      var presets={comfortable:{artStyle:'poster',artRatio:'readable',artFont:'24',artColumns:'2',artTitleStyle:'epic'},reference:{artStyle:'poster',artRatio:'reference',artFont:'24',artColumns:'2',artTitleStyle:'epic'},reading:{artStyle:'simple',artRatio:'readable',artFont:'28',artColumns:'1',artTitleStyle:'plain'},whitepaper:{artStyle:'poster',artRatio:'readable',artFont:'24',artColumns:'2',artTitleStyle:'shards',artBackdrop:'backgrounds-2',artPattern:'patterns-0',artOrnament:'ornaments-0',artFrame:'night-charcoal',artUseLogo:false},materials:{artStyle:'poster',artRatio:'readable',artFont:'24',artColumns:'2',artTitleStyle:'epic',artBackdrop:'backgrounds-3',artPattern:'patterns-0',artOrnament:'ornaments-0',artFrame:'night-charcoal'}};
       var preset=presets[this.value];if(!preset)return;
-      clearTimeout(timer);recordHistory();Object.keys(preset).forEach(function(id){el(id).value=preset[id];});this.value='';render();
+      clearTimeout(timer);logoRevision++;recordHistory();Object.keys(preset).forEach(function(id){if(booleanField(id))el(id).checked=preset[id];else el(id).value=preset[id];});this.value='';render();
     };
     el('artUndo').onclick=function(){travelHistory(-1);};el('artRedo').onclick=function(){travelHistory(1);};
     el('artResetOrder').onclick=function(){roles.sort(function(a,b){return originalOrder.indexOf(a.id)-originalOrder.indexOf(b.id);});render();};
@@ -285,8 +290,15 @@
     };
     el('artPreview').onerror=function(){enabled(false);message('预览图片未能显示，请调整设置后重试。');};
     el('artClose').onclick=function(){dialog.close();};
-    dialog.addEventListener('close',function(){revision++;resetSaved();clearTimeout(timer);enabled(false);if(previewUrl){URL.revokeObjectURL(previewUrl);previewUrl='';}el('artPreview').removeAttribute('src');});
-    historyFields.forEach(function(id){el(id).addEventListener('input',queue);});
+    dialog.addEventListener('close',function(){revision++;logoRevision++;resetSaved();clearTimeout(timer);enabled(false);if(previewUrl){URL.revokeObjectURL(previewUrl);previewUrl='';}el('artPreview').removeAttribute('src');});
+    historyFields.forEach(function(id){el(id).addEventListener('input',function(){if(id==='artUseLogo')logoRevision++;queue();});});
+    el('artRemoveLogo').onclick=function(){logoRevision++;logo=null;el('artUseLogo').checked=false;el('artLogoFile').value='';render();};
+    el('artLogoFile').onchange=async function(){
+      var file=this.files[0],session=revision,upload=++logoRevision;if(!file)return;
+      clearTimeout(timer);render();resetSaved();enabled(false);message('正在处理 Logo…');
+      try{var result=await readImage(file,true);if(session===revision&&upload===logoRevision&&dialog.open){logo=result;el('artUseLogo').checked=true;render();}}
+      catch(error){if(session===revision&&upload===logoRevision&&dialog.open){message(error.message);enabled(!!currentSvg);}}
+    };
     el('artRemoveBg').onclick=function(){backgroundRevision++;background='';el('artBackground').value='';render();};
     el('artBackground').onchange=async function(){
       var file=this.files[0],session=revision,bg=++backgroundRevision;if(!file)return;enabled(false);message('正在处理背景…');
@@ -301,6 +313,7 @@
     if(!sel.length){alert('请先在剧本工具中添加角色，或导入剧本 JSON。');return;}
     if(!dialog)createDialog();
     var signature=JSON.stringify(sel);var fresh=signature!==sourceSignature;
+    if(sourceTitle!==el('mname').value){logoRevision++;logo=null;el('artUseLogo').checked=false;el('artLogoFile').value='';}
     if(fresh){sourceSignature=signature;history=[];historyIndex=-1;originalOrder=sel.map(function(r){return r.id;});
     roles=sel.map(function(role){var night=typeof ScriptCore!=='undefined'?ScriptCore.nightOrder(role,typeof SCRIPT_NIGHT_ORDER==='undefined'?{}:SCRIPT_NIGHT_ORDER,typeof NIGHT_OVERRIDES==='undefined'?{}:NIGHT_OVERRIDES):{firstNight:role.f||0,otherNight:role.o||0};return Object.assign({},role,{artFirst:night.firstNight,artOther:night.otherNight});});
     el('artJinxMessage').textContent='';prepareJinx();

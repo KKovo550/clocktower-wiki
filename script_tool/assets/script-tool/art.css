@@ -30,6 +30,8 @@
 #artSavePanel[hidden]{display:none}#artSavePanel{padding:12px;border:1px solid #cbd9ed;border-radius:10px}#artSavePreview{width:100%;max-height:50vh;object-fit:contain;-webkit-touch-callout:default;user-select:auto}#artSavePanel .btn{min-height:44px}
 
 #artDialog .art-mobile-tools{display:none}
+#artLogoPreview{display:block;width:100%;max-height:100px;object-fit:contain;padding:8px;background:#edf1f7;border-radius:8px}
+#artLogoPreview[hidden]{display:none}.art-logo-controls{padding:10px;border:1px solid #cbd9ed;border-radius:10px}.art-logo-controls summary{cursor:pointer}.art-logo-controls .btn{min-height:44px}
 #artSavePanel{scroll-margin-top:70px}
 @media(max-width:700px){
  #artDialog{max-height:94dvh;overscroll-behavior:contain}

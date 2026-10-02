@@ -154,7 +154,16 @@
     function text(x,y,value,size,color,weight){out.push('<text x="'+x+'" y="'+y+'" font-family="system-ui,Microsoft YaHei,sans-serif" font-size="'+size+'" font-weight="'+(weight||400)+'" fill="'+color+'">'+esc(value)+'</text>');}
     var title=String(options.title||'未命名剧本');
     var titleWidth=poster&&options.rules?515:1088;
-    var titleStyle=['plain','epic','brush','classic','gold','crimson'].includes(options.titleStyle)?options.titleStyle:'plain';
+    var logoPresets={
+      shards:{font:'SimHei,Microsoft YaHei,sans-serif',inks:['#16769b','#374665','#5c3d71'],outline:'#eee8d8',angles:[-7,5,-4,6],shadow:'#292832'},
+      ember:{font:'STKaiti,KaiTi,serif',inks:['#a84728','#862e30','#bf6932'],outline:'#f1dfb7',angles:[-3,3],shadow:'#462c29'},
+      obsidian:{font:'STSong,SimSun,serif',inks:['#272733','#403843'],outline:'#ba985a',angles:[0],shadow:'#665d52'},
+      jade:{font:'STSong,SimSun,serif',inks:['#246458','#397c68'],outline:'#e9d5a2',angles:[0],shadow:'#28473f'},
+      lunar:{font:'STKaiti,KaiTi,serif',inks:['#344765','#514875'],outline:'#e3e2e9',angles:[-2,2],shadow:'#272638'},
+      violet:{font:'SimHei,Microsoft YaHei,sans-serif',inks:['#684c87','#423775','#876291'],outline:'#e4d8ec',angles:[-4,4],shadow:'#302b46'}
+    };
+    var logoPreset=Object.prototype.hasOwnProperty.call(logoPresets,options.titleStyle)?logoPresets[options.titleStyle]:null;
+    var titleStyle=['plain','epic','brush','classic','gold','crimson'].includes(options.titleStyle)||logoPreset?options.titleStyle:'plain';
     var titleSize=titleStyle==='plain'?48:poster?120:78;while(titleSize>22&&measure(title,titleSize)>titleWidth-16)titleSize--;
     var titleLines=wrap(title,titleWidth,titleSize,measure);
     var titleValue=titleLines[0]+(titleLines.length>1?'…':'');
@@ -164,12 +173,30 @@
     var titleLength=Math.min(titleWidth-16,Math.max(1,measure(titleValue,titleSize)));
     var titleX=poster&&!options.rules?(1280-titleLength)/2:96;
     function titleLayer(dx,dy,fill,stroke,width){out.push('<text x="'+(titleX+dx)+'" y="'+((poster?125:110)+dy)+'" font-family="'+titleFonts[titleStyle]+'" font-size="'+titleSize+'" font-weight="'+(titleStyle==='classic'?600:900)+'" textLength="'+titleLength+'" lengthAdjust="spacingAndGlyphs" fill="'+fill+'" stroke="'+stroke+'" stroke-width="'+width+'" stroke-linejoin="round" paint-order="stroke fill">'+esc(titleValue)+'</text>');}
-    out.push('<g data-title-style="'+titleStyle+'">');
-    if(titleStyle==='epic'){titleLayer(4,6,'#292b37','#292b37',7);titleLayer(0,0,titleInk.epic,'#eee5cc',5);}
-    else if(titleStyle==='gold'){titleLayer(2,3,'#4d3821','#4d3821',3);titleLayer(0,0,titleInk.gold,'#725527',1.5);}
-    else if(titleStyle==='crimson'){titleLayer(2,4,'#34232d','#eadfcd',3);titleLayer(0,0,titleInk.crimson,'#eadfcd',1);}
-    else titleLayer(0,0,titleInk[titleStyle],'none',0);
-    out.push('</g>');
+    var logo=options.logo,hasLogo=embedded(logo)&&Number.isFinite(Number(logo.aspect))&&Number(logo.aspect)>0;
+    if(hasLogo){
+      var logoWidth=Math.min(titleWidth-16,124*Number(logo.aspect)),logoHeight=logoWidth/Number(logo.aspect);
+      out.push('<image data-title-logo="uploaded" href="'+esc(logo.image)+'" x="'+(poster&&!options.rules?(1280-logoWidth)/2:96)+'" y="'+(132-logoHeight)+'" width="'+logoWidth+'" height="'+logoHeight+'" preserveAspectRatio="xMidYMid meet"/>');
+    }else{
+      out.push('<g data-title-style="'+titleStyle+'"><title>'+esc(titleValue)+'</title>');
+      var preset=logoPreset;
+      if(preset){
+        out.push('<defs><pattern id="logo-hatching" width="11" height="13" patternUnits="userSpaceOnUse"><path d="M-2 13L11 0M4 13L17 0" stroke="#fff7e6" stroke-width="1" opacity=".22"/></pattern></defs>');
+        var glyphX=titleX,baseline=110,glyphs=Array.from(titleValue);
+        var advances=glyphs.map(function(char){return measure(char,titleSize);}),advanceScale=titleLength/Math.max(1,advances.reduce(function(n,width){return n+width;},0));
+        glyphs.forEach(function(char,index){
+          var advance=advances[index]*advanceScale,angle=preset.angles[index%preset.angles.length];
+          out.push('<g transform="rotate('+angle+' '+(glyphX+advance/2)+' '+(baseline-titleSize*.4)+')">');
+          function glyph(dx,dy,fill,stroke,width){out.push('<text x="'+(glyphX+dx)+'" y="'+(baseline+dy)+'" font-family="'+preset.font+'" font-size="'+titleSize+'" font-weight="900" textLength="'+advance+'" lengthAdjust="spacingAndGlyphs" fill="'+fill+'" stroke="'+stroke+'" stroke-width="'+width+'" stroke-linejoin="round" paint-order="stroke fill">'+esc(char)+'</text>');}
+          glyph(3,5,preset.shadow,preset.shadow,5);glyph(0,0,preset.inks[index%preset.inks.length],preset.outline,3.5);glyph(0,0,'url(#logo-hatching)','none',0);
+          out.push('</g>');glyphX+=advance;
+        });
+      }else if(titleStyle==='epic'){titleLayer(4,6,'#292b37','#292b37',7);titleLayer(0,0,titleInk.epic,'#eee5cc',5);}
+      else if(titleStyle==='gold'){titleLayer(2,3,'#4d3821','#4d3821',3);titleLayer(0,0,titleInk.gold,'#725527',1.5);}
+      else if(titleStyle==='crimson'){titleLayer(2,4,'#34232d','#eadfcd',3);titleLayer(0,0,titleInk.crimson,'#eadfcd',1);}
+      else titleLayer(0,0,titleInk[titleStyle],'none',0);
+      out.push('</g>');
+    }
     var meta=(options.author?'作者：'+String(options.author).slice(0,48)+'  ·  ':'')+options.total+' 个角色',metaSize=22;
     while(metaSize>14&&measure(meta,metaSize)>titleWidth)metaSize--;
     text(poster&&!options.rules?Math.max(96,1184-measure(meta,metaSize)):96,150,meta,metaSize,palette[3]);
