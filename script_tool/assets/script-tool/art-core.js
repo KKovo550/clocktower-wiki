@@ -40,7 +40,11 @@
     // Reserve the actual rendered rule box before laying out any role bands.
     if(ruleBox)top=Math.max(top,ruleBox.y+ruleBox.height*ruleBox.scale+40);
     if(compact&&(options.subtitle||options.players))top=Math.max(top,options.subtitle&&options.players?249:225);
-    var colWidth=(width-margin*2-gap*(columns-1))/columns,lineHeight=font*(compact?1.35:1.5),abilityY=poster?Math.max(58,font+36):62;
+    var visibleColWidth=(width-margin*2-gap*(columns-1))/columns;
+    var fittingScale=poster&&options.ratio==='reference'&&options._bodyScale?options._bodyScale:1;
+    // Measure in source coordinates so uniformly scaled text still fills each
+    // fixed-width column. Column anchors and the gap stay in page coordinates.
+    var colWidth=visibleColWidth/fittingScale,lineHeight=font*(compact?1.35:1.5),abilityY=poster?Math.max(58,font+36):62;
     var rows=[],jinxes=jinxFor(roles,options.showJinx===false?[]:options.jinx);
     var jinxFont=Math.max(compact?12:16,font-5);
     teams.forEach(function(team){
@@ -64,16 +68,29 @@
         columnsInBand.forEach(function(column,index){
           var used=column.reduce(function(n,row){return n+row.height;},0),extra=bandHeight-used;
           var cy=y,spacing=column.length>1?Math.min(compact?24:48,extra/(column.length-1)):0;
-          column.forEach(function(row){items.push({kind:'role',x:((team==='fabled'||team==='loric')&&group.length===1?(width-colWidth)/2:margin+index*(colWidth+gap)),y:cy,width:colWidth,team:team,role:row.role,lines:row.lines,notes:row.notes,noteTop:row.noteTop});cy+=row.height+spacing;});
+          column.forEach(function(row){items.push({kind:'role',x:((team==='fabled'||team==='loric')&&group.length===1?(width-visibleColWidth)/2:margin+index*(visibleColWidth+gap)),y:cy,width:colWidth,team:team,role:row.role,lines:row.lines,notes:row.notes,noteTop:row.noteTop});cy+=row.height+spacing;});
         });y+=bandHeight+32;
       });
       var railCount=Math.max((options.first||[]).length,(options.other||[]).length);
       var naturalHeight=Math.max(1800,y+112,top+railCount*58+170);
       var targetHeight=compact?Math.round(width*2000/1481):naturalHeight;
       if(options.ratio==='readable')targetHeight=Math.max(targetHeight,Math.ceil(y+100));
-      var bodyScale=compact?Math.min(1,(targetHeight-top-90)/Math.max(1,y-top)):1;
-      if(options.ratio==='reference'&&bodyScale<0.98&&font>18)return layout(roles,Object.assign({},options,{font:font-1,_fit:true}),measure);
-      return {pages:[items],width:width,height:targetHeight,font:font,lineHeight:lineHeight,abilityY:abilityY,ruleBox:ruleBox,bodyScale:bodyScale,bodyTop:top,railStep:compact?Math.min(58,(targetHeight-420)/Math.max(1,railCount)):58};
+      var allowedScale=compact?Math.min(1,(targetHeight-top-90)/Math.max(1,y-top)):1;
+      var bodyScale=options._bodyScale?fittingScale:allowedScale;
+      if(options.ratio==='reference'&&!options._bodyScale&&bodyScale<0.98&&font>18)return layout(roles,Object.assign({},options,{font:font-1,_fit:true}),measure);
+      if(options.ratio==='reference'&&!options._bodyScale&&bodyScale<1){
+        // Reflow at each candidate scale rather than shrinking a narrow body
+        // around the page centre. Choose the largest scale that fits vertically.
+        var lowScale=bodyScale,highScale=1;
+        var best=layout(roles,Object.assign({},options,{_bodyScale:lowScale,_fit:true}),measure);
+        for(var iteration=0;iteration<14;iteration++){
+          var candidateScale=(lowScale+highScale)/2;
+          var candidate=layout(roles,Object.assign({},options,{_bodyScale:candidateScale,_fit:true}),measure);
+          if(candidate.bodyFits){best=candidate;lowScale=candidateScale;}else highScale=candidateScale;
+        }
+        return best;
+      }
+      return {pages:[items],width:width,height:targetHeight,font:font,lineHeight:lineHeight,abilityY:abilityY,ruleBox:ruleBox,bodyScale:bodyScale,bodyFits:bodyScale<=allowedScale,bodyTop:top,railStep:compact?Math.min(58,(targetHeight-420)/Math.max(1,railCount)):58};
     }
     function arrange(capacity){
       var items=[],column=0,y=top,lastTeam='',maxY=top;
@@ -92,6 +109,11 @@
     while(low<high){var mid=Math.floor((low+high)/2);if(arrange(mid).columns<=columns)high=mid;else low=mid+1;}
     var result=arrange(Math.max(1400,low));
     return {pages:[result.items],width:width,height:Math.max(1800,Math.ceil(result.bottom+112)),font:font,ruleBox:ruleBox,bodyTop:top};
+  }
+
+  function roleBounds(plan,item){
+    var scale=plan.bodyScale||1,top=plan.bodyTop||0;
+    return {x:item.x,y:top+(item.y-top)*scale,width:item.width*scale,height:(item.noteTop+(item.notes||[]).reduce(function(n,note){return n+note.height+8;},0))*scale};
   }
 
   function svg(layout,pageIndex,options,icons,measure){
@@ -179,15 +201,17 @@
       railMarkup=railMarkup.replace(/#e4dcc9/g,dark?'#252844':'#292827').replace(/#665e4e/g,'#f2e8d7').replace(/#a89a7c/g,dark?'#9b608e':'#ad4b3d').replace(/stroke-opacity=".2"/g,'stroke-opacity=".9" stroke-width="3"');
       out.push(railMarkup);
     }
-    if(layout.bodyScale&&layout.bodyScale<1)out.push('<g transform="translate('+(640*(1-layout.bodyScale))+' '+(layout.bodyTop*(1-layout.bodyScale))+') scale('+layout.bodyScale+')">');
     layout.pages[pageIndex].forEach(function(item){
+      var bodyScale=layout.bodyScale||1;
       if(item.kind==='heading'){
+        var headingY=(layout.bodyTop||0)+(item.y-(layout.bodyTop||0))*bodyScale;
         if(!poster)out.push('<rect x="'+item.x+'" y="'+(item.y-26)+'" width="5" height="28" rx="2" fill="'+colors[item.team]+'"/>');
         var label=poster?(['townsfolk','outsider'].indexOf(item.team)>=0?'善良阵营 · ':['minion','demon'].indexOf(item.team)>=0?'邪恶阵营 · ':'')+labels[item.team]:labels[item.team];
-        if(poster&&(item.team==='fabled'||item.team==='loric')){out.push('<path d="M 96 '+(item.y-9)+' H 880" stroke="#a49a87"/><text x="1184" y="'+item.y+'" text-anchor="end" font-family="STSong,SimSun,serif" font-size="27" font-weight="900" fill="'+colors[item.team]+'">'+esc(labels[item.team]+(item.team==='fabled'?' · 说书人':''))+'</text>');return;}
-        if(poster)out.push('<text x="'+item.x+'" y="'+item.y+'" font-family="STSong,SimSun,serif" font-size="27" font-weight="900" stroke="'+colors[item.team]+'" stroke-width="0.45" paint-order="stroke fill" fill="'+colors[item.team]+'">'+esc(label)+'</text>');else text(item.x+16,item.y,label,26,palette[2],700);
-        if(poster)out.push('<path d="M '+(item.x+265)+' '+(item.y-9)+' H 1184" stroke="#a49a87"/>');return;
+        if(poster&&(item.team==='fabled'||item.team==='loric')){out.push('<path d="M 96 '+(headingY-9*bodyScale)+' H 880" stroke="#a49a87"/><text x="1184" y="'+headingY+'" text-anchor="end" font-family="STSong,SimSun,serif" font-size="'+(27*bodyScale)+'" font-weight="900" fill="'+colors[item.team]+'">'+esc(labels[item.team]+(item.team==='fabled'?' · 说书人':''))+'</text>');return;}
+        if(poster)out.push('<text x="'+item.x+'" y="'+headingY+'" font-family="STSong,SimSun,serif" font-size="'+(27*bodyScale)+'" font-weight="900" stroke="'+colors[item.team]+'" stroke-width="0.45" paint-order="stroke fill" fill="'+colors[item.team]+'">'+esc(label)+'</text>');else text(item.x+16,item.y,label,26,palette[2],700);
+        if(poster)out.push('<path d="M '+(item.x+265*bodyScale)+' '+(headingY-9*bodyScale)+' H 1184" stroke="#a49a87"/>');return;
       }
+      if(bodyScale<1)out.push('<g transform="translate('+(item.x*(1-bodyScale))+' '+(layout.bodyTop*(1-bodyScale))+') scale('+bodyScale+')">');
       var role=item.role,icon=icons[role.im]||icons[role.id];
       if(/^data:image\/(png|jpeg|webp);base64,/.test(icon||''))out.push('<image href="'+esc(icon)+'" x="'+item.x+'" y="'+item.y+'" width="'+iconSize+'" height="'+iconSize+'"/>');
       else {out.push('<circle cx="'+(item.x+40)+'" cy="'+(item.y+40)+'" r="32" fill="'+colors[item.team]+'" opacity="0.16"/>');text(item.x+25,item.y+51,Array.from(role.n||'?')[0],30,palette[2],600);}
@@ -208,11 +232,11 @@
         note.lines.forEach(function(line,i){text(x+42,noteY+noteFont+(poster&&(options.ratio==='reference'||options.ratio==='readable')?4:9)+i*noteFont*(poster&&(options.ratio==='reference'||options.ratio==='readable')?1.25:1.5),line,noteFont,palette[2]);});
         noteY+=note.height+8;
       });
+      if(bodyScale<1)out.push('</g>');
     });
-    if(layout.bodyScale&&layout.bodyScale<1)out.push('</g>');
     if(poster){out.push('<path d="M 475 '+(height-57)+' Q 640 '+(height-110)+' 805 '+(height-57)+' L 805 '+height+' H 475 Z" fill="#766d60" opacity=".85"/><text x="640" y="'+(height-34)+'" text-anchor="middle" font-family="STSong,SimSun,serif" font-size="21" font-weight="700" fill="#fff5df">* 代表非首个夜晚</text>');}else text(96,height-52,'钟楼资料库 · 剧本制图',18,palette[3]);
     if(!poster)text(980,height-52,'完整剧本 · '+options.total+' 个角色',18,palette[3]);
     out.push('</svg>');return out.join('');
   }
-  root.ScriptArt={layout:layout,svg:svg,wrap:wrap,jinxFor:jinxFor};
+  root.ScriptArt={layout:layout,svg:svg,wrap:wrap,jinxFor:jinxFor,roleBounds:roleBounds};
 })(typeof window==='undefined'?globalThis:window);

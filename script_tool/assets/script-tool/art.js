@@ -169,9 +169,8 @@
     hit('编辑标题与作者',96,50,options().style==='poster'&&options().rules?520:1088,150,function(){focusSetting('artTitle');el('artTitle').select();});
     if(plan.ruleBox){var box=plan.ruleBox;hit('编辑特殊规则',box.x,box.y,box.width*box.scale,box.height*box.scale,function(){focusSetting('artRules');});}
     plan.pages[0].filter(function(item){return item.kind==='role';}).forEach(function(item){
-      var scale=plan.bodyScale||1,x=640*(1-scale)+item.x*scale,y=(plan.bodyTop||0)*(1-scale)+item.y*scale;
-      var height=item.noteTop+(item.notes||[]).reduce(function(n,note){return n+note.height+8;},0);
-      var button=hit('编辑 '+item.role.n+'；拖拽交换同类角色',x,y,item.width*scale,height*scale,function(){editRole(item.role.id);});button.dataset.roleId=item.role.id;button.draggable=true;
+      var bounds=ScriptArt.roleBounds(plan,item);
+      var button=hit('编辑 '+item.role.n+'；拖拽交换同类角色',bounds.x,bounds.y,bounds.width,bounds.height,function(){editRole(item.role.id);});button.dataset.roleId=item.role.id;button.draggable=true;
       button.addEventListener('dragstart',function(e){dragged=item.role.id;e.dataTransfer.setData('text/plain',dragged);e.dataTransfer.effectAllowed='move';});
       button.addEventListener('dragover',function(e){if(dragged&&roles.find(function(r){return r.id===dragged;}).t===item.role.t){e.preventDefault();e.dataTransfer.dropEffect='move';button.classList.add('art-drop');}});
       button.addEventListener('dragleave',function(){button.classList.remove('art-drop');});
