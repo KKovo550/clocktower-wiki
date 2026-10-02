@@ -47,3 +47,11 @@ Python 可通过 `urllib.request.urlopen` 或已有 HTTP 客户端读取同样�
 数据维护入口：角色来自剧本工具生成目录，剧本来自 `script_lib/data/library.jsonl`；禁止把接口生成物当作第二份数据源。
 
 接口生成器先校验并写入临时目录，再整体替换 v1 快照；移除或移动剧本后不会残留旧 JSON。替换失败会恢复旧快照。目标目录若含符号链接或非 JSON 文件则拒绝覆盖。
+
+## 制图图标读取接口
+
+`GET https://clocktower-wiki-admin.clocktower-wiki.workers.dev/api/role-icon?url=<经过URL编码的HTTPS图片地址>` 返回 PNG/JPEG/WebP/GIF 位图，用于解决外部图床没有跨域许可头、无法写入制图画布的问题。此接口部署于现有 Worker，属于只读公开资源，不需要管理员会话；不上传图片，不执行 OCR，不转发 Cookie 或授权信息。
+
+仅允许 `admin/icon-proxy.mjs` 列出的已知图床，Gstone 限定角色图标路径；每次重定向重新核查地址。限制 8 MB、10 秒，拒绝内网目标、SVG、HTML 和不匹配的位图类型。成功位图缓存一天，失败响应不缓存。浏览器仅允许本站、本地开发及 `file:` 离线页面的来源。图床失效或反爬仍可能失败，客户端继续尝试图片数组中的下一个地址。
+
+`api/v1` 的静态 JSON 接口和原始剧本数据不会因此改变。制图优先使用随网站内嵌的图标缓存，只有缓存缺失且直接加载失败时才使用此读取接口。

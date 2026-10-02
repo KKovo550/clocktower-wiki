@@ -17,3 +17,9 @@ python -m unittest discover -s scripts -p test_editor_catalog.py
 ```
 
 此整理保留既有规则文本，不表示重新审核了所有规则的准确性。调整角色排列前，也要考虑旧的索引型草稿兼容；ID 型预设不再依赖排列。
+
+## 外部角色图标缓存
+
+`icon-images.json` 记录未收录角色的图片来源 URL、本地文件及 SHA-256；输入图片存放在 `imported-icons/`。这些图片只为制图提供缓存，不会把角色自动加入百科收录目录，也不会修改导入 JSON。
+
+`build_art_icons.py` 在正常构建中离线校验并内嵌缓存图片，清单 `proxy` 指向现有 Worker 的只读图标接口。新增缓存需显式运行 `scripts/cache_imported_icons.py <剧本JSON路径>`；该下载命令仅接受已核查的 Gstone 角色图标路径。

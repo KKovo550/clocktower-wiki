@@ -90,7 +90,16 @@
           if(session!==revision||!dialog.open)return;
           try{var url=urls[i],data=catalog.get(url);
             if(!data&&/^data:image\/(png|jpeg|webp);base64,/.test(url))data=url;
-            if(!data&&/^(https?:\/\/|data:image\/gif;base64,)/i.test(url))data=await embedIcon(url);
+            if(!data&&/^(https?:\/\/|data:image\/gif;base64,)/i.test(url)){
+              try{data=await embedIcon(url);}
+              catch(error){
+                var proxy=window.SCRIPT_ICON_PROXY;
+                if(!proxy||!/^https:\/\//i.test(proxy)||!/^https:\/\//i.test(url))throw error;
+                data=await embedIcon(proxy+'?url='+encodeURIComponent(url));
+                if(remoteIconCache.size>=256)remoteIconCache.delete(remoteIconCache.keys().next().value);
+                remoteIconCache.set(url,data);
+              }
+            }
             if(session!==revision||!dialog.open)return;
             if(data){icons[role.id]=data;break;}
           }catch(error){/* Try the next image in the imported array. */}

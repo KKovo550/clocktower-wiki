@@ -25,7 +25,7 @@ GitHub 注册入口：https://github.com/settings/applications/new 。应用名�
 
 命令：`npm exec --yes --package=wrangler -- wrangler deploy --config admin/wrangler.jsonc`。
 
-后台登录成功不代表普通访问者获权；每个读写 API 都校验会话中的管理员 ID。
+后台登录成功不代表普通访问者获权；页面编辑、版本记录及其他管理 API 都校验会话中的管理员 ID。只读公开的 `/api/role-icon` 不需要会话，仅用于允许名单中的外部角色位图，接口限制见 [公共接口说明](API.md)。
 
 ## 构建同步
 
