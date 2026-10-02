@@ -243,6 +243,36 @@
       "aspect": 5.632142857142857,
       "localFile": "config/script-art/footer-terms.webp",
       "sha256": "0e1f177068ed4af86e2e6b1fb369e21fa1d13868c55c676ccaf3a808cae07ff5"
+    },
+    {
+      "id": "source-overseas",
+      "group": "iconBackdrops",
+      "label": "海外自制 · 罗盘底纹",
+      "kind": "image",
+      "source": "https://www.merlin-botc.com/resources/art-assets/icon-bgs/odyssey-watermark.png",
+      "localFile": "config/script-art/source-overseas.png",
+      "sha256": "8c9a6510e9cf38f22e54512a2012b419aa86ae42700c5ad5305827eb0e779984",
+      "originalSha256": "f52dd82ba8cae4a9d2aba434295901e05e47ff155ad118d169b00ec2707a3824"
+    },
+    {
+      "id": "source-odyssey",
+      "group": "iconBackdrops",
+      "label": "奥德赛 · 山海百绘底纹",
+      "kind": "image",
+      "source": "https://www.merlin-botc.com/resources/art-assets/icon-bgs/%E5%B1%B1%E6%B5%B7%E7%99%BE%E7%BB%98%E5%BA%95%E7%BA%B9.png",
+      "localFile": "config/script-art/source-odyssey.png",
+      "sha256": "fdd7ad0670a2009b01f1194f1aa65d0ff27bdb5ae88e0539fcd60a3e8b1b07e5",
+      "originalSha256": "0a41dd972cee6ce6080922251c10b8976a85bfff06eca24a393075eb9390a904"
+    },
+    {
+      "id": "source-stars",
+      "group": "iconBackdrops",
+      "label": "群星 · 象牙塔底纹",
+      "kind": "image",
+      "source": "https://www.merlin-botc.com/resources/art-assets/icon-bgs/%E8%B1%A1%E7%89%99%E5%A1%94%E5%BA%95%E7%BA%B9.png",
+      "localFile": "config/script-art/source-stars.png",
+      "sha256": "5d8ef9fc3f92b009d30954f270949a85ff4867801e700f0642e91b957f8c096e",
+      "originalSha256": "c4ee47866cbfe0b5808b0003e30060742b756f673b5c4ceaf1ff0334c438b54b"
     }
   ]
 }
