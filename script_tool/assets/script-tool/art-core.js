@@ -197,11 +197,11 @@
       else titleLayer(0,0,titleInk[titleStyle],'none',0);
       out.push('</g>');
     }
-    var meta=(options.author?'作者：'+String(options.author).slice(0,48)+'  ·  ':'')+options.total+' 个角色',metaSize=22;
+    var meta=(options.author?'剧本作者：'+String(options.author).slice(0,48)+'  ·  ':'')+options.total+' 个角色',metaSize=22;
     while(metaSize>14&&measure(meta,metaSize)>titleWidth)metaSize--;
-    text(poster&&!options.rules?Math.max(96,1184-measure(meta,metaSize)):96,150,meta,metaSize,palette[3]);
+    text(poster&&!options.rules?Math.max(96,1184-measure(meta,metaSize)):96,150,meta,metaSize,options.author?'#000000':palette[3]);
     if(options.version){var versionText=String(options.version).slice(0,18);text(poster&&!options.rules?Math.min(1184-measure(versionText,16),titleX+titleLength+14):96,42,versionText,16,palette[2],700);}
-    if(options.players){var playerText=String(options.players).slice(0,24);text(poster&&options.rules?96:1184-measure(playerText,17),174,playerText,17,palette[2],700);}
+    if(options.players){var playerText=String(options.players).slice(0,24),playerSize=20;while(playerSize>14&&measure(playerText,playerSize)>titleWidth)playerSize--;text(poster&&options.rules?96:1184-measure(playerText,playerSize),174,playerText,playerSize,'#000000',700);}
     var subtitle=String(options.subtitle||'').slice(0,65),subtitleSize=20;
     while(subtitleSize>14&&measure(subtitle,subtitleSize)>titleWidth)subtitleSize--;
     text(96,options.players?198:174,subtitle,subtitleSize,palette[3]);

@@ -5,6 +5,7 @@
 #artDialog .art-eyebrow{font-size:11px;letter-spacing:2px;color:#51719d;font-weight:700}
 #artDialog .art-workspace{display:grid;grid-template-columns:290px minmax(0,1fr);gap:24px;padding:24px}
 #artDialog .art-controls{display:flex;flex-direction:column;gap:14px;min-width:0}
+#artDialog .art-script-info{display:flex;flex-direction:column;gap:14px;min-width:0}
 #artDialog label{display:flex;flex-direction:column;gap:7px;font-size:13px;color:#465b78}
 #artDialog input,#artDialog select{box-sizing:border-box;min-width:0;width:100%;padding:10px;border:1px solid #cedaeb;border-radius:9px;background:white;font:inherit;color:#1b2c44}
 #artDialog .art-pair{display:grid;grid-template-columns:1fr 1fr;gap:12px}
