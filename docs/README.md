@@ -15,6 +15,7 @@
 
 - [源码项目开发说明](../DEVELOPMENT.md)：安装、构建、测试和发布步骤。在本地源码目录阅读时，对应根目录的 [README](../README.md)。
 - [维护约定](MAINTENANCE.md)：修改入口、生成流程与发布边界。
+- [稳定版本验收](STABILITY.md)：固定制图样例、视觉基线及新协作者首次验证。
 - [数据维护指南](DATA_MAINTENANCE.md)：角色、夜序、相克、剧本和接口的数据来源。
 - [剧本工具基础数据](../config/script-tool/README.md)：角色 ID、预设与基础相克数据约定。
 - [群星资料导入](STARS_IMPORT.md)：角色资料与运作方式整合流程。

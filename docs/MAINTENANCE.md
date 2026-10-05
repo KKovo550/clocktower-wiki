@@ -34,7 +34,11 @@
 
 对应回归：`test-editor-nights.cjs`、`test-odyssey-jinx.cjs`、`test-art-ui.cjs` 和 `scripts/tests/admin.test.mjs`。发布前统一运行 `npm run validate`。
 
-制图始终输出一张完整图片，画布高度由整份剧本决定；保持角色能力完整，不切页。PNG 在最长边 8192 像素、总计 1600 万像素以内整体缩放，SVG 保留完整尺寸。`art-decorations.js` 包含参考站公开的背景、底纹与装饰，原始来源和 SHA-256 见 `script_tool/assets/script-tool/decorations/sources.json`；原图缓存在 `.sync/merlin-decorations/`，不随站点发布。需要刷新时显式运行 `python scripts/import_art_decorations.py --refresh`，日常构建不联网抓取。
+制图始终输出一张完整图片，保持角色能力完整、不切页。默认 `officialVintage` 固定为参考 PNG 的真实尺寸 1111 × 1500；只有手动选择 `readable`／`auto` 或标注“允许自动加长”的旧预设才按内容增高。PNG 默认 1 倍，显式 2 倍为 2222 × 3000；SVG 根宽高与 viewBox 保持原始尺寸。默认不添加术语说明、不保留空说明栏高度；说明栏仍可手动选择。传奇／奇遇合并逻辑和夜序独立于正文间距，复古预设的叶子先于角色绘制。
+
+配置源为 `config/script-art/presets.json`，`build_art_presets.py` 读取参考 PNG 后生成运行配置；`art-print-layout.js` 管理固定画布内的正文适配。名称字体为 SimHei，正文为 Sarasa UI SC，字体随 SVG 内嵌；HTTP 使用字体文件，`file://` 使用按需加载的字体脚本。固定验收样例、视觉基线和干净环境验证见 [稳定版本验收](STABILITY.md)。
+
+`art-decorations.js` 的素材来源和摘要见 `script_tool/assets/script-tool/decorations/sources.json`；正常构建读取 `config/script-art/` 中固定的本地素材，不需要历史 `.sync/` 缓存。刷新旧素材时显式运行 `python scripts/import_art_decorations.py --refresh`。
 
 剧本制图入口在编辑器的“生成剧本图片”。`art-core.js` 负责纯布局和 SVG 生成；`art.js` 负责对话框、背景处理及 PNG 下载；`art.css` 只影响制图界面。`scripts/build_art_icons.py` 把已收录的本地图标转成小尺寸内嵌索引色 PNG，由界面按需加载 `art-icons.js`，避免离线 Canvas 被文件跨域限制阻断。不要引用参考网站的私有素材或服务。排版测试检查说明不丢失、分页边界、转义；对话框测试检查草稿保持、设置更新及关闭重开。
 
