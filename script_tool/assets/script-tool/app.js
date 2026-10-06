@@ -181,6 +181,8 @@ function renderStat(){
   if(!c.total) h+='<br><span style="color:#9a8a6e">在左侧点击角色加入剧本</span>';
   document.getElementById('stat').innerHTML=h;
   var badge=document.getElementById('selectionCount');if(badge)badge.textContent=c.total;
+  var mobileBadge=document.getElementById('mobileSelectionCount');if(mobileBadge)mobileBadge.textContent=c.total;
+  var mobileArt=document.getElementById('bMobileArt');if(mobileArt)mobileArt.disabled=!c.total;
 }
 function renderJinx(){
   var rulesBox=document.getElementById('scriptRules');
@@ -220,6 +222,8 @@ function renderAll(){
 }
 
 /* ---------- 交互 ---------- */
+var mobileArtButton=document.getElementById('bMobileArt');
+if(mobileArtButton)mobileArtButton.addEventListener('click',function(){document.getElementById('bArt').click();});
 var sourceTabs=document.getElementById('source-tabs');
 if(sourceTabs)sourceTabs.addEventListener('click',function(e){
   var button=e.target.closest('[data-source]'); if(!button)return;
@@ -231,10 +235,16 @@ document.getElementById('tabs').addEventListener('click',function(e){
 });
 document.getElementById('grid').addEventListener('click',function(e){
   var c=e.target.closest('.card'); if(!c)return;
-  var ch=allChars()[+c.getAttribute('data-i')]; if(!ch)return;
+  var cardIndex=c.getAttribute('data-i'),keepFocus=document.activeElement===c;
+  var ch=allChars()[+cardIndex]; if(!ch)return;
   var k=selectedIndex(ch);
   if(k>=0) sel.splice(k,1); else sel.push(ch);
   renderAll();
+  // Re-rendering the grid must not interrupt a keyboard user's next selection.
+  if(keepFocus){
+    var replacement=document.getElementById('grid').querySelector('.card[data-i="'+cardIndex+'"]');
+    if(replacement)replacement.focus({preventScroll:true});
+  }
 });
 document.getElementById('sel').addEventListener('click',function(e){
   var b=e.target.closest('button'); if(!b)return;

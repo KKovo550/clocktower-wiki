@@ -207,7 +207,7 @@
   }
   var historyFields=['artSpacing','artTopDecoration','artScale','artUseLogo','artFrame','artFooter','artVersion','artPlayers','artTitleStyle','artRatio','artJinx','artPure','artStyle','artRules','artTitle','artAuthor','artSubtitle','artColumns','artTheme','artFont','artBackdrop','artPattern','artOrnament'];
   function booleanField(id){return id==='artJinx'||id==='artPure'||id==='artUseLogo'||id==='artTopDecoration';}
-  function view(mode){dialog.dataset.view=mode;dialog.scrollTop=0;el('artViewSettings').setAttribute('aria-pressed',String(mode==='settings'));el('artViewPreview').setAttribute('aria-pressed',String(mode==='preview'));}
+  function view(mode){dialog.dataset.view=mode;dialog.scrollTop=0;dialog.querySelector('.art-workspace').scrollTop=0;el('artViewSettings').setAttribute('aria-pressed',String(mode==='settings'));el('artViewPreview').setAttribute('aria-pressed',String(mode==='preview'));}
   function focusSetting(id){view('settings');var field=el(id);for(var parent=field.parentElement;parent;parent=parent.parentElement)if(parent.tagName==='DETAILS')parent.open=true;field.focus();}
   function snapshot(){
     var fields={};historyFields.forEach(function(id){fields[id]=booleanField(id)?el(id).checked:el(id).value;});

@@ -83,9 +83,9 @@ function render(){
       .map(function(t){return '<span class="pill t-'+t+'">'+TEAMCN[t]+c[t]+'</span>';}).join('');
     var selected=scriptIndexes.get(s)===selectedScriptIndex;
     return '<div class="row'+(selected?' sel':'')+'" role="button" tabindex="0" aria-controls="detail" aria-pressed="'+selected+'" data-i="'+scriptIndexes.get(s)+'"><div class="library-row-heading"><span class="nm">'+esc(s[0]||'(未命名)')+
-      '</span><span class="au" title="'+esc(s[1]||'佚名')+'">'+esc(s[1]||'佚名')+'</span></div><div class="library-row-tags">'+pills+
+      '</span><span class="au" title="'+esc(s[1]||'佚名')+'">作者：'+esc(s[1]||'佚名')+'</span></div><div class="library-row-tags">'+pills+
       (shownCount(s)?'<span class="pic">剧本图'+shownCount(s)+'</span>':'')+
-      '</div><div class="library-row-meta"><span class="cat">'+esc(s[2])+'</span><span class="cnt">'+(s[6]==='url'?'暂无 JSON':s[4]+' 个角色')+'</span></div></div>';
+      '</div><div class="library-row-meta"><span class="cat" title="'+esc(s[2])+'">'+esc(s[2])+'</span><span class="cnt">'+(s[6]==='url'?'暂无 JSON':s[4]+' 个角色')+'</span></div></div>';
   }).join('');
 
   document.getElementById('list').innerHTML=h||'<div class="hint">没有匹配的剧本</div>';

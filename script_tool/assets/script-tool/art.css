@@ -46,8 +46,11 @@
 .art-ai-logo{margin:10px 0 14px;padding-bottom:12px;border-bottom:1px solid #dce4ef}.art-ai-logo textarea{width:100%;resize:vertical}.art-logo-controls .art-downloads{display:flex;flex-wrap:wrap;gap:8px}.art-logo-controls button[hidden]{display:none}#artLogoPreview{-webkit-touch-callout:default}#artLogoStatus{overflow-wrap:anywhere}
 #artSavePanel{scroll-margin-top:70px}
 @media(max-width:700px){
- #artDialog{max-height:94dvh;overscroll-behavior:contain}
- #artDialog .art-mobile-tools{display:grid;grid-template-columns:1fr 1fr 1.4fr;gap:8px;padding:10px 16px;position:sticky;top:0;z-index:3;background:#f7f9fc;border-bottom:1px solid #dce4ef}
+ #artDialog{height:94dvh;max-height:94dvh;box-sizing:border-box;overscroll-behavior:contain;overflow:hidden}
+ #artDialog[open]{display:flex;flex-direction:column}
+ #artDialog .art-header{flex:none}
+ #artDialog .art-workspace{flex:1;min-height:0;overflow:auto;overscroll-behavior:contain;align-content:start}
+ #artDialog .art-mobile-tools{display:grid;order:3;flex:none;grid-template-columns:1fr 1fr 1.4fr;gap:8px;padding:10px max(16px,env(safe-area-inset-right,0px)) max(10px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));background:#f7f9fc;border-top:1px solid #dce4ef}
  #artDialog .art-mobile-tools .btn{min-height:44px;padding:8px 6px;font-size:14px}
  #artDialog .art-mobile-tools [aria-pressed="true"]{background:#e4edfb;border-color:#92baff;color:#285da9}
  #artDialog[data-view="preview"] .art-controls,#artDialog[data-view="settings"] .art-canvas{display:none}

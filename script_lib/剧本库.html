@@ -151,12 +151,12 @@
       <a href="#" id="wiki-random">随机页面</a>
     </li></ul>
   
-</nav><main class="content library-content library-browse"><h1 class="page-title">剧本库</h1><p id="librarySummary">剧本库 · 1046 个剧本 · 956 个有剧照（4820 张）
-      · 角色名 762/4578 可点开百科</p><div class="wrap">
-  <div class="library-actions"><span>发现剧本，收藏灵感</span><a class="btn" id="btnTool" href="../script_tool/%E5%89%A7%E6%9C%AC%E5%B7%A5%E5%85%B7.html" target="_blank" rel="noopener" title="打开剧本工具，自己拼一个剧本（新标签页）">制作自己的剧本</a><button class="btn" id="btnCompare"
-      title="上传一个剧本 JSON，与库内剧本比对，列出最像的 10 个">对比我的剧本</button></div>
+</nav><main class="content library-content library-browse"><div class="library-page-heading"><div class="library-page-intro"><h1 class="page-title">剧本库</h1><p id="librarySummary">剧本库 · 1046 个剧本 · 956 个有剧照（4820 张）
+      · 角色名 762/4578 可点开百科</p></div>
+  <div class="library-actions"><a class="btn" id="btnTool" href="../script_tool/%E5%89%A7%E6%9C%AC%E5%B7%A5%E5%85%B7.html" target="_blank" rel="noopener" title="打开剧本工具，自己拼一个剧本（新标签页）">制作自己的剧本</a><button class="btn" id="btnCompare"
+      title="上传一个剧本 JSON，与库内剧本比对，列出最像的 10 个">对比我的剧本</button></div></div><div class="wrap">
   <section class="library-filters" aria-label="剧本筛选"><div class="bar">
-  <label class="library-search">搜索剧本<input type="search" id="q" placeholder="搜索剧本、作者、角色…"><small>空格分隔多个关键词 · #角色名 精确匹配</small></label>
+  <label class="library-search"><span class="library-search-label">搜索剧本</span><input type="search" id="q" placeholder="搜索剧本、作者、角色…"><small>空格分隔多个关键词 · #角色名 精确匹配</small></label>
 </div><input type="hidden" id="cat" value="">
   <details id="libraryAdvanced" class="library-more"><summary>更多筛选 <span id="libraryFilterSummary">角色、分类、人数</span></summary><div class="library-advanced-body">
   <div class="role-query-fields"><label>必须包含的角色<input id="includeRoles" placeholder="例如：洗衣妇、僧侣（全部包含）" list="library-role-options"></label><label>排除的角色<input id="excludeRoles" placeholder="例如：酒鬼、间谍（任一命中即排除）" list="library-role-options"></label><datalist id="library-role-options"></datalist><small>使用顿号、逗号或换行分隔；按完整角色名匹配。</small></div><div class="library-filter-fields">  <label>排序方式<select id="sort">
@@ -178,9 +178,9 @@
   </div></details>
   </section>
 
-  <details class="library-record-tools"><summary>记录、导出与离线使用</summary><div><button class="btn" id="btnExport" title="导出剧本 JSON 与剧本图">导出剧本</button><button class="btn" id="maintenanceOpen">待补全与更新</button><button class="btn" id="personalBackup">备份个人记录</button><label class="btn">恢复个人记录<input id="personalRestore" type="file" accept=".json" hidden></label></div><p class="library-integration-note">收藏与游玩记录保存在当前浏览器。<span>本分享版不含剧本图片，图片预览不可用；剧本查询、对比与 JSON 导出仍可使用。</span></p>  <details id="maintenancePanel"><summary>更新与入库管理</summary><div id="maintenanceBody"></div><p id="maintenanceStatus" role="status"></p></details></details>
+  <div class="library-result-tools"><details class="library-record-tools"><summary>记录、导出与离线使用</summary><div><button class="btn" id="btnExport" title="导出剧本 JSON 与剧本图">导出剧本</button><button class="btn" id="maintenanceOpen">待补全与更新</button><button class="btn" id="personalBackup">备份个人记录</button><label class="btn">恢复个人记录<input id="personalRestore" type="file" accept=".json" hidden></label></div><p class="library-integration-note">收藏与游玩记录保存在当前浏览器。<span>本分享版不含剧本图片，图片预览不可用；剧本查询、对比与 JSON 导出仍可使用。</span></p>  <details id="maintenancePanel"><summary>更新与入库管理</summary><div id="maintenanceBody"></div><p id="maintenanceStatus" role="status"></p></details></details>
 
-  <div class="stats" id="stats"></div>
+  <div class="stats" id="stats"></div></div>
   <nav class="pagination" aria-label="剧本分页">
     <button class="btn" id="pagePrev">上一页</button><span id="pageInfo" aria-live="polite"></span>
     <button class="btn" id="pageNext">下一页</button>

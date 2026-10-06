@@ -78,3 +78,13 @@
 正文阅读色、工作区面板和控件统一使用 `site-experience.css` 中的 `--experience-text`、`--experience-muted`、`--experience-line`、`--experience-surface`、`--experience-blue` 及圆角变量。工作区规则限定在 `.role-index`、`.library-content`、`.script-editor`，制图弹窗只覆盖外部控件；不要给 `.art-stage`、`.art-hit`、绘图 SVG 或导出内容添加公共主题规则。结果列表前 10 项与详情采用短 CSS 入场过渡，原有渲染会自然触发，不新增数据监听、定时器或动画库。系统减少动态效果和打印时沿用全局禁用规则。检查桌面和手机下的筛选、选中状态、禁用按钮、对话框以及实际 PNG 导出，保持语义告警颜色。
 
 剧本库的浏览布局使用 `.library-browse` 限定在 `script_lib/assets/library.css`，展示交互集中于 `script_lib/assets/js/presentation.js`。低频条件及排序位于 `libraryAdvanced`；读取浏览器偏好或角色查询链接后，如有已启用条件会自动展开，手动收拢后仍显示条件数量。列表保留每条记录的原始下标，选中标记随列表重绘恢复；手机及单列容器选中后聚焦详情，并可返回选中条目。路径、分类、历史版本和来源折叠展示，原有控件 ID、个人记录存储键、图片按需加载和导出协议均保留。`script_lib/tests/presentation.test.cjs` 覆盖条件恢复、折叠提示、键盘选中、重绘标记及手机焦点往返。
+
+角色详情的首屏摘要和阅读目录由 `assets/role-details.js` 增强，样式限定在 `site-experience.css` 的 `.role-detail-page`；`scripts/site.py` 注入并发布控制器。控制器直接移动原始标题、图标、能力和目录节点，保留原文、链接和章节 ID；群星角色优先展示完整的最终 JSON「角色配置」，历史能力留在正文。桌面目录侧置，手机默认折叠；不增加数据监听、定时器或存储。无角色类型或有效能力章节的页面保持原样，脚本缺失时仍可阅读原页面。修改后运行 `node --test scripts/test-role-details.cjs` 与 `npm run validate`，并检查手机首屏正文宽度及原目录锚点。
+
+互动反馈沿用 `site-experience.css` 中的 `--experience-fast`（140ms）、`--experience-duration`（220ms）与统一缓动。悬停只在精细指针设备启用，禁用控件不位移；键盘焦点始终可见。支持 `::details-content` 的浏览器用原生高度过渡展开/收起，其他浏览器保留直接切换及短淡入；支持离散过渡的浏览器为普通弹窗加开合过渡，保留原生 Escape 和焦点语义，制图画布弹窗沿用原逻辑。目录仅在原生 hash 变化时更新 `aria-current="location"`，不拦截导航、不观察滚动。系统减少动态效果时禁用全部过渡；测试桌面悬停、键盘、手机展开/关闭、连续操作及弹窗关闭后点击，避免视觉残留或阻挡操作。
+
+编辑器卡片选择后，`app.js` 仅在原卡片已有焦点时恢复到重绘后的同一 `data-i` 卡片，避免 Enter/空格操作中断；其他控件上的焦点保持不变。`scripts/test-editor-workspace.cjs` 覆盖连续切换和不抢焦点，选择、存储及导入规则沿用原实现。
+
+剧本库列表的标题和作者分行展示，字体分别为 16px 与 13px，分类与数量使用较淡的 11px 辅助文本；仅列表标签统一淡色，详情中的阵营信息保留。完整作者可换行，分类被截断时可通过原文提示查看；索引、筛选和记录不变。
+
+手机编辑器底部快捷栏位于主工作区容器外，避免固定定位被容器约束；查看剧本使用原生锚点，生成图片委托原有 `bArt`，数量及可用状态随 `renderStat` 更新。820px 以下显示，内容及页尾预留 84px 加安全区；编辑输入框时隐藏快捷栏，打印时隐藏。700px 以下的制图弹窗分为固定头部、独立滚动内容和底部操作区，预览、设置与保存保留原有行为，切换视图重置内容滚动位置；不修改制图尺寸或绘图资源。回归包括 `test-editor-workspace.cjs`、`test-art-ui.cjs`，并检查小屏、横屏、长标题/作者、底部内容及真实 PNG 导出。

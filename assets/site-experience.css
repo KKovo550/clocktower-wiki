@@ -1,5 +1,65 @@
 /* Public UI polish. Poster SVGs and artwork layout are independent of these styles. */
-:root{--experience-ease:cubic-bezier(.22,1,.36,1);--experience-ink:#172b46;--experience-brass:#ddbf85;--experience-shadow:0 12px 32px #23364f0b;--experience-text:#394553;--experience-muted:#707c8b;--experience-line:#e1e6ed;--experience-surface:#f7f8fa;--experience-blue:#315f98;--experience-control-radius:9px;--experience-panel-radius:14px}
+:root{--experience-ease:cubic-bezier(.22,1,.36,1);--experience-fast:140ms;--experience-duration:220ms;--experience-ink:#172b46;--experience-brass:#ddbf85;--experience-shadow:0 12px 32px #23364f0b;--experience-text:#394553;--experience-muted:#707c8b;--experience-line:#e1e6ed;--experience-surface:#f7f8fa;--experience-blue:#315f98;--experience-control-radius:9px;--experience-panel-radius:14px}
+/* Role reading: the original icon and ability lead; every article section stays available. */
+.role-detail-page .role-overview{display:grid;grid-template-columns:minmax(0,1fr);gap:26px;padding:28px;margin-bottom:30px;border:1px solid #e1e7ef;border-radius:16px;background:linear-gradient(125deg,#f8fafc,#fff);min-width:0}
+.role-detail-page .role-overview.has-icon{grid-template-columns:124px minmax(0,1fr)}
+.role-detail-page .role-overview-icon{display:flex;align-items:flex-start;justify-content:center;padding-top:8px;min-width:0}
+.role-detail-page .role-overview-icon :is(p,.charinfo-img){margin:0;padding:0;width:100%;flex:none}
+.role-detail-page .role-overview-icon img{width:116px!important;height:116px!important;max-width:100%;object-fit:contain;filter:drop-shadow(0 4px 5px #213a5012)}
+.role-detail-page .role-overview-main{min-width:0}
+.content.role-detail-page .role-overview h1.page-title{border:0;margin:0 0 8px;padding:0;font-size:30px;line-height:1.35}
+.role-detail-page .role-overview-meta{display:flex;align-items:center;flex-wrap:wrap;gap:7px 12px;color:#667489;font-size:12px;margin-bottom:17px}
+.role-detail-page .role-overview-meta .tagline{font-size:12px;margin:0;padding:0;border:0}
+.role-detail-page .role-kind{font-size:11px;border-radius:6px;padding:3px 8px;line-height:1.5;background:#eaf0f8;color:#355d8a}
+.role-detail-page .role-kind.is-evil{background:#f7eaea;color:#914752}
+.role-detail-page .role-kind.is-special{background:#f5efdf;color:#856631}
+.role-detail-page .role-overview-ability{max-width:68ch;overflow-wrap:anywhere;font-size:16px;line-height:1.85;color:#344252}
+.role-detail-page .role-overview-ability h2{font-size:11px;font-weight:550;letter-spacing:.08em;color:#718096;border:0;margin:0 0 6px;padding:0}
+.role-detail-page .role-overview-ability :is(p,ul,ol){margin:5px 0;line-height:1.85}
+.role-detail-page .role-overview-ability strong{font-weight:600}
+.role-detail-page .role-overview-ability .callout{margin:0;padding:0;background:none;border:0;box-shadow:none}
+.role-detail-page .role-overview-ability>ul{font-size:12px;color:#667489}
+.role-detail-page .role-overview .role-script-link{display:inline-block;margin:15px 0 0;padding:0;background:none;border:0}
+.role-detail-page .role-overview .role-script-link a{display:inline-block;color:#315f98;font-size:12px;font-weight:500;padding:7px 10px;border:1px solid #dce5f0;background:#fff;border-radius:7px;text-decoration:none}
+.role-detail-page .role-reading-layout{display:grid;grid-template-columns:minmax(0,1fr) 176px;gap:34px;align-items:start}
+.role-detail-page .role-reading-layout>.mw-parser-output{min-width:0;color:var(--experience-text);font-size:15px;line-height:1.9;overflow-wrap:anywhere}
+.role-detail-page .role-reading-layout .mw-parser-output>h2:first-child{margin-top:0}
+.role-detail-page .role-reading-nav{position:sticky;top:calc(var(--wiki-header-height,68px) + 22px);min-width:0}
+.role-detail-page .role-contents{padding:14px;border-left:1px solid #e4e8ee;font-size:12px}
+.role-detail-page .role-contents>summary{font-size:12px;font-weight:550;color:#4f6178;cursor:pointer;padding:3px 0;list-style-position:inside}
+.role-detail-page .role-contents .toc{display:block;float:none;margin:12px 0 0;padding:0;background:none;border:0;width:auto;max-height:calc(100dvh - var(--wiki-header-height,68px) - 115px);overflow:auto;font-size:12px}
+.role-detail-page .role-contents .toctitle{display:none}
+.role-detail-page .role-contents ul{margin:0;padding:0;list-style:none}
+.role-detail-page .role-contents li{margin:2px 0;line-height:1.6}
+.role-detail-page .role-contents a{display:block;padding:6px 7px;border-radius:5px;color:#64758b;text-decoration:none}
+.role-detail-page .role-contents a:hover{color:#315f98;background:#eef3f9}
+.role-detail-page .role-contents a[aria-current=location]{color:#315f98;background:#edf2f9;box-shadow:inset 2px 0 0 #7897bb;font-weight:550}
+.role-detail-page .role-contents .lvl3{padding-left:12px}
+.role-detail-page .charinfo{display:block;padding:16px;border:1px solid #e5eaf0;background:#f8fafc;border-radius:10px;margin-bottom:24px}
+.role-detail-page .charinfo:empty{display:none}
+.role-detail-page [id]{scroll-margin-top:18px}
+@media(max-width:1100px){
+ .role-detail-page .role-reading-layout{grid-template-columns:minmax(0,1fr);gap:20px}
+ .role-detail-page .role-reading-nav{position:static;grid-column:1;grid-row:1}
+ .role-detail-page .role-contents{padding:10px 13px;border:1px solid #e4e8ee;border-radius:9px;background:#f8fafc}
+ .role-detail-page .role-contents .toc{max-height:300px}
+}
+@media(max-width:820px){
+ .role-detail-page .role-overview{padding:18px 16px;gap:12px;margin-bottom:18px}
+ .role-detail-page .role-overview.has-icon{grid-template-columns:66px minmax(0,1fr)}
+ .role-detail-page .role-overview.has-icon .role-overview-main{display:contents}
+ .role-detail-page .role-overview.has-icon .role-overview-icon{grid-column:1;grid-row:1 / span 2}
+ .role-detail-page .role-overview.has-icon h1.page-title{grid-column:2}
+ .role-detail-page .role-overview.has-icon .role-overview-meta{grid-column:2;margin-bottom:0}
+ .role-detail-page .role-overview.has-icon :is(.role-overview-ability,.role-script-link){grid-column:1 / -1}
+ .role-detail-page .role-overview-icon img{width:64px!important;height:64px!important}
+ .content.role-detail-page .role-overview h1.page-title{font-size:25px}
+ .role-detail-page .role-overview-meta{gap:5px 8px;margin-bottom:12px}
+ .role-detail-page .role-overview-ability{font-size:15px;line-height:1.85}
+ .role-detail-page .role-overview-ability :is(p,ul,ol){line-height:1.85}
+ .role-detail-page .role-overview .role-script-link a{line-height:1.6;padding:8px}
+ .role-detail-page .role-reading-layout{gap:22px}
+}
 html{scroll-padding-top:calc(var(--wiki-header-height,72px) + 24px)}
 body{background:#f2f4f8!important}
 .site-header{background:rgba(255,255,255,.92);border-bottom-color:#e3e7ee;box-shadow:0 1px 0 #ffffff80}
@@ -17,7 +77,7 @@ body{background:#f2f4f8!important}
 .content{border-color:#e2e7ef;border-radius:20px;box-shadow:var(--experience-shadow);padding:32px 36px 48px}
 .content h1.page-title{color:var(--experience-ink);font-size:30px;font-weight:650;letter-spacing:-.025em}
 .content :is(.btn,button:not(.card):not(.mini):not(.art-hit)){transition:background-color .2s,border-color .2s,box-shadow .2s,transform .2s var(--experience-ease)}
-.content :is(.btn,button:not(.card):not(.mini):not(.art-hit)):active{transform:translateY(1px) scale(.985)}
+.content :is(.btn,button:not(.card):not(.mini):not(.art-hit)):not(:disabled):not([aria-disabled=true]):active{transform:translateY(1px) scale(.985)}
 .content :is(input,select,textarea):focus-visible{outline-color:#7495c1}
 .role-index .card,.homebrew-card,.cert-card,.library-results-panel,.library-detail-panel{box-shadow:0 4px 14px #19335506!important}
 .role-index .card{border-radius:15px}.role-index .card:hover{border-color:#a2b9d8;box-shadow:0 10px 25px #19335510!important}
@@ -104,7 +164,7 @@ dialog::backdrop{background:#15283e66;backdrop-filter:blur(4px)}
 .script-tool-page #artDialog :is(input,select,textarea):focus-visible{outline:2px solid #809fc5;outline-offset:2px}
 .script-tool-page #artDialog .btn.pri{background:var(--experience-blue);border-color:var(--experience-blue)}
 
-@keyframes experience-result{from{opacity:.55;transform:translateY(5px)}to{opacity:1;transform:none}}
+@keyframes experience-result{from{opacity:.82;transform:translateY(3px)}to{opacity:1;transform:none}}
 @keyframes experience-dialog{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 @media(prefers-reduced-motion:no-preference){
  .library-content :is(.row,.chars a,.shot-link),.script-editor .tab{transition:background-color .2s,border-color .2s,box-shadow .2s,color .2s}
@@ -201,5 +261,60 @@ dialog::backdrop{background:#15283e66;backdrop-filter:blur(4px)}
  .home-intro,.home-clock,.home-clock .clock-hand{animation-duration:.55s}.home-visual{transition:none}.content :is(.btn,button:not(.card):not(.mini):not(.art-hit)){transition:background-color .16s,border-color .16s,transform .16s}
 }
 @media(max-width:360px){.home-page .home-hero{padding:25px 18px 20px}.home-page .home-hero h1{font-size:31px}.layout{padding:12px 8px}}
+/* Existing interactions share feedback timings; native controls keep their state and focus. */
+.content :is(.btn,button:not(.art-hit),summary,a.wiki-detail),.site-header :is(button,a,input),.sidebar a{touch-action:manipulation}
+.content :is(.btn,button:not(.art-hit),summary,a.wiki-detail):focus-visible,.site-header :is(button,a):focus-visible,.sidebar a:focus-visible,.role-contents a:focus-visible{outline:2px solid #7495c1;outline-offset:3px}
+.content :is(.btn,button):disabled,.content [aria-disabled=true]{transform:none!important}
+.role-contents>summary{list-style:none;display:flex;align-items:center;gap:8px}
+.role-contents>summary::-webkit-details-marker{display:none}
+.role-contents>summary::before{content:'›';font-size:17px;line-height:1;flex:none;transform:rotate(0)}
+.role-contents[open]>summary::before{transform:rotate(90deg)}
+@media(prefers-reduced-motion:no-preference){
+ .content :is(.btn,button:not(.card):not(.art-hit)),.role-overview .role-script-link a{transition:background-color var(--experience-fast),border-color var(--experience-fast),color var(--experience-fast),box-shadow var(--experience-duration),transform var(--experience-fast) var(--experience-ease)}
+ :is(.role-index .chip,.script-editor .tab,.script-editor .mini){transition:background-color var(--experience-fast),border-color var(--experience-fast),color var(--experience-fast),box-shadow var(--experience-duration),transform var(--experience-fast) var(--experience-ease)}
+ .role-index .card,.script-editor .lib .card{transition:background-color var(--experience-fast),border-color var(--experience-fast),box-shadow var(--experience-duration),transform var(--experience-duration) var(--experience-ease)}
+ .role-contents a,.library-content .row,.search-results a{transition:background-color var(--experience-fast),color var(--experience-fast),box-shadow var(--experience-fast)}
+ .content summary{transition:color var(--experience-fast),background-color var(--experience-fast)}
+ .role-contents>summary::before{transition:transform var(--experience-duration) var(--experience-ease)}
+ .role-index .card.open .more,.role-contents[open]>.toc{animation:experience-result .18s var(--experience-ease)}
+ .search-results.on{animation:experience-dialog .16s var(--experience-ease)}
+ .role-overview .role-script-link a:active,.script-editor .lib .card:not(:disabled):active{transform:translateY(1px) scale(.99)}
+ @media(hover:hover) and (pointer:fine){
+  .role-index .card:hover,.script-editor .lib .card:not(:disabled):hover{transform:translateY(-1px);border-color:#a2b9d8;box-shadow:0 5px 15px #20364f0e!important}
+  .role-overview .role-script-link a:hover{background:#f2f6fb;border-color:#a8bfda;box-shadow:0 3px 9px #20364f08}
+  .role-contents>summary:hover,.library-content summary:hover{color:#315f98}
+  .role-index .chip:not(.on):hover,.script-editor .tab:not(.on):hover{background:#edf2f9;border-color:#b7c9df;color:#315f98}
+  .script-editor .mini:not(:disabled):hover{background:#edf2f9;border-color:#b7c9df}
+ }
+ @media(max-width:820px){
+  .mobile-nav-ready .sidebar{transition:transform .24s var(--experience-ease),visibility .24s}
+  .mobile-nav-ready .sidebar-backdrop{transition:opacity .2s,visibility .24s}
+ }
+ /* Browsers with native disclosure transitions can animate both open and close. */
+ @supports (interpolate-size:allow-keywords) and selector(details::details-content){
+  :is(.role-contents,.role-index .filter-group,.library-content details,.script-editor details){interpolate-size:allow-keywords}
+  :is(.role-contents,.role-index .filter-group,.library-content details,.script-editor details)::details-content{block-size:0;opacity:0;overflow:clip;transition:block-size .24s var(--experience-ease),opacity .18s,content-visibility .24s allow-discrete}
+  :is(.role-contents,.role-index .filter-group,.library-content details,.script-editor details)[open]::details-content{block-size:auto;opacity:1}
+  :is(.role-contents,.role-index .filter-group,.library-content details,.script-editor details)[open]>:not(summary){animation:none}
+ }
+ /* The browser retains top-layer semantics, Escape and focus restoration. */
+ @supports (transition-behavior:allow-discrete){
+  dialog:not(#artDialog){opacity:0;transform:translateY(6px) scale(.995);transition:opacity .18s,transform var(--experience-duration) var(--experience-ease),display var(--experience-duration) allow-discrete,overlay var(--experience-duration) allow-discrete}
+  dialog:not(#artDialog)[open]{opacity:1;transform:none;animation:none}
+  dialog:not(#artDialog)::backdrop{opacity:0;transition:opacity .18s,display var(--experience-duration) allow-discrete,overlay var(--experience-duration) allow-discrete}
+  dialog:not(#artDialog)[open]::backdrop{opacity:1}
+  .script-library-page :is(#cmpMask,#jsonMask,#expMask){opacity:0;transition:opacity .18s,display var(--experience-duration) allow-discrete}
+  .script-library-page :is(#cmpMask,#jsonMask,#expMask):not(.on){pointer-events:none}
+  .script-library-page :is(#cmpMask,#jsonMask,#expMask).on{opacity:1}
+  .script-library-page :is(#cmpDlg,#jsonDlg,#expDlg){transform:translateY(6px) scale(.995);transition:transform var(--experience-duration) var(--experience-ease)}
+  .script-library-page :is(#cmpMask,#jsonMask,#expMask).on>:is(#cmpDlg,#jsonDlg,#expDlg){transform:none;animation:none}
+  @starting-style{
+   dialog:not(#artDialog)[open]{opacity:0;transform:translateY(6px) scale(.995)}
+   dialog:not(#artDialog)[open]::backdrop,.script-library-page :is(#cmpMask,#jsonMask,#expMask).on{opacity:0}
+   .script-library-page :is(#cmpMask,#jsonMask,#expMask).on>:is(#cmpDlg,#jsonDlg,#expDlg){transform:translateY(6px) scale(.995)}
+  }
+ }
+}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.home-visual,[data-reveal]{transform:none!important;opacity:1}.home-visual{transition:none}.motion-ready [data-reveal="pending"]{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 @media print{html{scroll-behavior:auto}.site-header::after{display:none}.home-page .home-hero{background:#fff!important;color:#172b46}.home-hero::before,.home-hero::after,.home-visual,.home-actions,.home-shortcuts{display:none}.home-page .home-hero h1,.home-hero h1 em,.home-hero .home-intro>p,.home-hero .home-eyebrow{color:#172b46}[data-reveal]{opacity:1!important;transform:none!important}.content{box-shadow:none;border:0}}
