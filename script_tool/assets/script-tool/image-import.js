@@ -168,7 +168,7 @@
       var recognitionOptions={gpu:el('ocrEngine').value==='paddle-gpu',layout:el('ocrLayout').value};
       function current(){return active&&revision===imageRevision&&el('ocrFile').files[0]===file;}
       busy = true; el('ocrRun').disabled = true; render();
-      var bitmap, workerURL;
+      var bitmap, workerURL,canvas;
       try {
         var recognitionFile=preparedImage?await preparedImage:file;if(!current()||!recognitionFile)return;
         if(el('ocrEngine').value==='paddle-browser'||el('ocrEngine').value==='paddle-gpu'){
@@ -201,7 +201,7 @@
         el('ocrStatus').textContent = '正在加载识别组件…';
         var engine = await loadOCR(); if (!current()) return;
         bitmap = await createImageBitmap(recognitionFile); if (!current()) return;
-        if (bitmap.width * bitmap.height > 32000000) throw new Error('图片尺寸过大，请缩小至 3200 万像素以内');
+        if (!Number.isFinite(bitmap.width)||!Number.isFinite(bitmap.height)||bitmap.width<=0||bitmap.height<=0||bitmap.width * bitmap.height > 32000000) throw new Error('图片尺寸无效或过大，请缩小至 3200 万像素以内');
         var runtime = runtimeURL;
         var options={ workerPath: runtime + 'worker.min.js', corePath: runtime, langPath: runtime, errorHandler: function () {}, logger: function (m) { if (current()) el('ocrStatus').textContent = '识别中：' + Math.round((m.progress || 0) * 100) + '% · ' + m.status; } };
         if(offline){
@@ -213,15 +213,19 @@
         if (!current()) return;
         var text = '', poster = el('ocrLayout').value === 'poster';
         for (var column = 0; column < (poster ? 2 : 1); column++) {
-          var canvas = document.createElement('canvas'), x = poster ? bitmap.width * (column ? 0.5 : 0.07) : 0, width = poster ? bitmap.width * 0.43 : bitmap.width;
-          var scale = Math.min(2, 2400 / width); canvas.width = Math.round(width * scale); canvas.height = Math.round(bitmap.height * scale);
-          canvas.getContext('2d').drawImage(bitmap, x, 0, width, bitmap.height, 0, 0, canvas.width, canvas.height);
-          var result = await worker.recognize(canvas); if (!current()) return; text += result.data.text + '\n';
+          canvas = document.createElement('canvas');var x = poster ? bitmap.width * (column ? 0.5 : 0.07) : 0, width = poster ? bitmap.width * 0.43 : bitmap.width;
+          var scale = Math.min(2, 2400 / width,8192/bitmap.height,Math.sqrt(16000000/(width*bitmap.height)));
+          canvas.width = Math.max(1,Math.floor(width * scale)); canvas.height = Math.max(1,Math.floor(bitmap.height * scale));
+          try{
+            var context=canvas.getContext('2d');if(!context)throw new Error('浏览器无法分配识别画布，请缩小图片后重试');
+            context.drawImage(bitmap, x, 0, width, bitmap.height, 0, 0, canvas.width, canvas.height);
+            var result = await worker.recognize(canvas); if (!current()) return; text += result.data.text + '\n';
+          }finally{canvas.width=0;canvas.height=0;canvas=null;}
         }
         el('ocrText').value = text; selected = match(text, catalog); render();
         el('ocrStatus').textContent = '识别完成，匹配到 ' + selected.length + ' 个角色。请校对名单并补选遗漏角色。';
       } catch (err) { if (current()) el('ocrStatus').textContent = '识别失败：' + (err && err.message ? err.message : String(err || '识别任务异常，请重试')) + '。你仍可手动粘贴角色名或补选角色。'; }
-      finally { if(root.ScriptPaddleBrowser&&root.ScriptPaddleBrowser.dispose)root.ScriptPaddleBrowser.dispose();paddleController=null; if (bitmap) bitmap.close(); if (worker) { await worker.terminate().catch(function () {}); worker = null; } if(workerURL)URL.revokeObjectURL(workerURL); busy = false; if (active) { el('ocrRun').disabled = false; render(); } }
+      finally { if(root.ScriptPaddleBrowser&&root.ScriptPaddleBrowser.dispose)root.ScriptPaddleBrowser.dispose();paddleController=null;if(canvas){canvas.width=0;canvas.height=0;} if (bitmap) bitmap.close(); if (worker) { await worker.terminate().catch(function () {}); worker = null; } if(workerURL)URL.revokeObjectURL(workerURL); busy = false; if (active) { el('ocrRun').disabled = false; render(); } }
     };
     render();
   };

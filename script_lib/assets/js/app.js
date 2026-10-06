@@ -12,7 +12,7 @@ SCRIPTS.forEach(function(s,i){
   s._s=((s[0]+' '+s[1]+' '+s[2]+' '+cn)||'').toLowerCase();
   s._cn=cn;
 });
-var cur=[],currentPage=1,pageSize=50;
+var cur=[],currentPage=1,pageSize=50,selectedScriptIndex=-1;
 var filterIds=['includeRoles','excludeRoles','q','cat','team','minc','maxc','sort','onlypic','completionFilter','personalFilter'];
 var lastFilter='';
 function saveFilters(){
@@ -81,14 +81,16 @@ function render(){
   var h=cur.slice((currentPage-1)*pageSize,currentPage*pageSize).map(function(s,i){
     var c=counts(s[5]),pills=TEAMORD.filter(function(t){return c[t];})
       .map(function(t){return '<span class="pill t-'+t+'">'+TEAMCN[t]+c[t]+'</span>';}).join('');
-    return '<div class="row" data-i="'+scriptIndexes.get(s)+'"><span class="nm">'+esc(s[0]||'(未命名)')+
-      '</span><span class="au">'+esc(s[1]||'佚名')+'</span>'+pills+
+    var selected=scriptIndexes.get(s)===selectedScriptIndex;
+    return '<div class="row'+(selected?' sel':'')+'" role="button" tabindex="0" aria-controls="detail" aria-pressed="'+selected+'" data-i="'+scriptIndexes.get(s)+'"><div class="library-row-heading"><span class="nm">'+esc(s[0]||'(未命名)')+
+      '</span><span class="au" title="'+esc(s[1]||'佚名')+'">'+esc(s[1]||'佚名')+'</span></div><div class="library-row-tags">'+pills+
       (shownCount(s)?'<span class="pic">剧本图'+shownCount(s)+'</span>':'')+
-      '<span class="cat">'+esc(s[2])+'</span><span class="cnt">'+(s[6]==='url'?'暂无 JSON':s[4]+'人')+'</span></div>';
+      '</div><div class="library-row-meta"><span class="cat">'+esc(s[2])+'</span><span class="cnt">'+(s[6]==='url'?'暂无 JSON':s[4]+' 个角色')+'</span></div></div>';
   }).join('');
 
   document.getElementById('list').innerHTML=h||'<div class="hint">没有匹配的剧本</div>';
   document.getElementById('list').scrollTop=0;
+  if(typeof LibraryView!=='undefined')LibraryView.filters(false);
 }
 var SCRIPTS_BY_INDEX={};SCRIPTS.forEach(function(s,i){SCRIPTS_BY_INDEX[i]=s;});
 document.getElementById('list').addEventListener('click',function(e){
@@ -96,10 +98,12 @@ document.getElementById('list').addEventListener('click',function(e){
   Array.prototype.forEach.call(this.querySelectorAll('.row'),function(r){r.className='row';});
   row.className='row sel';
   show(+row.getAttribute('data-i'));
+  if(typeof LibraryView!=='undefined')LibraryView.focusDetails();
 });
 function show(i){
   if(typeof detailRevision!=='undefined')detailRevision++;
   var s=SCRIPTS_BY_INDEX[i];if(!s){return;}
+  selectedScriptIndex=i;
   var by={};s[5].forEach(function(x){var t=CHARS[x][1]||'other';(by[t]=by[t]||[]).push(CHARS[x][0]);});
   // 同名可能有多张卡（有的剧本把一条规则拆成 5 张编号卡），用 ×N 表示而不合并
   function chips(arr){
@@ -123,23 +127,22 @@ function show(i){
   s[5].forEach(function(x){var nm=CHARS[x][0];
     if(!(nm in uniqW)){uniqW[nm]=1;nAllW++;if(wikiURL(nm))nLinkW++;}});
   document.getElementById('detail').innerHTML=
-    '<h2 class="dt">'+esc(s[0]||'(未命名)')+'</h2>'+
-    '<div class="dtmeta">作者：'+esc(s[1]||'佚名')+'　'+(s[6]==='url'?'暂无 JSON':'共 '+s[4]+' 人')+'<br>'+
-    '分类：'+esc(s[2])+'<br>路径：'+esc(JSONBASE+'/'+s[3].replace(/\\/g,'/'))+
-    (s[7]?'<br>说明：'+esc(s[7]):'')+
-    (s[8]?'<br>外链：<a href="'+esc(s[8])+'" target="_blank">'+esc(s[8])+'</a>':'')+
-    (nAllW?'<br>百科词条：<b>'+nLinkW+'</b> / '+nAllW+
-      (nLinkW?'（角色名带虚线下划线，点击在新标签页打开词条）':
-               '（这些角色在钟楼百科里还没有词条）'):'')+
-    '</div>'+
-    shots(s)+
-    '<div><a class="btn" id="btn-path">复制文件路径</a>'+
+    '<h2 class="dt" tabindex="-1">'+esc(s[0]||'(未命名)')+'</h2>'+
+    '<div class="dtmeta library-overview">作者：'+esc(s[1]||'佚名')+'<span>'+s[4]+' 个角色'+(s[6]==='url'?' · 暂无 JSON':'')+'</span></div>'+
+    (s[7]?'<p class="library-description">'+esc(s[7])+'</p>':'')+
+    '<div class="library-primary-actions"><button class="btn" id="btn-edit-script" type="button">在剧本工具中编辑</button>'+
     (s[6]==='json'?'<button class="btn" id="btn-local-json" type="button">下载 JSON</button>':'')+
-    '<a class="btn" id="btn-chars">复制角色名单</a>'+
-    '<a class="btn" id="btn-json" title="生成这个剧本的 JSON，弹出框里选中复制（也可下载）">复制 JSON</a>'+
-    '<button class="btn" id="btn-edit-script" type="button">在剧本工具中编辑</button>'+
-    '<a class="btn" id="btn-one">导出这个剧本</a></div>'+
-    body+other+(typeof workspaceDetail==='function'?workspaceDetail(i):'');
+    '<details class="library-detail-tools"><summary>复制与导出</summary><div><button type="button" class="btn" id="btn-chars">复制角色名单</button>'+
+    '<button type="button" class="btn" id="btn-json" title="生成这个剧本的 JSON，弹出框里选中复制（也可下载）">复制 JSON</button>'+
+    '<button type="button" class="btn" id="btn-one">导出这个剧本</button></div></details></div>'+
+    '<div class="library-composition" aria-label="角色构成">'+TEAMORD.filter(function(t){return by[t];}).map(function(t){return '<span class="pill t-'+t+'">'+TEAMCN[t]+' '+by[t].length+'</span>';}).join('')+(by.other?'<span class="pill">其他 '+by.other.length+'</span>':'')+'</div>'+
+    shots(s)+'<section class="library-roster" aria-label="剧本角色">'+body+other+'</section>'+
+    '<details class="library-source-info"><summary>资料信息 · 分类与文件路径</summary><div class="dtmeta">分类：'+esc(s[2])+'<br>路径：'+esc(JSONBASE+'/'+s[3].replace(/\\/g,'/'))+
+    (s[8]?'<br>外链：<a href="'+esc(s[8])+'" target="_blank" rel="noopener">'+esc(s[8])+'</a>':'')+
+    (nAllW?'<br>百科词条：<b>'+nLinkW+'</b> / '+nAllW+(nLinkW?'（点击角色名可打开对应词条）':'（这些角色暂无对应词条）'):'')+
+    '</div><button type="button" class="btn" id="btn-path">复制文件路径</button></details>'+
+    (typeof workspaceDetail==='function'?workspaceDetail(i):'');
+  if(typeof LibraryView!=='undefined')LibraryView.selected(i);
   var jsonButton=document.getElementById('btn-local-json');
   if(jsonButton)jsonButton.onclick=function(){
     var selectedVersion=typeof chosenVersions!=='undefined'?chosenVersions[i]:null;
@@ -607,6 +610,7 @@ document.getElementById('filterReset').onclick=function(){filterIds.forEach(func
 restoreFilters();
 if(typeof applyRoleQuery==='function')applyRoleQuery();
 render();
+if(typeof LibraryView!=='undefined')LibraryView.filters(true);
 
 if(window.WIKI_SHARE_NO_ARTWORK){
  ['expImg','expOnlyImages','expImageMode'].forEach(function(id){var el=document.getElementById(id);el.disabled=true;if('checked' in el)el.checked=false;});

@@ -72,3 +72,9 @@
 海外自制角色总览由 `scripts/style_homebrew.py` 基于 `config/yuque-import.json` 渲染，导入和构建共用该布局。通用角色网格使用 `.gallery` / `.gallerybox`，总览仅通过目录锚点导航，不加载搜索与类型筛选脚本；修改时验证分区锚点及完整角色数量。
 
 角色快速预览由 `scripts/prepare-role-preview.mjs` 生成 `assets/role-preview-data.js`，按页面路径区分同名角色。能力、夜序来自统一 API 数据，运作方式来自角色页面；相克规则优先用角色页面资料，同名跨来源规则不作推断。图标悬浮预览由 `assets/role-preview.js` 管理，点击图标仍直接打开对应角色页面，本地资料脚本按需加载，支持离线打开及键盘操作。
+
+公共视觉与动效单独维护在 `assets/site-experience.css` 和 `assets/site-experience.js`；`site.py` 为页面添加样式并将脚本纳入离线资源，`wiki.js` 加载独立控制器。首页封面由 `scripts/style_home.py` 生成，更新必须保留正文、目录锚点及 `homeDraftResume`。滚动显现最多观察 32 个主要区块，每个区块仅显现一次；鼠标与滚动事件按动画帧合并，不持续运行动画循环，不依赖动画库。缺少 IntersectionObserver、关闭动态效果及打印时内容始终可见；页面离开时清理待处理帧，浏览器返回缓存时恢复。绘图 SVG、画布尺寸与角色业务不属于这一层。修改后运行 `node --test scripts/test-site-experience.cjs` 及 `npm run validate`，同时检查手机导航、键盘搜索和系统减少动态效果设置。
+
+正文阅读色、工作区面板和控件统一使用 `site-experience.css` 中的 `--experience-text`、`--experience-muted`、`--experience-line`、`--experience-surface`、`--experience-blue` 及圆角变量。工作区规则限定在 `.role-index`、`.library-content`、`.script-editor`，制图弹窗只覆盖外部控件；不要给 `.art-stage`、`.art-hit`、绘图 SVG 或导出内容添加公共主题规则。结果列表前 10 项与详情采用短 CSS 入场过渡，原有渲染会自然触发，不新增数据监听、定时器或动画库。系统减少动态效果和打印时沿用全局禁用规则。检查桌面和手机下的筛选、选中状态、禁用按钮、对话框以及实际 PNG 导出，保持语义告警颜色。
+
+剧本库的浏览布局使用 `.library-browse` 限定在 `script_lib/assets/library.css`，展示交互集中于 `script_lib/assets/js/presentation.js`。低频条件及排序位于 `libraryAdvanced`；读取浏览器偏好或角色查询链接后，如有已启用条件会自动展开，手动收拢后仍显示条件数量。列表保留每条记录的原始下标，选中标记随列表重绘恢复；手机及单列容器选中后聚焦详情，并可返回选中条目。路径、分类、历史版本和来源折叠展示，原有控件 ID、个人记录存储键、图片按需加载和导出协议均保留。`script_lib/tests/presentation.test.cjs` 覆盖条件恢复、折叠提示、键盘选中、重绘标记及手机焦点往返。

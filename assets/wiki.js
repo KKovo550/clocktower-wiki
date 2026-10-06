@@ -1,5 +1,11 @@
 
 (function () {
+  // The visual layer is isolated from search, navigation and tool state.
+  if(typeof URL!=='undefined'){
+    var experienceScript=document.createElement('script');
+    experienceScript.src=new URL('./site-experience.js',document.currentScript?document.currentScript.src:new URL((document.body.getAttribute('data-root')||'')+'assets/wiki.js',document.baseURI)).href;
+    experienceScript.defer=true;document.head.appendChild(experienceScript);
+  }
   // Sticky panels track the real header height, including wrapped search controls.
   var header = document.querySelector('.site-header');
   if (header && header.getBoundingClientRect && document.documentElement && document.documentElement.style) {

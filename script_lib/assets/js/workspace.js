@@ -37,8 +37,8 @@ function workspaceDetail(i){
  var sources=[s[8]].concat((s[12]||{}).sources||[]).filter(function(u){return /^https?:\/\//i.test(u);});
  return '<section class="personal-editor"><h3>我的记录</h3>'+['favorite','want','recommended'].map(function(k,n){return '<label><input type="checkbox" id="personal-'+k+'"'+(r[k]?' checked':'')+'> '+['收藏','想玩','推荐'][n]+'</label>';}).join(' ')+
  '<label class="note-label">私人备注<textarea id="personal-note" maxlength="20000">'+esc(r.note)+'</textarea></label><button class="btn" id="personal-save">保存记录</button><label>游玩日期 <input type="date" id="personal-date"></label><button class="btn" id="personal-play">记一次游玩</button><ul>'+r.plays.map(function(p,n){return '<li>'+esc(p.date)+' <button data-remove-play="'+n+'">移除</button></li>';}).join('')+'</ul><p id="personal-status" role="status"></p></section>'+
- versionDetail(i)+
- (sources.length?'<p>来源：'+[...new Set(sources)].map(function(u){return '<a target="_blank" rel="noopener" href="'+esc(u)+'">'+esc(u)+'</a>';}).join('<br>')+'</p>':'');
+ '<details class="library-version-records"><summary>历史版本与来源</summary>'+versionDetail(i)+
+ (sources.length?'<p>来源：'+[...new Set(sources)].map(function(u){return '<a target="_blank" rel="noopener" href="'+esc(u)+'">'+esc(u)+'</a>';}).join('<br>')+'</p>':'')+'</details>';
 }
 function persistPersonal(i,r){
  var s=baseScripts[i];personalRecords[recordKey(s[3])]=r;

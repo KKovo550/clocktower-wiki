@@ -5,6 +5,11 @@
 #artDialog .art-eyebrow{font-size:11px;letter-spacing:2px;color:#51719d;font-weight:700}
 #artDialog .art-workspace{display:grid;grid-template-columns:290px minmax(0,1fr);gap:24px;padding:24px}
 #artDialog .art-controls{display:flex;flex-direction:column;gap:14px;min-width:0}
+#artDialog .art-basic-settings,#artDialog .art-advanced-fields,#artDialog .art-export-settings{display:flex;flex-direction:column;gap:14px;min-width:0}
+#artDialog .art-basic-settings h3{margin:0;font-size:16px}
+#artDialog .art-advanced-settings{border-top:1px solid #dce4ef;border-bottom:1px solid #dce4ef;padding:12px 0}
+#artDialog .art-advanced-settings>summary{cursor:pointer;font-size:14px;color:#365778;font-weight:600;min-height:32px}
+#artDialog .art-advanced-fields{margin-top:14px}
 #artDialog .art-script-info{display:flex;flex-direction:column;gap:14px;min-width:0}
 #artDialog label{display:flex;flex-direction:column;gap:7px;font-size:13px;color:#465b78}
 #artDialog input,#artDialog select{box-sizing:border-box;min-width:0;width:100%;padding:10px;border:1px solid #cedaeb;border-radius:9px;background:white;font:inherit;color:#1b2c44}

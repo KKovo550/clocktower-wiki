@@ -207,3 +207,4 @@ body{background:linear-gradient(135deg,#eef3fb 0%,#f7f8fc 48%,#f0f5f8 100%)!impo
  .content,.role-index .grid>.card,.script-editor .lib .card,.homebrew-grid>.homebrew-card{animation:none!important}
  .sidebar a,.gallerybox,.role-index .card,.script-editor .card{transition:none!important}
 }
+.home-resume{margin:18px 0 0;font-size:14px;line-height:1.6;overflow-wrap:anywhere}.home-resume[hidden]{display:none}.home-resume a{color:var(--accent,#285da9);text-decoration:none}.home-resume a:hover{text-decoration:underline}.home-resume a:focus-visible{outline:3px solid #92baff;outline-offset:3px}

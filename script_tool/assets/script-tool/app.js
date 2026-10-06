@@ -17,6 +17,7 @@ var CUSTOM=[];                 // 用户自建角色
 var sel=[];                    // 已选角色
 var curTab='all', q='', saveKey='botc_script_tool_v1';
 var curSource='all';
+var CURRENT_DRAFT_ID='';
 var SOURCE_LABELS={all:'全部来源',official:'官方角色',stars:'群星角色',yuque:'海外自制角色',odyssey:'奥德赛角色'};
 var SOURCE_BY_ID=new Map(CHARS.map(function(c){return [ScriptCore.identity(c.id),c.source];}));
 function roleSource(c){return SOURCE_BY_ID.get(ScriptCore.identity(c.id))||'custom';}
@@ -325,23 +326,48 @@ document.getElementById('bImport').onclick=function(){
   openDlg('<h3>导入 JSON</h3>'+
     '<label>选择文件</label><input type="file" id="f" accept=".json,application/json">'+
     '<label>或直接粘贴 JSON</label><textarea id="ta" placeholder="[{&quot;id&quot;:&quot;_meta&quot;,...}]"></textarea>'+
-    '<div class="foot"><button class="btn pri" id="go">导入</button>'+
+    '<div id="importPreview" class="import-preview" hidden></div><p id="importStatus" role="status" aria-live="polite"></p>'+
+    '<div class="foot"><button class="btn" id="previewImport">预览导入</button><button class="btn pri" id="go" disabled>确认导入</button>'+
     '<button class="btn" onclick="closeDlg()">取消</button></div>');
-  document.getElementById('f').onchange=function(){
+  var input=document.getElementById('ta'),fileInput=document.getElementById('f'),preview=document.getElementById('importPreview'),go=document.getElementById('go'),notice=document.getElementById('importStatus');
+  var prepared=null,preparedText='',fileRevision=0;
+  function current(){return input.isConnected&&document.getElementById('dlg').open&&document.getElementById('ta')===input;}
+  function invalidate(){prepared=null;preparedText='';go.disabled=true;preview.hidden=true;preview.replaceChildren();notice.textContent='';}
+  input.addEventListener('input',function(){fileRevision++;invalidate();});
+  document.getElementById('previewImport').onclick=function(){
+    invalidate();
+    try{
+      preparedText=input.value;prepared=ScriptCore.parseJSON(preparedText);
+      var result=ScriptCore.parseImport(prepared,CHARS);
+      var catalogIcons=Object.fromEntries(CHARS.filter(function(c){return c.im;}).map(function(c){return [c.id,c.im];}));
+      var missing=result.selected.filter(function(c){return !ScriptCore.catalogIcon(c,CHARS,catalogIcons);});
+      var custom=result.selected.filter(function(c){return !CHARS.some(function(known){return ScriptCore.identity(known.id)===ScriptCore.identity(c.id);});});
+      preview.innerHTML='<h4>待导入剧本</h4><dl><dt>名称</dt><dd>'+esc(result.name||'未命名剧本')+'</dd><dt>作者</dt><dd>'+esc(result.author||'未填写')+'</dd><dt>角色</dt><dd>'+result.selected.length+' 个，其中 '+custom.length+' 个自定义角色</dd><dt>附加规则</dt><dd>'+result.rules.length+' 条</dd></dl>'+
+        '<p>'+result.selected.map(function(c){return esc(c.n);}).join('、')+'</p>'+
+        (missing.length?'<p class="import-note">'+missing.length+' 个角色未匹配本地图标：'+missing.map(function(c){return esc(c.n);}).join('、')+'。导入后将尝试原图片地址；加载失败时使用文字占位。</p>':'<p>全部角色均已匹配本地图标。</p>')+
+        '<p class="tip">能力、元数据和附加规则按现有导入规则保留。确认前不会改变当前剧本。</p>';
+      preview.hidden=false;go.disabled=false;notice.textContent='预览已生成，请核对后确认导入。';
+    }catch(err){prepared=null;go.disabled=true;notice.textContent='解析失败：'+err.message;}
+  };
+  fileInput.onchange=function(){
+    var revision=++fileRevision;invalidate();
     if(!this.files.length)return;
-    if(this.files[0].size>2*1024*1024){alert('文件不能超过 2 MB');return;}
+    if(this.files[0].size>2*1024*1024){notice.textContent='文件不能超过 2 MB';return;}
+    go.disabled=true;notice.textContent='正在读取文件…';
     var fr=new FileReader();
-    fr.onerror=function(){alert('文件读取失败，请重试');};
-    fr.onload=function(){document.getElementById('ta').value=fr.result;};
+    fr.onerror=function(){if(current()&&revision===fileRevision)notice.textContent='文件读取失败，请重试。';};
+    fr.onload=function(){if(current()&&revision===fileRevision){input.value=fr.result;document.getElementById('previewImport').click();}};
     fr.readAsText(this.files[0]);};
   document.getElementById('go').onclick=function(){
-    try{ if(doImport(ScriptCore.parseJSON(document.getElementById('ta').value))!==false)closeDlg(); }
-    catch(err){ alert('解析失败：'+err.message); }
+    if(!prepared||input.value!==preparedText){invalidate();notice.textContent='内容已改变，请重新预览后确认。';return;}
+    try{if(doImport(prepared)!==false)closeDlg();}
+    catch(err){notice.textContent='导入失败：'+err.message;}
   };
 };
 function doImport(data){
   var result=ScriptCore.parseImport(data,CHARS);
   if((sel.length||document.getElementById('mname').value||document.getElementById('mauthor').value||SCRIPT_RULES.length)&&!confirm('导入会替换当前剧本，继续？'))return false;
+  if(window.ScriptDraftUI)window.ScriptDraftUI.beforeReplace();
   CUSTOM=result.custom; SCRIPT_RULES=result.rules; SCRIPT_META=result.meta;sel=result.selected; NIGHT_OVERRIDES=Object.create(null);
   document.getElementById('mname').value=result.name;
   document.getElementById('mauthor').value=result.author;
@@ -350,11 +376,12 @@ function doImport(data){
 
 document.getElementById('bClear').onclick=function(){
   if(!sel.length&&!SCRIPT_RULES.length)return;
-  if(confirm('清空当前剧本？')){ SCRIPT_META={};SCRIPT_RULES=[];sel=[]; NIGHT_OVERRIDES=Object.create(null); document.getElementById('mname').value='';
+  if(confirm('清空当前剧本？')){try{if(window.ScriptDraftUI)window.ScriptDraftUI.beforeReplace();}catch(e){status(e.message);return;} CUSTOM=[];SCRIPT_META={};SCRIPT_RULES=[];sel=[]; NIGHT_OVERRIDES=Object.create(null); document.getElementById('mname').value='';
     document.getElementById('mauthor').value=''; renderAll(); }
 };
 document.getElementById('bRandom').onclick=function(){
   if((sel.length||SCRIPT_RULES.length)&&!confirm('随机生成会替换当前剧本，继续？'))return;
+  try{if(window.ScriptDraftUI)window.ScriptDraftUI.beforeReplace();}catch(e){status(e.message);return;}
   var need={townsfolk:13,outsider:4,minion:4,demon:4};
   var spec=document.getElementById('spec').value;
   if(spec==='teensy') need={townsfolk:5,outsider:1,minion:1,demon:1};
@@ -365,7 +392,7 @@ document.getElementById('bRandom').onclick=function(){
       var x=pool[i];pool[i]=pool[j];pool[j]=x;}
     return pool.slice(0,n);
   }
-  SCRIPT_META={};SCRIPT_RULES=[];sel=[]; NIGHT_OVERRIDES=Object.create(null);
+  CUSTOM=[];SCRIPT_META={};SCRIPT_RULES=[];sel=[]; NIGHT_OVERRIDES=Object.create(null);
   ['townsfolk','outsider','minion','demon'].forEach(function(t){
     pick(t,need[t]).forEach(function(c){sel.push(c);});
   });
@@ -470,8 +497,9 @@ document.getElementById('preset').onchange=function(){
   if(!v)return;
   var p=PRESETS[+v]; if(!p)return;
   if((sel.length||SCRIPT_RULES.length) && !confirm('载入「'+p.name+'」会覆盖当前剧本，继续？'))return;
+  try{if(window.ScriptDraftUI)window.ScriptDraftUI.beforeReplace();}catch(e){status(e.message);return;}
   NIGHT_OVERRIDES=Object.create(null);
-  SCRIPT_META={};SCRIPT_RULES=[];sel=p.idxs.map(function(i){return CHARS[i];});
+  CUSTOM=[];SCRIPT_META={};SCRIPT_RULES=[];sel=p.idxs.map(function(i){return CHARS[i];});
   document.getElementById('mname').value=p.name;
   renderAll();
 };
@@ -481,20 +509,37 @@ document.getElementById('spec').onchange=function(){renderStat();renderScriptChe
 /* ---------- 本地保存 ---------- */
 var storageBlocked=false;
 function status(text){document.getElementById('saveStatus').textContent=text;}
+function captureDraft(){
+  return {version:2,n:document.getElementById('mname').value,a:document.getElementById('mauthor').value,
+    s:document.getElementById('spec').value,custom:CUSTOM,rules:SCRIPT_RULES,meta:SCRIPT_META,nightOverrides:NIGHT_OVERRIDES,
+    draftId:CURRENT_DRAFT_ID,sel:sel.map(function(c){return {id:c.id,name:c.n,custom:CUSTOM.indexOf(c)>=0};})};
+}
+function applyDraftState(state){
+  var draft=ScriptCore.restoreDraft(state,CHARS);
+  CUSTOM=draft.custom;SCRIPT_RULES=draft.rules;SCRIPT_META=draft.meta;sel=draft.selected;NIGHT_OVERRIDES=draft.nightOverrides;
+  document.getElementById('mname').value=draft.name;document.getElementById('mauthor').value=draft.author;
+  document.getElementById('spec').value=draft.spec;document.getElementById('preset').value='';
+}
 function save(){
-  if(storageBlocked)return;
+  if(storageBlocked||(window.ScriptDrafts&&!window.ScriptDraftUI))return;
   try{
-    localStorage.setItem(saveKey,JSON.stringify({version:2,
-      n:document.getElementById('mname').value,a:document.getElementById('mauthor').value,
-      s:document.getElementById('spec').value,custom:CUSTOM,rules:SCRIPT_RULES,meta:SCRIPT_META,nightOverrides:NIGHT_OVERRIDES,
-      sel:sel.map(function(c){return {id:c.id,name:c.n,custom:CUSTOM.indexOf(c)>=0};})}));
-    status('已保存到此浏览器 · 重要剧本请导出 JSON 备份');
-  }catch(e){status('本地保存失败，请立即导出 JSON 备份。');}
+    var snapshot=captureDraft();
+    if(window.ScriptDraftUI)window.ScriptDraftUI.prepareSave(snapshot);
+    localStorage.setItem(saveKey,JSON.stringify(snapshot));
+    try{localStorage.setItem('botc_script_resume_v1',JSON.stringify({name:snapshot.n,roles:snapshot.sel.length,hasContent:!!(snapshot.n||snapshot.sel.length)}));}catch(ignore){}
+    status(CURRENT_DRAFT_ID?'已自动保存到“'+(snapshot.n||'未命名剧本')+'” · 重要内容请导出 JSON 备份':'已保存到此浏览器 · 重要剧本请导出 JSON 备份');
+  }catch(e){status('本地保存失败：'+e.message+'。请立即导出 JSON 备份。');}
 }
 function load(){
   try{
-    var raw=localStorage.getItem(saveKey);if(!raw)return false;
-    var draft=ScriptCore.restoreDraft(JSON.parse(raw),CHARS);
+    var raw=localStorage.getItem(saveKey),state;
+    if(window.ScriptDrafts){
+      var library=window.ScriptDrafts.open(localStorage,function(value){ScriptCore.restoreDraft(value,CHARS);});
+      if(library.active())state=library.get(library.active()).state;
+    }
+    if(!state){if(!raw)return false;state=JSON.parse(raw);}
+    var draft=ScriptCore.restoreDraft(state,CHARS);
+    CURRENT_DRAFT_ID=typeof state.draftId==='string'?state.draftId:'';
     CUSTOM=draft.custom;SCRIPT_RULES=draft.rules;SCRIPT_META=draft.meta;sel=draft.selected;NIGHT_OVERRIDES=draft.nightOverrides;
     document.getElementById('mname').value=draft.name;
     document.getElementById('mauthor').value=draft.author;
