@@ -144,3 +144,10 @@ Windows 本地使用：可直接双击 `script_tool/剧本工具.html`。也可�
 “一键纯净”也隐藏真实夜序纹理、特殊规则纸张和可选术语说明；夜序信息及规则文字保留，取消勾选即可恢复素材选择。操作界面仍沿用本站原有配色。
 
 维护：24 份精简本地素材位于 `config/script-art/`，来源、原文件摘要、派生文件摘要与合成边线记录于 `script_tool/assets/script-tool/decorations/sources.json`。`npm run prepare:content` 自动运行 `scripts/import_art_decorations.py`，离线校验本地文件并生成 `art-decorations.js`；正常构建不下载原站素材，也不依赖调研目录或 `.sync` 缓存。新增素材需同时更新本地输入及对应摘要。公开素材的署名和权利归原作者，不自动复制参考图中的博物馆标志或作者署名；当前素材未包含参考图的章鱼角饰。
+
+
+## 屏幕适配与验证
+
+剧本工具按浏览器窗口宽度自动适配，无需手动选择分辨率。宽度达到 2000 CSS 像素时，编辑区使用可用宽度，角色库自动增加卡片列数；“我的剧本”栏最大宽度为 640 像素，避免能力说明过长。普通桌面和手机沿用原有布局，浏览器缩放后按实际窗口宽度重新排版。
+
+运行 `node scripts/test-editor-responsive.cjs` 可用本机 Chromium 检查普通桌面、超宽屏、手机及高像素密度屏幕，验证横向溢出、两栏重叠和角色卡片列数。可用 `CLOCKTOWER_CHROME_PATH` 指定浏览器路径；添加 `--screenshots` 会把验证截图保存到忽略版本控制的 `.sync` 目录。

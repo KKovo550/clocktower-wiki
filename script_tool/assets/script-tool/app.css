@@ -205,6 +205,12 @@ kbd{background:#f1e9d8;border:1px solid var(--tan);border-radius:3px;padding:0 4
 .script-tool-page #dlg:has(.import-preview) :is(input[type="file"],textarea){width:100%;max-width:100%;box-sizing:border-box}
 .script-tool-page #dlg:has(.import-preview) .foot{flex-wrap:wrap}
 
+/* The former 1760px shell cap stranded half of ultra-wide displays. */
+@media screen and (min-width:2000px){
+ .script-tool-page .layout{max-width:none}
+ .script-tool-page .script-editor .cols{grid-template-columns:minmax(0,1fr) clamp(360px,32%,640px)}
+}
+
 /* Compact script checks preserve the user's disclosure state while roles change. */
 .script-tool-page .script-editor #script-checks{padding:0;background:#faf5e9!important;border-color:var(--archive-line,#d5c6a9)!important;border-radius:10px!important;color:var(--archive-ink,#34302c)}
 .script-tool-page #script-checks>summary{display:grid;grid-template-columns:minmax(0,1fr) 10px;gap:8px 10px;padding:12px 14px;list-style:none}
