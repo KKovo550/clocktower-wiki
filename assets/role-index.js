@@ -141,6 +141,14 @@ function render(){
   $('filterSummary').textContent=selected.length?'已选 · '+selected.join('；'):'未设置筛选，显示全部角色';
   $('categoryPreview').textContent=(state.categories||[]).length?'已选 '+state.categories.length+' 项 · '+state.categories.join('、'):'31 个类别 · 未限定';
   $('skillPreview').textContent=state.tags.length?'已选 '+state.tags.length+' 项 · '+(state.all?'全部满足':'满足任一'):'未限定';
+  if ($('advancedRoleCount')) {
+    var conditions = (state.sources||[]).length + state.teams.length + (state.categories||[]).length + state.tags.length +
+      Number(state.wiki) + Number(state.all) + Number(state.scope !== 'all') + Number(state.sort !== 'relevance');
+    $('advancedRoleCount').textContent=conditions ? '已选 '+conditions+' 项条件' : '来源、类型与更多条件';
+    document.querySelectorAll('.role-quick-chips button').forEach(function(button){
+      button.setAttribute('aria-pressed',String((state[button.getAttribute('data-filter-kind')]||[]).indexOf(button.getAttribute('data-filter-key'))>=0));
+    });
+  }
   var tc={};
   list.forEach(function(r){tc[r.t]=(tc[r.t]||0)+1;});
   $('teamStat').innerHTML=TEAMORD.filter(function(t){return tc[t];}).map(function(t){
@@ -255,4 +263,11 @@ function copy(text,el){
   }else fallback();
 }
 
+document.querySelectorAll('.role-quick-chips button').forEach(function(button){
+  button.addEventListener('click',function(){
+    var kind=button.getAttribute('data-filter-kind'), key=button.getAttribute('data-filter-key'), chosen=state[kind]||[];
+    state[kind]=chosen.indexOf(key)>=0?chosen.filter(function(value){return value!==key;}):chosen.concat([key]);
+    refresh();
+  });
+});
 drawChips();render();

@@ -43,6 +43,10 @@
       var selected = samePage.find(function (link) { return decoded(new URL(link.href).hash) === decoded(current.hash); });
       if (!selected) selected = samePage.find(function (link) { var hash = decoded(new URL(link.href).hash); return !hash || hash === '#总览'; });
       links.forEach(function (link) { if (link === selected) link.setAttribute('aria-current', 'page'); else link.removeAttribute('aria-current'); });
+      if (selected) {
+        var group = selected.closest('.sidebar-group');
+        if (group) group.open = true;
+      }
     }
     updateCurrentNavigation();
     if (window.addEventListener) window.addEventListener('hashchange', updateCurrentNavigation);
@@ -76,6 +80,16 @@
       document.body.classList.add('mobile-nav-ready');
       toggle.innerHTML = '<span aria-hidden="true">☰</span>';
       toggle.setAttribute('aria-label', '打开导航');
+      function navigationFocusables() {
+        return Array.from(navigation.querySelectorAll('a[href],summary')).filter(function (node) {
+          var parent = node.parentElement;
+          while (parent && parent !== navigation) {
+            if (parent.tagName === 'DETAILS' && !parent.open && parent.firstElementChild !== node) return false;
+            parent = parent.parentElement;
+          }
+          return !node.hidden;
+        });
+      }
       function setDrawer(open, returnFocus) {
         open = Boolean(open && mobileMenu.matches);
         document.body.classList.toggle('mobile-nav-open', open);
@@ -84,7 +98,7 @@
         toggle.innerHTML = '<span aria-hidden="true">' + (open ? '×' : '☰') + '</span>';
         sidebar.inert = mobileMenu.matches && !open;
         if (open) {
-          var firstLink = navigation.querySelector('a[href]');
+          var firstLink = navigationFocusables()[0];
           if (firstLink) firstLink.focus({ preventScroll: true });
         } else if (returnFocus) toggle.focus({ preventScroll: true });
       }
@@ -100,7 +114,7 @@
         if (!document.body.classList.contains('mobile-nav-open')) return;
         if (event.key === 'Escape') { event.preventDefault(); setDrawer(false, true); }
         if (event.key === 'Tab') {
-          var links = Array.from(navigation.querySelectorAll('a[href]'));
+          var links = navigationFocusables();
           var focusables = [toggle].concat(links);
           var index = focusables.indexOf(document.activeElement);
           if (event.shiftKey && index <= 0) { event.preventDefault(); focusables[focusables.length - 1].focus(); }

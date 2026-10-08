@@ -20,6 +20,8 @@
     return '';
   }
   var kind = metadata('角色类型');
+  var origin = metadata('角色归属') || metadata('所属剧本');
+  var categories = (metadata('能力标签') || metadata('能力类别')).split(/[、，,]/).map(function (value) { return value.trim(); }).filter(Boolean);
   if (!/镇民|外来者|爪牙|恶魔|旅行者|传奇|奇遇/.test(kind)) return;
   var children = Array.from(article.children);
   // Stars pages begin with the final JSON configuration; keep that complete source block together.
@@ -52,9 +54,15 @@
     meta.appendChild(badge);
   }
   var english = metadata('英文名');
-  if (english) { var englishLabel = element('span', 'role-english'); englishLabel.textContent = english; meta.appendChild(englishLabel); }
-  var tagline = main.querySelector(':scope > .tagline'); if (tagline) meta.appendChild(tagline);
+  if (english && title.textContent.indexOf(english) < 0) { var englishLabel = element('span', 'role-english'); englishLabel.textContent = english; meta.appendChild(englishLabel); }
+  if (origin) { var sourceLabel = element('span', 'role-origin'); sourceLabel.textContent = origin; meta.appendChild(sourceLabel); }
+  var tagline = main.querySelector(':scope > .tagline');
   information.appendChild(meta);
+  if (categories.length) {
+    var tags = element('div', 'role-overview-tags'); tags.setAttribute('aria-label', '能力标签');
+    categories.slice(0, 6).forEach(function (value) { var tag = element('span', 'role-ability-tag'); tag.textContent = value; tags.appendChild(tag); });
+    information.appendChild(tags);
+  }
   var abilityBox = element('div', 'role-overview-ability');
   abilityNodes.forEach(function (node) { abilityBox.appendChild(node); }); information.appendChild(abilityBox);
   var action = article.querySelector('.role-script-link'); if (action) information.appendChild(action);
@@ -68,6 +76,14 @@
     while (usedIds.has(id)) id = base + '-' + index++;
     node.id = id; usedIds.add(id);
   });
+  var jumps = element('nav', 'role-section-jumps'); jumps.setAttribute('aria-label', '角色资料快捷入口');
+  [['运作方式','怎么玩'],['规则细节','规则细节'],['夜晚行动顺序','夜序'],['游玩与对抗技巧','技巧'],['整体设计','设计']].forEach(function (item) {
+    var heading = headings.find(function (node) { return node.textContent.trim() === item[0]; });
+    if (!heading) return;
+    var link = document.createElement('a'); link.href = '#' + encodeURIComponent(heading.id); link.textContent = item[1]; jumps.appendChild(link);
+  });
+  if (jumps.childElementCount) information.appendChild(jumps);
+  if (tagline) { tagline.classList.add('role-source-note'); information.appendChild(tagline); }
   if (!toc && headings.length > 1) {
     toc = element('div', 'toc'); var links = document.createElement('ul');
     headings.forEach(function (node) {

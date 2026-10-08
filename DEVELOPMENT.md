@@ -93,6 +93,8 @@ node --test scripts/tests/admin.test.mjs
 
 ## 目录与维护入口
 
+网站材质主题集中在 `assets/archive-parchment.css`。原创纸纹为 `assets/materials/archive-paper.webp`，由 `scripts/build_archive_paper.py` 独立生成，来源与再生成方式见 [材质说明](assets/materials/README.md)。主题仅用于网页界面，不参与剧本图片的 SVG 绘制与导出。
+
 ```text
 src/                     Astro 页面、组件、布局和内容契约
 pages/                   百科正文及部分生成页面
@@ -113,7 +115,8 @@ dist/astro/              正式静态产物
 ```
 
 - 公共页头、侧栏和页脚修改 `src/components/`，全站布局修改 `src/layouts/WikiLayout.astro`。
-- 导航以 `config/navigation.json` 为准；不要在各页面重复修改导航。
+- 导航以 `config/navigation.json` 为准；不要在各页面重复修改导航。各分组的 `links` 是直接入口，`groups` 是默认折叠的子目录；Astro、离线模板与合集导入共用这一结构。
+- 首页由 `scripts/style_product_home.py` 生成，原百科首页原文和锚点完整保存在 `about.html`。数量取自角色与剧本目录，最近更新取自 `recent.html`；不要在首页手填统计或更新日期。
 - 正文修改对应 `pages/*.html`；认证查询、相克汇总等生成内容应修改其来源或生成脚本。
 - 搜索别名维护 `config/search-aliases.json`；搜索索引在构建时生成。
 - `templates/github-readme.md` 是发布仓库的 README 来源，构建时复制到产物中；源码 README 另存为 `DEVELOPMENT.md`，`docs/*.md`、`CONTEXT.md` 和基础数据配置说明随构建一起发布。
