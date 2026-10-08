@@ -95,11 +95,36 @@
   main.insertBefore(overview, article);
   if (toc) {
     var layout = element('div', 'role-reading-layout'), aside = element('aside', 'role-reading-nav');
+    aside.setAttribute('aria-label', '角色章节目录');
     var contents = element('details', 'role-contents'), summary = document.createElement('summary');
     summary.textContent = '本页目录'; contents.appendChild(summary); contents.appendChild(toc); aside.appendChild(contents);
     contents.open = !!(window.matchMedia && window.matchMedia('(min-width: 1101px)').matches);
     var oldHeading = toc.querySelector('.toctitle'); if (oldHeading) oldHeading.setAttribute('aria-hidden', 'true');
     main.insertBefore(layout, article); layout.appendChild(article); layout.appendChild(aside);
+    // Reuse the same directory outside the paper on wide screens; return it on resize/print.
+    var shell = main.parentElement;
+    if (shell && shell.classList.contains('layout') && window.matchMedia) {
+      var railMedia = window.matchMedia('screen and (min-width: 1800px)');
+      var expandedMedia = window.matchMedia('(min-width: 1101px)');
+      function placeContents() {
+        var external = railMedia.matches;
+        var focused = aside.contains(document.activeElement) ? document.activeElement : null;
+        shell.classList.toggle('has-role-reading-rail', external);
+        main.classList.toggle('has-external-role-contents', external);
+        aside.classList.toggle('role-reading-rail', external);
+        if (aside.parentElement !== (external ? shell : layout)) {
+          if (external) main.insertAdjacentElement('afterend', aside);
+          else layout.appendChild(aside);
+        }
+        contents.open = external || expandedMedia.matches;
+        if (focused) (contents.open ? focused : summary).focus({ preventScroll: true });
+      }
+      function watchMedia(media) {
+        if (media.addEventListener) media.addEventListener('change', placeContents);
+        else if (media.addListener) media.addListener(placeContents);
+      }
+      placeContents(); watchMedia(railMedia); watchMedia(expandedMedia);
+    }
     // Reflect native anchor navigation without intercepting clicks or observing every scroll.
     function updateContentsSelection() {
       var selectedId;

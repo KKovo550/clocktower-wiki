@@ -1,4 +1,25 @@
 /* Product entry hierarchy. Does not style SVG posters or change tool data. */
+/* Anchor desktop navigation to the window edge while retaining the reading width. */
+@media screen and (min-width:821px){.layout{margin-inline:0}}
+/* Wide role pages use the spare space for one shared, sticky chapter directory. */
+@media screen and (min-width:1800px){
+ .layout.has-role-reading-rail{max-width:1784px}
+ .has-role-reading-rail>.content{max-width:1214px}
+ .role-detail-page.has-external-role-contents .role-reading-layout{grid-template-columns:minmax(0,1fr)}
+ .layout>.role-reading-rail{flex:0 0 280px;min-width:0;position:sticky;top:calc(var(--wiki-header-height,68px) + 28px);align-self:flex-start}
+ .role-reading-rail .role-contents{padding:20px;border:1px solid #76664b;border-radius:14px;background:linear-gradient(145deg,#38343b,#2a2b32);color:#d5cec1;font-size:13px;box-shadow:0 10px 24px #10101612}
+ .role-reading-rail .role-contents>summary{cursor:pointer;color:#e3c78e;font-weight:550;font-size:13px;padding:3px 0;list-style-position:inside}
+ .role-reading-rail .toc{display:block;float:none;width:auto;margin:14px 0 0;padding:0;border:0;background:none;font-size:13px;max-height:calc(100dvh - var(--wiki-header-height,68px) - 130px);overflow:auto;scrollbar-color:#81745f transparent}
+ .role-reading-rail .toctitle{display:none}
+ .role-reading-rail ul{list-style:none;padding:0;margin:0}
+ .role-reading-rail li{margin:3px 0;line-height:1.6}
+ .role-reading-rail a,.role-reading-rail a:visited{display:block;color:#d5cec1;text-decoration:none;padding:8px 10px;border-radius:6px;overflow-wrap:anywhere}
+ .role-reading-rail a:hover{color:#f2dfb7;background:#d5b57c12}
+ .role-reading-rail a[aria-current=location]{color:#f2dfb7;background:#d5b57c1e;box-shadow:inset 2px 0 0 #ddbf85}
+ .role-reading-rail a:focus-visible,.role-reading-rail summary:focus-visible{outline:2px solid #ddbf85;outline-offset:2px}
+ .role-reading-rail .lvl3{padding-left:12px}
+}
+@media(forced-colors:active){.role-reading-rail .role-contents{background:Canvas;color:CanvasText;border-color:CanvasText}.role-reading-rail .role-contents>summary{color:CanvasText}.role-reading-rail a,.role-reading-rail a:visited{color:LinkText}.role-reading-rail a[aria-current=location]{outline:1px solid Highlight}}
 .sidebar .sidebar-group{margin:2px 0}
 .sidebar .sidebar-group>summary{list-style:none;cursor:pointer;color:#596579;padding:8px 12px;font-size:13px;border-radius:7px;display:flex;align-items:center;justify-content:space-between;gap:8px}
 .sidebar .sidebar-group>summary::-webkit-details-marker{display:none}
