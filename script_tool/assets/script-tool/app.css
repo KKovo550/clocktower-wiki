@@ -204,3 +204,76 @@ kbd{background:#f1e9d8;border:1px solid var(--tan);border-radius:3px;padding:0 4
 .script-tool-page #dlg:has(.draft-list) .dlg,.script-tool-page #dlg:has(.import-preview) .dlg{min-width:0;width:auto;box-sizing:border-box}
 .script-tool-page #dlg:has(.import-preview) :is(input[type="file"],textarea){width:100%;max-width:100%;box-sizing:border-box}
 .script-tool-page #dlg:has(.import-preview) .foot{flex-wrap:wrap}
+
+/* Compact script checks preserve the user's disclosure state while roles change. */
+.script-tool-page .script-editor #script-checks{padding:0;background:#faf5e9!important;border-color:var(--archive-line,#d5c6a9)!important;border-radius:10px!important;color:var(--archive-ink,#34302c)}
+.script-tool-page #script-checks>summary{display:grid;grid-template-columns:minmax(0,1fr) 10px;gap:8px 10px;padding:12px 14px;list-style:none}
+.script-tool-page #script-checks>summary::-webkit-details-marker{display:none}
+.script-tool-page #script-checks>summary::after{content:'';width:5px;height:5px;border-right:1.5px solid #8c7754;border-bottom:1.5px solid #8c7754;transform:rotate(45deg);grid-column:2;grid-row:1 / span 2;align-self:center}
+.script-tool-page #script-checks[open]>summary::after{transform:rotate(225deg)}
+.script-tool-page #script-checks summary .check-title{display:block;margin:0;font-size:13px;font-weight:600;color:#41382f}
+.script-tool-page #script-checks summary .check-status{display:flex;flex-wrap:wrap;gap:6px;grid-column:1;margin:0}
+.script-tool-page #script-checks summary .check-badge{display:inline-flex;align-items:center;gap:5px;margin:0;padding:2px 7px;font-size:11px;line-height:1.6;font-weight:400;color:var(--archive-muted,#665b4c);background:#eee3cc80;border-radius:4px}
+.script-tool-page #script-checks .check-badge b{font-weight:600;font-variant-numeric:tabular-nums}
+.script-tool-page #script-checks summary .check-errors.has-items{color:#8b3e38;background:#ead3c980}
+.script-tool-page #script-checks>summary:focus-visible{outline:2px solid var(--archive-brass,#ac8c54);outline-offset:3px;border-radius:8px}
+.script-tool-page #script-checks .check-body{border-top:1px solid var(--archive-line,#d5c6a9);padding:12px 14px;line-height:1.8}
+.script-tool-page #script-checks .check-intro{font-size:12px;color:var(--archive-muted,#665b4c);margin:0 0 8px}
+.script-tool-page #script-checks .check-clear{font-size:12px;color:#526746;margin:0 0 12px}
+.script-tool-page #script-checks .check-section+.check-section{margin-top:16px}
+.script-tool-page #script-checks h4{display:flex;align-items:center;gap:7px;margin:0 0 7px;font-size:12px;color:#514737}
+.script-tool-page #script-checks h4 span{font-size:11px;font-weight:400;color:var(--archive-muted,#665b4c)}
+.script-tool-page #script-checks ul{list-style:none;padding:0;margin:0}
+.script-tool-page #script-checks li{padding:9px 0;border-top:1px solid #d5c6a970;overflow-wrap:anywhere}
+.script-tool-page #script-checks li:first-child{border-top:0;padding-top:0}
+.script-tool-page #script-checks .check-roles{font-weight:600;font-size:13px}
+.script-tool-page #script-checks .check-roles>span{font-weight:400;color:#a08a68;margin:0 5px}
+.script-tool-page #script-checks li p{margin:4px 0 0;font-size:12px}
+.script-tool-page #script-checks a{color:#305c7d;text-underline-offset:3px}
+.script-tool-page #script-checks .check-links{display:flex;flex-wrap:wrap;gap:8px 16px;border-top:1px solid #d5c6a970;padding-top:10px;margin:12px 0 0;font-size:12px}
+/* Night order dialog: fixed header/footer and a scrollable two-column reading area. */
+.script-tool-page #dlg.editor-night-open{width:min(1040px,94vw);max-width:min(1040px,94vw);max-height:calc(100dvh - 32px);overflow:hidden}
+.script-tool-page #dlg.editor-night-open .dlg{padding:0}
+.script-tool-page #dlg .editor-night-dialog{display:flex;flex-direction:column;max-height:calc(100dvh - 34px)}
+.script-tool-page #dlg .editor-night-heading{flex:none;padding:20px 22px 16px}
+.script-tool-page #dlg.editor-night-open .editor-night-heading h3{color:#41382f;margin:0 0 6px;padding:0;border:0;font-size:18px}
+.script-tool-page #dlg .editor-night-heading p{margin:0;color:var(--archive-muted,#665b4c);font-size:12px;line-height:1.7}
+.script-tool-page #dlg .editor-night-content{min-height:0;overflow:auto;overscroll-behavior:contain;scrollbar-gutter:stable;padding:0 22px 16px}
+.script-tool-page #dlg .editor-night-content:focus-visible{outline:1px solid #ac8c5480;outline-offset:-1px}
+.script-tool-page #dlg .editor-night-dialog .night{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.script-tool-page #dlg .editor-night-dialog .night h5{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:14px;color:#514737;margin:0 0 10px;padding:8px 0;border-bottom:1px solid var(--archive-line,#d5c6a9);position:sticky;top:0;z-index:1;background:var(--archive-sheet,#faf5e9)}
+.script-tool-page #dlg .night h5 span{font-size:11px;font-weight:400;color:var(--archive-muted,#665b4c)}
+.script-tool-page #dlg .editor-night-dialog .night ol{list-style:none;padding:0;margin:0;counter-reset:night-step;display:grid;gap:8px}
+.script-tool-page #dlg .night-sortable{display:grid;grid-template-columns:24px minmax(0,1fr) 32px;gap:4px 10px;align-items:start;padding:12px;border:1px solid #d5c6a980;border-radius:9px;background:#fffbf180}
+.script-tool-page #dlg .night-sortable::before{counter-increment:night-step;content:counter(night-step,decimal-leading-zero);grid-column:1;grid-row:1 / span 2;align-self:start;padding-top:4px;color:#8c7754;font-size:12px;font-variant-numeric:tabular-nums}
+.script-tool-page #dlg .night-sortable:focus-visible,.script-tool-page #dlg .night-sortable:focus-within{outline:2px solid #ac8c5460;outline-offset:1px}
+.script-tool-page #dlg .night-role{grid-column:2;grid-row:1;display:flex;align-items:center;gap:8px;min-width:0;min-height:32px;font-size:14px;line-height:1.5;color:var(--archive-ink,#34302c);overflow-wrap:anywhere}
+.script-tool-page #dlg .night-role img{width:32px;height:32px;object-fit:contain;flex:none}
+.script-tool-page #dlg .night-role img[hidden]{display:none}
+.script-tool-page #dlg .night-role strong{font-weight:600}
+.script-tool-page #dlg .night-reminder{grid-column:2;grid-row:2;margin:0;color:var(--archive-muted,#665b4c);font-size:12px;line-height:1.8;overflow-wrap:anywhere}
+.script-tool-page #dlg .night-actions{grid-column:3;grid-row:1 / span 2;display:flex;flex-direction:column;gap:4px}
+.script-tool-page #dlg .night-move{margin:0;padding:0;width:32px;height:32px;display:grid;place-items:center;background:#faf5e9;color:#665b4c;border:1px solid var(--archive-line,#d5c6a9);border-radius:5px;font:inherit;font-size:15px;cursor:pointer;line-height:1}
+.script-tool-page #dlg .night-move:hover:not(:disabled){background:#e9ddc4;border-color:#ac8c54}
+.script-tool-page #dlg .night-move:focus-visible{outline:2px solid #ac8c54;outline-offset:2px}
+.script-tool-page #dlg .night-move:disabled{opacity:.3;cursor:default}
+.script-tool-page #dlg .night-no-actions{padding:18px 12px;color:var(--archive-muted,#665b4c);font-size:13px;background:#eee3cc50;border-radius:9px}
+.script-tool-page #dlg .editor-night-footer{flex:none;text-align:left;margin:0;padding:12px 22px 16px;border-top:1px solid var(--archive-line,#d5c6a9);background:#f2e9d6;line-height:1.7;color:var(--archive-muted,#665b4c)}
+.script-tool-page #dlg .editor-night-footer .tip{margin:0;font-size:11px;color:inherit}
+.script-tool-page #dlg .editor-night-footer .foot{margin-top:10px;flex-wrap:wrap}
+.script-tool-page #dlg.editor-night-open .editor-night-footer .btn{background:#faf5e9;border-color:#cbbb9d;color:#514737;box-shadow:none}
+.script-tool-page #dlg.editor-night-open .editor-night-footer .btn:hover{background:#e9ddc4}
+@media(max-width:720px){
+ .script-tool-page #dlg .editor-night-heading{padding:16px}
+ .script-tool-page #dlg .editor-night-content{padding:0 16px 12px}
+ .script-tool-page #dlg .editor-night-dialog .night{grid-template-columns:minmax(0,1fr);gap:18px}
+ .script-tool-page #dlg .night-sortable{grid-template-columns:20px minmax(0,1fr) 44px;gap:4px 8px;padding:10px}
+ .script-tool-page #dlg .night-move{width:44px;height:44px}
+ .script-tool-page #dlg .editor-night-footer{padding:12px 16px}
+ .script-tool-page #dlg.editor-night-open .editor-night-footer .btn{min-height:44px}
+}
+@media(forced-colors:active){
+ .script-tool-page .script-editor #script-checks{background:Canvas!important;border-color:CanvasText!important}
+ .script-tool-page #dlg :is(.night-sortable,.night-move,.editor-night-footer){background:Canvas;color:CanvasText;border-color:CanvasText}
+ .script-tool-page #dlg :is(.night-role,.night-reminder,.night-sortable::before){color:CanvasText}
+}

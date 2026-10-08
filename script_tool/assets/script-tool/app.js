@@ -315,7 +315,10 @@ function download(name,text){
   setTimeout(function(){URL.revokeObjectURL(a.href);a.remove();},400);
 }
 function openDlg(html){document.getElementById('dlgBody').innerHTML=html;
-  document.getElementById('dlg').showModal();}
+  var dialog=document.getElementById('dlg'),night=Boolean(document.querySelector('#dlgBody .editor-night-dialog'));
+  dialog.classList.toggle('editor-night-open',night);
+  if(night)dialog.setAttribute('aria-labelledby','editor-night-title');else dialog.removeAttribute('aria-labelledby');
+  dialog.showModal();}
 function closeDlg(){document.getElementById('dlg').close();}
 
 document.getElementById('bExport').onclick=function(){
@@ -427,20 +430,19 @@ document.getElementById('bNight').onclick=function(){
       .sort(function(a,b){return ScriptCore.nightOrder(a,SCRIPT_NIGHT_ORDER,NIGHT_OVERRIDES)[field]-ScriptCore.nightOrder(b,SCRIPT_NIGHT_ORDER,NIGHT_OVERRIDES)[field];});
   }
   var first=ordered('firstNight'),other=ordered('otherNight');
-  function li(c,k){return '<li>'+esc(c.n)+' <span style="color:#9a8a6e;font-size:11.5px">'+
-    (c[k+((k==='f')?'r':'r')]||'')+'</span></li>';}
-  var h='<h3>夜晚行动顺序</h3><div class="night">'+
-    '<div><h5>首夜（'+first.length+'）</h5><ol>'+
-      (first.map(function(c){return '<li>'+esc(c.n)+
-        (c.fr?' <span style="color:#9a8a6e;font-size:11.5px">'+esc(c.fr)+'</span>':'')+
-        '</li>';}).join('')||'<li style="color:#9a8a6e">无</li>')+'</ol></div>'+
-    '<div><h5>其他夜晚（'+other.length+'）</h5><ol>'+
-      (other.map(function(c){return '<li>'+esc(c.n)+
-        (c.or?' <span style="color:#9a8a6e;font-size:11.5px">'+esc(c.or)+'</span>':'')+
-        '</li>';}).join('')||'<li style="color:#9a8a6e">无</li>')+'</ol></div></div>'+
-    '<div class="tip">拖拽角色调整本夜顺序，也可用上下按钮移动。修改立即保存并用于 JSON 导出；首夜与其他夜晚独立调整。列表序号不是 JSON 中的夜序值。</div>'+
-    '<div class="foot"><button class="btn" id="resetNight">恢复默认夜序</button><button class="btn" id="cpn">复制文本</button>'+
-    '<button class="btn" onclick="closeDlg()">关闭</button></div>';
+  function nightRow(c,reminder){
+    return '<li><div class="night-role">'+(c.im?'<img src="'+esc(c.im)+'" alt="" loading="lazy" decoding="async">':'')+'<strong>'+esc(c.n)+'</strong></div>'+
+      (c[reminder]?'<p class="night-reminder">'+esc(c[reminder])+'</p>':'')+'</li>';
+  }
+  function nightColumn(title,list,reminder){
+    return '<div><h5>'+title+'<span>'+list.length+' 项行动</span></h5><ol>'+
+      (list.map(function(c){return nightRow(c,reminder);}).join('')||'<li class="night-no-actions">本夜没有角色行动</li>')+'</ol></div>';
+  }
+  var h='<div class="editor-night-dialog"><header class="editor-night-heading"><h3 id="editor-night-title">夜晚行动顺序</h3><p>首夜与其他夜晚独立调整，修改会保存到当前草稿。</p></header>'+
+    '<div class="editor-night-content"><div class="night">'+nightColumn('首夜',first,'fr')+nightColumn('其他夜晚',other,'or')+'</div></div>'+
+    '<footer class="editor-night-footer"><p class="tip">拖拽角色或使用右侧按钮调整顺序；列表编号不是 JSON 夜序值。</p>'+
+    '<div class="foot"><button type="button" class="btn" id="resetNight">恢复默认夜序</button><button type="button" class="btn" id="cpn">复制文本</button>'+
+    '<button type="button" class="btn" onclick="closeDlg()">关闭</button></div></footer></div>';
   openDlg(h);
   var dragged=null;
   function move(list,field,from,to){
@@ -452,13 +454,17 @@ document.getElementById('bNight').onclick=function(){
     }
     list.splice(to,0,list.splice(from,1)[0]);
     list.forEach(function(c,i){(NIGHT_OVERRIDES[c.id]||(NIGHT_OVERRIDES[c.id]={}))[field]=slots[i];});
+    var scroller=document.querySelectorAll('#dlgBody .editor-night-content')[0],scrollTop=scroller?scroller.scrollTop:0;
     save();document.getElementById('bNight').onclick();
+    var restored=document.querySelectorAll('#dlgBody .editor-night-content')[0];if(restored)restored.scrollTop=scrollTop;
   }
   document.querySelectorAll('#dlgBody .night ol').forEach(function(ol,night){
     var list=night===0?first:other,field=night===0?'firstNight':'otherNight';
     Array.from(ol.children).forEach(function(li,index){
       if(!list.length)return;
-      li.draggable=true;li.classList.add('night-sortable');
+      li.draggable=true;li.classList.add('night-sortable');li.tabIndex=-1;
+      var actions=document.createElement('div');actions.className='night-actions';li.appendChild(actions);
+      Array.from(li.querySelectorAll('img')).forEach(function(img){img.addEventListener('error',function(){img.hidden=true;});});
       li.addEventListener('dragstart',function(e){dragged={night:night,index:index};e.dataTransfer.effectAllowed='move';e.dataTransfer.setData('text/plain',String(index));});
       li.addEventListener('dragover',function(e){if(dragged&&dragged.night===night){e.preventDefault();e.dataTransfer.dropEffect='move';}});
       li.addEventListener('drop',function(e){e.preventDefault();if(dragged&&dragged.night===night)move(list,field,dragged.index,index);dragged=null;});
@@ -467,8 +473,8 @@ document.getElementById('bNight').onclick=function(){
         var button=document.createElement('button');button.type='button';button.className='night-move';
         button.textContent=delta<0?'↑':'↓';button.setAttribute('aria-label',(delta<0?'上移':'下移')+list[index].n);
         button.disabled=index+delta<0||index+delta>=list.length;
-        button.onclick=function(){move(list,field,index,index+delta);var next=document.querySelectorAll('#dlgBody .night ol')[night].children[index+delta];next.querySelector(delta<0?'button':'button:last-child').focus();};
-        li.appendChild(button);
+        button.onclick=function(){move(list,field,index,index+delta);var next=document.querySelectorAll('#dlgBody .night ol')[night].children[index+delta];var target=next.querySelector(delta<0?'button':'button:last-child');(target.disabled?next:target).focus({preventScroll:true});};
+        actions.appendChild(button);
       });
     });
   });

@@ -170,6 +170,42 @@ dialog,.script-library-page :is(#cmpDlg,#jsonDlg,#expDlg){background:var(--archi
 .script-tool-page #artDialog .art-mobile-tools{background:#f5eddd;border-color:var(--archive-line)}
 .script-tool-page #artDialog :is(input:not([type=checkbox]):not([type=radio]),select,textarea){background:#fffbf1;border-color:#cbbb9d}
 .script-tool-page #artDialog .btn:not(.pri){background:#faf5e9;border-color:#cbbb9d}
+/* Jinx cards share the archive paper palette; rule text remains the reading focus. */
+.mw-parser-output .jinx-filters{background:#eee3ccb0;border-color:var(--archive-line)}
+.mw-parser-output .jinx-filters label{color:var(--archive-muted)}
+.mw-parser-output .jinx-filters :is(input,select,button){background:#fffbf1;border-color:#cbbb9d;color:var(--archive-ink)}
+.mw-parser-output .jinx-filters button{background:var(--archive-sheet)}
+.mw-parser-output .jinx-filters button:hover{background:#e9ddc4;border-color:var(--archive-brass)}
+.mw-parser-output .jinx-filters :is(input,select,button):focus-visible{outline:2px solid var(--archive-brass);outline-offset:2px}
+.mw-parser-output :is(#jinx-count,.jinx-group-note){color:var(--archive-muted)}
+.mw-parser-output .jinx-card{background:var(--archive-sheet);border-color:var(--archive-line);box-shadow:0 4px 16px #6350360a}
+.mw-parser-output .jinx-card:hover{box-shadow:0 6px 22px #63503612}
+.mw-parser-output .jinx-pair{border-bottom-color:#d5c6a980}
+.mw-parser-output a.jinx-role,.mw-parser-output a.jinx-role:visited{background:#eee3cc80;color:#514737}
+.mw-parser-output a.jinx-role:hover{background:#e7d9bd;color:#3c3431}
+.mw-parser-output a.jinx-role:focus-visible{outline:2px solid var(--archive-brass);outline-offset:3px}
+.mw-parser-output .jinx-placeholder{color:var(--archive-muted)}
+.mw-parser-output .jinx-card .jinx-rule{color:var(--archive-ink)}
+.mw-parser-output .jinx-rule a,.mw-parser-output .jinx-rule a:visited{color:inherit}
+.mw-parser-output .jinx-rule a:hover{color:#305c7d;text-decoration:underline}
+.mw-parser-output #jinx-empty{background:#faf5e980;border-color:var(--archive-line);color:var(--archive-muted)}
+/* Night order uses the same paper surfaces, including the sticky controls. */
+.mw-parser-output .night-controls{background:#f2e9d6f5;border-color:var(--archive-line);box-shadow:0 6px 18px #63503610}
+.mw-parser-output .night-controls button{background:var(--archive-sheet);border-color:#cbbb9d;color:#514737}
+.mw-parser-output .night-controls button:hover{background:#e9ddc4;border-color:var(--archive-brass)}
+.mw-parser-output .night-tabs button[aria-pressed=true]{background:#dec38b;border-color:#ac8c54;color:#43321e}
+.mw-parser-output .night-tabs button[aria-pressed=true]:hover{background:#d5b779}
+.mw-parser-output .night-search label{color:var(--archive-muted)}
+.mw-parser-output .night-search :is(input,select){background:#fffbf1;border-color:#cbbb9d;color:var(--archive-ink)}
+.mw-parser-output .night-controls :is(input,select,button):focus-visible{outline:2px solid var(--archive-brass);outline-offset:2px}
+.mw-parser-output :is(#night-count,.night-controls .night-help){color:var(--archive-muted)}
+.mw-parser-output .night-row{background:var(--archive-sheet);border-color:var(--archive-line);box-shadow:0 3px 10px #63503608}
+.mw-parser-output .night-number{color:#756348}
+.mw-parser-output .night-instruction{color:var(--archive-ink)}
+.mw-parser-output .night-instruction b{color:#41382f}
+.mw-parser-output .night-instruction a,.mw-parser-output .night-instruction a:visited{color:inherit}
+.mw-parser-output .night-instruction a:hover{color:#305c7d;text-decoration:underline}
+.mw-parser-output #night-empty{background:#faf5e980;color:var(--archive-muted)}
 /* Mobile overlays remain opaque, with existing safe areas and touch targets. */
 @media(max-width:1100px){:is(.role-detail-page,.article-detail-page) .role-contents{background:#faf5e980}}
 @media(max-width:1100px){.home-page .home-classic{padding:16px 12px;gap:10px}.home-classic-copy>strong{font-size:17px}}
@@ -189,6 +225,21 @@ dialog,.script-library-page :is(#cmpDlg,#jsonDlg,#expDlg){background:var(--archi
  .editor-mobile-actions .btn:not(.pri){background:#fffbf1;border-color:#cbbb9d}
 }
 /* No material in printed documents or high contrast modes. */
+@media print{
+ .mw-parser-output :is(.jinx-card,.jinx-filters,a.jinx-role,.night-row){background:#fff;box-shadow:none}
+}
+@media(forced-colors:active){
+ .mw-parser-output :is(.jinx-card,.jinx-filters,#jinx-empty,.night-row,.night-controls,#night-empty){background:Canvas;border-color:CanvasText;box-shadow:none}
+ .mw-parser-output :is(.jinx-filters label,#jinx-count,.jinx-group-note,.jinx-placeholder,.jinx-card .jinx-rule){color:CanvasText}
+ .mw-parser-output .jinx-filters :is(input,select,button){background:Canvas;border-color:ButtonText;color:CanvasText}
+ .mw-parser-output a.jinx-role,.mw-parser-output a.jinx-role:visited,.mw-parser-output a.jinx-role:hover{background:Canvas;color:LinkText}
+ .mw-parser-output .jinx-rule a,.mw-parser-output .jinx-rule a:visited,.mw-parser-output .jinx-rule a:hover{color:LinkText}
+ .mw-parser-output :is(.night-number,.night-instruction,.night-instruction b,#night-count,.night-controls .night-help,.night-search label,#night-empty){color:CanvasText}
+ .mw-parser-output .night-controls :is(input,select,button){background:Canvas;border-color:ButtonText;color:ButtonText}
+ .mw-parser-output .night-tabs button[aria-pressed=true],.mw-parser-output .night-tabs button[aria-pressed=true]:hover{forced-color-adjust:none;background:Highlight;border-color:Highlight;color:HighlightText}
+ .mw-parser-output .night-instruction a,.mw-parser-output .night-instruction a:visited,.mw-parser-output .night-instruction a:hover{color:LinkText}
+}
+
 @media print{
  body,.content,.content.home-page{background:#fff!important;background-image:none!important;box-shadow:none!important}
  .home-page>.mw-parser-output[data-home-product],.home-product-section,.home-product-about,.home-guide-links,.role-detail-page .role-overview{background:#fff!important;background-image:none!important;box-shadow:none}

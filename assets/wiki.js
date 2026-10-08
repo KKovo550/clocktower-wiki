@@ -31,7 +31,18 @@
   // 渐进增强：无 JavaScript 时导航保持可见，桌面端始终展开。
   var sidebar = document.querySelector('.sidebar');
   if (sidebar) {
-    // Highlight the current page/section independently of pointer hover.
+    sidebar.setAttribute('aria-label', '站点导航');
+    var collapseButton;
+    function revealCurrentNavigation() {
+      var selected = sidebar.querySelector('[aria-current=page]');
+      if (!selected || !sidebar.getBoundingClientRect || !selected.getBoundingClientRect) return;
+      var outer = sidebar.getBoundingClientRect(), item = selected.getBoundingClientRect();
+      if (!outer.height || !item.height) return;
+      var upper = outer.top + 12;
+      if (item.top < upper) sidebar.scrollTop -= upper - item.top;
+      else if (item.bottom > outer.bottom - 16) sidebar.scrollTop += item.bottom - outer.bottom + 16;
+    }
+    // Highlight the current page and every enclosing collection independently of hover.
     function updateCurrentNavigation() {
       if (typeof URL === "undefined" || !window.location || !sidebar.querySelectorAll) return;
       var current = new URL(window.location.href), links = Array.from(sidebar.querySelectorAll('a[href]'));
@@ -43,13 +54,16 @@
       var selected = samePage.find(function (link) { return decoded(new URL(link.href).hash) === decoded(current.hash); });
       if (!selected) selected = samePage.find(function (link) { var hash = decoded(new URL(link.href).hash); return !hash || hash === '#总览'; });
       links.forEach(function (link) { if (link === selected) link.setAttribute('aria-current', 'page'); else link.removeAttribute('aria-current'); });
+      sidebar.querySelectorAll('.sidebar-group').forEach(function (group) { group.removeAttribute('data-current-branch'); });
       if (selected) {
         var group = selected.closest('.sidebar-group');
         while (group) {
+          group.setAttribute('data-current-branch', '');
           group.open = true;
           group = group.parentElement.closest('.sidebar-group');
         }
       }
+      if (window.requestAnimationFrame) window.requestAnimationFrame(revealCurrentNavigation);
     }
     updateCurrentNavigation();
     if (window.addEventListener) window.addEventListener('hashchange', updateCurrentNavigation);
@@ -70,6 +84,26 @@
     });
     sidebar.appendChild(toggle);
     sidebar.appendChild(navigation);
+    var headingRow = document.createElement('div');
+    headingRow.className = 'sidebar-heading-row';
+    var firstHeading = navigation.querySelector('h3');
+    if (firstHeading) {
+      firstHeading.parentNode.insertBefore(headingRow, firstHeading);
+      headingRow.appendChild(firstHeading);
+    } else navigation.insertBefore(headingRow, navigation.firstChild);
+    collapseButton = document.createElement('button');
+    collapseButton.type = 'button';
+    collapseButton.className = 'sidebar-collapse';
+    collapseButton.textContent = '收起分类';
+    collapseButton.setAttribute('aria-label', '收起所有分类');
+    collapseButton.setAttribute('aria-controls', navigation.id);
+    collapseButton.title = '收起所有分类';
+    headingRow.appendChild(collapseButton);
+    collapseButton.addEventListener('click', function () {
+      navigation.querySelectorAll('.sidebar-group[open]').forEach(function (group) { group.open = false; });
+      collapseButton.focus({ preventScroll: true });
+      sidebar.scrollTop = 0;
+    });
     // Mobile drawer keeps the same navigation links and current-page highlight.
     if (header && document.body.classList && window.matchMedia) {
       var mobileMenu = window.matchMedia('(max-width: 820px)');
@@ -101,10 +135,25 @@
         toggle.innerHTML = '<span aria-hidden="true">' + (open ? '×' : '☰') + '</span>';
         sidebar.inert = mobileMenu.matches && !open;
         if (open) {
-          var firstLink = navigationFocusables()[0];
+          var firstLink = navigation.querySelector('[aria-current=page]') || navigationFocusables()[0];
           if (firstLink) firstLink.focus({ preventScroll: true });
+          if (window.requestAnimationFrame) window.requestAnimationFrame(function () {
+            if (!document.body.classList.contains('mobile-nav-open') || document.querySelector('dialog[open]')) return;
+            if (firstLink) firstLink.focus({ preventScroll: true });
+            revealCurrentNavigation();
+          });
         } else if (returnFocus) toggle.focus({ preventScroll: true });
       }
+      // Animated drawers may not accept focus until they are visibly on screen.
+      sidebar.addEventListener('transitionend', function (event) {
+        if (event.target !== sidebar || event.propertyName !== 'transform' || !mobileMenu.matches || !document.body.classList.contains('mobile-nav-open') || document.querySelector('dialog[open]')) return;
+        if (document.activeElement !== document.body && document.activeElement !== toggle) return;
+        var targets = navigationFocusables();
+        var current = navigation.querySelector('[aria-current=page]');
+        var target = targets.indexOf(current) >= 0 ? current : targets[0];
+        if (target) target.focus({ preventScroll: true });
+        revealCurrentNavigation();
+      });
       // Replace the inline expansion behavior with drawer state.
       toggle.addEventListener('click', function () {
         setDrawer(!document.body.classList.contains('mobile-nav-open'), false);
@@ -114,14 +163,15 @@
         if (event.target.closest('a[href]')) setDrawer(false, false);
       });
       document.addEventListener('keydown', function (event) {
-        if (!document.body.classList.contains('mobile-nav-open')) return;
+        if (!document.body.classList.contains('mobile-nav-open') || document.querySelector('dialog[open]')) return;
         if (event.key === 'Escape') { event.preventDefault(); setDrawer(false, true); }
         if (event.key === 'Tab') {
           var links = navigationFocusables();
-          var focusables = [toggle].concat(links);
+          var focusables = [toggle, collapseButton].concat(links);
           var index = focusables.indexOf(document.activeElement);
-          if (event.shiftKey && index <= 0) { event.preventDefault(); focusables[focusables.length - 1].focus(); }
-          else if (!event.shiftKey && (index === focusables.length - 1 || index < 0)) { event.preventDefault(); toggle.focus(); }
+          var next = index < 0 ? 0 : (index + (event.shiftKey ? -1 : 1) + focusables.length) % focusables.length;
+          event.preventDefault();
+          focusables[next].focus();
         }
       });
       function resetDrawer() { setDrawer(false, false); }

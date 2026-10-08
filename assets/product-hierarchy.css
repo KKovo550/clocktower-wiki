@@ -179,3 +179,33 @@ html.site-guide-open{overflow:hidden}
 .site-guide-dialog .guide-tips dt{font-size:13px;font-weight:600;line-height:1.8;color:var(--archive-ink,#34302c);margin-top:14px}
 .site-guide-dialog .guide-tips dd{margin:5px 0 0;font-size:12px;line-height:1.9;color:var(--archive-muted,#665b4c);overflow-wrap:anywhere}
 .site-guide-dialog .guide-tips dt:first-child{margin-top:0}
+
+/* Compact navigation keeps category order and exposes the current branch. */
+.sidebar{min-width:0;overscroll-behavior:contain;scrollbar-width:thin}
+/* The collapse action sits beside the first category heading, without a toolbar. */
+.sidebar .sidebar-heading-row{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:0 0 6px;padding-right:3px}
+.sidebar #wiki-navigation .sidebar-heading-row>h3{margin:0;padding:0 10px;line-height:1.8}
+.sidebar .sidebar-collapse{font:inherit;font-size:11px;line-height:1.6;color:#a99c84;background:transparent;border:0;border-radius:4px;padding:4px 7px;min-height:28px;cursor:pointer;white-space:nowrap}
+.sidebar .sidebar-collapse:hover{color:#efdbb3;text-decoration:underline;text-underline-offset:3px}
+.sidebar .sidebar-collapse:focus-visible{outline:2px solid #dec28d;outline-offset:2px;color:#efdbb3}
+.sidebar #wiki-navigation>h3{margin:18px 0 6px;padding:0 10px;line-height:1.8}
+.sidebar #wiki-navigation>h3:first-child{margin-top:0}
+.sidebar #wiki-navigation>ul>li{margin:1px 0}
+.sidebar #wiki-navigation>ul>li>a{display:flex;align-items:center;box-sizing:border-box;min-height:34px;padding:7px 11px;border-radius:6px}
+.sidebar #wiki-navigation>.sidebar-group{margin:1px 0}
+.sidebar #wiki-navigation .sidebar-group>summary{min-height:34px;box-sizing:border-box;padding:7px 11px;line-height:1.65;border-radius:6px}
+.sidebar #wiki-navigation .sidebar-group>summary::after{content:'';width:5px;height:5px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(-45deg);margin:0 3px 0 0;font-size:0}
+.sidebar #wiki-navigation .sidebar-group[open]>summary::after{transform:rotate(45deg)}
+.sidebar #wiki-navigation .sidebar-group>ul{margin:3px 0 7px 10px;padding-left:6px;border-left-color:#a08a6045}
+.sidebar #wiki-navigation .sidebar-group .sidebar-group>summary{padding:6px 8px}
+.sidebar #wiki-navigation .sidebar-group .sidebar-group>ul{margin-left:8px;padding-left:5px}
+.sidebar #wiki-navigation .sidebar-group>ul a{display:block;box-sizing:border-box;padding:6px 8px;line-height:1.7;border-radius:5px;overflow-wrap:anywhere}
+.sidebar #wiki-navigation .sidebar-group[data-current-branch]>summary{color:#e8cf9e;font-weight:600;background:#bca0710b}
+.sidebar #wiki-navigation .sidebar-group[data-current-branch]:not([open])>summary{background:#bca07118;box-shadow:inset 2px 0 0 #c6a56f}
+.sidebar #wiki-navigation a[aria-current=page]{color:#efdbb3;background:#bca07124;box-shadow:inset 2px 0 0 #c6a56f}
+@media(min-width:821px){.sidebar{flex-basis:208px;padding:10px 8px 28px}}
+@media(max-width:820px){
+ .sidebar .sidebar-collapse{min-height:44px;padding:8px 10px;font-size:12px}
+ .sidebar #wiki-navigation>ul>li>a,.sidebar #wiki-navigation .sidebar-group>summary,.sidebar #wiki-navigation .sidebar-group>ul a{min-height:44px;display:flex;align-items:center;padding-top:10px;padding-bottom:10px}
+}
+@media(forced-colors:active){.sidebar .sidebar-collapse{color:ButtonText}.sidebar #wiki-navigation .sidebar-group[data-current-branch]>summary{color:CanvasText}.sidebar #wiki-navigation a[aria-current=page]{outline:1px solid Highlight}}
