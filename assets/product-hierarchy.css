@@ -20,8 +20,11 @@
  .role-reading-rail :is(.lvl3,.toclevel-2,.toclevel-3){padding-left:12px}
 }
 @media(forced-colors:active){.role-reading-rail .role-contents{background:Canvas;color:CanvasText;border-color:CanvasText}.role-reading-rail .role-contents>summary{color:CanvasText}.role-reading-rail a,.role-reading-rail a:visited{color:LinkText}.role-reading-rail a[aria-current=location]{outline:1px solid Highlight}}
+.sidebar a{font-size:12px;line-height:1.65;font-weight:400}
+.sidebar a[aria-current=page]{font-weight:600}
+.sidebar>ul,.sidebar #wiki-navigation>ul{margin-bottom:0}
 .sidebar .sidebar-group{margin:2px 0}
-.sidebar .sidebar-group>summary{list-style:none;cursor:pointer;color:#596579;padding:8px 12px;font-size:13px;border-radius:7px;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.sidebar .sidebar-group>summary{list-style:none;cursor:pointer;color:#596579;padding:8px 12px;font-size:12px;border-radius:7px;display:flex;align-items:center;justify-content:space-between;gap:8px}
 .sidebar .sidebar-group>summary::-webkit-details-marker{display:none}
 .sidebar .sidebar-group>summary::after{content:'›';font-size:18px;line-height:1;color:#95a1b1;transition:transform var(--experience-fast)}
 .sidebar .sidebar-group[open]>summary::after{transform:rotate(90deg)}
