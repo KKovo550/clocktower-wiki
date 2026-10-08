@@ -18,6 +18,17 @@ function scriptPictures(script) {
   return {primary:primary, remaining:remaining, total:unique.length};
 }
 
+// The reading gallery omits title-only art; original picture/export metadata is retained.
+function galleryPictures(script){
+  var source=scriptPictures(script),roles=typeof pictureRoles==='function'?pictureRoles(script):(script[11]||{});
+  function visible(p){
+    if(p.file===roles.front||p.file===roles.back)return true;
+    return p.role!=='logo'&&p.file!==roles.logo&&!/(?:^|[\s_.-])logo(?:[\s_.-]|\d|$)/i.test(p.file);
+  }
+  var primary=source.primary.filter(visible),remaining=source.remaining.filter(visible);
+  return {primary:primary,remaining:remaining,total:primary.length+remaining.length};
+}
+
 function normalizeTeam(team) {
   var aliases = {
     traveler: 'traveller', '镇民': 'townsfolk', '外来者': 'outsider',

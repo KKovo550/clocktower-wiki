@@ -45,7 +45,10 @@
       links.forEach(function (link) { if (link === selected) link.setAttribute('aria-current', 'page'); else link.removeAttribute('aria-current'); });
       if (selected) {
         var group = selected.closest('.sidebar-group');
-        if (group) group.open = true;
+        while (group) {
+          group.open = true;
+          group = group.parentElement.closest('.sidebar-group');
+        }
       }
     }
     updateCurrentNavigation();

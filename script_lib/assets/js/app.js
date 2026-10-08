@@ -1,14 +1,16 @@
 // 搜索、详情、导出和比对界面。依赖 config.js、catalog.js、core.js。
 var catSel=document.getElementById('cat');
 document.getElementById('librarySummary').textContent='剧本库 · '+SCRIPTS.length+' 个剧本 · '+
-  SCRIPTS.filter(function(s){return s[10]&&s[10].length;}).length+' 个有剧照（'+
-  SCRIPTS.reduce(function(total,s){return total+(s[10]||[]).length;},0)+' 张关联图片）';
+  SCRIPTS.filter(function(s){return shownCount(s);}).length+' 个有剧照（'+
+  SCRIPTS.reduce(function(total,s){return total+shownCount(s);},0)+' 张关联图片）';
+var CHARW=Object.create(null);
+CHARS.forEach(function(c){var u=c[2];if(u&&!(c[0] in CHARW))CHARW[c[0]]=u;});
 // 预建小写检索串
 CHARS.forEach(function(c){ c[1]=normalizeTeam(c[1]); });
 var scriptIndexes=new Map();
 SCRIPTS.forEach(function(s,i){
   scriptIndexes.set(s,i);
-  var cn=s[5].map(function(i){return CHARS[i][0];}).join(' ');
+  var cn=s[5].map(function(i){var role=libraryRole(CHARS[i]);return CHARS[i][0]+(role&&role.n!==CHARS[i][0]?' '+role.n:'');}).join(' ');
   s._s=((s[0]+' '+s[1]+' '+s[2]+' '+cn)||'').toLowerCase();
   s._cn=cn;
 });
@@ -30,8 +32,6 @@ function restoreFilters(){
 function esc(t){return String(t).replace(/[&<>"]/g,function(c){
   return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
 // 角色名 -> 百科链接（构建期算好，塞在 CHARS 第 3 位；查不到就是空串）
-var CHARW=Object.create(null);
-CHARS.forEach(function(c){var u=c[2];if(u&&!(c[0] in CHARW))CHARW[c[0]]=u;});
 function wikiURL(n){
   if(CHARW[n])return CHARW[n];
   // 斜杠必须写成 \/：V8 对 /[&＆、/]/ 直接报 Invalid regular expression: missing /
@@ -39,7 +39,37 @@ function wikiURL(n){
   for(var i=0;i<p.length;i++){var q=p[i].trim();if(q&&CHARW[q])return CHARW[q];}
   return '';
 }
-function counts(a){var m={};a.forEach(function(i){var t=CHARS[i][1]||'?';m[t]=(m[t]||0)+1;});return m;}
+// Icons are decorative; names, duplicate counts and wiki links remain usable without them.
+function roleChip(n,count,role){
+  var icons=window.LIBRARY_ROLE_ICONS||{},icon=Object.prototype.hasOwnProperty.call(icons,n)?icons[n]:'';
+  if(role)icon=role.im;
+  var picture=typeof icon==='string'&&icon?'<img class="library-role-icon" src="'+esc(icon)+'" width="20" height="20" alt="" aria-hidden="true" loading="lazy" decoding="async" draggable="false">':'';
+  var text=picture+esc(n);
+  var u=role?role.wiki:wikiURL(n);
+  if(!u)return '<span title="钟楼百科暂无这个词条">'+text+'</span>';
+  return '<a href="'+esc(u)+'" target="_blank" rel="noopener" title="钟楼百科：'+esc(n)+'（新标签页打开）">'+text+'</a>';
+}
+document.getElementById('detail').addEventListener('error',function(event){
+  if(event.target.matches&&event.target.matches('img.library-role-icon'))event.target.remove();
+},true);
+function libraryRole(c){
+  if(!c)return null;
+  var data=window.LIBRARY_ROLE_DETAILS||{},pages=data.pages||{},names=data.names||{};
+  var linked=Object.prototype.hasOwnProperty.call(pages,c[2])?pages[c[2]]:null;
+  var key=String(c[0]).trim().toLowerCase(),known=linked||(Object.prototype.hasOwnProperty.call(names,key)?names[key]:null);
+  var type=normalizeTeam(c[1]);
+  if(linked||TEAMORD.indexOf(type)<0){if(known)type=normalizeTeam(known.t);}
+  if(TEAMORD.indexOf(type)<0)return null;
+  var matches=known&&known.t===type;
+  return {n:matches?known.n:c[0],t:type,wiki:matches?known.wiki:wikiURL(c[0]),im:matches?known.im:((window.LIBRARY_ROLE_ICONS||{})[c[0]]||'')};
+}
+function libraryRoster(indices){
+  var by=Object.create(null),seen=new Set();
+  indices.forEach(function(i){var role=libraryRole(CHARS[i]);if(!role)return;
+    var key=role.t+'|'+(role.wiki||role.n);if(seen.has(key))return;seen.add(key);(by[role.t]=by[role.t]||[]).push(role);
+  });return by;
+}
+function counts(a){var by=libraryRoster(a),m={};TEAMORD.forEach(function(t){if(by[t])m[t]=by[t].length;});return m;}
 function render(){
   renderCategorySelectors();
   var signature=JSON.stringify(filterIds.map(function(id){var el=document.getElementById(id);return id==='onlypic'?el.checked:el.value;}));
@@ -58,10 +88,10 @@ function render(){
     if(onlypic&&!shownCount(s))return false;
     if(!isNaN(mn)&&s[4]<mn)return false;
     if(!isNaN(mx)&&s[4]>mx)return false;
-    if(team){var hit=false;for(var k=0;k<s[5].length;k++){if(CHARS[s[5][k]][1]===team){hit=true;break;}}
+    if(team){var hit=false;for(var k=0;k<s[5].length;k++){if(libraryRole(CHARS[s[5][k]])?.t===team){hit=true;break;}}
       if(!hit)return false;}
     if(q&&!q.split(/\s+/).every(function(term){
-      return term[0]==='#'?s[5].some(function(ci){return CHARS[ci][0].toLowerCase()===term.slice(1);}):s._s.indexOf(term)>=0;
+      return term[0]==='#'?s[5].some(function(ci){var role=libraryRole(CHARS[ci]);return CHARS[ci][0].toLowerCase()===term.slice(1)||(role&&role.n.toLowerCase()===term.slice(1));}):s._s.indexOf(term)>=0;
     }))return false;
     return true;
   });
@@ -104,25 +134,11 @@ function show(i){
   if(typeof detailRevision!=='undefined')detailRevision++;
   var s=SCRIPTS_BY_INDEX[i];if(!s){return;}
   selectedScriptIndex=i;
-  var by={};s[5].forEach(function(x){var t=CHARS[x][1]||'other';(by[t]=by[t]||[]).push(CHARS[x][0]);});
-  // 同名可能有多张卡（有的剧本把一条规则拆成 5 张编号卡），用 ×N 表示而不合并
-  function chips(arr){
-    var cnt={},ord=[];
-    arr.forEach(function(n){if(!(n in cnt)){cnt[n]=0;ord.push(n);}cnt[n]++;});
-    return ord.map(function(n){
-      var tail=(cnt[n]>1?' <b>×'+cnt[n]+'</b>':'');
-      var u=wikiURL(n);
-      if(!u)return '<span title="钟楼百科暂无这个词条">'+esc(n)+tail+'</span>';
-      return '<a href="'+u+'" target="_blank" rel="noopener" title="钟楼百科：'+
-        esc(n)+'（新标签页打开）">'+esc(n)+tail+'<span class="x">↗</span></a>';
-    }).join('');
-  }
+  var by=libraryRoster(s[5]);
   var body=TEAMORD.filter(function(t){return by[t];}).map(function(t){
     return '<div class="team-h">'+TEAMCN[t]+' · '+by[t].length+'</div><div class="chars">'+
-      chips(by[t])+'</div>';
+      by[t].map(function(role){return roleChip(role.n,1,role);}).join('')+'</div>';
   }).join('');
-  var other=by['other']?('<div class="team-h">未知阵营 · '+by['other'].length+'</div><div class="chars">'+
-    chips(by['other'])+'</div>'):'';
   var uniqW={},nAllW=0,nLinkW=0;
   s[5].forEach(function(x){var nm=CHARS[x][0];
     if(!(nm in uniqW)){uniqW[nm]=1;nAllW++;if(wikiURL(nm))nLinkW++;}});
@@ -135,8 +151,8 @@ function show(i){
     '<details class="library-detail-tools"><summary>复制与导出</summary><div><button type="button" class="btn" id="btn-chars">复制角色名单</button>'+
     '<button type="button" class="btn" id="btn-json" title="生成这个剧本的 JSON，弹出框里选中复制（也可下载）">复制 JSON</button>'+
     '<button type="button" class="btn" id="btn-one">导出这个剧本</button></div></details></div>'+
-    '<div class="library-composition" aria-label="角色构成">'+TEAMORD.filter(function(t){return by[t];}).map(function(t){return '<span class="pill t-'+t+'">'+TEAMCN[t]+' '+by[t].length+'</span>';}).join('')+(by.other?'<span class="pill">其他 '+by.other.length+'</span>':'')+'</div>'+
-    shots(s)+'<section class="library-roster" aria-label="剧本角色">'+body+other+'</section>'+
+    '<div class="library-composition" aria-label="角色构成">'+TEAMORD.filter(function(t){return by[t];}).map(function(t){return '<span class="pill t-'+t+'">'+TEAMCN[t]+' '+by[t].length+'</span>';}).join('')+'</div>'+
+    shots(s)+'<section class="library-roster" aria-label="剧本角色">'+body+'</section>'+
     '<details class="library-source-info"><summary>资料信息 · 分类与文件路径</summary><div class="dtmeta">分类：'+esc(s[2])+'<br>路径：'+esc(JSONBASE+'/'+s[3].replace(/\\/g,'/'))+
     (s[8]?'<br>外链：<a href="'+esc(s[8])+'" target="_blank" rel="noopener">'+esc(s[8])+'</a>':'')+
     (nAllW?'<br>百科词条：<b>'+nLinkW+'</b> / '+nAllW+(nLinkW?'（点击角色名可打开对应词条）':'（这些角色暂无对应词条）'):'')+
@@ -164,8 +180,7 @@ function show(i){
     copyJsonDlg([i]);};
   document.getElementById('btn-chars').onclick=function(){
     var t=TEAMORD.filter(function(x){return by[x];}).map(function(x){
-      var c={},o=[];by[x].forEach(function(n){if(!(n in c)){c[n]=0;o.push(n);}c[n]++;});
-      return '【'+TEAMCN[x]+'】'+o.map(function(n){return n+(c[n]>1?'×'+c[n]:'');}).join('、');}).join('\n');
+      return '【'+TEAMCN[x]+'】'+by[x].map(function(role){return role.n;}).join('、');}).join('\n');
     copy(t,this);};
 }
 ['includeRoles','excludeRoles','q','cat','team','minc','maxc','sort','onlypic'].forEach(function(id){

@@ -4,7 +4,7 @@
   var main = document.querySelector('main.content');
   var article = main && main.querySelector('.mw-parser-output');
   var title = main && main.querySelector('h1.page-title');
-  if (!article || !title || main.querySelector('.role-overview')) return;
+  if (!article || !title || main.querySelector('.role-overview, .role-reading-layout')) return;
 
   function metadata(label) {
     var rows = article.querySelectorAll('.charinfo-meta .row');
@@ -22,7 +22,17 @@
   var kind = metadata('角色类型');
   var origin = metadata('角色归属') || metadata('所属剧本');
   var categories = (metadata('能力标签') || metadata('能力类别')).split(/[、，,]/).map(function (value) { return value.trim(); }).filter(Boolean);
-  if (!/镇民|外来者|爪牙|恶魔|旅行者|传奇|奇遇/.test(kind)) return;
+  if (!/镇民|外来者|爪牙|恶魔|旅行者|传奇|奇遇/.test(kind)) {
+    var articleToc = main.querySelector(':scope > .toc') || article.querySelector(':scope > .toc');
+    var hasSection = articleToc && Array.from(articleToc.querySelectorAll('a[href^="#"]')).some(function (link) {
+      try { return !!document.getElementById(decodeURIComponent(link.hash.slice(1))); } catch (_) { return false; }
+    });
+    if (hasSection) {
+      main.classList.add('article-detail-page');
+      mountContents(articleToc, '本页章节目录');
+    }
+    return;
+  }
   var children = Array.from(article.children);
   // Stars pages begin with the final JSON configuration; keep that complete source block together.
   var ability = children.find(function (node) { return node.tagName === 'H2' && node.textContent.trim() === '角色配置'; }) ||
@@ -67,7 +77,7 @@
   abilityNodes.forEach(function (node) { abilityBox.appendChild(node); }); information.appendChild(abilityBox);
   var action = article.querySelector('.role-script-link'); if (action) information.appendChild(action);
 
-  var toc = main.querySelector(':scope > .toc');
+  var toc = main.querySelector(':scope > .toc') || article.querySelector(':scope > .toc');
   var headings = [ability].concat(Array.from(article.children).filter(function (node) { return node.tagName === 'H2'; }));
   var usedIds = new Set(Array.from(document.querySelectorAll('[id]')).map(function (node) { return node.id; }));
   headings.forEach(function (node) {
@@ -93,10 +103,13 @@
     toc.appendChild(links);
   }
   main.insertBefore(overview, article);
-  if (toc) {
-    var layout = element('div', 'role-reading-layout'), aside = element('aside', 'role-reading-nav');
-    aside.setAttribute('aria-label', '角色章节目录');
-    var contents = element('details', 'role-contents'), summary = document.createElement('summary');
+  function mountContents(toc, label) {
+    function create(tag, className) {
+      var node = document.createElement(tag); node.className = className; return node;
+    }
+    var layout = create('div', 'role-reading-layout'), aside = create('aside', 'role-reading-nav');
+    aside.setAttribute('aria-label', label);
+    var contents = create('details', 'role-contents'), summary = document.createElement('summary');
     summary.textContent = '本页目录'; contents.appendChild(summary); contents.appendChild(toc); aside.appendChild(contents);
     contents.open = !!(window.matchMedia && window.matchMedia('(min-width: 1101px)').matches);
     var oldHeading = toc.querySelector('.toctitle'); if (oldHeading) oldHeading.setAttribute('aria-hidden', 'true');
@@ -138,5 +151,6 @@
     }
     updateContentsSelection(); window.addEventListener('hashchange', updateContentsSelection);
   }
+  if (toc) mountContents(toc, '角色章节目录');
   main.classList.add('role-detail-page');
 })();

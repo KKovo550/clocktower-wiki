@@ -98,7 +98,6 @@ footer a,footer a:visited{color:#e0c795}
 .home-classic-copy>small{display:block;color:var(--archive-muted);font-size:9px;letter-spacing:.06em;line-height:1.6;overflow-wrap:anywhere}
 .home-page .home-classic-copy>strong{display:block;margin:5px 0 12px;color:#43392f;font-size:18px;font-weight:550;line-height:1.4}
 .home-classic-action{display:flex;justify-content:space-between;align-items:center;gap:8px;color:var(--archive-muted);font-size:11px;line-height:1.6}
-.home-classic-action>b{font-weight:400;color:var(--script-accent)}
 .home-page .home-classic:hover{background:#fff9ebc9;border-color:var(--script-accent)}
 .home-classic:focus-visible{outline:2px solid #866a3f;outline-offset:3px}
 .home-shortcuts>a{border-color:#dac39330;background:#e4cca008}
@@ -111,8 +110,10 @@ footer a,footer a:visited{color:#e0c795}
 .home-module-heading>p,.home-module-heading>a,.home-page .home-update-note{color:var(--archive-muted)}
 .home-page .home-collection{background:#fbf6eb8f;border-color:#cbb996;color:#42392e;box-shadow:0 2px 4px #66533205}
 .home-page .home-collection:hover{background:#fff9ebc9;border-color:#a58a58}
+.home-page :is(.home-collection,.home-updates>a,.home-module-heading>a,.home-product-about>a,.home-resume a):focus-visible{outline:2px solid #866a3f;outline-offset:3px}
+.home-page :is(.home-module-heading>a,.home-product-about>a,.home-resume a):hover{text-decoration:underline;text-underline-offset:4px}
 .home-page .home-collection h3{color:#43392f}
-.home-page .home-collection :is(p,small),.home-collection>b{color:var(--archive-muted)}
+.home-page .home-collection :is(p,small){color:var(--archive-muted)}
 .collection-emblem{color:#776047;background:#eee3cd;border-color:#baa480;border-radius:20px 20px 7px 7px}
 .stars .collection-emblem{color:#866331;background:#efe1bf;border-color:#c5ab7b}
 .overseas .collection-emblem{color:#5b6c59;background:#e5e5cf;border-color:#abb198}
@@ -127,10 +128,10 @@ footer a,footer a:visited{color:#e0c795}
 .role-detail-page .role-overview-ability{color:var(--archive-ink)}
 .role-detail-page .role-overview-ability h2,.role-detail-page :is(.role-origin,.role-source-note){color:var(--archive-muted)}
 .role-detail-page .role-ability-tag{background:#faf5e9a8;color:#716553;border-color:#d1bea0}
-.role-detail-page .role-section-jumps,.role-detail-page .role-contents{border-color:#c8b797}
+.role-detail-page .role-section-jumps,:is(.role-detail-page,.article-detail-page) .role-contents{border-color:#c8b797}
 .role-detail-page .role-section-jumps a{color:#305c7d}
-.role-detail-page .role-contents a{color:#69604f}
-.role-detail-page .role-contents a:hover,.role-detail-page .role-contents a[aria-current=location]{background:#e7d9bd;color:#305c7d;box-shadow:inset 2px 0 0 #b09762}
+:is(.role-detail-page,.article-detail-page) .role-contents a{color:#69604f}
+:is(.role-detail-page,.article-detail-page) .role-contents a:hover,:is(.role-detail-page,.article-detail-page) .role-contents a[aria-current=location]{background:#e7d9bd;color:#305c7d;box-shadow:inset 2px 0 0 #b09762}
 .role-detail-page .role-script-link,.role-detail-page .role-overview .role-script-link a{background:#faf5e9;border-color:#cdb997}
 /* Only application chrome is themed. Never select the SVG/art stage or its children. */
 :is(.role-index .filter-panel,.library-filters,.script-editor .toolbar){background:#eee3ccb0!important;border-color:#cdbb99!important}
@@ -159,7 +160,7 @@ footer a,footer a:visited{color:#e0c795}
 .library-content.library-browse h2.dt{color:#41382f}
 .library-content.library-browse .library-overview,.library-browse .library-overview>span{color:var(--archive-muted)}
 .library-browse .library-description{color:#524c43}
-.library-content .chars :is(span,a),.library-content .shot-link{background:#f8f0e0;border-color:#d7c6a5}
+.library-content .chars>:is(span,a),.library-content .shot-link{background:#f8f0e0;border-color:#d7c6a5}
 .script-editor :is(.row2,.empty){background:#faf4e6;border-color:#d1bfa0}
 .script-editor .row2 .ab{color:#524c43}
 .role-preview{background:#fffaeefc;border-color:#c9b48e}
@@ -170,7 +171,7 @@ dialog,.script-library-page :is(#cmpDlg,#jsonDlg,#expDlg){background:var(--archi
 .script-tool-page #artDialog :is(input:not([type=checkbox]):not([type=radio]),select,textarea){background:#fffbf1;border-color:#cbbb9d}
 .script-tool-page #artDialog .btn:not(.pri){background:#faf5e9;border-color:#cbbb9d}
 /* Mobile overlays remain opaque, with existing safe areas and touch targets. */
-@media(max-width:1100px){.role-detail-page .role-contents{background:#faf5e980}}
+@media(max-width:1100px){:is(.role-detail-page,.article-detail-page) .role-contents{background:#faf5e980}}
 @media(max-width:1100px){.home-page .home-classic{padding:16px 12px;gap:10px}.home-classic-copy>strong{font-size:17px}}
 @media(max-width:820px){
  .site-header{background:#22242c}

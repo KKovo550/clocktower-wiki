@@ -5,7 +5,7 @@
 @media screen and (min-width:1800px){
  .layout.has-role-reading-rail{max-width:1784px}
  .has-role-reading-rail>.content{max-width:1214px}
- .role-detail-page.has-external-role-contents .role-reading-layout{grid-template-columns:minmax(0,1fr)}
+ :is(.role-detail-page,.article-detail-page).has-external-role-contents .role-reading-layout{grid-template-columns:minmax(0,1fr)}
  .layout>.role-reading-rail{flex:0 0 280px;min-width:0;position:sticky;top:calc(var(--wiki-header-height,68px) + 28px);align-self:flex-start}
  .role-reading-rail .role-contents{padding:20px;border:1px solid #76664b;border-radius:14px;background:linear-gradient(145deg,#38343b,#2a2b32);color:#d5cec1;font-size:13px;box-shadow:0 10px 24px #10101612}
  .role-reading-rail .role-contents>summary{cursor:pointer;color:#e3c78e;font-weight:550;font-size:13px;padding:3px 0;list-style-position:inside}
@@ -17,7 +17,7 @@
  .role-reading-rail a:hover{color:#f2dfb7;background:#d5b57c12}
  .role-reading-rail a[aria-current=location]{color:#f2dfb7;background:#d5b57c1e;box-shadow:inset 2px 0 0 #ddbf85}
  .role-reading-rail a:focus-visible,.role-reading-rail summary:focus-visible{outline:2px solid #ddbf85;outline-offset:2px}
- .role-reading-rail .lvl3{padding-left:12px}
+ .role-reading-rail :is(.lvl3,.toclevel-2,.toclevel-3){padding-left:12px}
 }
 @media(forced-colors:active){.role-reading-rail .role-contents{background:Canvas;color:CanvasText;border-color:CanvasText}.role-reading-rail .role-contents>summary{color:CanvasText}.role-reading-rail a,.role-reading-rail a:visited{color:LinkText}.role-reading-rail a[aria-current=location]{outline:1px solid Highlight}}
 .sidebar .sidebar-group{margin:2px 0}
@@ -29,6 +29,9 @@
 .sidebar .sidebar-group>summary:focus-visible{outline:2px solid #7897bb;outline-offset:2px}
 .sidebar .sidebar-group>ul{margin:2px 0 8px 14px;border-left:1px solid #dce3ed;padding:0 0 0 5px}
 .sidebar .sidebar-group>ul a{font-size:12px;padding:6px 10px}
+.sidebar .sidebar-group .sidebar-group>summary{font-size:12px;padding:6px 10px;line-height:1.6}
+.sidebar .sidebar-group .sidebar-group>ul{margin-left:8px}
+.sidebar .sidebar-group>summary::after{flex-shrink:0}
 .sidebar h3{margin-top:22px}.sidebar h3:first-child{margin-top:0}
 .home-page .home-eyebrow{letter-spacing:.13em;font-size:11px}
 .home-page>.mw-parser-output[data-home-product]{padding:0;margin:0;background:#fff}
@@ -38,14 +41,14 @@
 .home-page .home-module-heading h2,.home-page .home-product-about h2{border:0;margin:7px 0 0;padding:0;font-size:22px;line-height:1.4;letter-spacing:-.025em}
 .home-module-heading>p,.home-module-heading>a{margin:0;font-size:12px;color:#7a8797;white-space:nowrap}
 .home-collections,.home-updates{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
-.home-page .home-collection{display:grid;grid-template-columns:42px minmax(0,1fr) 12px;align-items:center;gap:12px;text-decoration:none;color:#29425f;padding:19px 15px;background:#f7f9fc;border:1px solid #e7ecf3;border-radius:12px;transition:background var(--experience-duration),border-color var(--experience-duration)}
+.home-page .home-collection{display:grid;grid-template-columns:42px minmax(0,1fr);align-items:center;gap:12px;text-decoration:none;color:#29425f;padding:19px 15px;background:#f7f9fc;border:1px solid #e7ecf3;border-radius:12px;transition:background var(--experience-duration),border-color var(--experience-duration)}
 .home-page .home-collection:hover{background:#f0f4fa;border-color:#bbcce0}
 .collection-emblem{width:42px;height:50px;display:grid;place-items:center;font-family:Georgia,serif;font-size:28px;border:1px solid #cbd7e8;border-radius:20px 20px 8px 8px;background:#edf2f8;color:#526f94}
 .stars .collection-emblem{color:#826748;background:#f5f0e8;border-color:#e0d4c1}
 .overseas .collection-emblem{color:#64776d;background:#edf3ef;border-color:#cfded4}
 .home-page .home-collection h3{font-size:18px;margin:3px 0;color:#29425f}
 .home-page .home-collection p{margin:4px 0 0;font-size:11px;line-height:1.7;color:#788596}
-.home-collection small{font-size:10px;color:#8491a1}.home-collection>b{font-weight:400;color:#8a9aae}
+.home-collection small{font-size:10px;color:#8491a1}
 .home-page .home-update-note{font-size:11px;color:#8a95a3;margin:-12px 0 18px}
 .home-page .home-updates>a{display:block;min-width:0;text-decoration:none;padding:3px 16px 3px 0;color:#29425f}
 .home-updates>a+a{border-left:1px solid #e6ebf2;padding-left:18px}
@@ -85,7 +88,7 @@
 .role-detail-page .role-section-jumps a{text-decoration:none;color:#5d7697;padding:3px 0}
 .role-detail-page .role-section-jumps a:hover{color:#315f98;text-decoration:underline;text-underline-offset:4px}
 .role-detail-page .role-source-note{font-size:11px!important;color:#8a97a8;margin:12px 0 0;padding:0;border:0;line-height:1.7}
-@media(max-width:1100px){.home-collections{grid-template-columns:1fr}.home-page .home-collection{grid-template-columns:42px minmax(0,1fr) 12px}.home-page .home-collection p{font-size:12px}.home-module-heading>p{display:none}}
+@media(max-width:1100px){.home-collections{grid-template-columns:1fr}.home-page .home-collection{grid-template-columns:42px minmax(0,1fr)}.home-page .home-collection p{font-size:12px}.home-module-heading>p{display:none}}
 @media(max-width:820px){
  .site-header{grid-template-columns:40px auto minmax(0,1fr) auto}
  .site-header .sidebar-toggle,.site-header .mobile-top-nav,.site-header .search,.site-header .admin-link{grid-row:1}

@@ -75,7 +75,7 @@ body{background:linear-gradient(135deg,#eef3fb 0%,#f7f8fc 48%,#f0f5f8 100%)!impo
 .home-hero>p{color:#60748f;font-size:15px;margin-bottom:26px}
 .home-shortcuts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
 .home-shortcuts>a{display:grid;gap:8px;padding:20px 22px;border:1px solid #dce5f2;border-radius:16px;background:#ffffffd9;text-decoration:none;color:#29486e;box-shadow:0 4px 12px #2e568508}
-.home-shortcuts span{font-size:10px;letter-spacing:.1em;color:#6883a7}.home-shortcuts strong{font-size:18px;font-weight:650}.home-shortcuts i{float:right;font-style:normal;color:#6388bb}.home-shortcuts small{font-size:12px;color:#728198}
+.home-shortcuts span{font-size:10px;letter-spacing:.1em;color:#6883a7}.home-shortcuts strong{font-size:18px;font-weight:650}.home-shortcuts small{font-size:12px;color:#728198}
 .home-shortcuts a:hover{background:#fff;border-color:#a3bce0;box-shadow:0 6px 18px #2e568512}
 .home-page>.toc{margin:22px 30px;padding:18px 22px;background:transparent;border:1px solid #e0e7f1;border-radius:14px}
 .home-page>.toc .toctitle{font-size:12px;color:#78889d;text-align:left;margin-bottom:10px}

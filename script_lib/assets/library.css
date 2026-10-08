@@ -38,12 +38,12 @@ h2.dt{margin:0 0 2px;font-size:20px;border-bottom:1px solid var(--tan);padding-b
 .btn:hover{background:#e9dcc2;text-decoration:none}
 .team-h{font-size:12px;color:var(--muted);margin:10px 0 4px;letter-spacing:.5px}
 .chars{display:flex;flex-wrap:wrap;gap:4px}
-.chars span,.chars a{font-size:13px;padding:2px 8px;border-radius:9px;background:#fffdf8;
+.chars>span,.chars>a{display:inline-flex;align-items:center;gap:5px;min-height:28px;max-width:100%;overflow-wrap:anywhere;font-size:13px;padding:2px 8px;border-radius:9px;background:#fffdf8;
  border:1px solid #e2d6bb;color:inherit;text-decoration:none}
 .chars a{cursor:pointer;border-bottom-style:dotted}
 .chars a:hover{background:#f7f0e0;border-color:var(--gold);color:#7a5a12}
 .chars a:focus-visible{outline:2px solid var(--gold);outline-offset:1px}
-.chars a .x{font-size:9.5px;color:var(--muted);margin-left:2px;vertical-align:1px}
+.chars .library-role-icon{width:20px;height:20px;flex:0 0 20px;object-fit:contain;border:0;padding:0;background:none}
 .hint{color:var(--muted);font-size:13px;padding:14px}
 #manualCopy{max-width:90vw;width:600px;background:#fffdf8;color:var(--fg);border:1px solid var(--tan);border-radius:6px}
 #manualCopy::backdrop{background:rgba(0,0,0,.55)}

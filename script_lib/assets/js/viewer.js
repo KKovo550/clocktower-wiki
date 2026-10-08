@@ -35,7 +35,7 @@
     var gallery=link.closest('.script-gallery');
     var script=SCRIPTS[Number(gallery.getAttribute('data-script'))];
     if(!script)return;
-    var groups=scriptPictures(script);
+    var groups=galleryPictures(script);
     pictures=groups.primary.concat(groups.remaining).map(function(p){return {url:imgURLOf(script,p.file),label:p.label};});
     position=pictures.findIndex(function(p){return p.url===link.getAttribute('href');});
     if(position<0)return;

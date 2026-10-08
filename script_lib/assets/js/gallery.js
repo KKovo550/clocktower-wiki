@@ -2,7 +2,7 @@
 function imgURLOf(script, name) {
   return IMGBASE.replace(/\/$/, '')+'/'+String(script[9]||'').split(/[\\/]/).map(encodeURIComponent).join('/')+'/'+encodeURIComponent(name);
 }
-function shownCount(script) { return scriptPictures(script).total; }
+function shownCount(script) { return galleryPictures(script).total; }
 
 function pictureCard(script, picture, index) {
   var url=esc(imgURLOf(script,picture.file));
@@ -16,7 +16,7 @@ function pictureCard(script, picture, index) {
 }
 function shots(script) {
   if(window.WIKI_SHARE_NO_ARTWORK)return '<div class="hint">此分享版不含剧本图片，可继续查看角色或下载 JSON。</div>';
-  var pictures=scriptPictures(script);
+  var pictures=galleryPictures(script);
   if(!pictures.total) return '<div class="team-h">剧本图</div><div class="hint">该剧本暂无剧照</div>';
   var initial=pictures.primary.length?pictures.primary:pictures.remaining.slice(0,3);
   var extra=pictures.primary.length?pictures.remaining:pictures.remaining.slice(3);
