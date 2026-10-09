@@ -21,7 +21,7 @@
     return value;
   }
   function normalize(e){
-    var name=str(e.name,'名称',e.id),id=str(e.id,'ID','custom_'+name);
+    var name=str(e.name,'名称',e.id),id=str(e.id,'ID','custom_'+name).trim();
     if(!name.trim()||!id.trim()||id==='_meta')throw new Error('角色名称和 ID 不能为空或使用保留值');
     var team=str(e.team===undefined?e.type:e.team,'角色类型','townsfolk').trim().toLowerCase();
     if(team==='traveler')team='traveller';if(team==='encounter')team='loric';
@@ -52,27 +52,66 @@
   function parseImport(data,chars){
     if(!Array.isArray(data)||data.length>1000)throw new Error('顶层必须是数组，最多 1000 项');
     var byId=new Map(chars.map(function(c){return [c.id,c];})),seen=new Set(),selected=[],custom=[],rules=[],entries=[],meta={};
-    data.forEach(function(e){
+    data.forEach(function(e,index){
+      try{
       if(e&&typeof e==='object'&&!Array.isArray(e)&&e.id==='_meta'){
         if(meta.id)throw new Error('只能包含一份 _meta');meta=e;return;
       }
       if(typeof e!=='string'&&(!e||typeof e!=='object'||Array.isArray(e)))throw new Error('角色必须是 ID 或对象');
       if(isRule(e)){var rule=normalizeRule(e);if(seen.has(identity(rule.id)))throw new Error('重复角色或规则 ID：'+rule.id);seen.add(identity(rule.id));rules.push(rule);return;}
       var id=typeof e==='string'?e:e.id;
+      if(typeof id==='string')id=id.trim();
       var known=byId.get(id)||byId.get(id+'_gstone'),c;
       if(!known){var candidates=chars.filter(function(role){return identity(role.id)===identity(id);});if(candidates.length===1)known=candidates[0];}
       if(typeof e==='string'||Object.keys(e).every(function(k){return k==='id';})){
         if(!known)throw new Error('无法识别角色 ID：'+id+'，请提供完整角色对象');c=known;
       }else{
-        c=normalize(e);
+        // Partial catalog objects inherit only omitted fields, never overwrite supplied abilities.
+        var defaults=known?{id:known.id,name:known.n,team:known.t,ability:known.ab,image:known.iu||known.im,
+          flavor:known.fl,edition:known.ed,setup:known.s,firstNight:known.f,otherNight:known.o,
+          reminders:known.r,remindersGlobal:known.rg,firstNightReminder:known.fr,otherNightReminder:known.or}:{};
+        if(e.type!==undefined)delete defaults.team;
+        if(e.skill!==undefined||e.description!==undefined)delete defaults.ability;
+        c=normalize(Object.assign(defaults,e));
         // Keep exported official images offline when the matching local asset exists.
         if(known&&known.im)c.im=known.im;
         custom.push(c);
       }
       if(seen.has(identity(c.id)))throw new Error('重复角色 ID：'+c.id);
       seen.add(identity(c.id));selected.push(c);entries.push(e);
+      }catch(error){throw new Error('第 '+(index+1)+' 项：'+error.message);}
     });
     return {selected:selected,custom:custom,rules:rules,entries:entries,meta:JSON.parse(JSON.stringify(meta)),name:str(meta.name,'剧本名称'),author:str(meta.author,'作者')};
+  }
+  function planImport(result,current,mode){
+    if(mode==='replace')return Object.assign({},result,{added:result.selected.length,skipped:[],skippedRules:0});
+    if(mode!=='append')throw new Error('请选择替换或追加角色');
+    var selected=current.selected.slice(),rules=current.rules.slice(),skipped=[],skippedRules=0,addedIds=new Set();
+    var roleIds=new Set(selected.map(function(c){return identity(c.id);})),ruleIds=new Set(rules.map(function(r){return identity(r.id);}));
+    result.selected.forEach(function(c){
+      var id=identity(c.id);
+      if(ruleIds.has(id))throw new Error('角色 ID 与当前附加规则冲突：'+c.id);
+      if(roleIds.has(id)){skipped.push(c.n);return;}
+      selected.push(c);roleIds.add(id);addedIds.add(id);
+    });
+    result.rules.forEach(function(rule){
+      var id=identity(rule.id);
+      if(roleIds.has(id))throw new Error('规则 ID 与当前角色冲突：'+rule.id);
+      if(ruleIds.has(id)){skippedRules++;return;}
+      rules.push(rule);ruleIds.add(id);
+    });
+    if(selected.length+rules.length>1000)throw new Error('追加后角色和规则总数不能超过 1000 项');
+    var custom=current.custom.filter(function(c){return !addedIds.has(identity(c.id));})
+      .concat(result.custom.filter(function(c){return addedIds.has(identity(c.id));}));
+    return {selected:selected,custom:custom,rules:rules,meta:current.meta,name:current.name,author:current.author,
+      added:addedIds.size,skipped:skipped,skippedRules:skippedRules};
+  }
+  function parseJSON(text){
+    var value=String(text).trim().replace(/^\uFEFF/,'');
+    if(value.length>2*1024*1024)throw new Error('JSON 内容不能超过 2 MB');
+    var fenced=value.match(/^```(?:json)?\s*\n([\s\S]*?)\n```$/i);if(fenced)value=fenced[1];
+    if(!value.trim())throw new Error('请选择 JSON 文件或粘贴剧本内容');
+    try{return JSON.parse(value);}catch(error){throw new Error('JSON 格式错误，请检查引号、逗号和括号。'+error.message);}
   }
   function nightOrder(role,orders,overrides){
     orders=orders||{};
@@ -145,5 +184,5 @@
     if(same.length>1){var ability=String(role.ab||'').replace(/\s/g,'');same=same.filter(function(c){return String(c.ab||'').replace(/\s/g,'')===ability;});}
     return icon(same);
   }
-  root.ScriptCore={isRule:isRule,ruleSections:ruleSections,identity:identity,normalize:normalize,parseImport:parseImport,restoreDraft:restoreDraft,nightOrder:nightOrder,matchJinx:matchJinx,catalogIcon:catalogIcon,parseJSON:function(text){return JSON.parse(String(text).replace(/^\uFEFF/,''));}};
+  root.ScriptCore={isRule:isRule,ruleSections:ruleSections,identity:identity,normalize:normalize,parseImport:parseImport,planImport:planImport,restoreDraft:restoreDraft,nightOrder:nightOrder,matchJinx:matchJinx,catalogIcon:catalogIcon,parseJSON:parseJSON};
 })(globalThis);

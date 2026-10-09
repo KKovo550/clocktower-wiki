@@ -1,5 +1,16 @@
 
 (function () {
+  // Reuse the header mark for browser tabs, including sites hosted in a subdirectory.
+  var brandIcon = document.querySelector('.brand-mark svg');
+  if (brandIcon && !document.querySelector('link[rel~="icon"]')) {
+    var tabIcon = brandIcon.cloneNode(true), iconLink = document.createElement('link');
+    tabIcon.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+    tabIcon.setAttribute('stroke', '#b28b4d');
+    iconLink.rel = 'icon';
+    iconLink.type = 'image/svg+xml';
+    iconLink.href = 'data:image/svg+xml,' + encodeURIComponent(tabIcon.outerHTML);
+    document.head.appendChild(iconLink);
+  }
   // The visual layer is isolated from search, navigation and tool state.
   if(typeof URL!=='undefined'){
     var experienceScript=document.createElement('script');

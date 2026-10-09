@@ -209,3 +209,44 @@ html.site-guide-open{overflow:hidden}
  .sidebar #wiki-navigation>ul>li>a,.sidebar #wiki-navigation .sidebar-group>summary,.sidebar #wiki-navigation .sidebar-group>ul a{min-height:44px;display:flex;align-items:center;padding-top:10px;padding-bottom:10px}
 }
 @media(forced-colors:active){.sidebar .sidebar-collapse{color:ButtonText}.sidebar #wiki-navigation .sidebar-group[data-current-branch]>summary{color:CanvasText}.sidebar #wiki-navigation a[aria-current=page]{outline:1px solid Highlight}}
+
+/* Large windows share one fluid shell. Keep text readable instead of scaling fonts. */
+@media screen and (min-width:2000px){
+ html body .layout,html body.script-library-page .layout,html body.script-tool-page .layout{max-width:none}
+ html body .layout>.content{max-width:none}
+
+ /* Home sections keep their cover/background while their contents stay balanced. */
+ .home-page .home-hero{padding-inline:clamp(38px,6vw,320px)}
+ .home-page :is(.home-cover,.home-shortcuts,.home-resume){max-width:1800px;margin-inline:auto}
+ .home-page .home-product-section>*{max-width:1800px;margin-inline:auto}
+ .home-page :is(.home-product-about,.home-guide-links){padding-inline:clamp(38px,6vw,320px)}
+
+ /* Catalogs gain columns with the window rather than oversized individual cards. */
+ .content .gallery{grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
+ .content .homebrew-grid{grid-template-columns:repeat(auto-fill,minmax(220px,1fr))}
+ .content .jinx-grid{grid-template-columns:repeat(auto-fill,minmax(420px,1fr))}
+ .content>.mw-parser-output>ul:has(>li:nth-child(20)){columns:320px;column-gap:36px}
+ .content>.mw-parser-output>ul:has(>li:nth-child(20))>li{break-inside:avoid}
+ .cert-directory{max-width:none}
+ .mw-parser-output:has(.gallery,.homebrew-grid,.jinx-grid)>:is(p,ul,ol){max-width:1280px}
+
+ /* The chapter directory stays beside a centered, comfortable reading column. */
+ .content:is(.role-detail-page,.article-detail-page) .role-reading-layout{grid-template-columns:minmax(0,1fr) 288px;gap:32px}
+ .content:is(.role-detail-page,.article-detail-page):not(:has(.gallery,.homebrew-grid,.jinx-grid,.cert-directory))>:is(.role-overview,.role-reading-layout,.page-title,.tagline,.page-meta,.backlinks){width:100%;max-width:1600px;margin-inline:auto}
+ .content:not(.home-page)>.mw-parser-output:not(:has(.gallery,.homebrew-grid,.jinx-grid,.stat-grid,.night-controls,.cert-directory,>ul>li:nth-child(20))){max-width:1280px;margin-inline:auto}
+ .content:not(.home-page):has(>.mw-parser-output:not(:has(.gallery,.homebrew-grid,.jinx-grid,.stat-grid,.night-controls,.cert-directory,>ul>li:nth-child(20))))>:is(.page-title,.tagline,.page-meta,.backlinks){max-width:1280px;margin-inline:auto}
+ .content:has(.night-controls)>:is(.page-title,.tagline,.mw-parser-output,.page-meta){max-width:1800px;margin-inline:auto}
+
+ /* Results share the space with a readable script detail pane. */
+ .library-content.library-browse .layout2{grid-template-columns:minmax(0,1fr) clamp(480px,38%,960px)}
+ .library-content.library-browse .list{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));align-content:start}
+ .library-content.library-browse .row{align-content:start;min-width:0}
+
+ /* Import and player controls sit side by side; the two night lists span below. */
+ .content.night-viewer{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-inline:0;align-content:start}
+ .night-viewer>:is(h1,p,#nightResult){grid-column:1/-1}
+ .night-viewer .night-import{margin-top:0}
+ .night-viewer:has(#nightPlayers[hidden]){grid-template-columns:minmax(0,1fr)}
+ .night-viewer:has(#nightPlayers[hidden])>:is(h1,p,.night-import){width:100%;max-width:1600px;margin-inline:auto}
+ .night-viewer #nightResult>.night-columns{gap:24px}
+}

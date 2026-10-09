@@ -43,12 +43,33 @@
       var snapshot=state(value);snapshot.draftId=identity;snapshot.savedAt=clock();
       return commit(function(next){var entry=find(next,identity);entry.state=snapshot;entry.updatedAt=clock();if(savePoint)checkpoint(entry,snapshot);return entry;});
     }
+    function importState(identity,previous,value,mode){
+      if(mode!=='append'&&mode!=='replace')throw new Error('未知导入方式');
+      var before=state(previous),after=state(value);
+      return commit(function(next){
+        var current=identity?find(next,identity):null,time=clock();
+        function assign(entry,snapshot){snapshot.draftId=entry.id;snapshot.savedAt=time;entry.state=snapshot;entry.updatedAt=time;}
+        function insert(snapshot){
+          if(next.drafts.length>=limit)throw new Error('最多保存 '+limit+' 份草稿，请先导出并删除不再需要的草稿');
+          var entry={id:id(),createdAt:time,updatedAt:time,state:null,history:[]};assign(entry,snapshot);next.drafts.unshift(entry);return entry;
+        }
+        if(mode==='append'){
+          var target=current||insert(copy(before));
+          if(content(before))checkpoint(target,before);
+          assign(target,after);next.activeId=target.id;return target.id;
+        }
+        // The old checkpoint and new active draft are written together or not at all.
+        if(current){assign(current,before);checkpoint(current,before);}
+        else if(content(before)){var backup=insert(before);checkpoint(backup,before);}
+        var created=insert(after);checkpoint(created,after);next.activeId=created.id;return created.id;
+      });
+    }
     return {
       check:check,
       list:function(){return copy(data.drafts).sort(function(a,b){return b.updatedAt-a.updatedAt;});},
       get:function(identity){return copy(find(data,identity));},
       active:function(){return data.activeId;},
-      create:create,update:update,
+      create:create,update:update,importState:importState,
       activate:function(identity){return commit(function(next){if(identity!==null)find(next,identity);next.activeId=identity;});},
       duplicate:function(identity){var snapshot=copy(find(data,identity).state);snapshot.n=(snapshot.n||'未命名剧本')+'（副本）';return create(snapshot);},
       restore:function(identity,pointId){

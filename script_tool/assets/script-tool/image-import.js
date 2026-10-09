@@ -2,8 +2,8 @@
 (function (root) {
   'use strict';
   function normalize(text) { return String(text || '').normalize('NFKC').replace(/[\s·・]/g, '').toLowerCase(); }
-  function match(text, catalog) {
-    var found = [], seen = new Set();
+  function scan(text, catalog) {
+    var found = [], ambiguous=[],seen = new Set(),names=new Set();
     String(text || '').split(/\r?\n/).forEach(function (line) {
       var value = normalize(line.replace(/^[^\u3400-\u9fff]+/, ''));
       // Match headings, not names mentioned inside another role's ability.
@@ -11,18 +11,21 @@
       var candidates = catalog.filter(function (c) { var name = normalize(c.n), at = value.indexOf(name); return name && at === 0; });
       if (!candidates.length) return;
       var longest = Math.max.apply(null, candidates.map(function (c) { return normalize(c.n).length; }));
-      candidates.filter(function (c) { return normalize(c.n).length === longest; }).forEach(function (c) {
+      candidates=candidates.filter(function(c,i){return normalize(c.n).length===longest&&candidates.findIndex(function(other){return root.ScriptCore.identity(other.id)===root.ScriptCore.identity(c.id);})===i;});
+      if(candidates.length>1){var key=normalize(candidates[0].n);if(!names.has(key)){names.add(key);ambiguous.push({name:candidates[0].n,candidates:candidates,choice:null});}return;}
+      candidates.forEach(function (c) {
         var id = root.ScriptCore.identity(c.id);
         if (!seen.has(id)) { seen.add(id); found.push(c); }
       });
     });
-    return found;
+    return {matched:found,ambiguous:ambiguous};
   }
+  function match(text,catalog){return scan(text,catalog).matched;}
   function searchTitles(text,entries){
     var lines=String(text||'').split(/\r?\n/).map(normalize);
     return entries.filter(function(entry){var name=normalize(entry.name);return name.length>=2&&lines.some(function(line){return line===name||(line.length<name.length+12&&line.includes(name));});}).slice(0,12);
   }
-  root.ScriptImageImport = { match: match,searchTitles:searchTitles };
+  root.ScriptImageImport = { match: match,scan:scan,searchTitles:searchTitles };
   if (!root.document) return;
   var runtimeURL = new URL('./ocr/', document.currentScript && document.currentScript.src || new URL('assets/script-tool/image-import.js', document.baseURI).href).href;
   var button = document.createElement('button'); button.className = 'btn'; button.id = 'bImageImport'; button.textContent = '导入剧本图片';
@@ -95,14 +98,25 @@
       '<label>剧本名称<input id="ocrName" placeholder="请填写剧本名称"></label><label>作者<input id="ocrAuthor"></label>' +
       '<button class="btn" id="ocrSearch">按名称搜索剧本库</button><div id="ocrLibrary"></div><button class="btn" id="ocrContinue" hidden>未找到合适版本，继续识别角色</button>' +
       '<label>补选漏识别角色<select id="ocrExtra"></select></label><button class="btn" id="ocrAdd">添加角色</button>' +
-      '<div id="ocrRoles"></div><div class="foot"><button class="btn pri" id="ocrApply">确认名单并导入</button><button class="btn" id="ocrCancel">取消</button></div>');
-    var body = document.getElementById('dlgBody'), dlg = document.getElementById('dlg'), active = true, worker = null, selected = [], busy = false;
+      '<div id="ocrRoles"></div><div class="foot"><button class="btn pri" id="ocrApply">核对名单并预览</button><button class="btn" id="ocrCancel">取消</button></div>');
+    var body = document.getElementById('dlgBody'), dlg = document.getElementById('dlg'), active = true, disposed=false,worker = null, selected = [], ambiguous=[],busy = false;
     if(inWechat)body.querySelector('h3').after(wechatNotice(false));
     function el(id) { return body.querySelector('#' + id); }
+    var albumImage=el('ocrImagePreview');
     var catalog = root.CHARS;
-    var continueRoles=false,imageRevision=0,paddleController=null;
+    var continueRoles=false,imageRevision=0,paddleController=null,candidateController=null;
     var preparedImage,prepareTask=Promise.resolve(),albumPreviewURL='',rotation=0;
-    function clearAlbumPreview(){if(albumPreviewURL)URL.revokeObjectURL(albumPreviewURL);albumPreviewURL='';el('ocrImagePreview').removeAttribute('src');el('ocrImagePreview').hidden=true;}
+    function clearAlbumPreview(){if(albumPreviewURL)URL.revokeObjectURL(albumPreviewURL);albumPreviewURL='';albumImage.removeAttribute('src');albumImage.hidden=true;}
+    function previewImport(data,source){
+      // Retain the actual file input and controls while the shared dialog shows JSON review.
+      active=false;busy=false;dlg.removeEventListener('close',dispose);
+      var saved=document.createDocumentFragment();while(body.firstChild)saved.appendChild(body.firstChild);
+      root.openJSONImport(data,source,{
+        onBack:function(){active=true;body.replaceChildren(saved);dlg.addEventListener('close',dispose);el('ocrRun').disabled=false;body.querySelectorAll('#ocrLibrary button').forEach(function(control){control.disabled=false;});render();el('ocrApply').focus();
+          if(el('ocrFile').files.length&&!albumPreviewURL)prepareAlbum();},
+        onFinish:dispose
+      });
+    }
     function prepareAlbum(){
       var file=el('ocrFile').files[0],version=imageRevision;
       clearAlbumPreview();preparedImage=null;if(!file)return;
@@ -124,41 +138,75 @@
       if(!root.ScriptImageLibrary)await new Promise(function(resolve,reject){var script=document.createElement('script');script.src=new URL('../image-library.js',runtimeURL).href;script.onload=resolve;script.onerror=function(){script.remove();reject(new Error('剧本库名称索引加载失败'));};document.head.appendChild(script);});
       if(!active||searchedRevision!==imageRevision)return [];
       var candidates=searchTitles(text,root.ScriptImageLibrary),list=el('ocrLibrary');list.replaceChildren();
-      candidates.forEach(function(entry){var row=document.createElement('p'),link=document.createElement('a');link.textContent=entry.name+' · '+entry.author;link.target='_blank';link.rel='noopener';link.href=new URL('../../../../api/v1/'+entry.json,runtimeURL).href;row.append(link);list.append(row);});
+      candidates.forEach(function(entry){
+        var row=document.createElement('div'),link=document.createElement('a'),use=document.createElement('button');row.className='import-library-candidate';
+        link.textContent=entry.name+' · '+(entry.author||'未填写作者');link.target='_blank';link.rel='noopener';link.href=new URL('../../../../api/v1/'+entry.json,runtimeURL).href;
+        use.type='button';use.className='btn';use.textContent='预览并导入';
+        use.onclick=async function(){
+          if(busy)return;
+          var revision=imageRevision,controller=new AbortController();candidateController=controller;
+          busy=true;render();use.disabled=true;el('ocrRun').disabled=true;el('ocrStatus').textContent='正在读取库内剧本…';
+          try{
+            var response=await fetch(link.href,{signal:controller.signal});
+            if(!response.ok)throw new Error('读取剧本失败（HTTP '+response.status+'）');
+            var text=await response.text();if(!active||revision!==imageRevision)return;
+            var data=root.ScriptCore.parseJSON(text),parsed=root.ScriptCore.parseImport(data,catalog);
+            if(!parsed.selected.length&&!parsed.rules.length)throw new Error('这个版本没有可导入的角色或规则，请选择其他版本。');
+            previewImport(data,'剧本库：'+entry.name);
+          }catch(error){if(active&&revision===imageRevision&&error.name!=='AbortError')el('ocrStatus').textContent=error.message+'，可重试或继续识别角色。';}
+          finally{if(candidateController===controller)candidateController=null;busy=false;if(active){use.disabled=false;el('ocrRun').disabled=false;render();}}
+        };
+        row.append(link,use);list.append(row);
+      });
       if(!candidates.length)list.textContent='剧本库未找到匹配名称，可修改名称重试。';
       return candidates;
     }
     el('ocrSearch').onclick=async function(){var revision=imageRevision;try{await searchLibrary(el('ocrName').value);}catch(error){if(active&&revision===imageRevision)el('ocrLibrary').textContent=error.message;}};
     el('ocrContinue').onclick=async function(){continueRoles=true;await el('ocrRun').onclick();};
     el('ocrFile').onchange=function(){
-      imageRevision++;continueRoles=false;selected=[];
-      if(paddleController)paddleController.abort();
+      imageRevision++;continueRoles=false;selected=[];ambiguous=[];
+      if(paddleController)paddleController.abort();if(candidateController)candidateController.abort();
       ['ocrText','ocrName','ocrAuthor'].forEach(function(id){el(id).value='';});
       el('ocrStatus').textContent='';el('ocrContinue').hidden=true;el('ocrLibrary').replaceChildren();render();
       rotation=0;['top','bottom','left','right'].forEach(function(side){el('ocrCrop'+side).value=0;});prepareAlbum();
     };
-    function changeAlbum(){imageRevision++;continueRoles=false;selected=[];if(paddleController)paddleController.abort();el('ocrText').value='';el('ocrName').value='';el('ocrAuthor').value='';el('ocrLibrary').replaceChildren();el('ocrContinue').hidden=true;render();prepareAlbum();}
+    function changeAlbum(){imageRevision++;continueRoles=false;selected=[];ambiguous=[];if(paddleController)paddleController.abort();if(candidateController)candidateController.abort();el('ocrText').value='';el('ocrName').value='';el('ocrAuthor').value='';el('ocrLibrary').replaceChildren();el('ocrContinue').hidden=true;render();prepareAlbum();}
     el('ocrRotate').onclick=function(){rotation=(rotation+90)%360;changeAlbum();};
     el('ocrResetImage').onclick=function(){rotation=0;['top','bottom','left','right'].forEach(function(side){el('ocrCrop'+side).value=0;});changeAlbum();};
     ['top','bottom','left','right'].forEach(function(side){el('ocrCrop'+side).addEventListener('change',changeAlbum);el('ocrCrop'+side).addEventListener('input',function(){el('ocrCropValue'+side).textContent=this.value+'%';});});
     catalog.forEach(function (c, i) { var option = document.createElement('option'); option.value = i; option.textContent = c.n + ' · ' + c.t; el('ocrExtra').appendChild(option); });
     function render() {
       var list = el('ocrRoles'); list.replaceChildren();
-      var count = document.createElement('p'); count.textContent = '已选 ' + selected.length + ' 个角色（请核对同名角色）'; list.appendChild(count);
+      var pending=ambiguous.filter(function(group){return group.choice===null;}).length;
+      var count = document.createElement('p'); count.textContent = '已选 ' + selected.length + ' 个角色'+(pending?' · '+pending+' 个同名角色待选择版本':''); list.appendChild(count);
+      ambiguous.forEach(function(group){
+        var box=document.createElement('fieldset'),legend=document.createElement('legend'),choose=document.createElement('select'),detail=document.createElement('p');
+        box.className='ocr-ambiguity';legend.textContent=group.name+'：请选择版本';choose.setAttribute('aria-label',group.name+'的具体版本');
+        var empty=document.createElement('option');empty.value='';empty.textContent='尚未选择版本';choose.appendChild(empty);
+        group.candidates.forEach(function(c){var option=document.createElement('option');option.value=c.id;option.textContent=c.n+' · '+(root.SOURCE_LABELS&&root.SOURCE_LABELS[root.roleSource(c)]||'自定义角色')+' · '+(root.TEAMCN&&root.TEAMCN[c.t]||c.t);choose.appendChild(option);});
+        var skip=document.createElement('option');skip.value='skip';skip.textContent='暂不导入这个角色';choose.appendChild(skip);choose.value=group.choice||'';
+        var chosen=group.candidates.find(function(c){return c.id===group.choice;});detail.textContent=chosen?chosen.ab:'同名角色可能来自不同合集，请选择后继续，也可以暂不导入。';
+        choose.onchange=function(){selectVersion(group,this.value||null);render();list.querySelectorAll('.ocr-ambiguity select')[ambiguous.indexOf(group)].focus();};box.append(legend,choose,detail);list.appendChild(box);
+      });
       selected.forEach(function (c) { var label = document.createElement('label'), check = document.createElement('input'); check.type = 'checkbox'; check.checked = true;
-        check.onchange = function () { selected = selected.filter(function (r) { return r.id !== c.id; }); render(); };
+        check.onchange = function () { selected = selected.filter(function (r) { return r.id !== c.id; });ambiguous.forEach(function(group){if(group.choice===c.id)group.choice='skip';});render(); };
         label.append(check, document.createTextNode(c.n + ' · ' + c.t + ' · ' + String(c.ab || '').slice(0, 45))); label.style.display = 'block'; list.appendChild(label); });
-      el('ocrApply').disabled = busy || !selected.length;
+      el('ocrApply').disabled = busy || !selected.length || pending>0;
     }
-    function dispose() { active = false; if(root.ScriptPaddleBrowser&&root.ScriptPaddleBrowser.dispose)root.ScriptPaddleBrowser.dispose(); clearAlbumPreview(); if(paddleController)paddleController.abort(); if (worker) { worker.terminate().catch(function () {}); worker = null; } dlg.removeEventListener('close', dispose); }
+    function selectVersion(group,value){
+      var ids=new Set(group.candidates.map(function(c){return root.ScriptCore.identity(c.id);}));selected=selected.filter(function(c){return !ids.has(root.ScriptCore.identity(c.id));});group.choice=value;
+      var chosen=group.candidates.find(function(c){return c.id===value;});if(chosen)selected.push(chosen);
+    }
+    function review(text){var result=scan(text,catalog);selected=result.matched;ambiguous=result.ambiguous;render();}
+    function dispose() { if(disposed)return;disposed=true;active = false; if(root.ScriptPaddleBrowser&&root.ScriptPaddleBrowser.dispose)root.ScriptPaddleBrowser.dispose(); clearAlbumPreview(); if(paddleController)paddleController.abort(); if(candidateController)candidateController.abort(); if (worker) { worker.terminate().catch(function () {}); worker = null; } dlg.removeEventListener('close', dispose); }
     dlg.addEventListener('close', dispose);
     el('ocrCancel').onclick = root.closeDlg;
-    el('ocrMatch').onclick = function () { selected = match(el('ocrText').value, catalog); render(); };
-    el('ocrAdd').onclick = function () { var c = catalog[Number(el('ocrExtra').value)]; if (!selected.some(function (r) { return root.ScriptCore.identity(r.id) === root.ScriptCore.identity(c.id); })) selected.push(c); render(); };
+    el('ocrMatch').onclick = function () { review(el('ocrText').value); };
+    el('ocrAdd').onclick = function () { var c = catalog[Number(el('ocrExtra').value)];ambiguous.forEach(function(group){if(group.candidates.some(function(candidate){return candidate.id===c.id;}))selectVersion(group,c.id);});if (!selected.some(function (r) { return root.ScriptCore.identity(r.id) === root.ScriptCore.identity(c.id); })) selected.push(c); render(); };
     el('ocrApply').onclick = function () {
-      if (busy || !selected.length) return;
+      if (busy || !selected.length || ambiguous.some(function(group){return group.choice===null;})) return;
       var data = [{ id: '_meta', name: el('ocrName').value.trim(), author: el('ocrAuthor').value.trim() }].concat(selected.map(function (c) { return c.id; }));
-      if (root.doImport(data) !== false) root.closeDlg();
+      previewImport(data,'图片识别名单');
     };
     el('ocrRun').onclick = async function () {
       if (busy) return;
@@ -182,11 +230,11 @@
             var candidates;
             try{candidates=await searchLibrary(titleText);}catch(error){if(current())el('ocrLibrary').textContent=error.message;candidates=[];}
             if(!current())return;
-            if(candidates.length){selected=[];el('ocrText').value='';render();el('ocrName').value=candidates[0].name;el('ocrAuthor').value=candidates[0].author||'';el('ocrContinue').hidden=false;el('ocrStatus').textContent='剧本库已有候选版本，可点击名称查看 JSON；若不合适，请继续识别角色。';return;}
+            if(candidates.length){selected=[];ambiguous=[];el('ocrText').value='';render();el('ocrName').value=candidates[0].name;el('ocrAuthor').value=candidates[0].author||'';el('ocrContinue').hidden=false;el('ocrStatus').textContent='剧本库已有候选版本，可直接预览并导入，保留完整能力和附加规则；若不合适，请继续识别角色。';return;}
           }
           el('ocrStatus').textContent='PaddleOCR 正在浏览器中识别…';
           var recognized=await browserEngine.recognize(recognitionFile,recognitionOptions);if(!current())return;
-          el('ocrText').value=recognized;selected=match(recognized,catalog);render();
+          el('ocrText').value=recognized;review(recognized);
           var runtime=browserEngine.lastRuntime;
           var acceleration=runtime?(runtime.detProvider==='webgpu'&&runtime.recProvider==='webgpu'?'（GPU 加速）':runtime.detProvider==='webgpu'||runtime.recProvider==='webgpu'?'（部分 GPU 加速）':'（CPU 兼容模式）'):'';
           el('ocrStatus').textContent='PaddleOCR 识别完成'+acceleration+'，匹配到 '+selected.length+' 个角色条目。请校对名单。';return;
@@ -222,7 +270,7 @@
             var result = await worker.recognize(canvas); if (!current()) return; text += result.data.text + '\n';
           }finally{canvas.width=0;canvas.height=0;canvas=null;}
         }
-        el('ocrText').value = text; selected = match(text, catalog); render();
+        el('ocrText').value = text; review(text);
         el('ocrStatus').textContent = '识别完成，匹配到 ' + selected.length + ' 个角色。请校对名单并补选遗漏角色。';
       } catch (err) { if (current()) el('ocrStatus').textContent = '识别失败：' + (err && err.message ? err.message : String(err || '识别任务异常，请重试')) + '。你仍可手动粘贴角色名或补选角色。'; }
       finally { if(root.ScriptPaddleBrowser&&root.ScriptPaddleBrowser.dispose)root.ScriptPaddleBrowser.dispose();paddleController=null;if(canvas){canvas.width=0;canvas.height=0;} if (bitmap) bitmap.close(); if (worker) { await worker.terminate().catch(function () {}); worker = null; } if(workerURL)URL.revokeObjectURL(workerURL); busy = false; if (active) { el('ocrRun').disabled = false; render(); } }

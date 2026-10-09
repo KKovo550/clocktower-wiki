@@ -335,56 +335,96 @@ document.getElementById('bExport').onclick=function(){
   document.getElementById('cp').onclick=function(){
     copyText(txt,this);};
 };
-document.getElementById('bImport').onclick=function(){
-  openDlg('<h3>导入 JSON</h3>'+
-    '<label>选择文件</label><input type="file" id="f" accept=".json,application/json">'+
-    '<label>或直接粘贴 JSON</label><textarea id="ta" placeholder="[{&quot;id&quot;:&quot;_meta&quot;,...}]"></textarea>'+
+function currentImportState(){return {selected:sel,custom:CUSTOM,rules:SCRIPT_RULES,meta:SCRIPT_META,
+  name:document.getElementById('mname').value,author:document.getElementById('mauthor').value};}
+function openJSONImport(data,source,navigation){
+  navigation=navigation||{};
+  openDlg('<h3>导入剧本</h3><p class="tip">选择或拖入一个 JSON 文件，也可粘贴内容。先核对名单，再决定如何导入。</p>'+
+    '<label for="importMode">导入方式</label><select id="importMode"><option value="replace">替换当前剧本</option><option value="append">追加角色到当前剧本</option></select><p id="importEffect" class="tip"></p>'+
+    '<div id="importDrop" class="import-drop"><label for="f">选择 JSON 文件（最多 2 MB）</label><input type="file" id="f" accept=".json,application/json"><span id="importSource" class="tip"></span></div>'+
+    '<label for="ta">或直接粘贴 JSON</label><textarea id="ta" placeholder="[{&quot;id&quot;:&quot;_meta&quot;,...}]"></textarea>'+
     '<div id="importPreview" class="import-preview" hidden></div><p id="importStatus" role="status" aria-live="polite"></p>'+
     '<div class="foot"><button class="btn" id="previewImport">预览导入</button><button class="btn pri" id="go" disabled>确认导入</button>'+
-    '<button class="btn" onclick="closeDlg()">取消</button></div>');
+    '<button class="btn" id="cancelImport">'+(navigation.onBack?'返回识别校对':'取消')+'</button></div>');
   var input=document.getElementById('ta'),fileInput=document.getElementById('f'),preview=document.getElementById('importPreview'),go=document.getElementById('go'),notice=document.getElementById('importStatus');
-  var prepared=null,preparedText='',fileRevision=0;
+  var mode=document.getElementById('importMode'),effect=document.getElementById('importEffect'),drop=document.getElementById('importDrop'),sourceLabel=document.getElementById('importSource');
+  var prepared=null,preparedText='',fileRevision=0,timer,reader,disposed=false,dialog=document.getElementById('dlg');
   function current(){return input.isConnected&&document.getElementById('dlg').open&&document.getElementById('ta')===input;}
-  function invalidate(){prepared=null;preparedText='';go.disabled=true;preview.hidden=true;preview.replaceChildren();notice.textContent='';}
-  input.addEventListener('input',function(){fileRevision++;invalidate();});
-  document.getElementById('previewImport').onclick=function(){
+  function dispose(returning){if(disposed)return;disposed=true;clearTimeout(timer);fileRevision++;if(reader&&reader.readyState===1)reader.abort();dialog.removeEventListener('close',closed);dialog.removeEventListener('cancel',cancelled);if(!returning&&navigation.onFinish)navigation.onFinish();}
+  function closed(){dispose(false);}
+  function back(){dispose(true);navigation.onBack();}
+  function cancelled(event){if(navigation.onBack){event.preventDefault();back();}}
+  dialog.addEventListener('close',closed);dialog.addEventListener('cancel',cancelled);
+  document.getElementById('cancelImport').onclick=navigation.onBack?back:closeDlg;
+  function invalidate(){clearTimeout(timer);prepared=null;preparedText='';go.disabled=true;preview.hidden=true;preview.replaceChildren();notice.textContent='';}
+  function describe(){effect.textContent=mode.value==='append'?'保留当前名称、作者、能力和夜序；已有角色不重复添加。追加前保存恢复点，不新增草稿。':'替换名称、作者、角色和附加规则；当前剧本会保留为另一份草稿。';}
+  input.addEventListener('input',function(){fileRevision++;invalidate();sourceLabel.textContent='';timer=setTimeout(function(){if(current()&&input.value.trim())prepare();},450);});
+  function prepare(){
     invalidate();
     try{
       preparedText=input.value;prepared=ScriptCore.parseJSON(preparedText);
       var result=ScriptCore.parseImport(prepared,CHARS);
+      if(!result.selected.length&&!result.rules.length)throw new Error('未找到可导入的角色或规则，请检查剧本内容。');
+      var plan=ScriptCore.planImport(result,currentImportState(),mode.value);
       var catalogIcons=Object.fromEntries(CHARS.filter(function(c){return c.im;}).map(function(c){return [c.id,c.im];}));
       var missing=result.selected.filter(function(c){return !ScriptCore.catalogIcon(c,CHARS,catalogIcons);});
       var custom=result.selected.filter(function(c){return !CHARS.some(function(known){return ScriptCore.identity(known.id)===ScriptCore.identity(c.id);});});
       preview.innerHTML='<h4>待导入剧本</h4><dl><dt>名称</dt><dd>'+esc(result.name||'未命名剧本')+'</dd><dt>作者</dt><dd>'+esc(result.author||'未填写')+'</dd><dt>角色</dt><dd>'+result.selected.length+' 个，其中 '+custom.length+' 个自定义角色</dd><dt>附加规则</dt><dd>'+result.rules.length+' 条</dd></dl>'+
         '<p>'+result.selected.map(function(c){return esc(c.n);}).join('、')+'</p>'+
+        (mode.value==='append'?'<p class="import-summary">新增 '+plan.added+' 个角色，追加后共 '+plan.selected.length+' 个角色；新增 '+(plan.rules.length-SCRIPT_RULES.length)+' 条规则。</p>'+
+          (plan.skipped.length?'<p class="import-note">已有角色保留当前版本：'+plan.skipped.map(esc).join('、')+'。</p>':'')+
+          (plan.skippedRules?'<p class="import-note">'+plan.skippedRules+' 条已有规则保留当前版本。</p>':''):
+          '<p class="import-summary">将替换当前 '+sel.length+' 个角色，导入 '+result.selected.length+' 个角色。</p>')+
         (missing.length?'<p class="import-note">'+missing.length+' 个角色未匹配本地图标：'+missing.map(function(c){return esc(c.n);}).join('、')+'。导入后将尝试原图片地址；加载失败时使用文字占位。</p>':'<p>全部角色均已匹配本地图标。</p>')+
         '<p class="tip">能力、元数据和附加规则按现有导入规则保留。确认前不会改变当前剧本。</p>';
-      preview.hidden=false;go.disabled=false;notice.textContent='预览已生成，请核对后确认导入。';
+      preview.hidden=false;go.disabled=mode.value==='append'&&!plan.added&&plan.rules.length===SCRIPT_RULES.length;
+      notice.textContent=go.disabled?'所有角色和规则均已存在，无需重复导入。':'预览已生成，请核对后确认导入。';
+      go.textContent=mode.value==='append'?'确认追加':'确认导入';
     }catch(err){prepared=null;go.disabled=true;notice.textContent='解析失败：'+err.message;}
-  };
-  fileInput.onchange=function(){
+  }
+  document.getElementById('previewImport').onclick=prepare;
+  mode.addEventListener('change',function(){describe();if(input.value.trim())prepare();});describe();
+  function readFile(file){
     var revision=++fileRevision;invalidate();
-    if(!this.files.length)return;
-    if(this.files[0].size>2*1024*1024){notice.textContent='文件不能超过 2 MB';return;}
+    input.value='';sourceLabel.textContent='';if(reader&&reader.readyState===1)reader.abort();
+    if(!file)return;
+    if(file.size>2*1024*1024){notice.textContent='文件不能超过 2 MB';return;}
     go.disabled=true;notice.textContent='正在读取文件…';
-    var fr=new FileReader();
+    var fr=reader=new FileReader();
     fr.onerror=function(){if(current()&&revision===fileRevision)notice.textContent='文件读取失败，请重试。';};
-    fr.onload=function(){if(current()&&revision===fileRevision){input.value=fr.result;document.getElementById('previewImport').click();}};
-    fr.readAsText(this.files[0]);};
+    fr.onload=function(){if(current()&&revision===fileRevision){input.value=fr.result;sourceLabel.textContent=file.name||'已读取文件';prepare();}};
+    fr.readAsText(file);
+  }
+  fileInput.onchange=function(){readFile(this.files[0]);};
+  drop.addEventListener('dragover',function(event){event.preventDefault();drop.classList.add('drag-over');});
+  drop.addEventListener('dragleave',function(){drop.classList.remove('drag-over');});
+  drop.addEventListener('drop',function(event){event.preventDefault();drop.classList.remove('drag-over');var files=event.dataTransfer&&event.dataTransfer.files;
+    if(!files||files.length!==1){fileRevision++;invalidate();notice.textContent='请一次拖入一个 JSON 文件。';return;}readFile(files[0]);});
   document.getElementById('go').onclick=function(){
+    if(go.disabled)return;
     if(!prepared||input.value!==preparedText){invalidate();notice.textContent='内容已改变，请重新预览后确认。';return;}
-    try{if(doImport(prepared)!==false)closeDlg();}
+    try{if(doImport(prepared,{mode:mode.value})!==false)closeDlg();}
     catch(err){notice.textContent='导入失败：'+err.message;}
   };
-};
-function doImport(data){
-  var result=ScriptCore.parseImport(data,CHARS);
-  if((sel.length||document.getElementById('mname').value||document.getElementById('mauthor').value||SCRIPT_RULES.length)&&!confirm('导入会替换当前剧本，继续？'))return false;
-  if(window.ScriptDraftUI)window.ScriptDraftUI.beforeReplace();
-  CUSTOM=result.custom; SCRIPT_RULES=result.rules; SCRIPT_META=result.meta;sel=result.selected; NIGHT_OVERRIDES=Object.create(null);
+  if(data!==undefined){input.value=typeof data==='string'?data:JSON.stringify(data,null,2);sourceLabel.textContent=source||'待导入内容';prepare();mode.focus();}
+}
+document.getElementById('bImport').onclick=function(){openJSONImport();};
+function doImport(data,options){
+  var mode=options&&options.mode||'replace';
+  var result=ScriptCore.planImport(ScriptCore.parseImport(data,CHARS),currentImportState(),mode);
+  if(mode==='append'&&!result.added&&result.rules.length===SCRIPT_RULES.length)return false;
+  if(mode==='replace'&&(sel.length||document.getElementById('mname').value||document.getElementById('mauthor').value||SCRIPT_RULES.length)&&!confirm('导入会替换当前剧本，旧剧本保留在“我的草稿”中。继续？'))return false;
+  if(window.ScriptDrafts&&!window.ScriptDraftUI)throw new Error('草稿存储暂不可用，请先导出当前 JSON 备份');
+  var next=Object.assign({},captureDraft(),{n:result.name,a:result.author,custom:result.custom,rules:result.rules,meta:result.meta,
+    nightOverrides:mode==='replace'?{}:NIGHT_OVERRIDES,
+    sel:result.selected.map(function(c){return {id:c.id,name:c.n,custom:result.custom.indexOf(c)>=0};})});
+  if(window.ScriptDraftUI)window.ScriptDraftUI.commitImport(next,mode);
+  CUSTOM=result.custom; SCRIPT_RULES=result.rules; SCRIPT_META=result.meta;sel=result.selected;
+  if(mode==='replace')NIGHT_OVERRIDES=Object.create(null);
   document.getElementById('mname').value=result.name;
   document.getElementById('mauthor').value=result.author;
   renderAll();
+  return true;
 }
 
 document.getElementById('bClear').onclick=function(){

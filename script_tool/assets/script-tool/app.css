@@ -204,6 +204,19 @@ kbd{background:#f1e9d8;border:1px solid var(--tan);border-radius:3px;padding:0 4
 .script-tool-page #dlg:has(.draft-list) .dlg,.script-tool-page #dlg:has(.import-preview) .dlg{min-width:0;width:auto;box-sizing:border-box}
 .script-tool-page #dlg:has(.import-preview) :is(input[type="file"],textarea){width:100%;max-width:100%;box-sizing:border-box}
 .script-tool-page #dlg:has(.import-preview) .foot{flex-wrap:wrap}
+.script-tool-page #dlg .import-drop{display:grid;gap:8px;padding:14px;margin:12px 0;border:1px dashed var(--archive-line,#d5c6a9);border-radius:9px;background:#f2e9d650}
+.script-tool-page #dlg .import-drop.drag-over{border-color:#a98548;background:#e9ddc4}
+.script-tool-page #dlg .import-preview{background:#faf5e9;border-color:#d5c6a9;color:#41382f}
+.script-tool-page #dlg .import-preview h4{color:inherit}
+.script-tool-page #dlg .import-summary{padding-top:10px;border-top:1px solid #d5c6a9;font-weight:600}
+.script-tool-page #dlg #importMode{width:100%;box-sizing:border-box;min-height:44px}
+.script-tool-page #dlg .import-library-candidate{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:10px 0;border-bottom:1px solid #d5c6a9}
+.script-tool-page #dlg .import-library-candidate a{min-width:0;overflow-wrap:anywhere;flex:1}
+.script-tool-page #dlg .import-library-candidate .btn{flex:none;min-height:44px}
+.script-tool-page #dlg .ocr-ambiguity{margin:12px 0;padding:12px;border:1px solid #d5c6a9;border-radius:9px;background:#f2e9d650;min-width:0}
+.script-tool-page #dlg .ocr-ambiguity legend{font-weight:600;color:#65512e}
+.script-tool-page #dlg .ocr-ambiguity select{width:100%;max-width:100%;min-height:44px;box-sizing:border-box}
+.script-tool-page #dlg .ocr-ambiguity p{font-size:12px;line-height:1.7;overflow-wrap:anywhere}
 
 /* The former 1760px shell cap stranded half of ultra-wide displays. */
 @media screen and (min-width:2000px){

@@ -57,6 +57,11 @@
     var migrating=!CURRENT_DRAFT_ID&&root.ScriptDrafts.hasContent(captureDraft())&&!store.list().length;
     root.ScriptDraftUI={
       beforeReplace:replace,
+      commitImport:function(snapshot,mode){
+        if(storageBlocked)throw new Error('旧存档尚未恢复，请先导出当前 JSON 备份');
+        var identity=store.importState(CURRENT_DRAFT_ID,captureDraft(),snapshot,mode);
+        CURRENT_DRAFT_ID=identity;snapshot.draftId=identity;
+      },
       prepareSave:function(snapshot){
         store.check();snapshot.savedAt=Date.now();
         if(!CURRENT_DRAFT_ID&&root.ScriptDrafts.hasContent(snapshot)){CURRENT_DRAFT_ID=store.create(snapshot);snapshot.draftId=CURRENT_DRAFT_ID;}
