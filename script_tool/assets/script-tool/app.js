@@ -6,7 +6,12 @@ if(window.BOTC_NIGHT){
     window.BOTC_NIGHT[key].forEach(function(item,i){
       if(item.kind!=='role')return;
       var c=CHARS.find(function(x){return x.n===item.name;});
-      if(c&&!c[field]){c[field]=i+1;c[field+'r']=item.desc||'';}
+      if(c&&!c[field]){
+        c[field]=i+1;
+        // Legacy phase rows can have blank descriptions (notably travellers).
+        // Fill missing prompts only; never erase the catalog's documented action.
+        if(!String(c[field+'r']||'').trim()&&String(item.desc||'').trim())c[field+'r']=item.desc;
+      }
     });
   });
 }
@@ -302,7 +307,7 @@ function exportObj(){
       image:ScriptCore.catalogIcon(c,CHARS,typeof HOSTED_ROLE_ICONS==='undefined'?{}:HOSTED_ROLE_ICONS)||c.images||c.iu||c.im||'',edition:c.ed||'',flavor:c.fl||'',
       setup:c.s||0,firstNight:night.firstNight,otherNight:night.otherNight,
       reminders:c.r||[],remindersGlobal:c.rg||[],
-      firstNightReminder:c.fr||'',otherNightReminder:c.or||''}));
+      firstNightReminder:ScriptCore.nightReminder(c,'fr',CHARS),otherNightReminder:ScriptCore.nightReminder(c,'or',CHARS)}));
   });
   if(typeof SCRIPT_RULES!=='undefined')out=out.concat(SCRIPT_RULES.map(function(rule){return JSON.parse(JSON.stringify(rule));}));
   return out;
@@ -482,8 +487,10 @@ document.getElementById('bNight').onclick=function(){
   }
   var first=ordered('firstNight'),other=ordered('otherNight');
   function nightRow(c,reminder){
+    var prompt=ScriptCore.nightReminder(c,reminder,CHARS)||
+      (c.ab?'未收录本夜的操作说明。角色能力：'+c.ab:'未收录本夜的操作说明，请查看角色规则。');
     return '<li><div class="night-role">'+(c.im?'<img src="'+esc(c.im)+'" alt="" loading="lazy" decoding="async">':'')+'<strong>'+esc(c.n)+'</strong></div>'+
-      (c[reminder]?'<p class="night-reminder">'+esc(c[reminder])+'</p>':'')+'</li>';
+      '<p class="night-reminder">'+esc(prompt)+'</p></li>';
   }
   function nightColumn(title,list,reminder){
     return '<div><h5>'+title+'<span>'+list.length+' 项行动</span></h5><ol>'+

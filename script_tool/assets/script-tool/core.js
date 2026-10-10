@@ -3,6 +3,7 @@
   'use strict';
   var teams=['townsfolk','outsider','minion','demon','traveller','fabled','loric'];
   function identity(id){return String(id||'').trim().replace(/_gstone$/,'');}
+  function sameAbility(a,b){return String(a||'').replace(/\s+/g,'')===String(b||'').replace(/\s+/g,'');}
   function str(value,field,fallback){
     if(value===undefined||value===null)return fallback||'';
     if(typeof value!=='string')throw new Error(field+' 必须是文本');
@@ -39,6 +40,15 @@
       fr:str(e.firstNightReminder,'首夜提示'),or:str(e.otherNightReminder,'其他夜提示')};
   }
   function isRule(e){return !!e&&typeof e==='object'&&typeof e.team==='string'&&/^a\s+jinx(?:ed)?$/i.test(e.team.trim());}
+  function nightReminder(role,field,chars){
+    if(field!=='fr'&&field!=='or')return '';
+    if(typeof role[field]==='string'&&role[field].trim())return role[field];
+    // Older exports and drafts can contain empty prompts. Only recover the same
+    // role definition; an imported replacement ability must keep its own rules.
+    var matches=(chars||[]).filter(function(c){return identity(c.id)===identity(role.id)&&c.n===role.n&&
+      sameAbility(c.ab,role.ab)&&String(c.t).replace('traveler','traveller')===String(role.t).replace('traveler','traveller');});
+    return matches.length===1&&typeof matches[0][field]==='string'?matches[0][field]:'';
+  }
   function normalizeRule(e){
     if(!isRule(e))throw new Error('未知剧本规则类型');
     var id=str(e.id,'规则 ID'),name=str(e.name,'规则名称'),ability=str(e.ability,'规则说明');
@@ -73,6 +83,11 @@
         if(e.type!==undefined)delete defaults.team;
         if(e.skill!==undefined||e.description!==undefined)delete defaults.ability;
         c=normalize(Object.assign(defaults,e));
+        if(known&&(c.n!==known.n||!sameAbility(c.ab,known.ab)||c.t!==String(known.t).replace('traveler','traveller'))){
+          if(e.firstNightReminder===undefined)c.fr='';
+          if(e.otherNightReminder===undefined)c.or='';
+        }
+        c.fr=nightReminder(c,'fr',chars);c.or=nightReminder(c,'or',chars);
         // Keep exported official images offline when the matching local asset exists.
         if(known&&known.im)c.im=known.im;
         custom.push(c);
@@ -184,5 +199,5 @@
     if(same.length>1){var ability=String(role.ab||'').replace(/\s/g,'');same=same.filter(function(c){return String(c.ab||'').replace(/\s/g,'')===ability;});}
     return icon(same);
   }
-  root.ScriptCore={isRule:isRule,ruleSections:ruleSections,identity:identity,normalize:normalize,parseImport:parseImport,planImport:planImport,restoreDraft:restoreDraft,nightOrder:nightOrder,matchJinx:matchJinx,catalogIcon:catalogIcon,parseJSON:parseJSON};
+  root.ScriptCore={isRule:isRule,ruleSections:ruleSections,identity:identity,normalize:normalize,parseImport:parseImport,planImport:planImport,restoreDraft:restoreDraft,nightOrder:nightOrder,nightReminder:nightReminder,matchJinx:matchJinx,catalogIcon:catalogIcon,parseJSON:parseJSON};
 })(globalThis);

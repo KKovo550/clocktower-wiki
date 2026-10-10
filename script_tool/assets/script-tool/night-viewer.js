@@ -34,7 +34,8 @@
       var list=el(id);list.replaceChildren();
       rows.forEach(function(row){
         var item=d.createElement('li'),name=d.createElement('strong'),description=d.createElement('p');
-        name.textContent=row.role.n+(row.players.length?'（'+row.players.join('、')+'）':'');description.textContent=row.role[reminder]||'暂无夜间行动提示，请以角色规则为准。';
+        name.textContent=row.role.n+(row.players.length?'（'+row.players.join('、')+'）':'');description.textContent=root.ScriptCore.nightReminder(row.role,reminder,root.CHARS)||
+          (row.role.ab?'未收录本夜的操作说明。角色能力：'+row.role.ab:'未收录本夜的操作说明，请查看角色规则。');
         item.append(name,description);list.append(item);
       });
       if(!rows.length){var empty=d.createElement('p');empty.textContent='没有已配置的角色行动。';list.append(empty);}
@@ -69,7 +70,7 @@
   el('nightPresentOnly').onchange=function(){if(current)render(current);};
   el('nightSource').onchange=function(){if(current)render(current);};
   el('nightCopy').onclick=async function(){if(!view)return;
-    var text=view.name+'\n\n'+[['首夜',view.first,'fr'],['其他夜晚',view.other,'or']].map(function(group){return group[0]+'\n'+(group[1].map(function(row,i){return (i+1) +'. '+row.role.n+(row.players.length?'（'+row.players.join('、')+'）':'')+(row.role[group[2]]?'：'+row.role[group[2]]:'');}).join('\n')||'没有已配置的角色行动。');}).join('\n\n');
+    var text=view.name+'\n\n'+[['首夜',view.first,'fr'],['其他夜晚',view.other,'or']].map(function(group){return group[0]+'\n'+(group[1].map(function(row,i){var prompt=root.ScriptCore.nightReminder(row.role,group[2],root.CHARS);return (i+1) +'. '+row.role.n+(row.players.length?'（'+row.players.join('、')+'）':'')+(prompt?'：'+prompt:'');}).join('\n')||'没有已配置的角色行动。');}).join('\n\n');
     try{await root.navigator.clipboard.writeText(text);status('夜序已复制。');}catch(error){status('浏览器未允许复制，请选择页面文字手动复制。');}
   };
 })(typeof window==='undefined'?globalThis:window);

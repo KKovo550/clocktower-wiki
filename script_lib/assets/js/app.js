@@ -57,11 +57,12 @@ function libraryRole(c){
   var data=window.LIBRARY_ROLE_DETAILS||{},pages=data.pages||{},names=data.names||{};
   var linked=Object.prototype.hasOwnProperty.call(pages,c[2])?pages[c[2]]:null;
   var key=String(c[0]).trim().toLowerCase(),known=linked||(Object.prototype.hasOwnProperty.call(names,key)?names[key]:null);
+  var ambiguous=!linked&&(data.ambiguous||[]).indexOf(key)>=0;
   var type=normalizeTeam(c[1]);
   if(linked||TEAMORD.indexOf(type)<0){if(known)type=normalizeTeam(known.t);}
   if(TEAMORD.indexOf(type)<0)return null;
   var matches=known&&known.t===type;
-  return {n:matches?known.n:c[0],t:type,wiki:matches?known.wiki:wikiURL(c[0]),im:matches?known.im:((window.LIBRARY_ROLE_ICONS||{})[c[0]]||'')};
+  return {n:matches?known.n:c[0],t:type,wiki:matches?known.wiki:(ambiguous?'':wikiURL(c[0])),im:matches?known.im:(ambiguous?'':((window.LIBRARY_ROLE_ICONS||{})[c[0]]||''))};
 }
 function libraryRoster(indices){
   var by=Object.create(null),seen=new Set();
