@@ -11,7 +11,11 @@
     if(!CURRENT_DRAFT_ID)CURRENT_DRAFT_ID=store.create(snapshot);
     else store.update(CURRENT_DRAFT_ID,snapshot,true);
   }
-  function replace(){checkpoint();store.activate(null);CURRENT_DRAFT_ID='';}
+  function commitReplacement(snapshot,mode){
+    if(storageBlocked)throw new Error('旧存档尚未恢复，请先导出当前 JSON 备份');
+    var identity=store.importState(CURRENT_DRAFT_ID,captureDraft(),snapshot,mode||'replace');
+    CURRENT_DRAFT_ID=identity;snapshot.draftId=identity;
+  }
   function apply(identity,snapshot){
     // Validate before moving the active pointer or changing any editor fields.
     ScriptCore.restoreDraft(snapshot,CHARS);store.activate(identity);CURRENT_DRAFT_ID=identity;applyDraftState(snapshot);renderAll();
@@ -25,7 +29,7 @@
       (list.length?list.map(function(entry){return '<article class="draft-row"><div><strong>'+esc(entry.state.n||'未命名剧本')+'</strong>'+(entry.id===CURRENT_DRAFT_ID?'<span class="draft-current">正在编辑</span>':'')+'<p>'+entry.state.sel.length+' 个角色 · '+esc(time(entry.updatedAt))+'</p></div><div class="draft-actions">'+
         '<button type="button" class="btn" data-draft-action="open" data-draft-id="'+entry.id+'">打开</button><button type="button" class="btn" data-draft-action="copy" data-draft-id="'+entry.id+'">复制</button><button type="button" class="btn" data-draft-action="history" data-draft-id="'+entry.id+'">恢复点</button><button type="button" class="btn" data-draft-action="delete" data-draft-id="'+entry.id+'"'+(entry.id===CURRENT_DRAFT_ID?' disabled':'')+'>删除</button></div></article>';}).join(''):'<p>还没有已命名的草稿。填写名称或添加角色后会自动保存到这里。</p>')+'</div><div id="draftHistory"></div>');
     document.getElementById('draftCheckpoint').onclick=function(){try{checkpoint();render();document.getElementById('draftNotice').textContent='当前内容已保存为恢复点。';}catch(error){message(error);}};
-    document.getElementById('draftNew').onclick=function(){try{replace();applyDraftState(blank());renderAll();closeDlg();document.getElementById('mname').focus();}catch(error){message(error);}};
+    document.getElementById('draftNew').onclick=function(){try{replaceScriptState(blank());closeDlg();document.getElementById('mname').focus();}catch(error){message(error);}};
     document.querySelectorAll('[data-draft-action]').forEach(function(control){control.onclick=function(){
       var identity=this.dataset.draftId,action=this.dataset.draftAction;
       try{
@@ -56,12 +60,8 @@
     if(CURRENT_DRAFT_ID)store.get(CURRENT_DRAFT_ID);
     var migrating=!CURRENT_DRAFT_ID&&root.ScriptDrafts.hasContent(captureDraft())&&!store.list().length;
     root.ScriptDraftUI={
-      beforeReplace:replace,
-      commitImport:function(snapshot,mode){
-        if(storageBlocked)throw new Error('旧存档尚未恢复，请先导出当前 JSON 备份');
-        var identity=store.importState(CURRENT_DRAFT_ID,captureDraft(),snapshot,mode);
-        CURRENT_DRAFT_ID=identity;snapshot.draftId=identity;
-      },
+      commitReplacement:commitReplacement,
+      commitImport:commitReplacement,
       prepareSave:function(snapshot){
         store.check();snapshot.savedAt=Date.now();
         if(!CURRENT_DRAFT_ID&&root.ScriptDrafts.hasContent(snapshot)){CURRENT_DRAFT_ID=store.create(snapshot);snapshot.draftId=CURRENT_DRAFT_ID;}

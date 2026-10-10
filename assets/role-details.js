@@ -33,7 +33,9 @@
     }
     return;
   }
-  var children = Array.from(article.children);
+  var homebrew = article.querySelector(':scope > .homebrew-article');
+  var body = homebrew || article;
+  var children = Array.from(body.children);
   // Stars pages begin with the final JSON configuration; keep that complete source block together.
   var ability = children.find(function (node) { return node.tagName === 'H2' && node.textContent.trim() === '角色配置'; }) ||
     children.find(function (node) { return node.tagName === 'H2' && node.textContent.trim() === '角色能力'; });
@@ -41,13 +43,20 @@
   var abilityNodes = [ability], next = ability.nextSibling;
   while (next && !(next.nodeType === 1 && next.tagName === 'H2')) { abilityNodes.push(next); next = next.nextSibling; }
   if (!abilityNodes.some(function (node) { return node !== ability && node.textContent.trim(); })) return;
+  if (homebrew) {
+    // Lead with the translated ability; keep the original-language source available below it.
+    abilityNodes = abilityNodes.filter(function (node) { return node.tagName !== 'DETAILS'; }).concat(
+      abilityNodes.filter(function (node) { return node.tagName === 'DETAILS'; }));
+    origin = origin || '海外自制';
+  }
 
   function element(tag, className) {
     var node = document.createElement(tag); node.className = className; return node;
   }
   var icon = article.querySelector('.charinfo-img');
   if (!icon) icon = children.slice(0, children.indexOf(ability)).find(function (node) {
-    return node.tagName === 'IMG' || node.tagName === 'P' && node.querySelectorAll('img').length === 1 && !node.textContent.trim();
+    return node.tagName === 'IMG' || (node.tagName === 'P' || homebrew && node.tagName === 'H2') &&
+      node.querySelectorAll('img').length === 1 && !node.textContent.replace(/\u200b/g, '').trim();
   });
   var overview = element('section', 'role-overview'); overview.setAttribute('aria-label', '角色概要');
   if (icon) {
@@ -56,6 +65,13 @@
     var image = imageBox.querySelector('img'); if (image) image.loading = 'eager';
   }
   var information = element('div', 'role-overview-main'); overview.appendChild(information);
+  var english = metadata('英文名');
+  if (homebrew) {
+    var originalTitle = title.textContent, displayTitle = originalTitle.replace(/（海外自制）$/, '').trim();
+    var separator = displayTitle.lastIndexOf('·');
+    if (separator >= 0 && displayTitle.slice(separator + 1).trim() === english) displayTitle = displayTitle.slice(0, separator).trim();
+    title.dataset.originalTitle = originalTitle; title.textContent = displayTitle;
+  }
   information.appendChild(title);
   var meta = element('div', 'role-overview-meta');
   if (ability.textContent.trim() !== '角色配置') {
@@ -63,7 +79,6 @@
     badge.classList.add(/爪牙|恶魔/.test(kind) ? 'is-evil' : /传奇|奇遇/.test(kind) ? 'is-special' : 'is-good');
     meta.appendChild(badge);
   }
-  var english = metadata('英文名');
   if (english && title.textContent.indexOf(english) < 0) { var englishLabel = element('span', 'role-english'); englishLabel.textContent = english; meta.appendChild(englishLabel); }
   if (origin) { var sourceLabel = element('span', 'role-origin'); sourceLabel.textContent = origin; meta.appendChild(sourceLabel); }
   var tagline = main.querySelector(':scope > .tagline');
@@ -75,10 +90,16 @@
   }
   var abilityBox = element('div', 'role-overview-ability');
   abilityNodes.forEach(function (node) { abilityBox.appendChild(node); }); information.appendChild(abilityBox);
-  var action = article.querySelector('.role-script-link'); if (action) information.appendChild(action);
+  var action = article.querySelector('.role-script-link');
+  if (!action && homebrew) {
+    action = element('p', 'role-script-link'); var scriptLink = document.createElement('a');
+    scriptLink.href = (document.body.dataset.root || '../') + 'script_lib/剧本库.html?include=' + encodeURIComponent(title.textContent.split('·')[0].trim());
+    scriptLink.textContent = '查找包含此角色的剧本 →'; action.appendChild(scriptLink);
+  }
+  if (action) information.appendChild(action);
 
   var toc = main.querySelector(':scope > .toc') || article.querySelector(':scope > .toc');
-  var headings = [ability].concat(Array.from(article.children).filter(function (node) { return node.tagName === 'H2'; }));
+  var headings = [ability].concat(Array.from(body.children).filter(function (node) { return node.tagName === 'H2'; }));
   var usedIds = new Set(Array.from(document.querySelectorAll('[id]')).map(function (node) { return node.id; }));
   headings.forEach(function (node) {
     if (node.id) return;
@@ -86,6 +107,21 @@
     while (usedIds.has(id)) id = base + '-' + index++;
     node.id = id; usedIds.add(id);
   });
+  if (homebrew) {
+    headings.filter(function (node) { return /^json\s*字段$/i.test(node.textContent.trim()); }).forEach(function (heading) {
+      var disclosure = element('details', 'role-json-details'), summary = document.createElement('summary');
+      var configuration = element('div', 'role-json-body'), nodes = [], current = heading.nextSibling;
+      while (current && !(current.nodeType === 1 && current.tagName === 'H2')) { nodes.push(current); current = current.nextSibling; }
+      heading.parentElement.insertBefore(disclosure, heading); summary.appendChild(heading); disclosure.appendChild(summary);
+      nodes.forEach(function (node) { configuration.appendChild(node); }); disclosure.appendChild(configuration);
+    });
+    function revealJsonSection() {
+      var id; try { id = decodeURIComponent(window.location.hash.slice(1)); } catch (_) { return; }
+      var target = document.getElementById(id), disclosure = target && target.closest('.role-json-details');
+      if (disclosure) disclosure.open = true;
+    }
+    revealJsonSection(); window.addEventListener('hashchange', revealJsonSection);
+  }
   var jumps = element('nav', 'role-section-jumps'); jumps.setAttribute('aria-label', '角色资料快捷入口');
   [['运作方式','怎么玩'],['规则细节','规则细节'],['夜晚行动顺序','夜序'],['游玩与对抗技巧','技巧'],['整体设计','设计']].forEach(function (item) {
     var heading = headings.find(function (node) { return node.textContent.trim() === item[0]; });
@@ -94,6 +130,13 @@
   });
   if (jumps.childElementCount) information.appendChild(jumps);
   if (tagline) { tagline.classList.add('role-source-note'); information.appendChild(tagline); }
+  if (homebrew) {
+    var sourceNote = article.querySelector(':scope > .homebrew-note');
+    var sourceDate = sourceNote && sourceNote.nextElementSibling;
+    if (sourceNote) { sourceNote.classList.add('role-source-note'); information.appendChild(sourceNote); }
+    if (sourceDate && sourceDate.tagName === 'P') { sourceDate.classList.add('role-source-note'); information.appendChild(sourceDate); }
+    main.classList.add('homebrew-detail-page');
+  }
   if (!toc && headings.length > 1) {
     toc = element('div', 'toc'); var links = document.createElement('ul');
     headings.forEach(function (node) {

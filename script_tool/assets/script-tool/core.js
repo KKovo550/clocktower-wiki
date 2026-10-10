@@ -67,9 +67,9 @@
         if(!known)throw new Error('无法识别角色 ID：'+id+'，请提供完整角色对象');c=known;
       }else{
         // Partial catalog objects inherit only omitted fields, never overwrite supplied abilities.
-        var defaults=known?{id:known.id,name:known.n,team:known.t,ability:known.ab,image:known.iu||known.im,
+        var defaults=known?Object.assign({},known.raw||{},{id:known.id,name:known.n,team:known.t,ability:known.ab,image:known.iu||known.im,
           flavor:known.fl,edition:known.ed,setup:known.s,firstNight:known.f,otherNight:known.o,
-          reminders:known.r,remindersGlobal:known.rg,firstNightReminder:known.fr,otherNightReminder:known.or}:{};
+          reminders:known.r,remindersGlobal:known.rg,firstNightReminder:known.fr,otherNightReminder:known.or}):{};
         if(e.type!==undefined)delete defaults.team;
         if(e.skill!==undefined||e.description!==undefined)delete defaults.ability;
         c=normalize(Object.assign(defaults,e));

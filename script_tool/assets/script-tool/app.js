@@ -427,14 +427,27 @@ function doImport(data,options){
   return true;
 }
 
+function replaceScriptState(snapshot){
+  ScriptCore.restoreDraft(snapshot,CHARS);
+  if(window.ScriptDrafts&&!window.ScriptDraftUI)throw new Error('草稿管理暂不可用，请先导出当前 JSON 备份');
+  if(window.ScriptDraftUI)window.ScriptDraftUI.commitReplacement(snapshot);
+  applyDraftState(snapshot);renderAll();
+}
+function replacementState(roles,name){
+  return Object.assign({},captureDraft(),{n:name,custom:[],rules:[],meta:{},nightOverrides:{},
+    sel:roles.map(function(c){return {id:c.id,name:c.n,custom:false};})});
+}
+function hasScriptContent(){
+  var state=captureDraft();
+  return !!(state.n||state.a||state.sel.length||state.custom.length||state.rules.length||
+    Object.keys(state.meta).length||Object.keys(state.nightOverrides).length);
+}
 document.getElementById('bClear').onclick=function(){
-  if(!sel.length&&!SCRIPT_RULES.length)return;
-  if(confirm('清空当前剧本？')){try{if(window.ScriptDraftUI)window.ScriptDraftUI.beforeReplace();}catch(e){status(e.message);return;} CUSTOM=[];SCRIPT_META={};SCRIPT_RULES=[];sel=[]; NIGHT_OVERRIDES=Object.create(null); document.getElementById('mname').value='';
-    document.getElementById('mauthor').value=''; renderAll(); }
+  if(!hasScriptContent())return;
+  if(confirm('清空当前剧本？')){try{replaceScriptState(Object.assign(replacementState([],''),{a:''}));}catch(e){status(e.message);}}
 };
 document.getElementById('bRandom').onclick=function(){
   if((sel.length||SCRIPT_RULES.length)&&!confirm('随机生成会替换当前剧本，继续？'))return;
-  try{if(window.ScriptDraftUI)window.ScriptDraftUI.beforeReplace();}catch(e){status(e.message);return;}
   var need={townsfolk:13,outsider:4,minion:4,demon:4};
   var spec=document.getElementById('spec').value;
   if(spec==='teensy') need={townsfolk:5,outsider:1,minion:1,demon:1};
@@ -445,13 +458,11 @@ document.getElementById('bRandom').onclick=function(){
       var x=pool[i];pool[i]=pool[j];pool[j]=x;}
     return pool.slice(0,n);
   }
-  CUSTOM=[];SCRIPT_META={};SCRIPT_RULES=[];sel=[]; NIGHT_OVERRIDES=Object.create(null);
+  var selected=[];
   ['townsfolk','outsider','minion','demon'].forEach(function(t){
-    pick(t,need[t]).forEach(function(c){sel.push(c);});
+    pick(t,need[t]).forEach(function(c){selected.push(c);});
   });
-  if(!document.getElementById('mname').value)
-    document.getElementById('mname').value='随机剧本';
-  renderAll();
+  try{replaceScriptState(replacementState(selected,document.getElementById('mname').value||'随机剧本'));}catch(e){status(e.message);}
 };
 document.getElementById('bSort').onclick=function(){
   function key(c){
@@ -552,12 +563,8 @@ document.getElementById('preset').onchange=function(){
   var v=this.value; this.value='';
   if(!v)return;
   var p=PRESETS[+v]; if(!p)return;
-  if((sel.length||SCRIPT_RULES.length) && !confirm('载入「'+p.name+'」会覆盖当前剧本，继续？'))return;
-  try{if(window.ScriptDraftUI)window.ScriptDraftUI.beforeReplace();}catch(e){status(e.message);return;}
-  NIGHT_OVERRIDES=Object.create(null);
-  CUSTOM=[];SCRIPT_META={};SCRIPT_RULES=[];sel=p.idxs.map(function(i){return CHARS[i];});
-  document.getElementById('mname').value=p.name;
-  renderAll();
+  if(hasScriptContent() && !confirm('载入「'+p.name+'」会覆盖当前剧本，继续？'))return;
+  try{replaceScriptState(Object.assign(replacementState(p.idxs.map(function(i){return CHARS[i];}),p.name),{a:''}));}catch(e){status(e.message);}
 };
 document.getElementById('spec').onchange=function(){renderStat();renderScriptChecks();save();};
 ['mname','mauthor'].forEach(function(id){document.getElementById(id).addEventListener('input',save);});

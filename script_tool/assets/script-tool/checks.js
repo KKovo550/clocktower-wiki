@@ -18,7 +18,7 @@
    if(roles.filter(function(c){return ['townsfolk','outsider','minion','demon'].includes(c.t);}).length>9)suggestions.push('角色池较大，请核对汀西维尔规格；这不是开局人数判定。');
   }
   if(spec==='ravenswood'&&(counts.townsfolk||0)<9)suggestions.push('镇民选择少于 9 个，建议检查标准剧本的选择空间');
-  interactions=root.ScriptCore.matchJinx(roles,jinx).map(function(match){return {name:match.roles.map(function(r){return r.n;}).join(' & '),text:match.text};});
+  interactions=root.ScriptCore.matchJinx(roles,jinx).map(function(match){return {name:match.roles.map(function(r){return r.n;}).join(' & '),text:match.text,roles:match.roles};});
   return {errors:errors,suggestions:suggestions,interactions:interactions,setup:setup,counts:counts};
  }
  root.ScriptChecks={analyze:analyze};
@@ -26,11 +26,11 @@
 function renderScriptChecks(){
  var box=document.getElementById('script-checks');if(!box)return;
  var result=ScriptChecks.analyze(sel,document.getElementById('spec').value,JINX.concat(typeof SCRIPT_RULES==='undefined'?[]:SCRIPT_RULES)),links=window.WORKFLOW_ROLE_LINKS||{};
- function roleLink(name){return links[name]?'<a href="'+esc(links[name])+'" target="_blank" rel="noopener">'+esc(name)+'</a>':esc(name);}
+ function roleLink(name,role){var url=role&&role.source==='yuque'?role.page:links[name];return url?'<a href="'+esc(url)+'" target="_blank" rel="noopener">'+esc(name)+'</a>':esc(name);}
  function section(title,items,kind){
   if(!items.length)return '';
   return '<section class="check-section check-'+kind+'"><h4>'+title+' <span>'+items.length+'</span></h4><ul>'+items.map(function(item){
-   return '<li>'+(typeof item==='string'?esc(item):'<div class="check-roles">'+item.name.split(' & ').map(roleLink).join('<span aria-hidden="true"> / </span>')+'</div><p>'+esc(item.text)+'</p>')+'</li>';
+   return '<li>'+(typeof item==='string'?esc(item):'<div class="check-roles">'+item.name.split(' & ').map(function(name,index){return roleLink(name,item.roles&&item.roles[index]);}).join('<span aria-hidden="true"> / </span>')+'</div><p>'+esc(item.text)+'</p>')+'</li>';
   }).join('')+'</ul></section>';
  }
  function badge(label,count,kind){return '<span class="check-badge check-'+kind+(count?' has-items':'')+'">'+label+' <b>'+count+'</b></span>';}

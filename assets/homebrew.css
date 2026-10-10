@@ -16,6 +16,32 @@
 .homebrew-article blockquote{margin:16px 0;padding:12px 20px;background:#f5f7fa;border-left:3px solid #528ae3;border-radius:8px}
 .homebrew-article pre{overflow:auto;max-width:100%;padding:16px;background:#f5f6f8;border-radius:12px}.homebrew-article a{overflow-wrap:anywhere}
 
+/* Overseas articles use the shared role card and keep the complete imported source below it. */
+.homebrew-detail-page .homebrew-metadata{display:none}
+.homebrew-detail-page .homebrew-article{max-width:none;min-width:0}
+.homebrew-detail-page .homebrew-article>h2:first-child{margin-top:0}
+.homebrew-detail-page .homebrew-article blockquote{background:#e8d8b926;border-left-color:#c8b38d;color:var(--archive-ink,#3d372e)}
+.homebrew-detail-page .homebrew-article details{border-color:#d7c6a8}
+.homebrew-detail-page .homebrew-article pre{background:#e8d8b926;border:1px solid #d7c6a8}
+.homebrew-detail-page .role-overview-icon h2{margin:0;padding:0;border:0}
+.homebrew-detail-page .role-overview-ability>blockquote{margin:0;padding:0;background:none;border:0;border-radius:0;font-weight:600}
+.homebrew-detail-page .role-overview-ability>details{margin:12px 0 0;font-size:12px;font-weight:400;color:var(--archive-muted,#707c8b)}
+.homebrew-detail-page .role-overview-ability>details summary{cursor:pointer}
+.homebrew-detail-page .role-overview .homebrew-note{background:none;border-radius:0}
+.homebrew-detail-page .homebrew-article>.role-json-details{margin:24px 0;padding:0;background:#e8d8b926;border-color:#d7c6a8}
+.homebrew-detail-page .role-json-details>summary{display:flex;align-items:center;gap:10px;padding:14px 16px;list-style:none;cursor:pointer}
+.homebrew-detail-page .role-json-details>summary::-webkit-details-marker{display:none}
+.homebrew-detail-page .role-json-details>summary::before{content:'›';font-size:20px;line-height:1;transition:transform 140ms}
+.homebrew-detail-page .role-json-details[open]>summary::before{transform:rotate(90deg)}
+.homebrew-detail-page .role-json-details>summary::after{content:'点击展开';font-size:11px;color:var(--archive-muted,#707c8b)}
+.homebrew-detail-page .role-json-details[open]>summary::after{content:'点击收起'}
+.homebrew-detail-page .role-json-details>summary h2{flex:1;min-width:0;margin:0;padding:0;border:0;font-size:18px;line-height:1.5}
+.homebrew-detail-page .role-json-body{min-width:0;padding:0 16px 16px}
+.homebrew-detail-page .role-json-body :is(pre,blockquote){margin:0;padding:14px;background:#efe3ca80;border:0;max-width:100%;overflow:auto}
+.homebrew-detail-page .role-json-body code{background:transparent;border:0;border-radius:0;padding:0;color:inherit}
+.homebrew-detail-page .role-json-body pre>code{display:block;font-size:13px;line-height:1.65}
+@media(max-width:640px){.homebrew-detail-page .role-source-note{grid-column:1 / -1}}
+
 /* Use the same gallery geometry as Odyssey and Stars. */
 .homebrew-grid.gallery{grid-template-columns:repeat(var(--perrow,4),minmax(0,1fr));padding:14px;gap:16px;border-radius:12px}
 .homebrew-grid.gallery .homebrew-role-link{padding:0;gap:4px}
