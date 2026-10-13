@@ -1,6 +1,6 @@
 // 共享原文请求；失败清除缓存，下一次用户操作可重新加载。
 var fullRequest=null,dialogRequest=0;
-function loadFull(cb,err){
+function loadLegacyFull(cb,err){
   if(FULL){cb();return;}
   if(!fullRequest){
     FULL_LOADING=true;expTip('正在加载剧本原文，请稍候…',true);
@@ -29,8 +29,50 @@ function loadFull(cb,err){
   }
   fullRequest.then(function(){cb();},function(error){err(error.message);});
 }
+// Content-addressed resources work on HTTPS and file:// alike. Concurrent callers
+// share each request; bounded concurrency avoids flooding the browser on export.
+var originalRequests=new Map(),originalQueue=[],originalActive=0;
+function requestOriginal(key){
+  var cache=window.SCRIPT_ORIGINALS||{},cached=Object.prototype.hasOwnProperty.call(cache,key)&&cache[key];
+  if(cached&&typeof cached.f==='string'&&typeof cached.t==='string')return Promise.resolve(cached);
+  if(originalRequests.has(key))return originalRequests.get(key);
+  var promise=new Promise(function(resolve,reject){originalQueue.push({key:key,resolve:resolve,reject:reject});});
+  originalRequests.set(key,promise);pumpOriginals();return promise;
+}
+function pumpOriginals(){
+  while(originalActive<4&&originalQueue.length){
+    (function(job){
+      originalActive++;FULL_LOADING=true;
+      var script=document.createElement('script'),done=false;
+      var timer=setTimeout(function(){finish('加载剧本原文超时，请重试。');},30000);
+      function finish(message,value){
+        if(done)return;done=true;clearTimeout(timer);script.onload=null;script.onerror=null;script.remove();
+        originalRequests.delete(job.key);originalActive--;FULL_LOADING=originalActive>0||originalQueue.length>0;
+        if(message)job.reject(Error(message));else job.resolve(value);pumpOriginals();
+      }
+      script.src='assets/data/originals/'+job.key+'.js';
+      script.onload=function(){var cache=window.SCRIPT_ORIGINALS||{},value=Object.prototype.hasOwnProperty.call(cache,job.key)&&cache[job.key];
+        if(!value||typeof value.f!=='string'||typeof value.t!=='string'){finish('剧本原文资源无效，请重新生成目录后重试。');return;}
+        finish('',value);
+      };
+      script.onerror=function(){finish('加载剧本原文失败，请重试。');};document.head.appendChild(script);
+    })(originalQueue.shift());
+  }
+}
+function loadFull(cb,err,indices){
+  // Old offline packages retain their paired resource; current catalogs never
+  // use the full-library fallback, even if an individual resource fails.
+  if(SCRIPTS.some(function(s){return !s[12]||!Object.prototype.hasOwnProperty.call(s[12],'original');})){loadLegacyFull(cb,err);return;}
+  var selected=Array.from(new Set(Array.isArray(indices)?indices:SCRIPTS.map(function(s,i){return i;})));
+  if(!FULL)FULL=new Array(SCRIPTS.length);
+  var pending=selected.filter(function(i){return SCRIPTS[i]&&SCRIPTS[i][12].original&&!FULL[i]&&!(typeof chosenVersions!=='undefined'&&chosenVersions[i]);});
+  if(!pending.length){cb();return;}
+  expTip('正在加载 '+pending.length+' 个剧本的原文…',true);
+  Promise.all(pending.map(function(i){return requestOriginal(SCRIPTS[i][12].original).then(function(value){FULL[i]=value;});})).then(function(){if(!FULL_LOADING)expTip('');cb();},function(error){expTip('');err(error.message);});
+}
 // 连续点击只响应最后一次意图；捕获独立数组，避免加载期间被其他入口改写。
 function requestDataDialog(kind,preset){
+  scopeRequest++;
   var request=++dialogRequest,selection=Array.isArray(preset)?preset.slice():null;
   loadFull(function(){
     if(request!==dialogRequest)return;
@@ -39,7 +81,33 @@ function requestDataDialog(kind,preset){
     }else{
       document.getElementById('expMask').className='';jsonSel=selection;jsonDlgShow();
     }
-  },function(message){if(request===dialogRequest)alert(message);});
+  },function(message){if(request===dialogRequest)alert(message);},selection||(typeof curIdxs==='function'?curIdxs():undefined));
+}
+
+var scopeRequest=0;
+function refreshDataScope(owner){
+  var revision=++scopeRequest,dialog=dialogRequest;
+  var ids=owner==='json'?['jsonCopy','jsonDl']:['expGo','expDl'];
+  ids.forEach(function(id){document.getElementById(id).disabled=true;});
+  if(owner==='json')document.getElementById('jsonBox').value='';
+  document.getElementById(owner==='json'?'jsonStat':'expStat').textContent='正在加载所选范围的原文…';
+  function active(){return revision===scopeRequest&&dialog===dialogRequest&&expPickOwner===owner;}
+  loadFull(function(){
+    if(!active())return;ids.forEach(function(id){document.getElementById(id).disabled=false;});
+    if(owner==='json')jsonRefresh();else{expUpdateImgHint();document.getElementById('expStat').textContent='';}
+  },function(message){if(!active())return;document.getElementById(owner==='json'?'jsonStat':'expStat').textContent=message+' 可重新选择此范围重试。';},pickedIdxs());
+}
+
+var comparisonRequest=null;
+function loadComparison(){
+  if(typeof LIBRARY_COMPARE_ROLES!=='undefined'&&LIBRARY_COMPARE_BUILD===LIBRARY_BUILD)return Promise.resolve();
+  if(!comparisonRequest)comparisonRequest=new Promise(function(resolve,reject){
+    var script=document.createElement('script'),done=false,timer=setTimeout(function(){finish('比对资料加载超时，请重试。');},30000);
+    function finish(message){if(done)return;done=true;clearTimeout(timer);script.onload=null;script.onerror=null;script.remove();if(message)reject(Error(message));else resolve();}
+    script.src='assets/data/comparison.js';
+    script.onload=function(){finish(typeof LIBRARY_COMPARE_ROLES!=='undefined'&&typeof LIBRARY_COMPARE_BUILD!=='undefined'&&LIBRARY_COMPARE_BUILD===LIBRARY_BUILD?'':'比对资料与目录版本不一致，请刷新后重试。');};
+    script.onerror=function(){finish('比对资料加载失败，请重试。');};document.head.appendChild(script);
+  }).catch(function(error){comparisonRequest=null;throw error;});return comparisonRequest;
 }
 
 // Promise<boolean>：只有浏览器确认完成后才返回 true。

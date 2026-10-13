@@ -1,0 +1,3 @@
+// 自动生成：独立剧本原文，文件名按内容校验。
+window.SCRIPT_ORIGINALS=window.SCRIPT_ORIGINALS||{};
+window.SCRIPT_ORIGINALS["7c9de9771b0b80f19e57aeff89251522f6e1a81cdc4db13c3f0ae6d36d753fdf"]={"f":"custom (2).json","t":"[{\"id\":\"cult_leader\"},{\"id\":\"acrobat\"},{\"id\":\"gambler\"},{\"id\":\"huntsman\"},{\"id\":\"atheist\"},{\"id\":\"chambermaid\"},{\"id\":\"chongfei\"},{\"id\":\"yinyangshi\"},{\"id\":\"geling\"},{\"id\":\"limao\"},{\"id\":\"ravenkeeper\"},{\"id\":\"bingbi\"},{\"id\":\"princess\"},{\"id\":\"damsel\"},{\"id\":\"zealot\"},{\"id\":\"hermit\"},{\"id\":\"goon\"},{\"id\":\"baron\"},{\"id\":\"harpy\"},{\"id\":\"witch\"},{\"id\":\"assassin\"},{\"id\":\"pukka\"},{\"id\":\"fang_gu\"},{\"id\":\"yaggababble\"},{\"id\":\"al-hadikhia\"}]"};

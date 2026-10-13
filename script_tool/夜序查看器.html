@@ -166,19 +166,38 @@
       
   
 </nav><main class="content night-viewer"><h1>剧本夜序查看器</h1>
-<p>导入剧本 JSON，仅显示其中角色的首夜和其他夜晚行动顺序。文件在本机读取，不上传。</p>
-<section class="night-import" aria-label="导入剧本">
-<label class="night-file">选择 JSON 文件<input id="nightFile" type="file" accept=".json,application/json"></label>
+<p class="night-intro">导入剧本、登记玩家，按夜逐项执行。对局在此浏览器自动保存，JSON 文件在本机读取。</p>
+<details class="night-import" id="nightImport" open><summary>导入剧本与对局</summary><div class="night-import-body">
+<div class="night-import-actions"><label class="night-file">选择剧本 / 对局备份<input id="nightFile" type="file" accept=".json,application/json"></label><button id="nightFromDraft" type="button">读取剧本工具当前草稿</button></div>
 <details><summary>或粘贴 JSON</summary><textarea id="nightJson" aria-label="剧本 JSON" rows="6" placeholder='[{"id":"_meta","name":"我的剧本"},"washerwoman","imp"]'></textarea><button id="nightLoad" type="button">显示行动顺序</button></details>
 <label>排序依据<select id="nightSource"><option value="json">优先使用 JSON 夜序</option><option value="wiki">使用本站夜间行动顺序表</option></select></label>
 <p class="night-help">JSON 中明确填写的夜序（包括 0）优先保留；未填写时使用本站数据。旧 JSON 全为 0 时，可切换到本站顺序表。这里只列角色行动，不含爪牙互认等阶段步骤。</p>
+</div></details>
 <p id="nightStatus" role="status" aria-live="polite">等待导入剧本。</p>
+<p id="nightSaveStatus" class="night-help" role="status" aria-live="polite"></p>
+<section id="nightResult" hidden>
+  <div class="night-result-heading"><div><h2 id="nightTitle"></h2><p id="nightSummary"></p></div><div class="night-actions"><button type="button" id="nightManagePlayers">管理玩家</button><button type="button" id="nightCopy">复制夜序</button><button type="button" id="nightBackup">备份对局</button></div></div>
+  <div class="night-mode" aria-label="查看方式"><button type="button" id="nightRunMode" aria-pressed="true">现场执行</button><button type="button" id="nightReferenceMode" aria-pressed="false">首夜 / 其他夜晚对照</button></div>
+  <section id="nightRun" class="night-run" aria-label="现场执行">
+    <div class="night-run-toolbar"><div class="night-night-controls"><button type="button" id="nightPrevious" aria-label="上一夜">←</button><strong id="nightNumber">第 1 夜 · 首夜</strong><button type="button" id="nightNext" aria-label="下一夜">→</button></div><span id="nightProgress" role="status" aria-live="polite"></span></div>
+    <progress id="nightProgressBar" max="1" value="0" aria-label="本夜行动进度"></progress>
+    <p id="nightRunHelp" class="night-help"></p>
+    <p class="night-help">这里只列角色行动；爪牙互认、恶魔信息等通用流程仍需说书人执行。</p>
+    <ol id="nightQueue" class="night-queue"></ol>
+    <div class="night-run-actions"><button type="button" id="nightAdvance">完成当前，继续</button><button type="button" id="nightSkip">跳过当前</button></div>
+  </section>
+  <div id="nightReference" class="night-columns" hidden><section><h2 id="nightFirstTitle">首夜</h2><ol id="nightFirst"></ol></section><section><h2 id="nightOtherTitle">其他夜晚</h2><ol id="nightOther"></ol></section></div>
+  <details id="nightPending" class="night-pending" hidden><summary id="nightPendingTitle"></summary><div id="nightPendingBody"></div></details>
+  <p id="nightExcluded" class="night-help"></p>
+  <details class="night-rules" id="nightRules" hidden><summary>相克与剧本特殊规则</summary><div id="nightRulesBody"></div></details>
+  <details class="night-records"><summary>对局备注</summary><label>记录本场需要留意的事项<textarea id="nightNotes" maxlength="4000" rows="3" placeholder="例如：本夜触发条件、需要核对的特殊规则"></textarea></label></details>
+  <details id="nightCopyFallback" hidden><summary>复制文本</summary><textarea id="nightCopyText" readonly rows="8" aria-label="可手动复制的夜序文本"></textarea></details>
 </section>
-<section class="night-import" id="nightPlayers" hidden aria-label="在场玩家"><h2>在场玩家</h2><form id="nightPlayerForm"><label>玩家名字（可留空）<input id="nightPlayerName" maxlength="40" placeholder="例如：1 号玩家"></label><label>角色<select id="nightPlayerRole"></select></label><button type="submit">添加玩家</button></form><ul id="nightPlayerList"></ul><label><input id="nightPresentOnly" type="checkbox">只显示在场角色的行动顺序</label><p class="night-help">选择本剧本中的角色添加玩家。同一角色可分配给多人，夜序中合并显示玩家名字。在场不等于存活，不会自动排除死亡后仍可能行动的角色。导入新剧本会重置玩家名单。</p></section><section id="nightResult" hidden><div class="night-result-heading"><div><h2 id="nightTitle"></h2><p id="nightSummary"></p></div><button type="button" id="nightCopy">复制夜序</button></div><div class="night-columns"><section><h2 id="nightFirstTitle">首夜</h2><ol id="nightFirst"></ol></section><section><h2 id="nightOtherTitle">其他夜晚</h2><ol id="nightOther"></ol></section></div><p id="nightExcluded"></p></section>
+<details class="night-import" id="nightPlayers" hidden open aria-label="在场玩家"><summary>在场玩家 <span id="nightPlayerCount"></span></summary><div class="night-import-body"><form id="nightPlayerForm"><label>玩家名字（可留空）<input id="nightPlayerName" maxlength="40" placeholder="例如：1 号玩家"></label><label>角色<select id="nightPlayerRole"></select></label><button type="submit">添加玩家</button></form><label class="night-check"><input id="nightPresentOnly" type="checkbox">只显示在场角色的行动顺序</label><ul id="nightPlayerList"></ul><p class="night-help">同角色多人合并显示。生死、醉酒与中毒只作标记，不自动排除行动。更换角色或添加玩家后，该角色本夜的进度会重新待办；之前夜晚的记录保留。</p><button type="button" id="nightReturnRun">返回行动顺序 ↑</button></div></details>
 </main></div><footer>
   非官方社区资料库。<a href="../about.html">关于本站与来源</a> · 百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
 </footer>
-<script src="assets/script-tool/data.js"></script><script src="assets/script-tool/core.js"></script><script src="assets/script-tool/night-viewer.js"></script><script src="../assets/wiki.js"></script><script src="../assets/start-guide.js" defer></script>
+<script src="assets/script-tool/data.js"></script><script src="assets/script-tool/core.js"></script><script src="assets/script-tool/night-session.js"></script><script src="assets/script-tool/night-viewer.js"></script><script src="../assets/wiki.js"></script><script src="../assets/start-guide.js" defer></script>
 
   </body>
 </html>

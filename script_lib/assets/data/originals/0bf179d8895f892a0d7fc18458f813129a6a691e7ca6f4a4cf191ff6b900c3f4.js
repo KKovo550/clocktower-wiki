@@ -1,0 +1,3 @@
+// 自动生成：独立剧本原文，文件名按内容校验。
+window.SCRIPT_ORIGINALS=window.SCRIPT_ORIGINALS||{};
+window.SCRIPT_ORIGINALS["0bf179d8895f892a0d7fc18458f813129a6a691e7ca6f4a4cf191ff6b900c3f4"]={"f":"毕业典礼.json","t":"[\n  {\n    \"id\": \"_meta\",\n    \"author\": \"JOX\",\n    \"name\": \"毕业典礼\"\n  },\n  \"clockmaker\",\n  \"grandmother\",\n  \"librarian\",\n  \"empath\",\n  \"villageidiot\",\n  \"flowergirl\",\n  \"undertaker\",\n  \"monk\",\n  \"acrobat\",\n  \"artist\",\n  \"slayer\",\n  \"ravenkeeper\",\n  \"virgin\",\n  \"drunk\",\n  \"moonchild\",\n  \"hatter\",\n  \"damsel\",\n  \"godfather\",\n  \"marionette\",\n  \"scarletwoman\",\n  \"organgrinder\",\n  \"nodashii\",\n  \"imp\",\n  \"shabaloth\"\n]"};

@@ -1,0 +1,3 @@
+// 自动生成：独立剧本原文，文件名按内容校验。
+window.SCRIPT_ORIGINALS=window.SCRIPT_ORIGINALS||{};
+window.SCRIPT_ORIGINALS["db782fe3c176b3c8ed6a8c72ca10c95e26e3af90fadb490921afd7323c35754d"]={"f":"急转直下.json","t":"[{\"id\":\"clockmaker\"},{\"id\":\"pixie\"},{\"id\":\"noble\"},{\"id\":\"empath\"},{\"id\":\"snake_charmer\"},{\"id\":\"general\"},{\"id\":\"monk\"},{\"id\":\"oracle\"},{\"id\":\"flowergirl\"},{\"id\":\"philosopher\"},{\"id\":\"slayer\"},{\"id\":\"juggler\"},{\"id\":\"ravenkeeper\"},{\"id\":\"klutz\"},{\"id\":\"barber\"},{\"id\":\"drunk\"},{\"id\":\"plague_doctor\"},{\"id\":\"mezepheles\"},{\"id\":\"scarlet_woman\"},{\"id\":\"poisoner\"},{\"id\":\"baron\"},{\"id\":\"summoner\"},{\"id\":\"imp\"},{\"id\":\"vigormortis\"},{\"id\":\"vortox\"},{\"id\":\"spirit_of_ivory\"}]"};

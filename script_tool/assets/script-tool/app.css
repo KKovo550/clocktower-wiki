@@ -174,7 +174,7 @@ kbd{background:#f1e9d8;border:1px solid var(--tan);border-radius:3px;padding:0 4
 
 .wechat-use-notice{padding:12px;margin:12px 0;border:1px solid #dce5f1;border-radius:10px;background:#f7f9fc;color:#495363;font-size:13px;line-height:1.7}.wechat-use-notice strong{color:#253f60}.wechat-use-notice p{margin:6px 0}.wechat-use-notice .btn{min-height:44px;margin:4px 8px 4px 0;white-space:normal}.wechat-use-notice input{width:100%;box-sizing:border-box;font-size:16px;padding:8px;min-height:44px}.wechat-use-notice input[hidden]{display:none}
 
-#scriptRules[hidden]{display:none}#scriptRules{padding:12px;margin:12px 0;background:#f7f9fc;border:1px solid #dce5f1;border-radius:10px;font-size:13px;line-height:1.7;overflow-wrap:anywhere}#scriptRules summary{cursor:pointer;font-weight:600}#scriptRules>div{margin-top:12px}#scriptRules p{margin:4px 0;white-space:pre-wrap}
+#scriptRules[hidden]{display:none}#scriptRules:not([hidden]){margin-top:16px}#scriptRules p{white-space:pre-wrap}
 
 .editor-mobile-actions,.editor-mobile-jumps{display:none}
 @media(max-width:820px){
@@ -245,12 +245,41 @@ kbd{background:#f1e9d8;border:1px solid var(--tan);border-radius:3px;padding:0 4
 .script-tool-page #script-checks ul{list-style:none;padding:0;margin:0}
 .script-tool-page #script-checks li{padding:9px 0;border-top:1px solid #d5c6a970;overflow-wrap:anywhere}
 .script-tool-page #script-checks li:first-child{border-top:0;padding-top:0}
-.script-tool-page #script-checks .check-roles{font-weight:600;font-size:13px}
-.script-tool-page #script-checks .check-roles>span{font-weight:400;color:#a08a68;margin:0 5px}
+.script-tool-page #script-checks .check-roles,.rule-card-title{display:flex;align-items:center;gap:6px;flex-wrap:wrap;font-weight:600;font-size:13px;line-height:1.6}
+.rule-role{display:inline-flex;align-items:center;gap:6px;min-width:0;text-decoration:none}
+.rule-role-icon{flex:none;width:26px;height:26px;object-fit:contain}
+.rule-role-placeholder{display:grid;place-items:center;border-radius:50%;background:#e9ddc5;color:#796647;font-size:12px}
+.rule-role-placeholder::before{content:attr(data-initial)}
+.rule-role-name{overflow-wrap:anywhere}
+.rule-separator{font-weight:400;color:#a08a68}
+.script-tool-page #script-checks .check-roles a:hover .rule-role-name,.rules-editor a.rule-role:hover .rule-role-name{text-decoration:underline}
 .script-tool-page #script-checks li p{margin:4px 0 0;font-size:12px}
 .script-tool-page #script-checks a{color:#305c7d;text-underline-offset:3px}
 .script-tool-page #script-checks .check-links{display:flex;flex-wrap:wrap;gap:8px 16px;border-top:1px solid #d5c6a970;padding-top:10px;margin:12px 0 0;font-size:12px}
 /* Night order dialog: fixed header/footer and a scrollable two-column reading area. */
+/* Script rules use the same parchment surface and keep controls in view. */
+.script-tool-page #dlg:has(.rules-editor){width:min(740px,94vw);max-height:calc(100dvh - 32px);background:var(--archive-sheet,#faf5e9)}
+.script-tool-page #dlg:has(.rules-editor) .dlg{padding:0}
+.rules-editor{display:flex;flex-direction:column;max-height:calc(100dvh - 34px);color:var(--archive-ink,#3e382e)}
+.rules-editor>header,.rules-editor>footer{flex:none;padding:16px 20px;background:var(--archive-sheet,#faf5e9)}
+.rules-editor>header{border-bottom:1px solid var(--archive-line,#d5c6a9)}
+.rules-editor>header p{margin:0 0 12px;font-size:12px;line-height:1.7;color:var(--archive-muted,#665b4c)}
+.rules-editor>footer{border-top:1px solid var(--archive-line,#d5c6a9);text-align:right}
+.rule-tabs,.rule-form-actions,.rule-card-actions{display:flex;gap:8px;flex-wrap:wrap}
+.script-tool-page #dlg .rule-tabs .btn[aria-pressed=true]{background:#66533b;color:#fff;border-color:#66533b}
+.script-tool-page #dlg .rules-editor [hidden]{display:none}
+.rules-editor-body{min-height:0;overflow:auto;padding:16px 20px;overscroll-behavior:contain}
+.rules-editor h4{margin:0 0 10px;font-size:14px}
+.rule-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.rules-editor #ruleAbility{height:112px;min-height:88px;font:inherit;line-height:1.7;box-sizing:border-box;background:#fffaf0;color:inherit}
+.rules-editor :is(select,input){box-sizing:border-box;min-height:38px;color:inherit;background:#fffaf0}
+.rules-editor :is(#ruleOverrideNote,#ruleNotice,.rule-empty){font-size:12px;line-height:1.7;color:var(--archive-muted,#665b4c);overflow-wrap:anywhere}
+.rules-editor #ruleNotice{min-height:20px;margin:8px 0 14px}
+.rule-card{padding:14px;margin:10px 0;border:1px solid var(--archive-line,#d5c6a9);border-radius:10px;background:#f7f0df;overflow-wrap:anywhere}
+.rule-card>strong{font-size:13px}.rule-origin{display:inline-block;margin-left:8px;font-size:11px;color:var(--archive-muted,#665b4c)}
+.rule-card p{font-size:13px;white-space:pre-wrap;line-height:1.8;margin:8px 0 10px}
+.rule-card-actions .btn{font-size:12px;padding:5px 10px}
+@media(max-width:620px){.rules-editor>header,.rules-editor>footer,.rules-editor-body{padding:14px}.rule-pair{grid-template-columns:minmax(0,1fr);gap:0}.rules-editor .btn{min-height:40px}}
 .script-tool-page #dlg.editor-night-open{width:min(1040px,94vw);max-width:min(1040px,94vw);max-height:calc(100dvh - 32px);overflow:hidden}
 .script-tool-page #dlg.editor-night-open .dlg{padding:0}
 .script-tool-page #dlg .editor-night-dialog{display:flex;flex-direction:column;max-height:calc(100dvh - 34px)}

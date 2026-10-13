@@ -1,0 +1,3 @@
+// 自动生成：独立剧本原文，文件名按内容校验。
+window.SCRIPT_ORIGINALS=window.SCRIPT_ORIGINALS||{};
+window.SCRIPT_ORIGINALS["b8d7385fcbfd69481929b25a4418169d5147e5bff305c5f5cc16bf4091dd0279"]={"f":"天工开物2.6.1.json","t":"[{\"id\":\"noble\"},{\"id\":\"qintianjian\"},{\"id\":\"chambermaid\"},{\"id\":\"mathematician\"},{\"id\":\"flowergirl\"},{\"id\":\"town_crier\"},{\"id\":\"xuncha\"},{\"id\":\"zhifu\"},{\"id\":\"seamstress\"},{\"id\":\"zhen\"},{\"id\":\"savant\"},{\"id\":\"bianlianshi\"},{\"id\":\"bingbi\"},{\"id\":\"drunk\"},{\"id\":\"recluse\"},{\"id\":\"mutant\"},{\"id\":\"nichen\"},{\"id\":\"assassin\"},{\"id\":\"godfather\"},{\"id\":\"scarlet_woman\"},{\"id\":\"cerenovus\"},{\"id\":\"imp\"},{\"id\":\"vortox\"},{\"id\":\"no_dashii\"},{\"id\":\"vigormortis\"},{\"id\":\"spirit_of_ivory\"}]"};

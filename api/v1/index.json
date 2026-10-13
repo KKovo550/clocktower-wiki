@@ -1,1 +1,1 @@
-{"version":1,"revision":"85beaea092199eee1c87b527a399a0923940e5aa41b623496d9b64e7283c3d11","endpoints":{"roles":"roles.json","scripts":"scripts.json","nightOrder":"night-order.json","jinxes":"jinxes.json"},"counts":{"roles":520,"scripts":1061}}
+{"version":1,"revision":"1b87bb0fe23c7de2d4d19cb3efafd2ccd5dc0f69b5f3f73a1ef4ebbd90c2a400","endpoints":{"roles":"roles.json","scripts":"scripts.json","nightOrder":"night-order.json","jinxes":"jinxes.json"},"counts":{"roles":520,"scripts":1267}}

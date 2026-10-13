@@ -17,17 +17,14 @@ function pictureCard(script, picture, index) {
 function shots(script) {
   if(window.WIKI_SHARE_NO_ARTWORK)return '<div class="hint">此分享版不含剧本图片，可继续查看角色或下载 JSON。</div>';
   var pictures=galleryPictures(script);
-  if(!pictures.total) return '<div class="team-h">剧本图</div><div class="hint">该剧本暂无剧照</div>';
-  var initial=pictures.primary.length?pictures.primary:pictures.remaining.slice(0,3);
-  var extra=pictures.primary.length?pictures.remaining:pictures.remaining.slice(3);
-  var html='<section class="script-gallery" data-script="'+SCRIPTS.indexOf(script)+'"><div class="team-h">剧本图 · '+pictures.total+
-    ' 张（点击放大）</div><div class="shots">'+
-    initial.map(function(p,i){return pictureCard(script,p,i);}).join('')+'</div>';
-  if(extra.length) {
-    // 展开时才创建 img，避免隐藏区域也发起大量图片请求。
-    html+='<details class="more-shots"><summary>查看其余 '+extra.length+' 张图片</summary>'+
-      '<template>'+extra.map(function(p){return pictureCard(script,p,1);}).join('')+'</template>'+
-      '<div class="shots"></div></details>';
+  var html='<section class="script-gallery" data-script="'+SCRIPTS.indexOf(script)+'"><div class="team-h">剧本图'+
+    (pictures.total?' · '+pictures.total+' 张（点击放大）':'')+(pictures.total&&!pictureCompleteness(script).complete?' · '+esc(pictureStateLabel(script)):'')+'</div>';
+  if(pictures.total){
+    html+='<div class="shots">'+pictures.primary.map(function(p,i){return pictureCard(script,p,i);}).join('')+'</div>';
+  }else{
+    var notice=script[12]&&script[12].pictureNotice||
+      (scriptPictures(script).total?'已有原图，正背面尚待确认，可在下方修正图片分类。':'该剧本暂无剧照');
+    html+='<div class="hint">'+esc(notice)+'</div>';
   }
   return html+(typeof roleEditor==='function'?roleEditor(script):'')+'</section>';
 }
@@ -62,12 +59,4 @@ function shots(script) {
     img.removeAttribute('src');
     img.setAttribute('src',source);
   });
-  detail.addEventListener('toggle',function(event) {
-    var details=event.target;
-    if(!details.matches('.more-shots') || !details.open)return;
-    var template=details.querySelector('template');
-    if(!template)return;
-    details.querySelector('.shots').appendChild(template.content.cloneNode(true));
-    template.remove();
-  },true);
 })();

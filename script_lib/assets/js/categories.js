@@ -11,13 +11,15 @@ function categoryMatches(category,selected){
 }
 function buildCategoryTree(scripts){
   var root={label:'全部分类',path:'',count:0,children:new Map()};
+  var counted=new Map();
+  function count(node,script){if(!counted.has(node))counted.set(node,new Set());var seen=counted.get(node),key=scriptFamilyKey(script);if(!seen.has(key)){seen.add(key);node.count++;}}
   scripts.forEach(function(script){
-    var node=root;node.count++;
+    var node=root;count(node,script);
     var parts=categoryParts(script[2]);
     if(!parts.length)parts=['未分类'];
     parts.forEach(function(label){
       if(!node.children.has(label))node.children.set(label,{label:label,path:node.path?node.path+' / '+label:label,count:0,children:new Map()});
-      node=node.children.get(label);node.count++;
+      node=node.children.get(label);count(node,script);
     });
   });
   return root;

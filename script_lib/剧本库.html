@@ -186,7 +186,7 @@
     <div id="categoryPath" aria-live="polite"></div>
     <small>分类数量为全库统计；可停留在任意一级，再结合关键词筛选。</small>
   </section>
-  <section class="workspace-bar"><select id="completionFilter" aria-label="完整度"><option value="">全部完整度</option><option value="missing-json">缺 JSON</option><option value="missing-images">缺图片</option><option value="incomplete">待补全</option></select><select id="personalFilter" aria-label="个人记录"><option value="">全部个人状态</option><option value="favorite">已收藏</option><option value="want">想玩</option><option value="played">玩过</option><option value="recommended">推荐</option></select></section>
+  <section class="workspace-bar"><select id="completionFilter" aria-label="完整度"><option value="">全部完整度</option><option value="complete">JSON 与正背面齐全</option><option value="missing-json">缺 JSON</option><option value="missing-front">缺正面</option><option value="missing-back">缺背面</option><option value="ancillary">仅附图或未分类</option><option value="missing-images">无原图</option><option value="incomplete">待补全</option></select><select id="personalFilter" aria-label="个人记录"><option value="">全部个人状态</option><option value="favorite">已收藏</option><option value="want">想玩</option><option value="played">玩过</option><option value="recommended">推荐</option></select></section>
   </div></details>
   </section>
 
@@ -210,7 +210,7 @@
 <div id="cmpMask"><div id="cmpDlg">
   <h3>对比我的剧本 <span class="sub" style="display:inline">在库内查找最像的板子</span></h3>
   <div class="sub">把剧本工具导出的 JSON 拖进来，或点下面的框选文件。
-    比对按**角色名**算（同名的算同一个角色），排行按相似度（交集÷并集），
+    比对兼容角色 ID、中文名和英文别名；同名自制角色会结合 ID 与能力区分。排行按相似度（交集÷并集），
     太大的一律标出来——库里有几个「全员谜语人」合集（97~213 人），它们能包含你的全部角色，但不是真板子。</div>
   <div class="drop" id="cmpDrop">把 .json 拖到这里，或点这里选文件</div>
   <input type="file" id="cmpFile" accept=".json,application/json" style="display:none">

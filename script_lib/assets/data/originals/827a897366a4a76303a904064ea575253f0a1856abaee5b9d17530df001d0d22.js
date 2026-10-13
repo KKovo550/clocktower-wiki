@@ -1,0 +1,3 @@
+// 自动生成：独立剧本原文，文件名按内容校验。
+window.SCRIPT_ORIGINALS=window.SCRIPT_ORIGINALS||{};
+window.SCRIPT_ORIGINALS["827a897366a4a76303a904064ea575253f0a1856abaee5b9d17530df001d0d22"]={"f":"custom.json","t":"[{\"id\":\"flowergirl\"},{\"id\":\"oracle\"},{\"id\":\"king\"},{\"id\":\"choirboy\"},{\"id\":\"shugenja\"},{\"id\":\"pixie\"},{\"id\":\"exorcist\"},{\"id\":\"nightwatchman\"},{\"id\":\"huntsman\"},{\"id\":\"farmer\"},{\"id\":\"cannibal\"},{\"id\":\"investigator\"},{\"id\":\"knight\"},{\"id\":\"damsel\"},{\"id\":\"saint\"},{\"id\":\"drunk\"},{\"id\":\"lunatic\"},{\"id\":\"marionette\"},{\"id\":\"widow\"},{\"id\":\"mezepheles\"},{\"id\":\"cerenovus\"},{\"id\":\"godfather\"},{\"id\":\"qiongqi\"}]"};

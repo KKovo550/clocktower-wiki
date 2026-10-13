@@ -1,0 +1,3 @@
+// 自动生成：独立剧本原文，文件名按内容校验。
+window.SCRIPT_ORIGINALS=window.SCRIPT_ORIGINALS||{};
+window.SCRIPT_ORIGINALS["b6892025036ec7ac212528117716b5cfb8bcdecb6652cdbdaa9b8e69c1833c03"]={"f":"三推六问.json","t":"[{\"id\":\"washerwoman\"},{\"id\":\"chef\"},{\"id\":\"qintianjian\"},{\"id\":\"empath\"},{\"id\":\"mathematician\"},{\"id\":\"dreamer\"},{\"id\":\"yinluren\"},{\"id\":\"limao\"},{\"id\":\"shiguan\"},{\"id\":\"alsaahir\"},{\"id\":\"nightwatchman\"},{\"id\":\"tixingguan\"},{\"id\":\"virgin\"},{\"id\":\"jiubao\"},{\"id\":\"recluse\"},{\"id\":\"klutz\"},{\"id\":\"sweetheart\"},{\"id\":\"spy\"},{\"id\":\"scarlet_woman\"},{\"id\":\"widow\"},{\"id\":\"xaan\"},{\"id\":\"imp\"},{\"id\":\"no_dashii\"}]"};

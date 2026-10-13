@@ -33,6 +33,13 @@
       (result[owner.id]||(result[owner.id]=[])).push({partner:partner,text:match.text});
     });return result;
   }
+  function notesFor(roles,options){
+    var result=jinxFor(roles,options.showJinx===false?[]:options.jinx);
+    root.ScriptCore.matchRoleRules(roles,options.roleRules).forEach(function(match){
+      (result[match.role.id]||(result[match.role.id]=[])).push({partner:null,label:root.ScriptCore.ruleTitle(match.rule,[match.role]),text:match.text});
+    });return result;
+  }
+  function noteText(note){return (note.partner?'与'+note.partner.n+'相克':note.label||'特殊规则')+'：'+note.text;}
   function layout(roles,options,measure){
     if(!roles.length)throw new Error('请先添加角色。');
     if(roles.some(function(r){return teams.indexOf(r.t==='traveler'?'traveller':r.t)<0;}))throw new Error('存在未知角色类型，请先检查剧本。');
@@ -59,13 +66,13 @@
     // Measure in source coordinates so uniformly scaled text still fills each
     // fixed-width column. Column anchors and the gap stay in page coordinates.
     var colWidth=visibleColWidth/fittingScale,lineHeight=font*(compact?1.35:1.5),abilityY=Math.max(66,font+40);
-    var rows=[],jinxes=jinxFor(roles,options.showJinx===false?[]:options.jinx);
+    var rows=[],jinxes=notesFor(roles,options);
     var jinxFont=Math.max(compact?12:16,font-5);
     teams.forEach(function(team){
       roles.filter(function(r){return (r.t==='traveler'?'traveller':r.t)===team;}).forEach(function(role){
         var lines=wrap(role.ab||'暂无能力描述',colWidth-112,font,measure,'body');
         var notes=(jinxes[role.id]||[]).map(function(note){
-          var noteLines=wrap('与'+note.partner.n+'相克：'+note.text,colWidth-148,jinxFont,measure,'body');
+          var noteLines=wrap(noteText(note),colWidth-148,jinxFont,measure,'body');
           return {partner:note.partner,lines:noteLines,height:Math.max(compact?30:46,noteLines.length*jinxFont*(compact?1.25:1.5)+(compact?10:20))};
         });
         var noteTop=compact?Math.max(112,abilityY+Math.max(0,lines.length-1)*lineHeight+font*.3+6):Math.max(112,abilityY+lines.length*lineHeight);
@@ -133,6 +140,42 @@
     return {x:item.x,y:top+(item.y-top)*scale,width:item.width*scale,height:extent*scale};
   }
 
+  function nightRailGeometry(layout,options,pageIndex){
+    var items=layout.pages[pageIndex||0]||[],markers=['minion','demon'].filter(function(team){return items.some(function(item){return item.kind==='role'&&item.team===team;})&&embedded(material(options,'marker-'+team));}).length;
+    var top=Number.isFinite(layout.railTop)?layout.railTop:Math.min(340,Math.round(layout.height*.20));
+    var count=Math.max((options.first||[]).length+markers,(options.other||[]).length,1);
+    var step=Number.isFinite(layout.railStep)?layout.railStep:Math.min(60,(layout.height-top-190)/(count+2));
+    return {top:top,step:step,size:Number.isFinite(layout.railSize)?layout.railSize:Math.min(56,step*.93),markers:markers};
+  }
+  function nightRailBounds(layout,options,pageIndex){
+    if(options.style!=='poster')return [];
+    var g=nightRailGeometry(layout,options,pageIndex),result=[];
+    ['first','other'].forEach(function(night){(options[night]||[]).forEach(function(role,i){result.push({night:night,role:role,index:i,x:(night==='first'?36:1244)-g.size/2,y:g.top+85+(i+(night==='first'?g.markers:0))*g.step,width:g.size,height:g.size});});});return result;
+  }
+  function iconGeometry(layout,item,iconKey,icon){
+    var size=item.iconSize===undefined?(layout.iconSize||96):item.iconSize,x=item.x+(item.iconX||0),y=item.y+(item.iconY||0);
+    var result={x:x,y:y,size:size,scale:1,kind:'unchanged'};
+    var optics=root.SCRIPT_ART_ICON_OPTICS,source=root.SCRIPT_ART_ICONS,sourceKey=iconKey;
+    if(!layout.contentFit||!optics||!optics.items||!source)return result;
+    if(optics&&optics.items&&source&&(!optics.items[sourceKey]||source[sourceKey]!==icon))sourceKey=Object.keys(optics.items).find(function(key){return source[key]===icon;});
+    var metric=optics&&optics.items&&optics.items[sourceKey];
+    // Compensation belongs to the fixed body only. Unknown/replaced rasters,
+    // night icons, reminders and every alternate preset retain their frames.
+    if(!layout.contentFit||!metric||!source||source[sourceKey]!==icon)return result;
+    var visual=metric.box,safe=metric.safe;
+    if(!Array.isArray(visual)||!Array.isArray(safe)||visual.length!==4||safe.length!==4||!visual.concat(safe).every(Number.isFinite))return result;
+    // A catalog fallback may reuse a padded bitmap under a new ID. Its old
+    // renderer uses the full bitmap, so undo only the measured crop coordinates.
+    var crop=sourceKey!==iconKey&&root.SCRIPT_ART_ICON_BOUNDS&&root.SCRIPT_ART_ICON_BOUNDS[sourceKey];
+    if(crop){var side=Math.max(crop.width,crop.height),view=crop.viewBox;function uncrop(box){return [(view[0]+box[0]*view[2]+(side-crop.width)/2)/side,(view[1]+box[1]*view[3]+(side-crop.height)/2)/side,(view[0]+box[2]*view[2]+(side-crop.width)/2)/side,(view[1]+box[3]*view[3]+(side-crop.height)/2)/side];}visual=uncrop(visual);safe=uncrop(safe);}
+    var edge=Math.max(visual[2]-visual[0],visual[3]-visual[1]);
+    if(!(edge>0&&metric.factor>0&&optics.targetEdge>0))return result;
+    var cx=x+size/2,cy=y+size/2,desired=optics.targetEdge*metric.factor/edge;
+    var left=item.x+optics.frameInset,right=item.x+layout.iconSize-optics.frameInset,top=item.y+optics.verticalInset,bottom=item.y+item.extent-optics.verticalInset;
+    [[cx-left,.5-safe[0]],[right-cx,safe[2]-.5],[cy-top,.5-safe[1]],[bottom-cy,safe[3]-.5]].forEach(function(limit){if(limit[1]>0)desired=Math.min(desired,limit[0]/limit[1]);});
+    if(!(desired>0&&Number.isFinite(desired)))return result;
+    return {x:cx-desired/2,y:cy-desired/2,size:desired,scale:desired/size,kind:metric.kind,factor:metric.factor,visualEdge:edge*desired};
+  }
   function svg(layout,pageIndex,options,icons,measure){
     var themes={cloud:['#f1f5fa','#ffffff','#172b46','#64758b'],paper:['#f5f0e5','#fffcf5','#3e352b','#85755f'],night:['#121b2b','#1b2940','#f3f6ff','#b1c0d7']};
     var poster=options.style==='poster';
@@ -147,7 +190,7 @@
     Object.keys(abilityKeywordGroups).forEach(function(group){abilityKeywordGroups[group].forEach(function(word){keywordGroups[word]=group;});});
     var keywordPattern=new RegExp(Object.keys(keywordGroups).sort(function(a,b){return b.length-a.length;}).join('|'),'g');
     function abilityRuns(value){
-      var runs=[],cursor=0,match,plainInk=print?details.body.ink:'#28231d';
+      var runs=[],cursor=0,match,plainInk=print?(layout.contentFit?inks.body:details.body.ink):'#28231d';
       keywordPattern.lastIndex=0;
       while((match=keywordPattern.exec(value))){
         if(match.index>cursor)runs.push({start:cursor,end:match.index,ink:plainInk,keyword:false});
@@ -165,6 +208,7 @@
       }).join('');
     }
     function nameInk(color){
+      if(layout.contentFit)return color;
       var tint=typography&&typography.roleNameTint||0;
       if(!tint||!/^#[0-9a-f]{6}$/i.test(color))return color;
       return '#'+[1,3,5].map(function(index){
@@ -212,7 +256,7 @@
     }
     bands(options.pattern,print?0.22:0.35);
     function text(x,y,value,size,color,weight,family){out.push('<text x="'+x+'" y="'+y+'" font-family="'+(family||'system-ui,Microsoft YaHei,sans-serif')+'" font-size="'+size+'" font-weight="'+(weight||400)+'" fill="'+color+'">'+esc(value)+'</text>');}
-    var title=String(options.title||'未命名剧本');
+    var title=String(options.title||'未命名剧本'),header=layout.header;
     var titleWidth=poster&&options.rules?515:1088;
     if(print&&options.topDecoration)titleWidth-=120;
     var logoPresets={
@@ -225,7 +269,7 @@
     };
     var logoPreset=Object.prototype.hasOwnProperty.call(logoPresets,options.titleStyle)?logoPresets[options.titleStyle]:null;
     var titleStyle=['plain','epic','brush','classic','gold','crimson','vintage-crimson'].includes(options.titleStyle)||logoPreset?options.titleStyle:'plain';
-    var titleSize=titleStyle==='plain'?48:poster?120:78;while(titleSize>22&&measure(title,titleSize)>titleWidth-16)titleSize--;
+    var titleSize=titleStyle==='plain'?48:poster?(header?header.titleFontMax:120):78;while(titleSize>22&&measure(title,titleSize)>titleWidth-16)titleSize--;
     var titleLines=wrap(title,titleWidth,titleSize,measure);
     var titleValue=titleLines[0]+(titleLines.length>1?'…':'');
     var titleFonts={plain:'system-ui,Microsoft YaHei,sans-serif',epic:'Microsoft YaHei,SimHei,sans-serif',brush:'STKaiti,KaiTi,serif',classic:'STSong,SimSun,serif',gold:'STSong,SimSun,serif',crimson:'Microsoft YaHei,SimHei,sans-serif','vintage-crimson':'STSong,SimSun,serif'};
@@ -233,29 +277,54 @@
     out.push('<defs><linearGradient id="title-blue" x2="0" y2="1"><stop stop-color="#087193"/><stop offset=".55" stop-color="#243d60"/><stop offset="1" stop-color="#5a355b"/></linearGradient><linearGradient id="title-gold" x2="0" y2="1"><stop stop-color="#fff0b8"/><stop offset=".45" stop-color="#c5963e"/><stop offset="1" stop-color="#75501c"/></linearGradient></defs>');
     var titleLength=Math.min(titleWidth-16,Math.max(1,measure(titleValue,titleSize)));
     var titleX=poster&&!options.rules?(1280-titleLength)/2+(print&&options.topDecoration?50:0):96+(print&&options.topDecoration?100:0);
+    var titleBaseline=header?header.titleBaseline:poster?125:110;
+    // Long titles share horizontal space with the author. Keep their descent
+    // inside the title band, independent of the selected background layer.
+    if(layout.contentFit&&!header&&options.author){
+      var authorLeft=options.rules?96:details.metadata.right-measure('剧本作者：'+String(options.author).slice(0,48),details.metadata.authorSize);
+      if(titleX+titleLength>authorLeft-12){titleSize=Math.min(titleSize,104);titleLength=Math.min(titleWidth-16,Math.max(1,measure(titleValue,titleSize)));titleX=options.rules?96+(options.topDecoration?100:0):(1280-titleLength)/2+(options.topDecoration?50:0);titleBaseline=94;}
+    }
     var logo=options.logo,hasLogo=embedded(logo)&&Number.isFinite(Number(logo.aspect))&&Number(logo.aspect)>0;
-    var logoWidth=hasLogo?Math.min(titleWidth-16,124*Number(logo.aspect)):0,logoHeight=hasLogo?logoWidth/Number(logo.aspect):0;
+    var logoWidth=hasLogo?Math.min(titleWidth-16,(header?header.logoHeight:124)*Number(logo.aspect)):0,logoHeight=hasLogo?logoWidth/Number(logo.aspect):0;
     var logoX=poster&&!options.rules?(1280-logoWidth)/2+(print&&options.topDecoration?50:0):96+(print&&options.topDecoration?100:0);
+    var logoBottom=header?header.logoTop+header.logoHeight:132;
+    // A larger central logo can share the author's vertical band when their
+    // horizontal boxes are separate. Wide logos reserve the author's width.
+    if(header&&options.author){
+      var headerAuthor='剧本作者：'+String(options.author).slice(0,48),headerAuthorSize=details.metadata.authorSize;
+      while(headerAuthorSize>14&&measure(headerAuthor,headerAuthorSize)>titleWidth)headerAuthorSize--;
+      var headerAuthorWidth=measure(headerAuthor,headerAuthorSize),headerAuthorLeft=options.rules?96:Math.max(96,details.metadata.right-headerAuthorWidth);
+      var headerAuthorTop=header.authorY-headerAuthorSize-6;
+      if(hasLogo&&logoBottom>headerAuthorTop&&logoX<headerAuthorLeft+headerAuthorWidth+12&&logoX+logoWidth>headerAuthorLeft-12){
+        var logoCenter=logoX+logoWidth/2,freeWidth=2*(headerAuthorLeft-12-logoCenter);
+        if(!options.rules&&freeWidth>0){logoWidth=Math.min(logoWidth,freeWidth);logoHeight=logoWidth/Number(logo.aspect);logoX=logoCenter-logoWidth/2;}
+        else {logoBottom=headerAuthorTop-6;logoHeight=Math.min(logoHeight,logoBottom-header.logoTop);logoWidth=logoHeight*Number(logo.aspect);logoX=options.rules?96+(print&&options.topDecoration?100:0):(1280-logoWidth)/2+(print&&options.topDecoration?50:0);}
+      }
+      if(!hasLogo&&titleX<headerAuthorLeft+headerAuthorWidth+12&&titleX+titleLength>headerAuthorLeft-12){
+        titleBaseline=Math.min(titleBaseline,headerAuthorTop-titleSize*.25-6);
+        titleSize=Math.min(titleSize,titleBaseline/.94);titleLength=Math.min(titleWidth-16,Math.max(1,measure(titleValue,titleSize)));titleX=options.rules?96+(options.topDecoration?100:0):(1280-titleLength)/2+(options.topDecoration?50:0);
+      }
+    }
     if(print&&options.topDecoration&&!options.pure){
       var decoration=(root.ScriptArtPresets.titleDecorations||{})[options.titleDecoration];
       var decorationX=Math.max(100,(hasLogo?logoX:titleX)-112);
       if(decoration){
-        out.push('<image data-top-decoration="'+esc(options.titleDecoration)+'" href="'+esc(decoration.image)+'" x="'+decorationX+'" y="22" width="94" height="94" preserveAspectRatio="xMidYMid meet"/>');
+        out.push('<image data-top-decoration="'+esc(options.titleDecoration)+'" href="'+esc(decoration.image)+'" x="'+decorationX+'" y="'+(header?header.ornamentTop:22)+'" width="'+(header?header.ornamentSize:94)+'" height="'+(header?header.ornamentSize:94)+'" preserveAspectRatio="xMidYMid meet"/>');
       }else{
       out.push('<g data-top-decoration="crest">');
-      if(!materialImage(chosen('status-emblem'),decorationX,32,94,94))out.push('<path d="M '+(titleX-94)+' 74 Q '+(titleX-125)+' 36 '+(titleX-82)+' 24 Q '+(titleX-39)+' 36 '+(titleX-70)+' 74 M '+(titleX-109)+' 60 l15 10m-17-26l19 10m29 16l15-10m-18-6l19-10" fill="none" stroke="#79674d" stroke-width="3"/><path d="M '+(titleX-100)+' 43 L '+(titleX-64)+' 43 L '+(titleX-64)+' 70 Q '+(titleX-82)+' 91 '+(titleX-100)+' 70Z" fill="#e3d1a9" stroke="#7d2426" stroke-width="2"/>');
+      if(!materialImage(chosen('status-emblem'),decorationX,header?header.ornamentTop:32,header?header.ornamentSize:94,header?header.ornamentSize:94))out.push('<path d="M '+(titleX-94)+' 74 Q '+(titleX-125)+' 36 '+(titleX-82)+' 24 Q '+(titleX-39)+' 36 '+(titleX-70)+' 74 M '+(titleX-109)+' 60 l15 10m-17-26l19 10m29 16l15-10m-18-6l19-10" fill="none" stroke="#79674d" stroke-width="3"/><path d="M '+(titleX-100)+' 43 L '+(titleX-64)+' 43 L '+(titleX-64)+' 70 Q '+(titleX-82)+' 91 '+(titleX-100)+' 70Z" fill="#e3d1a9" stroke="#7d2426" stroke-width="2"/>');
       out.push('</g>');
       }
     }
-    function titleLayer(dx,dy,fill,stroke,width){out.push('<text x="'+(titleX+dx)+'" y="'+((poster?125:110)+dy)+'" font-family="'+titleFonts[titleStyle]+'" font-size="'+titleSize+'" font-weight="'+(titleStyle==='classic'?600:900)+'" textLength="'+titleLength+'" lengthAdjust="spacingAndGlyphs" fill="'+fill+'" stroke="'+stroke+'" stroke-width="'+width+'" stroke-linejoin="round" paint-order="stroke fill">'+esc(titleValue)+'</text>');}
+    function titleLayer(dx,dy,fill,stroke,width){out.push('<text x="'+(titleX+dx)+'" y="'+(titleBaseline+dy)+'" font-family="'+titleFonts[titleStyle]+'" font-size="'+titleSize+'" font-weight="'+(titleStyle==='classic'?600:900)+'" textLength="'+titleLength+'" lengthAdjust="spacingAndGlyphs" fill="'+fill+'" stroke="'+stroke+'" stroke-width="'+width+'" stroke-linejoin="round" paint-order="stroke fill">'+esc(titleValue)+'</text>');}
     if(hasLogo){
-      out.push('<image data-title-logo="uploaded" href="'+esc(logo.image)+'" x="'+logoX+'" y="'+(132-logoHeight)+'" width="'+logoWidth+'" height="'+logoHeight+'" preserveAspectRatio="xMidYMid meet"/>');
+      out.push('<image data-title-logo="uploaded" href="'+esc(logo.image)+'" x="'+logoX+'" y="'+(logoBottom-logoHeight)+'" width="'+logoWidth+'" height="'+logoHeight+'" preserveAspectRatio="xMidYMid meet"/>');
     }else{
       out.push('<g data-title-style="'+titleStyle+'"><title>'+esc(titleValue)+'</title>');
       var preset=logoPreset;
       if(preset){
         out.push('<defs><pattern id="logo-hatching" width="11" height="13" patternUnits="userSpaceOnUse"><path d="M-2 13L11 0M4 13L17 0" stroke="#fff7e6" stroke-width="1" opacity=".22"/></pattern></defs>');
-        var glyphX=titleX,baseline=110,glyphs=Array.from(titleValue);
+        var glyphX=titleX,baseline=header?titleBaseline:110,glyphs=Array.from(titleValue);
         var advances=glyphs.map(function(char){return measure(char,titleSize);}),advanceScale=titleLength/Math.max(1,advances.reduce(function(n,width){return n+width;},0));
         glyphs.forEach(function(char,index){
           var advance=advances[index]*advanceScale,angle=preset.angles[index%preset.angles.length];
@@ -277,12 +346,12 @@
     var metadata=details&&details.metadata,metaRight=metadata?metadata.right:1184;
     var meta=options.author?'剧本作者：'+String(options.author).slice(0,48):'',metaSize=metadata?metadata.authorSize:22;
     while(metaSize>14&&measure(meta,metaSize)>titleWidth)metaSize--;
-    if(meta)text(poster&&!options.rules?Math.max(96,metaRight-measure(meta,metaSize)):96,metadata?metadata.authorY:150,meta,metaSize,'#000000',metadata?metadata.authorWeight:400);
-    if(options.version){var versionText=String(options.version).slice(0,18);text(poster&&!options.rules?Math.min(1184-measure(versionText,16),titleX+titleLength+14):96,42,versionText,16,palette[2],700);}
-    if(options.players){var playerText=String(options.players).slice(0,24),playerSize=metadata?metadata.playersSize:20;while(playerSize>14&&measure(playerText,playerSize)>titleWidth)playerSize--;text(poster&&options.rules?96:metaRight-measure(playerText,playerSize),metadata?metadata.playersY:174,playerText,playerSize,'#000000',metadata?metadata.playersWeight:700);}
+    if(meta)text(poster&&!options.rules?Math.max(96,metaRight-measure(meta,metaSize)):96,header?header.authorY:metadata?metadata.authorY:150,meta,metaSize,'#000000',metadata?metadata.authorWeight:400);
+    if(options.version){var versionText=String(options.version).slice(0,18);text(poster&&!options.rules?Math.min(1184-measure(versionText,16),titleX+titleLength+14):96,header?header.versionY:42,versionText,16,palette[2],700);}
+    if(options.players){var playerText=String(options.players).slice(0,24),playerSize=metadata?metadata.playersSize:20;while(playerSize>14&&measure(playerText,playerSize)>titleWidth)playerSize--;text(poster&&options.rules?96:metaRight-measure(playerText,playerSize),header?header.playersY:metadata?metadata.playersY:174,playerText,playerSize,'#000000',metadata?metadata.playersWeight:700);}
     var subtitle=String(options.subtitle||'').slice(0,65),subtitleSize=20;
     while(subtitleSize>14&&measure(subtitle,subtitleSize)>titleWidth)subtitleSize--;
-    text(96,options.players?198:174,subtitle,subtitleSize,palette[3]);
+    text(96,header?header.subtitleY:options.players?198:174,subtitle,subtitleSize,palette[3]);
     if(layout.ruleBox){
       var box=layout.ruleBox;
       if(box.scale<1)out.push('<g transform="translate('+(box.x*(1-box.scale))+' '+(box.y*(1-box.scale))+') scale('+box.scale+')">');
@@ -290,11 +359,11 @@
       var hasPanel=materialImage(statusPanel,box.x,box.y,box.width,box.height);
       if(hasPanel){
         materialImage(chosen('status-emblem'),box.x+20,box.y+14,36,36);
-        text(box.x+65,box.y+41,'特殊规则',24,'#72512f',700);
+        text(box.x+65,box.y+41,options.rulesTitle||'特殊规则',24,'#72512f',700);
         materialImage(chosen('status-divider'),box.x+25,box.y+53,box.width-50,24);
       }else{
         out.push('<rect x="'+box.x+'" y="'+box.y+'" width="'+box.width+'" height="'+box.height+'" rx="8" fill="'+(poster?'#eddbb5':palette[0])+'" stroke="'+(poster?'#b59b6e':palette[3])+'"/>');
-        text(box.x+25,box.y+33,'❖ 特殊规则 ❖',24,poster?'#72512f':palette[2],700);
+        text(box.x+25,box.y+33,'❖ '+(options.rulesTitle||'特殊规则')+' ❖',24,poster?'#72512f':palette[2],700);
       }
       box.lines.forEach(function(line,i){text(box.x+20,box.y+(hasPanel?87:68)+i*27,line,18,poster?'#493e31':palette[2]);});
       if(box.scale<1)out.push('</g>');
@@ -317,9 +386,7 @@
       if(hasMinion&&embedded(chosen('marker-minion')))setupMarkers.push(chosen('marker-minion'));
       if(hasDemon&&embedded(chosen('marker-demon')))setupMarkers.push(chosen('marker-demon'));
       var railInk=vintageBorder||hasNight&&nightTheme.dark?'#f2e8d7':'#665e4e';
-      var railTop=Math.min(440,Math.round(height*.27)),maxCount=Math.max((options.first||[]).length+setupMarkers.length,(options.other||[]).length,1);
-      var step=Math.min(47,(height-railTop-190)/(maxCount+2)),size=Math.min(50,step*.94);
-      if(Number.isFinite(layout.railTop)){railTop=layout.railTop;step=layout.railStep;size=layout.railSize;}
+      var geometry=nightRailGeometry(layout,options,pageIndex),railTop=geometry.top,step=geometry.step,size=geometry.size;
       [['first','首个','夜晚',0],['other','其他','夜晚',1208]].forEach(function(rail){
         var list=options[rail[0]]||[],x=rail[3],cx=x+36;
         out.push('<g class="night-rail" aria-label="'+(rail[0]==='first'?'首夜':'其他夜晚')+'">');
@@ -329,10 +396,11 @@
         var moonY=railTop+59;
         if(!materialImage(chosen('marker-dusk'),cx-17,moonY-17,34,34))out.push('<circle cx="'+cx+'" cy="'+moonY+'" r="15" fill="#d9d1c1" stroke="#aaa08b" stroke-width="1.3"/><path d="M '+(cx+6)+' '+(moonY-10)+' A 11 11 0 1 0 '+(cx+10)+' '+(moonY+5)+' A 9 9 0 0 1 '+(cx+6)+' '+(moonY-10)+'" fill="#777365"/>');
         var markers=rail[0]==='first'?setupMarkers:[];
-        markers.forEach(function(item,i){materialImage(item,cx-size/2,railTop+85+i*step,size,size);});
+        var markerSize=Math.min(40,size*.72);
+        markers.forEach(function(item,i){materialImage(item,cx-markerSize/2,railTop+85+i*step+(size-markerSize)/2,markerSize,markerSize);});
         list.forEach(function(role,i){
           var icon=icons[role.im]||icons[role.id],y=railTop+85+(i+markers.length)*step;
-          out.push('<g><title>'+esc((i+1)+'. '+role.n)+'</title>');
+          out.push('<g data-night="'+rail[0]+'" data-night-role="'+esc(role.id)+'"><title>'+esc((i+1)+'. '+role.n)+'</title>');
           sourceMark(role,cx-size/2,y,size);
           if(/^data:image\/(png|jpeg|webp);base64,/.test(icon||''))out.push('<image href="'+esc(icon)+'" x="'+(cx-size/2)+'" y="'+y+'" width="'+size+'" height="'+size+'"/>');
           else out.push('<text x="'+cx+'" y="'+(y+size*.6)+'" text-anchor="middle" font-size="'+Math.min(15,size*.32)+'" fill="'+railInk+'">'+esc(Array.from(role.n||'?').slice(0,3).join(''))+'</text>');
@@ -380,8 +448,10 @@
       // established image rendering. Crop in SVG, leaving source pixels intact.
       var normalizeIcon=iconBounds&&root.SCRIPT_ART_ICONS&&root.SCRIPT_ART_ICONS[iconKey]===icon&&Array.isArray(iconBounds.viewBox)&&iconBounds.viewBox.length===4&&iconBounds.viewBox.every(Number.isFinite)&&iconBounds.viewBox[2]>0&&iconBounds.viewBox[3]>0&&iconBounds.width>0&&iconBounds.height>0;
       if(/^data:image\/(png|jpeg|webp);base64,/.test(icon||'')){
-        if(normalizeIcon)out.push('<svg data-role-icon="'+esc(role.id)+'" data-icon-normalized="true" x="'+roleIconX+'" y="'+roleIconY+'" width="'+roleIconSize+'" height="'+roleIconSize+'" viewBox="'+iconBounds.viewBox.join(' ')+'" preserveAspectRatio="xMidYMid meet" overflow="hidden"><image href="'+esc(icon)+'" width="'+iconBounds.width+'" height="'+iconBounds.height+'"/></svg>');
-        else out.push('<image '+(print?'data-role-icon="'+esc(role.id)+'" preserveAspectRatio="xMidYMid meet" ':'')+'href="'+esc(icon)+'" x="'+roleIconX+'" y="'+roleIconY+'" width="'+roleIconSize+'" height="'+roleIconSize+'"/>');
+        var optical=iconGeometry(layout,item,iconKey,icon),opticalAttributes=optical.kind==='unchanged'?'':' data-icon-optical="'+optical.kind+'" data-icon-scale="'+optical.scale+'"';
+        roleIconX=optical.x;roleIconY=optical.y;roleIconSize=optical.size;
+        if(normalizeIcon)out.push('<svg data-role-icon="'+esc(role.id)+'"'+opticalAttributes+' data-icon-normalized="true" x="'+roleIconX+'" y="'+roleIconY+'" width="'+roleIconSize+'" height="'+roleIconSize+'" viewBox="'+iconBounds.viewBox.join(' ')+'" preserveAspectRatio="xMidYMid meet" overflow="hidden"><image href="'+esc(icon)+'" width="'+iconBounds.width+'" height="'+iconBounds.height+'"/></svg>');
+        else out.push('<image '+(print?'data-role-icon="'+esc(role.id)+'"'+opticalAttributes+' preserveAspectRatio="xMidYMid meet" ':'')+'href="'+esc(icon)+'" x="'+roleIconX+'" y="'+roleIconY+'" width="'+roleIconSize+'" height="'+roleIconSize+'"/>');
       }
       else {out.push('<circle cx="'+(roleIconX+roleIconSize/2)+'" cy="'+(roleIconY+roleIconSize/2)+'" r="'+(roleIconSize*.417)+'" fill="'+roleColors[item.team]+'" opacity="0.16"/>');text(roleIconX+roleIconSize*.323,roleIconY+roleIconSize*.635,Array.from(role.n||'?')[0],roleIconSize*.375,palette[2],600);}
       var nameSize=layout.nameSize||(poster?Math.max(28,layout.font+6):layout.font+4),offset=layout.textOffset||112;
@@ -391,14 +461,14 @@
       var name=wrap((role.n||role.id)+(item.continued?'（续）':''),item.width-offset,nameFontSize,measure,'name');
       var nameColor=nameInk(poster?roleColors[item.team]:palette[2]);
       var nameStroke=typography&&typography.roleNameStroke!==undefined?typography.roleNameStroke:print?.85:.45;
-      if(poster)out.push('<text data-role-name="'+esc(role.id)+'" x="'+(item.x+offset)+'" y="'+(item.y+nameBaseline)+'" font-family="'+(typography?typography.roleNameFamily:'STSong,SimSun,serif')+'" font-size="'+nameFontSize+'" font-weight="'+(typography?typography.roleNameWeight:900)+'" stroke="'+nameColor+'" stroke-width="'+nameStroke+'" paint-order="stroke fill" fill="'+nameColor+'">'+esc(name[0]+(name.length>1?'…':''))+'</text>');else text(item.x+offset,item.y+nameBaseline,name[0]+(name.length>1?'…':''),nameFontSize,nameColor,typography?typography.roleNameWeight:700,typography&&typography.roleNameFamily);
+      if(poster)(item.nameLines||[name[0]+(name.length>1?'…':'')]).forEach(function(line,index){out.push('<text data-role-name="'+esc(role.id)+'" x="'+(item.x+offset)+'" y="'+(item.y+nameBaseline+index*(item.nameLeading||nameFontSize))+'" font-family="'+(typography?typography.roleNameFamily:'STSong,SimSun,serif')+'" font-size="'+nameFontSize+'" font-weight="'+(typography?typography.roleNameWeight:900)+'" stroke="'+nameColor+'" stroke-width="'+nameStroke+'" paint-order="stroke fill" fill="'+nameColor+'">'+esc(line)+'</text>');});else text(item.x+offset,item.y+nameBaseline,name[0]+(name.length>1?'…':''),nameFontSize,nameColor,typography?typography.roleNameWeight:700,typography&&typography.roleNameFamily);
       // Classify the full ability before wrapping so a keyword retains its
       // color even when a line break falls inside it. Explicit paragraphs do
       // not create artificial matches across their boundary.
       var abilityValue=String(role.ab||'暂无能力描述').replace(/\r\n?/g,'\n');
       var abilityTokens=poster?abilityRuns(abilityValue):[],abilityOffset=0;
       item.lines.forEach(function(line,i){
-        var y=item.y+(layout.abilityY||62)+i*(layout.lineHeight||layout.font*1.5);
+        var y=item.y+(item.abilityY===undefined?(layout.abilityY||62):item.abilityY)+i*(layout.lineHeight||layout.font*1.5);
         if(!poster){text(item.x+offset,y,line,layout.font,palette[2],typography&&typography.bodyWeight,typography&&typography.bodyFamily);return;}
         while(abilityValue.charAt(abilityOffset)==='\n')abilityOffset++;
         var spans=abilitySpans(line,abilityOffset,abilityTokens);abilityOffset+=line.length;
@@ -407,7 +477,7 @@
       var noteStyle=details&&details.jinx;
       var noteY=item.y+item.noteTop,noteFont=layout.noteFont||(noteStyle?Math.max(noteStyle.minFont,layout.font-noteStyle.fontReduction)*(noteStyle.fontScale||1):print?Math.max(13,layout.font-5):Math.max(poster&&(options.ratio==='reference'||options.ratio==='readable')?12:16,layout.font-5));
       (item.notes||[]).forEach(function(note){
-        var x=item.x+(print?offset:96),partnerIcon=icons[note.partner.im]||icons[note.partner.id];
+        var x=item.x+(print?offset:96),partnerIcon=note.partner?(icons[note.partner.im]||icons[note.partner.id]):'';
         if(noteStyle)out.push('<g data-jinx-note="print"><rect x="'+x+'" y="'+noteY+'" width="'+(item.width-offset)+'" height="'+note.height+'" rx="'+noteStyle.radius+'" fill="'+noteStyle.fill+'" fill-opacity="'+noteStyle.fillOpacity+'" stroke="'+noteStyle.stroke+'" stroke-opacity="'+noteStyle.strokeOpacity+'" stroke-width="'+noteStyle.strokeWidth+'"/>');
         else out.push('<rect x="'+x+'" y="'+noteY+'" width="'+(item.width-(print?offset:96))+'" height="'+note.height+'" rx="7" fill="'+(options.theme==='night'&&!poster?'#344259':'#ddd7c9')+'"/>');
         var noteIconSize=noteStyle?noteStyle.iconSize:24;
@@ -423,13 +493,17 @@
       if(options.footer==='print-note'&&!options.pure){
         var footerY=layout.footerTop||height-270;
         var footerDetail=details&&details.footer,footerPadding=footerDetail?footerDetail.padding:20,footerTextX=246+footerPadding;
-        out.push('<g data-footer-style="print-note"><rect x="246" y="'+footerY+'" width="788" height="136" rx="18" fill="'+(footerDetail?footerDetail.fill:'#c6bbae')+'" stroke="#74665a" stroke-width="'+(footerDetail?footerDetail.strokeWidth:3)+'"/>');
+        var measuredFooter=layout.footerBox;
+        out.push('<g data-footer-style="print-note"><rect x="246" y="'+footerY+'" width="788" height="'+(measuredFooter?measuredFooter.height:136)+'" rx="18" fill="'+(footerDetail?footerDetail.fill:'#c6bbae')+'" stroke="#74665a" stroke-width="'+(footerDetail?footerDetail.strokeWidth:3)+'"/>');
+        if(measuredFooter){measuredFooter.definitions.forEach(function(def){text(footerTextX,footerY+def.titleY,def.name,24,'#7d2426',900);def.lines.forEach(function(line,i){text(footerTextX,footerY+def.bodyY+i*measuredFooter.lineHeight,line,measuredFooter.font,'#211a17',footerDetail?footerDetail.bodyWeight:600);});});}
+        else {
         text(footerTextX,footerY+28,'可能',24,'#7d2426',900);
         text(footerTextX,footerY+51,'某件事“可能”发生，代表说书人决定该事情是否发生。',17,'#211a17',footerDetail?footerDetail.bodyWeight:600);
         text(footerTextX,footerY+79,'中毒 / 醉酒',24,'#7d2426',900);
         artFooterLines('中毒或醉酒的玩家会失去能力，但会认为自己仍具有能力。说书人会做出这些玩家仍具有能力的行为。说书人可能会给出错误信息，中毒的玩家不会得知自己中毒。',788-footerPadding*2,17).forEach(function(line,i){text(footerTextX,footerY+101+i*20,line,17,'#211a17',footerDetail?footerDetail.bodyWeight:600);});
+        }
         out.push('</g>');
-      }else if(footHeight>0)materialImage(footnote,208,height-90-footHeight,864,footHeight);
+      }else if(footHeight>0)materialImage(footnote,208,layout.contentFit?layout.footerTop:height-90-footHeight,864,footHeight);
       if(!materialImage(!options.pure&&chosen('footer-night'),536,height-95,208,95))out.push('<path d="M 475 '+(height-57)+' Q 640 '+(height-110)+' 805 '+(height-57)+' L 805 '+height+' H 475 Z" fill="#766d60" opacity=".85"/><text x="640" y="'+(height-34)+'" text-anchor="middle" font-family="STSong,SimSun,serif" font-size="21" font-weight="700" fill="#fff5df">* 代表非首个夜晚</text>');
     }else text(96,height-52,'钟楼资料库 · 剧本制图',18,palette[3]);
     if(!poster)text(980,height-52,'完整剧本 · '+options.total+' 个角色',18,palette[3]);
@@ -439,5 +513,5 @@
     out.push('</svg>');return out.join('');
     function artFooterLines(value,width,size){return wrap(value,width,size,measure);}
   }
-  root.ScriptArt={layout:layout,svg:svg,wrap:wrap,jinxFor:jinxFor,roleBounds:roleBounds};
+  root.ScriptArt={layout:layout,svg:svg,wrap:wrap,jinxFor:jinxFor,notesFor:notesFor,noteText:noteText,roleBounds:roleBounds,nightRailBounds:nightRailBounds,iconGeometry:iconGeometry};
 })(typeof window==='undefined'?globalThis:window);

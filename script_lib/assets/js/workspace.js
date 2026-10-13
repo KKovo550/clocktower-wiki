@@ -18,8 +18,13 @@ function personalFor(s){
 function workspaceMatches(s){
  var completeness=document.getElementById('completionFilter').value,personal=document.getElementById('personalFilter').value;
  if(completeness==='missing-json'&&s[6]==='json')return false;
- if(completeness==='missing-images'&&shownCount(s))return false;
- if(completeness==='incomplete'&&s[6]==='json'&&shownCount(s))return false;
+ var pictures=pictureCompleteness(s);
+ if(completeness==='missing-images'&&pictures.state!=='missing-images')return false;
+ if(completeness==='missing-front'&&pictures.front)return false;
+ if(completeness==='missing-back'&&pictures.back)return false;
+ if(completeness==='ancillary'&&pictures.state!=='ancillary')return false;
+ if(completeness==='complete'&&(s[6]!=='json'||!pictures.complete))return false;
+ if(completeness==='incomplete'&&s[6]==='json'&&pictures.complete)return false;
  var r=personalFor(s);return !personal||(personal==='played'?r.plays.length>0:r[personal]===true);
 }
 function historyFor(i){return (window.LIBRARY_HISTORY||{})[recordKey(baseScripts[i][3])]||[];}
@@ -81,24 +86,28 @@ function useVersion(i,id){
  if(version){
   var r=version.row,indices=r.characters.map(function(c){var at=CHARS.findIndex(function(x){return JSON.stringify(x)===JSON.stringify(c);});if(at<0){at=CHARS.length;CHARS.push(c);}return at;});
   s.splice(0,s.length,r.name,r.author,r.category,base[3],r.count,indices,r.kind,r.description,r.url,r.imageDir,r.images,r.roles,base[12]);
+  s[12]=Object.assign({},base[12],{roster:null,comparisonText:r.original?r.original.t:null});
   chosenVersions[i]=version;versionChoices[recordKey(base[3])]=id;
  }
+ if(s[6]==='json')s[4]=libraryCharacterCount(s[5]);
  if(typeof buildCategoryTree==='function'){categoryTree=buildCategoryTree(SCRIPTS);categoryRendered=null;}
  s._cn=s[5].map(function(ci){return CHARS[ci][0];}).join(' ');s._s=(s[0]+' '+s[1]+' '+s[2]+' '+s._cn).toLowerCase();
 }
 function selectedOriginal(i,fallback){return chosenVersions[i]?chosenVersions[i].row.original:fallback;}
 function showMaintenance(){
  var sync=maintenance.sync,imp=maintenance.import,missingJson=baseScripts.filter(function(s){return s[6]!=='json';}),missingImages=baseScripts.filter(function(s){return !s[10].length;}),disabled=maintenanceToken&&!maintenanceJob?.running?'':' disabled';
- var h='<p>缺 JSON '+missingJson.length+' 个 · 缺图片 '+missingImages.length+' 个 · 下载待处理 '+(maintenance.pending||[]).length+' 篇</p>'+
+ var missingFront=baseScripts.filter(function(s){return !pictureCompleteness(s).front;}),missingBack=baseScripts.filter(function(s){return !pictureCompleteness(s).back;}),ancillary=baseScripts.filter(function(s){return pictureCompleteness(s).state==='ancillary';});
+ var h='<p>缺 JSON '+missingJson.length+' 条 · 无图片 '+missingImages.length+' 条 · 缺正面 '+missingFront.length+' 条 · 缺背面 '+missingBack.length+' 条 · 仅附图或未分类 '+ancillary.length+' 条 · 下载待处理 '+(maintenance.pending||[]).length+' 篇</p>'+
  '<button class="btn" data-completion="missing-json">查看缺 JSON</button><button class="btn" data-completion="missing-images">查看缺图片</button><button class="btn" data-maintenance="sync"'+disabled+'>检查更新 / 重试下载</button><button class="btn" data-maintenance="import"'+disabled+'>重新扫描入库</button><button class="btn" id="maintenanceReload">刷新网页目录</button>'+
+ '<button class="btn" data-completion="missing-front">查看缺正面</button><button class="btn" data-completion="missing-back">查看缺背面</button><button class="btn" data-completion="ancillary">查看仅附图或未分类</button>'+
  (!maintenanceToken?'<p>直接打开 HTML 时仅查看记录。请双击“启动剧本库.cmd”，打开终端显示的本机网址，即可在此执行维护。</p>':'')+
  '<h3>最近更新</h3>'+(sync?'<p>'+esc(new Date(sync.time).toLocaleString())+' · '+esc(sync.status)+' · 新图片 '+sync.downloaded+' 张 · 完成 '+sync.completed.length+' 篇 · 待处理 '+sync.pending.length+' 篇</p>':'<p>暂无同步记录</p>')+
  (sync?.completed?.length?'<ul>'+sync.completed.map(function(a){return '<li>'+esc(a.title)+' · '+a.files+' 张</li>';}).join('')+'</ul>':'')+
  (imp?'<p>最近入库：'+esc(new Date(imp.time).toLocaleString())+' · '+esc(imp.status)+' · 新增 '+imp.added+' · 更新 '+imp.updated+'</p>':'')+
  '<h3>下载失败与待处理</h3><ul>'+(maintenance.pending||[]).map(function(a){return '<li><a href="'+esc(a.url)+'" target="_blank" rel="noopener">'+esc(a.title)+'</a>：'+esc(a.error)+'</li>';}).join('')+'</ul>'+
  ((imp?.errors||[]).length?'<h3>入库错误</h3><ul>'+imp.errors.map(function(e){return '<li>'+esc(e.path)+'：'+esc(e.message)+'</li>';}).join('')+'</ul>':'')+
- '<h3>图片与 JSON 配对</h3><p>只列出名称完全相同的候选；确认后保留 JSON、图片、来源与个人记录，图文旧条目不再重复显示。</p>'+
- ((maintenance.candidates||[]).map(function(c,i){return '<div class="merge-candidate"><b>'+esc(c.name)+'</b>'+ (c.ambiguous?'（多个候选，请核对路径）':'')+'<p>图文：'+esc(c.from)+'<br>JSON：'+esc(c.to)+'</p><button class="btn" data-merge="'+i+'"'+disabled+'>确认合并到此 JSON</button></div>';}).join('')||'<p>暂无同名待配对条目。将对应 JSON 放入 library/json 后重新入库。</p>');
+ '<h3>图片与 JSON 配对</h3><p>支持括号、空格和英文译名不同的名称候选；请核对版本与角色名单。确认后保留 JSON、图片、来源与个人记录。</p>'+
+ ((maintenance.candidates||[]).map(function(c,i){return '<div class="merge-candidate"><b>'+esc(c.name)+(c.match==='alias'?' → '+esc(c.targetName):'')+'</b>'+ (c.ambiguous?'（多个候选，请核对路径）':'')+'<p>'+esc(c.reason||'请核对角色名单')+'<br>图文：'+esc(c.from)+'<br>JSON：'+esc(c.to)+'</p><button class="btn" data-merge="'+i+'"'+disabled+'>确认合并到此 JSON</button></div>';}).join('')||'<p>暂无待配对条目。将对应 JSON 放入 library/json 后重新入库。</p>');
  document.getElementById('maintenanceBody').innerHTML=h;
  document.querySelectorAll('[data-completion]').forEach(function(b){b.onclick=function(){document.getElementById('completionFilter').value=b.getAttribute('data-completion');render();};});
  document.querySelectorAll('[data-maintenance]').forEach(function(b){b.onclick=function(){runMaintenance(b.getAttribute('data-maintenance'));};});

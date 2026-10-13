@@ -1,0 +1,3 @@
+// 自动生成：独立剧本原文，文件名按内容校验。
+window.SCRIPT_ORIGINALS=window.SCRIPT_ORIGINALS||{};
+window.SCRIPT_ORIGINALS["a025824c3a5f88df9b12cfe6327cf96509ffb08da6767281ea28c22ec87bf663"]={"f":"十面埋伏V3.1.json","t":"[{\"id\":\"grandmother\"},{\"id\":\"artist\"},{\"id\":\"gambler\"},{\"id\":\"snake_charmer\"},{\"id\":\"gossip\"},{\"id\":\"dianxiaoer\"},{\"id\":\"lycanthrope\"},{\"id\":\"bounty_hunter\"},{\"id\":\"fortune_teller\"},{\"id\":\"langzhong\"},{\"id\":\"yishi\"},{\"id\":\"savant\"},{\"id\":\"monk\"},{\"id\":\"drunk\"},{\"id\":\"goon\"},{\"id\":\"hatter\"},{\"id\":\"klutz\"},{\"id\":\"pit-hag\"},{\"id\":\"poisoner\"},{\"id\":\"summoner\"},{\"id\":\"assassin\"},{\"id\":\"marionette\"},{\"id\":\"po\"},{\"id\":\"no_dashii\"},{\"id\":\"leviathan\"}]"};

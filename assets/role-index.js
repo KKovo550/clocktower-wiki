@@ -17,7 +17,7 @@ function tagHits(text,t){
   var out=[];
   pats.forEach(function(p){
     var m=(text||'').match(tagRe(p,true));
-    if(m)m.forEach(function(x){if(out.indexOf(x)<0)out.push(x);});
+    if(m)m.forEach(function(x){if(/^选择[一两三]名玩家$/.test(t)&&/(?:至多|最多|至少|一至)\s*[一二两三123]\s*[名位个]/.test(x))return;if(out.indexOf(x)<0)out.push(x);});
   });
   return out;
 }

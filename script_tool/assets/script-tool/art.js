@@ -1,16 +1,16 @@
 (function(){
   'use strict';
   var dialog,roles=[],icons={},plan,currentSvg='',previewUrl='',timer,revision=0,background='',backgroundRevision=0,iconPromise,decorationPromise,decorationReady=false;
-  var savedBlob,savedURL='',savedName='';
+  var savedBlob,savedURL='',savedName='',previewFitFrame=0,previewZoom='width';
   var pngJob=null,imageReads=new Set(),iconReads=new Set();
   function abortError(){var error=new Error('图片任务已取消');error.name='AbortError';return error;}
   function cancelPng(){if(pngJob&&pngJob.cancel)pngJob.cancel();}
   function cancelReads(kind){imageReads.forEach(function(cancel){if(!kind||cancel.kind===kind)cancel();});}
   function releaseImage(image){if(image){image.onload=image.onerror=null;if(image.removeAttribute)image.removeAttribute('src');}}
   var logo=null,logoRevision=0,logoJob=null;
-  var customJinx=[],jinxEditing=-1,jinxStorageKey='';
+  var customJinx=[],jinxEditing=-1,jinxStorageKey='',nightHistory=[],selectedNight=null,nightTouchClickUntil=0,activeNightCleanup=null;
   var measureCanvas=document.createElement('canvas'),measureContext=measureCanvas.getContext('2d');
-  function measure(value,size,kind){var typography=window.ScriptArtPresets.bodyTypography;var family=kind==='name'?typography.roleNameFamily:kind==='body'?typography.bodyFamily:'system-ui, "Microsoft YaHei", sans-serif';measureContext.font=size+'px '+family;return measureContext.measureText(value).width;}
+  function measure(value,size,kind){var typography=window.ScriptArtPresets.bodyTypography;var family=kind==='name'?typography.roleNameFamily:kind==='body'?typography.bodyFamily:'system-ui, "Microsoft YaHei", sans-serif';var weight=kind==='name'?typography.roleNameWeight:kind==='body'?window.ScriptArtPresets.printDetails.body.weight:400;measureContext.font=weight+' '+size+'px '+family;return measureContext.measureText(value).width;}
   var bodyFontPromise;
   function loadBodyFonts(){
     if(!window.FontFace||!document.fonts)return Promise.resolve();
@@ -207,12 +207,44 @@
   }
   var historyFields=['artSpacing','artTopDecoration','artScale','artUseLogo','artFrame','artFooter','artVersion','artPlayers','artTitleStyle','artRatio','artJinx','artPure','artStyle','artRules','artTitle','artAuthor','artSubtitle','artColumns','artTheme','artFont','artBackdrop','artPattern','artOrnament'];
   function booleanField(id){return id==='artJinx'||id==='artPure'||id==='artUseLogo'||id==='artTopDecoration';}
-  function view(mode){dialog.dataset.view=mode;dialog.scrollTop=0;dialog.querySelector('.art-workspace').scrollTop=0;el('artViewSettings').setAttribute('aria-pressed',String(mode==='settings'));el('artViewPreview').setAttribute('aria-pressed',String(mode==='preview'));}
+  // Size the stage itself so the image and edit targets have identical bounds.
+  // Width is the default; the independently scrolling viewport keeps text large.
+  function fitPreview(){
+    if(!dialog||!dialog.open||!plan)return;
+    var canvas=dialog.querySelector('.art-preview-viewport'),stage=dialog.querySelector('.art-stage'),image=el('artPreview');
+    if(!canvas.clientWidth||!canvas.clientHeight)return;
+    var style=window.getComputedStyle(canvas),state=el('artPreviewState');
+    var width=canvas.clientWidth-parseFloat(style.paddingLeft||0)-parseFloat(style.paddingRight||0);
+    var height=canvas.clientHeight-parseFloat(style.paddingTop||0)-parseFloat(style.paddingBottom||0)-(state.hidden?0:state.offsetHeight+12);
+    var ratio=image.complete&&image.naturalWidth&&image.naturalHeight?image.naturalWidth/image.naturalHeight:(plan.outputWidth||plan.width)/(plan.outputHeight||plan.height);
+    var natural=plan.outputWidth||plan.width;
+    if(width>0&&height>0&&ratio>0){
+      var size=previewZoom==='page'?Math.min(width,height*ratio):previewZoom==='width'?width:natural*previewZoom;
+      stage.style.width=Math.max(1,Math.floor(size))+'px';
+      el('artZoomValue').textContent=Math.round(size/natural*100)+'%';
+      el('artFitWidth').setAttribute('aria-pressed',String(previewZoom==='width'));el('artFitPage').setAttribute('aria-pressed',String(previewZoom==='page'));
+      el('artZoomOut').disabled=size/natural<=.15;el('artZoomIn').disabled=size/natural>=4;
+    }
+  }
+  function zoomPreview(mode){
+    var viewport=dialog.querySelector('.art-preview-viewport'),stage=dialog.querySelector('.art-stage'),a=stage.getBoundingClientRect(),b=viewport.getBoundingClientRect();
+    var x=(b.left+viewport.clientWidth/2-a.left)/Math.max(a.width,1),y=(b.top+viewport.clientHeight/2-a.top)/Math.max(a.height,1);
+    previewZoom=mode;fitPreview();
+    if(typeof mode==='number'){viewport.scrollLeft=stage.offsetLeft+x*stage.offsetWidth-viewport.clientWidth/2;viewport.scrollTop=stage.offsetTop+y*stage.offsetHeight-viewport.clientHeight/2;}
+    else{viewport.scrollLeft=0;viewport.scrollTop=0;}
+  }
+  function zoomBy(factor){if(!plan)return;var stage=dialog.querySelector('.art-stage'),base=plan.outputWidth||plan.width;zoomPreview(Math.max(.15,Math.min(4,stage.getBoundingClientRect().width/base*factor)));}
+  function schedulePreviewFit(){
+    if(previewFitFrame||!window.requestAnimationFrame){if(!window.requestAnimationFrame)fitPreview();return;}
+    previewFitFrame=window.requestAnimationFrame(function(){previewFitFrame=0;fitPreview();});
+  }
+  function view(mode){dialog.dataset.view=mode;dialog.scrollTop=0;dialog.querySelector('.art-workspace').scrollTop=0;el('artViewSettings').setAttribute('aria-pressed',String(mode==='settings'));el('artViewPreview').setAttribute('aria-pressed',String(mode==='preview'));schedulePreviewFit();}
   function focusSetting(id){view('settings');var field=el(id);for(var parent=field.parentElement;parent;parent=parent.parentElement)if(parent.tagName==='DETAILS')parent.open=true;field.focus();}
   function snapshot(){
     var fields={};historyFields.forEach(function(id){fields[id]=booleanField(id)?el(id).checked:el(id).value;});
     // Strings are immutable: share image data across history instead of copying it into every JSON snapshot.
-    return {data:JSON.stringify({roles:roles,customJinx:customJinx,fields:fields,preset:currentPreset}),background:background,logo:logo};
+    var imageRoles=roles.map(function(r){var copy=Object.assign({},r);delete copy.artFirst;delete copy.artOther;return copy;});
+    return {data:JSON.stringify({roles:imageRoles,customJinx:customJinx,fields:fields,preset:currentPreset}),background:background,logo:logo};
   }
   function sameSnapshot(a,b){return !!a&&!!b&&a.data===b.data&&a.background===b.background&&a.logo===b.logo;}
   function trimHistory(){
@@ -247,12 +279,13 @@
     var role=roles[i];roles[i]=roles[j];roles[j]=role;render();
   }
   function paintOverlay(){
+    if(activeNightCleanup)activeNightCleanup();
     var overlay=el('artOverlay');overlay.replaceChildren();var dragged='';
     function hit(label,x,y,w,h,action){
       var button=document.createElement('button');button.type='button';button.className='art-hit';button.setAttribute('aria-label',label);button.title=label;
       button.style.left=(x/plan.width*100)+'%';button.style.top=(y/plan.height*100)+'%';button.style.width=(w/plan.width*100)+'%';button.style.height=(h/plan.height*100)+'%';button.onclick=action;overlay.appendChild(button);return button;
     }
-    hit('编辑标题与作者',96,50,options().style==='poster'&&options().rules?520:1088,150,function(){focusSetting('artTitle');el('artTitle').select();});
+    hit('编辑标题与作者',96,plan.header?plan.header.logoTop:50,options().style==='poster'&&options().rules?520:1088,plan.header?plan.bodyTop-plan.header.logoTop-4:150,function(){focusSetting('artTitle');el('artTitle').select();});
     if(plan.ruleBox){var box=plan.ruleBox;hit('编辑特殊规则',box.x,box.y,box.width*box.scale,box.height*box.scale,function(){focusSetting('artRules');});}
     plan.pages[0].filter(function(item){return item.kind==='role';}).forEach(function(item){
       var bounds=ScriptArt.roleBounds(plan,item);
@@ -263,14 +296,46 @@
       button.addEventListener('drop',function(e){e.preventDefault();swapRoles(dragged,item.role.id);dragged='';});
       button.addEventListener('dragend',function(){dragged='';overlay.querySelectorAll('.art-drop').forEach(function(b){b.classList.remove('art-drop');});});
     });
+    ScriptArt.nightRailBounds(plan,options(),0).forEach(function(bounds){
+      var label=(bounds.night==='first'?'首夜':'其他夜晚')+' · '+(bounds.index+1)+'. '+bounds.role.n+'；拖动调整夜序，方向键上下移动';
+      var b=hit(label,bounds.x,bounds.y,bounds.width,bounds.height,function(){if(Date.now()>=nightTouchClickUntil)inspectNight(bounds.night,bounds.role.id,true);});b.classList.add('art-night-hit');b.dataset.night=bounds.night;b.dataset.nightRole=bounds.role.id;b.draggable=false;
+      b.addEventListener('keydown',function(e){if(['ArrowUp','ArrowDown'].includes(e.key)){e.preventDefault();stepNight(bounds.night,bounds.role.id,e.key==='ArrowUp'?-1:1);var next=Array.from(el('artOverlay').querySelectorAll('.art-night-hit')).find(function(n){return n.dataset.night===bounds.night&&n.dataset.nightRole===bounds.role.id;});if(next)next.focus();}});
+      // Button hit targets use pointer dragging for mouse, touch and pen.
+      var touch=null;
+      function clearNightDrag(){overlay.querySelectorAll('.art-drop,.art-dragging').forEach(function(n){n.classList.remove('art-drop','art-dragging');});}
+      function cleanupPointer(){document.removeEventListener('pointermove',movePointer,true);document.removeEventListener('pointerup',endPointer,true);document.removeEventListener('pointercancel',cancelPointer,true);if(touch&&b.hasPointerCapture&&b.hasPointerCapture(touch.pointer)){try{b.releasePointerCapture(touch.pointer);}catch(e){}}touch=null;clearNightDrag();activeNightCleanup=null;}
+      function movePointer(e){if(!touch||touch.pointer!==e.pointerId)return;touch.moved=touch.moved||Math.hypot(e.clientX-touch.x,e.clientY-touch.y)>8;if(touch.moved){e.preventDefault();clearNightDrag();b.classList.add('art-dragging');var target=document.elementFromPoint(e.clientX,e.clientY);target=target&&target.closest('.art-night-hit');if(target&&target.dataset.night===bounds.night)target.classList.add('art-drop');var v=dialog.querySelector('.art-preview-viewport'),rect=v.getBoundingClientRect();if(e.clientY<rect.top+35)v.scrollTop-=18;else if(e.clientY>rect.bottom-35)v.scrollTop+=18;}}
+      function endPointer(e){if(!touch||touch.pointer!==e.pointerId)return;var moved=touch.moved;cleanupPointer();if(!moved)return;nightTouchClickUntil=Date.now()+300;e.preventDefault();var target=document.elementFromPoint(e.clientX,e.clientY);target=target&&target.closest('.art-night-hit');if(target&&target.dataset.night===bounds.night)moveNight(bounds.night,bounds.role.id,target.dataset.nightRole);}
+      function cancelPointer(e){if(touch&&touch.pointer===e.pointerId)cleanupPointer();}
+      b.addEventListener('pointerdown',function(e){if(e.button>0||activeNightCleanup)return;touch={pointer:e.pointerId,x:e.clientX,y:e.clientY,moved:false};activeNightCleanup=cleanupPointer;if(b.setPointerCapture)b.setPointerCapture(e.pointerId);document.addEventListener('pointermove',movePointer,true);document.addEventListener('pointerup',endPointer,true);document.addEventListener('pointercancel',cancelPointer,true);});
+    });
   }
-  function options(){var imported=ScriptCore.ruleSections(typeof SCRIPT_RULES==='undefined'?[]:SCRIPT_RULES,roles),pure=el('artPure').checked,preset=window.ScriptArtPresets.presets[currentPreset]||{};return {spacing:el('artSpacing').value,topDecoration:!pure&&el('artTopDecoration').checked,titleDecoration:preset.titleDecoration||'',logo:el('artUseLogo').checked?logo:null,pure:pure,nightTheme:pure?'':el('artFrame').value,footer:pure?'':el('artFooter').value,frame:el('artFrame').value,version:el('artVersion').value,players:el('artPlayers').value,titleStyle:el('artTitleStyle').value,showJinx:el('artJinx').checked,jinx:(typeof JINX==='undefined'?[]:JINX).concat(customJinx,imported.jinx),style:el('artStyle').value,ratio:el('artRatio').value,rules:[el('artRules').value].concat(imported.other.map(function(rule){return rule.name+'：'+rule.ability;})).filter(Boolean).join('\n'),first:roles.filter(function(r){return r.artFirst>0;}).sort(function(a,b){return a.artFirst-b.artFirst;}),other:roles.filter(function(r){return r.artOther>0;}).sort(function(a,b){return a.artOther-b.artOther;}),columns:el('artColumns').value,font:el('artFont').value,theme:el('artTheme').value,title:el('artTitle').value,author:el('artAuthor').value,subtitle:el('artSubtitle').value,total:roles.length,background:pure?'':background,backdrop:pure||background?'':el('artBackdrop').value,pattern:pure?'':el('artPattern').value,ornament:pure?'':el('artOrnament').value,decorations:window.SCRIPT_ART_DECORATIONS||[]};}
+  function sourceNights(night){var field=night==='first'?'firstNight':'otherNight',source=typeof sel==='undefined'?roles:sel;return source.filter(function(r){return ScriptCore.nightOrder(r,typeof SCRIPT_NIGHT_ORDER==='undefined'?{}:SCRIPT_NIGHT_ORDER,window.NIGHT_OVERRIDES||{})[field]>0;}).sort(function(a,b){return ScriptCore.nightOrder(a,window.SCRIPT_NIGHT_ORDER||{},window.NIGHT_OVERRIDES||{})[field]-ScriptCore.nightOrder(b,window.SCRIPT_NIGHT_ORDER||{},window.NIGHT_OVERRIDES||{})[field];});}
+  function updateNightEditor(){
+    if(!selectedNight)return;
+    var list=sourceNights(selectedNight.night),at=list.findIndex(function(r){return r.id===selectedNight.id;}),role=roles.find(function(r){return r.id===selectedNight.id;});
+    el('artNightHeading').textContent=(selectedNight.night==='first'?'首夜':'其他夜晚')+' · '+(role?role.n:'角色');el('artNightPosition').textContent=at<0?'本夜未配置行动':'第 '+(at+1)+' / '+list.length+' 位 · 调整会同步到剧本夜序与 JSON';
+    el('artNightUp').disabled=at<=0;el('artNightDown').disabled=at<0||at===list.length-1;
+    if(nightHistory.length&&nightHistory[nightHistory.length-1].after!==JSON.stringify(window.NIGHT_OVERRIDES||{}))nightHistory=[];
+    el('artNightUndo').disabled=!nightHistory.length;
+  }
+  function inspectNight(night,id,focus){selectedNight={night:night,id:id};el('artNightEditor').hidden=false;el('artNightEditor').tabIndex=-1;updateNightEditor();if(focus)focusSetting('artNightEditor');}
+  function applyNight(next,label){
+    var before=JSON.parse(JSON.stringify(window.NIGHT_OVERRIDES||{}));if(JSON.stringify(before)===JSON.stringify(next))return;
+    window.NIGHT_OVERRIDES=next;nightHistory.push({before:before,after:JSON.stringify(next)});if(nightHistory.length>20)nightHistory.shift();
+    var saved=typeof save==='function'?save():true;render();updateNightEditor();message(label+(saved===false?'。自动保存失败，请在剧本工具导出 JSON 备份。':'，已同步剧本夜序与 JSON 导出。'));
+  }
+  function moveNight(night,from,to){if(from===to)return;var field=night==='first'?'firstNight':'otherNight',source=typeof sel==='undefined'?roles:sel;
+    try{var next=ScriptCore.reorderNight(source,window.SCRIPT_NIGHT_ORDER||{},window.NIGHT_OVERRIDES||{},field,from,to);inspectNight(night,from,false);applyNight(next,'已调整'+(night==='first'?'首夜':'其他夜晚'));}catch(e){message(e.message);}
+  }
+  function stepNight(night,id,delta){var list=sourceNights(night),at=list.findIndex(function(r){return r.id===id;});if(at>=0&&list[at+delta])moveNight(night,id,list[at+delta].id);}
+  function options(){var imported=ScriptCore.ruleSections(typeof SCRIPT_RULES==='undefined'?[]:SCRIPT_RULES,roles),pure=el('artPure').checked,preset=window.ScriptArtPresets.presets[currentPreset]||{},globalText=el('artRules').value,oneGlobal=!globalText.trim()&&imported.other.length===1;return {roleRules:imported.role,rulesTitle:oneGlobal?imported.other[0].name:'特殊规则',spacing:el('artSpacing').value,topDecoration:!pure&&el('artTopDecoration').checked,titleDecoration:preset.titleDecoration||'',logo:el('artUseLogo').checked?logo:null,pure:pure,nightTheme:pure?'':el('artFrame').value,footer:pure?'':el('artFooter').value,frame:el('artFrame').value,version:el('artVersion').value,players:el('artPlayers').value,titleStyle:el('artTitleStyle').value,showJinx:el('artJinx').checked,jinx:ScriptCore.effectiveJinx(roles,typeof JINX==='undefined'?[]:JINX,imported.jinx).concat(customJinx),style:el('artStyle').value,ratio:el('artRatio').value,rules:[globalText].concat(imported.other.map(function(rule){return (oneGlobal?'':rule.name+'：')+rule.ability;})).filter(Boolean).join('\n'),first:roles.filter(function(r){return r.artFirst>0;}).sort(function(a,b){return a.artFirst-b.artFirst;}),other:roles.filter(function(r){return r.artOther>0;}).sort(function(a,b){return a.artOther-b.artOther;}),columns:el('artColumns').value,font:el('artFont').value,theme:el('artTheme').value,title:el('artTitle').value,author:el('artAuthor').value,subtitle:el('artSubtitle').value,total:roles.length,background:pure?'':background,backdrop:pure||background?'':el('artBackdrop').value,pattern:pure?'':el('artPattern').value,ornament:pure?'':el('artOrnament').value,decorations:window.SCRIPT_ART_DECORATIONS||[]};}
   function showPage(){
     var index=0;
     currentSvg=ScriptArt.svg(plan,index,options(),icons,measure);
     if(previewUrl)URL.revokeObjectURL(previewUrl);
     previewUrl=URL.createObjectURL(new Blob([currentSvg],{type:'image/svg+xml;charset=utf-8'}));
-    el('artPreviewState').hidden=true;el('artPreview').src=previewUrl;paintOverlay();enabled(true);
+    el('artPreviewState').hidden=true;el('artPreview').src=previewUrl;paintOverlay();enabled(true);schedulePreviewFit();
   }
   function render(){
     cancelPng();
@@ -280,7 +345,7 @@
     resetSaved();
     if(!dialog.open)return;
     // Night order belongs to the script, not to the image editor's undo history.
-    roles.forEach(function(role){var night=ScriptCore.nightOrder(role,typeof SCRIPT_NIGHT_ORDER==='undefined'?{}:SCRIPT_NIGHT_ORDER,typeof NIGHT_OVERRIDES==='undefined'?{}:NIGHT_OVERRIDES);role.artFirst=night.firstNight;role.artOther=night.otherNight;});
+    roles.forEach(function(role){var night=ScriptCore.nightOrder(role,typeof SCRIPT_NIGHT_ORDER==='undefined'?{}:SCRIPT_NIGHT_ORDER,typeof NIGHT_OVERRIDES==='undefined'?{}:NIGHT_OVERRIDES);role.artFirst=night.firstNight;role.artOther=night.otherNight;});updateNightEditor();
     el('artColumns').disabled=el('artStyle').value==='poster';
     el('artRatio').disabled=false;
     try{
@@ -381,10 +446,10 @@
       '<section class="art-script-info" aria-label="剧本信息"><strong>剧本信息</strong><label>剧本标题<input id="artTitle" maxlength="100"></label><label>剧本作者<input id="artAuthor" maxlength="48" placeholder="例如：Artem"></label><label>支持人数<input id="artPlayers" maxlength="24" placeholder="例如：支持 7–15 人"></label><label>版本号<input id="artVersion" maxlength="18" placeholder="例如：V 1.0"></label><p class="art-note">作者和人数在图片中使用黑字；留空则不显示。</p></section>'+
       '<label>快速版式<select id="artPreset"><option value="">选择版式预设…</option></select></label><p class="art-note">复古官方风锁定参考图原始尺寸；内容优先紧凑适配。其他预设继续保留，切换可撤销。</p><label><input type="checkbox" id="artPure">一键纯净（隐藏背景、底纹和装饰）</label>'+
       '<div class="art-downloads"><button type="button" class="btn" id="artUndo" disabled>撤销</button><button type="button" class="btn" id="artRedo" disabled>重做</button><button type="button" class="btn" id="artResetOrder">恢复角色排序</button></div><p class="art-note">点击画布上的角色编辑能力与相克，拖拽交换同类角色。修改仅用于制图；夜序仍沿用剧本工具设置。</p><section id="artRoleEditor" hidden><strong id="artRoleHeading"></strong><label>图片中的能力说明<textarea id="artRoleAbility" maxlength="20000"></textarea></label><button type="button" id="artRoleApply" class="btn">应用说明</button><button type="button" id="artRoleJinx" class="btn">添加相克</button><label>与同类角色交换<select id="artSwapTarget"></select></label><button type="button" id="artSwap" class="btn">交换位置</button><button type="button" id="artRoleClose" class="btn">收起</button></section>'+
-      '</section><details id="artAdvancedSettings" class="art-advanced-settings"><summary>高级设置 · 排版、背景与夜序</summary><div class="art-advanced-fields"><label><input type="checkbox" id="artJinx" checked>显示已选角色间的相克规则</label>'+
-      '<details class="art-custom-jinx"><summary>自定义相克规则</summary><label>角色一<select id="artJinxRoleA"></select></label><label>角色二<select id="artJinxRoleB"></select></label><label>相克说明<textarea id="artJinxText" maxlength="2000" placeholder="填写这两个角色之间的特殊互动规则"></textarea></label><button type="button" class="btn" id="artJinxAdd">添加相克规则</button><button type="button" class="btn" id="artJinxCancel">取消修改</button><p id="artJinxMessage" role="status"></p><div id="artCustomJinxList"></div><p class="art-note">仅用于当前角色组合的制图，保存到此浏览器，不改变全站规则或剧本 JSON。</p></details>'+
+      '<section id="artNightEditor" hidden><strong id="artNightHeading"></strong><p id="artNightPosition" class="art-note"></p><div class="art-downloads"><button type="button" id="artNightUp" class="btn">上移</button><button type="button" id="artNightDown" class="btn">下移</button><button type="button" id="artNightUndo" class="btn" disabled>撤回夜序调整</button><button type="button" id="artNightReset" class="btn">恢复本夜默认</button><button type="button" id="artNightClose" class="btn">收起</button></div></section><p class="art-note">拖动两侧的角色图标调整夜序；首夜与其他夜晚分别排序，也可点击图标后上移 / 下移。</p></section><details id="artAdvancedSettings" class="art-advanced-settings"><summary>高级设置 · 排版、背景与夜序</summary><div class="art-advanced-fields"><label><input type="checkbox" id="artJinx" checked>显示已选角色间的相克规则</label>'+
+      '<details class="art-custom-jinx"><summary>双角色相克（仅用于图片）</summary><label>角色一<select id="artJinxRoleA"></select></label><label>角色二<select id="artJinxRoleB"></select></label><label>相克说明<textarea id="artJinxText" maxlength="2000" placeholder="填写这两个角色之间的特殊互动规则"></textarea></label><button type="button" class="btn" id="artJinxAdd">添加相克规则</button><button type="button" class="btn" id="artJinxCancel">取消修改</button><p id="artJinxMessage" role="status"></p><div id="artCustomJinxList"></div><p class="art-note">仅用于当前角色组合的制图，保存到此浏览器，不改变全站规则或剧本 JSON。</p></details>'+
       '<label>图片比例<select id="artRatio"><option value="fixed" selected>固定参考图尺寸</option><option value="readable">允许自动加长 · 保留字号</option><option value="reference">固定参考比例 · 约 1:1.35</option><option value="auto">允许自动加长 · 自由画布</option></select></label><p id="artCanvasInfo" class="art-size-note"></p>'+
-      '<label>排版密度<select id="artSpacing"><option value="printCompact" selected>紧凑印刷排版</option><option value="comfortable">舒展排版</option></select></label><label>版式<select id="artStyle"><option value="poster" selected>参考图海报 · 阵营分区与两侧夜序</option><option value="simple">简洁分栏</option></select></label><label>特殊规则<textarea id="artRules" maxlength="2000" placeholder="例如：私货商人的特殊规则（可留空）"></textarea></label>'+
+      '<button type="button" class="btn" id="artScriptRules">编辑单角色 / 全局规则</button><p class="art-note">单个角色的特殊规则、私货商人的全局玩法可在剧本规则中编辑，并随 JSON 保存。</p><label>排版密度<select id="artSpacing"><option value="printCompact" selected>紧凑印刷排版</option><option value="comfortable">舒展排版</option></select></label><label>版式<select id="artStyle"><option value="poster" selected>参考图海报 · 阵营分区与两侧夜序</option><option value="simple">简洁分栏</option></select></label><label>图片额外规则备注<textarea id="artRules" maxlength="2000" placeholder="例如：私货商人的特殊规则（可留空）"></textarea></label>'+
       '<label>夜序边栏<select id="artFrame"><option value="paper">柔和纸色</option><option value="charcoal">暗纹 · 朱红边线</option><option value="midnight">靛蓝 · 紫色边线</option></select></label><label>标题 Logo 预设<select id="artTitleStyle"><option value="plain">简洁黑体</option><option value="epic">立体海报 · 蓝紫描边</option><option value="brush">墨色书法</option><option value="classic">古典宋体</option><option value="gold">鎏金铭文</option><option value="crimson">暗红悬疑</option><option value="vintage-crimson" selected>古典酒红铭文</option><option value="shards">蓝晶拼字</option><option value="ember">赤焰铜刻</option><option value="obsidian">黑金徽记</option><option value="jade">青玉古篆</option><option value="lunar">月夜秘仪</option><option value="violet">紫银幻境</option></select></label>'+logoControls()+'<label><input type="checkbox" id="artTopDecoration">显示顶部古典徽记（可关闭）</label><label>副标题 / 备注<input id="artSubtitle" maxlength="65" placeholder="例如：适合 9–12 人 · 第三版"></label>'+
       '<div class="art-pair"><label>分栏<select id="artColumns"><option value="1">单列</option><option value="2" selected>双列</option><option value="3">三列</option></select></label><label>配色<select id="artTheme"><option value="cloud">云白</option><option value="paper">暖纸</option><option value="night">深夜</option></select></label></div>'+
       '<label>说明字号<select id="artFont"><option value="20">紧凑</option><option value="24" selected>标准</option><option value="28">大字</option></select></label>'+
@@ -393,8 +458,13 @@
       '<p class="art-note">图片只在本机处理。固定尺寸会依次压缩间距、行距、分区和字号，必要时平衡双列；容纳不下会提示，不裁切文字。只有手动选择“允许自动加长”才增高画布。导入图标会尝试联网加载并嵌入图片；失效或不允许跨域读取的图标使用文字占位。</p>'+
       '</div></details><section class="art-export-settings" aria-label="图片导出"><label>PNG 清晰度<select id="artScale"><option value="1" selected>原始画布尺寸（与参考图一致）</option><option value="2">手动放大 2 倍（用于高清打印）</option></select></label>'+
       '<div class="art-downloads"><button type="button" class="btn pri" id="artSave" disabled>保存 / 分享图片</button><button type="button" class="btn" id="artPng" disabled>下载 PNG</button><button type="button" class="btn" id="artSvg" disabled>下载 SVG</button></div><div id="artSavePanel" hidden><p>长按下方图片保存到相册，或点击系统分享。</p><img id="artSavePreview" alt="可长按保存的完整剧本 PNG"><div class="art-downloads"><button type="button" class="btn" id="artShare">系统分享</button><button type="button" class="btn" id="artSaveDownload">下载 PNG</button><a id="artSaveOpen" class="btn" target="_blank" rel="noopener">打开图片</a></div></div><p id="artStatus" role="status" aria-live="polite"></p></section>'+
-      '</section><section class="art-canvas" aria-label="剧本图片预览"><div id="artPreviewState" class="art-preview-state" role="status" aria-live="polite"><strong id="artPreviewHeading">正在生成预览</strong><p id="artPreviewMessage"></p><button type="button" class="btn" id="artReviewLayout" hidden>查看尺寸与排版设置</button></div><div class="art-stage"><img id="artPreview" alt="可点击角色编辑的剧本图片预览"><div id="artOverlay"></div></div></section></div>';
+      '</section><section class="art-canvas" aria-label="剧本图片预览"><div class="art-preview-toolbar" role="group" aria-label="预览缩放"><button type="button" class="btn" id="artZoomOut" aria-label="缩小预览">−</button><output id="artZoomValue" aria-live="polite">适应宽度</output><button type="button" class="btn" id="artZoomIn" aria-label="放大预览">＋</button><button type="button" class="btn" id="artFitWidth" aria-pressed="true">适应宽度</button><button type="button" class="btn" id="artFitPage" aria-pressed="false">查看整图</button></div><div class="art-preview-viewport" tabindex="0" aria-label="图片预览，可滚动查看细节"><div id="artPreviewState" class="art-preview-state" role="status" aria-live="polite"><strong id="artPreviewHeading">正在生成预览</strong><p id="artPreviewMessage"></p><button type="button" class="btn" id="artReviewLayout" hidden>查看尺寸与排版设置</button></div><div class="art-stage"><img id="artPreview" alt="可点击角色编辑的剧本图片预览"><div id="artOverlay"></div></div></div></section></div>';
     document.body.appendChild(dialog);
+    el('artNightUp').onclick=function(){if(selectedNight)stepNight(selectedNight.night,selectedNight.id,-1);};el('artNightDown').onclick=function(){if(selectedNight)stepNight(selectedNight.night,selectedNight.id,1);};el('artNightClose').onclick=function(){el('artNightEditor').hidden=true;};
+    el('artNightUndo').onclick=function(){updateNightEditor();if(!nightHistory.length)return;var previous=nightHistory.pop();window.NIGHT_OVERRIDES=previous.before;var saved=typeof save==='function'?save():true;render();updateNightEditor();message(saved===false?'已撤回，自动保存失败，请导出 JSON 备份。':'已撤回上次夜序调整。');};
+    el('artNightReset').onclick=function(){if(!selectedNight)return;var field=selectedNight.night==='first'?'firstNight':'otherNight',next=JSON.parse(JSON.stringify(window.NIGHT_OVERRIDES||{}));(typeof sel==='undefined'?roles:sel).forEach(function(r){if(next[r.id]){delete next[r.id][field];if(!Object.keys(next[r.id]).length)delete next[r.id];}});applyNight(next,'已恢复本夜默认顺序');};
+    el('artZoomOut').onclick=function(){zoomBy(.8);};el('artZoomIn').onclick=function(){zoomBy(1.25);};
+    el('artFitWidth').onclick=function(){zoomPreview('width');};el('artFitPage').onclick=function(){zoomPreview('page');};
     var config=window.ScriptArtPresets,ref=config.reference;currentPreset=config.defaultPreset;
     Object.keys(config.presets).forEach(function(key){var option=document.createElement('option');option.value=key;option.textContent=config.presets[key].label;el('artPreset').appendChild(option);});
     el('artPreset').value=currentPreset;
@@ -414,6 +484,7 @@
     el('artSwap').onclick=function(){swapRoles(activeRole,el('artSwapTarget').value);};
     el('artRoleJinx').onclick=function(){clearJinxEditor();el('artJinxRoleA').value=activeRole;var partner=roles.find(function(r){return r.id!==activeRole;});if(partner)el('artJinxRoleB').value=partner.id;focusSetting('artJinxText');};
     dialog.addEventListener('keydown',function(e){if((e.ctrlKey||e.metaKey)&&!e.altKey&&!/INPUT|TEXTAREA|SELECT/.test(e.target.tagName)&&['z','y'].includes(e.key.toLowerCase())){e.preventDefault();travelHistory(e.key.toLowerCase()==='y'||e.shiftKey?1:-1);}});
+    el('artScriptRules').hidden=!window.ScriptRuleEditor;el('artScriptRules').onclick=function(){dialog.close();window.ScriptRuleEditor.open('special');};
     el('artJinxCancel').onclick=clearJinxEditor;
     el('artJinxAdd').onclick=function(){
       var a=el('artJinxRoleA').value,b=el('artJinxRoleB').value,text=el('artJinxText').value.trim();
@@ -425,9 +496,13 @@
       el('artJinx').checked=true;clearJinxEditor();persistJinx();listJinx();render();
     };
     el('artReviewLayout').onclick=function(){focusSetting('artRatio');if(el('artRatio').scrollIntoView)el('artRatio').scrollIntoView({block:'center'});};
+    el('artPreview').onload=schedulePreviewFit;
     el('artPreview').onerror=function(){enabled(false);var text='预览图片未能显示，请调整设置后重试。';previewState(text,true);message(text);};
+    if(window.ResizeObserver){var previewSizer=new window.ResizeObserver(schedulePreviewFit);previewSizer.observe(dialog.querySelector('.art-preview-viewport'));}
+    else window.addEventListener('resize',schedulePreviewFit);
+    if(window.visualViewport)window.visualViewport.addEventListener('resize',schedulePreviewFit);
     el('artClose').onclick=function(){dialog.close();};
-    dialog.addEventListener('close',function(){revision++;logoRevision++;cancelPng();cancelReads();iconReads.forEach(function(cancel){cancel();});cancelAiLogo();resetSaved();clearTimeout(timer);currentSvg='';enabled(false);if(previewUrl){URL.revokeObjectURL(previewUrl);previewUrl='';}el('artPreview').removeAttribute('src');el('artOverlay').replaceChildren();});
+    dialog.addEventListener('close',function(){if(activeNightCleanup)activeNightCleanup();revision++;logoRevision++;cancelPng();cancelReads();iconReads.forEach(function(cancel){cancel();});cancelAiLogo();resetSaved();clearTimeout(timer);currentSvg='';enabled(false);if(previewUrl){URL.revokeObjectURL(previewUrl);previewUrl='';}el('artPreview').removeAttribute('src');el('artOverlay').replaceChildren();});
     historyFields.forEach(function(id){el(id).addEventListener('input',function(){if(id==='artUseLogo'||id==='artTitle'){logoRevision++;cancelAiLogo();}queue();});});
     el('artGenerateLogo').onclick=generateAiLogo;el('artCancelLogo').onclick=cancelAiLogo;
     ['artLogoStyle','artLogoPrompt'].forEach(function(id){el(id).addEventListener('input',cancelAiLogo);});
@@ -457,7 +532,7 @@
     var draftId=typeof CURRENT_DRAFT_ID==='undefined'?'':CURRENT_DRAFT_ID,signature=JSON.stringify([draftId,sel]);var fresh=signature!==sourceSignature;
     if(sourceTitle!==el('mname').value||sourceDraft!==draftId){logoRevision++;logo=null;el('artUseLogo').checked=false;el('artLogoFile').value='';}
     sourceDraft=draftId;
-    if(fresh){sourceSignature=signature;history=[];historyIndex=-1;originalOrder=imageRoles.map(function(r){return r.id;});
+    if(fresh){sourceSignature=signature;history=[];historyIndex=-1;nightHistory=[];selectedNight=null;el('artNightEditor').hidden=true;originalOrder=imageRoles.map(function(r){return r.id;});
     roles=imageRoles.map(function(role){var night=typeof ScriptCore!=='undefined'?ScriptCore.nightOrder(role,typeof SCRIPT_NIGHT_ORDER==='undefined'?{}:SCRIPT_NIGHT_ORDER,typeof NIGHT_OVERRIDES==='undefined'?{}:NIGHT_OVERRIDES):{firstNight:role.f||0,otherNight:role.o||0};return Object.assign({},role,{artSource:artworkSource(role),artFirst:night.firstNight,artOther:night.otherNight});});
     el('artJinxMessage').textContent='';prepareJinx();
     el('artRoleEditor').hidden=true;

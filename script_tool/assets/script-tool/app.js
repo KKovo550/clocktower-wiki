@@ -189,19 +189,6 @@ function renderStat(){
   var mobileBadge=document.getElementById('mobileSelectionCount');if(mobileBadge)mobileBadge.textContent=c.total;
   var mobileArt=document.getElementById('bMobileArt');if(mobileArt)mobileArt.disabled=!c.total;
 }
-function renderJinx(){
-  var rulesBox=document.getElementById('scriptRules');
-  if(!rulesBox){rulesBox=document.createElement('details');rulesBox.id='scriptRules';document.getElementById('jinxbox').after(rulesBox);}
-  rulesBox.hidden=!SCRIPT_RULES.length;rulesBox.replaceChildren();
-  if(SCRIPT_RULES.length){var summary=document.createElement('summary');summary.textContent='剧本相克 / 作者规则（'+SCRIPT_RULES.length+' 条）';rulesBox.appendChild(summary);SCRIPT_RULES.forEach(function(rule){var entry=document.createElement('div'),title=document.createElement('strong'),text=document.createElement('p');title.textContent=rule.name;text.textContent=rule.ability;entry.append(title,text);rulesBox.appendChild(entry);});}
-
-  var hit=ScriptCore.matchJinx(sel,JINX.concat(SCRIPT_RULES)).map(function(match){return {pair:match.roles.map(function(r){return r.n;}).join(' & '),ab:match.text};});
-  var box=document.getElementById('jinxbox');
-  if(!hit.length){box.innerHTML='';return;}
-  box.innerHTML='<div class="jinx"><b>相克提示（'+hit.length+' 条）</b>'+
-    hit.map(function(x){return '<div style="margin-top:4px">'+esc(x.pair)+
-      '</div><div class="jit">'+esc(x.ab)+'</div>';}).join('')+'</div>';
-}
 function renderSel(){
   var by=groups(), h='';
   TEAMORD.concat(['custom']).forEach(function(t){
@@ -223,7 +210,7 @@ function renderSel(){
   document.getElementById('sel').innerHTML=h||'<div class="empty">剧本还是空的</div>';
 }
 function renderAll(){
-  renderTabs(); renderGrid(); renderStat(); renderJinx(); renderSel(); if(typeof renderScriptChecks==='function')renderScriptChecks(); save();
+  renderTabs(); renderGrid(); renderStat(); renderSel(); if(typeof renderScriptChecks==='function')renderScriptChecks(); save();
 }
 
 /* ---------- 交互 ---------- */
@@ -327,7 +314,7 @@ function openDlg(html){document.getElementById('dlgBody').innerHTML=html;
 function closeDlg(){document.getElementById('dlg').close();}
 
 document.getElementById('bExport').onclick=function(){
-  var report=ScriptChecks.analyze(sel,document.getElementById('spec').value,JINX.concat(SCRIPT_RULES));
+  var report=ScriptChecks.analyze(sel,document.getElementById('spec').value,ScriptCore.effectiveJinx(sel,JINX,SCRIPT_RULES));
   if(report.errors.length){document.getElementById('script-checks').open=true;alert('请先修正明确问题：\n'+report.errors.join('\n'));return;}
   var txt=JSON.stringify(exportObj(),null,2);
   openDlg('<h3>导出 JSON</h3><textarea readonly>'+esc(txt)+'</textarea>'+
@@ -505,13 +492,7 @@ document.getElementById('bNight').onclick=function(){
   var dragged=null;
   function move(list,field,from,to){
     if(from===to)return;
-    // Reuse ordered slots, splitting ties so the chosen order exports exactly.
-    var slots=list.map(function(c){return ScriptCore.nightOrder(c,SCRIPT_NIGHT_ORDER,NIGHT_OVERRIDES)[field];});
-    for(var i=0;i<slots.length;i++){
-      if(i>0&&slots[i]<=slots[i-1])slots[i]=slots[i-1]+0.001;
-    }
-    list.splice(to,0,list.splice(from,1)[0]);
-    list.forEach(function(c,i){(NIGHT_OVERRIDES[c.id]||(NIGHT_OVERRIDES[c.id]={}))[field]=slots[i];});
+    NIGHT_OVERRIDES=ScriptCore.reorderNight(list,SCRIPT_NIGHT_ORDER,NIGHT_OVERRIDES,field,list[from].id,list[to].id);
     var scroller=document.querySelectorAll('#dlgBody .editor-night-content')[0],scrollTop=scroller?scroller.scrollTop:0;
     save();document.getElementById('bNight').onclick();
     var restored=document.querySelectorAll('#dlgBody .editor-night-content')[0];if(restored)restored.scrollTop=scrollTop;
@@ -591,14 +572,15 @@ function applyDraftState(state){
   document.getElementById('spec').value=draft.spec;document.getElementById('preset').value='';
 }
 function save(){
-  if(storageBlocked||(window.ScriptDrafts&&!window.ScriptDraftUI))return;
+  if(storageBlocked||(window.ScriptDrafts&&!window.ScriptDraftUI))return false;
   try{
     var snapshot=captureDraft();
     if(window.ScriptDraftUI)window.ScriptDraftUI.prepareSave(snapshot);
     localStorage.setItem(saveKey,JSON.stringify(snapshot));
     try{localStorage.setItem('botc_script_resume_v1',JSON.stringify({name:snapshot.n,roles:snapshot.sel.length,hasContent:!!(snapshot.n||snapshot.sel.length)}));}catch(ignore){}
     status(CURRENT_DRAFT_ID?'已自动保存到“'+(snapshot.n||'未命名剧本')+'” · 重要内容请导出 JSON 备份':'已保存到此浏览器 · 重要剧本请导出 JSON 备份');
-  }catch(e){status('本地保存失败：'+e.message+'。请立即导出 JSON 备份。');}
+    return true;
+  }catch(e){status('本地保存失败：'+e.message+'。请立即导出 JSON 备份。');return false;}
 }
 function load(){
   try{
@@ -632,6 +614,7 @@ document.getElementById('grid').addEventListener('keydown',function(e){
   if(e.target.matches('.card')&&(e.key==='Enter'||e.key===' ')){e.preventDefault();e.target.click();}
 });
 document.addEventListener('error',function(e){
+  if(e.target.classList&&e.target.classList.contains('rule-role-icon'))return;
   if(e.target.id==='artPreview')return;
   if(e.target.tagName==='IMG'){var p=document.createElement('span');p.className='ph';p.textContent='◈';p.setAttribute('aria-label','暂无图标');e.target.replaceWith(p);}
 },true);

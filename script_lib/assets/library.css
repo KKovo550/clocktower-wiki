@@ -301,3 +301,8 @@ table.legend td{padding:2px 8px 2px 0}
 .library-content .bar>label,.role-query-fields label{min-width:0}
 @container(max-width:900px){.library-content .layout2{grid-template-columns:1fr}.library-detail-panel{position:static}.library-content .detail{max-height:none}.library-content .list{max-height:48dvh}}
 @media(max-width:600px){.library-content .btn,.library-content select{min-height:36px}.library-content .pagination #pageInfo{white-space:nowrap}.library-content .library-search{min-width:0}.library-content .library-actions .btn{white-space:normal}}
+.library-editions{padding:12px 14px;margin:14px 0;background:#f7f0df;border:1px solid #d5c6a9;border-radius:10px}
+.library-editions label{display:block;margin-bottom:7px;font-size:13px;font-weight:600}
+.library-editions select{width:100%;max-width:100%;min-width:0;box-sizing:border-box}
+.library-editions p{margin:8px 0 0;font-size:12px;line-height:1.7;color:#665b4c;overflow-wrap:anywhere}
+.library-version-count{background:#eee3cc;color:#66533b}

@@ -1,8 +1,10 @@
 // 搜索、详情、导出和比对界面。依赖 config.js、catalog.js、core.js。
 var catSel=document.getElementById('cat');
-document.getElementById('librarySummary').textContent='剧本库 · '+SCRIPTS.length+' 个剧本 · '+
-  SCRIPTS.filter(function(s){return shownCount(s);}).length+' 个有剧照（'+
-  SCRIPTS.reduce(function(total,s){return total+shownCount(s);},0)+' 张关联图片）';
+var libraryFamilies=new Map();SCRIPTS.forEach(function(s){var key=scriptFamilyKey(s);if(!libraryFamilies.has(key))libraryFamilies.set(key,[]);libraryFamilies.get(key).push(s);});
+var savedSources=readPreference('scriptlib-sources',{}),librarySourceChoices=new Map(Object.entries(savedSources&&typeof savedSources==='object'?savedSources:{}));
+function familySources(s){return libraryFamilies.get(scriptFamilyKey(s))||[s];}
+function allLibraryScripts(){return collapseScripts(SCRIPTS,librarySourceChoices);}
+document.getElementById('librarySummary').textContent='剧本库 · '+libraryFamilies.size+' 个剧本 · '+SCRIPTS.length+' 份收录资料';
 var CHARW=Object.create(null);
 CHARS.forEach(function(c){var u=c[2];if(u&&!(c[0] in CHARW))CHARW[c[0]]=u;});
 // 预建小写检索串
@@ -10,6 +12,7 @@ CHARS.forEach(function(c){ c[1]=normalizeTeam(c[1]); });
 var scriptIndexes=new Map();
 SCRIPTS.forEach(function(s,i){
   scriptIndexes.set(s,i);
+  s[4]=libraryCharacterCount(s[5]);
   var cn=s[5].map(function(i){var role=libraryRole(CHARS[i]);return CHARS[i][0]+(role&&role.n!==CHARS[i][0]?' '+role.n:'');}).join(' ');
   s._s=((s[0]+' '+s[1]+' '+s[2]+' '+cn)||'').toLowerCase();
   s._cn=cn;
@@ -53,7 +56,7 @@ document.getElementById('detail').addEventListener('error',function(event){
   if(event.target.matches&&event.target.matches('img.library-role-icon'))event.target.remove();
 },true);
 function libraryRole(c){
-  if(!c)return null;
+  if(!c||isLibraryRuleTeam(c[1]))return null;
   var data=window.LIBRARY_ROLE_DETAILS||{},pages=data.pages||{},names=data.names||{};
   var linked=Object.prototype.hasOwnProperty.call(pages,c[2])?pages[c[2]]:null;
   var key=String(c[0]).trim().toLowerCase(),known=linked||(Object.prototype.hasOwnProperty.call(names,key)?names[key]:null);
@@ -96,13 +99,14 @@ function render(){
     }))return false;
     return true;
   });
+  cur=collapseScripts(cur,librarySourceChoices);
   cur.sort(function(a,b){
     if(sort==='played'&&typeof personalFor==='function')return (personalFor(b).played||'').localeCompare(personalFor(a).played||'');
     if(sort==='size')return b[4]-a[4];
     if(sort==='author')return (a[1]||'').localeCompare(b[1]||'','zh')||(a[0]||'').localeCompare(b[0]||'','zh');
     return (a[0]||'').localeCompare(b[0]||'','zh');
   });
-  document.getElementById('stats').textContent='命中 '+cur.length+' / '+SCRIPTS.length+' 个剧本';
+  document.getElementById('stats').textContent='命中 '+cur.length+' / '+libraryFamilies.size+' 个剧本';
   var pages=Math.max(1,Math.ceil(cur.length/pageSize));
   currentPage=Math.min(currentPage,pages);
   document.getElementById('pageInfo').textContent=currentPage+' / '+pages+' 页';
@@ -112,10 +116,12 @@ function render(){
   var h=cur.slice((currentPage-1)*pageSize,currentPage*pageSize).map(function(s,i){
     var c=counts(s[5]),pills=TEAMORD.filter(function(t){return c[t];})
       .map(function(t){return '<span class="pill t-'+t+'">'+TEAMCN[t]+c[t]+'</span>';}).join('');
-    var selected=scriptIndexes.get(s)===selectedScriptIndex;
+    var selected=selectedScriptIndex>=0&&scriptFamilyKey(s)===scriptFamilyKey(SCRIPTS[selectedScriptIndex]),versions=scriptVersionCount(familySources(s));
     return '<div class="row'+(selected?' sel':'')+'" role="button" tabindex="0" aria-controls="detail" aria-pressed="'+selected+'" data-i="'+scriptIndexes.get(s)+'"><div class="library-row-heading"><span class="nm">'+esc(s[0]||'(未命名)')+
       '</span><span class="au" title="'+esc(s[1]||'佚名')+'">作者：'+esc(s[1]||'佚名')+'</span></div><div class="library-row-tags">'+pills+
       (shownCount(s)?'<span class="pic">剧本图'+shownCount(s)+'</span>':'')+
+      (!pictureCompleteness(s).complete?'<span class="pill library-picture-state">'+esc(pictureStateLabel(s))+'</span>':'')+
+      (versions>1?'<span class="pill library-version-count">'+versions+' 个版本</span>':'')+
       '</div><div class="library-row-meta"><span class="cat" title="'+esc(s[2])+'">'+esc(s[2])+'</span><span class="cnt">'+(s[6]==='url'?'暂无 JSON':s[4]+' 个角色')+'</span></div></div>';
   }).join('');
 
@@ -124,6 +130,13 @@ function render(){
   if(typeof LibraryView!=='undefined')LibraryView.filters(false);
 }
 var SCRIPTS_BY_INDEX={};SCRIPTS.forEach(function(s,i){SCRIPTS_BY_INDEX[i]=s;});
+function librarySourceDetail(s){
+  var members=familySources(s);if(members.length<2)return '';
+  var versions=scriptVersionCount(members);
+  return '<section class="library-editions"><label for="library-source-select">'+(versions>1?'剧本版本':'收录来源')+'</label><select id="library-source-select">'+members.map(function(member){
+    return '<option value="'+scriptIndexes.get(member)+'"'+(member===s?' selected':'')+'>'+esc(member[3].split(/[\\/]/).pop().replace(/^#/,'').replace(/\.json$/i,''))+' · '+esc(member[2])+'</option>';
+  }).join('')+'</select><p>'+members.length+' 处收录 · '+versions+' 个内容版本。'+(versions>1?'切换后，预览、下载和导入剧本工具均使用所选版本。':'相同内容已合并展示，原文件和各来源图片均保留。')+'</p></section>';
+}
 document.getElementById('list').addEventListener('click',function(e){
   var row=e.target.closest('.row');if(!row)return;
   Array.prototype.forEach.call(this.querySelectorAll('.row'),function(r){r.className='row';});
@@ -147,7 +160,7 @@ function show(i){
     '<h2 class="dt" tabindex="-1">'+esc(s[0]||'(未命名)')+'</h2>'+
     '<div class="dtmeta library-overview">作者：'+esc(s[1]||'佚名')+'<span>'+s[4]+' 个角色'+(s[6]==='url'?' · 暂无 JSON':'')+'</span></div>'+
     (s[7]?'<p class="library-description">'+esc(s[7])+'</p>':'')+
-    '<div class="library-primary-actions"><button class="btn" id="btn-edit-script" type="button">在剧本工具中编辑</button>'+
+    librarySourceDetail(s)+'<div class="library-primary-actions"><button class="btn" id="btn-edit-script" type="button">在剧本工具中编辑</button>'+
     (s[6]==='json'?'<button class="btn" id="btn-local-json" type="button">下载 JSON</button>':'')+
     '<details class="library-detail-tools"><summary>复制与导出</summary><div><button type="button" class="btn" id="btn-chars">复制角色名单</button>'+
     '<button type="button" class="btn" id="btn-json" title="生成这个剧本的 JSON，弹出框里选中复制（也可下载）">复制 JSON</button>'+
@@ -160,16 +173,22 @@ function show(i){
     '</div><button type="button" class="btn" id="btn-path">复制文件路径</button></details>'+
     (typeof workspaceDetail==='function'?workspaceDetail(i):'');
   if(typeof LibraryView!=='undefined')LibraryView.selected(i);
+  var sourceSelect=document.getElementById('library-source-select');if(sourceSelect)sourceSelect.onchange=function(){
+    var next=Number(this.value);if(!familySources(s).includes(SCRIPTS[next]))return;
+    librarySourceChoices.set(scriptFamilyKey(s),SCRIPTS[next][3]);writePreference('scriptlib-sources',Object.fromEntries(librarySourceChoices));
+    selectedScriptIndex=next;render();show(next);
+  };
   var jsonButton=document.getElementById('btn-local-json');
   if(jsonButton)jsonButton.onclick=function(){
     var selectedVersion=typeof chosenVersions!=='undefined'?chosenVersions[i]:null;
+    var selectedSource=librarySourceChoices.get(scriptFamilyKey(s));
     jsonButton.disabled=true;
     loadFull(function(){
       jsonButton.disabled=false;
-      if((typeof chosenVersions!=='undefined'?chosenVersions[i]:null)!==selectedVersion){alert('版本已改变，请重新下载。');return;}
+      if(librarySourceChoices.get(scriptFamilyKey(s))!==selectedSource||(typeof chosenVersions!=='undefined'?chosenVersions[i]:null)!==selectedVersion){alert('版本已改变，请重新下载。');return;}
       var original=typeof selectedOriginal==='function'?selectedOriginal(i,FULL[i]):FULL[i];
       if(original&&typeof original.t==='string')jsonSave(original.t,original.f);else alert('此剧本没有可下载的 JSON');
-    },function(message){jsonButton.disabled=false;alert(message);});
+    },function(message){jsonButton.disabled=false;alert(message);},[i]);
   };
   if(typeof bindEditorTransfer==='function')bindEditorTransfer(i);
   if(typeof bindWorkspaceDetail==='function')bindWorkspaceDetail(i);
@@ -184,7 +203,7 @@ function show(i){
       return '【'+TEAMCN[x]+'】'+by[x].map(function(role){return role.n;}).join('、');}).join('\n');
     copy(t,this);};
 }
-['includeRoles','excludeRoles','q','cat','team','minc','maxc','sort','onlypic'].forEach(function(id){
+filterIds.forEach(function(id){
   var el=document.getElementById(id);
   el.addEventListener((['q','includeRoles','excludeRoles'].includes(id))?'input':'change',render);
 });
@@ -216,8 +235,9 @@ function exportDlg(preset){
   requestDataDialog('export',preset);
 }
 function expDlgShow(){
+  if(!exportBusy){document.getElementById('expGo').disabled=false;document.getElementById('expDl').disabled=false;}
   var selIdx=expSel&&expSel.length?expSel:null;
-  var nSel=selIdx?selIdx.length:0, nCur=curIdxs().length, nAll=SCRIPTS.length;
+  var nSel=selIdx?selIdx.length:0, nCur=curIdxs().length, nAll=libraryFamilies.size;
   var opts=[
     ['sel','当前选中的剧本', nSel, nSel===0],
     ['cur','当前筛选出的剧本', nCur, false],
@@ -239,7 +259,7 @@ function expDlgShow(){
       el.className='opt on';
       el.querySelector('input').checked=true;
       expPickKind=el.getAttribute('data-k');
-      expUpdateImgHint();
+      refreshDataScope('export');
     });
   });
   expUpdateImgHint();
@@ -265,13 +285,13 @@ function expClose(){if(exportBusy){exportCancelled=true;return;}document.getElem
 function pickedIdxs(){
   var k=expPickKind||'cur';
   if(k==='sel')return (expPickOwner==='json'?jsonSel:expSel)||[];
-  if(k==='all')return SCRIPTS.map(function(_,i){return i;});
+  if(k==='all')return allLibraryScripts().map(function(s){return scriptIndexes.get(s);});
   return curIdxs();
 }
 function expItems(idxs,imagesOnly){
   var out=[],used=new Set();
   idxs.forEach(function(i){
-    var it=typeof selectedOriginal==='function'?selectedOriginal(i,FULL[i]):FULL[i];
+    var it=typeof selectedOriginal==='function'?selectedOriginal(i,FULL&&FULL[i]):FULL&&FULL[i];
     if(!it&&!imagesOnly)return;
     if(imagesOnly)it={f:SCRIPTS[i][0]+'.json',t:null};
     var base=safeExportName((it.f||'script.json').replace(/\.json$/i,''));
@@ -405,8 +425,9 @@ function jsonText(items){
   }),null,2);
 }
 function jsonDlgShow(){
+  document.getElementById('jsonCopy').disabled=false;document.getElementById('jsonDl').disabled=false;
   var selIdx=jsonSel&&jsonSel.length?jsonSel:null;
-  var nSel=selIdx?selIdx.length:0, nCur=curIdxs().length, nAll=SCRIPTS.length;
+  var nSel=selIdx?selIdx.length:0, nCur=curIdxs().length, nAll=libraryFamilies.size;
   var opts=[
     ['sel','当前选中的剧本', nSel, nSel===0],
     ['cur','当前筛选出的剧本', nCur, false],
@@ -428,14 +449,14 @@ function jsonDlgShow(){
       el.className='opt on';
       el.querySelector('input').checked=true;
       expPickKind=el.getAttribute('data-k');
-      jsonRefresh();
+      refreshDataScope('json');
     });
   });
   jsonRefresh();
   document.getElementById('jsonMask').className='on';
 }
 function jsonClose(){document.getElementById('jsonMask').className='';}
-// 每次换范围只重建文本，不重新加载原文（FULL 已经在内存里）
+// 原文按所选范围加载后再构建文本。
 function jsonRefresh(){
   var items=expItems(pickedIdxs());
   var box=document.getElementById('jsonBox'), stat=document.getElementById('jsonStat');
@@ -489,7 +510,7 @@ document.getElementById('jsonMask').addEventListener('click',function(e){
 /* ======================================================================
    对比我的剧本
    ----------------------------------------------------------------------
-   拖一个剧本工具导出的 JSON 进来，跟库里 1046 个剧本按「角色名」比对，
+   拖入角色 ID 数组或完整剧本 JSON，按已核对的角色身份与库内剧本比对，
    列最像的 10 个。排行用相似度（交集÷并集），也给出「一样几个」和覆盖率。
    ====================================================================== */
 var cmpMine=null;                 // 解析出来的我的剧本
@@ -500,7 +521,7 @@ function cmpMineNames(){
   return cmpMine.chars.map(function(c){return c.n;});
 }
 // 跟库里每个剧本算：一样几个 / 相似度 / 覆盖我 / 差集
-// mine 可以是 [{n,t}]，也可以直接给 ["角色名"]（那就没有阵营信息）
+// mine 保留角色标识和能力指纹，也兼容角色名称字符串。
 
 function cmpChips(list,max){
   var n=list.length;
@@ -516,13 +537,13 @@ function cmpRender(){
   var withBig=document.getElementById('cmpBig').checked;
   var sortBy=document.getElementById('cmpSort').value;
   var rank=cmpRank(cmpMine.chars,{top:10,withBig:withBig,sort:sortBy});
-  var unknown=cmpMine.chars.filter(function(c){return c.idOnly;}).length;
+  var unknown=cmpMine.chars.filter(function(c){return c.idOnly||c.unresolved;}).length;
 
   var h='<div class="mine"><b>'+esc(cmpMine.name)+'</b>'+
     (cmpMine.author?('　作者：'+esc(cmpMine.author)):'')+
     '<br>角色 <b>'+cmpMine.chars.length+'</b> 个（'+esc(dist)+'）'+
     (unknown?('<br><span class="cmpsets miss">有 '+unknown+
-      ' 条只写了 id、没有名字，没法参与比对</span>'):'')+'</div>';
+      ' 个角色 ID 或别名无法唯一识别，按原标识保留；不会猜测为同名角色。</span>'):'')+'</div>';
   h+='<div class="team-h" style="margin:8px 0 4px">你的角色（点击查百科）</div><div class="chars">'+
     cmpMine.chars.map(function(c){
       var u=wikiURL(c.n);
@@ -565,16 +586,21 @@ function cmpRender(){
     });
   });
 }
+var compareReadRevision=0;
 function cmpRead(file){
   if(!file)return;
+  var revision=++compareReadRevision;
   var r=new FileReader();
-  r.onload=function(){
+  r.onload=async function(){
     try{
+      document.getElementById('cmpMy').textContent='正在读取剧本并加载比对资料…';
+      await loadComparison();if(revision!==compareReadRevision)return;
       cmpMine=cmpParse(r.result);
     }catch(e){
+      if(revision!==compareReadRevision)return;
       document.getElementById('cmpMy').innerHTML=
         '<div class="cmpsets miss">解析失败：'+esc(e&&e.message||e)+
-        '<br>需要的是剧本工具导出的「_meta + 角色对象」数组。</div>';
+        '<br>支持角色 ID 数组或包含角色对象的剧本 JSON 数组。</div>';
       cmpMine=null;return;
     }
     cmpRender();
@@ -586,7 +612,7 @@ function cmpOpen(){
   document.getElementById('cmpMask').className='on';
   document.getElementById('cmpFile').click();
 }
-function cmpClose(){document.getElementById('cmpMask').className='';}
+function cmpClose(){compareReadRevision++;document.getElementById('cmpMask').className='';}
 document.getElementById('btnCompare').onclick=cmpOpen;
 document.getElementById('cmpClose').onclick=cmpClose;
 document.getElementById('cmpBig').onchange=function(){cmpRender();};

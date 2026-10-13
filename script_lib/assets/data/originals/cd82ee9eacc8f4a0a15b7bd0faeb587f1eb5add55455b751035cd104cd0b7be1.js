@@ -1,0 +1,3 @@
+// 自动生成：独立剧本原文，文件名按内容校验。
+window.SCRIPT_ORIGINALS=window.SCRIPT_ORIGINALS||{};
+window.SCRIPT_ORIGINALS["cd82ee9eacc8f4a0a15b7bd0faeb587f1eb5add55455b751035cd104cd0b7be1"]={"f":"赤子之心4.0.json","t":"[{\"id\":\"dianxiaoer\"},{\"id\":\"seamstress\"},{\"id\":\"nightwatchman\"},{\"id\":\"tixingguan\"},{\"id\":\"wudaozhe\"},{\"id\":\"xizi_new\"},{\"id\":\"xionghaizi\"},{\"id\":\"yishi\"},{\"id\":\"fortune_teller\"},{\"id\":\"philosopher\"},{\"id\":\"zhifu\"},{\"id\":\"bingbi\"},{\"id\":\"daoshi\"},{\"id\":\"librarian\"},{\"id\":\"hermit\"},{\"id\":\"goblin\"},{\"id\":\"scarlet_woman\"},{\"id\":\"poisoner\"},{\"id\":\"wraith\"},{\"id\":\"witch\"},{\"id\":\"fang_gu\"},{\"id\":\"hundun\"},{\"id\":\"vigormortis\"}]"};

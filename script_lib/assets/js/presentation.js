@@ -11,7 +11,10 @@ var LibraryView=(function(){
  }
  function selected(index){
   if(!list)return;
-  list.querySelectorAll('.row').forEach(function(row){var active=Number(row.dataset.i)===index;row.classList.toggle('sel',active);row.setAttribute('aria-pressed',String(active));});
+  list.querySelectorAll('.row').forEach(function(row){var at=Number(row.dataset.i),active=at===index;
+   if(typeof scriptFamilyKey==='function'&&typeof SCRIPTS!=='undefined'&&SCRIPTS[at]&&SCRIPTS[index])active=scriptFamilyKey(SCRIPTS[at])===scriptFamilyKey(SCRIPTS[index]);
+   row.classList.toggle('sel',active);row.setAttribute('aria-pressed',String(active));
+  });
  }
  function focusDetails(){
   var grid=document.querySelector('.library-content .layout2'),panel=document.querySelector('.library-detail-panel'),title=document.querySelector('#detail .dt');

@@ -53,11 +53,34 @@
     if(!isRule(e))throw new Error('未知剧本规则类型');
     var id=str(e.id,'规则 ID'),name=str(e.name,'规则名称'),ability=str(e.ability,'规则说明');
     if(!id.trim()||id==='_meta'||!name.trim()||!ability.trim())throw new Error('规则 ID、名称和说明不能为空');
+    if(e.ruleKind!==undefined&&!['jinx','role','special'].includes(e.ruleKind))throw new Error('未知规则分类');
+    if(e.ruleKind==='jinx'&&(!Array.isArray(e.roleIds)||e.roleIds.length!==2||e.roleIds.some(function(id){return typeof id!=='string'||!identity(id);})||identity(e.roleIds[0])===identity(e.roleIds[1])))throw new Error('相克规则需要两个不同的角色');
+    if(e.ruleKind==='role'&&(!Array.isArray(e.roleIds)||e.roleIds.length!==1||typeof e.roleIds[0]!=='string'||!identity(e.roleIds[0])))throw new Error('单角色规则需要选择一个角色');
+    if(e.replaces!==undefined&&typeof e.replaces!=='string')throw new Error('相克替换标记必须是文本');
     return JSON.parse(JSON.stringify(e));
   }
   function ruleSections(rules,roles){
-    var result={jinx:[],other:[]};
-    (rules||[]).forEach(function(rule){if(matchJinx(roles,[rule]).length)result.jinx.push(rule);else result.other.push(rule);});return result;
+    var result={jinx:[],role:[],other:[]};
+    (rules||[]).forEach(function(rule){if(rule.ruleKind==='role')result.role.push(rule);else if(rule.ruleKind==='jinx'||rule.ruleKind!=='special'&&matchJinx(roles,[rule]).length)result.jinx.push(rule);else result.other.push(rule);});return result;
+  }
+  function matchRoleRules(roles,rules){
+    var result=[];
+    (rules||[]).forEach(function(rule){
+      if(rule.ruleKind!=='role'||!Array.isArray(rule.roleIds)||rule.roleIds.length!==1)return;
+      var matches=roles.filter(function(r){return identity(r.id)===identity(rule.roleIds[0]);});
+      if(matches.length===1)result.push({role:matches[0],rule:rule,text:rule.ability});
+    });return result;
+  }
+  function ruleTitle(rule,roles){
+    if(rule.ruleKind!=='role'||!Array.isArray(rule.roleIds)||rule.roleIds.length!==1)return rule.name;
+    var owner=(roles||[]).find(function(role){return identity(role.id)===identity(rule.roleIds[0]);});
+    return (owner?owner.n:rule.roleIds[0])+' & '+rule.name;
+  }
+  function jinxKey(roles,text){return JSON.stringify([roles.map(function(r){return identity(r.id);}).sort(),String(text).trim()]);}
+  function effectiveJinx(roles,catalog,rules){
+    var authored=(rules||[]).filter(function(r){return r.ruleKind!=='special'&&r.ruleKind!=='role';});
+    var replacements=new Set(authored.filter(function(r){return matchJinx(roles,[r]).length;}).map(function(r){return r.replaces;}).filter(Boolean));
+    return matchJinx(roles,catalog).filter(function(m){return !replacements.has(m.key);}).map(function(m){return m.rule;}).concat(authored);
   }
   function parseImport(data,chars){
     if(!Array.isArray(data)||data.length>1000)throw new Error('顶层必须是数组，最多 1000 项');
@@ -140,10 +163,21 @@
     ['firstNight','otherNight'].forEach(function(field){if(custom&&Number.isFinite(custom[field])&&custom[field]>0&&result[field]>0)result[field]=custom[field];});
     return result;
   }
+  function reorderNight(roles,orders,overrides,field,fromId,toId){
+    if(!['firstNight','otherNight'].includes(field))throw Error('未知夜晚类别');
+    var selected=roles.filter(function(r){return nightOrder(r,orders,overrides)[field]>0;}).sort(function(a,b){return nightOrder(a,orders,overrides)[field]-nightOrder(b,orders,overrides)[field];});
+    var from=selected.findIndex(function(r){return r.id===fromId;}),to=selected.findIndex(function(r){return r.id===toId;});
+    var result=Object.create(null);Object.keys(overrides||{}).forEach(function(id){result[id]=Object.assign(Object.create(null),overrides[id]);});
+    if(from<0||to<0||from===to)return result;
+    var slots=selected.map(function(r){return nightOrder(r,orders,overrides)[field];});
+    for(var i=1;i<slots.length;i++){if(slots[i]<=slots[i-1])slots[i]=slots[i-1]+Math.max(.001,Math.abs(slots[i-1])*Number.EPSILON*2);if(!Number.isFinite(slots[i]))throw Error('夜序数值过大，无法排序');}
+    selected.splice(to,0,selected.splice(from,1)[0]);
+    selected.forEach(function(r,i){(result[r.id]||(result[r.id]=Object.create(null)))[field]=slots[i];});return result;
+  }
   function matchJinx(roles,rules){
     var seen=new Set(),result=[];
     (rules||[]).forEach(function(rule){
-      if(!rule||typeof rule.ability!=='string'||!rule.ability.trim())return;
+      if(!rule||rule.ruleKind==='special'||rule.ruleKind==='role'||typeof rule.ability!=='string'||!rule.ability.trim())return;
       var names=String(rule.name||'').split(/&|与/).map(function(n){return n.trim();});
       var ids=Array.isArray(rule.roleIds)&&rule.roleIds.length===2?rule.roleIds:null;
       if(!ids&&names.length!==2)return;
@@ -151,7 +185,7 @@
       if(pair.some(function(matches){return matches.length!==1;})||pair[0][0].id===pair[1][0].id)return;
       var selected=pair.map(function(matches){return matches[0];}),text=rule.ability.trim();
       var key=JSON.stringify([selected.map(function(r){return r.id;}).sort(),text]);
-      if(seen.has(key))return;seen.add(key);result.push({roles:selected,text:text});
+      if(seen.has(key))return;seen.add(key);result.push({roles:selected,text:text,rule:rule,key:jinxKey(selected,text)});
     });return result;
   }
   function restoreDraft(d,chars){
@@ -199,5 +233,5 @@
     if(same.length>1){var ability=String(role.ab||'').replace(/\s/g,'');same=same.filter(function(c){return String(c.ab||'').replace(/\s/g,'')===ability;});}
     return icon(same);
   }
-  root.ScriptCore={isRule:isRule,ruleSections:ruleSections,identity:identity,normalize:normalize,parseImport:parseImport,planImport:planImport,restoreDraft:restoreDraft,nightOrder:nightOrder,nightReminder:nightReminder,matchJinx:matchJinx,catalogIcon:catalogIcon,parseJSON:parseJSON};
+  root.ScriptCore={isRule:isRule,normalizeRule:normalizeRule,ruleSections:ruleSections,ruleTitle:ruleTitle,jinxKey:jinxKey,effectiveJinx:effectiveJinx,matchRoleRules:matchRoleRules,identity:identity,normalize:normalize,parseImport:parseImport,planImport:planImport,restoreDraft:restoreDraft,nightOrder:nightOrder,nightReminder:nightReminder,reorderNight:reorderNight,matchJinx:matchJinx,catalogIcon:catalogIcon,parseJSON:parseJSON};
 })(globalThis);

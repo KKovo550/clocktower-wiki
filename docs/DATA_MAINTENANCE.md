@@ -33,6 +33,18 @@
 - 剧本库：独立数据快照，原件在 `script_lib/library`；默认发布不包含剧照。原件可能是硬链接，应按只读数据处理。
 - 在线正文编辑：构建读取发布仓库中的 `admin-overrides.json`，本地冲突需合并，不能直接清空在线记录。
 
+剧本图片以 `script_lib/data/library.jsonl` 的 `imageDir`、`images` 和 `roles` 为准。核对过版本的图片组使用 `imageBinding: "explicit"`，重新入库不会把目录中其他版本的图片追加回来；找不到对应原图时使用空图片组和 `pictureNotice` 说明，不能拿最新版本海报代替。此类 JSON 内容修改后，图片会进入待核对状态。
+
+正背面分类支持本地 OCR：`node script_lib/tools/classify-pictures.cjs --name 剧本名 --apply`，不传 `--name` 时扫描缺少分类的图片，默认最多 40 张，可用 `--limit` 调整。默认不传 `--apply` 只预览。识别依据完整图片的角色能力表、人数表与署名，横幅和标题裁图不当作封面；多个候选或证据不足时不自动选。人工分类优先，缓存按原图 SHA256 校验，损坏文件跳过，进度保存在 `backups/ocr-cache`。分类记录保存在 `data/picture-analysis.json`，入库会自动使用有效缓存；新同步图片也会先进行本地识别。不修改图片原件。
+
+全量扫描使用 `node script_lib/tools/classify-pictures.cjs --all --apply`。完整人数表优先于封面底部的能力预览；重复文件按 SHA256 合并为一个候选。`data/picture-classification-reviews.json` 保存已核对的图片、版本选择及仅有附图的条目，识别缓存中的 `reviewed` 分类不会随算法升级被覆盖。损坏图片按内容指纹记录为 `unreadable`，原件变化后才重新尝试解码。已确认只有横幅或附图的条目使用 `pictureNotice` 说明缺少完整海报，不要求读者补分类。
+
+剧本详情和图片查看器只显示 `roles.front` 与 `roles.back` 指定的有效图片，图数和“有图”筛选也按这两面统计。Logo、横幅及其他附图保留在原件和图片导出清单中，不进入阅读区。尚未分类时提示“正背面尚待确认”，并保留折叠的“修正图片分类”入口，不能用任意前三张原图代替正背面。
+
+图文与 JSON 配对候选兼容括号、空格和英文译名，但不省略版本号。候选需要核对版本和角色名单后确认，不能仅凭近似名称合并。确认记录保存为 `data/merges.json` 中的 `{to, content}`，`content` 为忽略格式和字段顺序的 JSON SHA256：格式调整保留配对，实质修改后解除图片配对并重新显示独立图文。原始 JSON、图片、来源和个人记录别名继续保留。
+
+B 站图片增量更新使用 `node script_lib/tools/sync-bilibili.cjs --apply`，仅补某篇失败文章可加 `--article 文章ID`（可重复指定）。同名新文章单独入库；仅有明确相同文章来源时复用目录。HTML 空壳会尝试公开文章正文接口，访问限制则停止请求、保留失败队列。`script_lib/tools/picture-policy.cjs` 按完整 SHA256 排除已确认的 BWG 导航宣传图，避免再次入库；不按尺寸或编号删除其他剧本图片。
+
 ## 生成顺序
 
 `site.py` 编排内容处理：基础角色 JSON → 海外角色合并 → 图标内嵌 → 夜序整合 → 奥德赛相克整合 → 页面与搜索生成。Astro 随后生成 `dist/astro/`。

@@ -5,6 +5,7 @@ function bindEditorTransfer(index){
  if(button.disabled){button.textContent='暂无 JSON，无法编辑';return;}
  button.onclick=function(){
   var version=typeof chosenVersions!=='undefined'?chosenVersions[index]:null;
+  var sourceChoice=typeof librarySourceChoices!=='undefined'?librarySourceChoices.get(scriptFamilyKey(source)):null;
   var token=Array.from(crypto.getRandomValues(new Uint32Array(4))).map(function(x){return x.toString(16);}).join('-');
   var target=window.open('../script_tool/剧本工具.html#import='+token,'_blank');
   if(!target){alert('浏览器阻止了新窗口，请允许弹出窗口后重试。');return;}
@@ -21,11 +22,11 @@ function bindEditorTransfer(index){
   loadFull(function(){
    if(done)return;
    // Capture the originally selected version; do not silently import another version after async loading.
-   if(SCRIPTS_BY_INDEX[index]!==source||(typeof chosenVersions!=='undefined'?chosenVersions[index]:null)!==version){finish('版本已改变，请重试');return;}
+   if(SCRIPTS_BY_INDEX[index]!==source||(typeof chosenVersions!=='undefined'?chosenVersions[index]:null)!==version||(typeof librarySourceChoices!=='undefined'?librarySourceChoices.get(scriptFamilyKey(source)):null)!==sourceChoice){finish('版本已改变，请重试');return;}
    var original=typeof selectedOriginal==='function'?selectedOriginal(index,FULL[index]):FULL[index];
    if(!original||typeof original.t!=='string'){finish('缺少剧本原文');return;}
    if(new Blob([original.t]).size>2*1024*1024){finish('剧本超过 2 MB，请手动处理');return;}
    payload=original.t;send();
-  },function(message){finish('重试发送');alert(message);});
+  },function(message){finish('重试发送');alert(message);},[index]);
  };
 }

@@ -4,7 +4,8 @@ function writePreference(key,value){try{localStorage.setItem(key,JSON.stringify(
 var pictureOverrides=readPreference('scriptlib-picture-roles',{});
 function pictureRoles(script){
   var saved=Object.prototype.hasOwnProperty.call(pictureOverrides,script[3])?pictureOverrides[script[3]]:null;
-  return saved&&saved.imageDir===script[9]?saved.roles:(script[11]||{});
+  // 旧版误存的空修正不遮挡后来补齐的自动分类；新修正仍可明确留空。
+  return saved&&saved.imageDir===script[9]&&saved.roles&&(saved.explicit||Object.keys(saved.roles).length)?saved.roles:(script[11]||{});
 }
 function roleEditor(script){
   if(!scriptPictures(script).total)return '';
@@ -32,9 +33,10 @@ document.getElementById('detail').addEventListener('click',function(event){
       if(used.has(select.value)){status.textContent='同一张图不能同时指定为多个分类。';return;}
       used.add(select.value);roles[select.getAttribute('data-role')]=select.value;
     }
-    pictureOverrides[script[3]]={imageDir:script[9],roles:roles};
+    pictureOverrides[script[3]]={imageDir:script[9],roles:roles,explicit:true};
   }
   var saved=writePreference('scriptlib-picture-roles',pictureOverrides);
+  if(typeof render==='function')render();
   show(index);
   var next=document.getElementById('detail').querySelector('.role-editor');next.open=true;
   next.querySelector('.role-status').textContent=saved?'已保存，预览和导出均已采用此分类。':'浏览器未允许保存，仅本次会话有效；请下载修正文件备份。';
