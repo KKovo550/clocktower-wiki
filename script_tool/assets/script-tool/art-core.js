@@ -176,16 +176,62 @@
     if(!(desired>0&&Number.isFinite(desired)))return result;
     return {x:cx-desired/2,y:cy-desired/2,size:desired,scale:desired/size,kind:metric.kind,factor:metric.factor,visualEdge:edge*desired};
   }
-  function ruleDisplay(layout,options,measure){
+  function wrapRules(value,width,font,measure){
+    var words=['玩家','角色','死亡','恶魔','爪牙','镇民','外来者','旅行者','醉酒','中毒','处决','存活','私货商人','特殊规则','能力','一次','每个夜晚'],result=[];
+    String(value||'').replace(/\r\n?/g,'\n').split('\n').forEach(function(paragraph){
+      var chars=Array.from(paragraph),n=chars.length,cache=new Map();
+      function measured(text){if(!cache.has(text))cache.set(text,measure(text,font));return cache.get(text);}
+      if(!n||measured(paragraph)<=width){result.push(paragraph);return;}
+      var allowed=Array(n+1).fill(true),wordPenalty=Array(n+1).fill(0),ascii=/[A-Za-z0-9_.:/%+\-–]/;
+      for(var i=1;i<n;i++){
+        if(/^[，。！？；：、）》】」』”’…,.!?;:%\]}]/.test(chars[i])||/[（《【「『“‘({\[]/.test(chars[i-1]))allowed[i]=false;
+        if(ascii.test(chars[i-1])&&ascii.test(chars[i])){var a=i-1,b=i;while(a>0&&ascii.test(chars[a-1]))a--;while(b<n&&ascii.test(chars[b]))b++;if(measured(chars.slice(a,b).join(''))<=width)allowed[i]=false;}
+        if(/\d/.test(chars[i-1])&&/^[名个人次夜天]/.test(chars[i]))allowed[i]=false;
+        var prefix=chars.slice(Math.max(0,i-6),i).join(''),suffix=chars.slice(i,i+6).join('');
+        if(words.some(function(word){for(var k=1;k<word.length;k++)if(prefix.endsWith(word.slice(0,k))&&suffix.startsWith(word.slice(k)))return true;return false;}))wordPenalty[i]=15;
+      }
+      var cost=Array(n+1).fill(Infinity),next=Array(n+1);cost[n]=0;
+      for(var start=n-1;start>=0;start--){
+        if(!allowed[start])continue;
+        for(var end=start+1;end<=n;end++){
+          var line=chars.slice(start,end).join(''),w=measured(line);if(w>width+.001)break;if(!allowed[end]||!Number.isFinite(cost[end]))continue;
+          var tail=end===n,han=(line.match(/\p{Script=Han}/gu)||[]).length,slack=(width-w)/width,score=10000+cost[end]+slack*slack*(tail?2:20);
+          if(tail&&start>0&&han>0&&han<=2&&w<=font*4)score+=200;
+          if(end<n){score+=wordPenalty[end];if(/[，。；：！？]$/.test(line))score-=3;}
+          if(score<cost[start]){cost[start]=score;next[start]=end;}
+        }
+      }
+      if(!Number.isFinite(cost[0])){result=result.concat(wrap(paragraph,width,font,measure));return;}
+      for(var at=0;at<n;at=next[at])result.push(chars.slice(at,next[at]).join(''));
+    });return result;
+  }
+  function ruleFrame(layout,options){
     var box=layout.ruleBox;if(!box||!layout.header||!layout.contentFit||options.style!=='poster'||box.scale!==1)return box;
-    // Paint inside the existing header reservation; never change the body plan.
-    var shift=Math.min(box.width*.15,box.x-96-360),width=box.width+Math.max(0,shift),font=21,lines,lineHeight;
+    var shift=Math.max(0,Math.min(box.width*.15,box.x-96-360));
+    return Object.assign({},box,{x:box.x-shift,width:box.width+shift,enhanced:true});
+  }
+  function ruleDisplay(layout,options,measure,titleBounds){
+    var base=ruleFrame(layout,options);if(!base)return null;
+    function setting(key,fallback,min,max){var v=Number(options[key]);return options[key]===undefined||!Number.isFinite(v)?fallback:Math.max(min,Math.min(max,v));}
+    var physicalScale=base.scale||1,baseWidth=base.width*physicalScale,baseHeight=base.height*physicalScale;
+    var minimumX=96,maximumX=1190,y=base.y,maxHeight=Math.max(85,layout.bodyTop-y-10);
+    var frameChanged=setting('ruleOffset',0,-40,40)!==0||setting('ruleWidth',100,60,160)!==100;
+    if(options.style==='poster')minimumX=Math.max(minimumX,frameChanged&&titleBounds?titleBounds.right+24:base.x);
+    var width=Math.min(maximumX-minimumX,baseWidth*setting('ruleWidth',100,60,160)/100);
+    var height=Math.max(85,Math.min(maxHeight,baseHeight*setting('ruleHeight',100,60,160)/100));
+    var x=Math.max(minimumX,Math.min(base.x+(baseWidth-width)/2+1280*setting('ruleOffset',0,-40,40)/100,maximumX-width));
+    var font=setting('ruleFont',base.enhanced?21:18,16,28),lines,lineHeight,needed;
+    var textured=options.style==='poster'&&!layout.print&&!options.pure&&embedded(material(options,'status-panel')),baseline=textured?87:68;
     while(true){
-      lines=wrap(options.rules,width-44,font,measure);lineHeight=font*1.35;
-      if(lines.length>1)lineHeight=Math.min(lineHeight,(box.height-12-68-font*.32)/(lines.length-1));
-      if(lineHeight>=font*1.18||font<=18)break;font-=.25;
+      // Fit in the frame's original coordinates; legacy reference posters scale
+      // the entire rule frame, including its padding and text, as one layer.
+      lines=wrapRules(options.rules,width/physicalScale-44,font,measure);lineHeight=font*1.35;needed=(baseline+Math.max(0,lines.length-1)*lineHeight+font*.32+12)*physicalScale;
+      if(needed<=height+.01)break;
+      if(font>16){font=Math.max(16,font-.25);continue;}
+      if(needed<=maxHeight+.01){height=Math.max(height,needed);break;}
+      throw new Error('特殊规则框放不下全文，请加宽规则框或恢复规则框调整。');
     }
-    return Object.assign({},box,{x:box.x-Math.max(0,shift),width:width,lines:lines,font:font,lineHeight:lineHeight,enhanced:true});
+    return Object.assign({},base,{x:x,y:y,width:width/physicalScale,height:height/physicalScale,scale:physicalScale,font:font,lines:lines,lineHeight:lineHeight,actualOffset:(x+width/2-base.x-baseWidth/2)/1280*100,actualWidth:width/baseWidth*100,actualHeight:height/baseHeight*100});
   }
   function svg(layout,pageIndex,options,icons,measure){
     var themes={cloud:['#f1f5fa','#ffffff','#172b46','#64758b'],paper:['#f5f0e5','#fffcf5','#3e352b','#85755f'],night:['#121b2b','#1b2940','#f3f6ff','#b1c0d7']};
@@ -267,7 +313,9 @@
     }
     bands(options.pattern,print?0.22:0.35);
     function text(x,y,value,size,color,weight,family,attributes){out.push('<text '+(attributes||'')+'x="'+x+'" y="'+y+'" font-family="'+(family||'system-ui,Microsoft YaHei,sans-serif')+'" font-size="'+size+'" font-weight="'+(weight||400)+'" fill="'+color+'">'+esc(value)+'</text>');}
-    var displayRuleBox=ruleDisplay(layout,options,measure);
+    // Title geometry stays based on its original reservation. Rule controls
+    // operate only on the rule frame, with the final title bounds as a limit.
+    var titleRuleBox=ruleFrame(layout,options),displayRuleBox=null;
     var title=String(options.title||'未命名剧本'),header=layout.header;
     var titleWidth=poster&&options.rules?515:1088;
     if(print&&options.topDecoration)titleWidth-=120;
@@ -318,8 +366,8 @@
       }
     }
     var decorationAnchor=hasLogo?logoX:titleX,decorationTitleAnchor=titleX;
-    if(displayRuleBox&&displayRuleBox.enhanced){
-      var left=96,right=displayRuleBox.x-24,slot=right-left;
+    if(titleRuleBox&&titleRuleBox.enhanced){
+      var left=96,right=titleRuleBox.x-24,slot=right-left;
       if(hasLogo){logoWidth=Math.min(logoWidth,slot);logoHeight=logoWidth/Number(logo.aspect);logoX=left+(slot-logoWidth)/2;}
       else {titleLength=Math.min(titleLength,slot);titleX=left+(slot-titleLength)/2;}
     }
@@ -335,6 +383,34 @@
       }
     }
     function titleLayer(dx,dy,fill,stroke,width){out.push('<text x="'+(titleX+dx)+'" y="'+(titleBaseline+dy)+'" font-family="'+titleFonts[titleStyle]+'" font-size="'+titleSize+'" font-weight="'+(titleStyle==='classic'?600:900)+'" textLength="'+titleLength+'" lengthAdjust="spacingAndGlyphs" fill="'+fill+'" stroke="'+stroke+'" stroke-width="'+width+'" stroke-linejoin="round" paint-order="stroke fill">'+esc(titleValue)+'</text>');}
+    // Transform only the title artwork. The body plan, metadata and ornaments
+    // keep their existing geometry, and neutral settings keep the original SVG.
+    var requestedScale=Number(options.logoScale),requestedOffset=Number(options.logoOffset);
+    requestedScale=Number.isFinite(requestedScale)?Math.max(.25,Math.min(1.6,requestedScale)):1;
+    requestedOffset=Number.isFinite(requestedOffset)?Math.max(-40,Math.min(40,requestedOffset)):0;
+    var adjustedTitle=requestedScale!==1||requestedOffset!==0;
+    if(adjustedTitle){
+      var original={x:hasLogo?logoX:titleX,y:hasLogo?logoBottom-logoHeight:titleBaseline-titleSize*1.1,width:hasLogo?logoWidth:titleLength,height:hasLogo?logoHeight:titleSize*1.4};
+      var leftLimit=96,rightLimit=poster&&titleRuleBox?titleRuleBox.x-24:1184,bottomLimit=Math.max(40,layout.bodyTop-10);
+      if(!poster&&titleRuleBox)bottomLimit=Math.min(bottomLimit,titleRuleBox.y-10);
+      var adjustmentAuthorTop=Infinity,adjustmentAuthorLeft=1184;
+      if(options.author){
+        var adjustmentAuthor='剧本作者：'+String(options.author).slice(0,48),adjustmentAuthorSize=details&&details.metadata?details.metadata.authorSize:22;
+        while(adjustmentAuthorSize>14&&measure(adjustmentAuthor,adjustmentAuthorSize)>titleWidth)adjustmentAuthorSize--;
+        adjustmentAuthorTop=(header?header.authorY:details&&details.metadata?details.metadata.authorY:150)-adjustmentAuthorSize-6;
+        adjustmentAuthorLeft=poster&&!options.rules?Math.max(96,(details&&details.metadata?details.metadata.right:1184)-measure(adjustmentAuthor,adjustmentAuthorSize)):96;
+        if(options.rules||!poster)bottomLimit=Math.min(bottomLimit,adjustmentAuthorTop-6);
+      }
+      var appliedScale=Math.min(requestedScale,(rightLimit-leftLimit)/original.width,bottomLimit/original.height);
+      var adjustedY=Math.max(0,Math.min(original.y+original.height*(1-appliedScale)/2,bottomLimit-original.height*appliedScale));
+      if(options.author&&poster&&!options.rules&&adjustedY+original.height*appliedScale>adjustmentAuthorTop-6){
+        rightLimit=Math.max(leftLimit+24,Math.min(rightLimit,adjustmentAuthorLeft-12));
+        appliedScale=Math.min(appliedScale,(rightLimit-leftLimit)/original.width);
+        adjustedY=Math.max(0,Math.min(original.y+original.height*(1-appliedScale)/2,bottomLimit-original.height*appliedScale));
+      }
+      var adjustedX=Math.max(leftLimit,Math.min(original.x+original.width*(1-appliedScale)/2+1280*requestedOffset/100,rightLimit-original.width*appliedScale));
+      out.push('<g data-title-adjustment="true" data-applied-scale="'+appliedScale+'" data-applied-offset="'+((adjustedX+original.width*appliedScale/2-original.x-original.width/2)/1280*100)+'" transform="translate('+adjustedX+' '+adjustedY+') scale('+appliedScale+') translate('+(-original.x)+' '+(-original.y)+')">');
+    }
     if(hasLogo){
       out.push('<image data-title-logo="uploaded" href="'+esc(logo.image)+'" x="'+logoX+'" y="'+(logoBottom-logoHeight)+'" width="'+logoWidth+'" height="'+logoHeight+'" preserveAspectRatio="xMidYMid meet"/>');
     }else{
@@ -361,6 +437,8 @@
       else titleLayer(0,0,titleInk[titleStyle],'none',0);
       out.push('</g>');
     }
+    if(adjustedTitle)out.push('</g>');
+    if(titleRuleBox)displayRuleBox=ruleDisplay(layout,options,measure,{right:(adjustedTitle?adjustedX+original.width*appliedScale:hasLogo?logoX+logoWidth:titleX+titleLength)+(hasLogo?0:12*(adjustedTitle?appliedScale:1))});
     var metadata=details&&details.metadata,metaRight=metadata?metadata.right:1184;
     var meta=options.author?'剧本作者：'+String(options.author).slice(0,48):'',metaSize=metadata?metadata.authorSize:22;
     while(metaSize>14&&measure(meta,metaSize)>titleWidth)metaSize--;
@@ -372,7 +450,7 @@
     text(96,header?header.subtitleY:options.players?198:174,subtitle,subtitleSize,palette[3]);
     function paintRules(){
       var box=displayRuleBox;if(!box)return;
-      if(box.enhanced)out.push('<g data-special-rule-display="header">');
+      out.push('<g data-special-rule-display="'+(box.enhanced?'header':'box')+'" data-rule-box="'+[box.x,box.y,box.width*box.scale,box.height*box.scale].join(' ')+'" data-rule-font="'+(box.font*box.scale)+'" data-rule-settings="'+[box.actualOffset,box.actualWidth,box.actualHeight].join(' ')+'">');
       if(box.scale<1)out.push('<g transform="translate('+(box.x*(1-box.scale))+' '+(box.y*(1-box.scale))+') scale('+box.scale+')">');
       var statusPanel=poster&&!print&&!options.pure&&chosen('status-panel');
       var hasPanel=materialImage(statusPanel,box.x,box.y,box.width,box.height);
@@ -386,7 +464,7 @@
       }
       box.lines.forEach(function(line,i){text(box.x+(box.enhanced?22:20),box.y+(hasPanel?87:68)+i*(box.lineHeight||27),line,box.font||18,box.enhanced?'#352c21':poster?'#493e31':palette[2],400,undefined,box.enhanced?'data-rule-body="" ':'');});
       if(box.scale<1)out.push('</g>');
-      if(box.enhanced)out.push('</g>');
+      out.push('</g>');
     }
     if(displayRuleBox&&!displayRuleBox.enhanced)paintRules();
     if(poster){
@@ -535,5 +613,5 @@
     out.push('</svg>');return out.join('');
     function artFooterLines(value,width,size){return wrap(value,width,size,measure);}
   }
-  root.ScriptArt={layout:layout,svg:svg,wrap:wrap,ruleDisplay:ruleDisplay,jinxFor:jinxFor,notesFor:notesFor,noteText:noteText,roleBounds:roleBounds,nightRailBounds:nightRailBounds,iconGeometry:iconGeometry};
+  root.ScriptArt={layout:layout,svg:svg,wrap:wrap,wrapRules:wrapRules,ruleDisplay:ruleDisplay,jinxFor:jinxFor,notesFor:notesFor,noteText:noteText,roleBounds:roleBounds,nightRailBounds:nightRailBounds,iconGeometry:iconGeometry};
 })(typeof window==='undefined'?globalThis:window);

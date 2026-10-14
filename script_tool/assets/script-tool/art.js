@@ -210,13 +210,15 @@
     if(roles.some(function(role){return role.t==='fabled';}))el('artFooter').value='';
     else if(fields.artFooter!==undefined)el('artFooter').value=fields.artFooter;
   }
-  var historyFields=['artSpacing','artTopDecoration','artScale','artUseLogo','artFrame','artFooter','artVersion','artPlayers','artTitleStyle','artRatio','artJinx','artPure','artStyle','artRules','artTitle','artAuthor','artSubtitle','artColumns','artTheme','artFont','artBackdrop','artPattern','artOrnament'];
+  var adjustmentDefaults={artLogoOffset:'0',artLogoSize:'100',artRuleOffset:'0',artRuleWidth:'100',artRuleHeight:'100',artRuleFont:'21'};
+  var historyFields=['artRuleOffset','artRuleWidth','artRuleHeight','artRuleFont','artLogoOffset','artLogoSize','artSpacing','artTopDecoration','artScale','artUseLogo','artFrame','artFooter','artVersion','artPlayers','artTitleStyle','artRatio','artJinx','artPure','artStyle','artRules','artTitle','artAuthor','artSubtitle','artColumns','artTheme','artFont','artBackdrop','artPattern','artOrnament'];
   var openingBaseline,artworkDraftKey='',artworkDraftIdentity='',artworkSaveTimer,restoredArtwork=new Set(),personalSchemes=[];
   var styleFields=historyFields.filter(function(id){return ['artTitle','artAuthor','artVersion','artPlayers','artSubtitle','artRules'].indexOf(id)<0;});
   function fieldValues(ids){var values={};ids.forEach(function(id){values[id]=booleanField(id)?el(id).checked:el(id).value;});return values;}
   function validFields(fields,ids){
     if(!fields||typeof fields!=='object')throw Error('方案参数无效');
-    var clean={};ids.forEach(function(id){if(!Object.prototype.hasOwnProperty.call(fields,id))return;var value=fields[id],field=el(id);
+    var clean={};ids.forEach(function(id){if(!Object.prototype.hasOwnProperty.call(fields,id)){if(adjustmentDefaults[id]!==undefined)clean[id]=adjustmentDefaults[id];return;}var value=fields[id],field=el(id);
+      if(field.type==='number'&&(typeof value!=='string'||!value.trim()||!Number.isFinite(Number(value))||Number(value)<Number(field.min)||Number(value)>Number(field.max)))throw Error('图片调整参数超出范围');
       if(booleanField(id)){if(typeof value!=='boolean')throw Error('方案开关参数无效');}
       else if(typeof value!=='string'||value.length>(field.maxLength>0?field.maxLength:2000)||(field.tagName==='SELECT'&&!Array.from(field.options).some(function(o){return o.value===value;})))throw Error('方案中有不可用的设置，请重新保存方案');
       clean[id]=value;
@@ -472,7 +474,7 @@
       button.style.left=(x/plan.width*100)+'%';button.style.top=(y/plan.height*100)+'%';button.style.width=(w/plan.width*100)+'%';button.style.height=(h/plan.height*100)+'%';button.onclick=action;overlay.appendChild(button);return button;
     }
     hit('编辑标题与作者',96,plan.header?plan.header.logoTop:50,options().style==='poster'&&options().rules?520:1088,plan.header?plan.bodyTop-plan.header.logoTop-4:150,function(){focusSetting('artTitle');el('artTitle').select();});
-    if(plan.ruleBox){var box=ScriptArt.ruleDisplay?ScriptArt.ruleDisplay(plan,options(),measure):plan.ruleBox;hit('编辑特殊规则',box.x,box.y,box.width*box.scale,box.height*box.scale,function(){focusSetting('artRules');});}
+    if(plan.ruleBox){var painted=/data-rule-box="([^"]+)"/.exec(currentSvg),box;if(painted){var bounds=painted[1].split(' ').map(Number);box={x:bounds[0],y:bounds[1],width:bounds[2],height:bounds[3],scale:1};}else box=ScriptArt.ruleDisplay?ScriptArt.ruleDisplay(plan,options(),measure):plan.ruleBox;hit('编辑特殊规则',box.x,box.y,box.width*box.scale,box.height*box.scale,function(){focusSetting('artRules');});}
     plan.pages[0].filter(function(item){return item.kind==='role';}).forEach(function(item){
       var bounds=ScriptArt.roleBounds(plan,item);
       var button=hit('编辑 '+item.role.n+'；拖拽交换同类角色',bounds.x,bounds.y,bounds.width,bounds.height,function(){editRole(item.role.id);});button.dataset.roleId=item.role.id;button.draggable=true;
@@ -515,7 +517,7 @@
     try{var next=ScriptCore.reorderNight(source,window.SCRIPT_NIGHT_ORDER||{},window.NIGHT_OVERRIDES||{},field,from,to);inspectNight(night,from,false);applyNight(next,'已调整'+(night==='first'?'首夜':'其他夜晚'));}catch(e){message(e.message);}
   }
   function stepNight(night,id,delta){var list=sourceNights(night),at=list.findIndex(function(r){return r.id===id;});if(at>=0&&list[at+delta])moveNight(night,id,list[at+delta].id);}
-  function options(){var imported=ScriptCore.ruleSections(typeof SCRIPT_RULES==='undefined'?[]:SCRIPT_RULES,roles),pure=el('artPure').checked,preset=window.ScriptArtPresets.presets[currentPreset]||{},globalText=el('artRules').value,oneGlobal=!globalText.trim()&&imported.other.length===1;return {roleRules:imported.role,rulesTitle:oneGlobal?imported.other[0].name:'特殊规则',spacing:el('artSpacing').value,topDecoration:!pure&&el('artTopDecoration').checked,titleDecoration:preset.titleDecoration||'',logo:el('artUseLogo').checked?logo:null,pure:pure,nightTheme:pure?'':el('artFrame').value,footer:pure?'':el('artFooter').value,frame:el('artFrame').value,version:el('artVersion').value,players:el('artPlayers').value,titleStyle:el('artTitleStyle').value,showJinx:el('artJinx').checked,jinx:ScriptCore.effectiveJinx(roles,typeof JINX==='undefined'?[]:JINX,imported.jinx).concat(customJinx),style:el('artStyle').value,ratio:el('artRatio').value,rules:[globalText].concat(imported.other.map(function(rule){return (oneGlobal?'':rule.name+'：')+rule.ability;})).filter(Boolean).join('\n'),first:roles.filter(function(r){return r.artFirst>0;}).sort(function(a,b){return a.artFirst-b.artFirst;}),other:roles.filter(function(r){return r.artOther>0;}).sort(function(a,b){return a.artOther-b.artOther;}),columns:el('artColumns').value,font:el('artFont').value,theme:el('artTheme').value,title:el('artTitle').value,author:el('artAuthor').value,subtitle:el('artSubtitle').value,total:roles.length,background:pure?'':background,backdrop:pure||background?'':el('artBackdrop').value,pattern:pure?'':el('artPattern').value,ornament:pure?'':el('artOrnament').value,decorations:window.SCRIPT_ART_DECORATIONS||[]};}
+  function options(){var imported=ScriptCore.ruleSections(typeof SCRIPT_RULES==='undefined'?[]:SCRIPT_RULES,roles),pure=el('artPure').checked,preset=window.ScriptArtPresets.presets[currentPreset]||{},globalText=el('artRules').value,oneGlobal=!globalText.trim()&&imported.other.length===1;return {roleRules:imported.role,rulesTitle:oneGlobal?imported.other[0].name:'特殊规则',spacing:el('artSpacing').value,topDecoration:!pure&&el('artTopDecoration').checked,titleDecoration:preset.titleDecoration||'',logo:el('artUseLogo').checked?logo:null,logoOffset:Number(el('artLogoOffset').value),logoScale:Number(el('artLogoSize').value)/100,ruleOffset:Number(el('artRuleOffset').value),ruleWidth:Number(el('artRuleWidth').value),ruleHeight:Number(el('artRuleHeight').value),ruleFont:Number(el('artRuleFont').value),pure:pure,nightTheme:pure?'':el('artFrame').value,footer:pure?'':el('artFooter').value,frame:el('artFrame').value,version:el('artVersion').value,players:el('artPlayers').value,titleStyle:el('artTitleStyle').value,showJinx:el('artJinx').checked,jinx:ScriptCore.effectiveJinx(roles,typeof JINX==='undefined'?[]:JINX,imported.jinx).concat(customJinx),style:el('artStyle').value,ratio:el('artRatio').value,rules:[globalText].concat(imported.other.map(function(rule){return (oneGlobal?'':rule.name+'：')+rule.ability;})).filter(Boolean).join('\n'),first:roles.filter(function(r){return r.artFirst>0;}).sort(function(a,b){return a.artFirst-b.artFirst;}),other:roles.filter(function(r){return r.artOther>0;}).sort(function(a,b){return a.artOther-b.artOther;}),columns:el('artColumns').value,font:el('artFont').value,theme:el('artTheme').value,title:el('artTitle').value,author:el('artAuthor').value,subtitle:el('artSubtitle').value,total:roles.length,background:pure?'':background,backdrop:pure||background?'':el('artBackdrop').value,pattern:pure?'':el('artPattern').value,ornament:pure?'':el('artOrnament').value,decorations:window.SCRIPT_ART_DECORATIONS||[]};}
   function showPage(){
     var index=0;
     currentSvg=ScriptArt.svg(plan,index,options(),icons,measure);
@@ -524,6 +526,9 @@
     el('artPreviewState').hidden=true;el('artPreview').src=previewUrl;paintOverlay();enabled(true);schedulePreviewFit();
   }
   function render(){
+    syncLogoAdjustment();
+    var hasRules=!!options().rules.trim();['artRuleOffset','artRuleWidth','artRuleHeight','artRuleFont'].forEach(function(id){el(id).disabled=el(id+'Range').disabled=!hasRules;});el('artRuleReset').disabled=!hasRules;
+    if(!hasRules)el('artRuleAdjustmentHint').textContent='先添加特殊规则，再调整规则框。宽度变化会重新换行，手动分段保留。';
     stopComparison();
     cancelPng();
     el('artLogoPreview').hidden=!logo;el('artRemoveLogo').disabled=!logo;
@@ -539,6 +544,10 @@
       plan=ScriptArt.layout(roles,options(),measure);
       el('artCanvasInfo').textContent=(plan.fixedCanvas?'固定画布':'当前画布')+'：'+(plan.outputWidth||plan.width)+' × '+(plan.outputHeight||plan.height)+'；PNG 默认按原尺寸导出。';
       showPage();recordHistory();
+      var appliedSize=/data-applied-scale="([^"]+)"/.exec(currentSvg),appliedOffset=/data-applied-offset="([^"]+)"/.exec(currentSvg);
+      el('artLogoAdjustmentHint').textContent=appliedSize?'当前显示约 '+Math.round(Number(appliedSize[1])*100)+'%，水平偏移约 '+Number(appliedOffset[1]).toFixed(1)+'%。到达标题区边界时会自动限制，避免覆盖正文、作者或规则框。':'0 为原位置，100% 为原大小。适用于文字预设、上传及 AI Logo；自动避开正文、作者和规则框。';
+      var ruleGeometry=/data-rule-box="([^"]+)"/.exec(currentSvg),ruleFont=/data-rule-font="([^"]+)"/.exec(currentSvg);
+      if(ruleGeometry&&ruleFont){var appliedRule=/data-rule-settings="([^"]+)"/.exec(currentSvg),rs=appliedRule?appliedRule[1].split(' ').map(Number):[0,100,100];el('artRuleAdjustmentHint').textContent='当前规则框：偏移 '+rs[0].toFixed(1)+'%，宽度 '+Math.round(rs[1])+'%，高度 '+Math.round(rs[2])+'%，字号 '+Number(ruleFont[1]).toFixed(2).replace(/\.?0+$/,'')+'。边界处自动限制；过长文字会适配字号和高度。';}
       el('artPreset').value=currentPreset;
       var missing=roles.filter(function(role){return !icons[role.im]&&!icons[role.id];}).length;
       message('已生成一张完整图片 · '+(plan.outputWidth||plan.width)+' × '+(plan.outputHeight||plan.height)+'。'+(plan.fixedCanvas?' 固定参考图尺寸；内容不会自动加长。':'')+(plan.fitStage?' 已紧凑适配，正文字号 '+plan.font+'。':'')+(missing?' '+missing+' 个图标不可用，已使用文字占位。请核对图片链接、网络或图片站的跨域限制；重新打开可重试。':''));
@@ -592,6 +601,25 @@
       if(previewOnly)focusSetting('artSavePanel');
     }catch(error){if(current()&&error.name!=='AbortError')message(error.message||'PNG 导出失败，可尝试 SVG。');}
     finally{if(canvas){canvas.width=0;canvas.height=0;}releaseImage(image);if(url)URL.revokeObjectURL(url);if(pngJob===job)pngJob=null;if(session===revision&&dialog.open)enabled(!!currentSvg);}
+  }
+  function logoAdjustmentControls(){
+    return '<section class="art-logo-adjust" aria-label="Logo 位置与大小"><strong>Logo 位置与大小</strong>'+
+      '<label>左右移动（画布宽度 %）<span class="art-logo-adjust-inputs"><input type="range" id="artLogoOffsetRange" min="-40" max="40" step="1" value="0" aria-label="滑动调整 Logo 左右位置"><input type="number" id="artLogoOffset" min="-40" max="40" step="1" value="0" aria-label="Logo 水平偏移百分比"></span></label>'+
+      '<label>大小（%）<span class="art-logo-adjust-inputs"><input type="range" id="artLogoSizeRange" min="25" max="160" step="1" value="100" aria-label="滑动调整 Logo 大小"><input type="number" id="artLogoSize" min="25" max="160" step="1" value="100" aria-label="Logo 大小百分比"></span></label>'+
+      '<button type="button" class="btn" id="artLogoReset">恢复 Logo 位置与大小</button><p id="artLogoAdjustmentHint" class="art-note" role="status">0 为原位置，100% 为原大小。适用于文字预设、上传及 AI Logo；自动避开正文、作者和规则框。</p></section>';
+  }
+  function ruleAdjustmentControls(){
+    var controls=[['artRuleOffset','左右移动（画布宽度 %）',-40,40,0],['artRuleWidth','规则框宽度（%）',60,160,100],['artRuleHeight','规则框高度（%）',60,160,100],['artRuleFont','规则文字大小',16,28,21]];
+    return '<section class="art-rule-adjust" aria-label="特殊规则框调整"><strong>特殊规则框调整</strong>'+controls.map(function(item){return '<label>'+item[1]+'<span class="art-logo-adjust-inputs"><input type="range" id="'+item[0]+'Range" min="'+item[2]+'" max="'+item[3]+'" step="1" value="'+item[4]+'" aria-label="滑动调整'+item[1]+'"><input type="number" id="'+item[0]+'" min="'+item[2]+'" max="'+item[3]+'" step="1" value="'+item[4]+'" aria-label="'+item[1]+'"></span></label>';}).join('')+
+      '<button type="button" class="btn" id="artRuleReset">恢复规则框调整</button><p id="artRuleAdjustmentHint" class="art-note" role="status">先添加特殊规则，再调整规则框。宽度变化会重新换行，手动分段保留。</p></section>';
+  }
+  function syncLogoAdjustment(){
+    Object.keys(adjustmentDefaults).map(function(id){return [id,Number(adjustmentDefaults[id])];}).forEach(function(pair){var input=el(pair[0]),value=input.value.trim()?Number(input.value):NaN;if(!Number.isFinite(value))value=pair[1];input.value=String(Math.max(Number(input.min),Math.min(Number(input.max),value)));el(pair[0]+'Range').value=input.value;});
+  }
+  function bindLogoAdjustment(){
+    Object.keys(adjustmentDefaults).forEach(function(id){el(id+'Range').addEventListener('input',function(){el(id).value=this.value;el(id).dispatchEvent(new Event('input',{bubbles:true}));});});
+    el('artLogoReset').onclick=function(){clearTimeout(timer);recordHistory();el('artLogoOffset').value='0';el('artLogoSize').value='100';render();};
+    el('artRuleReset').onclick=function(){clearTimeout(timer);recordHistory();['artRuleOffset','artRuleWidth','artRuleHeight','artRuleFont'].forEach(function(id){el(id).value=adjustmentDefaults[id];});render();};
   }
   function logoControls(){
     var styleOptions=(window.ScriptLogoAI?window.ScriptLogoAI.styles:[]).map(function(style){return '<option value="'+style.id+'">'+style.label+'</option>';}).join('');
@@ -674,10 +702,10 @@
     var fields=dialog.querySelector('.art-advanced-fields');
     var specs=[
       ['layout','尺寸与正文排版',['#artRatio','#artSpacing','#artStyle','#artColumns','#artFont']],
-      ['logo','标题与 Logo',['#artTitleStyle','.art-logo-controls','#artTopDecoration','#artSubtitle']],
+      ['logo','标题与 Logo',['#artTitleStyle','.art-logo-adjust','.art-logo-controls','#artTopDecoration','#artSubtitle']],
       ['background','背景与装饰',['#artBackdrop','#artPattern','#artBackground','#artRemoveBg']],
       ['night','夜序边栏与页脚',['#artFrame','#artFooter']],
-      ['rules','相克与特殊规则',['#artJinx','.art-custom-jinx','#artScriptRules','#artRules']]
+      ['rules','相克与特殊规则',['#artJinx','.art-custom-jinx','#artScriptRules','#artRules','.art-rule-adjust']]
     ];
     // Collect all nodes before reparenting, so a field cannot be captured by two groups.
     var bundles=specs.map(function(spec){return take(fields,spec[2]);});
@@ -753,7 +781,7 @@
       '<details class="art-custom-jinx"><summary>双角色相克（仅用于图片）</summary><label>角色一<select id="artJinxRoleA"></select></label><label>角色二<select id="artJinxRoleB"></select></label><label>相克说明<textarea id="artJinxText" maxlength="2000" placeholder="填写这两个角色之间的特殊互动规则"></textarea></label><button type="button" class="btn" id="artJinxAdd">添加相克规则</button><button type="button" class="btn" id="artJinxCancel">取消修改</button><p id="artJinxMessage" role="status"></p><div id="artCustomJinxList"></div><p class="art-note">仅用于当前角色组合的制图，保存到此浏览器，不改变全站规则或剧本 JSON。</p></details>'+
       '<label>图片比例<select id="artRatio"><option value="fixed" selected>固定参考图尺寸</option><option value="readable">允许自动加长 · 保留字号</option><option value="reference">固定参考比例 · 约 1:1.35</option><option value="auto">允许自动加长 · 自由画布</option></select></label><p id="artCanvasInfo" class="art-size-note"></p>'+
       '<button type="button" class="btn" id="artScriptRules">编辑单角色 / 全局规则</button><p class="art-note">单个角色的特殊规则、私货商人的全局玩法可在剧本规则中编辑，并随 JSON 保存。</p><label>排版密度<select id="artSpacing"><option value="printCompact" selected>紧凑印刷排版</option><option value="comfortable">舒展排版</option></select></label><label>版式<select id="artStyle"><option value="poster" selected>参考图海报 · 阵营分区与两侧夜序</option><option value="simple">简洁分栏</option></select></label><label>图片额外规则备注<textarea id="artRules" maxlength="2000" placeholder="例如：私货商人的特殊规则（可留空）"></textarea></label>'+
-      '<label>夜序边栏<select id="artFrame"><option value="paper">柔和纸色</option><option value="charcoal">暗纹 · 朱红边线</option><option value="midnight">靛蓝 · 紫色边线</option></select></label><label>标题 Logo 预设<select id="artTitleStyle"><option value="plain">简洁黑体</option><option value="epic">立体海报 · 蓝紫描边</option><option value="brush">墨色书法</option><option value="classic">古典宋体</option><option value="gold">鎏金铭文</option><option value="crimson">暗红悬疑</option><option value="vintage-crimson" selected>古典酒红铭文</option><option value="shards">蓝晶拼字</option><option value="ember">赤焰铜刻</option><option value="obsidian">黑金徽记</option><option value="jade">青玉古篆</option><option value="lunar">月夜秘仪</option><option value="violet">紫银幻境</option></select></label>'+logoControls()+'<label><input type="checkbox" id="artTopDecoration">显示顶部古典徽记（可关闭）</label><label>副标题 / 备注<input id="artSubtitle" maxlength="65" placeholder="例如：适合 9–12 人 · 第三版"></label>'+
+      ruleAdjustmentControls()+'<label>夜序边栏<select id="artFrame"><option value="paper">柔和纸色</option><option value="charcoal">暗纹 · 朱红边线</option><option value="midnight">靛蓝 · 紫色边线</option></select></label><label>标题 Logo 预设<select id="artTitleStyle"><option value="plain">简洁黑体</option><option value="epic">立体海报 · 蓝紫描边</option><option value="brush">墨色书法</option><option value="classic">古典宋体</option><option value="gold">鎏金铭文</option><option value="crimson">暗红悬疑</option><option value="vintage-crimson" selected>古典酒红铭文</option><option value="shards">蓝晶拼字</option><option value="ember">赤焰铜刻</option><option value="obsidian">黑金徽记</option><option value="jade">青玉古篆</option><option value="lunar">月夜秘仪</option><option value="violet">紫银幻境</option></select></label>'+logoAdjustmentControls()+logoControls()+'<label><input type="checkbox" id="artTopDecoration">显示顶部古典徽记（可关闭）</label><label>副标题 / 备注<input id="artSubtitle" maxlength="65" placeholder="例如：适合 9–12 人 · 第三版"></label>'+
       '<div class="art-pair"><label>分栏<select id="artColumns"><option value="1">单列</option><option value="2" selected>双列</option><option value="3">三列</option></select></label><label>配色<select id="artTheme"><option value="cloud">云白</option><option value="paper">暖纸</option><option value="night">深夜</option></select></label></div>'+
       '<label>说明字号<select id="artFont"><option value="20">紧凑</option><option value="24" selected>标准</option><option value="28">大字</option></select></label>'+
       '<label>素材背景<select id="artBackdrop"><option value="">无</option></select></label><div class="art-pair"><label>底纹<select id="artPattern"><option value="">无</option></select></label><label>装饰<select id="artOrnament"><option value="">无</option></select></label></div><label>底部术语说明<select id="artFooter"><option value="">无</option></select></label><p class="art-note">默认不添加底部术语说明，正文会利用释放的空间增加角色间距；可手动选择说明栏，重新打开会保留手动设置。</p><p class="art-note">装饰素材来源：<a href="https://www.merlin-botc.com/create/art?lang=zh-CN" target="_blank" rel="noopener">Merlin Studio</a></p>'+
@@ -776,12 +804,12 @@
     el('artPreset').value=currentPreset;
     el('artRatio').options[0].textContent='固定参考图尺寸 · '+ref.width+' × '+ref.height;
     Object.keys(config.presets[config.defaultPreset].fields).forEach(function(id){var value=config.presets[config.defaultPreset].fields[id];if(booleanField(id))el(id).checked=value;else if(Array.from(el(id).options||[]).some(function(option){return option.value===value;}))el(id).value=value;});
-    view('settings');el('artViewSettings').onclick=function(){view('settings');};el('artViewPreview').onclick=function(){view('preview');};
+    bindLogoAdjustment();view('settings');el('artViewSettings').onclick=function(){view('settings');};el('artViewPreview').onclick=function(){view('preview');};
     el('artQuickSave').onclick=function(){view('settings');return downloadPng(true);};
     el('artPreset').onchange=function(){
       var presets=window.ScriptArtPresets.presets;
       var entry=presets[this.value];if(!entry)return;var preset=entry.fields;
-      clearTimeout(timer);logoRevision++;cancelAiLogo();recordHistory();currentPreset=this.value;Object.keys(preset).forEach(function(id){if(booleanField(id))el(id).checked=preset[id];else el(id).value=preset[id];});defaultFooter();render();
+      clearTimeout(timer);logoRevision++;cancelAiLogo();recordHistory();currentPreset=this.value;applyFields(adjustmentDefaults);Object.keys(preset).forEach(function(id){if(booleanField(id))el(id).checked=preset[id];else el(id).value=preset[id];});defaultFooter();render();
     };
     el('artUndo').onclick=function(){travelHistory(-1);};el('artRedo').onclick=function(){travelHistory(1);};
     el('artResetOrder').onclick=function(){roles.sort(function(a,b){return originalOrder.indexOf(a.id)-originalOrder.indexOf(b.id);});render();};
