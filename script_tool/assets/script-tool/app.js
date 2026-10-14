@@ -196,14 +196,14 @@ function renderSel(){
     var arr=by[t]; if(!arr||!arr.length)return;
     h+='<div class="grp"><h4><span>'+esc(TEAMCN[t]||(t==='custom'?'其它':'其他'))+
       '</span><span>'+arr.length+'</span></h4>';
-    arr.forEach(function(c){
+    arr.forEach(function(c,position){
       var gi=sel.indexOf(c);
       var img=c.im?'<img src="'+esc(c.im)+'" loading="lazy" alt="">':
         '<div class="ph">'+esc(initial(c.n))+'</div>';
       h+='<div class="row2" data-script-role="'+esc(c.id)+'" tabindex="-1">'+img+'<span class="nm" title="'+esc(c.n+'：'+c.ab)+'">'+
         esc(c.n)+'</span><span class="ab">'+esc(c.ab)+(CUSTOM.indexOf(c)>=0?'<button type="button" class="custom-inline-edit" data-custom-edit="'+CUSTOM.indexOf(c)+'" aria-label="编辑自制角色 '+esc(c.n)+'">编辑角色</button>':'')+'</span>'+
-        '<button class="mini" data-up="'+gi+'" title="上移">↑</button>'+
-        '<button class="mini" data-dn="'+gi+'" title="下移">↓</button>'+
+        '<button type="button" class="mini" data-up="'+gi+'" title="'+(position?'上移':'已在此类型首位')+'" aria-label="上移 '+esc(c.n)+'"'+(!position?' disabled':'')+'>↑</button>'+
+        '<button type="button" class="mini" data-dn="'+gi+'" title="'+(position<arr.length-1?'下移':'已在此类型末位')+'" aria-label="下移 '+esc(c.n)+'"'+(position===arr.length-1?' disabled':'')+'>↓</button>'+
         '<button class="mini x" data-rm="'+gi+'" title="移除">✕</button></div>';
     });
     h+='</div>';
@@ -242,13 +242,21 @@ document.getElementById('grid').addEventListener('click',function(e){
 document.getElementById('sel').addEventListener('click',function(e){
   var b=e.target.closest('button'); if(!b)return;
   if(b.hasAttribute('data-custom-edit'))return;
-  var i;
+  var i,focusRole=null,focusAction=null;
   if(b.hasAttribute('data-rm')){ i=+b.getAttribute('data-rm'); sel.splice(i,1); }
-  else if(b.hasAttribute('data-up')){ i=+b.getAttribute('data-up');
-    if(i>0){var x=sel[i-1];sel[i-1]=sel[i];sel[i]=x;} }
-  else if(b.hasAttribute('data-dn')){ i=+b.getAttribute('data-dn');
-    if(i<sel.length-1){var y=sel[i+1];sel[i+1]=sel[i];sel[i]=y;} }
+  else if(b.hasAttribute('data-up')||b.hasAttribute('data-dn')){
+    focusAction=b.hasAttribute('data-up')?'up':'dn';i=+b.getAttribute('data-'+focusAction);
+    if(!Number.isInteger(i)||!sel[i])return;
+    var direction=focusAction==='up'?-1:1,j=i+direction;
+    while(j>=0&&j<sel.length&&sel[j].t!==sel[i].t)j+=direction;
+    if(j<0||j>=sel.length)return;
+    focusRole=sel[i];var adjacent=sel[j];sel[j]=focusRole;sel[i]=adjacent;
+  }else return;
   renderAll();
+  if(focusRole){
+    var row=Array.from(document.querySelectorAll('#sel [data-script-role]')).find(function(item){return item.dataset.scriptRole===focusRole.id;});
+    if(row){var next=row.querySelector('[data-'+focusAction+']');(next&&!next.disabled?next:row).focus({preventScroll:true});}
+  }
 });
 document.getElementById('q') && null;
 var qEl=document.createElement('input');
