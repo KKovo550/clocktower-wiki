@@ -325,3 +325,185 @@ kbd{background:#f1e9d8;border:1px solid var(--tan);border-radius:3px;padding:0 4
  .script-tool-page #dlg :is(.night-sortable,.night-move,.editor-night-footer){background:Canvas;color:CanvasText;border-color:CanvasText}
  .script-tool-page #dlg :is(.night-role,.night-reminder,.night-sortable::before){color:CanvasText}
 }
+
+/* Self-created roles: stable actions, independently scrollable editor and preview. */
+#customRoleDialog{width:min(1180px,96vw);max-width:96vw;height:min(820px,94dvh);max-height:94dvh;padding:0;border:1px solid #cfbd9a;border-radius:16px;background:var(--archive-sheet,#faf5e9);color:var(--archive-ink,#34302c);box-sizing:border-box;overflow:hidden}
+#customRoleDialog[open]{display:flex;flex-direction:column}
+#customRoleDialog::backdrop{background:#18222dcc;backdrop-filter:blur(3px)}
+#customRoleDialog *{box-sizing:border-box}
+#customRoleDialog .custom-heading{display:flex;justify-content:space-between;align-items:center;gap:16px;flex:none;padding:20px 24px;border-bottom:1px solid #d5c6a9;background:#f2e9d6}
+#customRoleDialog h2{margin:0;font-size:22px;color:#23496b}
+#customRoleDialog .custom-heading p{margin:6px 0 0;font-size:12px;line-height:1.7;color:#665b4c}
+#customRoleDialog .custom-workspace{display:grid;grid-template-columns:230px minmax(300px,1fr) 270px;flex:1;min-height:0}
+#customRoleDialog .custom-library,#customRoleDialog .custom-form,#customRoleDialog .custom-preview-panel{min-width:0;overflow:auto;overscroll-behavior:contain;padding:20px;scrollbar-gutter:stable}
+#customRoleDialog .custom-library{border-right:1px solid #d5c6a9;background:#f6efdf}
+#customRoleDialog .custom-preview-panel{border-left:1px solid #d5c6a9;background:#f6efdf}
+#customRoleDialog h3{margin:0 0 16px;padding:0;border:0;font-size:16px;color:#514737}
+#customRoleDialog .custom-list-heading{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:13px;margin-bottom:12px}
+#customRoleDialog #customRoleCount{font-size:11px;color:#665b4c}
+#customRoleDialog #customShowLibrary{display:none}
+#customRoleDialog :is(input:not([type=checkbox]):not([type=file]),select,textarea){width:100%;min-height:40px;margin:6px 0 12px;padding:9px 10px;border:1px solid #ccb893;border-radius:7px;font:inherit;font-size:13px;background:#fffaf0;color:#34302c}
+#customRoleDialog input[readonly]{background:#eee5d3;color:#665b4c}
+#customRoleDialog textarea{height:82px;min-height:60px;resize:vertical;line-height:1.7}
+#customRoleDialog #ca{height:132px}
+#customRoleDialog label{display:block;font-size:12px;color:#514737}
+#customRoleDialog .custom-two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+#customRoleDialog details{margin-top:16px;padding:12px;border:1px solid #d5c6a9;border-radius:9px}
+#customRoleDialog summary{font-weight:600;font-size:13px;cursor:pointer;min-height:28px}
+#customRoleDialog details[open]>summary{margin-bottom:10px}
+#customRoleDialog .custom-help,#customRoleDialog .custom-empty{font-size:12px;line-height:1.7;color:#665b4c;margin:4px 0 12px;overflow-wrap:anywhere}
+#customRoleDialog .custom-count{text-align:right;font-size:11px;color:#665b4c;margin-top:-8px}
+#customRoleDialog .custom-role-row{display:block;width:100%;padding:12px;margin-top:10px;border:1px solid #d5c6a9;border-radius:8px;background:#fffaf0;text-align:left;color:#34302c;cursor:pointer;overflow-wrap:anywhere}
+#customRoleDialog .custom-role-row:hover,#customRoleDialog .custom-role-row.is-current{background:#eee2c9;border-color:#ac8c54}
+#customRoleDialog .custom-role-row strong{display:block;font-size:14px}
+#customRoleDialog .custom-role-row span{display:block;margin-top:4px;font-size:11px;color:#665b4c}
+#customRoleDialog .custom-role-row p{font-size:12px;line-height:1.6;margin:8px 0 0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+#customRoleDialog .custom-icon-actions{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+#customRoleDialog .custom-upload{position:relative;display:inline-flex;align-items:center;font-size:12px;cursor:pointer;overflow:hidden}
+#customRoleDialog .custom-upload input{position:absolute;inset:0;width:100%;opacity:0;cursor:pointer}
+#customRoleDialog #customIconResults{display:flex;flex-wrap:wrap;gap:6px}
+#customRoleDialog .custom-icon-choice{display:flex;align-items:center;gap:5px;padding:5px 8px;max-width:100%;border:1px solid #d5c6a9;border-radius:6px;background:#fffaf0;color:#34302c;cursor:pointer;font-size:12px}
+#customRoleDialog .custom-icon-choice img{width:28px;height:28px;object-fit:contain}
+#customRoleDialog .custom-check{display:flex;align-items:center;gap:8px;font-size:12px}
+#customRoleDialog .custom-check input{width:16px;height:16px;margin:0;flex:none}
+#customRoleDialog .custom-preview{padding:16px;border:1px solid #d5c6a9;border-radius:10px;background:#fffaf0;overflow-wrap:anywhere}
+#customRoleDialog .custom-preview-top{display:flex;align-items:center;gap:12px}
+#customRoleDialog .custom-icon-frame{width:64px;height:64px;flex:none;display:grid;place-items:center;color:#23496b;font-size:32px;border-radius:8px}
+#customRoleDialog #customPreviewIcon{max-width:64px;max-height:64px;object-fit:contain}
+#customRoleDialog [hidden]{display:none!important}
+#customRoleDialog #customPreviewName{display:block;font-size:20px;color:#075e87}
+#customRoleDialog #customPreviewType{display:block;font-size:12px;color:#665b4c;margin-top:5px}
+#customRoleDialog .custom-preview[data-team=minion] #customPreviewName,#customRoleDialog .custom-preview[data-team=demon] #customPreviewName{color:#86232b}
+#customRoleDialog #customPreviewAbility{white-space:pre-wrap;font-size:14px;line-height:1.8;margin:16px 0}
+#customRoleDialog #customPreviewReminders{font-size:12px;padding-top:10px;border-top:1px solid #d5c6a9;line-height:1.7;color:#665b4c}
+#customRoleDialog .custom-role-actions{display:grid;gap:8px;margin-top:20px}
+#customRoleDialog .custom-footer{flex:none;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:12px 24px;border-top:1px solid #d5c6a9;background:#f2e9d6;min-height:78px}
+#customRoleDialog .custom-save-actions{display:flex;align-items:center;gap:16px;flex:none}
+#customRoleDialog #customNotice{font-size:12px;line-height:1.7;margin:0;overflow-wrap:anywhere;color:#305d3c}
+#customRoleDialog #customNotice.is-error{color:#982732}
+#customRoleDialog #customDraftStatus{font-size:11px;color:#665b4c}
+#customRoleDialog :focus-visible{outline:2px solid #3978ab;outline-offset:2px}
+#customRoleDialog .btn:disabled{opacity:.4;cursor:default}
+.script-tool-page .custom-inline-edit{display:block;margin-top:6px;border:1px solid #c5ad84;border-radius:5px;background:#fffaf0;color:#23496b;padding:4px 9px;font:inherit;font-size:11px;cursor:pointer}
+.script-tool-page .custom-inline-edit:focus-visible{outline:2px solid #3978ab;outline-offset:2px}
+.script-tool-page .custom-card-wrap{display:flex;flex-direction:column;min-width:0;border:1px solid #d5c6a9;border-radius:9px;overflow:hidden;background:#fffaf0}
+.script-tool-page .custom-card-wrap .card{flex:1;border-radius:0;margin:0;border:0}
+.script-tool-page .custom-card-edit{border:0;border-top:1px solid #d5c6a9;padding:7px 5px;background:#f2e9d6;color:#23496b;cursor:pointer;font:inherit;font-size:11px}
+.script-tool-page .custom-role-located{outline:2px solid #3978ab;outline-offset:2px;background:#e9f0f6!important}
+#customRoleDialog .custom-script-bridge{margin-top:16px;padding:12px;border:1px solid #d5c6a9;border-radius:9px;background:#eee4cf}
+#customRoleDialog #customMembership{font-size:12px;color:#305d3c;line-height:1.7;margin:0 0 8px}
+#customRoleDialog .custom-script-bridge>.btn{width:100%;margin-bottom:10px}
+#customRoleDialog .custom-bridge-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;margin-bottom:10px}
+#customRoleDialog .custom-bridge-actions .btn{padding:7px 3px;font-size:11px}
+#customRoleDialog .custom-view-tabs{display:none}
+#customRoleDialog .custom-heading-actions{display:flex;gap:8px;align-items:center;flex:none}
+#customRoleDialog #customLibraryStatus{font-size:11px;color:#665b4c;margin-top:3px}
+#customRoleDialog #customLibraryStatus.is-error{color:#982732}
+#customRoleDialog .custom-form-heading{display:flex;justify-content:space-between;align-items:start;gap:12px;margin-bottom:16px}
+#customRoleDialog .custom-form-heading h3{margin:0}
+#customRoleDialog #customEditState{font-size:11px;white-space:nowrap;padding:3px 7px;border-radius:5px;background:#e4ecdf;color:#305d3c}
+#customRoleDialog #customEditState.is-dirty{background:#f1e1bb;color:#76511f}
+#customRoleDialog .custom-list-icon{float:left;width:34px;height:34px;object-fit:contain;margin:0 8px 6px 0}
+#customRoleDialog .custom-role-row p{clear:both}
+#customRoleDialog .custom-field-error{font-size:12px;line-height:1.6;margin:-6px 0 10px;color:#982732}
+#customRoleDialog [aria-invalid=true]{border-color:#ad3640!important;background:#fff4f0!important}
+#customRoleDialog .custom-shortcut{display:block;font-size:11px;color:#665b4c;margin-top:3px}
+@media(max-width:1000px){#customRoleDialog .custom-workspace{grid-template-columns:190px minmax(260px,1fr) 230px}#customRoleDialog .custom-workspace> *{padding:14px}}
+@media(max-width:760px){
+ #customRoleDialog{width:96vw;height:94dvh;border-radius:12px}
+ #customRoleDialog .custom-heading{padding:14px;gap:10px}#customRoleDialog h2{font-size:18px}
+ #customRoleDialog .custom-heading-actions{flex-direction:column;align-items:stretch;max-width:120px}
+ #customRoleDialog .custom-workspace{display:block;overflow:auto;overscroll-behavior:contain}
+ #customRoleDialog .custom-view-tabs{display:flex;flex:none;gap:8px;padding:8px 14px;border-bottom:1px solid #d5c6a9;background:#f6efdf}
+ #customRoleDialog .custom-view-tabs button{flex:1;padding:9px;border:1px solid #d5c6a9;border-radius:6px;background:#fffaf0;font:inherit;font-size:13px;color:#514737;cursor:pointer}
+ #customRoleDialog .custom-view-tabs button[aria-pressed=true]{background:#23496b;color:#fff;border-color:#23496b}
+ #customRoleDialog:not(.custom-mobile-preview) .custom-preview-panel{display:none}
+ #customRoleDialog.custom-mobile-preview :is(.custom-library,.custom-form){display:none}
+ #customRoleDialog .custom-workspace> *{overflow:visible;padding:16px;border:0}
+ #customRoleDialog .custom-library{border-bottom:1px solid #d5c6a9}
+ #customRoleDialog .custom-list-heading{margin:0}#customRoleDialog #customShowLibrary{display:inline-flex;align-items:center;padding:6px 10px}
+ #customRoleDialog:not(.custom-library-is-open) #customLibraryBody{display:none}
+ #customRoleDialog.custom-library-is-open .custom-list-heading{margin-bottom:12px}
+ #customRoleDialog #customRoleList{max-height:190px;overflow:auto}
+ #customRoleDialog .custom-preview-panel{border-top:1px solid #d5c6a9}
+ #customRoleDialog .custom-footer{padding:10px 14px;flex-direction:column;align-items:stretch;gap:6px}
+ #customRoleDialog .custom-save-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+ #customRoleDialog .custom-save-actions .custom-check{grid-column:1 / -1}
+ #customRoleDialog .custom-shortcut{display:none}
+ #customRoleDialog .btn{min-height:42px}
+ #customRoleDialog .custom-two{grid-template-columns:minmax(0,1fr);gap:0}
+}
+
+/* Personal definitions are independent from each script's snapshots. */
+#personalRoleDialog{width:min(1120px,96vw);max-width:96vw;height:min(840px,94dvh);max-height:94dvh;padding:0;border:1px solid #cfbd9a;border-radius:14px;overflow:hidden;background:#faf5e9;color:#34302c;box-sizing:border-box}
+#personalRoleDialog[open]{display:flex;flex-direction:column}
+#personalRoleDialog::backdrop{background:#18222dcc;backdrop-filter:blur(3px)}
+#personalRoleDialog *{box-sizing:border-box}
+#personalRoleDialog [hidden]{display:none!important}
+#personalRoleDialog :focus-visible{outline:2px solid #3978ab;outline-offset:2px}
+#personalRoleDialog .personal-heading{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:20px 24px;background:#f2e9d6;border-bottom:1px solid #d5c6a9;flex:none}
+#personalRoleDialog h2{margin:0;font-size:22px;color:#23496b}
+#personalRoleDialog .personal-heading p{font-size:12px;color:#665b4c;line-height:1.7;margin:6px 0 0}
+#personalRoleDialog .personal-workspace{display:grid;grid-template-columns:240px minmax(0,1fr);flex:1;min-height:0}
+#personalRoleDialog .personal-sidebar,#personalRoleDialog .personal-content{overflow:auto;min-width:0;padding:20px;overscroll-behavior:contain;scrollbar-gutter:stable}
+#personalRoleDialog .personal-sidebar{background:#f6efdf;border-right:1px solid #d5c6a9}
+#personalRoleDialog .personal-content{margin:0;max-width:none;width:auto}
+#personalRoleDialog .personal-list-title{display:flex;justify-content:space-between;align-items:center;font-size:13px;margin-bottom:12px}
+#personalRoleDialog #personalCount{font-size:11px;color:#665b4c}
+#personalRoleDialog #personalToggleList{display:none}
+#personalRoleDialog input:not([type=checkbox]):not([type=file]),#personalRoleDialog select{width:100%;font:inherit;font-size:13px;padding:9px 10px;min-height:40px;border:1px solid #ccb893;border-radius:7px;background:#fffaf0;color:#34302c;margin:6px 0 12px}
+#personalRoleDialog .personal-role-row{display:block;width:100%;text-align:left;padding:12px;margin-bottom:10px;border:1px solid #d5c6a9;border-radius:8px;background:#fffaf0;color:#34302c;cursor:pointer;overflow-wrap:anywhere}
+#personalRoleDialog .personal-role-row.is-current{background:#eee2c9;border-color:#ac8c54}
+#personalRoleDialog .personal-role-row img{float:left;width:36px;height:36px;object-fit:contain;margin-right:8px}
+#personalRoleDialog .personal-role-row strong{display:block;font-size:14px}
+#personalRoleDialog .personal-role-row span,#personalRoleDialog .personal-role-row small{display:block;font-size:11px;margin-top:5px;color:#665b4c}
+#personalRoleDialog .personal-role-row small{clear:both;font-size:10px}
+#personalRoleDialog .personal-role-preview{display:flex;align-items:center;gap:14px;padding:16px;border:1px solid #d5c6a9;border-radius:9px;background:#fffaf0}
+#personalRoleDialog #personalIcon{width:64px;height:64px;object-fit:contain;flex:none}
+#personalRoleDialog h3{font-size:21px;margin:0 0 6px;padding:0;border:0;color:#23496b}
+#personalRoleDialog #personalMeta,#personalRoleDialog #personalIdentity{font-size:11px;line-height:1.7;color:#665b4c;margin:0;overflow-wrap:anywhere}
+#personalRoleDialog #personalAbility{white-space:pre-wrap;font-size:14px;line-height:1.8;margin:16px 0;overflow-wrap:anywhere}
+#personalRoleDialog .personal-version-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+#personalRoleDialog label{font-size:12px;color:#514737}
+#personalRoleDialog .personal-actions{display:flex;flex-wrap:wrap;gap:8px}
+#personalRoleDialog .personal-help,#personalRoleDialog .personal-empty{font-size:12px;line-height:1.7;color:#665b4c;overflow-wrap:anywhere;margin:8px 0 12px}
+#personalRoleDialog details{border:1px solid #d5c6a9;border-radius:9px;padding:14px;margin-top:16px}
+#personalRoleDialog summary{font-size:14px;font-weight:600;cursor:pointer;min-height:26px}
+#personalRoleDialog .personal-difference{border-top:1px solid #d5c6a9;padding-top:10px;margin-top:10px;font-size:12px;overflow-wrap:anywhere}
+#personalRoleDialog .personal-diff-columns{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:8px}
+#personalRoleDialog .personal-diff-columns>div{padding:10px;background:#f2e9d6;border-radius:5px;white-space:pre-wrap;line-height:1.8}
+#personalRoleDialog .personal-diff-columns small{display:block;font-size:11px;color:#665b4c;margin-bottom:4px}
+#personalRoleDialog .personal-diff-columns img{width:70px;height:70px;object-fit:contain;margin-right:8px}
+#personalRoleDialog .personal-target{display:flex;align-items:flex-start;gap:8px;border-top:1px solid #d5c6a9;padding:10px 0;font-size:13px;line-height:1.6;cursor:pointer}
+#personalRoleDialog .personal-target input{width:16px;height:16px;margin:3px 0 0;flex:none}
+#personalRoleDialog .personal-target small{display:block;color:#665b4c;font-size:11px}
+#personalRoleDialog .personal-target.is-consistent{color:#716755;cursor:default}
+#personalRoleDialog .personal-current-status{font-size:12px;color:#305b77;background:#e7eef2;border-radius:6px;padding:8px 12px;line-height:1.6}
+#personalRoleDialog .personal-target-tools{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:12px 0}
+#personalRoleDialog .personal-target-tools span{font-size:12px;color:#665b4c;line-height:1.7;overflow-wrap:anywhere}
+#personalRoleDialog[aria-busy="true"]{cursor:progress}
+#personalRoleDialog .btn:focus-visible,#personalRoleDialog .personal-role-row:focus-visible{outline:2px solid #3978ab;outline-offset:2px}
+#personalRoleDialog #personalUpdate{margin-top:12px}
+#personalRoleDialog .personal-footer{padding:12px 24px;border-top:1px solid #d5c6a9;background:#f2e9d6;flex:none;min-height:70px}
+#personalRoleDialog #personalNotice{font-size:12px;line-height:1.7;color:#305d3c;margin:0 0 8px;overflow-wrap:anywhere}
+#personalRoleDialog #personalNotice:empty{display:none}
+#personalRoleDialog #personalNotice.is-error{color:#982732}
+#personalRoleDialog .personal-upload{position:relative;overflow:hidden;cursor:pointer;display:inline-flex;align-items:center}
+#personalRoleDialog .personal-upload input{position:absolute;inset:0;opacity:0;width:100%;cursor:pointer}
+#personalRoleDialog .btn:disabled{opacity:.4;cursor:default}
+@media(max-width:760px){
+ #personalRoleDialog .personal-heading{padding:14px}#personalRoleDialog h2{font-size:18px}
+ #personalRoleDialog .personal-workspace{display:block;overflow:auto}
+ #personalRoleDialog .personal-sidebar,#personalRoleDialog .personal-content{overflow:visible;padding:14px;border:0}
+ #personalRoleDialog .personal-sidebar{border-bottom:1px solid #d5c6a9}
+ #personalRoleDialog .personal-list-title{margin:0;gap:8px}
+ #personalRoleDialog #personalToggleList{display:inline-flex;padding:6px 10px;min-height:40px;align-items:center}
+ #personalRoleDialog.personal-has-detail:not(.personal-list-open) #personalSidebarBody{display:none}
+ #personalRoleDialog #personalRoleList{max-height:180px;overflow:auto}
+ #personalRoleDialog .personal-footer{padding:10px 14px}
+ #personalRoleDialog .personal-footer .personal-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+ #personalRoleDialog .personal-footer .btn{font-size:11px;padding:8px 4px;justify-content:center;min-height:40px}
+ #personalRoleDialog .personal-version-fields{gap:8px}
+ #personalRoleDialog .personal-diff-columns{grid-template-columns:minmax(0,1fr)}
+ #personalRoleDialog .personal-actions .btn{min-height:40px}
+}

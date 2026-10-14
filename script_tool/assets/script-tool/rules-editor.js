@@ -1,7 +1,7 @@
 /* Author rules belong to the script: drafts, JSON and artwork share SCRIPT_RULES. */
 (function(root){
   'use strict';
-  var editing=null,override=null,kind='jinx';
+  var editing=null,override=null,kind='jinx',preferredRole='';
   var labels={jinx:'双角色相克',role:'单角色特殊规则',special:'全局特殊规则'};
   function el(id){return document.getElementById(id);}
   function classification(rule){return rule.ruleKind||(Array.isArray(rule.roleIds)&&rule.roleIds.length===2||ScriptCore.matchJinx(sel,[rule]).length||ScriptCore.matchJinx(allChars(),[rule]).length?'jinx':'special');}
@@ -27,6 +27,10 @@
     var ids=rule&&Array.isArray(rule.roleIds)?rule.roleIds:match?match.roles.map(function(r){return r.id;}):[];
     if(!ids.length&&rule){var legacy=ScriptCore.matchJinx(allChars(),[rule])[0];if(legacy)ids=legacy.roles.map(function(r){return r.id;});}
     ['ruleRoleA','ruleRoleB','ruleSingleRole'].forEach(function(id,index){el(id).innerHTML=roleOptions(ids);if(ids[index===2?0:index])el(id).value=ids[index===2?0:index];else if(index===1&&el(id).options.length>1)el(id).selectedIndex=1;});
+    if(!rule&&!match&&preferredRole){
+      ['ruleRoleA','ruleSingleRole'].forEach(function(id){if(Array.from(el(id).options).some(function(option){return option.value===preferredRole;}))el(id).value=preferredRole;});
+      if(el('ruleRoleB').value===el('ruleRoleA').value){var other=Array.from(el('ruleRoleB').options).find(function(option){return ScriptCore.identity(option.value)!==ScriptCore.identity(preferredRole);});if(other)el('ruleRoleB').value=other.value;}
+    }
     el('rulePairFields').hidden=kind!=='jinx';el('ruleNameField').hidden=kind==='jinx';
     el('ruleSingleField').hidden=kind!=='role';
     el('ruleScopeHelp').textContent=kind==='jinx'?'选择两个不同角色，说明它们之间的互动。':kind==='role'?'只需选择一个角色，规则会显示在该角色的图片说明下。':'无需选择角色。可添加私货商人的玩法、特殊开局或全局胜利条件。';
@@ -94,7 +98,8 @@
       commit(next);reset();renderList();notify('已保存到当前剧本，导出 JSON 和生成图片会带上这些规则。');
     }catch(error){notify(error.message);}
   }
-  function open(selectedKind){
+  function open(selectedKind,roleId){
+    preferredRole=typeof roleId==='string'?roleId:'';
     kind=selectedKind||'jinx';
     openDlg('<div class="rules-editor"><header><h3 id="rulesEditorTitle">剧本规则编辑</h3><p>规则保存在当前草稿，随 JSON 导入导出，并用于生成图片。</p><div class="rule-tabs" role="group" aria-label="规则类型"><button type="button" class="btn" id="ruleTabJinx">双角色相克</button><button type="button" class="btn" id="ruleTabRole">单角色规则</button><button type="button" class="btn" id="ruleTabSpecial">全局特殊规则</button></div></header>'+
       '<div class="rules-editor-body"><form id="ruleForm"><h4 id="ruleFormHeading"></h4><p id="ruleScopeHelp" class="tip"></p><div id="rulePairFields" class="rule-pair"><label>角色一<select id="ruleRoleA" aria-label="相克角色一"></select></label><label>角色二<select id="ruleRoleB" aria-label="相克角色二"></select></label></div><label id="ruleSingleField">关联角色<select id="ruleSingleRole" aria-label="特殊规则关联角色"></select></label><label id="ruleNameField">规则名称<input type="text" id="ruleName" maxlength="200" placeholder="例如：杀戮决斗"></label><label>规则说明<textarea id="ruleAbility" maxlength="20000" required placeholder="填写完整规则说明"></textarea></label><p id="ruleOverrideNote" hidden>此版本仅用于当前剧本；恢复后会重新使用收录规则。</p><div class="rule-form-actions"><button type="submit" class="btn pri" id="ruleSave">添加规则</button><button type="button" class="btn" id="ruleCancel">重置</button></div><p id="ruleNotice" role="status" aria-live="polite"></p></form><section id="ruleList" aria-label="规则列表"></section></div><footer><button type="button" class="btn" id="ruleDone">完成</button></footer></div>');

@@ -62,6 +62,13 @@
     root.ScriptDraftUI={
       commitReplacement:commitReplacement,
       commitImport:commitReplacement,
+      listDrafts:function(){store.check();return store.list();},
+      applyStates:function(updates){
+        if(storageBlocked)throw Error('旧存档尚未恢复，请先导出 JSON 备份');
+        var entries=store.updateMany(updates),current=entries.find(function(entry){return entry.id===CURRENT_DRAFT_ID;});
+        if(current){applyDraftState(current.state);renderAll();}
+        return entries;
+      },
       prepareSave:function(snapshot){
         store.check();snapshot.savedAt=Date.now();
         if(!CURRENT_DRAFT_ID&&root.ScriptDrafts.hasContent(snapshot)){CURRENT_DRAFT_ID=store.create(snapshot);snapshot.draftId=CURRENT_DRAFT_ID;}

@@ -23,7 +23,7 @@ var sel=[];                    // 已选角色
 var curTab='all', q='', saveKey='botc_script_tool_v1';
 var curSource='all';
 var CURRENT_DRAFT_ID='';
-var SOURCE_LABELS={all:'全部来源',official:'官方角色',stars:'群星角色',yuque:'海外自制角色',odyssey:'奥德赛角色'};
+var SOURCE_LABELS={all:'全部来源',official:'官方角色',stars:'群星角色',yuque:'海外自制角色',odyssey:'奥德赛角色',custom:'我的自制角色'};
 var SOURCE_BY_ID=new Map(CHARS.map(function(c){return [ScriptCore.identity(c.id),c.source];}));
 function roleSource(c){return SOURCE_BY_ID.get(ScriptCore.identity(c.id))||'custom';}
 function matchesSource(c){return curSource==='all'||roleSource(c)===curSource;}
@@ -139,12 +139,13 @@ function renderGrid(){
       '<div class="ph">'+esc(initial(c.n))+'</div>';
     // 搜索时给前 9 个标上序号，对应键盘 1-9
     var num=(q&&i<9)?'<span class="num">'+(i+1)+'</span>':'';
-    return '<div role="button" tabindex="0" aria-pressed="'+inSel(c)+'" class="card'+(inSel(c)?' on':'')+'" data-i="'+idx+'" data-team="'+
+    var customIndex=CUSTOM.indexOf(c);
+    return (customIndex>=0?'<div class="custom-card-wrap">':'')+'<div role="button" tabindex="0" aria-pressed="'+inSel(c)+'" class="card'+(inSel(c)?' on':'')+'" data-i="'+idx+'" data-team="'+
       esc(c.t)+'" title="'+esc(c.n+'：'+c.ab)+'">'+num+img+
       '<div class="nm">'+esc(c.n)+'</div>'+
       (c.source==='yuque'?'<span class="homebrew-label">海外自制</span>':'')+
       (c.source==='stars'?'<span class="homebrew-label">群星</span>':'')+
-      '<div class="cid">'+esc(c.id||'')+'</div></div>';
+      '<div class="cid">'+esc(c.id||'')+'</div></div>'+(customIndex>=0?'<button type="button" class="custom-card-edit" data-custom-edit="'+customIndex+'" aria-label="编辑自制角色 '+esc(c.n)+'">编辑角色</button></div>':'');
   }).join('');
   var tip='';
   if(q&&list.length===1) tip='<div class="khint">按 <kbd>回车</kbd> 添加「'+esc(list[0].n)+'」</div>';
@@ -199,8 +200,8 @@ function renderSel(){
       var gi=sel.indexOf(c);
       var img=c.im?'<img src="'+esc(c.im)+'" loading="lazy" alt="">':
         '<div class="ph">'+esc(initial(c.n))+'</div>';
-      h+='<div class="row2">'+img+'<span class="nm" title="'+esc(c.n+'：'+c.ab)+'">'+
-        esc(c.n)+'</span><span class="ab">'+esc(c.ab)+'</span>'+
+      h+='<div class="row2" data-script-role="'+esc(c.id)+'" tabindex="-1">'+img+'<span class="nm" title="'+esc(c.n+'：'+c.ab)+'">'+
+        esc(c.n)+'</span><span class="ab">'+esc(c.ab)+(CUSTOM.indexOf(c)>=0?'<button type="button" class="custom-inline-edit" data-custom-edit="'+CUSTOM.indexOf(c)+'" aria-label="编辑自制角色 '+esc(c.n)+'">编辑角色</button>':'')+'</span>'+
         '<button class="mini" data-up="'+gi+'" title="上移">↑</button>'+
         '<button class="mini" data-dn="'+gi+'" title="下移">↓</button>'+
         '<button class="mini x" data-rm="'+gi+'" title="移除">✕</button></div>';
@@ -210,7 +211,7 @@ function renderSel(){
   document.getElementById('sel').innerHTML=h||'<div class="empty">剧本还是空的</div>';
 }
 function renderAll(){
-  renderTabs(); renderGrid(); renderStat(); renderSel(); if(typeof renderScriptChecks==='function')renderScriptChecks(); save();
+  renderTabs(); renderGrid(); renderStat(); renderSel(); if(typeof renderScriptChecks==='function')renderScriptChecks(); return save();
 }
 
 /* ---------- 交互 ---------- */
@@ -240,6 +241,7 @@ document.getElementById('grid').addEventListener('click',function(e){
 });
 document.getElementById('sel').addEventListener('click',function(e){
   var b=e.target.closest('button'); if(!b)return;
+  if(b.hasAttribute('data-custom-edit'))return;
   var i;
   if(b.hasAttribute('data-rm')){ i=+b.getAttribute('data-rm'); sel.splice(i,1); }
   else if(b.hasAttribute('data-up')){ i=+b.getAttribute('data-up');
@@ -524,28 +526,7 @@ document.getElementById('bNight').onclick=function(){
     copyText(t,this);};
 };
 document.getElementById('bCustom').onclick=function(){
-  var opts=TEAMORD.map(function(t){return '<option value="'+t+'">'+
-    esc(TEAMCN[t])+'</option>';}).join('');
-  openDlg('<h3>自定义角色</h3>'+
-    '<label>角色名称 *</label><input type="text" id="cn" placeholder="例如：戏子">'+
-    '<label>英文 id（可留空，自动生成）</label><input type="text" id="ci" placeholder="xizi">'+
-    '<label>阵营</label><select id="ct">'+opts+'</select>'+
-    '<label>能力文本</label><textarea class="small" id="ca" style="height:70px"></textarea>'+
-    '<label>图标 URL（可留空）</label><input type="text" id="cm" placeholder="https://...">'+
-    '<div class="foot"><button class="btn pri" id="cok">加入并选中</button>'+
-    '<button class="btn" onclick="closeDlg()">取消</button></div>');
-  document.getElementById('cok').onclick=function(){
-    var n=document.getElementById('cn').value.trim();
-    if(!n){alert('请填写角色名称');return;}
-    var c={n:n,id:document.getElementById('ci').value.trim()||('custom_'+n),
-      t:document.getElementById('ct').value,
-      ab:document.getElementById('ca').value.trim(),
-      im:document.getElementById('cm').value.trim(),
-      fl:'',ed:'custom',s:0,f:0,o:0,r:[],rg:[],fr:'',or:''};
-    if(allChars().some(function(x){return ScriptCore.identity(x.id)===ScriptCore.identity(c.id);})){alert('角色 ID 已存在，请使用其他 ID');return;}
-    try{c=ScriptCore.normalize({id:c.id,name:c.n,team:c.t,ability:c.ab,image:c.im});}catch(e){alert(e.message);return;}
-    CUSTOM.push(c); sel.push(c); closeDlg(); renderAll();
-  };
+  if(window.ScriptCustomRoles)window.ScriptCustomRoles.open();
 };
 document.getElementById('preset').onchange=function(){
   var v=this.value; this.value='';
@@ -615,7 +596,8 @@ document.getElementById('grid').addEventListener('keydown',function(e){
 });
 document.addEventListener('error',function(e){
   if(e.target.classList&&e.target.classList.contains('rule-role-icon'))return;
-  if(e.target.id==='artPreview')return;
+  if(e.target.id==='artPreview'||e.target.id==='customPreviewIcon'||e.target.id==='personalIcon')return;
+  if(e.target.closest&&e.target.closest('#personalRoleDialog'))return;
   if(e.target.tagName==='IMG'){var p=document.createElement('span');p.className='ph';p.textContent='◈';p.setAttribute('aria-label','暂无图标');e.target.replaceWith(p);}
 },true);
 

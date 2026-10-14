@@ -70,6 +70,14 @@
       get:function(identity){return copy(find(data,identity));},
       active:function(){return data.activeId;},
       create:create,update:update,importState:importState,
+      updateMany:function(updates){
+        if(!Array.isArray(updates)||!updates.length||new Set(updates.map(function(item){return item.id;})).size!==updates.length)throw new Error('请选择不同的草稿');
+        var prepared=updates.map(function(item){return {id:item.id,state:state(item.state)};});
+        return commit(function(next){return prepared.map(function(item){
+          var target=find(next,item.id);checkpoint(target,target.state);
+          item.state.draftId=target.id;item.state.savedAt=clock();target.state=item.state;target.updatedAt=clock();return target;
+        });});
+      },
       activate:function(identity){return commit(function(next){if(identity!==null)find(next,identity);next.activeId=identity;});},
       duplicate:function(identity){var snapshot=copy(find(data,identity).state);snapshot.n=(snapshot.n||'未命名剧本')+'（副本）';return create(snapshot);},
       restore:function(identity,pointId){

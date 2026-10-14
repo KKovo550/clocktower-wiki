@@ -4,14 +4,66 @@
 #artDialog .art-header{display:flex;flex:none;align-items:center;justify-content:space-between;gap:20px;padding:24px 28px;border-bottom:1px solid #dce4ef;background:white}
 #artDialog h2{margin:4px 0;font-size:25px;border:0}#artDialog p{margin:6px 0;line-height:1.6}
 #artDialog .art-eyebrow{font-size:11px;letter-spacing:2px;color:#51719d;font-weight:700}
-#artDialog .art-workspace{display:grid;flex:1;min-height:0;overflow:hidden;grid-template-columns:290px minmax(0,1fr);gap:24px;padding:24px;box-sizing:border-box}
-#artDialog .art-controls{display:flex;flex-direction:column;gap:14px;min-width:0;min-height:0;overflow:auto;overscroll-behavior:contain;scrollbar-gutter:stable;padding-right:6px}
+#artDialog .art-workspace{display:grid;flex:1;min-height:0;overflow:hidden;grid-template-columns:minmax(0,var(--art-controls-width,360px)) 12px minmax(0,1fr);gap:12px;padding:24px;box-sizing:border-box}
+#artDialog .art-settings-pane{display:flex;flex-direction:column;min-width:0;min-height:0;overflow:hidden}
+#artDialog .art-controls-toolbar{display:flex;flex:none;flex-wrap:wrap;gap:8px;align-items:center;padding-bottom:12px}
+#artDialog .art-controls-toolbar .btn{padding:7px 10px;font-size:13px;min-height:36px}
+#artDialog .art-controls-toolbar select{flex:1 0 100%;font-size:13px;padding:8px}
+#artDialog .art-controls-toolbar .art-note{margin:0}
+#artDialog .art-settings-search{display:flex;gap:6px;align-items:center;width:100%}
+#artDialog .art-settings-search input{flex:1;width:0;min-height:40px;font-size:14px}
+#artDialog .art-settings-shortcuts{display:flex;align-items:center;gap:6px;width:100%}
+#artDialog .art-panel-options{position:relative;margin-left:auto;font-size:13px}
+#artDialog .art-panel-options>summary{cursor:pointer;padding:8px 10px;border:1px solid #cbd8e9;border-radius:9px;list-style:none}
+#artDialog .art-panel-options[open]>summary{background:#edf3fc}
+#artDialog .art-panel-options>div{position:absolute;top:calc(100% + 6px);right:0;z-index:5;width:230px;padding:12px;display:flex;gap:8px;flex-wrap:wrap;background:var(--archive-paper,#f7f9fc);border:1px solid #cbd8e9;border-radius:10px;box-shadow:0 8px 22px #12233b20}
+#artDialog .art-panel-options .art-note{flex-basis:100%}
+#artDialog .art-controls-dock{display:grid;grid-template-columns:auto auto 1fr;gap:8px;flex:none;border-top:1px solid #d8cfbf;padding-top:12px;margin-top:10px}
+#artDialog .art-controls-dock .btn{min-height:42px;font-size:13px;padding:8px 10px}
+#artDialog .art-controls-dock #artStatus{grid-column:1/-1;margin:0;max-height:3.4em;overflow:auto;overflow-wrap:anywhere}
+#artDialog .art-controls-dock #artStatus:empty{display:none}
+#artDialog .art-controls-dock #artAutoSaveStatus{grid-column:1/-1;font-size:11px;line-height:1.5;margin:0;max-height:3em;overflow:auto}
+#artAutoSaveStatus:empty{display:none}
+#artDialog .art-personal-schemes{border:1px solid #d8cfbf;border-radius:8px;padding:10px;font-size:13px}
+#artDialog .art-personal-schemes>summary{cursor:pointer;font-weight:600;min-height:28px}
+#artDialog .art-personal-schemes[open]{display:flex;flex-direction:column;gap:10px}
+#artDialog .art-group-actions{display:flex;justify-content:flex-end}
+#artDialog .art-group-actions .btn{font-size:12px;padding:5px 9px;min-height:32px}
+#artDialog .art-group-actions:has(button:disabled){display:none}
+#artDialog .art-change-badge{display:inline-block;margin-left:8px;font-size:11px;font-weight:400;color:#785222;background:#f5e7c9;padding:2px 5px;border-radius:4px}
+#artDialog .art-change-badge[hidden]{display:none}
+#artDialog label.art-setting-changed>input,#artDialog label.art-setting-changed>select,#artDialog label.art-setting-changed>textarea{border-color:#b88b42;box-shadow:0 0 0 1px #b88b4220}
+#artDialog .art-material-picker{font-size:12px;color:#465b78}
+#artDialog .art-material-picker>summary{cursor:pointer;padding:7px 0;line-height:1.5}
+#artDialog .art-material-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(88px,1fr));gap:8px}
+#artDialog .art-material-card{display:flex;flex-direction:column;gap:5px;padding:5px;min-width:0;border:1px solid #d8cfbf;border-radius:8px;background:#fffc;cursor:pointer;font:inherit;color:inherit;text-align:center;line-height:1.4}
+#artDialog .art-material-card[aria-pressed=true]{border:2px solid #366484;padding:4px;background:#eaf1f6}
+#artDialog .art-material-card:focus-visible{outline:3px solid #92baff;outline-offset:2px}
+#artDialog .art-material-thumb{display:flex;position:relative;align-items:center;justify-content:center;height:76px;width:100%;overflow:hidden;background:#f0e5ca;border-radius:4px}
+#artDialog .art-material-thumb img{width:100%;height:100%;object-fit:cover}
+#artDialog .art-material-parts{flex-direction:column;justify-content:space-between}
+#artDialog .art-material-parts img{height:48%;object-fit:contain}
+#artDialog .art-settings-group{border:1px solid #d8cfbf;border-radius:10px;background:#fff9;padding:0;min-width:0}
+#artDialog .art-settings-group>summary{cursor:pointer;min-height:44px;padding:12px;box-sizing:border-box;font-size:14px;font-weight:600;color:#35465c}
+#artDialog .art-settings-group>summary:focus-visible,#artDialog .art-panel-options>summary:focus-visible{outline:3px solid #92baff;outline-offset:2px;border-radius:8px}
+#artDialog .art-settings-group[open]>summary{border-bottom:1px solid #d8cfbf}
+#artDialog .art-group-fields{display:flex;flex-direction:column;gap:14px;padding:14px;min-width:0}
+#artDialog [data-art-group][hidden],#artSettingsClear[hidden],#artSettingsSearchStatus[hidden]{display:none}
+#artDialog.art-searching-settings #artBasicHeading{display:none}
+#artSettingsSearchStatus{font-size:12px;color:#5c708c;margin:0;width:100%}
+#artDialog .art-controls{display:flex;flex:1;flex-direction:column;gap:14px;min-width:0;min-height:0;overflow:auto;overscroll-behavior:contain;scrollbar-gutter:stable;padding-right:6px}
+#artDialog .art-controls-resizer{align-self:stretch;position:relative;cursor:col-resize;touch-action:none;border-radius:6px;outline:none}
+#artDialog .art-controls-resizer::before{content:'';position:absolute;left:5px;top:0;bottom:0;width:2px;background:#c6c0b3;border-radius:2px}
+#artDialog .art-controls-resizer:hover,#artDialog .art-controls-resizer:focus-visible{background:#d8cbb580;outline:2px solid #ac9269;outline-offset:2px}
+#artDialog .art-controls-resizer::after{content:'⋮';position:absolute;top:50%;left:0;width:12px;text-align:center;transform:translateY(-50%);color:#79674d;background:var(--archive-paper,#f7f9fc);padding:6px 0}
+#artDialog.art-resizing-controls{cursor:col-resize;user-select:none}
 #artDialog .art-basic-settings,#artDialog .art-advanced-fields,#artDialog .art-export-settings{display:flex;flex-direction:column;gap:14px;min-width:0}
 #artDialog .art-basic-settings h3{margin:0;font-size:16px}
-#artDialog .art-advanced-settings{border-top:1px solid #dce4ef;border-bottom:1px solid #dce4ef;padding:12px 0}
-#artDialog .art-advanced-settings>summary{cursor:pointer;font-size:14px;color:#365778;font-weight:600;min-height:32px}
-#artDialog .art-advanced-fields{margin-top:14px}
+#artDialog .art-advanced-settings{border:0;padding:0}
+#artDialog .art-advanced-fields{margin-top:0}
 #artDialog .art-script-info{display:flex;flex-direction:column;gap:14px;min-width:0}
+#artDialog .art-group-fields>.art-script-info{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px}
+#artDialog .art-script-info>label:nth-of-type(1),#artDialog .art-script-info>label:nth-of-type(2),#artDialog .art-script-info>.art-note{grid-column:1/-1}
 #artDialog label{display:flex;flex-direction:column;gap:7px;font-size:13px;color:#465b78}
 #artDialog input,#artDialog select{box-sizing:border-box;min-width:0;width:100%;padding:10px;border:1px solid #cedaeb;border-radius:9px;background:white;font:inherit;color:#1b2c44}
 #artDialog .art-pair{display:grid;grid-template-columns:1fr 1fr;gap:12px}
@@ -21,6 +73,11 @@
 #artDialog .art-preview-toolbar{display:flex;flex:none;gap:6px;align-items:center;flex-wrap:wrap;padding-bottom:10px}
 #artDialog .art-preview-toolbar .btn{padding:7px 10px;font-size:13px;min-height:36px}
 #artDialog .art-preview-toolbar [aria-pressed=true]{background:#dbe7f6;border-color:#88a9d4}
+#artDialog .art-compare-tools{display:flex;align-items:center;flex-wrap:wrap;gap:6px;flex-basis:100%;padding-top:4px}
+#artCompareHold{touch-action:none;user-select:none;-webkit-user-select:none}
+#artCompareLabel{font-size:12px;color:#765126}
+#artCompareLabel[hidden],#artDialog .art-stage>img[hidden],#artDialog.art-comparing #artOverlay{display:none}
+#artComparePreview{display:block;width:100%;height:auto;box-shadow:0 8px 28px #15273d26;border-radius:8px}
 #artZoomValue{font-size:12px;min-width:42px;text-align:center;font-variant-numeric:tabular-nums}
 #artDialog .art-preview-viewport{position:relative;flex:1;min-height:0;min-width:0;overflow:auto;overscroll-behavior:contain;scrollbar-gutter:stable;padding:8px;box-sizing:border-box}
 #artDialog .art-stage{margin:0 auto;flex:none;max-width:none}
@@ -37,6 +94,8 @@
 
 #artDialog textarea{box-sizing:border-box;width:100%;min-height:90px;padding:10px;border:1px solid #cedaeb;border-radius:9px;background:#fff;font:inherit;color:#1b2c44;resize:vertical}
 #artDialog input[type="checkbox"]{width:auto;align-self:flex-start}
+#artDialog label:has(input[type="checkbox"]){flex-direction:row;align-items:center;min-height:36px;line-height:1.5}
+#artDialog label:has(input[type="checkbox"]) input{flex:none;align-self:center;margin:0}
 .art-custom-jinx{padding:12px;border:1px solid #cedaeb;border-radius:10px;background:#fff}
 .art-custom-jinx summary{cursor:pointer;font-weight:600;margin-bottom:10px}
 #artCustomJinxList>div{border-top:1px solid #e0e5ec;padding:10px 0;overflow-wrap:anywhere}
@@ -58,12 +117,17 @@
  #artDialog[open]{display:flex;flex-direction:column}
  #artDialog .art-header{flex:none}
  #artDialog .art-workspace{display:flex;flex-direction:column;flex:1;min-height:0;overflow:auto;overscroll-behavior:contain;align-content:start}
+ #artDialog .art-settings-pane{flex:none;overflow:visible}
+ #artDialog .art-controls-resizer,#artControlsWider,#artControlsReset,#artControlsHint{display:none}
+ #artDialog .art-controls-toolbar select{font-size:16px;min-height:44px}
+ #artDialog .art-panel-options{display:none}
+ #artDialog .art-controls-toolbar{position:sticky;top:-16px;z-index:6;background:var(--archive-paper,#f7f9fc);padding-top:8px}
  #artDialog .art-controls{flex:none;overflow:visible;padding-right:0}
  #artDialog .art-canvas{flex:1}
  #artDialog .art-mobile-tools{display:grid;order:3;flex:none;grid-template-columns:1fr 1fr 1.4fr;gap:8px;padding:10px max(16px,env(safe-area-inset-right,0px)) max(10px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));background:#f7f9fc;border-top:1px solid #dce4ef}
  #artDialog .art-mobile-tools .btn{min-height:44px;padding:8px 6px;font-size:14px}
  #artDialog .art-mobile-tools [aria-pressed="true"]{background:#e4edfb;border-color:#92baff;color:#285da9}
- #artDialog[data-view="preview"] .art-controls,#artDialog[data-view="settings"] .art-canvas{display:none}
+ #artDialog[data-view="preview"] .art-settings-pane,#artDialog[data-view="settings"] .art-canvas{display:none}
  #artDialog input,#artDialog select,#artDialog textarea{font-size:16px;min-height:44px}
  #artDialog .art-header p:not(.art-eyebrow){font-size:13px}
  #artDialog .art-header h2{font-size:22px}
