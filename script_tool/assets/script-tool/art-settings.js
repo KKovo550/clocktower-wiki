@@ -28,6 +28,11 @@
     var job=queue.catch(function(){}).then(async function(){var db=await open();if(db)return transaction(db,'readwrite',remote);root.localStorage.setItem(fallbackKey,JSON.stringify(local(fallbackRecords())));});queue=job;return job;
   }
   root.ScriptArtSettings={
+    backup:async function(){await queue.catch(function(){});var db=await open();return db?transaction(db,'readonly',function(store,set){var request=store.getAll();request.onsuccess=function(){set(request.result);};}):fallbackRecords();},
+    replaceRecords:function(records,expected){
+      function signature(all){return JSON.stringify(all.slice().sort(function(a,b){return a.key.localeCompare(b.key);}));}
+      return mutate(function(all){if(signature(all)!==signature(expected))throw Error('制图存档已更新，请重新预览备份');return records;},function(store,set,abort){var request=store.getAll();request.onsuccess=function(){if(signature(request.result)!==signature(expected)){abort(Error('制图存档已更新，请重新预览备份'));return;}store.clear();records.forEach(function(record){store.put(record);});};});
+    },
     list:async function(kind){
       await queue.catch(function(){});var db=await open(),all=db?await transaction(db,'readonly',function(store,set){var request=store.index('kind').getAll(kind);request.onsuccess=function(){set(request.result);};}):fallbackRecords();
       return all.filter(function(r){return r&&r.version===1&&r.kind===kind;}).sort(function(a,b){return b.savedAt-a.savedAt;});

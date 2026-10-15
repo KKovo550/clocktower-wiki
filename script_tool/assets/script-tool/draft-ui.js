@@ -18,7 +18,7 @@
   }
   function apply(identity,snapshot){
     // Validate before moving the active pointer or changing any editor fields.
-    ScriptCore.restoreDraft(snapshot,CHARS);store.activate(identity);CURRENT_DRAFT_ID=identity;applyDraftState(snapshot);renderAll();
+    ScriptCore.restoreDraft(snapshot,CHARS);store.activate(identity);CURRENT_DRAFT_ID=identity;applyDraftState(snapshot);renderAll();if(root.ScriptEditorHistory)root.ScriptEditorHistory.reset();
   }
   function time(value){return new Date(value).toLocaleString('zh-CN',{month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit'});}
   function render(historyId){
@@ -63,6 +63,8 @@
       commitReplacement:commitReplacement,
       commitImport:commitReplacement,
       listDrafts:function(){store.check();return store.list();},
+      backup:function(){return store.backup();},
+      restoreEditor:function(snapshot){var restored=store.restoreEditor(snapshot.draftId,snapshot);CURRENT_DRAFT_ID=restored.draftId;return restored;},
       applyStates:function(updates){
         if(storageBlocked)throw Error('旧存档尚未恢复，请先导出 JSON 备份');
         var entries=store.updateMany(updates),current=entries.find(function(entry){return entry.id===CURRENT_DRAFT_ID;});

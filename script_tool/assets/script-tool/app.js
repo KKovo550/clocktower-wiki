@@ -560,13 +560,14 @@ function applyDraftState(state){
   document.getElementById('mname').value=draft.name;document.getElementById('mauthor').value=draft.author;
   document.getElementById('spec').value=draft.spec;document.getElementById('preset').value='';
 }
-function save(){
+function save(event){
   if(storageBlocked||(window.ScriptDrafts&&!window.ScriptDraftUI))return false;
   try{
     var snapshot=captureDraft();
     if(window.ScriptDraftUI)window.ScriptDraftUI.prepareSave(snapshot);
     localStorage.setItem(saveKey,JSON.stringify(snapshot));
     try{localStorage.setItem('botc_script_resume_v1',JSON.stringify({name:snapshot.n,roles:snapshot.sel.length,hasContent:!!(snapshot.n||snapshot.sel.length)}));}catch(ignore){}
+    if(window.ScriptEditorHistory)window.ScriptEditorHistory.observe(snapshot,event&&event.target&&event.target.id);
     status(CURRENT_DRAFT_ID?'已自动保存到“'+(snapshot.n||'未命名剧本')+'” · 重要内容请导出 JSON 备份':'已保存到此浏览器 · 重要剧本请导出 JSON 备份');
     return true;
   }catch(e){status('本地保存失败：'+e.message+'。请立即导出 JSON 备份。');return false;}

@@ -66,6 +66,13 @@
     }
     return {
       check:check,
+      backup:function(){check();return copy(data);},
+      restoreEditor:function(identity,value){
+        var snapshot=state(value);
+        return commit(function(next){
+          var target=find(next,identity||next.activeId);snapshot.draftId=target.id;snapshot.savedAt=clock();target.state=snapshot;target.updatedAt=clock();next.activeId=target.id;return copy(snapshot);
+        });
+      },
       list:function(){return copy(data.drafts).sort(function(a,b){return b.updatedAt-a.updatedAt;});},
       get:function(identity){return copy(find(data,identity));},
       active:function(){return data.activeId;},

@@ -214,7 +214,7 @@
     var base=ruleFrame(layout,options);if(!base)return null;
     function setting(key,fallback,min,max){var v=Number(options[key]);return options[key]===undefined||!Number.isFinite(v)?fallback:Math.max(min,Math.min(max,v));}
     var physicalScale=base.scale||1,baseWidth=base.width*physicalScale,baseHeight=base.height*physicalScale;
-    var minimumX=96,maximumX=1190,y=base.y,maxHeight=Math.max(85,layout.bodyTop-y-10);
+    var minimumX=96,maximumX=1190,y=Math.max(8,Math.min(base.y+layout.height*setting('ruleOffsetY',0,-40,40)/100,layout.bodyTop-95)),maxHeight=Math.max(85,layout.bodyTop-y-10);
     var frameChanged=setting('ruleOffset',0,-40,40)!==0||setting('ruleWidth',100,60,160)!==100;
     if(options.style==='poster')minimumX=Math.max(minimumX,frameChanged&&titleBounds?titleBounds.right+24:base.x);
     var width=Math.min(maximumX-minimumX,baseWidth*setting('ruleWidth',100,60,160)/100);
@@ -232,6 +232,43 @@
       throw new Error('特殊规则框放不下全文，请加宽规则框或恢复规则框调整。');
     }
     return Object.assign({},base,{x:x,y:y,width:width/physicalScale,height:height/physicalScale,scale:physicalScale,font:font,lines:lines,lineHeight:lineHeight,actualOffset:(x+width/2-base.x-baseWidth/2)/1280*100,actualWidth:width/baseWidth*100,actualHeight:height/baseHeight*100});
+  }
+  function authorAdjustment(layout,options,geometry){
+    var base=geometry.original;
+    function offset(key){var value=Number(options[key]);return Number.isFinite(value)?Math.max(-40,Math.min(40,value)):0;}
+    var dx=offset('authorOffset')*layout.width/100,dy=offset('authorOffsetY')*layout.height/100;
+    if(dx||dy){
+      dx=Math.max(96-base.x,Math.min(layout.width-96-base.x-base.width,dx));
+      dy=Math.max(8-base.y,Math.min(Math.max(base.y,layout.bodyTop-10-base.height)-base.y,dy));
+    }
+    return {x:base.x+dx,y:base.y+dy,width:base.width,height:base.height,base:base,dx:dx,dy:dy,transform:'translate('+dx+' '+dy+')',adjusted:!!(dx||dy)};
+  }
+  function titleAdjustment(layout,options,geometry,measure){
+    var original=geometry.original,poster=options.style==='poster',box=geometry.ruleBox;
+    var requestedScale=Number(options.logoScale),requestedOffset=Number(options.logoOffset),requestedOffsetY=Number(options.logoOffsetY);
+    requestedScale=Number.isFinite(requestedScale)?Math.max(.25,Math.min(1.6,requestedScale)):1;
+    requestedOffset=Number.isFinite(requestedOffset)?Math.max(-40,Math.min(40,requestedOffset)):0;
+    requestedOffsetY=Number.isFinite(requestedOffsetY)?Math.max(-40,Math.min(40,requestedOffsetY)):0;
+    var adjusted=requestedScale!==1||requestedOffset!==0||requestedOffsetY!==0;
+    if(!adjusted)return {adjusted:false,x:original.x,y:original.y,scale:1,offset:0,transform:''};
+    var leftLimit=96,rightLimit=poster&&box?box.x-24:1184,bottomLimit=Math.max(40,layout.bodyTop-10);
+    if(!poster&&box)bottomLimit=Math.min(bottomLimit,box.y-10);
+    var authorTop=Infinity,authorLeft=1184;
+    if(options.author){
+      var author='剧本作者：'+String(options.author).slice(0,48),authorSize=geometry.authorSize;
+      while(authorSize>14&&measure(author,authorSize)>geometry.titleWidth)authorSize--;
+      authorTop=geometry.authorY-authorSize-6;
+      authorLeft=poster&&!options.rules?Math.max(96,geometry.metaRight-measure(author,authorSize)):96;
+      if(options.rules||!poster)bottomLimit=Math.min(bottomLimit,authorTop-6);
+    }
+    var scale=Math.min(requestedScale,(rightLimit-leftLimit)/original.width,bottomLimit/original.height);
+    var y=Math.max(0,Math.min(original.y+original.height*(1-scale)/2+layout.height*requestedOffsetY/100,bottomLimit-original.height*scale));
+    if(options.author&&poster&&!options.rules&&y+original.height*scale>authorTop-6){
+      rightLimit=Math.max(leftLimit+24,Math.min(rightLimit,authorLeft-12));scale=Math.min(scale,(rightLimit-leftLimit)/original.width);
+      y=Math.max(0,Math.min(original.y+original.height*(1-scale)/2+layout.height*requestedOffsetY/100,bottomLimit-original.height*scale));
+    }
+    var x=Math.max(leftLimit,Math.min(original.x+original.width*(1-scale)/2+1280*requestedOffset/100,rightLimit-original.width*scale));
+    return {adjusted:true,x:x,y:y,scale:scale,offset:(x+original.width*scale/2-original.x-original.width/2)/1280*100,transform:'translate('+x+' '+y+') scale('+scale+') translate('+(-original.x)+' '+(-original.y)+')'};
   }
   function svg(layout,pageIndex,options,icons,measure){
     var themes={cloud:['#f1f5fa','#ffffff','#172b46','#64758b'],paper:['#f5f0e5','#fffcf5','#3e352b','#85755f'],night:['#121b2b','#1b2940','#f3f6ff','#b1c0d7']};
@@ -385,32 +422,11 @@
     function titleLayer(dx,dy,fill,stroke,width){out.push('<text x="'+(titleX+dx)+'" y="'+(titleBaseline+dy)+'" font-family="'+titleFonts[titleStyle]+'" font-size="'+titleSize+'" font-weight="'+(titleStyle==='classic'?600:900)+'" textLength="'+titleLength+'" lengthAdjust="spacingAndGlyphs" fill="'+fill+'" stroke="'+stroke+'" stroke-width="'+width+'" stroke-linejoin="round" paint-order="stroke fill">'+esc(titleValue)+'</text>');}
     // Transform only the title artwork. The body plan, metadata and ornaments
     // keep their existing geometry, and neutral settings keep the original SVG.
-    var requestedScale=Number(options.logoScale),requestedOffset=Number(options.logoOffset);
-    requestedScale=Number.isFinite(requestedScale)?Math.max(.25,Math.min(1.6,requestedScale)):1;
-    requestedOffset=Number.isFinite(requestedOffset)?Math.max(-40,Math.min(40,requestedOffset)):0;
-    var adjustedTitle=requestedScale!==1||requestedOffset!==0;
-    if(adjustedTitle){
-      var original={x:hasLogo?logoX:titleX,y:hasLogo?logoBottom-logoHeight:titleBaseline-titleSize*1.1,width:hasLogo?logoWidth:titleLength,height:hasLogo?logoHeight:titleSize*1.4};
-      var leftLimit=96,rightLimit=poster&&titleRuleBox?titleRuleBox.x-24:1184,bottomLimit=Math.max(40,layout.bodyTop-10);
-      if(!poster&&titleRuleBox)bottomLimit=Math.min(bottomLimit,titleRuleBox.y-10);
-      var adjustmentAuthorTop=Infinity,adjustmentAuthorLeft=1184;
-      if(options.author){
-        var adjustmentAuthor='剧本作者：'+String(options.author).slice(0,48),adjustmentAuthorSize=details&&details.metadata?details.metadata.authorSize:22;
-        while(adjustmentAuthorSize>14&&measure(adjustmentAuthor,adjustmentAuthorSize)>titleWidth)adjustmentAuthorSize--;
-        adjustmentAuthorTop=(header?header.authorY:details&&details.metadata?details.metadata.authorY:150)-adjustmentAuthorSize-6;
-        adjustmentAuthorLeft=poster&&!options.rules?Math.max(96,(details&&details.metadata?details.metadata.right:1184)-measure(adjustmentAuthor,adjustmentAuthorSize)):96;
-        if(options.rules||!poster)bottomLimit=Math.min(bottomLimit,adjustmentAuthorTop-6);
-      }
-      var appliedScale=Math.min(requestedScale,(rightLimit-leftLimit)/original.width,bottomLimit/original.height);
-      var adjustedY=Math.max(0,Math.min(original.y+original.height*(1-appliedScale)/2,bottomLimit-original.height*appliedScale));
-      if(options.author&&poster&&!options.rules&&adjustedY+original.height*appliedScale>adjustmentAuthorTop-6){
-        rightLimit=Math.max(leftLimit+24,Math.min(rightLimit,adjustmentAuthorLeft-12));
-        appliedScale=Math.min(appliedScale,(rightLimit-leftLimit)/original.width);
-        adjustedY=Math.max(0,Math.min(original.y+original.height*(1-appliedScale)/2,bottomLimit-original.height*appliedScale));
-      }
-      var adjustedX=Math.max(leftLimit,Math.min(original.x+original.width*(1-appliedScale)/2+1280*requestedOffset/100,rightLimit-original.width*appliedScale));
-      out.push('<g data-title-adjustment="true" data-applied-scale="'+appliedScale+'" data-applied-offset="'+((adjustedX+original.width*appliedScale/2-original.x-original.width/2)/1280*100)+'" transform="translate('+adjustedX+' '+adjustedY+') scale('+appliedScale+') translate('+(-original.x)+' '+(-original.y)+')">');
-    }
+    var original={x:hasLogo?logoX:titleX,y:hasLogo?logoBottom-logoHeight:titleBaseline-titleSize*1.1,width:hasLogo?logoWidth:titleLength,height:hasLogo?logoHeight:titleSize*1.4};
+    var titleGeometry={original:original,titleWidth:titleWidth,ruleBox:titleRuleBox,authorSize:details&&details.metadata?details.metadata.authorSize:22,authorY:header?header.authorY:details&&details.metadata?details.metadata.authorY:150,metaRight:details&&details.metadata?details.metadata.right:1184};
+    if(typeof options.onTitleGeometry==='function')options.onTitleGeometry(titleGeometry);
+    var titleChange=titleAdjustment(layout,options,titleGeometry,measure),adjustedTitle=titleChange.adjusted,adjustedX=titleChange.x,appliedScale=titleChange.scale;
+    if(adjustedTitle)out.push('<g data-title-adjustment="true" data-applied-scale="'+appliedScale+'" data-applied-offset="'+titleChange.offset+'" transform="'+titleChange.transform+'">');
     if(hasLogo){
       out.push('<image data-title-logo="uploaded" href="'+esc(logo.image)+'" x="'+logoX+'" y="'+(logoBottom-logoHeight)+'" width="'+logoWidth+'" height="'+logoHeight+'" preserveAspectRatio="xMidYMid meet"/>');
     }else{
@@ -442,7 +458,16 @@
     var metadata=details&&details.metadata,metaRight=metadata?metadata.right:1184;
     var meta=options.author?'剧本作者：'+String(options.author).slice(0,48):'',metaSize=metadata?metadata.authorSize:22;
     while(metaSize>14&&measure(meta,metaSize)>titleWidth)metaSize--;
-    if(meta)text(poster&&!options.rules?Math.max(96,metaRight-measure(meta,metaSize)):96,header?header.authorY:metadata?metadata.authorY:150,meta,metaSize,'#000000',metadata?metadata.authorWeight:400);
+    var authorGeometry=null;
+    if(meta){
+      var authorX=poster&&!options.rules?Math.max(96,metaRight-measure(meta,metaSize)):96,authorY=header?header.authorY:metadata?metadata.authorY:150;
+      authorGeometry={original:{x:authorX,y:authorY-metaSize,width:measure(meta,metaSize),height:metaSize*1.3}};
+      var authorChange=authorAdjustment(layout,options,authorGeometry);
+      if(authorChange.adjusted)out.push('<g data-author-adjustment="true" transform="'+authorChange.transform+'">');
+      text(authorX,authorY,meta,metaSize,'#000000',metadata?metadata.authorWeight:400);
+      if(authorChange.adjusted)out.push('</g>');
+    }
+    if(typeof options.onAuthorGeometry==='function')options.onAuthorGeometry(authorGeometry);
     if(options.version){var versionText=String(options.version).slice(0,18);text(poster&&!options.rules?Math.min(1184-measure(versionText,16),titleX+titleLength+14):96,header?header.versionY:42,versionText,16,palette[2],700);}
     if(options.players){var playerText=String(options.players).slice(0,24),playerSize=metadata?metadata.playersSize:20;while(playerSize>14&&measure(playerText,playerSize)>titleWidth)playerSize--;text(poster&&options.rules?96:metaRight-measure(playerText,playerSize),header?header.playersY:metadata?metadata.playersY:174,playerText,playerSize,'#000000',metadata?metadata.playersWeight:700);}
     var subtitle=String(options.subtitle||'').slice(0,65),subtitleSize=20;
@@ -613,5 +638,5 @@
     out.push('</svg>');return out.join('');
     function artFooterLines(value,width,size){return wrap(value,width,size,measure);}
   }
-  root.ScriptArt={layout:layout,svg:svg,wrap:wrap,wrapRules:wrapRules,ruleDisplay:ruleDisplay,jinxFor:jinxFor,notesFor:notesFor,noteText:noteText,roleBounds:roleBounds,nightRailBounds:nightRailBounds,iconGeometry:iconGeometry};
+  root.ScriptArt={layout:layout,svg:svg,wrap:wrap,wrapRules:wrapRules,ruleDisplay:ruleDisplay,titleAdjustment:titleAdjustment,authorAdjustment:authorAdjustment,jinxFor:jinxFor,notesFor:notesFor,noteText:noteText,roleBounds:roleBounds,nightRailBounds:nightRailBounds,iconGeometry:iconGeometry};
 })(typeof window==='undefined'?globalThis:window);

@@ -63,7 +63,7 @@
 #artDialog .art-advanced-fields{margin-top:0}
 #artDialog .art-script-info{display:flex;flex-direction:column;gap:14px;min-width:0}
 #artDialog .art-group-fields>.art-script-info{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px}
-#artDialog .art-script-info>label:nth-of-type(1),#artDialog .art-script-info>label:nth-of-type(2),#artDialog .art-script-info>.art-note{grid-column:1/-1}
+#artDialog .art-script-info>label:nth-of-type(1),#artDialog .art-script-info>label:nth-of-type(2),#artDialog .art-script-info>.art-note,#artDialog .art-script-info>.art-author-adjust{grid-column:1/-1}
 #artDialog label{display:flex;flex-direction:column;gap:7px;font-size:13px;color:#465b78}
 #artDialog input,#artDialog select{box-sizing:border-box;min-width:0;width:100%;padding:10px;border:1px solid #cedaeb;border-radius:9px;background:white;font:inherit;color:#1b2c44}
 #artDialog .art-pair{display:grid;grid-template-columns:1fr 1fr;gap:12px}
@@ -132,7 +132,14 @@
  #artDialog .art-header p:not(.art-eyebrow){font-size:13px}
  #artDialog .art-header h2{font-size:22px}
 }
-#artDialog .art-logo-adjust,#artDialog .art-rule-adjust{padding:12px;border:1px solid #d5c6a9;border-radius:8px;margin:12px 0}
+#artDialog .art-logo-adjust,#artDialog .art-rule-adjust,#artDialog .art-author-adjust{padding:12px;border:1px solid #d5c6a9;border-radius:8px;margin:12px 0}
 #artDialog .art-logo-adjust-inputs{display:grid;grid-template-columns:minmax(0,1fr) 76px;align-items:center;gap:10px;margin-top:6px}
 #artDialog .art-logo-adjust-inputs input{min-width:0;width:100%;box-sizing:border-box}
 #artDialog .art-logo-adjust-inputs input[type=range]{padding:0;cursor:ew-resize}
+#artDialog .art-direct-target{cursor:move;touch-action:none;border:1px dashed transparent}
+#artDialog .art-direct-target:hover,#artDialog .art-direct-target:focus-visible{border-color:#416fa4;background:#416fa408}
+#artDialog .art-direct-resize{z-index:7;min-width:24px;min-height:24px;cursor:nwse-resize;touch-action:none;background:#fffdf4;border:1px solid #416fa4;border-radius:5px;color:#285da9;padding:0;font-size:15px;line-height:1}
+#artDialog .art-snap-guide{position:absolute;z-index:8;pointer-events:none;background:#3775ad}
+#artDialog .art-snap-x{width:1px;top:0;height:100%}
+#artDialog .art-snap-y{height:1px;left:0;width:100%}
+#artDialog .art-live-preview{position:absolute;inset:0;display:block;width:100%;height:100%;pointer-events:none}

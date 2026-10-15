@@ -508,3 +508,7 @@ kbd{background:#f1e9d8;border:1px solid var(--tan);border-radius:3px;padding:0 4
  #personalRoleDialog .personal-diff-columns{grid-template-columns:minmax(0,1fr)}
  #personalRoleDialog .personal-actions .btn{min-height:40px}
 }
+.workspace-backup-comparison{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:16px 0}
+.workspace-backup-comparison section{min-width:0;padding:12px;border:1px solid var(--tan,#d5c6a9);border-radius:8px;background:var(--cream,#fffdf8)}
+.workspace-backup-comparison p{white-space:pre-line;overflow-wrap:anywhere}
+@media(max-width:700px){.workspace-backup-comparison{grid-template-columns:1fr}}

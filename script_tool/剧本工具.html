@@ -173,7 +173,7 @@
       <label>剧本规格<select id="spec"><option value="free">不限制</option><option value="teensy">汀西维尔（小局）</option><option value="ravenswood">鸦木布拉夫（标准局）</option></select></label>
       <label>官方预设<select id="preset"><option value="">选择官方剧本…</option></select></label>
     </div>
-    <div class="script-actions"><span class="script-action-hint">从空白开始，或导入已有剧本</span><button class="btn" id="bDrafts">我的草稿</button><button class="btn" id="bImport">导入 JSON</button><button class="btn pri" id="bExport">导出 JSON</button><button class="btn" id="bArt">生成剧本图片</button><a class="btn" href="夜序查看器.html">导入 JSON 查看夜序</a></div>
+    <div class="script-actions"><span class="script-action-hint">从空白开始，或导入已有剧本</span><button class="btn" id="bDrafts">我的草稿</button><button class="btn" id="bBackup">完整备份</button><button class="btn" id="bImport">导入 JSON</button><button class="btn pri" id="bExport">导出 JSON</button><button class="btn" id="bArt">生成剧本图片</button><a class="btn" href="夜序查看器.html">导入 JSON 查看夜序</a></div>
   </section>
 
   <p id="saveStatus" role="status" aria-live="polite"></p>
@@ -187,7 +187,7 @@
     </section>
     <section class="mine" aria-labelledby="selection-title">
       <div class="editor-panel-heading"><div><h2 id="selection-title">我的剧本</h2><p>调整顺序，检查角色搭配</p></div></div>
-      <div class="selection-actions"><button class="btn" id="bNight">夜晚顺序</button><button class="btn" id="bSort">按夜序排序</button><button class="btn" id="bRules">规则编辑</button><button class="btn warn" id="bClear">清空</button></div>
+      <div class="selection-actions"><button class="btn" id="bUndo" title="撤销剧本修改（Ctrl+Z，输入框保留文字撤销）" disabled>撤销</button><button class="btn" id="bRedo" title="重做剧本修改（Ctrl+Shift+Z / Ctrl+Y）" disabled>重做</button><button class="btn" id="bNight">夜晚顺序</button><button class="btn" id="bSort">按夜序排序</button><button class="btn" id="bRules">规则编辑</button><button class="btn warn" id="bClear">清空</button></div>
       <div class="stat" id="stat"></div>
       <details id="script-checks"></details>
       <div id="sel"></div>
@@ -211,11 +211,13 @@
 <script src="魔典/nightorder.js"></script>
 <script src="assets/script-tool/checks.js"></script><script src="../assets/workflow-role-links.js"></script><script src="assets/script-tool/app.js"></script><script src="assets/script-tool/draft-ui.js"></script><script src="assets/script-tool/receive-library.js"></script>
 <script src="assets/script-tool/mobile-images.js"></script><script src="assets/script-tool/image-import.js"></script>
+<script src="assets/script-tool/editor-history.js"></script>
 <script src="assets/script-tool/rules-editor.js"></script>
 <script src="assets/script-tool/personal-role-store.js"></script>
 <script src="assets/script-tool/custom-roles.js"></script>
 <script src="assets/script-tool/personal-roles.js"></script>
 <script src="assets/script-tool/art-presets.js"></script><script src="assets/script-tool/art-print-layout.js"></script><script src="assets/script-tool/art-core.js"></script><script src="assets/script-tool/art-logo-ai.js"></script><script src="assets/script-tool/art-settings.js"></script><script src="assets/script-tool/art.js"></script>
+<script src="assets/script-tool/workspace-backup.js"></script><script src="assets/script-tool/workspace-backup-ui.js"></script>
 <script src="../assets/wiki.js"></script>
 <script src="../assets/start-guide.js" defer></script>
 
