@@ -298,7 +298,8 @@
       var end=start+line.length;
       return runs.filter(function(run){return run.end>start&&run.start<end;}).map(function(run){
         var value=line.slice(Math.max(start,run.start)-start,Math.min(end,run.end)-start);
-        return '<tspan fill="'+run.ink+'"'+(details&&run.keyword?' font-weight="'+details.body.keywordWeight+'"':'')+(details&&details.body.strokeWidth?' stroke="'+run.ink+'" stroke-width="'+details.body.strokeWidth+'" paint-order="stroke fill"':'')+'>'+esc(value)+'</tspan>';
+        var strokeWidth=details&&(run.keyword&&details.body.keywordStrokeWidth!==undefined?details.body.keywordStrokeWidth:details.body.strokeWidth);
+        return '<tspan fill="'+run.ink+'"'+(details&&run.keyword?' font-family="'+esc(details.body.keywordFamily||typography.bodyFamily)+'" font-weight="'+details.body.keywordWeight+'"':'')+(strokeWidth?' stroke="'+run.ink+'" stroke-width="'+strokeWidth+'" paint-order="stroke fill"':'')+'>'+esc(value)+'</tspan>';
       }).join('');
     }
     function nameInk(color){
@@ -314,7 +315,7 @@
     var height=layout.height,iconSize=layout.iconSize||96,exportWidth=layout.outputWidth||1280,exportHeight=layout.outputHeight||height;
     var out=['<svg xmlns="http://www.w3.org/2000/svg" width="'+exportWidth+'" height="'+exportHeight+'" viewBox="0 0 '+exportWidth+' '+exportHeight+'">'];
     var faces=root.ScriptArtFonts&&root.ScriptArtFonts.faces||[];
-    if(faces.length)out.push('<style data-body-fonts="embedded">'+faces.filter(function(face){return /^data:(font\/woff2|application\/octet-stream);base64,[A-Za-z0-9+/=]+$/.test(face.data);}).map(function(face){return '@font-face{font-family:"'+face.family+'";src:url("'+face.data+'") format("woff2");font-style:normal;font-weight:400;}';}).join('')+'</style>');
+    if(faces.length)out.push('<style data-body-fonts="embedded">'+faces.filter(function(face){return /^data:(font\/woff2|application\/octet-stream);base64,[A-Za-z0-9+/=]+$/.test(face.data);}).map(function(face){return '@font-face{font-family:"'+face.family+'";src:url("'+face.data+'") format("woff2");font-style:normal;font-weight:'+(face.weight||400)+';}';}).join('')+'</style>');
     if(layout.outputWidth)out.push('<g transform="scale('+(exportWidth/1280)+')">');
     out.push(
       '<rect width="1280" height="'+height+'" fill="'+palette[0]+'"/>');
@@ -333,6 +334,19 @@
     var backdrop=chosen(options.backdrop);
     if(backdrop&&/^data:image\/(png|jpeg|webp);base64,/.test(backdrop.image||''))out.push('<image data-background="'+esc(options.backdrop)+'" href="'+esc(backdrop.image)+'" width="1280" height="'+height+'" preserveAspectRatio="none"/>');
     if(print&&!options.pure&&!options.background)out.push('<rect data-paper-tone="warm-paper" width="1280" height="'+height+'" fill="#e5cc91" opacity=".14"/><defs><linearGradient id="paper-edge"><stop stop-color="#735539" stop-opacity=".08"/><stop offset=".14" stop-color="#735539" stop-opacity="0"/><stop offset=".86" stop-color="#735539" stop-opacity="0"/><stop offset="1" stop-color="#735539" stop-opacity=".08"/></linearGradient><pattern id="print-paper" width="83" height="67" patternUnits="userSpaceOnUse"><path d="M3 11l3-1m18 40l4 1m38-26l2-2m-43 0l1 2m34 25l2-1" stroke="#846d49" stroke-width=".6" opacity=".15"/></pattern></defs><rect width="1280" height="'+height+'" fill="url(#paper-edge)"/><rect width="1280" height="'+height+'" fill="url(#print-paper)"/>');
+    // Shade the existing supplemental section through the bottom of the paper.
+    // Draw below patterns, corner leaves and content; no layout values change.
+    var supplementalBackground=print&&details.supplemental&&details.supplemental.background;
+    if(supplementalBackground&&!options.pure){
+      var supplementalRoles=layout.pages[pageIndex].filter(function(item){return item.kind==='role'&&(item.team==='fabled'||item.team==='loric');});
+      if(supplementalRoles.length){
+        var supplementalHeading=layout.pages[pageIndex].find(function(item){return item.kind==='heading'&&(item.supplemental||item.team==='fabled'||item.team==='loric');});
+        var supplementalY=supplementalHeading?supplementalHeading.y:Math.min.apply(null,supplementalRoles.map(function(item){return item.y;}));
+        var supplementalScale=layout.bodyScale||1,supplementalAnchor=layout.bodyTop||0;
+        supplementalY=Math.max(0,Math.min(height,supplementalAnchor+(supplementalY+supplementalBackground.topOffset-supplementalAnchor)*supplementalScale));
+        out.push('<rect data-supplemental-background="warm-paper" x="'+supplementalBackground.inset+'" y="'+supplementalY+'" width="'+(1280-supplementalBackground.inset*2)+'" height="'+(height-supplementalY)+'" fill="'+supplementalBackground.fill+'" opacity="'+supplementalBackground.opacity+'"/>');
+      }
+    }
     function bands(id,opacity){
       var item=chosen(id);if(!item)return;
       ['top','bottom'].forEach(function(edge){
@@ -348,7 +362,7 @@
         }else out.push('<image data-material="'+esc(item.id)+'" href="'+esc(item[edge])+'" x="0" y="'+(edge==='top'?0:height-item.height)+'" width="1280" height="'+item.height+'" opacity="'+opacity+'"/>');
       });
     }
-    bands(options.pattern,print?0.22:0.35);
+    bands(options.pattern,print?(details.patternOpacity===undefined?0.22:details.patternOpacity):0.35);
     function text(x,y,value,size,color,weight,family,attributes){out.push('<text '+(attributes||'')+'x="'+x+'" y="'+y+'" font-family="'+(family||'system-ui,Microsoft YaHei,sans-serif')+'" font-size="'+size+'" font-weight="'+(weight||400)+'" fill="'+color+'">'+esc(value)+'</text>');}
     // Title geometry stays based on its original reservation. Rule controls
     // operate only on the rule frame, with the final title bounds as a limit.
@@ -555,12 +569,13 @@
         var label=poster?(['townsfolk','outsider'].indexOf(item.team)>=0?'善良阵营 · ':['minion','demon'].indexOf(item.team)>=0?'邪恶阵营 · ':'')+labels[item.team]:labels[item.team];
         if(poster&&item.supplemental){
           var supplementalSize=(layout.headingFontSize||(details?details.heading.size:27))*bodyScale,supplementalLabel='传奇角色 / 奇遇角色';
-          out.push('<g data-supplemental-heading="combined"><text x="'+item.x+'" y="'+headingY+'" font-family="STSong,SimSun,serif" font-size="'+supplementalSize+'" font-weight="900" fill="'+roleColors[item.team]+'">'+supplementalLabel+'</text><path d="M '+(item.x+measure(supplementalLabel,supplementalSize)+12)+' '+(headingY-9*bodyScale)+' H 1184" stroke="'+(details?details.heading.lineInk:'#a49a87')+'" stroke-width="'+(details?details.heading.lineWidth:1)+'"/></g>');return;
+          out.push('<g data-supplemental-heading="combined"><text x="'+item.x+'" y="'+headingY+'" font-family="STSong,SimSun,serif" font-size="'+supplementalSize+'" font-weight="900" fill="'+roleColors[item.team]+'">'+supplementalLabel+'</text><path data-section-line="supplemental" d="M '+(item.x+measure(supplementalLabel,supplementalSize,'heading')+(details&&details.heading.lineGap!==undefined?details.heading.lineGap*bodyScale:12))+' '+(headingY-9*bodyScale)+' H 1184" stroke="'+(details?(details.heading.supplementalLineInk||details.heading.lineInk):'#a49a87')+'" stroke-width="'+(details?(details.heading.supplementalLineWidth||details.heading.lineWidth):1)+'"'+(details?' opacity="'+details.heading.lineOpacity+'" stroke-linecap="round"':'')+'/></g>');return;
         }
         if(poster&&(item.team==='fabled'||item.team==='loric')){out.push('<path d="M 96 '+(headingY-9*bodyScale)+' H 880" stroke="#a49a87"/><text x="1184" y="'+headingY+'" text-anchor="end" font-family="STSong,SimSun,serif" font-size="'+(27*bodyScale)+'" font-weight="900" fill="'+roleColors[item.team]+'">'+esc(labels[item.team]+(item.team==='fabled'?' · 说书人':''))+'</text>');return;}
         if(poster)out.push('<text x="'+item.x+'" y="'+headingY+'" font-family="STSong,SimSun,serif" font-size="'+((layout.headingFontSize||(details?details.heading.size:27))*bodyScale)+'" font-weight="900" stroke="'+roleColors[item.team]+'" stroke-width="'+(print?.85:.45)+'" paint-order="stroke fill" fill="'+roleColors[item.team]+'">'+esc(label)+'</text>');else text(item.x+16,item.y,label,26,palette[2],700);
         var lineEnd=print&&item.y===layout.bodyTop&&options.players&&!options.rules?1184-measure(playerText,playerSize)-14:1184;
-        if(poster)out.push('<path '+(details?'data-section-line="print" ':'')+'d="M '+(item.x+(details?details.heading.lineOffset:265)*bodyScale)+' '+(headingY-9*bodyScale)+' H '+lineEnd+'" stroke="'+(details?details.heading.lineInk:'#a49a87')+'" stroke-width="'+(details?details.heading.lineWidth:print?1.4:1)+'"'+(details?' opacity="'+details.heading.lineOpacity+'"':'')+'/>');return;
+        var lineStart=details&&details.heading.lineGap!==undefined?item.x+measure(label,(layout.headingFontSize||details.heading.size)*bodyScale,'heading')+details.heading.lineGap*bodyScale:item.x+(details?details.heading.lineOffset:265)*bodyScale;
+        if(poster&&lineStart<lineEnd)out.push('<path '+(details?'data-section-line="print" ':'')+'d="M '+lineStart+' '+(headingY-9*bodyScale)+' H '+lineEnd+'" stroke="'+(details?details.heading.lineInk:'#a49a87')+'" stroke-width="'+(details?details.heading.lineWidth:print?1.4:1)+'"'+(details?' opacity="'+details.heading.lineOpacity+'" stroke-linecap="round"':'')+'/>');return;
       }
       if(bodyScale<1)out.push('<g transform="translate('+(item.x*(1-bodyScale))+' '+(layout.bodyTop*(1-bodyScale))+') scale('+bodyScale+')">');
       var role=item.role,iconKey=icons[role.im]?role.im:role.id,icon=icons[iconKey];

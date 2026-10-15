@@ -37,7 +37,7 @@
   // Each section owns two independent stacks and ends at their maximum extent.
   function contentLayout(roles,options,measure){
     var config=root.ScriptArtPresets,art=root.ScriptArt,reference=config.reference;
-    var width=1280,height=reference.height*width/reference.width,margin=92,columnGap=26,colWidth=(width-margin*2-columnGap)/2;
+    var width=1280,height=reference.height*width/reference.width,outputHeight=reference.height,margin=92,columnGap=26,colWidth=(width-margin*2-columnGap)/2;
     var base=config.spacing.printCompact,cal=config.bodyCalibration.printCompact,notesById=art.notesFor(roles,options),noteStyle=config.printDetails.jinx;
     // Use the original preset's fitted typography as the ceiling, rather than
     // enlarging type to consume the space recovered by the new layout.
@@ -59,13 +59,22 @@
       var material=(options.decorations||[]).find(function(d){return d.id===options.footer;});
       if(material&&/^data:image\//.test(material.image||'')){footerHeight=Math.min(220,Math.ceil(864/(Number(material.aspect)||5.6)));footerTop=height-bottom-footerHeight;}
     }
-    var limit=footerTop-(footerHeight?18:12);
+    var limit=footerTop-(footerHeight?18:12),overflowProfile=null;
+    function growCanvas(requiredHeight){
+      outputHeight=Math.max(reference.height,Math.ceil(requiredHeight*reference.width/width));
+      height=outputHeight*width/reference.width;
+      footerTop=height-bottom-footerHeight;
+      if(!footerHeight)footerTop+=12;
+      if(footerBox)footerBox.y=footerTop;
+      limit=footerTop-(footerHeight?18:12);
+    }
     if(options.subtitle)top+=options.players?50:28;
     if(options.rules){var ruleLines=art.wrap(options.rules,486,18,measure);ruleBox={x:660,y:24,width:530,height:ruleLines.length*27+65,lines:ruleLines,scale:1};top=Math.max(top,ruleBox.y+ruleBox.height+28);}
     function arrange(font,density){
       var minimumLeading=Math.min(1.24,baseline.lineHeight/baseline.font),lineHeight=font*(minimumLeading+(baseline.lineHeight/baseline.font-minimumLeading)*density);
       var nameFont=baseline.nameFontSize*(font/preferredFont),nameBaseline=baseline.nameBaseline*(font/preferredFont),nameLeading=nameFont*1.08;
       var roleGap=10+12*density,headingGap=22+2*density,sectionGap=9+5*density,noteFont=Math.max(noteStyle.minFont,font-noteStyle.fontReduction)*noteStyle.fontScale;
+      if(overflowProfile){roleGap=overflowProfile.roleGap;headingGap=overflowProfile.headingGap;sectionGap=overflowProfile.sectionGap;}
       var rows=roles.map(function(role){
         var lines=wrapAbility(role.ab||'暂无能力描述',textWidth,font,measure),nameLines=art.wrap(role.n||role.id,textWidth,nameFont,measure,'name');
         var abilityY=Math.max(baseline.abilityY*(font/preferredFont),nameBaseline+nameFont*.15+font+3)+(nameLines.length-1)*nameLeading;
@@ -89,25 +98,59 @@
         var band=s.naturalHeight;s.y=y;s.rolesTop=y+headingGap;s.height=headingGap+band;s.bottom=s.rolesTop+band;
         items.push({kind:'heading',x:margin,y:y,team:s.team,supplemental:s.supplemental});
         s.columns.forEach(function(list,column){
-          // One shared, comfortable gap; never stretch the shorter column.
-          var gap=roleGap,cy=s.rolesTop;s.gaps[column]=gap;
+          // On dense posters, absorb a small amount of the shorter column's
+          // unused height into its gaps. Leave pair balancing to the final pass.
+          var gap=roleGap,cy=s.rolesTop;
+          if(overflowProfile&&list.length>1)gap+=Math.min(overflowProfile.shortColumnMaxExtraGap,Math.max(0,(band-s.naturalHeights[column])/(list.length-1)));
+          s.gaps[column]=gap;
           list.forEach(function(row,rowIndex){var gapAfter=rowIndex===list.length-1?0:gap;items.push(Object.assign({},row,{kind:'role',x:s.supplemental&&list.length===1&&sections[index].columns[1].length===0?(width-colWidth)/2:margin+column*(colWidth+columnGap),y:cy,width:colWidth,height:row.extent+gapAfter,gapAfter:gapAfter,baseRoleGap:roleGap,extraGapAfter:gapAfter?gapAfter-roleGap:0,section:index,column:column}));cy+=row.extent+gapAfter;});
         });y=s.bottom+(index===sections.length-1?0:headingSize+sectionGap);
       });
-      return {pages:[items],sections:sections.map(function(s){return {team:s.team,supplemental:s.supplemental,y:s.y,rolesTop:s.rolesTop,bottom:s.bottom,height:s.height,naturalHeights:s.naturalHeights,gaps:s.gaps};}),header:header,width:width,height:height,outputWidth:reference.width,outputHeight:reference.height,font:font,lineHeight:lineHeight,nameFontSize:nameFont,nameSize:base.nameSize,nameBaseline:nameBaseline,abilityY:Math.max(baseline.abilityY*(font/preferredFont),nameBaseline+nameFont*.15+font+3),bodyTextWidth:textWidth,textOffset:offset,iconSize:iconFrame,headingFontSize:headingSize,noteFont:noteFont,noteBlockGap:4,bodyScale:1,bodyTop:top,bodyLimit:limit,bodyBottom:sections.length?sections[sections.length-1].bottom:top,footerTop:footerTop,footerHeight:footerHeight,footerBox:footerBox,ruleBox:ruleBox,print:true,fixedCanvas:true,contentFit:true,fitStage:0,baselineFont:preferredFont,spacing:Object.assign({},base,{roleGap:roleGap,lineHeight:lineHeight/font,headingGap:headingGap,sectionGap:sectionGap}),density:density};
+      return {pages:[items],sections:sections.map(function(s){return {team:s.team,supplemental:s.supplemental,y:s.y,rolesTop:s.rolesTop,bottom:s.bottom,height:s.height,naturalHeights:s.naturalHeights,gaps:s.gaps};}),header:header,width:width,height:height,outputWidth:reference.width,outputHeight:outputHeight,font:font,lineHeight:lineHeight,nameFontSize:nameFont,nameSize:base.nameSize,nameBaseline:nameBaseline,abilityY:Math.max(baseline.abilityY*(font/preferredFont),nameBaseline+nameFont*.15+font+3),bodyTextWidth:textWidth,textOffset:offset,iconSize:iconFrame,headingFontSize:headingSize,noteFont:noteFont,noteBlockGap:4,bodyScale:1,bodyTop:top,bodyLimit:limit,bodyBottom:sections.length?sections[sections.length-1].bottom:top,footerTop:footerTop,footerHeight:footerHeight,footerBox:footerBox,ruleBox:ruleBox,print:true,fixedCanvas:outputHeight===reference.height,contentFit:true,fitStage:0,baselineFont:preferredFont,spacing:Object.assign({},base,{roleGap:roleGap,lineHeight:lineHeight/font,headingGap:headingGap,sectionGap:sectionGap}),density:density};
     }
     var result=arrange(preferredFont,1);
     function fits(p){return p.bodyBottom<=limit+.001;}
     function fitSpacing(font){var tight=arrange(font,0);if(!fits(tight))return tight;var low=0,high=1,p=arrange(font,1);if(fits(p))return p;for(var i=0;i<18;i++){var mid=(low+high)/2;p=arrange(font,mid);if(fits(p))low=mid;else high=mid;}return arrange(font,low);}
     if(!fits(result))result=fitSpacing(preferredFont);
     if(!fits(result)){
-      // Keep the former calibrated readability floor. Unbounded data is
-      // rejected instead of clipped or stretched; larger choices keep a
-      // proportional floor as well. Binary search retains the largest fit.
+      // Keep the existing readability floor. Strict fixed-size mode rejects
+      // overflow; adaptive mode extends this same layout rather than switching
+      // to the older long-poster renderer or shrinking glyphs indefinitely.
       var low=Math.min(preferredFont,Math.max(17.6,preferredFont*.95)),high=preferredFont;result=fitSpacing(low);
-      if(!fits(result))throw Error('内容过多，固定画布在可读字号下无法容纳。请精简能力或规则说明。');
-      for(var i=0;i<16;i++){var mid=(low+high)/2,p=fitSpacing(mid);if(fits(p)){low=mid;result=p;}else high=mid;}
+      if(!fits(result)){
+        if(options.ratio!=='adaptive')throw Error('内容过多，固定画布在可读字号下无法容纳。请切换“智能适配”，保留原风格并按需加长。');
+        // Capacity profile: reclaim width from the column gutter and text
+        // insets, keeping the original icon frame and readable typography.
+        // Tune common 33-role rosters by measurement, not per-role positions.
+        overflowProfile=config.overflowLayout&&config.overflowLayout.printCompact;
+        if(overflowProfile){columnGap=overflowProfile.columnGap;colWidth=(width-margin*2-columnGap)/2;offset=iconFrame+overflowProfile.iconTextGap;textWidth=colWidth-offset-overflowProfile.textEndInset;}
+        var extended=arrange(preferredFont,.7);
+        growCanvas(extended.bodyBottom+bottom+footerHeight+(footerHeight?18:0));
+        result=arrange(preferredFont,.7);
+      }else for(var i=0;i<16;i++){var mid=(low+high)/2,p=fitSpacing(mid);if(fits(p)){low=mid;result=p;}else high=mid;}
     }
+    // Use only the space already owned by a section, after canvas/font fitting.
+    // Equal-count columns prefer corresponding name anchors; unequal columns
+    // recover a little of their bottom slack through one uniform extra gap.
+    var balance=config.columnBalance&&config.columnBalance.printCompact;
+    if(balance)result.sections.forEach(function(section,index){
+      var columns=[0,1].map(function(column){return result.pages[0].filter(function(item){return item.kind==='role'&&item.section===index&&item.column===column;});});
+      if(!columns[0].length||!columns[1].length)return;
+      var ends=columns.map(function(list){var last=list[list.length-1];return last.y+last.extent;}),shorter=ends[0]<ends[1]?0:1,list=columns[shorter],peer=columns[1-shorter];
+      var slack=section.bottom-ends[shorter];if(list.length<2||slack<balance.minSlack)return;
+      var oldGap=list[0].gapAfter,maxExtra=Math.max(0,list[0].baseRoleGap+balance.maxExtraGap-oldGap),extra;
+      if(list.length===peer.length){
+        // Least-squares uniform gap, bounded so an already aligned pair cannot
+        // be pushed far apart merely to fill the column's bottom whitespace.
+        var numerator=0,denominator=0;
+        for(var i=1;i<list.length;i++){var difference=peer[i].y-list[i].y;numerator+=i*difference;denominator+=i*i;maxExtra=Math.min(maxExtra,(difference+Math.abs(difference)+balance.maxPairDrift)/i);}
+        extra=Math.max(0,numerator/denominator);
+      }else extra=slack*balance.fill/(list.length-1);
+      extra=Math.min(extra,maxExtra,slack/(list.length-1));if(extra<.05)return;
+      list.forEach(function(item,i){item.y+=i*extra;if(item.gapAfter){item.gapAfter+=extra;item.extraGapAfter+=extra;item.height=item.extent+item.gapAfter;}});
+      section.gaps[shorter]=oldGap+extra;
+    });
+    if(options.ratio==='adaptive')result.autoExtended=outputHeight>reference.height;
     result.railCount=Math.max((options.first||[]).length+2,(options.other||[]).length,1);result.railHeader=88;result.railTop=Math.min(340,Math.round(height*.20));result.railStep=Math.min(60,(height-result.railTop-205)/(result.railCount+2));result.railSize=Math.min(56,result.railStep*.93);
     return result;
   }

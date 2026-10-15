@@ -205,19 +205,81 @@
   var idx = [], ready = false, loading = false, composing = false, wanted = false, callbacks = [];
   var filter = document.getElementById('wiki-search-category');
   var status = document.getElementById('wiki-search-status');
-  var sel = -1, cur = [], searchTimer;
+  var sel = -1, cur = [], searchTimer, suggestionMode = false;
+  var recentKey = 'botc_wiki_search_history_v1', recent = [];
   input.setAttribute('role', 'combobox');
   input.setAttribute('aria-autocomplete', 'list');
-  input.setAttribute('aria-controls', box.id);
+  input.setAttribute('aria-controls', box.id + '-options');
   input.setAttribute('aria-expanded', 'false');
-  box.setAttribute('role', 'listbox');
+  // Keep the history clear button outside the listbox's selectable options.
+  function optionList(markup) { return '<div id="' + esc(box.id + '-options') + '" role="listbox" aria-label="搜索选项">' + markup + '</div>'; }
 
+  function normalize(value) {
+    value = String(value || '');
+    return (value.normalize ? value.normalize('NFKC') : value).toLowerCase().replace(/\s+/g, ' ').trim();
+  }
+  function nameKey(value) { return normalize(value).replace(/[\s·•_—–-]/g, ''); }
+  function category(value) { return ['角色', '剧本', '规则', '其他'].indexOf(value) >= 0 ? value : ''; }
+  function readRecent() {
+    try {
+      var saved = JSON.parse(window.localStorage.getItem(recentKey));
+      recent = saved && saved.version === 1 && Array.isArray(saved.items) ? saved.items.filter(function (item) {
+        return item && typeof item.q === 'string' && item.q.trim() && item.q.length <= 80 && typeof item.c === 'string' && (item.c === '' || category(item.c));
+      }).slice(0, 8) : [];
+    } catch (ignore) { /* Unavailable storage must not block searching. */ }
+    return recent;
+  }
+  function writeRecent() { try { window.localStorage.setItem(recentKey, JSON.stringify({version: 1, items: recent})); } catch (ignore) {} }
+  function remember(q) {
+    q = String(q || '').trim();
+    if (!q || q.length > 80) return;
+    var c = filter ? category(filter.value) : '';
+    readRecent();
+    recent = [{q: q, c: c}].concat(recent.filter(function (item) { return normalize(item.q) !== normalize(q) || item.c !== c; })).slice(0, 8);
+    writeRecent();
+  }
+  function openResults(message) {
+    sel = -1;
+    wanted = true;
+    box.className = 'search-results on';
+    input.setAttribute('aria-expanded', 'true');
+    input.removeAttribute('aria-activedescendant');
+    if (status) status.textContent = message;
+  }
+  function showRecent() {
+    if (composing) return;
+    readRecent();
+    if (!recent.length) { close(); return; }
+    cur = [];
+    suggestionMode = false;
+    box.innerHTML = '<div class="search-heading">最近搜索 · 仅保存在此浏览器</div>' + optionList(recent.map(function (item, i) {
+      return '<a role="option" aria-selected="false" id="wiki-result-' + i + '" href="#" data-query="' + esc(item.q) + '" data-category="' + esc(item.c) + '"><span class="search-kind">' + esc(item.c || '全部') + '</span><span class="t">' + esc(item.q) + '</span></a>';
+    }).join('')) + '<div class="search-history-actions"><button type="button" data-clear-search-history>清空最近搜索</button></div>';
+    openResults('最近搜索 ' + recent.length + ' 条，可用上下方向键选择');
+  }
+  // Only suggest a single insertion, deletion, replacement or adjacent swap.
+  // Full-text searches keep their existing ranking; fuzzy work runs only if empty.
+  function nearName(a, b) {
+    if (a === b || Math.abs(a.length - b.length) > 1) return false;
+    var i = 0, j = 0, edits = 0;
+    while (i < a.length && j < b.length) {
+      if (a[i] === b[j]) { i++; j++; continue; }
+      if (++edits > 1) return false;
+      if (a.length === b.length) {
+        if (a[i] === b[j + 1] && a[i + 1] === b[j]) { i += 2; j += 2; }
+        else { i++; j++; }
+      } else if (a.length > b.length) i++;
+      else j++;
+    }
+    return edits + (i < a.length || j < b.length ? 1 : 0) === 1;
+  }
   function prepare() {
     idx = window.WIKI_INDEX || [];
     for (var i = 0; i < idx.length; i++) {
-      idx[i]._t = idx[i].t.toLowerCase();
-      idx[i]._s = (idx[i].b || idx[i].s || '').toLowerCase();
-      idx[i]._aliases = (idx[i].aliases || []).map(function (x) { return x.toLowerCase(); });
+      idx[i]._t = normalize(idx[i].t);
+      idx[i]._s = normalize(idx[i].b || idx[i].s || '');
+      idx[i]._aliases = (idx[i].aliases || []).map(normalize);
+      idx[i]._names = [nameKey(idx[i].t)].concat((idx[i].aliases || []).map(nameKey));
     }
     ready = true;
   }
@@ -225,7 +287,7 @@
     loading = false;
     prepare();
     if (status) status.textContent = '';
-    if (wanted && (document.activeElement === input || document.activeElement === filter)) render(input.value.trim());
+    if (wanted && input.value.trim() && (document.activeElement === input || document.activeElement === filter)) render(input.value.trim());
     var pending = callbacks;
     callbacks = [];
     pending.forEach(function (callback) { callback(); });
@@ -256,6 +318,7 @@
     box.className = 'search-results';
     box.innerHTML = '';
     cur = [];
+    suggestionMode = false;
     sel = -1;
     input.setAttribute('aria-expanded', 'false');
     input.removeAttribute('aria-activedescendant');
@@ -267,7 +330,7 @@
     if (composing) return;
     wanted = true;
     if (!ready) { loadIndex(); return; }
-    var ql = q.toLowerCase();
+    var ql = normalize(q), terms = ql.split(' ');
     var out = [];
     for (var i = 0; i < idx.length; i++) {
       var e = idx[i], pos = e._t.indexOf(ql), score;
@@ -276,29 +339,40 @@
       else if (e._aliases.indexOf(ql) >= 0) score = 1;
       else if (pos === 0) score = 2;
       else if (pos > 0 || e._aliases.some(function (alias) { return alias.indexOf(ql) >= 0; })) score = 3;
+      else if (terms.length > 1 && terms.every(function (term) { return (e._t + ' ' + e._aliases.join(' ') + ' ' + e._s).indexOf(term) >= 0; })) {
+        score = terms.some(function (term) { return e._t.indexOf(term) >= 0 || e._aliases.some(function (alias) { return alias.indexOf(term) >= 0; }); }) ? 4 : e._s.indexOf(ql) >= 0 ? 5 : 6;
+      }
       else if (e._s.indexOf(ql) >= 0) score = 4;
       else continue;
-      out.push([score, e]);
+      var namedTerms = score >= 4 && terms.length > 1 ? terms.filter(function (term) { return e._t.indexOf(term) >= 0 || e._aliases.some(function (alias) { return alias.indexOf(term) >= 0; }); }).length : 0;
+      out.push([score, e, namedTerms]);
     }
     out.sort(function (a, b) {
-      return a[0] - b[0] || a[1].t.length - b[1].t.length;
+      return a[0] - b[0] || b[2] - a[2] || a[1].t.length - b[1].t.length;
     });
     cur = out.slice(0, 15).map(function (x) { return x[1]; });
-    if (!cur.length) { box.innerHTML = '<div class="none">没有匹配「' + esc(q) + '」的页面</div>'; }
+    suggestionMode = false;
+    if (!cur.length) {
+      var key = nameKey(q);
+      if (key.length >= 2 && key.length <= 40 && (!/^[a-z0-9]+$/.test(key) || key.length >= 3)) {
+        cur = idx.filter(function (entry) { return (!filter || !filter.value || entry.c === filter.value) && entry._names.some(function (name) { return nearName(key, name); }); }).sort(function (a, b) { return Math.abs(nameKey(a.t).length - key.length) - Math.abs(nameKey(b.t).length - key.length) || a.t.length - b.t.length; }).slice(0, 5);
+      }
+      suggestionMode = cur.length > 0;
+      box.innerHTML = '<div class="none">没有匹配「' + esc(q) + '」的页面。' + (suggestionMode ? '你可能想找：' : filter && filter.value ? '试试切换为“全部”，或缩短关键词。' : '试试角色中文名、英文名，或缩短关键词。') + '</div>';
+      box.innerHTML += optionList(cur.map(function (entry, i) { return resultLink(entry, i, '名称近似 · 请核对角色与来源'); }).join(''));
+    }
     else {
-      box.innerHTML = cur.map(function (e, i) {
+      box.innerHTML = optionList(cur.map(function (e, i) {
         var text = e.b || e.s || '', at = text.toLowerCase().indexOf(ql);
         var start = Math.max(0, at - 35);
         var snippet = (start ? '…' : '') + text.slice(start, start + 160);
-        return '<a role="option" aria-selected="false" id="wiki-result-' + i + '" href="' + esc(ROOT + e.u) + '" data-i="' + i + '"><span class="t">' +
-          esc(e.t) + '</span><span class="s">' + esc(snippet) + '</span></a>';
-      }).join('');
+        return resultLink(e, i, snippet);
+      }).join(''));
     }
-    sel = -1;
-    box.className = 'search-results on';
-    input.setAttribute('aria-expanded', 'true');
-    input.removeAttribute('aria-activedescendant');
-    if (status) status.textContent = '找到 ' + out.length + ' 个结果，显示前 ' + cur.length + ' 个';
+    openResults(out.length ? '找到 ' + out.length + ' 个结果，显示前 ' + cur.length + ' 个' : suggestionMode ? '没有精确匹配，提供 ' + cur.length + ' 个近似名称，请选择后打开' : '没有匹配结果，请调整关键词或分类');
+  }
+  function resultLink(entry, i, snippet) {
+    return '<a role="option" aria-selected="false" id="wiki-result-' + i + '" href="' + esc(ROOT + entry.u) + '" data-i="' + i + '"><span class="search-kind">' + esc(entry.c || '其他') + '</span><span class="t">' + esc(entry.t) + '</span><span class="s">' + esc(snippet) + '</span></a>';
   }
   function esc(s) {
     return String(s).replace(/[&<>"]/g, function (c) {
@@ -308,7 +382,7 @@
   function move(d) {
     var as = box.querySelectorAll('a');
     if (!as.length) return;
-    if (sel >= 0) { as[sel].className = ''; as[sel].setAttribute('aria-selected', 'false'); }
+    if (sel >= 0 && as[sel]) { as[sel].className = ''; as[sel].setAttribute('aria-selected', 'false'); }
     sel = sel < 0 ? (d > 0 ? 0 : as.length - 1) : (sel + d + as.length) % as.length;
     as[sel].className = 'sel';
     as[sel].setAttribute('aria-selected', 'true');
@@ -326,7 +400,8 @@
       searchTimer = setTimeout(function () { render(input.value.trim()); }, 140);
     } else render(query);
   });
-  input.addEventListener('focus', function () { loadIndex(); if (input.value.trim()) render(input.value.trim()); });
+  input.addEventListener('focus', function () { if (input.value.trim()) render(input.value.trim()); else showRecent(); });
+  input.addEventListener('click', function () { if (!input.value.trim()) showRecent(); });
   if (filter) filter.addEventListener('change', function () { render(input.value.trim()); });
   input.addEventListener('keydown', function (e) {
     if (e.isComposing || e.keyCode === 229) return;
@@ -336,13 +411,36 @@
       searchTimer = undefined;
       render(input.value.trim());
     }
-    if (!input.value.trim() || box.className !== 'search-results on') return;
+    if (box.className !== 'search-results on') return;
     if (e.key === 'ArrowDown') { e.preventDefault(); move(1); }
     else if (e.key === 'ArrowUp') { e.preventDefault(); move(-1); }
     else if (e.key === 'Enter') {
       var as = box.querySelectorAll('a');
-      var go = sel >= 0 ? as[sel] : as[0];
-      if (go) { e.preventDefault(); window.location.href = go.getAttribute('href'); }
+      var go = sel >= 0 ? as[sel] : input.value.trim() && !suggestionMode ? as[0] : null;
+      if (go) { e.preventDefault(); activate(go, e, true); }
+    }
+  });
+  function activate(link, event, navigate) {
+    var query = link.getAttribute('data-query');
+    if (typeof query === 'string') {
+      event.preventDefault();
+      input.value = query;
+      if (filter) filter.value = category(link.getAttribute('data-category'));
+      input.focus();render(query);
+    } else {
+      var item = cur[Number(link.getAttribute('data-i'))];
+      remember(suggestionMode && item ? item.t : input.value.trim());
+      if (navigate) window.location.href = link.getAttribute('href');
+    }
+  }
+  box.addEventListener('click', function (event) {
+    var target = event.target;
+    while (target && target !== box) {
+      if (target.getAttribute && target.getAttribute('data-clear-search-history') !== null) { event.preventDefault();recent = [];writeRecent();close();input.focus();return; }
+      // Replaying history replaces the clicked node; do not let the document's
+      // outside-click handler mistake that detached node for an external click.
+      if (target.tagName === 'A') { event.stopPropagation();activate(target, event, false);return; }
+      target = target.parentNode;
     }
   });
   document.addEventListener('click', function (e) {

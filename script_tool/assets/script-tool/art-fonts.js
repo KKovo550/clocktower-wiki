@@ -3,7 +3,9 @@
   var promise,offlinePromise;
   var fonts=[
     {family:'ScriptArt SimHei',file:'simhei.woff2'},
-    {family:'ScriptArt Sarasa UI SC',file:'SarasaUiSC-Regular.woff2'}
+    {family:'ScriptArt Sarasa UI SC',file:'SarasaUiSC-Regular.woff2'},
+    {family:'ScriptArt Poster Song',file:'PosterSongSC-Bold.woff2',weight:700},
+    {family:'ScriptArt Keyword Sans',file:'PosterKeyword-Medium.woff2',weight:500}
   ];
   function offlineFonts(){
     if(root.SCRIPT_ART_FONT_DATA)return Promise.resolve(root.SCRIPT_ART_FONT_DATA);
@@ -38,11 +40,11 @@
           var reader=new FileReader();reader.onload=function(){resolve(reader.result);};reader.onerror=reject;reader.readAsDataURL(blob);
         });
       }
-      var face=new FontFace(font.family,'url("'+data+'") format("woff2")');
-      await face.load();return {family:font.family,data:data,face:face};
+      var face=new FontFace(font.family,'url("'+data+'") format("woff2")',{weight:String(font.weight||400)});
+      await face.load();return {family:font.family,data:data,face:face,weight:font.weight};
     }));}).then(function(loaded){
       loaded.forEach(function(font){document.fonts.add(font.face);});
-      root.ScriptArtFonts.faces=loaded.map(function(font){return {family:font.family,data:font.data};});
+      root.ScriptArtFonts.faces=loaded.map(function(font){var item={family:font.family,data:font.data};if(font.weight)item.weight=font.weight;return item;});
     }).catch(function(error){promise=null;throw error;});
     return promise;
   }
