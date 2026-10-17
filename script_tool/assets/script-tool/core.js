@@ -4,6 +4,19 @@
   var teams=['townsfolk','outsider','minion','demon','traveller','fabled','loric'];
   function identity(id){return String(id||'').trim().replace(/_gstone$/,'');}
   function sameAbility(a,b){return String(a||'').replace(/\s+/g,'')===String(b||'').replace(/\s+/g,'');}
+  // An imported definition is not necessarily a new role. Never match by name alone.
+  function catalogRole(role,chars){
+    var exact=chars.filter(function(c){return identity(c.id)===identity(role.id);});
+    function sameRole(c){return String(c.n).trim()===String(role.n).trim()&&String(c.t).replace('traveler','traveller')===role.t;}
+    if(exact.length)return exact.length===1?exact[0]:null;
+    var matches=chars.filter(function(c){return sameRole(c)&&sameAbility(c.ab,role.ab);});
+    return matches.length===1?matches[0]:null;
+  }
+  function identifyDefinition(role,chars){
+    var known=catalogRole(role,chars);
+    if(known){role.catalogId=known.id;role.source=known.source;if(known.page)role.page=known.page;}
+    return known;
+  }
   function str(value,field,fallback){
     if(value===undefined||value===null)return fallback||'';
     if(typeof value!=='string')throw new Error(field+' 必须是文本');
@@ -84,7 +97,7 @@
   }
   function parseImport(data,chars){
     if(!Array.isArray(data)||data.length>1000)throw new Error('顶层必须是数组，最多 1000 项');
-    var byId=new Map(chars.map(function(c){return [c.id,c];})),seen=new Set(),selected=[],custom=[],rules=[],entries=[],meta={};
+    var byId=new Map(chars.map(function(c){return [c.id,c];})),seen=new Set(),selected=[],custom=[],catalogOverrides=[],rules=[],entries=[],meta={};
     data.forEach(function(e,index){
       try{
       if(e&&typeof e==='object'&&!Array.isArray(e)&&e.id==='_meta'){
@@ -99,6 +112,7 @@
       if(typeof e==='string'||Object.keys(e).every(function(k){return k==='id';})){
         if(!known)throw new Error('无法识别角色 ID：'+id+'，请提供完整角色对象');c=known;
       }else{
+        if(!known)known=catalogRole(normalize(e),chars);
         // Partial catalog objects inherit only omitted fields, never overwrite supplied abilities.
         var defaults=known?Object.assign({},known.raw||{},{id:known.id,name:known.n,team:known.t,ability:known.ab,image:known.iu||known.im,
           flavor:known.fl,edition:known.ed,setup:known.s,firstNight:known.f,otherNight:known.o,
@@ -113,24 +127,26 @@
         c.fr=nightReminder(c,'fr',chars);c.or=nightReminder(c,'or',chars);
         // Keep exported official images offline when the matching local asset exists.
         if(known&&known.im)c.im=known.im;
-        custom.push(c);
+        if(identifyDefinition(c,chars))catalogOverrides.push(c);else custom.push(c);
       }
-      if(seen.has(identity(c.id)))throw new Error('重复角色 ID：'+c.id);
-      seen.add(identity(c.id));selected.push(c);entries.push(e);
+      var roleId=identity(c.catalogId||c.id);
+      if(seen.has(roleId)||seen.has(identity(c.id)))throw new Error('重复角色 ID：'+c.id);
+      seen.add(roleId);seen.add(identity(c.id));selected.push(c);entries.push(e);
       }catch(error){throw new Error('第 '+(index+1)+' 项：'+error.message);}
     });
-    return {selected:selected,custom:custom,rules:rules,entries:entries,meta:JSON.parse(JSON.stringify(meta)),name:str(meta.name,'剧本名称'),author:str(meta.author,'作者')};
+    return {selected:selected,custom:custom,catalogOverrides:catalogOverrides,rules:rules,entries:entries,meta:JSON.parse(JSON.stringify(meta)),name:str(meta.name,'剧本名称'),author:str(meta.author,'作者')};
   }
   function planImport(result,current,mode){
     if(mode==='replace')return Object.assign({},result,{added:result.selected.length,skipped:[],skippedRules:0});
     if(mode!=='append')throw new Error('请选择替换或追加角色');
     var selected=current.selected.slice(),rules=current.rules.slice(),skipped=[],skippedRules=0,addedIds=new Set();
-    var roleIds=new Set(selected.map(function(c){return identity(c.id);})),ruleIds=new Set(rules.map(function(r){return identity(r.id);}));
+    var roleIds=new Set(),ruleIds=new Set(rules.map(function(r){return identity(r.id);}));
+    selected.forEach(function(c){roleIds.add(identity(c.id));roleIds.add(identity(c.catalogId||c.id));});
     result.selected.forEach(function(c){
-      var id=identity(c.id);
-      if(ruleIds.has(id))throw new Error('角色 ID 与当前附加规则冲突：'+c.id);
-      if(roleIds.has(id)){skipped.push(c.n);return;}
-      selected.push(c);roleIds.add(id);addedIds.add(id);
+      var id=identity(c.catalogId||c.id);
+      if(ruleIds.has(id)||ruleIds.has(identity(c.id)))throw new Error('角色 ID 与当前附加规则冲突：'+c.id);
+      if(roleIds.has(id)||roleIds.has(identity(c.id))){skipped.push(c.n);return;}
+      selected.push(c);roleIds.add(id);roleIds.add(identity(c.id));addedIds.add(id);
     });
     result.rules.forEach(function(rule){
       var id=identity(rule.id);
@@ -141,7 +157,9 @@
     if(selected.length+rules.length>1000)throw new Error('追加后角色和规则总数不能超过 1000 项');
     var custom=current.custom.filter(function(c){return !addedIds.has(identity(c.id));})
       .concat(result.custom.filter(function(c){return addedIds.has(identity(c.id));}));
-    return {selected:selected,custom:custom,rules:rules,meta:current.meta,name:current.name,author:current.author,
+    var catalogOverrides=(current.catalogOverrides||[]).filter(function(c){return !addedIds.has(identity(c.catalogId||c.id));})
+      .concat((result.catalogOverrides||[]).filter(function(c){return addedIds.has(identity(c.catalogId||c.id));}));
+    return {selected:selected,custom:custom,catalogOverrides:catalogOverrides,rules:rules,meta:current.meta,name:current.name,author:current.author,
       added:addedIds.size,skipped:skipped,skippedRules:skippedRules};
   }
   function parseJSON(text){
@@ -194,7 +212,7 @@
     var custom=d.custom.map(function(c){
       if(c.raw!==undefined&&(!c.raw||typeof c.raw!=='object'||Array.isArray(c.raw)))throw new Error('存档角色原始数据格式错误');
       var role=normalize(Object.assign(Object.create(null),c.raw||{},{id:c.id,name:c.n,team:c.t,ability:c.ab,image:c.images||c.iu||c.im,flavor:c.fl,edition:c.ed,setup:c.s,firstNight:c.f,otherNight:c.o,reminders:c.r,remindersGlobal:c.rg,firstNightReminder:c.fr,otherNightReminder:c.or}));
-      var known=chars.find(function(x){return identity(x.id)===identity(role.id)&&x.n===role.n;});
+      var known=identifyDefinition(role,chars);
       if(known&&known.im)role.im=known.im;
       return role;
     });
@@ -212,6 +230,8 @@
       }else if(typeof key==='string'&&/^C\d+$/.test(key))role=custom[+key.slice(1)];
       else if(Number.isInteger(key))role=chars[key];
       if(!role)throw new Error('存档包含无法识别的角色');
+      // Historical drafts may contain distinct foreign IDs for the same catalog role.
+      // Preserve their selections; classification must not invalidate an existing backup.
       if(seen.has(identity(role.id)))throw new Error('存档包含重复角色 ID');
       seen.add(identity(role.id));selected.push(role);
       var entry=d.nightOverrides&&Object.prototype.hasOwnProperty.call(d.nightOverrides,oldId||role.id)?d.nightOverrides[oldId||role.id]:null;
@@ -220,7 +240,8 @@
     if(d.rules!==undefined&&(!Array.isArray(d.rules)||d.rules.length>1000))throw new Error('存档规则格式错误');
     var rules=(d.rules||[]).map(normalizeRule);rules.forEach(function(rule){if(seen.has(identity(rule.id)))throw new Error('存档包含重复规则 ID');seen.add(identity(rule.id));});
     if(d.meta!==undefined&&(!d.meta||typeof d.meta!=='object'||Array.isArray(d.meta)))throw new Error('存档元数据格式错误');
-    return {meta:JSON.parse(JSON.stringify(d.meta||{})),rules:rules,custom:custom,selected:selected,nightOverrides:overrides,name:str(d.n,'剧本名称'),author:str(d.a,'作者'),spec:['free','teensy','ravenswood'].includes(d.s)?d.s:'free'};
+    // Keep v1/v2 reference resolution above intact, then repair historical misclassification.
+    return {meta:JSON.parse(JSON.stringify(d.meta||{})),rules:rules,custom:custom.filter(function(c){return !c.catalogId;}),catalogOverrides:custom.filter(function(c){return !!c.catalogId;}),selected:selected,nightOverrides:overrides,name:str(d.n,'剧本名称'),author:str(d.a,'作者'),spec:['free','teensy','ravenswood'].includes(d.s)?d.s:'free'};
   }
   function catalogIcon(role,chars,icons){
     if(icons[role.im])return icons[role.im];
@@ -233,5 +254,5 @@
     if(same.length>1){var ability=String(role.ab||'').replace(/\s/g,'');same=same.filter(function(c){return String(c.ab||'').replace(/\s/g,'')===ability;});}
     return icon(same);
   }
-  root.ScriptCore={isRule:isRule,normalizeRule:normalizeRule,ruleSections:ruleSections,ruleTitle:ruleTitle,jinxKey:jinxKey,effectiveJinx:effectiveJinx,matchRoleRules:matchRoleRules,identity:identity,normalize:normalize,parseImport:parseImport,planImport:planImport,restoreDraft:restoreDraft,nightOrder:nightOrder,nightReminder:nightReminder,reorderNight:reorderNight,matchJinx:matchJinx,catalogIcon:catalogIcon,parseJSON:parseJSON};
+  root.ScriptCore={isRule:isRule,normalizeRule:normalizeRule,ruleSections:ruleSections,ruleTitle:ruleTitle,jinxKey:jinxKey,effectiveJinx:effectiveJinx,matchRoleRules:matchRoleRules,identity:identity,catalogRole:catalogRole,normalize:normalize,parseImport:parseImport,planImport:planImport,restoreDraft:restoreDraft,nightOrder:nightOrder,nightReminder:nightReminder,reorderNight:reorderNight,matchJinx:matchJinx,catalogIcon:catalogIcon,parseJSON:parseJSON};
 })(globalThis);

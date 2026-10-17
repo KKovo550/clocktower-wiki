@@ -656,4 +656,5 @@ if(typeof LibraryView!=='undefined')LibraryView.filters(true);
 
 if(window.WIKI_SHARE_NO_ARTWORK){
  ['expImg','expOnlyImages','expImageMode'].forEach(function(id){var el=document.getElementById(id);el.disabled=true;if('checked' in el)el.checked=false;});
+ var exportHelp=document.querySelector('#expDlg .sub');if(exportHelp)exportHelp.textContent='可导出所选剧本的原始 JSON。网页版提供压缩图片预览，原尺寸图片批量导出暂不可用；打开预览图后可使用浏览器保存图片。';
 }

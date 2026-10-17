@@ -30,10 +30,14 @@
 - 搜索别名：`config/search-aliases.json`；`assets/search-index.js` 自动生成。
 - 导航：`config/navigation.json`；不在每页手动添加链接。
 - 认证查询：从本地原名单构建，`build_certifications.py` 生成查询页。
-- 剧本库：独立数据快照，原件在 `script_lib/library`；默认发布不包含剧照。原件可能是硬链接，应按只读数据处理。
+- 剧本库：独立数据快照，原件在 `script_lib/library`；发布压缩预览图，不发布原尺寸剧照。原件可能是硬链接，应按只读数据处理。
 - 在线正文编辑：构建读取发布仓库中的 `admin-overrides.json`，本地冲突需合并，不能直接清空在线记录。
 
 剧本图片以 `script_lib/data/library.jsonl` 的 `imageDir`、`images` 和 `roles` 为准。核对过版本的图片组使用 `imageBinding: "explicit"`，重新入库不会把目录中其他版本的图片追加回来；找不到对应原图时使用空图片组和 `pictureNotice` 说明，不能拿最新版本海报代替。此类 JSON 内容修改后，图片会进入待核对状态。
+
+网页版预览由 `node scripts/build-library-previews.cjs` 生成，已接入 `npm run prepare:content`。仅处理目录中已确认的正面、背面，保持比例，不放大小原图；默认宽度上限 1111 像素、WebP quality 70。`script_lib/assets/data/image-previews.js` 按精确原图目录和文件名关联 `script_lib/assets/previews/` 下的内容标识文件，相同图片共用一份预览。新增或修改原图后重新构建即可；原文件不被改写。源仓库未携带原图时复用已生成且可读取的同条目预览，不按剧本名猜图。
+
+生成器会报告无法解码的图片，其他有效图片继续生成；未提供预览的面在网页中不请求原图。预览资源预算为 480 MiB，发布资产预算为 900 MiB，超出时阻止构建，不能靠压坏文字或遗漏图片悄悄通过。公开版本的 `WIKI_SHARE_NO_ARTWORK` 只表示不携带原尺寸图片，剧本画廊和查看器仍显示预览；原尺寸图片批量导出保持关闭。回归检查：`node --test scripts/tests/library-web-previews.test.cjs`。
 
 正背面分类支持本地 OCR：`node script_lib/tools/classify-pictures.cjs --name 剧本名 --apply`，不传 `--name` 时扫描缺少分类的图片，默认最多 40 张，可用 `--limit` 调整。默认不传 `--apply` 只预览。识别依据完整图片的角色能力表、人数表与署名，横幅和标题裁图不当作封面；多个候选或证据不足时不自动选。人工分类优先，缓存按原图 SHA256 校验，损坏文件跳过，进度保存在 `backups/ocr-cache`。分类记录保存在 `data/picture-analysis.json`，入库会自动使用有效缓存；新同步图片也会先进行本地识别。不修改图片原件。
 

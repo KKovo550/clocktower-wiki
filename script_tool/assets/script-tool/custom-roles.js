@@ -43,7 +43,7 @@
   }
   function applyRoles(custom,selected,overrides){
     if(root.storageBlocked||root.ScriptDrafts&&!root.ScriptDraftUI)throw new Error('当前草稿存储不可用，请先导出 JSON 备份。');
-    var snapshot=root.captureDraft();snapshot.custom=custom;snapshot.sel=selected.map(function(c){return {id:c.id,name:c.n,custom:custom.indexOf(c)>=0};});
+    var snapshot=root.captureDraft(),definitions=custom.concat(root.CATALOG_OVERRIDES||[]);snapshot.custom=definitions;snapshot.sel=selected.map(function(c){return {id:c.id,name:c.n,custom:definitions.indexOf(c)>=0};});
     if(overrides)snapshot.nightOverrides=overrides;
     root.ScriptCore.restoreDraft(snapshot,root.CHARS);
     // Store a validated candidate before changing either role list.

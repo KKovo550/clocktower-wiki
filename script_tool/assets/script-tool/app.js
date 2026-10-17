@@ -19,13 +19,14 @@ var NIGHT_OVERRIDES=Object.create(null);
 var SCRIPT_RULES=[];            // 导入的相克与作者规则
 var SCRIPT_META={};             // 保留外部工具的元数据，编辑字段在导出时覆盖
 var CUSTOM=[];                 // 用户自建角色
+var CATALOG_OVERRIDES=[];      // JSON 中已收录角色的剧本专用资料，不属于自制角色
 var sel=[];                    // 已选角色
 var curTab='all', q='', saveKey='botc_script_tool_v1';
 var curSource='all';
 var CURRENT_DRAFT_ID='';
 var SOURCE_LABELS={all:'全部来源',official:'官方角色',stars:'群星角色',yuque:'海外自制角色',odyssey:'奥德赛角色',custom:'我的自制角色'};
 var SOURCE_BY_ID=new Map(CHARS.map(function(c){return [ScriptCore.identity(c.id),c.source];}));
-function roleSource(c){return SOURCE_BY_ID.get(ScriptCore.identity(c.id))||'custom';}
+function roleSource(c){return c.catalogId?SOURCE_BY_ID.get(ScriptCore.identity(c.catalogId))||'custom':CUSTOM.indexOf(c)>=0?'custom':SOURCE_BY_ID.get(ScriptCore.identity(c.id))||'custom';}
 function matchesSource(c){return curSource==='all'||roleSource(c)===curSource;}
 var lastList=[];               // 当前筛选结果，供回车/数字键使用
 
@@ -76,10 +77,10 @@ function initialsOf(name){
 }
 
 function allChars(){
-  var imported=new Map(CUSTOM.map(function(c){return [ScriptCore.identity(c.id),c];})),seen=new Set();
-  return CHARS.concat(CUSTOM).map(function(c){return imported.get(ScriptCore.identity(c.id))||c;}).filter(function(c){var key=ScriptCore.identity(c.id);if(seen.has(key))return false;seen.add(key);return true;});
+  var definitions=CATALOG_OVERRIDES.concat(CUSTOM),imported=new Map(definitions.map(function(c){return [ScriptCore.identity(c.catalogId||c.id),c];})),seen=new Set();
+  return CHARS.concat(definitions).map(function(c){return imported.get(ScriptCore.identity(c.catalogId||c.id))||c;}).filter(function(c){var key=ScriptCore.identity(c.catalogId||c.id);if(seen.has(key))return false;seen.add(key);return true;});
 }
-function selectedIndex(c){return sel.findIndex(function(role){return ScriptCore.identity(role.id)===ScriptCore.identity(c.id);});}
+function selectedIndex(c){return sel.findIndex(function(role){return ScriptCore.identity(role.catalogId||role.id)===ScriptCore.identity(c.catalogId||c.id);});}
 function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){
   return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
 function initial(n){return (n||'?').trim().charAt(0);}
@@ -337,7 +338,7 @@ document.getElementById('bExport').onclick=function(){
   document.getElementById('cp').onclick=function(){
     copyText(txt,this);};
 };
-function currentImportState(){return {selected:sel,custom:CUSTOM,rules:SCRIPT_RULES,meta:SCRIPT_META,
+function currentImportState(){return {selected:sel,custom:CUSTOM,catalogOverrides:CATALOG_OVERRIDES,rules:SCRIPT_RULES,meta:SCRIPT_META,
   name:document.getElementById('mname').value,author:document.getElementById('mauthor').value};}
 function openJSONImport(data,source,navigation){
   navigation=navigation||{};
@@ -370,7 +371,7 @@ function openJSONImport(data,source,navigation){
       var plan=ScriptCore.planImport(result,currentImportState(),mode.value);
       var catalogIcons=Object.fromEntries(CHARS.filter(function(c){return c.im;}).map(function(c){return [c.id,c.im];}));
       var missing=result.selected.filter(function(c){return !ScriptCore.catalogIcon(c,CHARS,catalogIcons);});
-      var custom=result.selected.filter(function(c){return !CHARS.some(function(known){return ScriptCore.identity(known.id)===ScriptCore.identity(c.id);});});
+      var custom=result.custom;
       preview.innerHTML='<h4>待导入剧本</h4><dl><dt>名称</dt><dd>'+esc(result.name||'未命名剧本')+'</dd><dt>作者</dt><dd>'+esc(result.author||'未填写')+'</dd><dt>角色</dt><dd>'+result.selected.length+' 个，其中 '+custom.length+' 个自定义角色</dd><dt>附加规则</dt><dd>'+result.rules.length+' 条</dd></dl>'+
         '<p>'+result.selected.map(function(c){return esc(c.n);}).join('、')+'</p>'+
         (mode.value==='append'?'<p class="import-summary">新增 '+plan.added+' 个角色，追加后共 '+plan.selected.length+' 个角色；新增 '+(plan.rules.length-SCRIPT_RULES.length)+' 条规则。</p>'+
@@ -417,11 +418,12 @@ function doImport(data,options){
   if(mode==='append'&&!result.added&&result.rules.length===SCRIPT_RULES.length)return false;
   if(mode==='replace'&&(sel.length||document.getElementById('mname').value||document.getElementById('mauthor').value||SCRIPT_RULES.length)&&!confirm('导入会替换当前剧本，旧剧本保留在“我的草稿”中。继续？'))return false;
   if(window.ScriptDrafts&&!window.ScriptDraftUI)throw new Error('草稿存储暂不可用，请先导出当前 JSON 备份');
-  var next=Object.assign({},captureDraft(),{n:result.name,a:result.author,custom:result.custom,rules:result.rules,meta:result.meta,
+  var definitions=result.custom.concat(result.catalogOverrides||[]);
+  var next=Object.assign({},captureDraft(),{n:result.name,a:result.author,custom:definitions,rules:result.rules,meta:result.meta,
     nightOverrides:mode==='replace'?{}:NIGHT_OVERRIDES,
-    sel:result.selected.map(function(c){return {id:c.id,name:c.n,custom:result.custom.indexOf(c)>=0};})});
+    sel:result.selected.map(function(c){return {id:c.id,name:c.n,custom:definitions.indexOf(c)>=0};})});
   if(window.ScriptDraftUI)window.ScriptDraftUI.commitImport(next,mode);
-  CUSTOM=result.custom; SCRIPT_RULES=result.rules; SCRIPT_META=result.meta;sel=result.selected;
+  CUSTOM=result.custom; CATALOG_OVERRIDES=result.catalogOverrides||[]; SCRIPT_RULES=result.rules; SCRIPT_META=result.meta;sel=result.selected;
   if(mode==='replace')NIGHT_OVERRIDES=Object.create(null);
   document.getElementById('mname').value=result.name;
   document.getElementById('mauthor').value=result.author;
@@ -550,13 +552,15 @@ document.getElementById('spec').onchange=function(){renderStat();renderScriptChe
 var storageBlocked=false;
 function status(text){document.getElementById('saveStatus').textContent=text;}
 function captureDraft(){
+  // Legacy v2 uses custom:true to reference a stored definition, including catalog overrides.
+  var definitions=CUSTOM.concat(CATALOG_OVERRIDES);
   return {version:2,n:document.getElementById('mname').value,a:document.getElementById('mauthor').value,
-    s:document.getElementById('spec').value,custom:CUSTOM,rules:SCRIPT_RULES,meta:SCRIPT_META,nightOverrides:NIGHT_OVERRIDES,
-    draftId:CURRENT_DRAFT_ID,sel:sel.map(function(c){return {id:c.id,name:c.n,custom:CUSTOM.indexOf(c)>=0};})};
+    s:document.getElementById('spec').value,custom:definitions,rules:SCRIPT_RULES,meta:SCRIPT_META,nightOverrides:NIGHT_OVERRIDES,
+    draftId:CURRENT_DRAFT_ID,sel:sel.map(function(c){return {id:c.id,name:c.n,custom:definitions.indexOf(c)>=0};})};
 }
 function applyDraftState(state){
   var draft=ScriptCore.restoreDraft(state,CHARS);
-  CUSTOM=draft.custom;SCRIPT_RULES=draft.rules;SCRIPT_META=draft.meta;sel=draft.selected;NIGHT_OVERRIDES=draft.nightOverrides;
+  CUSTOM=draft.custom;CATALOG_OVERRIDES=draft.catalogOverrides;SCRIPT_RULES=draft.rules;SCRIPT_META=draft.meta;sel=draft.selected;NIGHT_OVERRIDES=draft.nightOverrides;
   document.getElementById('mname').value=draft.name;document.getElementById('mauthor').value=draft.author;
   document.getElementById('spec').value=draft.spec;document.getElementById('preset').value='';
 }
@@ -582,7 +586,7 @@ function load(){
     if(!state){if(!raw)return false;state=JSON.parse(raw);}
     var draft=ScriptCore.restoreDraft(state,CHARS);
     CURRENT_DRAFT_ID=typeof state.draftId==='string'?state.draftId:'';
-    CUSTOM=draft.custom;SCRIPT_RULES=draft.rules;SCRIPT_META=draft.meta;sel=draft.selected;NIGHT_OVERRIDES=draft.nightOverrides;
+    CUSTOM=draft.custom;CATALOG_OVERRIDES=draft.catalogOverrides;SCRIPT_RULES=draft.rules;SCRIPT_META=draft.meta;sel=draft.selected;NIGHT_OVERRIDES=draft.nightOverrides;
     document.getElementById('mname').value=draft.name;
     document.getElementById('mauthor').value=draft.author;
     document.getElementById('spec').value=draft.spec;

@@ -12,7 +12,7 @@
   function setBusy(value){busy=value;dialog.setAttribute('aria-busy',String(value));dialog.querySelectorAll('[data-personal-action]').forEach(function(button){button.disabled=value||button.dataset.unavailable==='true';});$('personalImport').disabled=value;$('personalLibraryBody').inert=value;}
   async function run(operation){if(busy)return;var token=session,active=function(){return token===session&&dialog.open;};setBusy(true);try{await operation(active);}catch(error){if(active())notice(error.message||'操作失败，原资料已保留',true);}finally{if(active())setBusy(false);}}
   async function reload(preferred,active){
-    var next=await library().list();if(active&&!active())return;records=next;records.sort(function(a,b){return b.latest.at-a.latest.at;});renderList();
+    var next=await library().list();if(active&&!active())return;records=next.filter(function(r){return !root.ScriptCore.catalogRole(root.ScriptCore.normalize(r.latest.raw),root.CHARS);});records.sort(function(a,b){return b.latest.at-a.latest.at;});renderList();
     var id=preferred||entry&&entry.key||records[0]&&records[0].key;
     if(id&&records.some(function(r){return r.key===id;}))await select(id,active);else{entry=null;version=null;renderDetail();}
   }
@@ -96,7 +96,7 @@
       root.ScriptDraftUI.applyStates(updates);renderDetail();notice('已将 v'+version.version+' 更新到 '+updates.length+' 份剧本；未勾选的剧本保持原样。');
     });};
     $('personalRemove').onclick=function(){if(!root.confirm('移出个人库并删除该角色的版本历史？已加入剧本的副本会保留，建议先导出角色库备份。'))return;run(async function(active){await library().remove(entry.key,entry.revision);if(!active())return;entry=null;await reload(undefined,active);if(active())notice('已移出个人角色库，各剧本副本仍保留。');});};
-    $('personalCollect').onclick=function(){run(async function(active){if(!root.ScriptDraftUI)throw Error('草稿存储暂不可用');var drafts=root.ScriptDraftUI.listDrafts().sort(function(a,b){return a.updatedAt-b.updatedAt;}),items=[];drafts.forEach(function(d){d.state.custom.forEach(function(c){items.push({raw:model.raw(c),at:d.updatedAt});});});var count=await library().collect(items);if(!active())return;await reload(undefined,active);if(active())notice('已收录 '+count+' 个新角色；个人库已有的角色及版本保持原样。');});};
+    $('personalCollect').onclick=function(){run(async function(active){if(!root.ScriptDraftUI)throw Error('草稿存储暂不可用');var drafts=root.ScriptDraftUI.listDrafts().sort(function(a,b){return a.updatedAt-b.updatedAt;}),items=[];drafts.forEach(function(d){d.state.custom.forEach(function(c){if(!root.ScriptCore.catalogRole(c,root.CHARS))items.push({raw:model.raw(c),at:d.updatedAt});});});var count=await library().collect(items);if(!active())return;await reload(undefined,active);if(active())notice('已收录 '+count+' 个新角色；个人库已有的角色及版本保持原样。');});};
     $('personalBackup').onclick=function(){run(async function(active){var bundle=await library().backup();if(!active())return;root.download('我的自制角色库-备份.json',JSON.stringify(bundle,null,2));notice('已导出个人角色库及版本历史。');});};
     $('personalImport').onchange=function(){var file=this.files[0];if(!file)return;if(file.size>24*1024*1024){notice('备份文件超过 24 MB，请使用较小的备份。',true);this.value='';return;}run(async function(active){try{var bundle=JSON.parse(await file.text());if(!active())return;var count=await library().importBackup(bundle);if(!active())return;await reload(undefined,active);if(active())notice('已导入 '+count+' 个角色及版本；同 ID 的已有角色未被覆盖。');}finally{if(active())$('personalImport').value='';}});};
   }
