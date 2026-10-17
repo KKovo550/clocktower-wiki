@@ -152,21 +152,36 @@
     var g=nightRailGeometry(layout,options,pageIndex),result=[];
     ['first','other'].forEach(function(night){(options[night]||[]).forEach(function(role,i){result.push({night:night,role:role,index:i,x:(night==='first'?36:1244)-g.size/2,y:g.top+85+(i+(night==='first'?g.markers:0))*g.step,width:g.size,height:g.size});});});return result;
   }
-  function iconGeometry(layout,item,iconKey,icon){
+  function customIconMetrics(pixels,width,height,originalWidth,originalHeight){
+    var optics=root.SCRIPT_ART_ICON_OPTICS;if(!optics||!optics.categories||!pixels||pixels.length!==width*height*4||!(width>0&&height>0))return null;
+    var safe=[width,height,0,0],box=[width,height,0,0],threshold=optics.alphaThreshold||24;
+    function include(b,x,y){b[0]=Math.min(b[0],x);b[1]=Math.min(b[1],y);b[2]=Math.max(b[2],x+1);b[3]=Math.max(b[3],y+1);}
+    for(var y=0;y<height;y++)for(var x=0;x<width;x++){var a=pixels[(y*width+x)*4+3];if(a)include(safe,x,y);if(a>=threshold)include(box,x,y);}
+    if(box[2]<=box[0]||box[3]<=box[1])return null;
+    var total=0;for(var y=box[1];y<box[3];y++)for(var x=box[0];x<box[2];x++)total+=pixels[(y*width+x)*4+3];
+    var w=box[2]-box[0],h=box[3]-box[1],density=total/(255*w*h),aspect=Math.min(w,h)/Math.max(w,h),c=optics.categories;
+    var kind=aspect<=c.slender.maxAspect||density<=c.slender.maxDensity?'slender':density<=c.linear.maxDensity?'linear':w/h>=c.broad.minWidthRatio&&density>=c.broad.minDensity?'broad':density>=c.full.minDensity?'full':'normal';
+    var ow=originalWidth||width,oh=originalHeight||height,sx=ow/width,sy=oh/height;
+    function original(b){return [b[0]*sx,b[1]*sy,b[2]*sx,b[3]*sy];}safe=original(safe);box=original(box);
+    var side=Math.max(safe[2]-safe[0],safe[3]-safe[1]),padding=Math.max(2*Math.max(sx,sy),side*.05),edge=side+padding*2,left=(safe[0]+safe[2]-edge)/2,top=(safe[1]+safe[3]-edge)/2;
+    function normalized(b){return [(b[0]-left)/edge,(b[1]-top)/edge,(b[2]-left)/edge,(b[3]-top)/edge];}
+    return {bounds:{width:ow,height:oh,viewBox:[left,top,edge,edge]},optics:{kind:kind,factor:c[kind].factor,box:normalized(box),safe:normalized(safe)}};
+  }
+  function iconGeometry(layout,item,iconKey,icon,custom){
     var size=item.iconSize===undefined?(layout.iconSize||96):item.iconSize,x=item.x+(item.iconX||0),y=item.y+(item.iconY||0);
     var result={x:x,y:y,size:size,scale:1,kind:'unchanged'};
     var optics=root.SCRIPT_ART_ICON_OPTICS,source=root.SCRIPT_ART_ICONS,sourceKey=iconKey;
     if(!layout.contentFit||!optics||!optics.items||!source)return result;
     if(optics&&optics.items&&source&&(!optics.items[sourceKey]||source[sourceKey]!==icon))sourceKey=Object.keys(optics.items).find(function(key){return source[key]===icon;});
-    var metric=optics&&optics.items&&optics.items[sourceKey];
-    // Compensation belongs to the fixed body only. Unknown/replaced rasters,
-    // night icons, reminders and every alternate preset retain their frames.
-    if(!layout.contentFit||!metric||!source||source[sourceKey]!==icon)return result;
+    var metric=custom?custom.optics:optics&&optics.items&&optics.items[sourceKey];
+    // Compensation belongs to the fixed body only. Unmeasured rasters, night
+    // icons, reminders and every alternate preset retain their frames.
+    if(!layout.contentFit||!metric||(!custom&&(!source||source[sourceKey]!==icon)))return result;
     var visual=metric.box,safe=metric.safe;
     if(!Array.isArray(visual)||!Array.isArray(safe)||visual.length!==4||safe.length!==4||!visual.concat(safe).every(Number.isFinite))return result;
     // A catalog fallback may reuse a padded bitmap under a new ID. Its old
     // renderer uses the full bitmap, so undo only the measured crop coordinates.
-    var crop=sourceKey!==iconKey&&root.SCRIPT_ART_ICON_BOUNDS&&root.SCRIPT_ART_ICON_BOUNDS[sourceKey];
+    var crop=!custom&&sourceKey!==iconKey&&root.SCRIPT_ART_ICON_BOUNDS&&root.SCRIPT_ART_ICON_BOUNDS[sourceKey];
     if(crop){var side=Math.max(crop.width,crop.height),view=crop.viewBox;function uncrop(box){return [(view[0]+box[0]*view[2]+(side-crop.width)/2)/side,(view[1]+box[1]*view[3]+(side-crop.height)/2)/side,(view[0]+box[2]*view[2]+(side-crop.width)/2)/side,(view[1]+box[3]*view[3]+(side-crop.height)/2)/side];}visual=uncrop(visual);safe=uncrop(safe);}
     var edge=Math.max(visual[2]-visual[0],visual[3]-visual[1]);
     if(!(edge>0&&metric.factor>0&&optics.targetEdge>0))return result;
@@ -582,13 +597,15 @@
       var roleIconSize=item.iconSize===undefined?iconSize:item.iconSize;
       var roleIconX=item.x+(item.iconX||0),roleIconY=item.y+(item.iconY||0);
       sourceMark(role,roleIconX,roleIconY,roleIconSize);
-      var iconBounds=print&&root.SCRIPT_ART_ICON_BOUNDS&&root.SCRIPT_ART_ICON_BOUNDS[iconKey];
+      var customMetrics=icons[Symbol.for('ScriptArt.customIconMetrics')];
+      var customMetric=layout.contentFit&&customMetrics&&customMetrics.get(icon);
+      var iconBounds=customMetric?customMetric.bounds:print&&root.SCRIPT_ART_ICON_BOUNDS&&root.SCRIPT_ART_ICON_BOUNDS[iconKey];
       // Bounds apply only to the exact embedded raster they were built from.
-      // Imported/uploaded replacements and all alternate presets keep their
-      // established image rendering. Crop in SVG, leaving source pixels intact.
-      var normalizeIcon=iconBounds&&root.SCRIPT_ART_ICONS&&root.SCRIPT_ART_ICONS[iconKey]===icon&&Array.isArray(iconBounds.viewBox)&&iconBounds.viewBox.length===4&&iconBounds.viewBox.every(Number.isFinite)&&iconBounds.viewBox[2]>0&&iconBounds.viewBox[3]>0&&iconBounds.width>0&&iconBounds.height>0;
+      // Custom imports use separately measured bounds; alternate presets keep
+      // their established image rendering. Crop in SVG, leaving pixels intact.
+      var normalizeIcon=iconBounds&&(customMetric||root.SCRIPT_ART_ICONS&&root.SCRIPT_ART_ICONS[iconKey]===icon)&&Array.isArray(iconBounds.viewBox)&&iconBounds.viewBox.length===4&&iconBounds.viewBox.every(Number.isFinite)&&iconBounds.viewBox[2]>0&&iconBounds.viewBox[3]>0&&iconBounds.width>0&&iconBounds.height>0;
       if(/^data:image\/(png|jpeg|webp);base64,/.test(icon||'')){
-        var optical=iconGeometry(layout,item,iconKey,icon),opticalAttributes=optical.kind==='unchanged'?'':' data-icon-optical="'+optical.kind+'" data-icon-scale="'+optical.scale+'"';
+        var optical=iconGeometry(layout,item,iconKey,icon,customMetric),opticalAttributes=optical.kind==='unchanged'?'':' data-icon-optical="'+optical.kind+'" data-icon-scale="'+optical.scale+'"';
         roleIconX=optical.x;roleIconY=optical.y;roleIconSize=optical.size;
         if(normalizeIcon)out.push('<svg data-role-icon="'+esc(role.id)+'"'+opticalAttributes+' data-icon-normalized="true" x="'+roleIconX+'" y="'+roleIconY+'" width="'+roleIconSize+'" height="'+roleIconSize+'" viewBox="'+iconBounds.viewBox.join(' ')+'" preserveAspectRatio="xMidYMid meet" overflow="hidden"><image href="'+esc(icon)+'" width="'+iconBounds.width+'" height="'+iconBounds.height+'"/></svg>');
         else out.push('<image '+(print?'data-role-icon="'+esc(role.id)+'"'+opticalAttributes+' preserveAspectRatio="xMidYMid meet" ':'')+'href="'+esc(icon)+'" x="'+roleIconX+'" y="'+roleIconY+'" width="'+roleIconSize+'" height="'+roleIconSize+'"/>');
@@ -653,5 +670,5 @@
     out.push('</svg>');return out.join('');
     function artFooterLines(value,width,size){return wrap(value,width,size,measure);}
   }
-  root.ScriptArt={layout:layout,svg:svg,wrap:wrap,wrapRules:wrapRules,ruleDisplay:ruleDisplay,titleAdjustment:titleAdjustment,authorAdjustment:authorAdjustment,jinxFor:jinxFor,notesFor:notesFor,noteText:noteText,roleBounds:roleBounds,nightRailBounds:nightRailBounds,iconGeometry:iconGeometry};
+  root.ScriptArt={layout:layout,svg:svg,wrap:wrap,wrapRules:wrapRules,ruleDisplay:ruleDisplay,titleAdjustment:titleAdjustment,authorAdjustment:authorAdjustment,jinxFor:jinxFor,notesFor:notesFor,noteText:noteText,roleBounds:roleBounds,nightRailBounds:nightRailBounds,iconGeometry:iconGeometry,customIconMetrics:customIconMetrics};
 })(typeof window==='undefined'?globalThis:window);

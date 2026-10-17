@@ -136,12 +136,38 @@
         canvas.width=Math.max(1,Math.round(width*scale));canvas.height=Math.max(1,Math.round(height*scale));
         var context=canvas.getContext('2d');if(!context)throw new Error('浏览器无法处理角色图标');context.drawImage(image,0,0,canvas.width,canvas.height);
         var data=canvas.toDataURL('image/png');
+        // Reuse the decoded pixels; remote icons need no second image load.
+        if(window.SCRIPT_ART_ICON_OPTICS&&window.SCRIPT_ART_ICON_OPTICS.categories&&context.getImageData){
+          try{cacheCustomMetric(data,ScriptArt.customIconMetrics(context.getImageData(0,0,canvas.width,canvas.height).data,canvas.width,canvas.height));}catch(error){/* Retain the original image when pixels cannot be inspected. */}
+        }
         cacheIcon(url,data);finish(null,data);
       }catch(error){finish(error);}};
       image.onerror=function(){finish(new Error('图标链接不可访问或不允许跨域导出'));};image.src=url;
     });
   }
+  var customIconCache=new Map(),customIconBytes=0;
+  function cacheCustomMetric(uri,metric){
+    if(!metric)return;if(!customIconCache.has(uri))customIconBytes+=uri.length*2;customIconCache.set(uri,metric);
+    while(customIconCache.size>128||customIconBytes>8*1024*1024){var oldest=customIconCache.keys().next().value;customIconBytes-=oldest.length*2;customIconCache.delete(oldest);}
+  }
+  function measureCustomIcon(uri){
+    if(customIconCache.has(uri))return Promise.resolve(customIconCache.get(uri));
+    return new Promise(function(resolve){
+      var image=new Image(),canvas,done=false,timeout=setTimeout(function(){finish(null);},10000);
+      var cancel=function(){finish(null);};iconReads.add(cancel);
+      function finish(metric){if(done)return;done=true;clearTimeout(timeout);iconReads.delete(cancel);releaseImage(image);if(canvas){canvas.width=0;canvas.height=0;}cacheCustomMetric(uri,metric);resolve(metric);}
+      image.onload=function(){try{
+        var width=image.naturalWidth||image.width,height=image.naturalHeight||image.height;if(!(width>0&&height>0)||width*height>16000000)return finish(null);
+        var scale=Math.min(1,256/width,256/height);canvas=document.createElement('canvas');canvas.width=Math.max(1,Math.round(width*scale));canvas.height=Math.max(1,Math.round(height*scale));
+        var context=canvas.getContext('2d');context.drawImage(image,0,0,canvas.width,canvas.height);
+        finish(ScriptArt.customIconMetrics(context.getImageData(0,0,canvas.width,canvas.height).data,canvas.width,canvas.height,width,height));
+      }catch(error){finish(null);}};
+      image.onerror=function(){finish(null);};image.src=uri;
+    });
+  }
   async function prepareImportedIcons(session){
+    var customMetrics=new Map();Object.defineProperty(icons,Symbol.for('ScriptArt.customIconMetrics'),{value:customMetrics});
+    var known=new Set(Object.values(window.SCRIPT_ART_ICONS||{}));
     var catalog=new Map();
     (typeof CHARS==='undefined'?[]:CHARS).forEach(function(role){var icon=icons[role.im]||icons[role.id];if(!icon)return;[role.iu].concat(role.images||[]).forEach(function(url){if(url)catalog.set(url,icon);});});
     var queue=roles.slice(),completed=0,total=roles.length;
@@ -169,6 +195,10 @@
             if(data){icons[role.id]=data;break;}
           }catch(error){/* Try the next image in the imported array. */}
         }
+      }
+      var resolved=icons[role.im]||icons[role.id];
+      if(resolved&&!known.has(resolved)&&window.SCRIPT_ART_ICON_OPTICS&&window.SCRIPT_ART_ICON_OPTICS.categories){
+        var metric=await measureCustomIcon(resolved);if(session!==revision||!dialog.open)return;if(metric)customMetrics.set(resolved,metric);
       }
       completed++;message('正在准备角色图标… '+completed+'/'+total);
     }}
