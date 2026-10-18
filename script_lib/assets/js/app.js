@@ -18,7 +18,7 @@ SCRIPTS.forEach(function(s,i){
   s._cn=cn;
 });
 var cur=[],currentPage=1,pageSize=50,selectedScriptIndex=-1;
-var filterIds=['includeRoles','excludeRoles','q','cat','team','minc','maxc','sort','onlypic','completionFilter','personalFilter'];
+var filterIds=['includeRoles','excludeRoles','q','cat','team','minc','maxc','sort','onlypic','completionFilter','personalFilter','playerCount'];
 var lastFilter='';
 function saveFilters(){
   var state={page:currentPage,pageSize:pageSize};
@@ -75,6 +75,7 @@ function libraryRoster(indices){
 }
 function counts(a){var by=libraryRoster(a),m={};TEAMORD.forEach(function(t){if(by[t])m[t]=by[t].length;});return m;}
 function render(){
+  var previousListScroll=document.getElementById('list').scrollTop;
   renderCategorySelectors();
   var signature=JSON.stringify(filterIds.map(function(id){var el=document.getElementById(id);return id==='onlypic'?el.checked:el.value;}));
   if(lastFilter&&lastFilter!==signature)currentPage=1;
@@ -90,6 +91,7 @@ function render(){
     if(typeof workspaceMatches==='function'&&!workspaceMatches(s))return false;
     if(cat&&!categoryMatches(s[2],cat))return false;
     if(onlypic&&!shownCount(s))return false;
+    if(typeof LibraryView!=='undefined'&&!LibraryView.playerMatches(s))return false;
     if(!isNaN(mn)&&s[4]<mn)return false;
     if(!isNaN(mx)&&s[4]>mx)return false;
     if(team){var hit=false;for(var k=0;k<s[5].length;k++){if(libraryRole(CHARS[s[5][k]])?.t===team){hit=true;break;}}
@@ -125,9 +127,11 @@ function render(){
       '</div><div class="library-row-meta"><span class="cat" title="'+esc(s[2])+'">'+esc(s[2])+'</span><span class="cnt">'+(s[6]==='url'?'暂无 JSON':s[4]+' 个角色')+'</span></div></div>';
   }).join('');
 
-  document.getElementById('list').innerHTML=h||'<div class="hint">没有匹配的剧本</div>';
+  var personal=document.getElementById('personalFilter').value;
+  document.getElementById('list').innerHTML=h||(personal?'<div class="hint library-empty"><strong>这个分类下还没有匹配的剧本</strong><span>可以返回全部剧本，在详情的“我的记录”中收藏、标记想玩或记录游玩；也可以清除其他筛选条件。</span></div>':'<div class="hint">没有匹配的剧本</div>');
   document.getElementById('list').scrollTop=0;
   if(typeof LibraryView!=='undefined')LibraryView.filters(false);
+  if(typeof LibraryJourney!=='undefined')LibraryJourney.rendered(signature,previousListScroll);
 }
 var SCRIPTS_BY_INDEX={};SCRIPTS.forEach(function(s,i){SCRIPTS_BY_INDEX[i]=s;});
 function librarySourceDetail(s){
@@ -162,6 +166,7 @@ function show(i){
     (s[7]?'<p class="library-description">'+esc(s[7])+'</p>':'')+
     librarySourceDetail(s)+'<div class="library-primary-actions"><button class="btn" id="btn-edit-script" type="button">在剧本工具中编辑</button>'+
     (s[6]==='json'?'<button class="btn" id="btn-local-json" type="button">下载 JSON</button>':'')+
+    (typeof LibraryJourney!=='undefined'?'<button class="btn" id="btn-share-script" type="button">分享此剧本</button>':'')+
     '<details class="library-detail-tools"><summary>复制与导出</summary><div><button type="button" class="btn" id="btn-chars">复制角色名单</button>'+
     '<button type="button" class="btn" id="btn-json" title="生成这个剧本的 JSON，弹出框里选中复制（也可下载）">复制 JSON</button>'+
     '<button type="button" class="btn" id="btn-one">导出这个剧本</button></div></details></div>'+
@@ -202,6 +207,7 @@ function show(i){
     var t=TEAMORD.filter(function(x){return by[x];}).map(function(x){
       return '【'+TEAMCN[x]+'】'+by[x].map(function(role){return role.n;}).join('、');}).join('\n');
     copy(t,this);};
+  if(typeof LibraryJourney!=='undefined')LibraryJourney.viewed(i);
 }
 filterIds.forEach(function(id){
   var el=document.getElementById(id);

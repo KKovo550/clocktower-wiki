@@ -25,7 +25,7 @@ function workspaceMatches(s){
  if(completeness==='ancillary'&&pictures.state!=='ancillary')return false;
  if(completeness==='complete'&&(s[6]!=='json'||!pictures.complete))return false;
  if(completeness==='incomplete'&&s[6]==='json'&&pictures.complete)return false;
- var r=personalFor(s);return !personal||(personal==='played'?r.plays.length>0:r[personal]===true);
+ var r=personalFor(s);return !personal||(personal==='any'?(r.favorite||r.want||r.recommended||r.plays.length>0||!!r.note):(personal==='played'?r.plays.length>0:r[personal]===true));
 }
 function historyFor(i){return (window.LIBRARY_HISTORY||{})[recordKey(baseScripts[i][3])]||[];}
 function deltaText(a,b){
@@ -35,7 +35,7 @@ function deltaText(a,b){
  Object.keys(left).forEach(function(n){if(left[n]>(right[n]||0))removed.push(n+' ×'+(left[n]-(right[n]||0)));});
  return '角色新增：'+(added.join('、')||'无')+'；角色移除：'+(removed.join('、')||'无')+'；新增图片 '+b.images.filter(function(f){return a.images.indexOf(f)<0;}).length+' 张，移除 '+a.images.filter(function(f){return b.images.indexOf(f)<0;}).length+' 张。';
 }
-function versionDetail(i){var versions=historyFor(i),choice=versionChoices[recordKey(baseScripts[i][3])]||'';return '<section class="version-editor"><h3>剧本版本</h3><button class="btn" id="version-load">查看版本记录</button><select id="version-select" aria-label="使用版本"><option value="">库内最新版本</option>'+versions.map(function(v){return '<option value="'+esc(v.id)+'"'+(choice===v.id?' selected':'')+'>'+esc(new Date(v.time).toLocaleString())+' · '+esc(v.row.name)+' · '+v.id.slice(0,8)+'</option>';}).join('')+'</select><p id="version-status">'+(choice?'正在使用历史快照，预览、复制和导出均采用此版本。':'从启用版本管理后的下一次更新开始保存历史。')+'</p>'+
+function versionDetail(i){var versions=historyFor(i),choice=chosenVersions[i]?chosenVersions[i].id:'';return '<section class="version-editor"><h3>剧本版本</h3><button class="btn" id="version-load">查看版本记录</button><select id="version-select" aria-label="使用版本"><option value="">库内最新版本</option>'+versions.map(function(v){return '<option value="'+esc(v.id)+'"'+(choice===v.id?' selected':'')+'>'+esc(new Date(v.time).toLocaleString())+' · '+esc(v.row.name)+' · '+v.id.slice(0,8)+'</option>';}).join('')+'</select><p id="version-status">'+(choice?'正在使用历史快照，预览、复制和导出均采用此版本。':versions.length?'当前使用库内最新版本，可在此切换历史快照。':'从启用版本管理后的下一次更新开始保存历史。')+'</p>'+
  (versions.length>1?'<details><summary>各版本变化</summary>'+versions.slice(1).map(function(v,n){return '<p>'+esc(new Date(v.time).toLocaleString())+'：'+esc(deltaText(versions[n].row,v.row))+'</p>';}).join('')+'</details>':'')+'</section>';}
 function workspaceDetail(i){
  var s=SCRIPTS[i],r=personalFor(s),versions=historyFor(i),choice=versionChoices[recordKey(baseScripts[i][3])]||'';
@@ -145,5 +145,20 @@ function initWorkspace(){
  document.getElementById('personalBackup').onclick=function(){jsonSave(JSON.stringify({version:1,records:personalRecords},null,2),'剧本个人记录.json');};
  document.getElementById('personalRestore').onchange=async function(){try{var file=this.files[0];if(!file)return;if(file.size>5*1024*1024)throw Error('备份文件超过 5 MiB');var records=validatePersonal(JSON.parse(await file.text()));if(!confirm('恢复记录会替换同路径的个人记录，其他记录保留。继续？'))return;Object.assign(personalRecords,records);var saved=writePreference('scriptlib-personal',personalRecords);render();alert(saved?'个人记录已恢复，重新打开剧本可查看。':'仅本次会话恢复，请备份记录。');}catch(error){alert(error.message);}finally{this.value='';}};
  showMaintenance();refreshMaintenanceStatus();
- if(Object.keys(versionChoices).length)loadHistory().then(function(){baseScripts.forEach(function(s,i){var id=versionChoices[recordKey(s[3])];if(id)useVersion(i,id);});render();}).catch(function(error){document.getElementById('maintenanceStatus').textContent=error.message;});
+ if(Object.keys(versionChoices).length){
+  var restoreRevision=detailRevision;
+  return loadHistory().then(function(){
+   var changed=false,refreshIndex=-1;
+   baseScripts.forEach(function(s,i){var key=recordKey(s[3]),id=versionChoices[key];if(!id)return;
+    // A delayed preference restore must not change an already visible version
+    // or replace a form in which the person may be writing a note.
+    if(detailRevision!==restoreRevision&&typeof selectedScriptIndex!=='undefined'&&selectedScriptIndex===i&&!chosenVersions[i]){delete versionChoices[key];changed=true;refreshIndex=i;return;}
+    useVersion(i,id);
+   });
+   if(changed)writePreference('scriptlib-versions',versionChoices);
+   if(refreshIndex>=0){var panel=document.querySelector('#detail .version-editor');if(panel){panel.outerHTML=versionDetail(refreshIndex);bindVersionDetail(refreshIndex);}}
+   render();
+  }).catch(function(error){document.getElementById('maintenanceStatus').textContent=error.message;});
+ }
+ return Promise.resolve();
 }

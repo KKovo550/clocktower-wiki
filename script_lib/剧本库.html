@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>钟楼剧本库</title>
 <link rel="stylesheet" href="../assets/wiki.css">
-<link rel="stylesheet" href="assets/library.css">
+<link rel="stylesheet" href="assets/library.css?v=share-roster-20261018">
 <link rel="stylesheet" href="../assets/modern-theme.css">
 <link rel="stylesheet" href="../assets/site-experience.css">
 <link rel="stylesheet" href="../assets/product-hierarchy.css">
@@ -167,9 +167,20 @@
       · 角色名 762/4578 可点开百科</p></div>
   <div class="library-actions"><a class="btn" id="btnTool" href="../script_tool/%E5%89%A7%E6%9C%AC%E5%B7%A5%E5%85%B7.html" target="_blank" rel="noopener" title="打开剧本工具，自己拼一个剧本（新标签页）">制作自己的剧本</a><button class="btn" id="btnCompare"
       title="上传一个剧本 JSON，与库内剧本比对，列出最像的 10 个">对比我的剧本</button></div></div><div class="wrap">
+  <nav id="libraryBrowseModes" class="library-browse-modes" aria-label="剧本浏览范围"><button type="button" data-personal="" aria-pressed="true">全部剧本</button><button type="button" id="libraryMine" data-personal="any" aria-pressed="false" aria-controls="libraryMyPanel">我的剧本</button></nav>
+  <section id="libraryMyPanel" class="library-my-panel" aria-label="我的剧本" hidden><div id="libraryMyFilters" class="library-my-filters"></div><small>收藏、想玩、游玩记录与备注保存在当前浏览器，可在“记录、导出与离线使用”中备份。</small></section>
+  <details id="libraryRecent" class="library-recent" hidden><summary id="libraryRecentTitle">最近浏览</summary><div id="libraryRecentList"></div><button type="button" id="libraryRecentClear">清空最近浏览</button></details>
+  <p id="libraryJourneyStatus" class="library-journey-status" role="status" hidden></p>
   <section class="library-filters" aria-label="剧本筛选"><div class="bar">
   <label class="library-search"><span class="library-search-label">搜索剧本</span><input type="search" id="q" placeholder="搜索剧本、作者、角色…"><small>空格分隔多个关键词 · #角色名 精确匹配</small></label>
-</div><input type="hidden" id="cat" value="">
+</div>
+  <div class="library-quick-filters" aria-label="快捷筛选">
+    <button type="button" id="quickPictures" aria-pressed="false">有图片</button>
+    <label>人数初筛 <select id="playerCount" aria-describedby="playerCountHelp"><option value="">不限人数</option><option value="7">7 人</option><option value="8">8 人</option><option value="9">9 人</option><option value="10">10 人</option><option value="11">11 人</option><option value="12">12 人</option><option value="13">13 人</option><option value="14">14 人</option><option value="15">15 人</option></select></label>
+    <small id="playerCountHelp">按标准阵营配置检查可选角色数量；特殊规则与实际适用人数请查看剧本。</small>
+  </div>
+  <div id="libraryActiveFilters" class="library-active-filters" aria-label="已选筛选条件" hidden></div>
+  <input type="hidden" id="cat" value="">
   <details id="libraryAdvanced" class="library-more"><summary>更多筛选 <span id="libraryFilterSummary">角色、分类、人数</span></summary><div class="library-advanced-body">
   <div class="role-query-fields"><label>必须包含的角色<input id="includeRoles" placeholder="例如：洗衣妇、僧侣（全部包含）" list="library-role-options"></label><label>排除的角色<input id="excludeRoles" placeholder="例如：酒鬼、间谍（任一命中即排除）" list="library-role-options"></label><datalist id="library-role-options"></datalist><small>使用顿号、逗号或换行分隔；按完整角色名匹配。</small></div><div class="library-filter-fields">  <label>排序方式<select id="sort">
       <option value="name">按名称</option><option value="size">按角色数</option>
@@ -186,7 +197,7 @@
     <div id="categoryPath" aria-live="polite"></div>
     <small>分类数量为全库统计；可停留在任意一级，再结合关键词筛选。</small>
   </section>
-  <section class="workspace-bar"><select id="completionFilter" aria-label="完整度"><option value="">全部完整度</option><option value="complete">JSON 与正背面齐全</option><option value="missing-json">缺 JSON</option><option value="missing-front">缺正面</option><option value="missing-back">缺背面</option><option value="ancillary">仅附图或未分类</option><option value="missing-images">无原图</option><option value="incomplete">待补全</option></select><select id="personalFilter" aria-label="个人记录"><option value="">全部个人状态</option><option value="favorite">已收藏</option><option value="want">想玩</option><option value="played">玩过</option><option value="recommended">推荐</option></select></section>
+  <section class="workspace-bar"><select id="completionFilter" aria-label="完整度"><option value="">全部完整度</option><option value="complete">JSON 与正背面齐全</option><option value="missing-json">缺 JSON</option><option value="missing-front">缺正面</option><option value="missing-back">缺背面</option><option value="ancillary">仅附图或未分类</option><option value="missing-images">无原图</option><option value="incomplete">待补全</option></select><select id="personalFilter" aria-label="个人记录"><option value="">全部个人状态</option><option value="any">我的全部记录</option><option value="favorite">已收藏</option><option value="want">想玩</option><option value="played">玩过</option><option value="recommended">推荐</option></select></section>
   </div></details>
   </section>
 
@@ -291,6 +302,19 @@
   <p id="pictureStatus" role="status" aria-live="polite"></p>
   <div id="pictureStage"><img id="pictureLarge" alt="剧本图片"></div>
 </dialog>
+<dialog id="libraryShare" aria-labelledby="libraryShareTitle" aria-describedby="libraryShareHelp">
+  <div class="library-share-heading"><div><small>先看看角色，再一起选本</small><h2 id="libraryShareTitle">分享角色表</h2></div><button type="button" id="libraryShareClose" aria-label="关闭分享">关闭</button></div>
+  <div class="library-share-info"><h3 id="libraryShareName"></h3><div class="library-share-metadata"><span id="libraryShareAuthor"></span><span id="libraryShareCount"></span><span id="libraryShareVersion"></span></div></div>
+  <label id="libraryShareVersionField" class="library-share-field" hidden>分享版本<select id="libraryShareVersionSelect"><option value="current">当前查看的历史版本</option><option value="latest">该来源的库内最新版本</option></select></label>
+  <div class="library-share-content">
+    <section class="library-share-sheet" aria-label="角色表图片"><a id="libraryShareImageOpen" target="_blank" rel="noopener" hidden><img id="libraryShareImage" alt="角色表图片，点击查看大图" hidden></a><p id="librarySharePlaceholder">暂无角色表图片，可先分享角色名单。</p><div class="library-share-image-actions"><a id="libraryShareImageDownload" class="btn" hidden>保存角色表图片</a><a id="libraryShareImageView" target="_blank" rel="noopener" hidden>查看大图 ↗</a></div></section>
+    <section class="library-share-roster" aria-labelledby="libraryShareRosterTitle"><h3 id="libraryShareRosterTitle">角色名单</h3><div id="libraryShareRoster"></div></section>
+  </div>
+  <p id="libraryShareHelp">文案包含按类型分组的角色名单和剧本链接；有角色表图片时，也可以保存图片后发送。</p>
+  <div class="library-share-actions"><button type="button" id="libraryShareCopyRoster">复制角色名单</button><button type="button" id="libraryShareCopyText">复制分享文案</button><button type="button" id="libraryShareCopyLink">复制链接</button><button type="button" id="libraryShareNative" hidden>更多分享…</button></div>
+  <p id="libraryShareStatus" role="status" aria-live="polite"></p>
+  <details class="library-share-text"><summary>链接与分享文案</summary><label class="library-share-field">分享链接<input id="libraryShareLink" type="text" readonly spellcheck="false" aria-label="剧本分享链接"></label><label class="library-share-field">分享文案<textarea id="libraryShareText" readonly aria-label="剧本分享文案" spellcheck="false"></textarea></label><label class="library-share-field" id="libraryShareRosterCopyField" hidden>角色名单<textarea id="libraryShareRosterText" readonly aria-label="可复制的角色名单" spellcheck="false"></textarea></label><p id="libraryShareSource" class="library-share-source"></p></details>
+</dialog>
 <script src="assets/js/config.js?v=184cad6d34d6"></script>
 <dialog id="manualCopy" aria-labelledby="manualCopyTitle">
   <h3 id="manualCopyTitle">自动复制失败，请手动复制</h3>
@@ -306,13 +330,13 @@
 <script src="assets/js/export.js?v=4b157e29d094"></script>
 <script src="assets/js/categories.js?v=c8e7d0323de9"></script>
 <script src="assets/js/gallery.js?v=f3481dcb05b6"></script>
-<script src="assets/js/viewer.js?v=6f57e29085ec"></script>
-<script src="assets/js/presentation.js?v=6ce1aba58b62"></script>
+<script src="assets/js/viewer.js?v=bbc0387c17eb"></script>
+<script src="assets/js/presentation.js?v=55839a2655ff"></script>
 <script src="assets/data/maintenance.js?v=22eeb37c6d02"></script>
-<script src="assets/js/workspace.js?v=c6ed8b56cff2"></script>
+<script src="assets/js/workspace.js?v=6bae3b3e8d7e"></script>
 <script src="assets/data/role-icons.js?v=9dcc43515a91"></script>
-<script src="assets/js/role-query.js?v=2ab50b78f374"></script><script src="assets/js/app.js?v=36a25e9afc13"></script><script src="assets/js/editor-transfer.js?v=888f6ec8950d"></script>
-<script>initWorkspace();</script>
+<script src="assets/js/role-query.js?v=2ab50b78f374"></script><script src="assets/js/journey.js?v=14fcd08b4684"></script><script src="assets/js/share.js?v=221fca9cebe4"></script><script src="assets/js/app.js?v=98681a75f847"></script><script src="assets/js/editor-transfer.js?v=888f6ec8950d"></script>
+<script>LibraryJourney.init(initWorkspace());</script>
 <script src="../assets/wiki.js?v=04d526caf448"></script>
 <script src="../assets/start-guide.js?v=f75d0279a560" defer></script>
 
