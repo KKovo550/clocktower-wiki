@@ -61,6 +61,12 @@
         // The old checkpoint and new active draft are written together or not at all.
         if(current){assign(current,before);checkpoint(current,before);}
         else if(content(before)){var backup=insert(before);checkpoint(backup,before);}
+        // At capacity, clear in place with a recovery point and reuse that blank
+        // workspace for the next import instead of requiring an extra draft slot.
+        function blank(snapshot){return !content(snapshot)&&!Object.keys(snapshot.meta||{}).length&&!Object.keys(snapshot.nightOverrides||{}).length;}
+        if(current&&next.drafts.length>=limit&&(blank(after)||blank(before))){
+          assign(current,after);next.activeId=current.id;return current.id;
+        }
         var created=insert(after);checkpoint(created,after);next.activeId=created.id;return created.id;
       });
     }
