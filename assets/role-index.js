@@ -162,8 +162,10 @@ function render(){
       el.className=expanded[id]?'card open':'card';
       var button=el.querySelector('.expand-card');button.setAttribute('aria-expanded',String(expanded[id]));
       button.textContent=expanded[id]?'收起补充信息':'展开补充信息';
+      if(window.RoleIndexJourney)window.RoleIndexJourney.changed();
     });
   });
+  if(window.RoleIndexJourney)window.RoleIndexJourney.changed();
 }
 function chipRow(host,items,pick,cls){
   // 每次都整条重建：以前是往 innerHTML 后面追加，点一次筛选条就翻一倍

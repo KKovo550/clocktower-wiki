@@ -112,7 +112,7 @@ kbd{background:#f1e9d8;border:1px solid var(--tan);border-radius:3px;padding:0 4
 /* Editor layout: settings, library and selected script. */
 .script-editor{container-type:inline-size}
 .script-editor .toolbar{display:block;position:static;padding:18px;margin:18px 0 0;border-radius:10px;box-shadow:none;background:#fbf7ee}
-.script-fields{display:grid;grid-template-columns:1.4fr .85fr 1fr 1fr;gap:14px}
+.script-fields{display:grid;grid-template-columns:1.4fr 1fr;gap:14px}
 .script-fields label{display:flex;flex-direction:column;gap:7px;font-size:12px;color:#78674f;min-width:0}
 .script-editor .script-fields input,.script-editor .script-fields select{width:100%;box-sizing:border-box;min-height:40px;margin:0;font-size:14px}
 .script-actions{display:flex;align-items:center;justify-content:flex-end;gap:10px;margin-top:16px;padding-top:14px;border-top:1px solid #e4d8c1}
@@ -512,3 +512,36 @@ kbd{background:#f1e9d8;border:1px solid var(--tan);border-radius:3px;padding:0 4
 .workspace-backup-comparison section{min-width:0;padding:12px;border:1px solid var(--tan,#d5c6a9);border-radius:8px;background:var(--cream,#fffdf8)}
 .workspace-backup-comparison p{white-space:pre-line;overflow-wrap:anywhere}
 @media(max-width:700px){.workspace-backup-comparison{grid-template-columns:1fr}}
+
+/* Shared tool navigation and a small, state-driven path for first-time editors. */
+.tool-navigation{display:flex;gap:6px;flex-wrap:wrap;align-items:center;padding:0 0 14px;margin-bottom:18px;border-bottom:1px solid var(--archive-line,#d5c6a9);font-size:13px}
+.tool-navigation a{display:inline-flex;align-items:center;padding:7px 13px;min-height:40px;box-sizing:border-box;border-radius:7px;text-decoration:none;color:var(--archive-muted,#665b4c)}
+.tool-navigation a[aria-current=page]{background:var(--experience-blue,#305c7d);color:#fff;font-weight:600}
+.tool-navigation a:focus-visible{outline:2px solid #305c7d;outline-offset:3px}
+.editor-start{padding:18px;border:1px solid #cbbb9e;border-radius:10px;background:#fbf7ee;margin-top:18px}
+.editor-start-heading{display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.script-editor .editor-start h2{font-family:inherit;font-size:18px;font-weight:600;line-height:1.5;border:0;padding:0;margin:0}
+.editor-start-heading>span,.editor-steps small{font-size:12px;color:#78674f;line-height:1.7}
+.editor-steps{list-style:none;margin:18px 0 12px;padding:0;display:grid;grid-template-columns:1.15fr 1fr 1fr;gap:18px}
+.editor-steps li{display:flex;align-items:flex-start;gap:10px;min-width:0}
+.editor-step-number{display:grid;place-items:center;border:1px solid #cbbb9e;border-radius:50%;width:26px;height:26px;flex-shrink:0;font-size:12px;color:#78674f;margin-top:8px}
+.editor-steps li>div{flex:1;min-width:0}
+.editor-steps label{display:flex;gap:6px;align-items:center;font-size:13px;color:#665b4c}
+.script-editor .editor-steps select{width:100%;min-width:0;min-height:44px;box-sizing:border-box;margin:0;font-size:14px}
+.editor-steps label select{flex:1}
+.editor-steps .btn{display:flex;justify-content:center;align-items:center;min-height:44px;box-sizing:border-box;width:100%;margin:0}
+.editor-steps small{display:block;margin-top:7px}
+.editor-steps .is-ready .editor-step-number{background:#e3edf0;border-color:#305c7d;color:#305c7d}
+.script-editor #editorStepStatus{font-size:13px;color:#305c7d;margin:0;line-height:1.7}
+.editor-advanced{border-top:1px solid #e4d8c1;margin-top:14px;padding-top:12px;font-size:13px}
+.editor-advanced summary{cursor:pointer;color:#665b4c;padding:5px 0}
+.editor-advanced-body{display:grid;gap:12px;padding-top:12px}
+.editor-advanced-body>label{display:flex;align-items:center;gap:12px}
+.editor-advanced-actions{display:flex;flex-wrap:wrap;gap:10px}
+.editor-advanced-body p{font-size:12px;color:#78674f;line-height:1.7;margin:0}
+.script-editor #library-title{scroll-margin-top:calc(var(--wiki-header-height,68px) + 18px)}
+.script-editor .btn:disabled{cursor:default;opacity:.5}
+@container(max-width:800px){.editor-steps{grid-template-columns:1fr;gap:12px}.editor-steps li>div{display:grid;grid-template-columns:minmax(0,1fr) minmax(100px,.9fr);gap:12px;align-items:center}.editor-steps small{margin:0}.editor-steps label{flex-wrap:wrap}}
+@media(max-width:480px){.editor-start{padding:12px}.editor-start-heading>span{display:none}.editor-steps li>div{display:block}.editor-steps small{margin-top:5px}.editor-steps select{font-size:16px}.editor-advanced-actions .btn{min-height:44px;flex:1}.editor-advanced-body>label{align-items:flex-start;flex-direction:column}.tool-navigation{margin-bottom:12px}.tool-navigation a{min-height:44px}}
+@media print{.tool-navigation,.editor-start{display:none}}
+

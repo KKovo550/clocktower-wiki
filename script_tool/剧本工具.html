@@ -3,9 +3,9 @@
   <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>钟楼剧本工具</title>
+<title>剧本工具 - 钟楼资料库</title>
 <link rel="stylesheet" href="../assets/wiki.css">
-<link rel="stylesheet" href="assets/script-tool/app.css">
+<link rel="stylesheet" href="assets/script-tool/app.css?v=entry-20261018">
 <link rel="stylesheet" href="assets/script-tool/art.css">
 <link rel="stylesheet" href="../assets/modern-theme.css">
 <link rel="stylesheet" href="../assets/site-experience.css">
@@ -165,15 +165,25 @@
         
       
   
-</nav><main class="content script-editor"><h1 class="page-title">剧本工具</h1><p class="script-help">选择角色，编写并导出你的剧本。草稿保存在当前浏览器中，重要内容请导出 JSON 备份。</p><div class="wrap">
+</nav><main class="content script-editor"><nav class="tool-navigation" aria-label="创作工具"><a href="../script_lib/剧本库.html">剧本库</a><a href="剧本工具.html" aria-current="page">剧本编辑</a><a href="夜序查看器.html">夜序与对局</a></nav>
+<h1 class="page-title">剧本工具</h1><p class="script-help">选择角色，编写并导出你的剧本。草稿保存在当前浏览器中，重要内容请导出 JSON 备份。</p><div class="wrap">
+  <section class="editor-start" aria-labelledby="editorStartTitle">
+    <div class="editor-start-heading"><h2 id="editorStartTitle">三步制作角色表</h2><span>从官方预设开始，也可以自由选角色</span></div>
+    <ol class="editor-steps">
+      <li><span class="editor-step-number" aria-hidden="true">1</span><div><label>加载预设<select id="preset"><option value="">选择官方剧本…</option></select></label><small>载入前会确认是否替换当前内容</small></div></li>
+      <li><span class="editor-step-number" aria-hidden="true">2</span><div><a class="btn" id="editorChooseRoles" href="#library-title">修改角色</a><small>点击角色增减，在“我的剧本”调整顺序</small></div></li>
+      <li><span class="editor-step-number" aria-hidden="true">3</span><div><button type="button" class="btn pri" id="bStepArt" disabled>生成图片</button><small>预览角色表，再调整样式并保存</small></div></li>
+    </ol>
+    <p id="editorStepStatus" role="status" aria-live="polite">先加载一个预设，或从角色库自由添加角色。</p>
+  </section>
+
   <section class="toolbar" aria-label="剧本设置">
     <div class="script-fields">
       <label>剧本名称<input type="text" id="mname" placeholder="给剧本起个名字"></label>
       <label>作者<input type="text" id="mauthor" placeholder="作者名称"></label>
-      <label>剧本规格<select id="spec"><option value="free">不限制</option><option value="teensy">汀西维尔（小局）</option><option value="ravenswood">鸦木布拉夫（标准局）</option></select></label>
-      <label>官方预设<select id="preset"><option value="">选择官方剧本…</option></select></label>
     </div>
-    <div class="script-actions"><span class="script-action-hint">从空白开始，或导入已有剧本</span><button class="btn" id="bDrafts">我的草稿</button><button class="btn" id="bBackup">完整备份</button><button class="btn" id="bImport">导入 JSON</button><button class="btn pri" id="bExport">导出 JSON</button><button class="btn" id="bArt">生成剧本图片</button><a class="btn" href="夜序查看器.html">导入 JSON 查看夜序</a></div>
+    <div class="script-actions"><span class="script-action-hint">已有剧本？导入 JSON 或继续草稿</span><button class="btn" id="bDrafts">我的草稿</button><button class="btn" id="bImport">导入 JSON</button><button class="btn pri" id="bArt">生成剧本图片</button></div>
+    <details id="editorAdvanced" class="editor-advanced"><summary>更多工具：导出、备份与夜序</summary><div class="editor-advanced-body"><label>剧本规格<select id="spec"><option value="free">不限制</option><option value="teensy">汀西维尔（小局）</option><option value="ravenswood">鸦木布拉夫（标准局）</option></select></label><div class="editor-advanced-actions"><button class="btn" id="bExport">导出 JSON</button><button class="btn" id="bBackup">完整备份</button><a class="btn" href="夜序查看器.html">夜序与对局</a></div><p>夜序页可直接读取当前草稿；重要内容建议导出 JSON 或完整备份。</p></div></details>
   </section>
 
   <p id="saveStatus" role="status" aria-live="polite"></p>
@@ -205,21 +215,21 @@
 </footer>
 <dialog id="dlg"><div class="dlg" id="dlgBody"></div></dialog>
 
-<script src="assets/script-tool/data.js"></script>
-<script src="assets/script-tool/core.js"></script>
-<script src="assets/script-tool/drafts.js"></script>
-<script src="魔典/nightorder.js"></script>
-<script src="assets/script-tool/checks.js"></script><script src="../assets/workflow-role-links.js"></script><script src="assets/script-tool/app.js"></script><script src="assets/script-tool/draft-ui.js"></script><script src="assets/script-tool/receive-library.js"></script>
-<script src="assets/script-tool/mobile-images.js"></script><script src="assets/script-tool/image-import.js"></script>
-<script src="assets/script-tool/editor-history.js"></script>
-<script src="assets/script-tool/rules-editor.js"></script>
-<script src="assets/script-tool/personal-role-store.js"></script>
-<script src="assets/script-tool/custom-roles.js"></script>
-<script src="assets/script-tool/personal-roles.js"></script>
-<script src="assets/script-tool/art-presets.js"></script><script src="assets/script-tool/art-print-layout.js"></script><script src="assets/script-tool/art-core.js"></script><script src="assets/script-tool/art-logo-ai.js"></script><script src="assets/script-tool/art-settings.js"></script><script src="assets/script-tool/art.js"></script>
-<script src="assets/script-tool/workspace-backup.js"></script><script src="assets/script-tool/workspace-backup-ui.js"></script>
-<script src="../assets/wiki.js"></script>
-<script src="../assets/start-guide.js" defer></script>
+<script src="assets/script-tool/data.js?v=746bb5b95d47"></script>
+<script src="assets/script-tool/core.js?v=f616f5258d43"></script>
+<script src="assets/script-tool/drafts.js?v=8324ce0ce07e"></script>
+<script src="魔典/nightorder.js?v=dfcb9549bca2"></script>
+<script src="assets/script-tool/checks.js?v=1ad876391577"></script><script src="../assets/workflow-role-links.js?v=df779f27528d"></script><script src="assets/script-tool/app.js?v=4214f9eabfaf"></script><script src="assets/script-tool/draft-ui.js?v=a50218ad684e"></script><script src="assets/script-tool/editor-entry.js?v=67cba47a497d"></script><script src="assets/script-tool/receive-library.js?v=eec3152dfb7c"></script>
+<script src="assets/script-tool/mobile-images.js?v=b93480e95496"></script><script src="assets/script-tool/image-import.js?v=579ac63b10cb"></script>
+<script src="assets/script-tool/editor-history.js?v=ec69acf8eb4d"></script>
+<script src="assets/script-tool/rules-editor.js?v=c29a14c103b7"></script>
+<script src="assets/script-tool/personal-role-store.js?v=259acea52337"></script>
+<script src="assets/script-tool/custom-roles.js?v=f8a29a2badd6"></script>
+<script src="assets/script-tool/personal-roles.js?v=f5b7ecb05086"></script>
+<script src="assets/script-tool/art-presets.js?v=6f706bddc9ef"></script><script src="assets/script-tool/art-print-layout.js?v=b3c9d1a33c48"></script><script src="assets/script-tool/art-core.js?v=12f480aaef3b"></script><script src="assets/script-tool/art-logo-ai.js?v=d0ed5579ccd8"></script><script src="assets/script-tool/art-settings.js?v=14312b0d9acd"></script><script src="assets/script-tool/art.js?v=03e752f9511b"></script>
+<script src="assets/script-tool/workspace-backup.js?v=c340722d6a76"></script><script src="assets/script-tool/workspace-backup-ui.js?v=56d2b46af6df"></script>
+<script src="../assets/wiki.js?v=861d75b93761"></script>
+<script src="../assets/start-guide.js?v=f75d0279a560" defer></script>
 
   </body>
 </html>

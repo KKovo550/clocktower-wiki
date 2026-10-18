@@ -188,6 +188,7 @@ function renderStat(){
   if(!c.total) h+='<br><span style="color:#9a8a6e">在左侧点击角色加入剧本</span>';
   document.getElementById('stat').innerHTML=h;
   var badge=document.getElementById('selectionCount');if(badge)badge.textContent=c.total;
+  if(window.ScriptEditorEntry)window.ScriptEditorEntry.update(c.total);
   var mobileBadge=document.getElementById('mobileSelectionCount');if(mobileBadge)mobileBadge.textContent=c.total;
   var mobileArt=document.getElementById('bMobileArt');if(mobileArt)mobileArt.disabled=!c.total;
 }
@@ -317,8 +318,17 @@ function download(name,text){
   document.body.appendChild(a); a.click();
   setTimeout(function(){URL.revokeObjectURL(a.href);a.remove();},400);
 }
-function openDlg(html){document.getElementById('dlgBody').innerHTML=html;
-  var dialog=document.getElementById('dlg'),night=Boolean(document.querySelector('#dlgBody .editor-night-dialog'));
+var editorDialogTrigger=null;
+document.getElementById('dlg').addEventListener('close',function(){
+  if(this.open)return;
+  var target=editorDialogTrigger;editorDialogTrigger=null;
+  if(target&&target.isConnected&&!target.disabled&&!document.querySelector('dialog[open]'))target.focus({preventScroll:true});
+});
+function openDlg(html){
+  var dialog=document.getElementById('dlg');
+  if(!dialog.open)editorDialogTrigger=document.activeElement;
+  document.getElementById('dlgBody').innerHTML=html;
+  var night=Boolean(document.querySelector('#dlgBody .editor-night-dialog'));
   dialog.classList.toggle('editor-night-open',night);
   if(night)dialog.setAttribute('aria-labelledby','editor-night-title');else dialog.removeAttribute('aria-labelledby');
   dialog.showModal();}

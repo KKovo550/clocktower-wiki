@@ -4,7 +4,7 @@ var libraryFamilies=new Map();SCRIPTS.forEach(function(s){var key=scriptFamilyKe
 var savedSources=readPreference('scriptlib-sources',{}),librarySourceChoices=new Map(Object.entries(savedSources&&typeof savedSources==='object'?savedSources:{}));
 function familySources(s){return libraryFamilies.get(scriptFamilyKey(s))||[s];}
 function allLibraryScripts(){return collapseScripts(SCRIPTS,librarySourceChoices);}
-document.getElementById('librarySummary').textContent='剧本库 · '+libraryFamilies.size+' 个剧本 · '+SCRIPTS.length+' 份收录资料';
+document.getElementById('librarySummary').textContent='剧本库 · 总收录 '+libraryFamilies.size+' 个剧本 · '+SCRIPTS.length+' 份收录资料';
 var CHARW=Object.create(null);
 CHARS.forEach(function(c){var u=c[2];if(u&&!(c[0] in CHARW))CHARW[c[0]]=u;});
 // 预建小写检索串

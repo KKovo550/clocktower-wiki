@@ -117,4 +117,11 @@ body{background-attachment:fixed}
 }
 .role-index .filter-footer,.role-index .result-actions{flex-wrap:wrap}
 .role-index .card .body{overflow-wrap:anywhere}
+.role-index .role-active-filters{display:flex;gap:7px;flex-wrap:wrap;align-items:center;margin:12px 0;font-size:12px}
+.role-index .role-active-filters[hidden]{display:none}
+.role-index .role-condition,.role-index .role-conditions-clear{font:inherit;padding:7px 10px;max-width:100%;overflow-wrap:anywhere;white-space:normal;cursor:pointer;border:1px solid #cbbb9e;border-radius:7px;background:#eee2c8;color:#534018;line-height:1.5;text-align:left}
+.role-index .role-conditions-clear{background:transparent;color:#305c7d}
+.role-index .role-condition:focus-visible,.role-index .role-conditions-clear:focus-visible{outline:2px solid #305c7d;outline-offset:2px}
+.role-index #roleEmptyReset{display:block;margin:14px 0 0}
+@media(max-width:640px){.role-index .role-condition,.role-index .role-conditions-clear,.role-index #roleEmptyReset{min-height:44px}}
 @media(max-width:640px){.role-index .chip,.role-index button{min-height:34px}.role-index .result-actions{margin-left:0;width:100%}}

@@ -405,7 +405,10 @@
   if (filter) filter.addEventListener('change', function () { render(input.value.trim()); });
   input.addEventListener('keydown', function (e) {
     if (e.isComposing || e.keyCode === 229) return;
-    if (e.key === 'Escape') { close(); return; }
+    if (e.key === 'Escape') {
+      if (box.className === 'search-results on') { e.preventDefault(); if(e.stopPropagation)e.stopPropagation(); }
+      close(); return;
+    }
     if (e.key === 'Enter' && searchTimer !== undefined) {
       clearTimeout(searchTimer);
       searchTimer = undefined;
@@ -448,9 +451,13 @@
   });
   // 快捷键 / 聚焦搜索
   document.addEventListener('keydown', function (e) {
-    if (!e.defaultPrevented && e.key === '/' && !/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName) && !document.activeElement.isContentEditable) {
+    if (e.defaultPrevented || e.isComposing || e.keyCode === 229 || e.ctrlKey || e.metaKey || e.altKey || document.querySelector('dialog[open]') || document.body.classList && document.body.classList.contains('mobile-nav-open')) return;
+    if (e.key === '/' && !/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName) && !document.activeElement.isContentEditable) {
       e.preventDefault(); input.focus();
     }
+  });
+  document.addEventListener('focusin', function (e) {
+    if (e.target.closest && e.target.closest('dialog[open]')) close();
   });
   // 随机页面
   var rnd = document.getElementById('wiki-random');
