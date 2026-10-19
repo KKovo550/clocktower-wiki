@@ -10,6 +10,8 @@
 
 ## 日常命令
 
+手机与持续使用验收见 [MOBILE_QA.md](MOBILE_QA.md)：包含 iPhone 13 Pro Max 的 Safari 真机步骤、安卓真机要求、多人一周试用记录方式，以及独立 WebKit / Chrome 触屏和反复保存回归。模拟通过不能替代真机或长期使用记录。
+
 - 首次安装：`npm ci`，`python -m pip install -r requirements.txt`。
 - 本地开发：`npm run dev`。Astro 组件变更热更新；正文、Python 脚本或数据变更后重新启动该命令。
 - 类型检查：`npm run check`。
