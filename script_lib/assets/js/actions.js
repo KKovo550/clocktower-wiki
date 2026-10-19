@@ -14,6 +14,7 @@ function loadLegacyFull(cb,err){
         resolve(window.SCRIPT_FULL);
       }
       script.src='assets/scripts-full.js';
+      if(window.WikiCache)script.src=window.WikiCache.asset(script.src);
       script.onload=function(){
         if(window.SCRIPT_FULL_BUILD!==LIBRARY_BUILD){finish('目录与剧本原文版本不一致，请重新生成数据并刷新页面。');return;}
         if(!Array.isArray(window.SCRIPT_FULL)||!window.SCRIPT_FULL.length||window.SCRIPT_FULL.length!==SCRIPTS.length){
@@ -51,6 +52,7 @@ function pumpOriginals(){
         if(message)job.reject(Error(message));else job.resolve(value);pumpOriginals();
       }
       script.src='assets/data/originals/'+job.key+'.js';
+      if(window.WikiCache)script.src=window.WikiCache.asset(script.src);
       script.onload=function(){var cache=window.SCRIPT_ORIGINALS||{},value=Object.prototype.hasOwnProperty.call(cache,job.key)&&cache[job.key];
         if(!value||typeof value.f!=='string'||typeof value.t!=='string'){finish('剧本原文资源无效，请重新生成目录后重试。');return;}
         finish('',value);
@@ -105,6 +107,7 @@ function loadComparison(){
     var script=document.createElement('script'),done=false,timer=setTimeout(function(){finish('比对资料加载超时，请重试。');},30000);
     function finish(message){if(done)return;done=true;clearTimeout(timer);script.onload=null;script.onerror=null;script.remove();if(message)reject(Error(message));else resolve();}
     script.src='assets/data/comparison.js';
+    if(window.WikiCache)script.src=window.WikiCache.asset(script.src);
     script.onload=function(){finish(typeof LIBRARY_COMPARE_ROLES!=='undefined'&&typeof LIBRARY_COMPARE_BUILD!=='undefined'&&LIBRARY_COMPARE_BUILD===LIBRARY_BUILD?'':'比对资料与目录版本不一致，请刷新后重试。');};
     script.onerror=function(){finish('比对资料加载失败，请重试。');};document.head.appendChild(script);
   }).catch(function(error){comparisonRequest=null;throw error;});return comparisonRequest;

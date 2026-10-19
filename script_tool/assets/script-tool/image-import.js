@@ -55,9 +55,9 @@
     paddleLoading=(async function(){
       var base=new URL('../paddle-browser/',runtimeURL).href;
       await Promise.all(['det.js','rec.js','wasm.js','module.js'].map(async function(name){
-        await new Promise(function(done,fail){var script=document.createElement('script');script.src=base+name;script.onload=done;script.onerror=function(){script.remove();fail(new Error('浏览器 PaddleOCR 资源加载失败：'+name));};document.head.appendChild(script);});
+        await new Promise(function(done,fail){var script=document.createElement('script');script.src=base+name;if(root.WikiCache)script.src=root.WikiCache.asset(script.src);script.onload=done;script.onerror=function(){script.remove();fail(new Error('浏览器 PaddleOCR 资源加载失败：'+name));};document.head.appendChild(script);});
       }));
-      await new Promise(function(done,fail){var script=document.createElement('script');script.src=base+'engine.js';script.onload=done;script.onerror=function(){script.remove();fail(new Error('浏览器 PaddleOCR 初始化资源加载失败'));};document.head.appendChild(script);});
+      await new Promise(function(done,fail){var script=document.createElement('script');script.src=base+'engine.js';if(root.WikiCache)script.src=root.WikiCache.asset(script.src);script.onload=done;script.onerror=function(){script.remove();fail(new Error('浏览器 PaddleOCR 初始化资源加载失败'));};document.head.appendChild(script);});
       if(!root.ScriptPaddleBrowser)throw new Error('浏览器 PaddleOCR 初始化失败');
       return root.ScriptPaddleBrowser;
     })().catch(function(error){paddleLoading=null;throw error;});
@@ -69,6 +69,7 @@
     if (offlineLoading) return offlineLoading;
     offlineLoading = new Promise(function (resolve, reject) {
       var script=document.createElement('script'); script.src=runtimeURL+'offline-worker.js';
+      if(root.WikiCache)script.src=root.WikiCache.asset(script.src);
       script.onload=function(){if(root.ScriptOCRWorkerSource)resolve(root.ScriptOCRWorkerSource);else{offlineLoading=null;reject(new Error('离线识别资源不完整，请重新生成 OCR 资源'));}};
       script.onerror=function(){script.remove();offlineLoading=null;reject(new Error('离线识别资源加载失败，请确认 offline-worker.js 存在'));};
       document.head.appendChild(script);
@@ -80,6 +81,7 @@
     if (loading) return loading;
     loading = new Promise(function (resolve, reject) {
       var script = document.createElement('script'); script.src = runtimeURL + 'tesseract.min.js';
+      if(root.WikiCache)script.src=root.WikiCache.asset(script.src);
       script.onload = function () { if (root.Tesseract) resolve(root.Tesseract); else { loading = null; reject(new Error('识别组件加载失败')); } };
       script.onerror = function () { script.remove(); loading = null; reject(new Error('识别组件下载失败，请检查网络后重试')); };
       document.head.appendChild(script);
@@ -252,6 +254,7 @@
         if (!Number.isFinite(bitmap.width)||!Number.isFinite(bitmap.height)||bitmap.width<=0||bitmap.height<=0||bitmap.width * bitmap.height > 32000000) throw new Error('图片尺寸无效或过大，请缩小至 3200 万像素以内');
         var runtime = runtimeURL;
         var options={ workerPath: runtime + 'worker.min.js', corePath: runtime, langPath: runtime, errorHandler: function () {}, logger: function (m) { if (current()) el('ocrStatus').textContent = '识别中：' + Math.round((m.progress || 0) * 100) + '% · ' + m.status; } };
+        if(root.WikiCache&&!offline)options.workerPath=root.WikiCache.asset(options.workerPath);
         if(offline){
           var source=await loadOfflineWorker();if(!current())return;
           workerURL=URL.createObjectURL(new Blob([source],{type:'text/javascript'}));

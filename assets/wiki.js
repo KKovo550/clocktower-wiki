@@ -15,6 +15,7 @@
   if(typeof URL!=='undefined'){
     var experienceScript=document.createElement('script');
     experienceScript.src=new URL('./site-experience.js',document.currentScript?document.currentScript.src:new URL((document.body.getAttribute('data-root')||'')+'assets/wiki.js',document.baseURI)).href;
+    if(window.WikiCache)experienceScript.src=window.WikiCache.asset(experienceScript.src);
     experienceScript.defer=true;document.head.appendChild(experienceScript);
   }
   // Sticky panels track the real header height, including wrapped search controls.
@@ -195,6 +196,7 @@
   if (typeof URL !== 'undefined' && (!window.matchMedia || window.matchMedia('(any-hover: hover)').matches) && document.querySelector && document.querySelector('.gallerybox a img, .homebrew-card a img, .role-index, .charinfo-img img')) {
     var previewScript = document.createElement('script');
     previewScript.src = new URL('./role-preview.js', document.currentScript ? document.currentScript.src : new URL((document.body.getAttribute('data-root') || '') + 'assets/wiki.js', document.baseURI)).href;
+    if(window.WikiCache)previewScript.src=window.WikiCache.asset(previewScript.src);
     document.head.appendChild(previewScript);
   }
   var input = document.getElementById('wiki-search-input');
@@ -301,6 +303,7 @@
     if (status) status.textContent = '正在加载搜索索引…';
     var script = document.createElement('script');
     script.src = ROOT + 'assets/search-index.js';
+    if(window.WikiCache)script.src=window.WikiCache.asset(script.src);
     script.onload = loaded;
     script.onerror = function () {
       loading = false;

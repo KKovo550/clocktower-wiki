@@ -26,6 +26,7 @@
     bodyFontPromise=new Promise(function(resolve,reject){
       var script=document.createElement('script'),timeout=setTimeout(function(){script.remove();bodyFontPromise=null;reject(new Error('制图字体加载超时，请关闭后重试。'));},15000);
       script.src='assets/script-tool/art-fonts.js';
+      if(window.WikiCache)script.src=window.WikiCache.asset(script.src);
       script.onload=function(){clearTimeout(timeout);if(window.ScriptArtFonts)resolve(window.ScriptArtFonts.load());else{bodyFontPromise=null;reject(new Error('制图字体不可用。'));}};
       script.onerror=function(){clearTimeout(timeout);bodyFontPromise=null;script.remove();reject(new Error('制图字体加载失败，请关闭后重试。'));};
       document.head.appendChild(script);
@@ -55,6 +56,7 @@
     iconPromise=new Promise(function(resolve,reject){
       var script=document.createElement('script'),timeout=setTimeout(function(){script.remove();iconPromise=null;reject(new Error('角色图标加载超时，请关闭后重试。'));},15000);
       script.src='assets/script-tool/art-icons.js';
+      if(window.WikiCache)script.src=window.WikiCache.asset(script.src);
       script.onload=function(){clearTimeout(timeout);if(window.SCRIPT_ART_ICONS)resolve(window.SCRIPT_ART_ICONS);else{iconPromise=null;reject(new Error('图标资源不可用。'));}};
       script.onerror=function(){clearTimeout(timeout);script.remove();iconPromise=null;reject(new Error('角色图标加载失败，请关闭后重试。'));};
       document.head.appendChild(script);
@@ -66,6 +68,7 @@
     decorationPromise=new Promise(function(resolve,reject){
       var script=document.createElement('script'),timeout=setTimeout(function(){decorationPromise=null;script.remove();reject(new Error('装饰资源加载超时。'));},15000);
       script.src='assets/script-tool/art-decorations.js';
+      if(window.WikiCache)script.src=window.WikiCache.asset(script.src);
       script.onload=function(){clearTimeout(timeout);resolve(window.SCRIPT_ART_DECORATIONS||[]);};
       script.onerror=function(){clearTimeout(timeout);decorationPromise=null;script.remove();reject(new Error('装饰资源加载失败。'));};
       document.head.appendChild(script);

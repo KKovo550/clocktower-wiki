@@ -1,0 +1,6 @@
+.site-update-notice{position:fixed;z-index:90;right:16px;bottom:16px;max-width:min(420px,calc(100vw - 32px));padding:14px 16px;border:1px solid #b28b4d;border-radius:8px;background:#fffaf0;color:#302b24;box-shadow:0 4px 20px #0003;font:14px/1.5 system-ui,sans-serif}
+.site-update-notice[hidden]{display:none}
+.site-update-notice p{margin:0 0 10px}
+.site-update-notice button{margin-right:10px;padding:6px 12px;border:1px solid #806232;border-radius:4px;background:#fff;color:#493818;font:inherit;cursor:pointer}
+.site-update-notice button:focus-visible{outline:3px solid #805b21;outline-offset:2px}
+@media(max-width:600px){.site-update-notice{bottom:max(16px,env(safe-area-inset-bottom));right:12px;max-width:calc(100vw - 24px)}}

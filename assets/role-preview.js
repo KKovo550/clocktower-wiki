@@ -3,7 +3,7 @@
   const base=new URL('../',document.currentScript.src);
   let loading,dialog,content,heading,opener,revision=0,showTimer,hideTimer;
   function element(tag,text){const node=document.createElement(tag);if(text!==undefined)node.textContent=text;return node;}
-  function load(){if(window.WIKI_ROLE_PREVIEWS)return Promise.resolve(window.WIKI_ROLE_PREVIEWS);if(!loading)loading=new Promise((resolve,reject)=>{const script=element('script');script.src=new URL('assets/role-preview-data.js',base).href;script.onload=()=>window.WIKI_ROLE_PREVIEWS?resolve(window.WIKI_ROLE_PREVIEWS):reject(Error('预览资料不完整'));script.onerror=()=>{script.remove();reject(Error('预览资料加载失败，请打开完整页面查看'));};document.head.append(script);}).catch(error=>{loading=null;throw error;});return loading;}
+  function load(){if(window.WIKI_ROLE_PREVIEWS)return Promise.resolve(window.WIKI_ROLE_PREVIEWS);if(!loading)loading=new Promise((resolve,reject)=>{const script=element('script');script.src=new URL('assets/role-preview-data.js',base).href;if(window.WikiCache)script.src=window.WikiCache.asset(script.src);script.onload=()=>window.WIKI_ROLE_PREVIEWS?resolve(window.WIKI_ROLE_PREVIEWS):reject(Error('预览资料不完整'));script.onerror=()=>{script.remove();reject(Error('预览资料加载失败，请打开完整页面查看'));};document.head.append(script);}).catch(error=>{loading=null;throw error;});return loading;}
   function create(){
     dialog=element('div');dialog.className='role-preview role-preview-hover';dialog.hidden=true;dialog.setAttribute('role','region');dialog.setAttribute('aria-labelledby','role-preview-heading');
     const header=element('div');header.className='role-preview-header';heading=element('h2');heading.id='role-preview-heading';header.append(heading);

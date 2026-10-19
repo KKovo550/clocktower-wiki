@@ -14,6 +14,7 @@
       var script=document.createElement('script');
       var timeout=setTimeout(function(){script.remove();offlinePromise=null;reject(new Error('离线制图字体加载超时，请关闭后重试。'));},15000);
       script.src='assets/script-tool/art-font-data.js';
+      if(root.WikiCache)script.src=root.WikiCache.asset(script.src);
       script.onload=function(){
         clearTimeout(timeout);
         if(root.SCRIPT_ART_FONT_DATA)resolve(root.SCRIPT_ART_FONT_DATA);
@@ -33,7 +34,8 @@
         if(!item||item.family!==font.family||!/^data:font\/woff2;base64,[A-Za-z0-9+/=]+$/.test(item.data||''))throw new Error('离线制图字体资源不完整。');
         data=item.data;
       }else{
-        var response=await fetch('assets/script-tool/fonts/'+font.file);
+        var fontURL='assets/script-tool/fonts/'+font.file;
+        var response=await fetch(root.WikiCache?root.WikiCache.asset(fontURL):fontURL);
         if(!response.ok)throw new Error('制图字体加载失败，请关闭后重试。');
         var blob=await response.blob();
         data=await new Promise(function(resolve,reject){

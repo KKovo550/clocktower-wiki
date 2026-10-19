@@ -65,7 +65,7 @@
     if (local) return Promise.resolve().then(function () { return initialize(local); });
     if (!loading) {
       var source = new URL(trigger.href, location.href); source.hash = '';
-      loading = fetch(source.href).then(function (response) {
+      loading = fetch(window.WikiCache?window.WikiCache.asset(source.href):source.href).then(function (response) {
         if (!response.ok) throw Error('Guide could not load');
         return response.text().then(function (html) { return { html: html, url: response.url || source.href }; });
       }).then(function (result) {
