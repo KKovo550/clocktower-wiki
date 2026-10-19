@@ -2,6 +2,7 @@
 (function() {
   var dialog=document.getElementById('pictureViewer'),stage=document.getElementById('pictureStage');
   var image=document.getElementById('pictureLarge'),status=document.getElementById('pictureStatus');
+  var save=document.getElementById('pictureSave'),retry=document.getElementById('pictureRetry'),recovery=document.getElementById('pictureRecovery');
   var pictures=[],position=0,zoom=1,opener=null,oldOverflow='',ready=false;
   var views=new Map(),pointers=new Map(),gesture=null,prefetch=null;
   function clamp(value,min,max){return Math.max(min,Math.min(max,value));}
@@ -41,6 +42,8 @@
     document.getElementById('pictureTitle').textContent=(position+1)+' / '+pictures.length+' · '+picture.label;
     document.getElementById('pictureOriginal').href=picture.url;
     document.getElementById('pictureOriginal').textContent=window.WIKI_SHARE_NO_ARTWORK?'打开预览图':'打开原图';
+    if(save){save.href=picture.url;save.download=picture.filename;save.setAttribute('aria-disabled','true');}
+    if(retry)retry.hidden=true;if(recovery)recovery.hidden=true;
     document.getElementById('picturePrev').disabled=pictures.length<2;
     document.getElementById('pictureNext').disabled=pictures.length<2;
     status.textContent='正在加载图片…';image.alt=picture.label;image.src=picture.url;
@@ -49,6 +52,7 @@
   function loaded(){
     if(!dialog.open||!image.naturalWidth||ready)return;
     image.hidden=false;ready=true;size();
+    if(save)save.removeAttribute('aria-disabled');if(retry)retry.hidden=true;if(recovery)recovery.hidden=true;
     var saved=views.get(pictures[position].url);if(saved)place(saved.center,middle());
     status.textContent='拖动查看 · 双击放大 / 还原 · 双指缩放 · ← → 切换 · Esc 关闭';
     preloadNext();
@@ -60,7 +64,9 @@
   }
   function fit(){if(!ready)return;zoom=1;size();stage.scrollTop=0;stage.scrollLeft=0;remember();}
   image.addEventListener('load',loaded);
-  image.addEventListener('error',function(){ready=false;image.hidden=true;status.textContent='图片加载失败，请重新打开图片，或点击「'+(window.WIKI_SHARE_NO_ARTWORK?'打开预览图':'打开原图')+'」。';});
+  image.addEventListener('error',function(){ready=false;image.hidden=true;if(save)save.setAttribute('aria-disabled','true');if(retry)retry.hidden=false;if(recovery)recovery.hidden=false;status.textContent='图片加载失败，可重试，或点击「'+(window.WIKI_SHARE_NO_ARTWORK?'打开预览图':'打开原图')+'」在新窗口查看。';});
+  if(retry)retry.onclick=function(){image.removeAttribute('src');display();};
+  if(save)save.addEventListener('click',function(event){if(!ready)event.preventDefault();});
   image.draggable=false;
   stage.addEventListener('dblclick',function(event){
     if(!ready||event.button>0)return;event.preventDefault();
@@ -96,7 +102,11 @@
     if(!link||event.ctrlKey||event.metaKey||event.shiftKey||event.altKey||event.button>0||typeof dialog.showModal!=='function')return;
     var gallery=link.closest('.script-gallery'),script=SCRIPTS[Number(gallery.getAttribute('data-script'))];if(!script)return;
     var groups=galleryPictures(script);
-    pictures=groups.primary.concat(groups.remaining).map(function(p){return {url:imgURLOf(script,p.file),label:p.label};}).filter(function(p){return !!p.url;});
+    pictures=groups.primary.concat(groups.remaining).map(function(p){
+      var url=imgURLOf(script,p.file),ext='png';try{var match=new URL(url,document.baseURI).pathname.match(/\.(png|jpe?g|webp|gif|avif)$/i);if(match)ext=match[1].toLowerCase();}catch(ignore){}
+      var name=((script[0]||'剧本')+'-'+p.label).replace(/[\\/:*?"<>|\x00-\x1f]/g,'_').slice(0,100);
+      return {url:url,label:p.label,filename:name+'.'+ext};
+    }).filter(function(p){return !!p.url;});
     position=pictures.findIndex(function(p){return p.url===link.getAttribute('href');});if(position<0)return;
     event.preventDefault();opener=link;oldOverflow=document.body.style.overflow;document.body.style.overflow='hidden';dialog.showModal();display();
   });

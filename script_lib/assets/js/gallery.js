@@ -23,10 +23,12 @@ function pictureCard(script, picture, index) {
 function shots(script) {
   var pictures=galleryPictures(script);
   var primary=pictures.primary.filter(function(p){return !!imgURLOf(script,p.file);});
+  var unavailable=window.WIKI_SHARE_NO_ARTWORK?pictures.primary.filter(function(p){return !imgURLOf(script,p.file);}):[];
   var html='<section class="script-gallery" data-script="'+SCRIPTS.indexOf(script)+'"><div class="team-h">剧本图'+
     (primary.length?' · '+primary.length+' 张（点击放大）':'')+(primary.length&&!pictureCompleteness(script).complete?' · '+esc(pictureStateLabel(script)):'')+'</div>';
   if(primary.length){
     if(window.WIKI_SHARE_NO_ARTWORK)html+='<p class="hint">压缩预览图 · 点击可放大查看。</p>';
+    if(unavailable.length)html+='<p class="gallery-unavailable" role="status">'+unavailable.map(function(p){return esc(p.label);}).join('、')+'预览暂不可用。以下显示可用图片，仍可查看角色或下载 JSON。</p>';
     html+='<div class="shots">'+primary.map(function(p,i){return pictureCard(script,p,i);}).join('')+'</div>';
   }else{
     var notice=script[12]&&script[12].pictureNotice||
