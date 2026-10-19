@@ -219,6 +219,7 @@ function renderAll(){
 /* ---------- 交互 ---------- */
 var mobileArtButton=document.getElementById('bMobileArt');
 if(mobileArtButton)mobileArtButton.addEventListener('click',function(){document.getElementById('bArt').click();});
+['bMobileExport','bSelectionExport'].forEach(function(id){var button=document.getElementById(id);if(button)button.addEventListener('click',function(){document.getElementById('bExport').click();});});
 var sourceTabs=document.getElementById('source-tabs');
 if(sourceTabs)sourceTabs.addEventListener('click',function(e){
   var button=e.target.closest('[data-source]'); if(!button)return;
@@ -334,11 +335,19 @@ function openDlg(html){
   dialog.showModal();}
 function closeDlg(){document.getElementById('dlg').close();}
 
-document.getElementById('bExport').onclick=function(){
+function prepareJSONExport(){
   var report=ScriptChecks.analyze(sel,document.getElementById('spec').value,ScriptCore.effectiveJinx(sel,JINX,SCRIPT_RULES));
-  if(report.errors.length){document.getElementById('script-checks').open=true;alert('请先修正明确问题：\n'+report.errors.join('\n'));return;}
-  var txt=JSON.stringify(exportObj(),null,2);
-  openDlg('<h3>导出 JSON</h3><textarea readonly>'+esc(txt)+'</textarea>'+
+  if(report.errors.length){document.getElementById('script-checks').open=true;alert('请先修正明确问题：\n'+report.errors.join('\n'));return null;}
+  return JSON.stringify(exportObj(),null,2);
+}
+document.getElementById('bExport').onclick=function(){
+  var text=prepareJSONExport();if(text===null)return;
+  var name=(document.getElementById('mname').value.trim()||'script')+'.json';
+  download(name,text);status('已开始下载 '+name+' · 可在浏览器下载记录中查看');
+};
+function previewJSONExport(){
+  var txt=prepareJSONExport();if(txt===null)return;
+  openDlg('<h3>查看 / 复制 JSON</h3><textarea readonly aria-label="剧本 JSON 内容">'+esc(txt)+'</textarea>'+
     '<div class="tip">标准格式（_meta + 完整角色对象），可直接被 bloodstar / 官方工具载入。已收录角色使用本站夜晚行动顺序表；未定位的行动与表外角色保留原夜序。</div>'+
     '<div class="foot"><button class="btn" id="cp">复制</button>'+
     '<button class="btn pri" id="dl">下载 .json</button>'+
@@ -347,7 +356,8 @@ document.getElementById('bExport').onclick=function(){
     download((document.getElementById('mname').value.trim()||'script')+'.json',txt);};
   document.getElementById('cp').onclick=function(){
     copyText(txt,this);};
-};
+}
+var jsonPreviewButton=document.getElementById('bJSONPreview');if(jsonPreviewButton)jsonPreviewButton.onclick=previewJSONExport;
 function currentImportState(){return {selected:sel,custom:CUSTOM,catalogOverrides:CATALOG_OVERRIDES,rules:SCRIPT_RULES,meta:SCRIPT_META,
   name:document.getElementById('mname').value,author:document.getElementById('mauthor').value};}
 function openJSONImport(data,source,navigation){
