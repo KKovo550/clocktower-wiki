@@ -5,14 +5,14 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>剧本工具 - 钟楼资料库</title>
 <link rel="stylesheet" href="../assets/wiki.css?v=55fefd373894">
-<link rel="stylesheet" href="assets/script-tool/app.css?v=50e7f7cb2b35">
+<link rel="stylesheet" href="assets/script-tool/app.css?v=266aa2e8be29">
 <link rel="stylesheet" href="assets/script-tool/art.css?v=6678e956e42e">
 <link rel="stylesheet" href="../assets/modern-theme.css?v=79a2bf493ee8">
 <link rel="stylesheet" href="../assets/site-experience.css?v=dc1090357294">
 <link rel="stylesheet" href="../assets/product-hierarchy.css?v=bb44d88abe3c">
 <link rel="stylesheet" href="../assets/archive-parchment.css?v=a857d7c52c7c">
 <link rel="stylesheet" href="../assets/site-cache.css?v=a00270771db0">
-<script src="../assets/site-cache.js?v=739a4b1b9302" data-site-version="8203c994c6c381fc"></script>
+<script src="../assets/site-cache.js?v=739a4b1b9302" data-site-version="fac84143c0484401"></script>
 <meta name="generator" content="Astro v7.3.3"></head>
   <body data-root="../" class="script-tool-page">
     
@@ -191,11 +191,15 @@
       <div class="grid" id="grid"></div>
     </section>
     <section class="mine" aria-labelledby="selection-title">
+      <div class="selection-toolbar">
       <div class="editor-panel-heading selection-heading"><div><h2 id="selection-title">我的剧本 <span id="editorRoleCount" class="selection-count">0</span></h2><p>调整顺序，检查角色搭配</p></div><div class="selection-heading-actions"><button type="button" class="btn selection-export" id="bSelectionExport">导出 JSON</button><details id="scriptActionsMenu" class="selection-menu"><summary>更多操作</summary><div class="selection-menu-body"><button type="button" class="btn" id="bRandom">随机生成剧本</button><button type="button" class="btn warn" id="bClear">清空当前剧本</button><p>清空前会保留草稿恢复点</p></div></details></div></div>
       <div class="selection-actions"><div class="selection-history" role="group" aria-label="修改历史"><button class="btn" id="bUndo" title="撤销剧本修改（Ctrl+Z，输入框保留文字撤销）" disabled>撤销</button><button class="btn" id="bRedo" title="重做剧本修改（Ctrl+Shift+Z / Ctrl+Y）" disabled>重做</button></div><div class="selection-edit-actions"><button class="btn" id="bNight">夜晚顺序</button><button class="btn" id="bSort">按夜序排序</button><button class="btn" id="bRules">规则编辑</button></div></div>
       <div class="stat" id="stat"></div>
+      </div>
+      <div class="selection-scroll" role="region" aria-label="剧本角色与搭配检查" tabindex="0">
       <details id="script-checks"></details>
       <div id="sel"></div>
+      </div>
     </section>
   </div>
 </div>
