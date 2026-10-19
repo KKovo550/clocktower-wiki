@@ -27,15 +27,18 @@
   root.ScriptNightViewer={build:build};
   if(!root.document)return;
   var d=root.document,el=function(id){return d.getElementById(id);},model=root.ScriptNightSession;
-  var session=null,view=null,revision=0,sequence=0,store=null;
+  var session=null,view=null,revision=0,sequence=0,store=null,savedSession=null;
+  function guardUnsavedSession(event){if(session&&JSON.stringify(session)!==savedSession){event.preventDefault();event.returnValue='';}}
   function status(text){el('nightStatus').textContent=text;}
   function node(tag,text,cls){var n=d.createElement(tag);if(text!==undefined)n.textContent=text;if(cls)n.className=cls;return n;}
   function button(text,label,action){var b=node('button',text);b.type='button';if(label)b.setAttribute('aria-label',label);b.onclick=action;return b;}
   function validate(value){return model.validate(value,build,root.CHARS,root.SCRIPT_NIGHT_ORDER);}
   function save(){
-    try{if(!store)throw Error('浏览器未允许保存');store.save(session);el('nightSaveStatus').textContent='已自动保存 · 刷新可恢复，备份可转移。';}
-    catch(error){el('nightSaveStatus').textContent='自动保存未成功：'+error.message+'。请使用“备份对局”保存当前记录。';}
+    var retry=el('nightRetrySave');
+    try{if(!store)throw Error('浏览器未允许保存');store.save(session);savedSession=JSON.stringify(session);root.removeEventListener('beforeunload',guardUnsavedSession);if(retry)retry.hidden=true;el('nightSaveStatus').textContent='已自动保存 · 刷新可恢复，备份可转移。';}
+    catch(error){root.addEventListener('beforeunload',guardUnsavedSession);if(retry)retry.hidden=false;el('nightSaveStatus').textContent='自动保存未成功：'+error.message+'。请重试保存，或使用“备份对局”保存当前记录。';}
   }
+  if(el('nightRetrySave'))el('nightRetrySave').onclick=save;
   function reminder(row,field){return root.ScriptCore.nightReminder(row.role,field,root.CHARS)||
     (row.role.ab?'本夜操作说明尚未收录。角色能力：'+row.role.ab:'本夜操作说明尚未收录，请核对角色规则。');}
   function knownRole(role){var candidates=root.CHARS.filter(function(c){return root.ScriptCore.identity(c.id)===root.ScriptCore.identity(role.id)&&c.n===role.n&&String(c.ab||'').replace(/\s/g,'')===String(role.ab||'').replace(/\s/g,'')&&String(c.t).replace('traveler','traveller')===String(role.t).replace('traveler','traveller');});return candidates.length===1?candidates[0]:null;}
@@ -158,6 +161,6 @@
     data=data.concat(draft.rules);commit(model.fresh(data,'json'));status('已读取当前草稿，保留该草稿的手动夜序。');
   }catch(error){status('读取失败：'+error.message+'。原有对局未更改。');}};
   // Corrupt records and cross-tab conflicts are reported without clearing stored data.
-  try{store=model.open(root.localStorage,validate);var restored=store.read();if(restored){session=restored;refresh();renderPlayers();el('nightNotes').value=session.notes;el('nightImport').open=false;status('已恢复 '+view.name+' 的第 '+session.night+' 夜。');el('nightSaveStatus').textContent='已恢复此浏览器保存的对局。';}}
+  try{store=model.open(root.localStorage,validate);var restored=store.read();if(restored){session=restored;savedSession=JSON.stringify(session);refresh();renderPlayers();el('nightNotes').value=session.notes;el('nightImport').open=false;status('已恢复 '+view.name+' 的第 '+session.night+' 夜。');el('nightSaveStatus').textContent='已恢复此浏览器保存的对局。';}}
   catch(error){el('nightSaveStatus').textContent='无法恢复自动存档：'+error.message+'。已有存档保留，可选择对局备份恢复。';}
 })(typeof window==='undefined'?globalThis:window);

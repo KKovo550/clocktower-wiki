@@ -542,6 +542,11 @@ kbd{background:#f1e9d8;border:1px solid var(--tan);border-radius:3px;padding:0 4
 .editor-advanced-body>label{display:flex;align-items:center;gap:12px}
 .editor-advanced-actions{display:flex;flex-wrap:wrap;gap:10px}
 .editor-advanced-body p{font-size:12px;color:#78674f;line-height:1.7;margin:0}
+.editor-save-warning{padding:12px;margin-top:14px;border:1px solid #d7a38d;border-radius:8px;background:#fff2e8;color:#823f2c}
+.editor-save-warning[hidden]{display:none}
+.editor-save-warning p{margin:0 0 10px;font-size:13px;line-height:1.7;overflow-wrap:anywhere}
+.editor-save-warning>div{display:flex;flex-wrap:wrap;gap:8px}
+.script-tool-page .script-editor .editor-save-warning .btn{min-height:42px;margin:0;font-size:13px}
 .script-editor #library-title{scroll-margin-top:calc(var(--wiki-header-height,68px) + 18px)}
 .script-editor .btn:disabled{cursor:default;opacity:.5}
 .script-tool-page .script-editor .mine{display:flex;flex-direction:column;min-height:0;overflow:visible;scrollbar-gutter:auto}

@@ -5,14 +5,14 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>剧本工具 - 钟楼资料库</title>
 <link rel="stylesheet" href="../assets/wiki.css?v=55fefd373894">
-<link rel="stylesheet" href="assets/script-tool/app.css?v=266aa2e8be29">
+<link rel="stylesheet" href="assets/script-tool/app.css?v=4d8ba9f7bd36">
 <link rel="stylesheet" href="assets/script-tool/art.css?v=6678e956e42e">
 <link rel="stylesheet" href="../assets/modern-theme.css?v=79a2bf493ee8">
 <link rel="stylesheet" href="../assets/site-experience.css?v=dc1090357294">
 <link rel="stylesheet" href="../assets/product-hierarchy.css?v=bb44d88abe3c">
 <link rel="stylesheet" href="../assets/archive-parchment.css?v=a857d7c52c7c">
 <link rel="stylesheet" href="../assets/site-cache.css?v=a00270771db0">
-<script src="../assets/site-cache.js?v=739a4b1b9302" data-site-version="fac84143c0484401"></script>
+<script src="../assets/site-cache.js?v=739a4b1b9302" data-site-version="5d0a8fdf4dcc046f"></script>
 <meta name="generator" content="Astro v7.3.3"></head>
   <body data-root="../" class="script-tool-page">
     
@@ -179,6 +179,7 @@
     <div class="editor-output-actions"><button type="button" class="btn pri" id="bExport"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M4 16v4h16v-4"/></svg>导出 JSON</button><button type="button" class="btn" id="bArt">生成图片</button></div>
     </div>
     <div class="script-actions"><div class="script-import-actions"><button class="btn" id="bImport">导入 JSON</button><button class="btn" id="bDrafts">我的草稿</button></div><p id="saveStatus" role="status" aria-live="polite"></p></div>
+    <aside id="editorSaveWarning" class="editor-save-warning" aria-label="剧本保存状态" hidden><p id="editorSaveWarningText" role="status" aria-live="polite"></p><div><button type="button" class="btn" id="bRetrySave">重试保存</button><button type="button" class="btn" id="bExportUnsaved">导出 JSON 备份</button></div></aside>
     <details id="editorAdvanced" class="editor-advanced"><summary>更多设置与备份</summary><div class="editor-advanced-body"><label>剧本规格<select id="spec"><option value="free">不限制</option><option value="teensy">汀西维尔（小局）</option><option value="ravenswood">鸦木布拉夫（标准局）</option></select></label><div class="editor-advanced-actions"><button class="btn" id="bJSONPreview">查看 / 复制 JSON</button><button class="btn" id="bBackup">完整备份</button><a class="btn" href="夜序查看器.html">夜序与对局</a></div><p>JSON 用于保存与导入剧本；完整备份还包含草稿历史和制图设置。</p></div></details>
   </section>
   <section class="editor-start" aria-label="快速开始"><label for="preset">从预设开始</label><select id="preset"><option value="">选择官方剧本…</option></select><a id="editorChooseRoles" href="#library-title">自由选角色 <span aria-hidden="true">→</span></a><p id="editorStepStatus" role="status" aria-live="polite">也可以直接从角色库添加角色。</p></section>
@@ -219,7 +220,7 @@
 <script src="assets/script-tool/core.js?v=f616f5258d43"></script>
 <script src="assets/script-tool/drafts.js?v=5efa9e816804"></script>
 <script src="魔典/nightorder.js?v=dfcb9549bca2"></script>
-<script src="assets/script-tool/checks.js?v=1ad876391577"></script><script src="../assets/workflow-role-links.js?v=df779f27528d"></script><script src="assets/script-tool/app.js?v=555face741d8"></script><script src="assets/script-tool/draft-ui.js?v=a50218ad684e"></script><script src="assets/script-tool/editor-entry.js?v=5a43e709b533"></script><script src="assets/script-tool/receive-library.js?v=eec3152dfb7c"></script>
+<script src="assets/script-tool/checks.js?v=1ad876391577"></script><script src="../assets/workflow-role-links.js?v=df779f27528d"></script><script src="assets/script-tool/app.js?v=4c454c24d71a"></script><script src="assets/script-tool/draft-ui.js?v=a50218ad684e"></script><script src="assets/script-tool/editor-entry.js?v=5a43e709b533"></script><script src="assets/script-tool/receive-library.js?v=eec3152dfb7c"></script>
 <script src="assets/script-tool/mobile-images.js?v=b93480e95496"></script><script src="assets/script-tool/image-import.js?v=6a3630935dc0"></script>
 <script src="assets/script-tool/editor-history.js?v=ec69acf8eb4d"></script>
 <script src="assets/script-tool/rules-editor.js?v=c29a14c103b7"></script>

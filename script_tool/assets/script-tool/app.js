@@ -570,6 +570,19 @@ document.getElementById('spec').onchange=function(){renderStat();renderScriptChe
 
 /* ---------- 本地保存 ---------- */
 var storageBlocked=false;
+var editorSavedSignature=null;
+function editorStateSignature(){var state=captureDraft();delete state.draftId;return JSON.stringify(state);}
+function guardUnsavedEditor(event){if(editorSavedSignature!==null&&editorStateSignature()!==editorSavedSignature){event.preventDefault();event.returnValue='';}}
+function editorSaveWarning(error){
+  var notice=document.getElementById('editorSaveWarning'),text=document.getElementById('editorSaveWarningText'),retry=document.getElementById('bRetrySave'),conflict=/另一页面|其他页面/.test(error||'');
+  if(notice)notice.hidden=!error;
+  if(retry)retry.hidden=conflict;
+  if(text)text.textContent=error?(conflict?'另一页面已更新草稿。当前修改尚未保存，请先导出 JSON 备份，再刷新此页。':'当前修改尚未保存到浏览器：'+error+'。请重试保存，或先导出 JSON 备份。'):'';
+  if(error&&editorSavedSignature!==null&&editorStateSignature()!==editorSavedSignature)window.addEventListener('beforeunload',guardUnsavedEditor);
+  else window.removeEventListener('beforeunload',guardUnsavedEditor);
+}
+var retrySaveButton=document.getElementById('bRetrySave');if(retrySaveButton)retrySaveButton.onclick=function(){save();};
+var exportUnsavedButton=document.getElementById('bExportUnsaved');if(exportUnsavedButton)exportUnsavedButton.onclick=function(){document.getElementById('bExport').click();};
 function status(text){document.getElementById('saveStatus').textContent=text;}
 function captureDraft(){
   // Legacy v2 uses custom:true to reference a stored definition, including catalog overrides.
@@ -585,16 +598,20 @@ function applyDraftState(state){
   document.getElementById('spec').value=draft.spec;document.getElementById('preset').value='';
 }
 function save(event){
-  if(storageBlocked||(window.ScriptDrafts&&!window.ScriptDraftUI))return false;
+  if(storageBlocked||(window.ScriptDrafts&&!window.ScriptDraftUI)){
+    if(editorSavedSignature!==null&&editorStateSignature()!==editorSavedSignature)editorSaveWarning('草稿存储暂不可用，原存档已保留');
+    return false;
+  }
   try{
     var snapshot=captureDraft();
     if(window.ScriptDraftUI)window.ScriptDraftUI.prepareSave(snapshot);
     localStorage.setItem(saveKey,JSON.stringify(snapshot));
     try{localStorage.setItem('botc_script_resume_v1',JSON.stringify({name:snapshot.n,roles:snapshot.sel.length,hasContent:!!(snapshot.n||snapshot.sel.length)}));}catch(ignore){}
     if(window.ScriptEditorHistory)window.ScriptEditorHistory.observe(snapshot,event&&event.target&&event.target.id);
+    editorSavedSignature=editorStateSignature();editorSaveWarning('');
     status(CURRENT_DRAFT_ID?'已自动保存到“'+(snapshot.n||'未命名剧本')+'” · 重要内容请导出 JSON 备份':'已保存到此浏览器 · 重要剧本请导出 JSON 备份');
     return true;
-  }catch(e){status('本地保存失败：'+e.message+'。请立即导出 JSON 备份。');return false;}
+  }catch(e){editorSaveWarning(e.message);status('本地保存失败：'+e.message+'。请立即导出 JSON 备份。');return false;}
 }
 function load(){
   try{
@@ -639,4 +656,5 @@ document.getElementById('preset').innerHTML='<option value="">快捷载入官方
   PRESETS.map(function(p,i){return '<option value="'+i+'">'+esc(p.name)+
     '（'+p.idxs.length+' 人）</option>';}).join('');
 load();
+editorSavedSignature=editorStateSignature();
 renderAll();
