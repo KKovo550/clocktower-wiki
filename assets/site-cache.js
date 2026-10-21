@@ -21,6 +21,9 @@
       var dismiss=document.createElement('button');dismiss.type='button';dismiss.textContent='稍后';dismiss.setAttribute('data-site-update-dismiss','');
       refresh.onclick=function(){
         if(document.querySelector('dialog[open]')){text.textContent='请先完成或关闭正在进行的操作，再更新页面。';return;}
+        if(typeof root.WikiBeforeUpdate==='function'){
+          try{if(root.WikiBeforeUpdate()===false)throw Error('unsaved');}catch(ignore){text.textContent='当前内容保存失败，请先导出备份，再更新页面。';return;}
+        }
         if(typeof root.captureDraft==='function'&&typeof root.save==='function'){
           try{if(root.save()===false)throw Error('save failed');}catch(ignore){text.textContent='当前草稿保存失败，请先导出备份，再更新页面。';return;}
         }

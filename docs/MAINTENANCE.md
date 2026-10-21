@@ -96,6 +96,24 @@ B 站图片下载在写入前必须严格解码，不能只检查 PNG/JPEG 文�
 手机编辑器底部快捷栏位于主工作区容器外，避免固定定位被容器约束；查看剧本使用原生锚点，生成图片委托原有 `bArt`，数量及可用状态随 `renderStat` 更新。820px 以下显示，内容及页尾预留 84px 加安全区；编辑输入框时隐藏快捷栏，打印时隐藏。700px 以下的制图弹窗分为固定头部、独立滚动内容和底部操作区，预览、设置与保存保留原有行为，切换视图重置内容滚动位置；不修改制图尺寸或绘图资源。回归包括 `test-editor-workspace.cjs`、`test-art-ui.cjs`，并检查小屏、横屏、长标题/作者、底部内容及真实 PNG 导出。
 
 
+## 在线魔典
+
+在线魔典入口为 `script_tool/在线魔典.html`，逻辑位于 `script_tool/assets/grimoire/`：`core.js` 管理纯状态、校验和存储冲突，`catalog.js` 适配现有角色与剧本数据，`app.js` 管理主界面交互，`app.css` 负责独立界面；`aux.js` 与 `aux.css` 管理传奇／奇遇、恶魔伪装面板及圆牌选择器。仅写 `botc_grimoire_v1`，不修改编辑器或夜序查看器存档。备份格式使用 `kind: clocktower-grimoire`、`version: 1`；旧对局缺少 `specials` 时按空列表载入，`bluffs` 保留空格位置。特殊角色不加入座位与夜序；在场筛选包含死亡座位，显示偏好不写入对局。隐私展示必须同时清除角色图像、可访问名称及已关闭弹窗的私密内容。“给恶魔看”须覆盖整个页面，仅显示伪装资料。`WikiBeforeUpdate` 在未保存时阻止缓存更新刷新。运行核心、界面和缓存测试及 `scripts/test-grimoire-browser.cjs`、`scripts/test-grimoire-aux-browser.cjs`，再运行完整验证；浏览器脚本可通过 `GRIMOIRE_TEST_ROOT=dist/astro` 验证构建产物，浏览器引擎测试不代表真机或长期对局验收。
+
+魔典座位的圆牌与名称使用两个独立按钮；圆牌选角、名称单击管理、双击／双触改名。名称的单击计时应在其他弹窗、重绘与玩家视角切换时取消，拖动后应拦截合成点击，保留新指针操作及键盘激活。改动后运行 `scripts/test-grimoire-seat-browser.cjs` 验证 Chrome／WebKit 的鼠标、键盘、触屏、隐私与改名不丢提醒。
+
+死亡票快捷图标使用原有 vote 动作与 ghostVote 状态，只有死亡玩家显示；玩家视角必须使用非交互状态图标。不可在生死切换时擅自重置死亡票。roleLabel 的 SVG textPath 每次创建使用唯一 ID，角色名称只能写入 textContent，完整名称保留在按钮可访问名称中。角色图标、叶子、名称应分层，死亡票和帷幕的按压不可触发全站 transform 动画。提示标记使用 theme/reminder1.png，圆桌尺寸约为角色圆牌的 48%。
+
+圆牌共用 `theme/token1.png` 与 `theme/leaf-*.png`。`GrimoireCatalog.tokenMarks` 只从提示数组、两个明确夜序值及 setup 数据生成标记；不得从能力文字推断设置变化。新导入角色保存 setup 布尔值，旧版缺省只按 ID 与名称一致的目录记录补显示。超过五个提示时逐片使用 top1，避免截断数量。座位与角色选择器共用 `decorateToken`；生死帷幕使用 `theme/shroud1.png`，快捷入口仅占圆牌上方，中央仍选角色。顶部按钮必须保持 min-height 覆盖全站移动端规则，禁止按压位移。使用 `scripts/test-grimoire-token-skin-browser.cjs` 检查叶子、设置标志、撤销、刷新、触屏与玩家视角。
+
+圆牌夜序同时调用首夜与其他夜晚的在场列表，分别生成左蓝、右红圆点，编号与对应列表一致；不要按当前阶段只保留一类，也不要用角色类型决定颜色。圆点挂在角色按钮上，不能拦截点击；未行动的夜晚不生成圆点，玩家视角全部隐藏。运行 `scripts/test-grimoire-night-badges-browser.cjs` 验证双夜序编号、缩放、列表、触屏与隐私。
+
+夜序预览使用 `ClocktowerGrimoire.nightOrder(state,{first,all})`，当前夜记录沿用 `nightQueue` 和 `nightMark`。纯预览不修改状态；仅当前夜的在场列表提供记录按钮。角色表和夜序共用浮动面板控制，清理时须同时移除两类按钮与刷新回调，切换玩家视角须清空私密正文。运行 `scripts/test-grimoire-night-browser.cjs` 与 `scripts/test-grimoire-sheet-browser.cjs` 验证预览、跨夜记录、死亡与重复角色、小屏、浮动和隐私。
+
+魔典菜单使用 `g-menu-dialog` 分组侧栏，菜单刷新与其他面板共用刷新回调，打开角色表／夜序时须清除菜单样式。`shuffleSeats` 仅重排完整座位对象，不重新发角色、不清除提醒或夜序进度。四种布局与圆牌夜序标记是本页偏好；玩家视角不展示夜序编号。“游戏指示”和获胜文字仅全屏展示，不写入胜负或重置对局。运行 `scripts/test-grimoire-menu-browser.cjs`，检查人数取消、乱序／撤销、备份下载、布局、提示遮挡及小屏。
+
+提示标记模块为 `grimoire/reminders.js` 与 `reminders.css`，须在 `app.js` 前加载。座位继续保存 `reminders` 文字数组，并以等长 `reminderDetails` 记录标记类型和来源角色；旧存档缺省为 `null`。添加、移除、重发角色与备份校验必须同时处理两者，来源角色须属于剧本，不保存重复图标数据。圆桌通过每个圆牌的 `--marker-x/y` 将全部标记沿玩家至桌心的径向依次排列，换座、布局与缩放时重算；加号使用下一枚标记的坐标，仅按钮自身的圆形命中区域 hover 或 focus-visible 时显示；隐藏时保留该位置的命中区域，不使用座位 hover、focus-within 或连接路径触发，触屏保持可见；标记单击即移除且保留撤销。列表将标记与加号放在资料下方并换行；玩家视角不生成标记 DOM。标记与加号的定位 transform 不可被全站按钮 active 缩放覆盖，`reminders.css` 对圆桌、列表及选择器分别固定 transform 并禁用位移动画；用 `scripts/test-grimoire-reminder-motion.cjs` 验证悬停、按下几何坐标不变及边缘单击命中。运行 `scripts/test-grimoire-reminder-browser.cjs` 检查悬停、触屏、来源图标、相同文字、移除后索引、恢复与隐私。
+
 ## 全站宽屏适配
 
 `assets/product-hierarchy.css` 中的屏幕媒体规则统一处理 2000 CSS 像素及以上窗口：首页、角色索引、角色合集、剧本库、相克规则、夜序查看器及普通资料页使用可用宽度。卡片和长列表增加列数；文字资料居中并保留阅读宽度。目录复用原有节点，超宽屏移入正文旁，普通宽屏恢复右侧目录，手机与打印沿用原有行为。布局按浏览器窗口宽度判断，字体不随屏幕缩小。

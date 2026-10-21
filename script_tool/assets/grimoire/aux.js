@@ -1,0 +1,65 @@
+/* Session-only specials and private bluff slots. All game changes use the core reducer. */
+(function(root){
+ 'use strict';
+ function create(ui){
+  const {C,$,node,button,hint,field,error,open,close,apply,image,roleLabel,decorateToken,safeImage,random,dialog,getState,isPlayer,getRevision}=ui;
+  const teamNames={townsfolk:'镇民',outsider:'外来者',minion:'爪牙',demon:'恶魔',traveller:'旅行者',fabled:'传奇角色',loric:'奇遇角色'};
+  let legendOpen=false,bluffsOpen=false,bluffAbsentOnly=false;
+  function tokenButton(role,click,label){
+   const b=button('',click,'g-catalog-token'),token=node('span',undefined,'g-token'+(role?' '+role.team:' g-add-token'));b.setAttribute('aria-label',label||(role?role.name:'添加角色'));
+   if(role){const img=image(role);if(img.tagName==='IMG')img.loading='lazy';token.append(img,roleLabel(role.name));decorateToken(token,role);b.title=role.name+'：'+role.ability;}else token.append(node('span','+','g-add-sign'));b.append(token);return b;
+  }
+  function heading(title,onClose){const h=node('div',undefined,'g-aux-heading'),b=button('×',onClose,'g-aux-close');b.setAttribute('aria-label','关闭'+title+'面板');h.append(node('h2',title),b);return h;}
+  function render(){
+   const state=getState(),player=isPlayer(),legend=$('gLegendPanel'),bluff=$('gBluffPanel');legend.hidden=!legendOpen;legend.replaceChildren();bluff.hidden=player||!bluffsOpen;bluff.replaceChildren();
+   $('gFabled').hidden=false;$('gFabled').setAttribute('aria-controls','gLegendPanel');$('gFabled').setAttribute('aria-expanded',String(legendOpen));$('gFabled').dataset.count=String(state.specials.length);$('gBluffs').setAttribute('aria-expanded',String(!bluff.hidden));
+   if(player){bluffsOpen=false;$('gBluffs').removeAttribute('data-count');}else $('gBluffs').dataset.count=String(state.bluffs.filter(Boolean).length);
+   if(legendOpen){
+    legend.append(heading('传奇 / 奇遇 · '+state.specials.length,()=>{legendOpen=false;render();}));const list=node('div',undefined,'g-aux-tokens');state.specials.forEach(r=>{const wrap=node('div',undefined,'g-aux-token-wrap'),b=tokenButton(r,()=>details(r.id));b.dataset.specialId=r.id;wrap.append(b);if(!player){const remove=button('×',()=>apply({type:'specialRemove',roleId:r.id}),'g-token-remove');remove.dataset.removeSpecial=r.id;remove.setAttribute('aria-label','移除'+r.name);wrap.append(remove);}list.append(wrap);});
+    if(!player){const add=tokenButton(null,addPicker,'添加传奇或奇遇角色');add.id='gSpecialAdd';add.disabled=state.specials.length>=30;list.append(add);}legend.append(list);if(!state.specials.length&&player)legend.append(hint('本局尚未添加传奇或奇遇角色。'));
+    if(state.script.rules){const box=node('div',undefined,'g-aux-rules'),rules=state.script.rules.split(/\n\s*\n/).filter(x=>x.trim());box.append(node('h3','剧本规则 · '+rules.length));rules.forEach(t=>box.append(node('p',t)));legend.append(box);}
+   }
+   if(!bluff.hidden){
+    const head=heading('恶魔伪装',()=>{bluffsOpen=false;render();}),show=button('◉ 给恶魔看',reveal,'g-bluff-show');show.id='gShowBluffs';show.disabled=!state.bluffs.some(Boolean);head.insertBefore(show,head.lastChild);bluff.append(head);const slots=node('div',undefined,'g-bluff-slots');for(let i=0;i<3;i++){const r=state.script.roles.find(r=>r.id===state.bluffs[i]),wrap=node('div',undefined,'g-aux-token-wrap'),b=tokenButton(r,()=>bluffPicker(i),'第 '+(i+1)+' 个恶魔伪装'+(r?'：'+r.name:'：未设置'));b.id='gBluffSlot'+i;wrap.append(b);if(r){const clear=button('×',()=>apply({type:'bluffSet',slot:i,roleId:''}),'g-token-remove');clear.dataset.clearBluff=String(i);clear.setAttribute('aria-label','清除第 '+(i+1)+' 个伪装');wrap.append(clear);}slots.append(wrap);}bluff.append(slots);
+    const conflicts=state.bluffs.map(id=>state.script.roles.find(r=>r.id===id)).filter(r=>r&&state.seats.some(s=>s.roleId===r.id));if(conflicts.length)bluff.append(node('p',conflicts.map(r=>r.name).join('、')+' 已在场，请核对伪装。','g-aux-warning'));
+   }
+  }
+  const compact=()=>innerWidth<=700||innerHeight<650;
+  function toggleLegend(){legendOpen=!legendOpen;if(compact()&&legendOpen)bluffsOpen=false;render();}
+  function toggleBluffs(){if(isPlayer())return;if(dialog.open)close();bluffsOpen=!bluffsOpen;if(compact()&&bluffsOpen)legendOpen=false;render();}
+  function reveal(){if(isPlayer())return;const roles=getState().bluffs.map(id=>getState().script.roles.find(r=>r.id===id)).filter(Boolean);if(!roles.length)return;open('恶魔伪装',host=>{host.append(node('p','本局给你的伪装角色','g-reveal-caption'));const grid=node('div',undefined,'g-reveal-grid');roles.forEach(r=>{const item=node('article',undefined,'g-reveal-role'),token=tokenButton(r,undefined);token.disabled=true;token.removeAttribute('title');item.append(token,node('p',r.ability,'g-reveal-ability'));grid.append(item);});host.append(grid,node('p','展示完成后，将设备交回说书人。','g-reveal-caption'));});dialog.classList.add('g-bluff-reveal');}
+  function picker(title,roles,teams,onPick,options={}){
+   open(title,host=>{
+    const search=node('input');search.id='gTokenSearch';search.type='search';search.placeholder='搜索角色名或能力…';search.setAttribute('aria-label','搜索角色名或能力');const filters=node('div',undefined,'g-token-filters'),results=node('div',undefined,'g-token-results'),status=node('p','','g-hint');let team='',absentOnly=options.absentOnly===true;
+    const draw=()=>{const q=search.value.trim().toLocaleLowerCase();results.replaceChildren();let count=0;for(const t of teams){if(team&&team!==t)continue;const matches=roles.filter(r=>r.team===t&&(!absentOnly||!options.present?.(r))&&(!q||(r.name+' '+r.ability).toLocaleLowerCase().includes(q)));if(!matches.length)continue;count+=matches.length;const section=node('section',undefined,'g-token-group '+t);section.append(node('h3',teamNames[t]+' · '+matches.length));const grid=node('div',undefined,'g-token-grid');matches.forEach(r=>{const reason=options.disabled?.(r),present=options.present?.(r),selected=options.selected?.(r),b=tokenButton(r,()=>onPick(r));b.dataset.roleId=r.id;if(present)b.classList.add('is-present');if(options.selected)b.setAttribute('aria-pressed',String(!!selected));const labels=[reason,selected?'当前角色':null,present?(options.presentText||'已在场'):null].filter(Boolean);if(labels.length){b.title=r.name+'：'+labels.join('，')+'。'+r.ability;b.setAttribute('aria-label',r.name+'，'+labels.join('，'));b.append(node('small',labels.join(' · ')));}if(reason)b.disabled=true;grid.append(b);});section.append(grid);results.append(section);}status.textContent=count?'共 '+count+' 个候选角色':'没有匹配的角色，可调整搜索、类型或在场筛选。';};
+    [['','全部'],...teams.map(t=>[t,teamNames[t]])].forEach(([value,text])=>{const b=button(text,()=>{team=value;for(const n of filters.querySelectorAll('[data-team]'))n.setAttribute('aria-pressed',String(n===b));draw();},'subtle');b.dataset.team=value;b.setAttribute('aria-pressed',String(value===''));filters.append(b);});if(options.present&&options.presentFilter!==false){const toggle=button('只显示不在场角色',()=>{absentOnly=!absentOnly;toggle.setAttribute('aria-pressed',String(absentOnly));options.onAbsentChange?.(absentOnly);draw();},'subtle');toggle.id='gBluffAbsentOnly';toggle.setAttribute('aria-pressed',String(absentOnly));filters.append(toggle);}search.oninput=draw;host.append(search,filters);if(options.notice)host.append(hint(options.notice));if(options.tools)host.append(options.tools());host.append(status,results);draw();
+   });dialog.classList.add('g-token-picker');
+  }
+  function bluffPicker(slot){
+   if(isPlayer())return;const state=getState(),roles=state.script.roles.filter(r=>['townsfolk','outsider'].includes(r.team));
+   picker('第 '+(slot+1)+' 个恶魔伪装',roles,['townsfolk','outsider'],r=>{if(getState().seats.some(s=>s.roleId===r.id)&&!confirm(r.name+' 已分配给在场玩家。仍将它记录为恶魔伪装？'))return;if(apply({type:'bluffSet',slot,roleId:r.id}))close();},{disabled:r=>state.bluffs.some((id,i)=>i!==slot&&id===r.id)?'其他格已选':null,present:r=>state.seats.some(s=>s.roleId===r.id),absentOnly:bluffAbsentOnly,onAbsentChange:value=>{bluffAbsentOnly=value;},notice:'已在场角色自动淡化（含死亡玩家），可切换为只显示不在场角色。三个伪装格互相独立，重复角色不可重复选择。',tools:()=>{const row=node('div',undefined,'g-row'),clear=button('清除此格',()=>{if(apply({type:'bluffSet',slot,roleId:''}))close();},'danger');clear.id='gBluffClear';clear.disabled=!state.bluffs[slot];row.append(clear);return row;}});
+  }
+  function addPicker(){
+   if(isPlayer())return;const state=getState(),map=new Map(C.specials().map(r=>[r.id,r]));state.script.roles.filter(r=>['fabled','loric'].includes(r.team)).forEach(r=>map.set(r.id,r));
+   picker('添加传奇 / 奇遇角色',[...map.values()],['fabled','loric'],r=>{if(apply({type:'specialAdd',role:r})){legendOpen=true;render();close();}},{disabled:r=>state.specials.some(s=>s.id===r.id)?'本局已添加':null,notice:'特殊角色不占座位，不计入存活、投票和夜序。添加只作用于本局，实际规则由说书人判断。',tools:()=>{const row=node('div',undefined,'g-row'),add=button('＋ 自定义角色',()=>custom(), 'primary');add.id='gCustomSpecial';row.append(add);return row;}});
+  }
+  function seatRole(id){
+   if(isPlayer())return;const state=getState(),seat=state.seats.find(s=>s.id===id);if(!seat)return;const teams=['townsfolk','outsider','minion','demon','traveller'],roles=state.script.roles.filter(r=>teams.includes(r.team));
+   picker((state.seats.indexOf(seat)+1)+' 号'+(seat.name?' · '+seat.name:'')+' 的角色',roles,teams,r=>{if(seat.roleId===r.id||apply({type:'assign',seatId:id,roleId:r.id}))close();},{selected:r=>seat.roleId===r.id,present:r=>state.seats.some(s=>s.id!==id&&s.roleId===r.id),presentText:'其他座位已用',presentFilter:false,notice:'点击圆牌立即分配。其他座位使用的角色会淡化，仍可选择以支持重复角色。更换角色会清除该玩家原有提醒和阵营标记。',tools:()=>{const row=node('div',undefined,'g-row'),clear=button('清除角色',()=>{if(apply({type:'assign',seatId:id,roleId:''}))close();},'danger');clear.id='gSeatRoleClear';clear.disabled=!seat.roleId;row.append(clear);return row;}});
+  }
+  function details(id){
+   const r=getState().specials.find(s=>s.id===id);if(!r)return;open(r.name,host=>{host.append(node('p',teamNames[r.team],'g-inline-progress'),node('p',r.ability||'能力尚未收录。','g-special-ability'));if(!isPlayer()){const row=node('div',undefined,'g-row'),edit=button('编辑本局资料',()=>custom(r)),remove=button('从本局移除',()=>{if(apply({type:'specialRemove',roleId:id}))close();},'danger');edit.id='gSpecialEdit';remove.id='gSpecialRemove';row.append(edit,remove);host.append(row,hint('编辑和移除只影响本局，可从菜单撤销上一步。'));}});
+  }
+  function custom(existing){
+   if(isPlayer())return;open(existing?'编辑本局特殊角色':'自定义传奇 / 奇遇',host=>{
+    const form=node('form'),name=node('input'),team=node('select'),ability=node('textarea'),icon=node('input'),file=node('input');name.id='gSpecialName';name.maxLength=120;name.required=true;name.value=existing?.name||'';team.id='gSpecialTeam';team.append(new Option('传奇角色','fabled'),new Option('奇遇角色','loric'));team.value=existing?.team||'fabled';ability.id='gSpecialAbility';ability.maxLength=20000;ability.required=true;ability.value=existing?.ability||'';icon.id='gSpecialImage';icon.maxLength=2200000;icon.value=existing?.image||'';icon.placeholder='可留空，或填写图标网址';file.type='file';file.id='gSpecialIconFile';file.accept='image/png,image/jpeg,image/webp,image/gif';
+    file.onchange=async()=>{const revision=getRevision();try{const f=file.files[0];if(!f)return;if(!['image/png','image/jpeg','image/webp','image/gif'].includes(f.type)||f.size>1024*1024)throw Error('请选择不超过 1 MB 的 PNG、JPEG、WebP 或 GIF');const data=await new Promise((resolve,reject)=>{const reader=new FileReader();reader.onload=()=>resolve(reader.result);reader.onerror=()=>reject(Error('图片读取失败'));reader.readAsDataURL(f);});if(revision===getRevision())icon.value=data;}catch(e){if(revision===getRevision())error(e.message);}};
+    const submit=button(existing?'保存本局修改':'添加到本局',undefined,'primary');submit.type='submit';submit.id='gSpecialSubmit';form.append(field('角色名称',name),field('类型',team),field('能力 / 规则说明',ability),field('图标网址（可选）',icon),field('或上传本地图标（不超过 1 MB）',file),hint('传奇与奇遇规则对玩家公开。资料随本局备份保存，不会写入全站角色库。'),submit);
+    form.onsubmit=e=>{e.preventDefault();try{if(!name.value.trim()||!ability.value.trim())throw Error('请填写角色名称和能力说明');if(icon.value.trim()&&!safeImage(icon.value.trim()))throw Error('图标地址格式不受支持');const role={id:existing?.id||'special_custom_'+Date.now().toString(36)+'_'+Math.floor(random()*0xffffffff).toString(36),name:name.value.trim(),team:team.value,ability:ability.value.trim(),image:icon.value.trim(),firstNight:0,otherNight:0};if(apply(existing?{type:'specialUpdate',roleId:existing.id,patch:role}:{type:'specialAdd',role,custom:true})){legendOpen=true;render();close();}}catch(e){error(e.message);}};host.append(form);
+   });
+  }
+  root.addEventListener('resize',()=>{if(compact()&&legendOpen&&bluffsOpen){bluffsOpen=false;render();}});
+  return {render,toggleLegend,toggleBluffs,seatRole};
+ }
+ root.GrimoireAux={create};
+})(globalThis);
