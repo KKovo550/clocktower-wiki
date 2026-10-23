@@ -1,5 +1,23 @@
 # Astro 维护约定
 
+手机只读链接由 `share-link.js` 负责阶段筛选、先预览再确认、AES-GCM 加密与本机撤销凭据；`share-reader.html` 仅加载分享组件，将已验证的解密快照交给 `replay-share.js`，在无同源权限的 sandbox iframe 内阅读。链接 hash 保存密钥，网络请求不传密钥，服务端只存密文。不得序列化原 game、私人笔记或草稿，也不得给阅读页加载 core/app、导入或编辑入口。阶段筛选必须在 embed 之前，历史身份只取所选端点。手机阅读和互动 HTML 复用同一个 viewer。
+
+`admin/replay-store.mjs` 使用 SQLite Durable Object 的事务 KV、64 KiB 分块保存不可变快照；1/7/30 天到期检查在读路径执行，alarm 清理存储。创建按每日地址哈希限制 10 次/小时、30 次/日、64 MiB/日；读取与撤销不受上传限额影响。仅保存撤销令牌 SHA-256，不向读者返回管理凭据；撤销删除所有密文块。前端上传前保存撤销凭据，写本机记录失败则不上传；网络响应丢失保留 pending 凭据。服务无管理员 OAuth 依赖，原后台权限逻辑不变。生产端点与页面路径变更时同步 `share-link.js`、reader CSP 和 Worker SITE_URL。
+
+新增验收：`node --test scripts/tests/grimoire-share-link.test.mjs`；`node scripts/test-grimoire-share-link.cjs`（Chrome/WebKit 桌面、手机）。后者使用事务存储适配器模拟服务，另需 Wrangler 本地运行实际 Durable Object 验证分块写入和撤销，发布后验证真实链接。
+
+复盘图片导出的范围统一由 `review-export.js` 的 `selectedStages` 校验并按原始索引排序，`plan` 和 `replay-share.js` 的 `stageSequence` 共用范围与信息排版。部分阶段禁止附加全局身份对照；顶部当前围桌与历史逐阶段魔典保持明确区分。`imageMetrics` 同时服务预估和真实 PNG 尺寸，避免提示与渲染分歧。阶段勾选改变后递增导出任务版本、撤销旧 URL 并禁用下载，旧异步任务不能重画或重新启用保存；显示选项自动刷新，阶段多选由用户点击生成。新增浏览器验收：`node scripts/test-grimoire-export-options.cjs`。
+
+魔典联动由 `core.js` 的 `linkReview` 在同一次 reducer 中处理，新记录仅在 `phaseIndex` 对应的当前阶段允许 `updateBoard: true`。默认不联动，旧记录修改不再次执行。`boardLink` 只证明曾关联一次状态更新，不随文字修订伪造新的状态历史。圆桌建议包含 gameId/revision/玩家状态签名，后续操作后失效；app.js 合并该次确认与原圆桌操作的撤销边界。不得用行动文案推断能力是否生效。新增剧本外角色需匹配完整角色定义，不能用缺失夜序的默认值伪造行动顺序。
+
+`stageChanges` 统一比较可靠的阶段端点，以永久玩家 ID 匹配；UI、互动分享与阶段图片沿用同一摘要。缺少完整起点（含 partial）不推断变化。`archive.js` 使用独立的版本化本地键、整库写入与原始字符串并发检查；写失败不更新内存快照，也不淘汰旧局。恢复时先保存当前对局，再尝试写入所选对局；任一失败不切换 UI。原始库损坏时保留字节并允许下载。新增回归：`scripts/tests/grimoire-linked-library.test.cjs` 与 `scripts/test-grimoire-linked-library.cjs`（Chrome/WebKit 桌面和手机）。
+
+复盘角色／阵营变化以可选 changedRole、changedAlignment 保留历史结果。changedRole 为玩家角色定义的 id/name/team/ability/image 快照，null 明确表示空白，undefined 表示未选择；不可把二者互换。changedAlignment 仅 good/evil。新提交按角色变化、阵营变化、同时变化分别要求相应字段，其他行动不能带入隐藏的旧值；旧备份中同名自定义行动没有字段时继续按原文字显示，不虚构变化结果。全角色库通过 app.js 注入 getRoles 延迟读取，并按 ID 保留本局定义优先，搜索结果最多呈现 60 项；只存复盘快照，不向本局剧本添加外部角色。私密视图切换清空选择器和结果，publicView 继续不导出 review。scripts/test-grimoire-review-role-change.cjs 覆盖本局定义优先、角色搜索、空白、两阵营、组合变化、外部角色、再次编辑和隐私。
+
+复盘中毒／醉酒的能力来源保存在可选 source 玩家快照，独立于行动人和 targets，复用同一历史玩家校验与 snapshot 逻辑。仅两项“因某个玩家的能力”行动的新提交要求 sourceSeatId；旧备份的同名自定义文字没有 source 时继续保留，不猜测来源。编辑旧来源时按座位 ID 保留快照，即使该玩家已离场或改角色；其他行动不得携带 source，切换为简单记录／恢复时重建条目并移除旧字段。源选择器隐藏时 disabled，避免不可见的 required 阻塞提交；这六项状态记录清空无关玩家目标；默认仅记录时不更改提示标记、生死或投票，当前阶段的新记录可按上述联动约定显式更新魔典。scripts/test-grimoire-review-status.cjs 覆盖桌面／手机／iPad 的两种来源、四种直接记录、图标、刷新、隐私与玩家状态不变。
+
+复盘“提名玩家（记录票数）”的 votes 是可选的新历史字段：新提交须指定一名目标及 0–999 整数，校验旧备份时容许此前同名自定义行动没有票数，不补写虚构的 0。其他行动不接受票数；改为不记录票数时显式省略旧值。UI 使用条件票数表单，隐藏时同步 disabled，避免旧的无效数字触发不可见的原生校验。提名目标点击单选替换，提名说书人提交空玩家目标。投票和处决条目只描述历史，不改核心玩家生死或投票状态。scripts/test-grimoire-review-nomination.cjs 覆盖零票、超出人数的票数、无效数值切换到无票数行动、目标切换、刷新和再次编辑，并核对玩家状态不变。
+
 复盘行动输入框右侧使用独立的原生 select（gReviewActionPreset）展开完整预设，选中后写入仍可编辑的 gReviewAction；手动输入自定义行动时取消预设选中。不要换回 input＋datalist：后者会按已填的“选择了”等文字过滤候选，造成点击箭头无法选择其他行动。scripts/test-grimoire-review-action-picker.cjs 以实际点击箭头、键盘选择不同项、预设切换及自定义保存覆盖 Chrome／WebKit 桌面和触屏，界面测试覆盖输入与预设同步和重新编辑。
 
 魔典复盘由 grimoire/review.js 展示，core.js 的可选 review 字段保存连续昼夜阶段、单调记录编号、行动或文字记录。旧 v1 存档缺少 review 时按当前阶段补齐空时间线，不回填或猜测玩家行动。reviewSave 在写入时截取行动人／目标的座位号、姓名、角色 ID／名称／类型；旧快照独立于现有座位与角色，修改文本保留未改选的快照，换座、删座和重新分配不得重写历史。每阶段 100 条、全局 2000 条、198 阶段，并继续受 UTF-8 8 MB 存档上限约束。仅可删除最后阶段，含记录需确认；加删复盘阶段不能推进或回退实际游戏。右侧记录入口打开复盘，菜单操作记录与面板操作历史保留原历史列表；复盘沿用普通玻璃侧栏和现有撤销／保存警告。公开视图须清除面板及编辑草稿，publicView 不导出 review。新增模块同时列入页面脚本与 jsdom 测试加载清单。scripts/test-grimoire-review.cjs 检查 Chrome／WebKit 桌面和触屏的记录、编辑、恢复、玻璃、缩放及隐私。

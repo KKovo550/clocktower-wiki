@@ -4,7 +4,7 @@
  function create(ui){
   const {C,$,node,button,hint,field,error,open,close,apply,image,roleLabel,decorateToken,safeImage,random,dialog,getState,isPlayer,getRevision}=ui;
   const teamNames={townsfolk:'镇民',outsider:'外来者',minion:'爪牙',demon:'恶魔',traveller:'旅行者',fabled:'传奇角色',loric:'奇遇角色'};
-  let legendOpen=false,bluffsOpen=false,bluffAbsentOnly=true;
+  let legendOpen=false,bluffsOpen=!!ui.initialBluffsOpen,bluffAbsentOnly=true;
   function tokenButton(role,click,label){
    const b=button('',click,'g-catalog-token'),token=node('span',undefined,'g-token'+(role?' '+role.team:' g-add-token'));b.setAttribute('aria-label',label||(role?role.name:'添加角色'));
    if(role){const img=image(role);if(img.tagName==='IMG')img.loading='lazy';token.append(img,roleLabel(role.name));decorateToken(token,role);b.title=role.name+'：'+role.ability;}else token.append(node('span','+','g-add-sign'));b.append(token);return b;
@@ -23,6 +23,7 @@
     const head=heading('恶魔伪装',()=>{bluffsOpen=false;render();}),show=button('◉ 给恶魔看',reveal,'g-bluff-show');show.id='gShowBluffs';show.disabled=!state.bluffs.some(Boolean);head.insertBefore(show,head.lastChild);bluff.append(head);const slots=node('div',undefined,'g-bluff-slots');for(let i=0;i<3;i++){const r=state.script.roles.find(r=>r.id===state.bluffs[i]),wrap=node('div',undefined,'g-aux-token-wrap'),b=tokenButton(r,()=>bluffPicker(i),'第 '+(i+1)+' 个恶魔伪装'+(r?'：'+r.name:'：未设置'));b.id='gBluffSlot'+i;wrap.append(b);if(r){const clear=button('×',()=>apply({type:'bluffSet',slot:i,roleId:''}),'g-token-remove');clear.dataset.clearBluff=String(i);clear.setAttribute('aria-label','清除第 '+(i+1)+' 个伪装');wrap.append(clear);}slots.append(wrap);}bluff.append(slots);
     const conflicts=state.bluffs.map(id=>state.script.roles.find(r=>r.id===id)).filter(r=>r&&state.seats.some(s=>s.roleId===r.id));if(conflicts.length)bluff.append(node('p',conflicts.map(r=>r.name).join('、')+' 已在场，请核对伪装。','g-aux-warning'));
    }
+   ui.onLayout?.();
   }
   const compact=()=>innerWidth<=700||innerHeight<650;
   function toggleLegend(){legendOpen=!legendOpen;if(compact()&&legendOpen)bluffsOpen=false;render();}

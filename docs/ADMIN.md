@@ -27,6 +27,14 @@ GitHub 注册入口：https://github.com/settings/applications/new 。应用名�
 
 后台登录成功不代表普通访问者获权；页面编辑、版本记录及其他管理 API 都校验会话中的管理员 ID。只读公开的 `/api/role-icon` 不需要会话，仅用于允许名单中的外部角色位图，接口限制见 [公共接口说明](API.md)。
 
+## 复盘只读分享服务
+
+`/api/replays/:id` 与管理接口独立，不需要 GitHub OAuth。`wrangler.jsonc` 已声明 `REPLAY_SHARES` Durable Object 绑定及 `replay-share-v1` SQLite migration，首次部署将创建命名空间，不需手工填写数据库 ID。现有后台域名继续复用。存储方式依据 [Cloudflare SQLite Durable Object 文档](https://developers.cloudflare.com/durable-objects/api/sqlite-storage-api/)，到期清理使用 [Alarms API](https://developers.cloudflare.com/durable-objects/api/alarms/)。
+
+先运行 `npm exec --yes --package=wrangler -- wrangler deploy --dry-run --config admin/wrangler.jsonc` 验证，再部署 Worker 与网站静态资源。Worker 部署沿用上方命令，保留现有 secrets。对应前端是 `script_tool/assets/grimoire/share-reader.html` 和魔典加载的 `share-link.js`；只发前端会得到“分享服务尚未部署”错误。此功能使用 Cloudflare 存储及请求配额，应在该账号控制台观察实际用量。
+
+PUT 创建（`application/octet-stream`，1/7/30 天、8 MiB 上限），GET 返回密文，DELETE 校验独立随机管理令牌。服务端不接收解密密钥；密钥在 URL 的 `#` 部分。不可更新已有快照、不提供列表和搜索，读取失败统一显示不存在／已撤销／已过期。CORS 仅接受 SITE_URL 的来源、Worker 同源和离线 file 页的 null 来源；不使用 Cookie。客户端还校验明文大小与结构，并将阅读内容隔离于无同源权限的 iframe。
+
 ## 构建同步
 
 首次部署百科前，`config/admin.json` 的 `syncEnabled` 为 false，构建生成空 overrides 和全页面目录。该文件首次发布后，必须把 syncEnabled 设为 true，再开放后台登录。

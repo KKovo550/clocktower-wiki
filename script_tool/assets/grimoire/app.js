@@ -2,7 +2,9 @@
  'use strict';
  const G=root.ClocktowerGrimoire,C=root.GrimoireCatalog,$=id=>document.getElementById(id),app=$('grimoireApp'),dialog=$('gDialog'),body=$('gDialogBody');
  const teamNames={townsfolk:'镇民',outsider:'外来者',minion:'爪牙',demon:'恶魔',traveller:'旅行者',fabled:'传奇角色',loric:'奇遇角色'};
+ let reviewControl=null,boardSuggestion=null;
  let state,store,dirty=false,blocked=false,playerView=false,listMode=false,modalRevision=0,returnFocus,toastTimer,scriptPicker,undo=[],lastEdit='',lastEditAt=0;
+ const playerViewKey='botc_grimoire_player_view_v1';try{const saved=root.sessionStorage.getItem(playerViewKey);playerView=saved==='true';if(saved===null)root.sessionStorage.setItem(playerViewKey,'false');}catch{playerView=true;}
  let sheetRefresh=null,panelFront=null,panelLayer=20;const sideViews={};
  let layoutFrame=0;
  let roleTooltip,roleTooltipAnchor;
@@ -46,7 +48,7 @@
   if(typeof url!=='string'||!url.trim())return '';
   try{if(/^data:image\/(png|jpeg|webp|gif);base64,[a-z\d+/=]+$/i.test(url))return url;const u=new URL(url,document.baseURI);return ['http:','https:','file:'].includes(u.protocol)?u.href:'';}catch{return '';}
  }
- function image(role){const wrap=node('span','?','g-question'),src=role&&safeImage(role.image);if(src){const img=node('img');img.src=src;img.alt='';img.decoding='async';img.draggable=false;img.onerror=()=>{img.replaceWith(wrap);};return img;}return wrap;}
+ function image(role){const wrap=node('span','?','g-question'),src=role&&safeImage(role.image);if(src){wrap.dataset.imageSource=src;const img=node('img');img.src=src;img.alt='';img.decoding='async';img.draggable=false;img.onerror=()=>{img.replaceWith(wrap);};return img;}return wrap;}
  function roleWikiIcon(role,className){
   const page=C.wikiPage(role),icon=node(page?'a':'span',undefined,className+(page?' g-role-wiki-link':''));icon.append(image(role));if(page){icon.href=page;icon.target='_blank';icon.rel='noopener noreferrer';icon.title='在新窗口打开'+role.name+'的百科页面';icon.setAttribute('aria-label',icon.title);}return icon;
  }
@@ -97,6 +99,7 @@
  function setPlayerView(value){
   if(offlineDraw&&!value)return;
   if(playerView===value)return;
+  try{root.sessionStorage.setItem(playerViewKey,String(value));}catch{if(value)toast('身份已遮盖，但浏览器无法记住遮盖状态；刷新前请交还说书人。');}
   if(dialog.open)close();closeNotes(true);for(const view of Object.values(sideViews))closeSidePanel(view,true);body.replaceChildren();playerView=value;$('gToast').textContent='';render();flipSeats();if(dirty)save();
  }
  function decorateToken(token,role){
@@ -111,10 +114,21 @@
   try{if(blocked||!store)throw Error('浏览器存储暂不可用，原存档已保留');store.save(state);dirty=false;$('gWarning').hidden=true;$('gSaveStatus').textContent='已保存在此设备 · '+new Date(state.updatedAt).toLocaleTimeString('zh-CN',{hour:'2-digit',minute:'2-digit'});root.removeEventListener('beforeunload',guard);return true;}
   catch(e){dirty=true;$('gWarning').hidden=false;$('gWarningText').textContent=playerView?'此页有尚未保存的修改，请交还说书人处理。':'保存未成功：'+e.message+'。请先备份当前对局。';$('gSaveStatus').textContent='当前修改尚未保存';$('gRetry').hidden=playerView||/另一页面/.test(e.message);$('gBackupWarning').hidden=playerView;root.addEventListener('beforeunload',guard);return false;}
  }
- function remember(type){const now=Date.now();if(!((['name','notes'].includes(type)||type.startsWith('seatNoteDraft:'))&&lastEdit===type&&now-lastEditAt<900))undo.push(JSON.stringify(state));lastEdit=type;lastEditAt=now;let bytes=undo.reduce((n,x)=>n+x.length*2,0);while(undo.length>10||undo.length>1&&bytes>16*1024*1024)bytes-=undo.shift().length*2;}
+ function remember(type){const now=Date.now();if(!((['name','notes'].includes(type)||type.startsWith('seatNoteDraft:'))&&lastEdit===type&&now-lastEditAt<900))undo.push(G.serialize(state));lastEdit=type;lastEditAt=now;let bytes=undo.reduce((n,x)=>n+x.length*2,0);while(undo.length>10||undo.length>1&&bytes>16*1024*1024)bytes-=undo.shift().length*2;}
  function apply(action){
   if(playerView&&action.type!=='cycleStatus')return false;
-  try{const next=G.reduce(state,action,random),cover=!playerView&&action.type==='life'&&action.alive===false&&state.seats.some(s=>s.id===action.seatId&&s.alive);remember(action.type==='seatNoteDraft'?'seatNoteDraft:'+action.seatId:action.type);state=next;dirty=true;save();if(action.type==='notes'||action.type==='seatNoteDraft'){if(notesRefresh)notesRefresh();}else if(action.type==='name')refreshSeatName(action.seatId);else if(action.type==='reminderFlip')markers.refreshFlip(action.seatId,action.index);else{render();if(cover)coverShroud(action.seatId);}return true;}catch(e){if(dialog.open)error(e.message);else toast(e.message);return false;}
+  try{const previous=state,next=G.reduce(state,action,random),cover=!playerView&&action.type==='life'&&action.alive===false&&state.seats.some(s=>s.id===action.seatId&&s.alive);if(action.type!=='reviewBoardChange')remember(action.type==='seatNoteDraft'?'seatNoteDraft:'+action.seatId:action.type);state=next;dirty=true;save();offerBoardRecord(previous,next,action);renderBoardSuggestion();if(action.type==='notes'||action.type==='seatNoteDraft'){if(notesRefresh)notesRefresh();}else if(action.type==='name')refreshSeatName(action.seatId);else if(action.type==='reminderFlip')markers.refreshFlip(action.seatId,action.index);else{render();if(cover)coverShroud(action.seatId);}return true;}catch(e){if(dialog.open)error(e.message);else toast(e.message);return false;}
+ }
+ function offerBoardRecord(previous,next,action){
+  boardSuggestion=null;if(playerView||previous.phase==='setup'||!['life','assign','cycleStatus'].includes(action.type))return;
+  const before=previous.seats.find(p=>p.id===action.seatId),after=next.seats.find(p=>p.id===action.seatId);if(!before||!after)return;
+  const label=before.roleId!==after.roleId?'角色变化':before.alive!==after.alive?after.alive?'复活了':'死亡了':null;if(!label)return;
+  const stageIndex=previous.round*2-(previous.phase==='night'?2:1);boardSuggestion={type:'reviewBoardChange',gameId:next.gameId,revision:next.revision,seatId:after.id,stageIndex,signature:JSON.stringify(after),before:G.reviewRoster(previous,stageIndex).find(p=>p.seatId===before.id),action:label};
+ }
+ function renderBoardSuggestion(){
+  let bar=$('gBoardReviewSuggestion');if(!bar){bar=node('section',undefined,'g-board-review-suggestion g-glass-surface');bar.id='gBoardReviewSuggestion';bar.setAttribute('aria-label','魔典变化记录建议');app.append(bar);}bar.replaceChildren();
+  const pending=boardSuggestion;bar.hidden=playerView||!pending||pending.gameId!==state.gameId||pending.revision!==state.revision;if(bar.hidden)return;
+  const save=button('记录并编辑',()=>{if(playerView||boardSuggestion!==pending)return;if(apply(pending)){reviewControl?.editEntry(pending.stageIndex,state.review.nextId-1);}},'subtle');save.id='gBoardReviewRecord';const dismiss=button('仅更新魔典',()=>{boardSuggestion=null;renderBoardSuggestion();},'subtle');dismiss.id='gBoardReviewDismiss';bar.append(node('span',pending.before.number+'号'+(pending.before.name?' '+pending.before.name:'')+'：'+pending.action),save,dismiss);
  }
  function coverShroud(id){
   if(root.matchMedia?.('(prefers-reduced-motion: reduce)').matches)return;
@@ -126,6 +140,7 @@
  }
  function open(title,build){
   hideRoleTooltip();
+  renderBoardSuggestion();
   cancelNameClick();
   if(!dialog.open)returnFocus=document.activeElement;
   if(motionFrame)root.cancelAnimationFrame(motionFrame);cancelMotion(body);
@@ -136,14 +151,15 @@
  $('gDialogClose').onclick=close;dialog.addEventListener('close',()=>{if(dialog.open)return;cancelMotion(body);if(motionFrame){root.cancelAnimationFrame(motionFrame);motionFrame=0;}if(offlineDraw){showOfflineDraw();return;}modalRevision++;clearSheetMode();const id=returnFocus?.id,seatId=returnFocus?.dataset.seatId;const next=id&&$(id)||seatId&&document.querySelector('[data-seat-id="'+seatId+'"]');next?.focus({preventScroll:true});});
  dialog.addEventListener('cancel',e=>{if(offlineDraw){e.preventDefault();showOfflineDraw();}else if(signalReturn){e.preventDefault();signalReturn();}});
  function download(name,text){const a=node('a'),url=URL.createObjectURL(new Blob([text],{type:'application/json;charset=utf-8'}));a.href=url;a.download=name.replace(/[<>:"/\\|?*\x00-\x1f]/g,'_').slice(0,150);document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),10000);}
- function backup(suffix='对局备份'){if(playerView)return;download((state.script.name||'在线魔典')+'-'+suffix+'.json',JSON.stringify(state));toast('对局备份已开始下载，文件包含私密信息。');}
+ function backup(suffix='对局备份'){if(playerView)return;download((state.script.name||'在线魔典')+'-'+suffix+'.json',G.serialize(state));noteBackup(state);if($('gGameBackupStatus'))$('gGameBackupStatus').textContent=backupStatus(state);toast('对局备份已开始下载，文件包含私密信息。');}
  function occupied(){return state.seats.some(s=>s.roleId||s.name||s.reminders.length||s.notes.length||s.noteDraft)||state.specials.length||state.bluffs.some(Boolean)||state.notes||state.review.stages.some(x=>x.entries.length)||state.phase!=='setup';}
- function replace(next){
+ function replace(next,{preserveCurrent=true}={}){
   if(playerView)return false;
   if(occupied()&&!confirm('这会建立或恢复另一份对局，替换当前座位和进度，是否继续？'))return false;
   const valid=G.validate(next);
   if(blocked){if(!confirm('原浏览器存档无法读取。继续会覆盖原存档；将先下载原始存档供恢复。'))return false;const raw=root.localStorage.getItem(G.key);if(raw)download('在线魔典-原始存档.json',raw);store=G.openStore(root.localStorage);blocked=false;}
-  remember('replace');sideViews.review?.onClear?.();state=valid;if(compactSeats())listMode=true;dirty=true;save();render();close();return true;
+  if(preserveCurrent&&occupied()){const library=root.GrimoireArchive.open(root.localStorage),kept=G.validate(state);if(kept.gameId===valid.gameId)kept.gameId=G.create(kept.script,5).gameId;const status=library.list().find(g=>g.id===kept.gameId)?.status||'ongoing';library.save(kept,status);store.save(valid);}
+  boardSuggestion=null;remember('replace');sideViews.review?.onClear?.();if(valid.gameId===state.gameId)valid.nextSeatId=Math.max(valid.nextSeatId,state.nextSeatId);state=valid;if(compactSeats())listMode=true;dirty=true;save();render();close();return true;
  }
  function roleOf(s){return state.script.roles.find(r=>r.id===s.roleId);}
  function publicTokenState(s){return s.alive?'alive':s.ghostVote?'dead-vote':'dead-spent';}
@@ -242,33 +258,41 @@
   const top=Math.max(116,summary.hidden?116:summary.offsetTop+summary.offsetHeight+44),bottom=24;
   const minRadius=Math.max(width*(count>14?.65:.38),minRay)*(tableShape==='ellipse'?1.2:1),height=Math.max(board.clientHeight,top+bottom+size+26+minRadius*2),radiusY=(height-top-bottom-size-26)/2,radiusX=(width-size-20)/2,centerY=top+size/2+radiusY;
   const oldWidth=board.style.getPropertyValue('--g-phone-width'),oldCenter=board.scrollLeft+viewportWidth/2;board.style.setProperty('--token-size',size+'px');board.style.setProperty('--g-phone-width',width+'px');board.style.setProperty('--g-phone-height',height+'px');board.style.setProperty('--g-phone-caption-width',(count>14?size:size+10)+'px');board.dataset.scrollable=String(height>board.clientHeight+1);board.dataset.wide=String(width>board.clientWidth+1);if(oldWidth!==width+'px')board.scrollLeft=Math.max(0,(oldWidth?oldCenter/parseFloat(oldWidth):.5)*width-viewportWidth/2);
-  const logoWidth=Math.max(64,Math.min(150,radiusX*.75));$('gCenter').style.setProperty('--g-logo-y',centerY+'px');$('gCenter').style.setProperty('--g-logo-width',logoWidth+'px');$('gCenter').style.setProperty('--g-logo-height',logoWidth*.8+'px');
+  const logoWidth=Math.max(64,Math.min(150,radiusX*.75));$('gCenter').style.left=width/2+'px';$('gCenter').style.setProperty('--g-logo-y',centerY+'px');$('gCenter').style.setProperty('--g-logo-width',logoWidth+'px');$('gCenter').style.setProperty('--g-logo-height',logoWidth*.8+'px');
   timer?.positionCenter({x:width/2,y:centerY,logoHeight:showScriptLogo?logoWidth*.8:0});
   const seats=[...$('gSeats').querySelectorAll('.g-seat')],points=seats.map((n,i)=>{const a=-Math.PI/2+i/count*Math.PI*2;return {x:width/2+Math.cos(a)*radiusX,y:centerY+Math.sin(a)*radiusY};});placeSeats(seats,points,width,height,true);
   const roles=seats.map(n=>measure(n.querySelector('.g-seat-token')));seats.forEach((n,i)=>{const tokens=[...n.querySelectorAll('.g-reminder-item,.g-reminder-add')];if(!tokens.length)return;const seat=measure(n),role=roles[i],ox=role.left-seat.left+role.width/2,oy=role.top-seat.top+role.height/2,dx=rect.left+width/2-board.scrollLeft-role.left-role.width/2,dy=rect.top+centerY-board.scrollTop-role.top-role.height/2,ray=reminderPlacement(role,dx,dy,tokens[0].offsetWidth,tokens.length,24);tokens.forEach((t,j)=>{const d=ray.start+j*ray.step;t.style.setProperty('--marker-x',(ox+ray.x*d)+'px');t.style.setProperty('--marker-y',(oy+ray.y*d)+'px');});});
  }
  function position(){
   if(layoutFrame){root.cancelAnimationFrame(layoutFrame);layoutFrame=0;}
-  const phone=phoneViewport(),zoomCanvas=!phone&&pageZoom>100&&(uiWidth()<1100||uiHeight()<700),virtual=phone||zoomCanvas,phoneBoard=$('gBoard');app.classList.toggle('g-phone-ui',phone);app.classList.toggle('g-zoom-table-ui',zoomCanvas);if(virtual&&!listMode&&!phoneBoard.classList.contains('phone-table'))phoneBoard.style.removeProperty('--g-phone-width');phoneBoard.classList.toggle('phone-table',virtual&&!listMode);
+  const phone=phoneViewport(),touch=root.matchMedia?.('(pointer:coarse)').matches,zoomCanvas=!phone&&pageZoom>100&&(uiWidth()<1100||uiHeight()<700),virtual=phone||zoomCanvas,phoneBoard=$('gBoard');app.classList.toggle('g-phone-ui',phone);app.classList.toggle('g-tablet-ui',touch&&!phone);app.classList.toggle('g-zoom-table-ui',zoomCanvas);if(virtual&&!listMode&&!phoneBoard.classList.contains('phone-table'))phoneBoard.style.removeProperty('--g-phone-width');phoneBoard.classList.toggle('phone-table',virtual&&!listMode);
   renderStartHint(zoomCanvas&&!listMode);
   positionLeftTools();positionSidePanels();
-  const board=$('gBoard'),width=board.clientWidth,height=board.clientHeight,count=state.seats.length;app.style.setProperty('--g-dock-height',($('gDock').hidden?0:$('gDock').offsetHeight)+'px');
+  const dockHeight=$('gDock').hidden?0:$('gDock').offsetHeight,bluffHeight=$('gBluffPanel').hidden?0:$('gBluffPanel').offsetHeight;app.style.setProperty('--g-dock-height',dockHeight+'px');app.style.setProperty('--g-bottom-height',Math.max(dockHeight,bluffHeight)+'px');
+  const board=$('gBoard'),width=board.clientWidth,height=board.clientHeight,count=state.seats.length;
   board.classList.toggle('list-mode',listMode);board.classList.toggle('free-layout',isFreeLayout());board.classList.toggle('dense',count>12);board.dataset.layout=listMode?(listColumns===1?'single':listColumns===2?'double':'auto'):tableShape;
   if(virtual&&!listMode){positionPhoneTable(board,count,phone);return;}
-  const mobile=width<=700,short=!mobile&&height<600,tablet=!mobile&&!short&&(width<1100||root.matchMedia?.('(pointer:coarse)').matches);
+  const mobile=width<=700,short=!mobile&&height<600,tablet=!mobile&&!short&&width<(touch?1000:1100);
   const size=Math.round(mobile?Math.max(48,Math.min(76,width*scale()*.175)):tablet?Math.max(88,Math.min(120,width*scale()*.145,height*scale()*.12)):(short?Math.max(56,Math.min(78,height*scale()*.18)):Math.max(78,Math.min(128,height*scale()*.135)))*(count>14?.8:1));
   board.style.setProperty('--token-size',size+'px');
-  const top=mobile?124:tablet?104:short?18:12,bottom=tablet?($('gDock').hidden?30:$('gDock').offsetHeight+32):mobile?Math.max(70,$('gDock').hidden?70:$('gDock').offsetHeight+24):short?18:22;
+  const top=mobile?124:tablet||touch&&width<1100&&!short?104:short?18:12,bottom=tablet?($('gDock').hidden?30:$('gDock').offsetHeight+32):mobile?Math.max(70,$('gDock').hidden?70:$('gDock').offsetHeight+24):short?18:22;
   const centerY=(top+height-bottom)/2;
-  const radiusY=Math.max(44,(height-top-bottom-size-42)/2),radiusX=tablet?Math.min((width-112-size)/2,radiusY*(tableShape==='ellipse'?1.5:1.3)):mobile?Math.max(52,(width-88-size-20)/2):short?Math.min(Math.max(60,width/2-$('gDock').offsetWidth-72),radiusY*.9):Math.min((width-400-size)/2,radiusY*(tableShape==='ellipse'?1.32:1));
+  const radiusY=Math.max(44,(height-top-bottom-size-42)/2);let radiusX=tablet?Math.min((width-112-size)/2,radiusY*(tableShape==='ellipse'?1.5:1.3)):mobile?Math.max(52,(width-88-size-20)/2):short?Math.min(Math.max(60,width/2-$('gDock').offsetWidth-72),radiusY*.9):Math.min((width-400-size)/2,radiusY*(tableShape==='ellipse'?1.32:1));
   const two=count>14&&width>700,outer=two?Math.ceil(count*.66):count;
+  if(touch&&!mobile&&!short)radiusX=Math.min((width-112-size)/2,Math.max(radiusX,(size+8)/(2*Math.sin(Math.PI/outer))));
   const logoWidth=Math.max(64,Math.min(340,radiusX*(two?.56:1)*.85));$('gCenter').style.setProperty('--g-logo-y',centerY+'px');$('gCenter').style.setProperty('--g-logo-width',logoWidth+'px');$('gCenter').style.setProperty('--g-logo-height',Math.min(250,logoWidth*.8)+'px');
-  timer?.positionCenter({x:width/2,y:centerY,logoHeight:showScriptLogo&&!listMode?Math.min(250,logoWidth*.8):0});
+  let centerX=width/2;$('gCenter').style.left=centerX+'px';
   const boardRect=measure(board),seats=[...$('gSeats').querySelectorAll('.g-seat')];
-  const points=seats.map((n,i)=>{const inner=two&&i>=outer,total=inner?count-outer:outer,index=inner?i-outer:i,a=-Math.PI/2+index/total*Math.PI*2,f=inner?.56:1;return {x:width/2+Math.cos(a)*radiusX*f,y:centerY+Math.sin(a)*radiusY*f};});placeSeats(seats,points,width,height);if(listMode)return;
+  const points=seats.map((n,i)=>{const inner=two&&i>=outer,total=inner?count-outer:outer,index=inner?i-outer:i,a=-Math.PI/2+index/total*Math.PI*2,f=inner?.56:1;return {x:width/2+Math.cos(a)*radiusX*f,y:centerY+Math.sin(a)*radiusY*f};});placeSeats(seats,points,width,height);if(listMode){timer?.positionCenter({x:centerX,y:centerY,logoHeight:0});return;}
+  // A tablet's corner dock must not cover the lower-right tokens or their captions.
+  if(touch&&!tablet&&!short&&!$('gDock').hidden&&!isFreeLayout()){
+   const dock=measure($('gDock')),bounds=seats.map(measure),overlap=bounds.filter(r=>r.bottom>dock.top-12&&r.top<dock.bottom&&r.right>dock.left-12&&r.left<dock.right),shift=Math.min(Math.max(0,Math.min(...bounds.map(r=>r.left))-boardRect.left-48),Math.max(0,...overlap.map(r=>r.right-dock.left+12)));
+   if(shift){centerX-=shift;points.forEach(p=>p.x-=shift);placeSeats(seats,points,width,height);$('gCenter').style.left=centerX+'px';}
+  }
+  timer?.positionCenter({x:centerX,y:centerY,logoHeight:showScriptLogo?Math.min(250,logoWidth*.8):0});
   const roleRects=seats.map(n=>measure(n.querySelector('.g-seat-token')));
   seats.forEach((n,i)=>{
-   const tokens=[...n.querySelectorAll('.g-reminder-item,.g-reminder-add')];if(!tokens.length)return;const seatRect=measure(n),roleRect=roleRects[i],ox=roleRect.left-seatRect.left+roleRect.width/2,oy=roleRect.top-seatRect.top+roleRect.height/2,dx=boardRect.left+width/2-roleRect.left-roleRect.width/2,dy=boardRect.top+centerY-roleRect.top-roleRect.height/2,size=tokens[0].offsetWidth,ray=reminderPlacement(roleRect,dx,dy,size,tokens.length);
+   const tokens=[...n.querySelectorAll('.g-reminder-item,.g-reminder-add')];if(!tokens.length)return;const seatRect=measure(n),roleRect=roleRects[i],ox=roleRect.left-seatRect.left+roleRect.width/2,oy=roleRect.top-seatRect.top+roleRect.height/2,dx=boardRect.left+centerX-roleRect.left-roleRect.width/2,dy=boardRect.top+centerY-roleRect.top-roleRect.height/2,size=tokens[0].offsetWidth,ray=reminderPlacement(roleRect,dx,dy,size,tokens.length);
    tokens.forEach((t,j)=>{const d=ray.start+j*ray.step;t.style.setProperty('--marker-x',(ox+ray.x*d)+'px');t.style.setProperty('--marker-y',(oy+ray.y*d)+'px');});
   });
  }
@@ -279,6 +303,7 @@
  function renderStartHint(scrollable=false){const value=(playerView?'角色已隐藏 · 点击圆牌：存活 → 死亡有票 → 死亡无票 → 存活':isFreeLayout()?'自由摆放 · 拖动圆牌移动位置 · 菜单可重置':'点圆牌选角色 · 点名字管理 · 双击名字改名 · 拖动圆牌换座')+(scrollable?' · 滚动查看圆桌':'');if($('gStartHint').textContent!==value)$('gStartHint').textContent=value;}
  function render(){
   hideRoleTooltip();
+  renderBoardSuggestion();
   cancelNameClick();
   const shown=playerView?G.publicView(state):state,counts=G.counts(state);app.dataset.sceneTransition=String(app.dataset.ready==='true');app.dataset.ready='true';app.dataset.playerView=String(playerView);app.dataset.phase=state.phase;
   $('gTitle').textContent=state.script.name;$('gTitle').title=state.script.name;$('gPhase').textContent=phaseLabel();$('gCounts').textContent='存活'+counts.alive+'/'+state.seats.length+' 可投票'+counts.eligible;
@@ -310,6 +335,7 @@
   if(dirty){$('gRetry').hidden=playerView||$('gWarningText').textContent.includes('另一页面');$('gBackupWarning').hidden=playerView;}
   position();
   aux?.render();
+  markers?.renderDeadlines();
   if(playerView)closeNotes(true);else if(notesRefresh)notesRefresh();
   if(sheetRefresh&&dialog.open)sheetRefresh();for(const view of Object.values(sideViews))if(!view.panel.hidden&&view.refresh)view.refresh();
  }
@@ -451,6 +477,7 @@
   });dialog.classList.add('g-distribution-dialog');$('gDialogClose').textContent='×';if(offline===true)$('gDialogTitle').textContent='线下抽取 · 先选满 '+state.seats.length+' 个角色';
  }
  function clearSheetMode(){
+  dialog.classList.remove('g-replay-dialog');
   dialog.classList.remove('g-background-dialog');
   dialog.classList.remove('g-offline-draw');
   signalReturn=null;
@@ -616,7 +643,7 @@
    const script=section('剧本'),card=menuItem(state.script.name,scriptPanel,'book','gMenuScript');card.classList.add('g-menu-script');const copy=card.querySelector('.g-menu-label');copy.replaceChildren(node('strong',state.script.name),node('small',(state.script.author||'未填写作者')+' · '+state.script.roles.length+' 个角色 · 点击更换或导入'));card.setAttribute('aria-label','选择或导入剧本');script.append(card);
    const tools=section('说书人工具');tools.append(menuItem('善良获胜',()=>signal('善良阵营获胜','good'),'flag'),menuItem('邪恶获胜',()=>signal('邪恶阵营获胜','evil'),'flag'),menuItem('游戏指示',()=>signalPanel(),'eye'),menuItem('夜晚行动顺序',nightPanel,'moon'),menuItem('私密笔记',notes,'note'),menuItem(isFullscreen()?'退出全屏':'进入全屏',fullscreen,'expand','gMenuFullscreen'));syncFullscreenControl();
    const layouts=section('布局'),active=listMode?(listColumns===1?'single':listColumns===2?'double':'auto'):tableShape;for(const [value,text]of [['circle','标准圆形'],['ellipse','椭圆布局'],['single','单列垂直'],['double','双列垂直'],['free','自由摆放']]){const b=menuItem(text,()=>setLayout(value),'grid','gMenuLayout_'+value);b.setAttribute('aria-pressed',String(active===value));if(value==='free')b.classList.add('g-menu-wide');layouts.append(b);}if(isFreeLayout()){const reset=menuItem('重置座位位置',resetFreePositions,'undo','gMenuFreeReset');reset.classList.add('g-menu-wide');layouts.append(reset);layouts.parentElement.append(node('p','拖动圆牌自由摆放，不交换玩家；方向键微调，Shift 加速。','g-menu-footnote'));}
-   const backupGrid=section('对局与备份');backupGrid.append(menuItem('下载对局备份',()=>{backup();if($('gMenuBackupHint'))$('gMenuBackupHint').textContent='已发起下载，请确认文件保存成功。备份请仅交给说书人。';},'save','gMenuBackup'),menuItem('导入对局备份',restorePanel,'upload'));const back=menuItem('撤销上一步',()=>{if(!undo.length)return;state=G.validate(JSON.parse(undo.pop()));dirty=true;save();render();close();},'undo');back.disabled=!undo.length;backupGrid.append(back,menuItem('操作记录',history,'clock'));const backupHint=hint('备份包含秘密身份和笔记，请仅交给说书人。');backupHint.classList.add('g-menu-footnote');backupHint.id='gMenuBackupHint';backupHint.setAttribute('aria-live','polite');backupGrid.parentElement.append(backupHint);
+   const backupGrid=section('对局与备份');backupGrid.append(menuItem('下载对局备份',()=>{backup();if($('gMenuBackupHint'))$('gMenuBackupHint').textContent='已发起下载，请确认文件保存成功。备份请仅交给说书人。';},'save','gMenuBackup'),menuItem('导入对局备份',restorePanel,'upload'),menuItem('对局列表与归档',gameLibraryPanel,'clock','gGameLibrary'));const back=menuItem('撤销上一步',()=>{if(!undo.length)return;const next=G.validate(JSON.parse(undo.pop()));if(next.gameId===state.gameId)next.nextSeatId=Math.max(next.nextSeatId,state.nextSeatId);state=next;dirty=true;save();render();close();},'undo');back.disabled=!undo.length;backupGrid.append(back,menuItem('操作记录',history,'clock'));const backupHint=hint('备份包含秘密身份和笔记，请仅交给说书人。');backupHint.classList.add('g-menu-footnote');backupHint.id='gMenuBackupHint';backupHint.setAttribute('aria-live','polite');backupGrid.parentElement.append(backupHint);
    const more=section('更多'),logo=menuItem('显示剧本图标',toggleScriptLogo,'book','gMenuScriptLogo');logo.classList.add('g-menu-wide');logo.setAttribute('aria-pressed',String(showScriptLogo));const logoCheck=node('span',showScriptLogo?'✓':'','g-menu-check');logoCheck.setAttribute('aria-hidden','true');logo.append(logoCheck);more.append(logo);const order=menuItem('在圆牌旁显示夜晚顺序',()=>{showNightOrder=!showNightOrder;render();$('gMenuNightOrder')?.focus({preventScroll:true});},'clock','gMenuNightOrder');order.classList.add('g-menu-wide');order.setAttribute('aria-pressed',String(showNightOrder));const check=node('span',showNightOrder?'✓':'','g-menu-check');check.setAttribute('aria-hidden','true');order.append(check);more.append(order);const special=menuItem('设置传奇 / 奇遇角色',()=>{close();aux.toggleLegend();},'crown'),bluff=menuItem('设置恶魔伪装',bluffs,'eye');for(const [b,n]of [[special,state.specials.length],[bluff,state.bluffs.filter(Boolean).length]]){const badge=node('small',String(n),'g-menu-count');badge.setAttribute('aria-hidden','true');b.append(badge);b.classList.add('g-menu-wide');}more.append(special,bluff);
    const zoom=node('div',undefined,'g-menu-zoom g-menu-wide'),zoomButtons=node('div',undefined,'g-menu-zoom-buttons'),zoomOut=button('−',()=>setPageZoom(pageZoom-5),'subtle'),zoomReset=button(pageZoom+'%',()=>setPageZoom(100),'subtle'),zoomIn=button('+',()=>setPageZoom(pageZoom+5),'subtle');zoomOut.id='gZoomOut';zoomReset.id='gZoomReset';zoomIn.id='gZoomIn';zoomOut.setAttribute('aria-label','缩小网页');zoomIn.setAttribute('aria-label','放大网页');zoomReset.title='恢复默认缩放 100%';zoomReset.setAttribute('aria-live','polite');zoomButtons.append(zoomOut,zoomReset,zoomIn);zoom.append(node('span','网页缩放'),zoomButtons);more.append(zoom);syncZoomControls();
    const background=menuItem('自定义背景',backgroundPanel,'eye','gMenuBackground');background.classList.add('g-menu-wide');more.append(background);
@@ -624,8 +651,27 @@
    const reset=section('重新开局'),restart=menuItem('重新开始本剧本',()=>replace(G.create(state.script,state.seats.length)),'trash');restart.classList.add('danger','g-menu-wide');reset.append(restart);body.append(node('p',phaseLabel()+' · '+state.seats.length+' 人 · 保存在此设备','g-menu-footer'));body.scrollTop=top;
   };sheetRefresh();
  }
- function restorePanel(){if(playerView)return;open('恢复魔典对局',host=>{const file=node('input');file.type='file';file.accept='.json,application/json';file.id='gRestoreFile';let candidate;const preview=node('p','','g-hint'),go=button('恢复这个对局',()=>{try{if(candidate)replace(candidate);}catch(e){error(e.message);}},'primary');go.id='gRestoreCommit';go.disabled=true;
-  file.onchange=async()=>{const rev=modalRevision;go.disabled=true;candidate=null;try{const f=file.files[0];if(!f)return;if(f.size>8*1024*1024)throw Error('对局备份不能超过 8 MB');const text=await f.text(),s=G.validate(JSON.parse(text));if(rev!==modalRevision)return;candidate=s;preview.textContent=s.script.name+' · '+s.seats.length+' 个座位 · '+phaseLabel(s)+'。确认后替换当前对局；如需保留，请先手动下载备份。';go.disabled=false;}catch(e){if(rev===modalRevision)error('备份无法恢复：'+e.message+'。当前对局未改变。');}};host.append(field('选择魔典对局备份',file),preview,go,hint('普通剧本 JSON 请从“选择剧本 → 导入 JSON”载入。'));
+ function gameLibraryPanel(){
+  if(playerView)return;open('对局列表与归档',host=>{
+   let library;try{library=root.GrimoireArchive.open(root.localStorage);}catch(e){host.append(hint('对局库无法读取：'+e.message+'。当前对局仍可单独下载备份。'),button('下载当前对局备份',()=>backup(),'primary'),button('下载原始对局库',()=>{if(playerView)return;try{const raw=root.localStorage.getItem(root.GrimoireArchive.key);if(raw)download('在线魔典-原始对局库.json',raw);}catch(err){error(err.message);}},'subtle'));return;}
+   const feedback=hint(''),tools=node('div',undefined,'g-game-library-tools'),list=node('div',undefined,'g-game-library');list.id='gGameList';feedback.id='gGameLibraryStatus';feedback.setAttribute('role','status');
+   function run(task){if(playerView)return;try{task();feedback.textContent='已保存在此设备。浏览器清理数据会影响保留，请另行下载备份。';draw();}catch(e){feedback.textContent=e.message+'。原有对局未删除，请先下载备份。';}}
+   const keep=button('保存当前对局到列表',()=>run(()=>library.save(state,'ongoing')),'primary'),archive=button('结束并归档当前对局',()=>{if(!confirm('将当前对局归档到本设备？魔典仍可继续查看，建议同时下载备份。'))return;run(()=>library.save(state,'archived'));},'subtle');keep.id='gGameKeep';archive.id='gGameArchive';tools.append(keep,archive,button('下载当前对局备份',()=>backup(),'subtle'));
+   const meta=hint(backupStatus(state));meta.id='gGameBackupStatus';host.append(hint('对局列表仅保存在本设备。归档保留角色、阶段、复盘与笔记；对局备份文件也包含私密资料。'),meta,tools,feedback,list);
+   function draw(){list.replaceChildren();const games=library.list();if(!games.length)list.append(hint('还没有保留的对局。先保存当前对局，或结束后归档。'));
+    for(const item of games){const row=node('article',undefined,'g-game-library-row');row.dataset.gameId=item.id;row.append(node('h3',item.name),hint((item.status==='archived'?'已归档':'未结束')+' · '+item.count+' 人 · '+phaseLabel(item)+' · '+new Date(item.updatedAt).toLocaleString('zh-CN')));
+     const preview=button('预览并恢复',()=>{if(playerView)return;try{const candidate=library.get(item.id);open('恢复已保留的对局',previewHost=>{previewHost.append(node('h3',candidate.script.name),hint(new Date(candidate.updatedAt).toLocaleString('zh-CN')+' · '+candidate.seats.length+' 人 · '+phaseLabel(candidate)+' · '+candidate.review.stages.reduce((n,x)=>n+x.entries.length,0)+' 条记录'),hint('当前魔典会先保留在本设备的对局列表。确认后恢复所选对局。'),button('确认恢复这个对局',()=>{try{replace(candidate,{preserveCurrent:true});}catch(e){error(e.message);}},'primary'));});}catch(e){feedback.textContent=e.message;}},'subtle');preview.dataset.gameRestore=item.id;
+     const exportGame=button('下载备份',()=>{if(playerView)return;try{const value=library.get(item.id);download(value.script.name+'-对局备份.json',G.serialize(value));noteBackup(value);feedback.textContent='已发起备份下载，请确认文件已保存。';}catch(e){feedback.textContent=e.message;}},'subtle');exportGame.dataset.gameBackup=item.id;
+     const remove=button('移出列表',()=>{if(!confirm('从本设备列表移除此对局？请先确认已经下载备份；当前魔典不受影响。'))return;run(()=>library.remove(item.id));},'subtle');remove.dataset.gameRemove=item.id;row.append(preview,exportGame,remove);list.append(row);
+    }
+   }draw();
+  });
+ }
+ const backupReceiptKey='botc_grimoire_backup_receipt_v1';
+ function noteBackup(value){try{root.localStorage.setItem(backupReceiptKey,JSON.stringify({gameId:value.gameId,revision:value.revision,at:Date.now()}));}catch{}}
+ function backupStatus(value){let receipt;try{receipt=JSON.parse(root.localStorage.getItem(backupReceiptKey));}catch{}return receipt?.gameId===value.gameId&&receipt.revision===value.revision?'本版本已发起备份下载，请确认文件已保存。':'本版本尚无备份下载记录；自动保存仅在本设备。';}
+ function restorePanel(){if(playerView)return;open('恢复魔典对局',host=>{const file=node('input');file.type='file';file.accept='.json,application/json';file.id='gRestoreFile';let candidate;const preview=node('p','','g-hint'),go=button('恢复这个对局',()=>{try{if(candidate)replace(candidate,{preserveCurrent:true});}catch(e){error(e.message);}},'primary');go.id='gRestoreCommit';go.disabled=true;
+  file.onchange=async()=>{const rev=modalRevision;go.disabled=true;candidate=null;try{const f=file.files[0];if(!f)return;if(f.size>8*1024*1024)throw Error('对局备份不能超过 8 MB');const text=await f.text(),s=G.validate(JSON.parse(text));if(rev!==modalRevision)return;candidate=s;preview.textContent=s.script.name+' · '+s.seats.length+' 个座位 · '+phaseLabel(s)+' · '+new Date(s.updatedAt).toLocaleString('zh-CN')+' · '+s.review.stages.reduce((n,x)=>n+x.entries.length,0)+' 条记录。恢复前会将当前对局保留在本设备的对局列表。';go.disabled=false;}catch(e){if(rev===modalRevision)error('备份无法恢复：'+e.message+'。当前对局未改变。');}};host.append(field('选择魔典对局备份',file),preview,go,hint('普通剧本 JSON 请从“选择剧本 → 导入 JSON”载入。'));
  });}
  try{
   if(!G||!C||!root.GrimoireAux||!root.GrimoireReminders||!root.GrimoireTimer||!root.GrimoireReview||!root.CHARS||!root.PRESETS)throw Error('角色组件未加载，请检查网络后刷新。');
@@ -635,7 +681,7 @@
   try{const saved=JSON.parse(root.localStorage.getItem(displayKey))?.pageZoom;if(Number.isFinite(saved)&&saved>=75&&saved<=150)pageZoom=Math.round(saved/5)*5;}catch{}applyPageZoom();
   try{store=G.openStore(root.localStorage);const saved=store.read();if(saved)state=saved;}catch(e){blocked=true;dirty=true;$('gWarning').hidden=false;$('gWarningText').textContent='原魔典存档无法读取，已保留原始资料：'+e.message+'。当前操作不会自动覆盖它。';$('gSaveStatus').textContent='原存档已保护';}
   if(!blocked)save();
-  aux=root.GrimoireAux.create({C,$,node,button,hint,field,error,open,close,apply,image,roleLabel,decorateToken,safeImage,random,dialog,getState:()=>state,isPlayer:()=>playerView,getRevision:()=>modalRevision});
+  aux=root.GrimoireAux.create({C,$,node,button,hint,field,error,open,close,apply,image,roleLabel,decorateToken,safeImage,random,dialog,getState:()=>state,isPlayer:()=>playerView,getRevision:()=>modalRevision,initialBluffsOpen:phoneViewport()&&uiHeight()>=500,onLayout:schedulePosition});
   markers=root.GrimoireReminders.create({C,node,button,hint,open,close,apply,image,dialog,getState:()=>state,isPlayer:()=>playerView});
   timer=root.GrimoireTimer.create({app,node,button,viewport:panelViewport,measure});
   $('gSeats').addEventListener('pointerdown',()=>{suppressSeatClickUntil=0;},true);
@@ -643,13 +689,13 @@
   $('gScript').onclick=scriptPanel;$('gAssign').onclick=distribution;$('gNight').onclick=nightPanel;$('gNotes').onclick=notes;$('gMenu').onclick=menu;$('gSheet').onclick=sheet;
   $('gSummaryLogo').onclick=scriptPanel;$('gSummaryToggle').onclick=()=>setSummaryCollapsed(true);$('gSummaryOpen').onclick=()=>setSummaryCollapsed(false);
   $('gSeatMinus').replaceChildren(menuIcon('userMinus'));$('gSeatPlus').replaceChildren(menuIcon('userPlus'));
-  const review=root.GrimoireReview.create({getState:()=>state,isPublic:()=>playerView,isDirty:()=>dirty,apply,sidePanel,history,node,button,field,hint,image,contentArrive});$('gHistory').onclick=review.toggle;$('gBluffs').onclick=bluffs;$('gFabled').onclick=fabled;$('gSeatMinus').onclick=()=>resizeSeats(state.seats.length-1);$('gSeatPlus').onclick=()=>resizeSeats(state.seats.length+1);
+  const review=reviewControl=root.GrimoireReview.create({getState:()=>state,getBoard:()=>root.GrimoireReviewExport.captureBoard(state,$('gBoard'),{measure,background:customBackground?.image,dim:customBackground?customBackground.dim/100:0,showLogo:showScriptLogo}),isPublic:()=>playerView,isDirty:()=>dirty,getRoles:()=>C.players(),apply,sidePanel,history,node,button,field,hint,image,roleLabel,decorateToken,reminderToken:markers.token,scriptLogo:script=>safeImage(C.scriptLogo(script))||'theme/custom.png',contentArrive,measure,pointerX,pointerY,open});$('gHistory').onclick=review.toggle;$('gBluffs').onclick=bluffs;$('gFabled').onclick=fabled;$('gSeatMinus').onclick=()=>resizeSeats(state.seats.length-1);$('gSeatPlus').onclick=()=>resizeSeats(state.seats.length+1);
   $('gControlsToggle').onclick=()=>{const hidden=!$('gControlBody').hidden;$('gControlBody').hidden=hidden;$('gControlsToggle').textContent=hidden?'⌃':'⌄';$('gControlsToggle').setAttribute('aria-expanded',String(!hidden));$('gControlsToggle').setAttribute('aria-label',hidden?'展开对局控制':'收起对局控制');position();};
   $('gAdvance').onclick=()=>{if(state.phase==='setup'&&state.seats.some(s=>!s.roleId)&&!confirm('还有座位没有分配角色，仍进入第 1 夜？'))return;apply({type:'advance'});};
   $('gPlayerView').onclick=()=>setPlayerView(!playerView);
   $('gRetry').onclick=()=>{if(save()){if(sheetRefresh&&dialog.open)sheetRefresh();if(notesRefresh)notesRefresh();for(const view of Object.values(sideViews))if(!view.panel.hidden)view.refresh?.();}};$('gBackupWarning').onclick=()=>backup();
   listMode=compactSeats();let previousWidth=uiWidth(),previousHeight=uiHeight();
-  root.addEventListener('resize',()=>{const compact=compactSeats();if(!layoutExplicit)listMode=compact;else if((previousWidth>=700&&uiWidth()<700||previousHeight>=600&&uiHeight()<600)&&compact)listMode=true;schedulePosition();previousWidth=uiWidth();previousHeight=uiHeight();});if(root.ResizeObserver){new ResizeObserver(schedulePosition).observe($('gBoard'));new ResizeObserver(positionLeftTools).observe(app.querySelector('.g-summary'));}render();
+  root.addEventListener('resize',()=>{const compact=compactSeats();if(!layoutExplicit)listMode=compact;else if((previousWidth>=700&&uiWidth()<700||previousHeight>=600&&uiHeight()<600)&&compact)listMode=true;schedulePosition();previousWidth=uiWidth();previousHeight=uiHeight();});if(root.ResizeObserver){const layoutObserver=new ResizeObserver(schedulePosition);for(const id of ['gBoard','gDock','gBluffPanel'])layoutObserver.observe($(id));new ResizeObserver(positionLeftTools).observe(app.querySelector('.g-summary'));}render();
   root.WikiBeforeUpdate=()=>!dirty||save();
   root.addEventListener('resize',updateVisibleViewport);root.visualViewport?.addEventListener('resize',updateVisibleViewport);root.visualViewport?.addEventListener('scroll',updateVisibleViewport);updateVisibleViewport();
   resumeOfflineDraw();setupRoleTooltips();document.addEventListener('keydown',shortcut);

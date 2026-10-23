@@ -3,6 +3,7 @@
  'use strict';
  function create({app,node,button,viewport=()=>({top:0,bottom:root.innerHeight}),measure=n=>n.getBoundingClientRect()}){
   const modes={public:{name:'公聊',duration:300000},private:{name:'私聊',duration:180000}};
+  const stateKey='botc_grimoire_timer_state_v1';let savedTimer;try{savedTimer=JSON.parse(root.sessionStorage.getItem(stateKey));}catch{}
   const centerKey='botc_grimoire_timer_center_v1';let showCenter=true;
   try{const saved=JSON.parse(root.localStorage.getItem(centerKey));if(typeof saved==='boolean')showCenter=saved;}catch{}
   let mode='public',remaining=modes.public.duration,deadline=0,running=false,finished=false,started=false,interval=null,audio;
@@ -26,7 +27,7 @@
   const sound=node('input'),soundLabel=node('label','到时提示音','g-timer-sound'),status=node('p','设置时间后点击开始','g-timer-status'),announcement=node('p','','g-sr-only');sound.type='checkbox';sound.id='gTimerSound';sound.checked=true;soundLabel.prepend(sound);status.id='gTimerStatus';announcement.id='gTimerAnnouncement';announcement.setAttribute('role','status');
   const centerToggle=node('input'),centerLabel=node('label','中央显示倒计时','g-timer-sound'),options=node('div',undefined,'g-timer-options');centerToggle.type='checkbox';centerToggle.id='gTimerShowCenter';centerToggle.checked=showCenter;centerLabel.prepend(centerToggle);options.append(soundLabel,centerLabel);
   centerToggle.onchange=()=>{showCenter=centerToggle.checked;paint();try{root.localStorage.setItem(centerKey,JSON.stringify(showCenter));}catch{status.textContent='显示设置已更新，但浏览器暂时无法保存。';announce();}};
-  sound.onchange=()=>{if(sound.checked&&running)unlockAudio();};panel.append(head,tabs,display,progress,inputs,presets,actions,options,status);app.querySelector('.g-left-tools').append(rail);app.append(panel,announcement);
+  sound.onchange=()=>{if(sound.checked&&running)unlockAudio();persist();};panel.append(head,tabs,display,progress,inputs,presets,actions,options,status);app.querySelector('.g-left-tools').append(rail);app.append(panel,announcement);
   function format(ms){const s=Math.ceil(ms/1000);return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');}
   function fields(){const total=modes[mode].duration/1000;minutes.value=String(Math.floor(total/60));seconds.value=String(total%60);}
   function announce(){announcement.textContent=modes[mode].name+'：'+status.textContent;}
@@ -36,8 +37,9 @@
    if(!minutes.value.trim()||!seconds.value.trim()||!Number.isInteger(m)||!Number.isInteger(s)||m<0||m>180||s<0||s>59||total<1||total>10800){status.textContent='请输入 1 秒至 180 分钟的时长，秒数为 0–59。';announce();return false;}
    const value=total*1000;if(resetRemaining||value!==modes[mode].duration){modes[mode].duration=remaining=value;finished=false;started=false;status.textContent='时长已更新';paint();}return true;
   }
+  let persistedTimer='';function persist(){try{const raw=JSON.stringify({version:1,mode,durations:Object.fromEntries(Object.entries(modes).map(([k,v])=>[k,v.duration])),remaining:running?modes[mode].duration:remaining,deadline,running,finished,started,open:!panel.hidden,sound:sound.checked});if(raw!==persistedTimer){root.sessionStorage.setItem(stateKey,raw);persistedTimer=raw;}}catch{}}
   function paint(){
-   const text=format(remaining);display.textContent=text;display.setAttribute('aria-label',modes[mode].name+'剩余 '+text);mini.textContent=finished?'时间到':text;rail.setAttribute('aria-label',(panel.hidden?'展开':'收起')+'计时工具，'+modes[mode].name+(finished?'时间到':'剩余 '+text));rail.title=modes[mode].name+' · '+(finished?'时间到':running?'剩余 '+text:'已暂停 '+text);rail.classList.toggle('is-running',running);rail.classList.toggle('is-finished',finished);panel.classList.toggle('is-finished',finished);progress.value=Math.min(1,remaining/modes[mode].duration);start.textContent=running?'暂停':finished?'重新开始':remaining<modes[mode].duration?'继续':'开始';
+   persist();const text=format(remaining);display.textContent=text;display.setAttribute('aria-label',modes[mode].name+'剩余 '+text);mini.textContent=finished?'时间到':text;rail.setAttribute('aria-label',(panel.hidden?'展开':'收起')+'计时工具，'+modes[mode].name+(finished?'时间到':'剩余 '+text));rail.title=modes[mode].name+' · '+(finished?'时间到':running?'剩余 '+text:'已暂停 '+text);rail.classList.toggle('is-running',running);rail.classList.toggle('is-finished',finished);panel.classList.toggle('is-finished',finished);progress.value=Math.min(1,remaining/modes[mode].duration);start.textContent=running?'暂停':finished?'重新开始':remaining<modes[mode].duration?'继续':'开始';
    minutes.disabled=seconds.disabled=running;for(const [key,b]of Object.entries(modeButtons)){b.disabled=running;b.setAttribute('aria-pressed',String(key===mode));}for(const b of presets.children)b.disabled=running;
    center.hidden=!showCenter||!started;center.classList.toggle('is-running',running);center.classList.toggle('is-animating',running&&showCenter&&!document.hidden);center.classList.toggle('is-finished',finished);center.classList.toggle('is-paused',started&&!running&&!finished);if(centerDisplay.textContent!==text)centerDisplay.textContent=text;centerDisplay.setAttribute('aria-label',modes[mode].name+'剩余 '+text+(finished?'，时间到':!running?'，已暂停':''));
   }
@@ -52,7 +54,8 @@
   panel.addEventListener('keydown',e=>{if(e.key==='Escape'){e.preventDefault();e.stopPropagation();setOpen(false);}});
   root.document.addEventListener('visibilitychange',tick);root.addEventListener('focus',tick);root.addEventListener('pagehide',()=>{if(audio)audio.close().catch(()=>{});audio=undefined;});
   if(root.ResizeObserver)new root.ResizeObserver(position).observe(panel);
-  fields();paint();return {toggle,position,positionCenter};
+  if(savedTimer?.version===1&&Object.hasOwn(modes,savedTimer.mode)&&Object.values(savedTimer.durations||{}).length===2&&['public','private'].every(k=>Number.isFinite(savedTimer.durations[k])&&savedTimer.durations[k]>=1000&&savedTimer.durations[k]<=10800000)&&Number.isFinite(savedTimer.remaining)&&savedTimer.remaining>=0&&savedTimer.remaining<=10800000&&Number.isFinite(savedTimer.deadline)){mode=savedTimer.mode;for(const k of Object.keys(modes))modes[k].duration=savedTimer.durations[k];remaining=savedTimer.remaining;deadline=savedTimer.deadline;started=savedTimer.started===true;running=started&&savedTimer.running===true;finished=started&&savedTimer.finished===true;sound.checked=savedTimer.sound!==false;panel.hidden=savedTimer.open!==true;rail.setAttribute('aria-expanded',String(!panel.hidden));if(running){remaining=Math.min(10800000,Math.max(0,deadline-Date.now()));if(remaining)interval=root.setInterval(tick,200);else{running=false;finished=true;}}status.textContent=finished?'时间到':running?'正在'+modes[mode].name+'计时':started?'已暂停':'设置时间后点击开始';}
+  fields();paint();position();return {toggle,position,positionCenter};
  }
  root.GrimoireTimer={create};
 })(globalThis);
