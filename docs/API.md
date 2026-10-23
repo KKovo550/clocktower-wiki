@@ -6,10 +6,12 @@
 
 - `index.json`：接口目录、数据数量、内容版本 `revision`。
 - `roles.json`：角色列表 `{version,total,items}`；包含 ID、名称、类型、能力、图片地址、来源及首夜/其他夜晚顺序。
-- `scripts.json`：剧本索引 `{version,total,items}`；包含稳定 ID、名称、作者、分类、角色名单、别名、来源及 JSON 相对地址。
+- `scripts.json`：剧本索引 `{version,total,items}`；包含稳定 ID、名称、作者、分类、角色名单、别名、来源及 JSON 相对地址。附加 `path` 用于与本浏览器剧本库记录对应；`logo`、`logoImages` 使用相对 API 基础地址的本地小图或已有元数据网址，`metadataLogo` 保留已有 HTTP(S) logo 地址；`imageDir`、`images`、`pictureRoles` 为图片分类依据。`customCount` 来自同一编辑器导入器，无法判断时为 `null`，不猜测为 0；`description` 是原始简介，显示时应按文本处理。
 - `scripts/{id}.json`：原始剧本 JSON 数组，可导入剧本工具。通过索引的 `json` 字段获取地址，不通过名称猜测 ID。
 - `night-order.json`：角色默认夜序 `{version,items}`。
 - `jinxes.json`：现有角色相克规则 `{version,items}`。
+
+索引的 `localOriginal` 是剧本库已有原文脚本的内容哈希，仅供直接打开 HTML 的本地兼容模式使用；HTTP 调用方继续使用 `json`。构建还会生成 `script_tool/assets/grimoire/script-directory.js`，内容与目录 JSON 一致，不包含整库角色原文；选择时按需读取已有的 `script_lib/assets/data/originals/<localOriginal>.js`。
 
 ## 搜索名称并获取剧本
 

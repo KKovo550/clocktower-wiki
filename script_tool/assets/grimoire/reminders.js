@@ -3,23 +3,48 @@
  'use strict';
  function create(ui){
   const {C,node,button,hint,open,close,apply,image,dialog,getState,isPlayer}=ui;
-  const common=[['poison','中毒'],['drunk','醉酒'],['good','善良'],['evil','邪恶']];let presentOnly=false;
+  const common=[['poison','中毒'],['drunk','醉酒'],['good','善良'],['evil','邪恶']];let presentOnly=true,arcSerial=0;
+  function caption(text,custom){
+   const svg=(tag,attrs)=>{const n=document.createElementNS('http://www.w3.org/2000/svg',tag);for(const [key,value]of Object.entries(attrs))n.setAttribute(key,value);return n;},chars=Array.from(text),display=chars.length>8?chars.slice(0,7).join('')+'…':text,length=Math.max(1,Array.from(display).length),radius=Math.max(90,Math.min(110,length*25)),angle=32*Math.PI/180,x=radius*Math.sin(angle),y=82-radius+radius*Math.cos(angle),id='gReminderArc_'+(++arcSerial);
+   if(custom){
+    const units=t=>Array.from(t).reduce((n,c)=>n+(/^[\x00-\xff]$/.test(c)?.65:1),0),lines=[];let line='';for(const char of chars){if(line&&units(line+char)>4){lines.push(line);line='';}line+=char;}if(line)lines.push(line);if(lines.length>3){lines.length=3;lines[2]=Array.from(lines[2]).slice(0,-1).join('')+'…';}
+    const label=svg('svg',{viewBox:'0 0 100 100','aria-hidden':'true',class:'g-reminder-caption g-reminder-custom-caption'}),width=Math.max(1,...lines.map(units)),size=lines.length===1?Math.min(38,140/width):Math.min(30,94/width);lines.forEach((line,i)=>{const letters=svg('text',{x:50,y:50+(i-(lines.length-1)/2)*size*1.08,'dominant-baseline':'central','text-anchor':'middle','font-size':size,textLength:Math.min(82,units(line)*size),lengthAdjust:'spacingAndGlyphs'});letters.textContent=line;label.append(letters);});return label;
+   }
+   const label=svg('svg',{viewBox:'0 0 100 100','aria-hidden':'true',class:'g-reminder-caption g-reminder-caption-arc'}),defs=svg('defs',{}),path=svg('path',{id,d:'M '+(50-x)+' '+y+' A '+radius+' '+radius+' 0 0 0 '+(50+x)+' '+y}),letters=svg('text',{'font-size':Math.min(20.5,90/length),'text-anchor':'middle'}),curve=svg('textPath',{href:'#'+id,startOffset:'50%'});curve.textContent=display;defs.append(path);letters.append(curve);label.append(defs,letters);return label;
+  }
   function describe(text,detail){const kind=detail?.kind||common.find(x=>x[1]===text)?.[0]||'custom',role=kind==='role'?getState().script.roles.find(r=>r.id===detail.roleId):C.reminderIcon(kind);return {text,kind,role,source:kind==='role'?role?.name||'角色标记':kind==='custom'?'自定义':'通用'};}
   function token(text,detail,click){
-   const d=describe(text,detail),b=button('',click,'g-reminder-token kind-'+d.kind);b.title=d.source+'：'+text;b.setAttribute('aria-label',d.source+'：'+text);const art=node('span',undefined,'g-reminder-art');if(d.role)art.append(image(d.role));else art.append(node('span','✦','g-reminder-symbol'));b.append(art,node('span',text,'g-reminder-caption'));return b;
+   const d=describe(text,detail),b=button('',click,'g-reminder-token kind-'+d.kind),face=node('span',undefined,'g-reminder-face');b.title=d.source+'：'+text;b.setAttribute('aria-label',d.source+'：'+text);b.dataset.flipped=String(!!detail?.flipped);if(d.role&&d.kind!=='custom'){const art=node('span',undefined,'g-reminder-art');art.append(image(d.role));face.append(art);}face.append(caption(text,d.kind==='custom'));b.append(face);return b;
+  }
+  function actionIcon(remove){
+   const svg=document.createElementNS('http://www.w3.org/2000/svg','svg'),path=document.createElementNS(svg.namespaceURI,'path');svg.setAttribute('viewBox','0 0 24 24');svg.setAttribute('aria-hidden','true');path.setAttribute('d',remove?'M4 6h16M9 6V3h6v3M6 6l1 15h10l1-15M10 10v7M14 10v7':'M19 8a8 8 0 1 0 1 8M19 3v5h-5');svg.append(path);return svg;
+  }
+  function refreshFlip(id,index){
+   const flipped=String(!!getState().seats.find(s=>s.id===id)?.reminderDetails[index]?.flipped);for(const prefix of ['gReminder','gSeatReminder']){const key=prefix+'_'+id+'_'+index,b=document.getElementById(key);if(b){for(const animation of b.querySelector('.g-reminder-face')?.getAnimations?.()||[])animation.cancel();b.dataset.flipped=flipped;}document.getElementById(key+'_flip')?.setAttribute('aria-pressed',flipped);}
+  }
+  function control(id,index,{prefix='gReminder',refresh}={}){
+   const seat=getState().seats.find(s=>s.id===id),text=seat.reminders[index],detail=seat.reminderDetails[index],key=prefix+'_'+id+'_'+index,item=node('div',undefined,'g-reminder-item'),b=token(text,detail,()=>item.classList.toggle('is-open')),actions=node('div',undefined,'g-reminder-actions');b.id=key;b.dataset.reminderIndex=String(index);b.title+=' · 翻转或删除';b.setAttribute('aria-label',b.getAttribute('aria-label')+'，可翻转或删除');actions.setAttribute('role','group');actions.setAttribute('aria-label','提示标记操作：'+text);
+   const flip=button('',()=>{
+    if(isPlayer())return;const old=!!getState().seats.find(s=>s.id===id)?.reminderDetails[index]?.flipped,from=root.getComputedStyle(b.querySelector('.g-reminder-face')).transform||'rotate('+(old?180:0)+'deg)';
+    if(!apply({type:'reminderFlip',seatId:id,index}))return;const next=document.getElementById(key),face=next?.querySelector('.g-reminder-face');next?.parentElement.classList.add('is-open');document.getElementById(key+'_flip')?.focus({preventScroll:true});for(const animation of face?.getAnimations?.()||[])animation.cancel();
+    if(face?.animate&&!root.matchMedia?.('(prefers-reduced-motion: reduce)').matches)face.animate([{transform:from},{transform:'rotate('+(old?0:180)+'deg)'}],{duration:360,easing:'cubic-bezier(.22,.7,.25,1)'});
+   },'g-reminder-action g-reminder-flip'),remove=button('',()=>{
+    if(isPlayer()||!apply({type:'reminderRemove',seatId:id,index}))return;if(refresh)refresh();(document.getElementById(prefix+'_'+id+'_'+index)||document.getElementById(prefix+'_'+id+'_'+(index-1))||document.getElementById(prefix==='gReminder'?'gReminderAdd_'+id:'gSeatReminderAdd'))?.focus({preventScroll:true});
+   },'g-reminder-action g-reminder-delete');flip.id=key+'_flip';remove.id=key+'_delete';flip.title='翻转';flip.setAttribute('aria-label','翻转提示标记：'+text);flip.setAttribute('aria-pressed',String(!!detail?.flipped));remove.title='删除';remove.setAttribute('aria-label','删除提示标记：'+text);flip.append(actionIcon(false));remove.append(actionIcon(true));actions.append(flip,remove);item.append(b,actions);item.addEventListener('pointerleave',e=>{if(e.pointerType!=='touch')item.classList.remove('is-open');});item.addEventListener('focusout',e=>{if(e.relatedTarget&&!item.contains(e.relatedTarget))item.classList.remove('is-open');});return item;
   }
   function seatControls(id){
    const fragment=document.createDocumentFragment();if(isPlayer())return fragment;const state=getState(),seat=state.seats.find(s=>s.id===id);if(!seat)return fragment;
-   const strip=node('div',undefined,'g-reminders g-reminder-tokens');seat.reminders.forEach((text,index)=>{const b=token(text,seat.reminderDetails?.[index],()=>{if(isPlayer())return;if(apply({type:'reminderRemove',seatId:id,index}))document.getElementById('gReminderAdd_'+id)?.focus({preventScroll:true});});b.id='gReminder_'+id+'_'+index;b.dataset.reminderIndex=String(index);b.title+=' · 单击移除';b.setAttribute('aria-label','移除 '+b.getAttribute('aria-label'));strip.append(b);});
+   const strip=node('div',undefined,'g-reminders g-reminder-tokens');seat.reminders.forEach((text,index)=>strip.append(control(id,index)));
    const add=button('',()=>{add.focus({preventScroll:true});picker(id);},'g-reminder-add');add.id='gReminderAdd_'+id;add.title='添加提示标记';add.setAttribute('aria-label','为 '+(state.seats.indexOf(seat)+1)+' 号'+(seat.name?' '+seat.name:'')+' 添加提示标记');add.disabled=seat.reminders.length>=20;strip.append(add);fragment.append(strip);
    if(seat.reminders.length>2){const more=button('⋯',()=>picker(id),'g-reminder-more');more.title='管理全部 '+seat.reminders.length+' 个提示标记';more.setAttribute('aria-label','管理此玩家全部 '+seat.reminders.length+' 个提示标记');fragment.append(more);}return fragment;
   }
-  function picker(id){
+  function picker(id,onReturn){
    if(isPlayer())return;const current=getState(),seat=current.seats.find(s=>s.id===id);if(!seat)return;
    open('添加提示标记 · '+(current.seats.indexOf(seat)+1)+'号',host=>{
     const toolbar=node('div',undefined,'g-reminder-search-row'),search=node('input'),scope=button('只看在场',()=>{presentOnly=!presentOnly;draw();},'subtle');search.id='gReminderSearch';search.type='search';search.placeholder='搜索标记或角色名…';search.setAttribute('aria-label','搜索标记或角色名');scope.id='gReminderPresent';toolbar.append(search,scope);
     const form=node('form',undefined,'g-reminder-search-row'),custom=node('input'),add=button('添加',undefined,'primary');custom.id='gCustomReminderText';custom.placeholder='或自定义一个标记…';custom.maxLength=100;custom.setAttribute('aria-label','自定义提示标记');add.id='gCustomReminderAdd';add.type='submit';form.append(custom,add);const selected=node('div',undefined,'g-reminder-selected'),results=node('div',undefined,'g-reminder-results'),status=node('p',undefined,'g-hint');status.id='gReminderStatus';status.setAttribute('role','status');
-    const addMarker=(text,detail)=>{if(apply({type:'reminderAdd',seatId:id,text,detail}))close();};form.onsubmit=e=>{e.preventDefault();if(custom.value.trim())addMarker(custom.value.trim(),{kind:'custom'});};custom.oninput=()=>{add.disabled=!custom.value.trim()||getState().seats.find(s=>s.id===id).reminders.length>=20;};
+    if(onReturn){const back=button('‹ 返回玩家',onReturn,'subtle');back.id='gReminderBack';toolbar.prepend(back);}
+    const addMarker=(text,detail)=>{if(apply({type:'reminderAdd',seatId:id,text,detail})){if(onReturn)onReturn();else close();}};form.onsubmit=e=>{e.preventDefault();if(custom.value.trim())addMarker(custom.value.trim(),{kind:'custom'});};custom.oninput=()=>{add.disabled=!custom.value.trim()||getState().seats.find(s=>s.id===id).reminders.length>=20;};
     function draw(){
      const state=getState(),target=state.seats.find(s=>s.id===id);if(!target){close();return;}const full=target.reminders.length>=20,terms=search.value.trim().toLocaleLowerCase().split(/\s+/).filter(Boolean),matches=value=>terms.every(q=>value.toLocaleLowerCase().includes(q)),present=new Set(state.seats.map(s=>s.roleId).filter(Boolean));scope.setAttribute('aria-pressed',String(presentOnly));add.disabled=full||!custom.value.trim();selected.replaceChildren();results.replaceChildren();
      if(target.reminders.length){selected.append(node('p','已添加 '+target.reminders.length+' / 20 · 点 × 移除','g-reminder-section-label'));const chips=node('div',undefined,'g-reminder-chips');target.reminders.forEach((text,index)=>{const d=describe(text,target.reminderDetails?.[index]),remove=button(text+' ×',()=>{if(apply({type:'reminderRemove',seatId:id,index}))draw();},'subtle');remove.dataset.removeReminder=String(index);remove.setAttribute('aria-label','移除 '+d.source+'：'+text);chips.append(remove);});selected.append(chips);}
@@ -30,7 +55,8 @@
     search.oninput=draw;host.append(toolbar,form,selected,results,status,hint('标记仅作说书人提醒，不会自动改变生死、阵营或执行角色能力。'));draw();
    });dialog.classList.add('g-reminder-dialog');
   }
-  return {seatControls,picker};
+  document.addEventListener('pointerdown',e=>{document.querySelectorAll('.g-reminder-item.is-open').forEach(item=>{if(!item.contains(e.target))item.classList.remove('is-open');});},true);
+  return {seatControls,picker,token,control,refreshFlip};
  }
  root.GrimoireReminders={create};
 })(globalThis);

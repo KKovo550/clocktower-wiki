@@ -1,0 +1,1 @@
+globalThis.GRIMOIRE_PRESET_LOGOS={"暗流涌动":"assets/grimoire/script-logos/c9f67829fc6298a9dc3864d5.webp","黯月初升":"assets/grimoire/script-logos/bb39e2170de6c9599092dc10.webp","梦殒春宵":"assets/grimoire/script-logos/d1f536d43b986974711bcb90.webp","无上愉悦":"assets/grimoire/script-logos/654bf61226785ac2a9b64f0b.webp","窃窃私语":"assets/grimoire/script-logos/ec5bfcc3aae2992951c877e2.webp"};

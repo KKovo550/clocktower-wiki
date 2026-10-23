@@ -4,7 +4,7 @@
  function create(ui){
   const {C,$,node,button,hint,field,error,open,close,apply,image,roleLabel,decorateToken,safeImage,random,dialog,getState,isPlayer,getRevision}=ui;
   const teamNames={townsfolk:'镇民',outsider:'外来者',minion:'爪牙',demon:'恶魔',traveller:'旅行者',fabled:'传奇角色',loric:'奇遇角色'};
-  let legendOpen=false,bluffsOpen=false,bluffAbsentOnly=false;
+  let legendOpen=false,bluffsOpen=false,bluffAbsentOnly=true;
   function tokenButton(role,click,label){
    const b=button('',click,'g-catalog-token'),token=node('span',undefined,'g-token'+(role?' '+role.team:' g-add-token'));b.setAttribute('aria-label',label||(role?role.name:'添加角色'));
    if(role){const img=image(role);if(img.tagName==='IMG')img.loading='lazy';token.append(img,roleLabel(role.name));decorateToken(token,role);b.title=role.name+'：'+role.ability;}else token.append(node('span','+','g-add-sign'));b.append(token);return b;
@@ -43,9 +43,26 @@
    if(isPlayer())return;const state=getState(),map=new Map(C.specials().map(r=>[r.id,r]));state.script.roles.filter(r=>['fabled','loric'].includes(r.team)).forEach(r=>map.set(r.id,r));
    picker('添加传奇 / 奇遇角色',[...map.values()],['fabled','loric'],r=>{if(apply({type:'specialAdd',role:r})){legendOpen=true;render();close();}},{disabled:r=>state.specials.some(s=>s.id===r.id)?'本局已添加':null,notice:'特殊角色不占座位，不计入存活、投票和夜序。添加只作用于本局，实际规则由说书人判断。',tools:()=>{const row=node('div',undefined,'g-row'),add=button('＋ 自定义角色',()=>custom(), 'primary');add.id='gCustomSpecial';row.append(add);return row;}});
   }
-  function seatRole(id){
-   if(isPlayer())return;const state=getState(),seat=state.seats.find(s=>s.id===id);if(!seat)return;const teams=['townsfolk','outsider','minion','demon','traveller'],roles=state.script.roles.filter(r=>teams.includes(r.team));
-   picker((state.seats.indexOf(seat)+1)+' 号'+(seat.name?' · '+seat.name:'')+' 的角色',roles,teams,r=>{if(seat.roleId===r.id||apply({type:'assign',seatId:id,roleId:r.id}))close();},{selected:r=>seat.roleId===r.id,present:r=>state.seats.some(s=>s.id!==id&&s.roleId===r.id),presentText:'其他座位已用',presentFilter:false,notice:'点击圆牌立即分配。其他座位使用的角色会淡化，仍可选择以支持重复角色。更换角色会清除该玩家原有提醒和阵营标记。',tools:()=>{const row=node('div',undefined,'g-row'),clear=button('清除角色',()=>{if(apply({type:'assign',seatId:id,roleId:''}))close();},'danger');clear.id='gSeatRoleClear';clear.disabled=!seat.roleId;row.append(clear);return row;}});
+  function seatRole(id,onReturn,initialAll=false){
+   if(isPlayer())return;const state=getState(),seat=state.seats.find(s=>s.id===id);if(!seat)return;
+   const playable=r=>!['fabled','loric'].includes(r.team),scriptMap=new Map(state.script.roles.map(r=>[r.id,r])),catalog=new Map([...C.players(),...C.specials()].map(r=>[r.id,r]));for(const r of state.script.roles)catalog.set(r.id,r);
+   const roles=[...catalog.values()],info=new Map(roles.map(r=>[r.id,C.roleInfo(r)])),finish=()=>{if(onReturn)onReturn();else close();};let all=initialAll,team='',category='';const selectedSources=new Set();
+   open((state.seats.indexOf(seat)+1)+' 号'+(seat.name?' · '+seat.name:'')+' 的角色',host=>{
+    const tools=node('div',undefined,'g-seat-role-toolbar'),row=node('div',undefined,'g-seat-role-search'),search=node('input'),scope=button('',()=>{all=!all;if(!all&&!['','townsfolk','outsider','minion','demon','traveller'].includes(team))team='';draw();},'subtle'),clear=button('移除角色',()=>{if(apply({type:'assign',seatId:id,roleId:''}))finish();},'subtle');search.id='gTokenSearch';search.type='search';search.placeholder='搜索角色名或能力…';search.setAttribute('aria-label','搜索角色名或能力');scope.id='gSeatRoleScope';clear.id='gSeatRoleClear';clear.disabled=!seat.roleId;row.append(search,scope,clear);tools.append(row);
+    if(onReturn){const back=button('‹ 返回玩家',finish,'subtle');back.id='gSeatRoleBack';tools.append(back);}
+    const sources=node('div',undefined,'g-role-source-filters'),sourceButtons=node('div',undefined,'g-role-source-buttons'),sourceAll=button('全部来源',()=>{selectedSources.clear();draw();},'subtle');sourceAll.id='gRoleSourceAll';sourceButtons.append(sourceAll);sources.append(node('span','来源','g-role-filter-label'),sourceButtons);for(const [key,label]of C.roleGroups()){const count=roles.filter(r=>info.get(r.id).groups.includes(key)).length;if(!count)continue;const b=button(label+' '+count,()=>{if(selectedSources.has(key))selectedSources.delete(key);else selectedSources.add(key);draw();},'subtle');b.dataset.roleSource=key;sourceButtons.append(b);}tools.append(sources);
+    const filters=node('div',undefined,'g-token-filters g-seat-role-types');filters.append(node('span','类型','g-role-filter-label'));for(const [value,label]of [['','全部'],...Object.entries(teamNames)]){const b=button(label,()=>{team=value;draw();},'subtle');b.dataset.team=value;filters.append(b);}tools.append(filters);
+    const more=node('label',undefined,'g-role-more-filters'),categories=node('select');categories.id='gRoleCategory';categories.setAttribute('aria-label','按能力类别筛选角色');categories.append(new Option('全部能力类别',''));[...new Set(roles.flatMap(r=>info.get(r.id).categories))].sort((a,b)=>a.localeCompare(b,'zh-CN')).forEach(value=>categories.append(new Option(value,value)));categories.onchange=()=>{category=categories.value;draw();};more.append(node('span','更多','g-role-filter-label'),categories);tools.append(more);host.append(tools);
+    const status=node('p',undefined,'g-hint g-seat-role-status'),results=node('div',undefined,'g-token-results');status.id='gSeatRoleResults';status.setAttribute('role','status');host.append(status,results);
+    function pick(r){const current=getState().seats.find(s=>s.id===id);if(!current||isPlayer())return;if(current.roleId===r.id){finish();return;}const action={type:'assign',seatId:id,roleId:r.id};if(!scriptMap.has(r.id))action.extraRole=r;if(apply(action))finish();}
+    function draw(){
+     scope.textContent=all?'只看本剧本':'全部角色';scope.setAttribute('aria-pressed',String(all));sources.hidden=more.hidden=!all;sourceAll.setAttribute('aria-pressed',String(!selectedSources.size));for(const b of sourceButtons.querySelectorAll('[data-role-source]'))b.setAttribute('aria-pressed',String(selectedSources.has(b.dataset.roleSource)));for(const b of filters.querySelectorAll('[data-team]')){b.hidden=!all&&['fabled','loric'].includes(b.dataset.team);b.setAttribute('aria-pressed',String(b.dataset.team===team));}
+     const terms=search.value.trim().toLocaleLowerCase().split(/\s+/).filter(Boolean),matches=roles.filter(r=>(all||scriptMap.has(r.id)&&playable(r))&&(!team||r.team===team)&&terms.every(q=>(r.name+' '+r.ability).toLocaleLowerCase().includes(q))&&(!all||(!selectedSources.size||info.get(r.id).groups.some(s=>selectedSources.has(s)))&&(!category||info.get(r.id).categories.includes(category))));results.replaceChildren();
+     const sections=all?[[true,'本局可选'],[false,'其他剧本的角色']]:[[true,'']];for(const [inside,title]of sections){const members=matches.filter(r=>scriptMap.has(r.id)===inside);if(!members.length)continue;const block=node('section',undefined,'g-role-scope-section');block.dataset.roleScope=inside?'script':'outside';if(title)block.append(node('h3',title,'g-role-scope-title'));for(const [type,label]of Object.entries(teamNames)){const groupRoles=members.filter(r=>r.team===type);if(!groupRoles.length)continue;const group=node('section',undefined,'g-token-group '+type),grid=node('div',undefined,'g-token-grid');group.append(node('h3',label+' · '+groupRoles.length));for(const r of groupRoles){const current=r.id===seat.roleId,present=getState().seats.some(s=>s.id!==id&&s.roleId===r.id),reason=!playable(r)?'请在传奇面板设置':null,b=tokenButton(r,()=>pick(r));b.dataset.roleId=r.id;b.setAttribute('aria-pressed',String(current));if(present)b.classList.add('is-present');const labels=[reason,current?'当前角色':null,present?'其他座位已用':null].filter(Boolean);if(labels.length){b.title=r.name+'：'+labels.join('，')+'。'+r.ability;b.setAttribute('aria-label',r.name+'，'+labels.join('，'));b.append(node('small',labels.join(' · ')));}b.disabled=!!reason;grid.append(b);}group.append(grid);block.append(group);}results.append(block);}
+     status.textContent=matches.length?'共 '+matches.length+' 个角色'+(all?' · 剧本外玩家角色选中后加入本局':' · 点击圆牌分配角色'):'没有匹配的角色，请调整筛选。';status.title='已用角色会淡化，仍可重复分配；更换角色清除该玩家的提示标记与阵营标记。传奇与奇遇请在传奇面板设置。';
+    }
+    search.oninput=draw;draw();
+   });dialog.classList.add('g-token-picker','g-seat-role-picker');$('gDialogClose').textContent='×';
   }
   function details(id){
    const r=getState().specials.find(s=>s.id===id);if(!r)return;open(r.name,host=>{host.append(node('p',teamNames[r.team],'g-inline-progress'),node('p',r.ability||'能力尚未收录。','g-special-ability'));if(!isPlayer()){const row=node('div',undefined,'g-row'),edit=button('编辑本局资料',()=>custom(r)),remove=button('从本局移除',()=>{if(apply({type:'specialRemove',roleId:id}))close();},'danger');edit.id='gSpecialEdit';remove.id='gSpecialRemove';row.append(edit,remove);host.append(row,hint('编辑和移除只影响本局，可从菜单撤销上一步。'));}});
@@ -59,7 +76,7 @@
    });
   }
   root.addEventListener('resize',()=>{if(compact()&&legendOpen&&bluffsOpen){bluffsOpen=false;render();}});
-  return {render,toggleLegend,toggleBluffs,seatRole};
+  return {render,toggleLegend,toggleBluffs,seatRole,picker};
  }
  root.GrimoireAux={create};
 })(globalThis);

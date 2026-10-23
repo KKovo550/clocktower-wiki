@@ -19,13 +19,13 @@
  function script(value){
   if(!value||!Array.isArray(value.roles)||!value.roles.length||value.roles.length>1000)throw Error('请选择包含角色的剧本');
   const roles=value.roles.map(role);if(new Set(roles.map(r=>r.id)).size!==roles.length)throw Error('剧本包含重复角色 ID');
-  return {name:text(value.name||'未命名剧本',200,'剧本名称'),author:text(value.author||'',200,'作者'),roles,rules:text(value.rules||'',40000,'剧本规则')};
+  const result={name:text(value.name||'未命名剧本',200,'剧本名称'),author:text(value.author||'',200,'作者'),roles,rules:text(value.rules||'',40000,'剧本规则')};if(value.logo!==undefined)result.logo=text(value.logo,10000,'剧本图标');return result;
  }
  function reminderDetail(v,roles){
   if(v==null)return null;if(typeof v!=='object'||Array.isArray(v)||!['role','poison','drunk','good','evil','custom'].includes(v.kind))throw Error('提示标记资料无效');
-  const roleId=v.kind==='role'?text(v.roleId,160,'标记来源角色',false):'';if(roleId&&!roles.has(roleId))throw Error('提示标记来源不属于本剧本');return {kind:v.kind,roleId};
+  const roleId=v.kind==='role'?text(v.roleId,160,'标记来源角色',false):'';if(roleId&&!roles.has(roleId))throw Error('提示标记来源不属于本剧本');const detail={kind:v.kind,roleId};if(v.flipped!==undefined&&typeof v.flipped!=='boolean')throw Error('提示标记翻转状态无效');if(v.flipped)detail.flipped=true;return detail;
  }
- function seat(id){return {id,name:'',roleId:'',alive:true,ghostVote:true,alignment:'unknown',reminders:[],reminderDetails:[]};}
+ function seat(id){return {id,name:'',roleId:'',alive:true,ghostVote:true,alignment:'unknown',reminders:[],reminderDetails:[],noteDraft:'',notes:[]};}
  function create(value,count=8){
   integer(count,5,30,'座位数');const now=Date.now();
   return {kind,version:1,script:script(value),seats:Array.from({length:count},(_,i)=>seat('seat_'+(i+1))),phase:'setup',round:0,bluffs:[],specials:[],notes:'',progress:[],history:[],revision:0,updatedAt:now};
@@ -41,6 +41,8 @@
    if(typeof s.alive!=='boolean'||typeof s.ghostVote!=='boolean'||!['unknown','good','evil'].includes(s.alignment))throw Error('玩家状态无效');
    if(!Array.isArray(s.reminders)||s.reminders.length>20)throw Error('每个座位最多 20 个提醒');s.reminders.forEach(t=>text(t,100,'提醒内容',false));
    if(s.reminderDetails!==undefined&&(!Array.isArray(s.reminderDetails)||s.reminderDetails.length>s.reminders.length))throw Error('提示标记与提醒数量不一致');s.reminderDetails=s.reminders.map((_,i)=>reminderDetail(s.reminderDetails?.[i],roles));
+   if(s.noteDraft===undefined)s.noteDraft='';text(s.noteDraft,2000,'玩家笔记草稿');if(s.notes===undefined)s.notes=[];
+   if(!Array.isArray(s.notes)||s.notes.length>100)throw Error('每位玩家最多 100 条笔记');s.notes.forEach(n=>{if(!n||!['setup','day','night'].includes(n.phase)||!Number.isFinite(n.at)||n.at<0)throw Error('玩家笔记格式无效');text(n.text,2000,'玩家笔记',false);integer(n.round,0,99,'笔记天夜数');});
   });
   if(!['setup','day','night'].includes(v.phase))throw Error('对局阶段无效');integer(v.round,0,99,'天夜数');if(v.phase!=='setup'&&!v.round)throw Error('天夜数无效');
   if(!Array.isArray(v.bluffs)||v.bluffs.length>3||new Set(v.bluffs.filter(Boolean)).size!==v.bluffs.filter(Boolean).length||v.bluffs.some(id=>typeof id!=='string'||id!==''&&!roles.has(id)))throw Error('伪装角色无效');
@@ -56,6 +58,29 @@
  }
  function playable(r){return !['fabled','loric'].includes(r.team);}
  function shuffle(values,random=Math.random){const a=values.slice();for(let i=a.length-1;i>0;i--){const n=random();if(typeof n!=='number'||n<0||n>=1)throw Error('随机源无效');const j=Math.floor(n*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+ // Base setup only; orange-flower abilities are resolved manually by the Storyteller.
+ // https://wiki.bloodontheclocktower.com/Setup
+ function distributionCounts(count){
+  const values={5:[3,0,1,1],6:[3,1,1,1],7:[5,0,1,1],8:[5,1,1,1],9:[5,2,1,1],10:[7,0,2,1],11:[7,1,2,1],12:[7,2,2,1],13:[9,0,3,1],14:[9,1,3,1],15:[9,2,3,1]}[count];
+  return values?Object.fromEntries(['townsfolk','outsider','minion','demon'].map((team,i)=>[team,values[i]])):null;
+ }
+ function fillBag(roles,selected,count,{duplicates=false,candidateIds}={},random=Math.random){
+  integer(count,5,30,'座位数');const map=new Map(roles.filter(playable).map(r=>[r.id,r]));
+  if(!Array.isArray(selected)||selected.length>count||selected.some(id=>!map.has(id))||!duplicates&&new Set(selected).size!==selected.length)throw Error('待分配角色无效');
+  if(candidateIds!==undefined&&(!Array.isArray(candidateIds)||candidateIds.some(id=>!map.has(id))))throw Error('候选角色无效');const candidates=candidateIds===undefined?null:new Set(candidateIds);
+  const bag=selected.slice(),travellers=bag.filter(id=>map.get(id).team==='traveller').length,targets=distributionCounts(count-travellers);
+  if(!targets)throw Error('随机补齐适用于 5–15 名非旅行者玩家；请先选择旅行者，或手动选角。');
+  for(const [team,target]of Object.entries(targets)){
+   const chosen=bag.filter(id=>map.get(id).team===team).length,needed=target-chosen;
+   if(needed<0)throw Error('已选角色超出基础类型配比，请手动选满或减少后再随机补齐。');
+   const pool=[...map.values()].filter(r=>r.team===team&&(!candidates||candidates.has(r.id))&&(duplicates||!bag.includes(r.id))).map(r=>r.id);
+   if(needed&&(!pool.length||!duplicates&&pool.length<needed))throw Error('候选角色不足，无法按基础配置补齐；可手动选角、使用全角色库或允许重复。');
+   for(let i=0;i<needed;i++){
+    const n=random();if(typeof n!=='number'||n<0||n>=1)throw Error('随机源无效');const index=Math.floor(n*pool.length);bag.push(pool[index]);if(!duplicates)pool.splice(index,1);
+   }
+  }
+  return bag;
+ }
  function reduce(current,action,random){
   const s=validate(current),map=new Map(s.script.roles.map(r=>[r.id,r]));let message='';
   const target=()=>{const found=s.seats.find(x=>x.id===action.seatId);if(!found)throw Error('找不到这个座位');return found;};
@@ -63,23 +88,33 @@
   const clearCurrent=id=>s.progress.forEach(n=>{if(n.night===s.round)n.steps=n.steps.filter(x=>x.seatId!==id);});
   switch(action.type){
    case 'name':{const p=target();p.name=text(action.name,40,'玩家名称');message='修改玩家名称';break;}
-   case 'assign':{const p=target(),r=map.get(action.roleId);if(action.roleId&&(!r||!playable(r)))throw Error('请选择本剧本中的玩家角色');p.roleId=action.roleId;p.reminders=[];p.reminderDetails=[];p.alignment='unknown';clearCurrent(p.id);message=name(p)+'：'+(r?r.name:'清除角色');break;}
+   case 'seatNoteDraft':{const p=target();p.noteDraft=text(action.text,2000,'玩家笔记草稿');message='更新 '+name(p)+' 的笔记草稿';break;}
+   case 'seatNoteAdd':{const p=target();if(p.notes.length>=100)throw Error('每位玩家最多 100 条笔记');const value=text(action.text,2000,'玩家笔记',false).trim();p.notes.push({text:value,phase:s.phase,round:s.round,at:Date.now()});p.noteDraft='';message='为 '+name(p)+' 记下笔记';break;}
+   case 'seatNoteRemove':{const p=target();integer(action.index,0,p.notes.length-1,'笔记位置');p.notes.splice(action.index,1);message='移除 '+name(p)+' 的一条笔记';break;}
+   case 'assign':{const p=target();if(action.extraRole!==undefined){const extra=role(action.extraRole);if(!playable(extra)||extra.id!==action.roleId||map.has(extra.id))throw Error('新增角色必须是所选的剧本外玩家角色，不能覆盖本剧本资料');s.script.roles.push(extra);map.set(extra.id,extra);}const r=map.get(action.roleId);if(action.roleId&&(!r||!playable(r)))throw Error('请选择本剧本中的玩家角色');p.roleId=action.roleId;p.reminders=[];p.reminderDetails=[];p.alignment='unknown';clearCurrent(p.id);message=name(p)+'：'+(r?r.name:'清除角色');break;}
    case 'life':{const p=target();if(typeof action.alive!=='boolean')throw Error('生死状态无效');p.alive=action.alive;message=name(p)+(p.alive?'恢复存活':'标记死亡');break;}
    case 'vote':{const p=target();if(typeof action.available!=='boolean')throw Error('投票状态无效');p.ghostVote=action.available;message=name(p)+(p.ghostVote?'恢复投票标记':'使用投票标记');break;}
+   case 'cycleStatus':{const p=target();if(p.alive){p.alive=false;p.ghostVote=true;message=name(p)+'标记死亡，死亡票可用';}else if(p.ghostVote){p.ghostVote=false;message=name(p)+'使用死亡票';}else{p.alive=true;p.ghostVote=true;message=name(p)+'恢复存活';}break;}
    case 'alignment':{if(!['unknown','good','evil'].includes(action.alignment))throw Error('阵营标记无效');const p=target();p.alignment=action.alignment;message='修改 '+name(p)+' 的阵营标记';break;}
    case 'reminderAdd':{const p=target();if(p.reminders.length>=20)throw Error('每个座位最多 20 个提醒');p.reminders.push(text(action.text,100,'提醒内容',false).trim());p.reminderDetails.push(reminderDetail(action.detail,map));message='为 '+name(p)+' 添加提醒';break;}
    case 'reminderRemove':{const p=target();integer(action.index,0,p.reminders.length-1,'提醒位置');p.reminders.splice(action.index,1);p.reminderDetails.splice(action.index,1);message='移除 '+name(p)+' 的提醒';break;}
+   case 'reminderFlip':{const p=target();integer(action.index,0,p.reminders.length-1,'提醒位置');const i=action.index,d=p.reminderDetails[i]||{kind:new Map([['中毒','poison'],['醉酒','drunk'],['善良','good'],['邪恶','evil']]).get(p.reminders[i])||'custom',roleId:''};if(d.flipped)delete d.flipped;else d.flipped=true;p.reminderDetails[i]=d;message='翻转 '+name(p)+' 的提醒';break;}
    case 'move':{const p=target(),i=s.seats.indexOf(p);if(![-1,1].includes(action.delta))throw Error('移动方向无效');const j=(i+action.delta+s.seats.length)%s.seats.length;[s.seats[i],s.seats[j]]=[s.seats[j],s.seats[i]];message='调整座位顺序';break;}
    case 'swap':{const p=target(),i=s.seats.indexOf(p),j=s.seats.findIndex(x=>x.id===action.otherSeatId);if(j<0)throw Error('交换座位无效');[s.seats[i],s.seats[j]]=[s.seats[j],s.seats[i]];message='交换玩家座位';break;}
    case 'shuffleSeats':s.seats=shuffle(s.seats,random);message='打乱座位顺序（保留玩家资料）';break;
+   case 'seatRemove':{const p=target();if(s.seats.length<=5)throw Error('至少保留 5 个座位');if(!action.force&&(p.name||p.roleId||p.reminders.length||p.notes.length||p.noteDraft))throw Error('此座位含玩家资料，请先确认');message='移除 '+name(p)+' 的座位';s.seats=s.seats.filter(x=>x.id!==p.id);s.progress.forEach(n=>{n.steps=n.steps.filter(x=>x.seatId!==p.id);});break;}
    case 'resize':{
-    integer(action.count,5,30,'座位数');if(action.count<s.seats.length&&!action.force&&s.seats.slice(action.count).some(x=>x.name||x.roleId||x.reminders.length))throw Error('移除的座位含玩家资料，请先确认并备份');
+    integer(action.count,5,30,'座位数');if(action.count<s.seats.length&&!action.force&&s.seats.slice(action.count).some(x=>x.name||x.roleId||x.reminders.length||x.notes.length||x.noteDraft))throw Error('移除的座位含玩家资料，请先确认并备份');
     let serial=Math.max(...s.seats.map(x=>Number(x.id.slice(5))));while(s.seats.length<action.count)s.seats.push(seat('seat_'+(++serial)));s.seats=s.seats.slice(0,action.count);
     const kept=new Set(s.seats.map(x=>x.id));s.progress.forEach(n=>{n.steps=n.steps.filter(x=>kept.has(x.seatId));});message='调整为 '+action.count+' 个座位';break;
    }
    case 'distribute':{
-    if(!Array.isArray(action.roleIds)||action.roleIds.length!==s.seats.length||action.roleIds.some(id=>!map.has(id)||!playable(map.get(id))))throw Error('所选角色数量必须与座位数一致，且都属于本剧本');
-    const bag=shuffle(action.roleIds,random);s.seats.forEach((p,i)=>{p.roleId=bag[i];p.reminders=[];p.reminderDetails=[];p.alignment='unknown';clearCurrent(p.id);});message='已按选定角色随机分配';break;
+    if(action.extraRoles!==undefined){
+     if(!Array.isArray(action.extraRoles)||action.extraRoles.length>1000)throw Error('新增角色资料无效');
+     for(const value of action.extraRoles){const r=role(value);if(!playable(r)||map.has(r.id)||!action.roleIds?.includes(r.id))throw Error('新增角色必须是已选的剧本外玩家角色，不能覆盖本剧本资料');map.set(r.id,r);s.script.roles.push(r);}
+    }
+    if(!Array.isArray(action.roleIds)||!action.roleIds.length||action.roleIds.length>s.seats.length||action.partial!==true&&action.roleIds.length!==s.seats.length||action.roleIds.some(id=>!map.has(id)||!playable(map.get(id))))throw Error('所选角色数量无效，且必须属于本局剧本');
+    const bag=shuffle(action.roleIds.concat(Array(s.seats.length-action.roleIds.length).fill('')),random);s.seats.forEach((p,i)=>{p.roleId=bag[i];p.reminders=[];p.reminderDetails=[];p.alignment='unknown';clearCurrent(p.id);});message='已随机分配 '+action.roleIds.length+' 个角色'+(action.roleIds.length<s.seats.length?'（其余座位留空）':'');break;
    }
    case 'advance':if(s.phase==='setup'){s.phase='night';s.round=1;}else if(s.phase==='night')s.phase='day';else{if(s.round>=99)throw Error('最多记录 99 夜');s.phase='night';s.round++;}message=s.phase==='night'?'进入第 '+s.round+' 夜':'进入第 '+s.round+' 天';break;
    case 'nightMark':{
@@ -102,7 +137,7 @@
    default:throw Error('未知对局操作');
   }
   s.revision++;s.updatedAt=Date.now();const last=s.history.at(-1);
-  if(last&&['notes','name'].includes(action.type)&&last.type===action.type&&last.phase===s.phase&&last.round===s.round)last.at=s.updatedAt;
+  if(last&&['notes','name','seatNoteDraft'].includes(action.type)&&last.type===action.type&&last.text===message&&last.phase===s.phase&&last.round===s.round)last.at=s.updatedAt;
   else s.history.push({type:action.type,text:message,at:s.updatedAt,phase:s.phase,round:s.round});s.history=s.history.slice(-200);
   return validate(s);
  }
@@ -112,8 +147,12 @@
   return entries.filter(x=>x.role&&!['fabled','loric'].includes(x.role.team)&&x.role[field]>0).sort((a,b)=>a.role[field]-b.role[field]||a.index-b.index).map(x=>({...x,order:x.role[field],reminder:x.role[first?'firstNightReminder':'otherNightReminder'],status:x.seat?records.find(y=>y.seatId===x.seat.id)?.status||'pending':'pending'}));
  }
  function nightQueue(s){return s.phase==='night'?nightOrder(s,{first:s.round===1}):[];}
+ function nightActions(s,options){
+  const groups=new Map();for(const entry of nightOrder(s,options)){let group=groups.get(entry.role.id);if(!group){group={...entry,seats:[],steps:[]};groups.set(entry.role.id,group);}group.seats.push(...entry.seats);for(const seat of entry.seats)group.steps.push({seat,status:entry.seat?entry.status:'pending'});}
+  return [...groups.values()].map(group=>({...group,seat:group.seats.length===1?group.seats[0]:null,status:group.steps.length?(group.steps.every(x=>x.status===group.steps[0].status)?group.steps[0].status:'mixed'):'pending'}));
+ }
  function counts(s){const by={townsfolk:0,outsider:0,minion:0,demon:0,traveller:0};s.seats.forEach(p=>{const r=s.script.roles.find(r=>r.id===p.roleId);if(r&&r.team in by)by[r.team]++;});return {alive:s.seats.filter(p=>p.alive).length,eligible:s.seats.filter(p=>p.alive||p.ghostVote).length,assigned:s.seats.filter(p=>p.roleId).length,by};}
- function publicView(s){return {script:{name:s.script.name,author:s.script.author},phase:s.phase,round:s.round,seats:s.seats.map(({id,name,alive,ghostVote})=>({id,name,alive,ghostVote})),specials:(s.specials||[]).map(({id,name,team,ability,image})=>({id,name,team,ability,image})),alive:counts(s).alive,eligible:counts(s).eligible};}
+ function publicView(s){return {script:{name:s.script.name,author:s.script.author,...(s.script.logo!==undefined?{logo:s.script.logo}:{})},phase:s.phase,round:s.round,seats:s.seats.map(({id,name,alive,ghostVote})=>({id,name,alive,ghostVote})),specials:(s.specials||[]).map(({id,name,team,ability,image})=>({id,name,team,ability,image})),alive:counts(s).alive,eligible:counts(s).eligible};}
  function openStore(storage){let previous=storage.getItem(key);return {read:()=>previous?validate(JSON.parse(previous)):null,save(value){if(storage.getItem(key)!==previous)throw Error('另一页面已更新此魔典，请先备份当前对局，再刷新');const next=JSON.stringify(validate(value));storage.setItem(key,next);previous=next;}};}
- const api={kind,key,create,validate,reduce,nightOrder,nightQueue,counts,publicView,openStore,shuffle};root.ClocktowerGrimoire=api;if(typeof module!=='undefined'&&module.exports)module.exports=api;
+ const api={kind,key,create,validate,reduce,nightOrder,nightQueue,nightActions,counts,publicView,openStore,shuffle,distributionCounts,fillBag};root.ClocktowerGrimoire=api;if(typeof module!=='undefined'&&module.exports)module.exports=api;
 })(globalThis);
