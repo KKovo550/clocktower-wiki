@@ -35,7 +35,14 @@
   if(!role)return {count:0,first:false,other:false,setup:false};const known=role.setup===undefined?root.CHARS.find(r=>r.n===role.name&&r.id.replace(/_gstone$/,'')===role.id.replace(/_gstone$/,'')):null;
   return {count:(role.reminders||[]).filter(s=>s.trim()).length,first:role.firstNight>0,other:role.otherNight>0,setup:role.setup===undefined?!!known?.s:role.setup};
  }
+ // Only catalog-owned page paths may be linked. External IDs do not define role identity.
+ function wikiPage(role){
+  if(!role)return '';const clean=v=>String(v||'').normalize('NFKC').trim(),ability=v=>clean(v).replace(/\s+/g,'').replace(/[，,。；;：:]/g,''),name=clean(role.name),chars=root.CHARS||[],page=c=>c?.page?.startsWith('../pages/')?c.page:'';
+  const exact=chars.find(c=>c.id===role.id&&clean(c.n)===name);if(page(exact))return page(exact);
+  const text=ability(role.ability);if(!name||!text)return '';const matches=chars.filter(c=>clean(c.n)===name&&ability(c.ab)===text);
+  return matches.length===1?page(matches[0]):'';
+ }
  function roleInfo(role){const entries=root.GRIMOIRE_ROLE_FILTERS?.entries,entry=entries&&Object.prototype.hasOwnProperty.call(entries,role.id)?entries[role.id]:null;return entry?.name===role.name?entry:{name:role.name,groups:['custom'],categories:[]};}
  function roleGroups(){return root.GRIMOIRE_ROLE_FILTERS?.groups||[['custom','本局自定义']];}
- root.GrimoireCatalog={parse,preset,presetLogo,scriptLogo,draft,players,specials,reminderIcon,tokenMarks,roleInfo,roleGroups};
+ root.GrimoireCatalog={parse,preset,presetLogo,scriptLogo,draft,players,specials,reminderIcon,tokenMarks,wikiPage,roleInfo,roleGroups};
 })(globalThis);

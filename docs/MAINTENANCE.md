@@ -1,5 +1,17 @@
 # Astro 维护约定
 
+复盘行动输入框右侧使用独立的原生 select（gReviewActionPreset）展开完整预设，选中后写入仍可编辑的 gReviewAction；手动输入自定义行动时取消预设选中。不要换回 input＋datalist：后者会按已填的“选择了”等文字过滤候选，造成点击箭头无法选择其他行动。scripts/test-grimoire-review-action-picker.cjs 以实际点击箭头、键盘选择不同项、预设切换及自定义保存覆盖 Chrome／WebKit 桌面和触屏，界面测试覆盖输入与预设同步和重新编辑。
+
+魔典复盘由 grimoire/review.js 展示，core.js 的可选 review 字段保存连续昼夜阶段、单调记录编号、行动或文字记录。旧 v1 存档缺少 review 时按当前阶段补齐空时间线，不回填或猜测玩家行动。reviewSave 在写入时截取行动人／目标的座位号、姓名、角色 ID／名称／类型；旧快照独立于现有座位与角色，修改文本保留未改选的快照，换座、删座和重新分配不得重写历史。每阶段 100 条、全局 2000 条、198 阶段，并继续受 UTF-8 8 MB 存档上限约束。仅可删除最后阶段，含记录需确认；加删复盘阶段不能推进或回退实际游戏。右侧记录入口打开复盘，菜单操作记录与面板操作历史保留原历史列表；复盘沿用普通玻璃侧栏和现有撤销／保存警告。公开视图须清除面板及编辑草稿，publicView 不导出 review。新增模块同时列入页面脚本与 jsdom 测试加载清单。scripts/test-grimoire-review.cjs 检查 Chrome／WebKit 桌面和触屏的记录、编辑、恢复、玻璃、缩放及隐私。
+
+魔典新功能动效集中在 app.js 的 playMotion／cancelMotion／contentArrive。每个目标只保留一个短动画，完成和取消均释放记录；系统 prefers-reduced-motion 切换、后台和 pagehide 清理动画及背景过渡层。普通弹窗在 open 后的同一轮 RAF 中按最终模式判断，只对非玩家展示正文淡入，关闭同步取消。背景交叉渐变仅缓存旧背景图像和底色，过渡层不含角色或面板 DOM；线下抽取仅对当前图案旋转及公开进度条做动画，盖回先取消并同步清空旧身份。缩放、布局、拖动坐标即时提交，仅附带内容或阴影反馈，避免对 zoom／宽高／位置／模糊做逐帧补间。script-picker 的 onViewChange 为可选展示回调，不写入状态。scripts/test-grimoire-feature-motion.cjs 覆盖真实动画、连点替换、背景清理、身份立即盖回与实时减少动态效果，配合缩放和 panel-motion 回归验证交互及关闭无残影。
+
+魔典网页缩放 pageZoom（75–150，每步 5）保存于 botc_grimoire_display_v1，与显示剧本图标、摘要收起和自由布局偏好一同保留，不写入对局。根节点 CSS zoom 负责整体缩放；--g-viewport-width／--g-viewport-height 将视口单位转换到逻辑尺寸，measure、uiWidth／uiHeight、pointerX／pointerY 负责 DOM 边界及指针坐标转换。原生 visualViewport 的偏移和高度也除以缩放比例，不禁用浏览器原有缩放。计时面板通过依赖注入的 measure 对齐工具按钮。放大后空间不足时启用 g-zoom-table-ui 的可滚动圆桌，保持角色尺寸并避免默认圆桌挤压；100% 继续使用原布局。新增定位代码沿用逻辑坐标，新增视口尺寸样式沿用共享变量。scripts/test-grimoire-zoom.cjs 检查桌面／触屏尺寸、75/125/150%、刷新、面板边界、拖动、提示标记、全屏及展示遮盖，配合自由布局、手机圆桌和菜单回归。
+
+魔典普通弹窗默认继承 app.css 的 --g-glass-* 黑色染色亚光玻璃变量：gDialog 共用规则覆盖根容器、标题栏、透明正文和中性黑色表单／卡片；新增模式复用这个结构即可。非弹窗新增面板使用 g-glass-surface。模糊强度由触屏媒体查询降低，不支持 backdrop-filter 时使用较实的黑色回退；粘性工具栏采用薄黑色和局部模糊，保持滚动时清晰。玩家展示的 g-signal-dialog／g-signal-player、g-bluff-reveal 和线下抽取使用不透明遮盖，继续排除在普通玻璃规则外。目录内 AGENTS.md 记录后续实现约定；scripts/test-grimoire-matte-glass.cjs 覆盖三张参考界面、其他普通模式、无特定模式类的新页面继承，以及展示隐私与桌面／触屏尺寸。
+
+魔典自定义背景由 app.js 的 backgroundPanel／prepareBackground 管理，单独保存至 localStorage 的 botc_grimoire_background_v1，不写入对局、历史或通用显示偏好。只接收本地 JPEG／PNG／WebP（15 MB、6400 万像素以内），解码后最长边缩至 2560，转为 JPEG 并限制 data URL 在 2 MiB 字符以内；选择和暗度调整保持草稿，存储成功才应用。异步图片结果通过 modalRevision 和请求编号丢弃过期选择，finally 释放 object URL。自定义模式仅改 g-app 背景并关闭默认夜景／云雾伪元素，默认模式恢复原有昼夜过渡；不得把不透明的身份展示对话框改成透明。核心／界面测试及 scripts/test-grimoire-custom-background.cjs 覆盖上传缩放、暗度、刷新、昼夜、取消、错误与恢复默认，后者使用 Chrome／WebKit 的桌面和触屏尺寸。
+
 ## 分层与数据来源
 
 正式页面由 Astro 渲染。`src/components/` 负责公共界面，`src/layouts/` 负责页面布局，`src/pages/` 负责现有 URL。侧栏内容只编辑 `config/navigation.json`；Python 兼容站点读取同一配置，不能再单独维护一份菜单。
@@ -116,6 +128,8 @@ B 站图片下载在写入前必须严格解码，不能只检查 PNG/JPEG 文�
 
 魔典菜单使用 `g-menu-dialog` 分组侧栏，菜单刷新与其他面板共用刷新回调，打开角色表／夜序时须清除菜单样式。`shuffleSeats` 仅重排完整座位对象，不重新发角色、不清除提醒或夜序进度。四种布局与圆牌夜序标记是本页偏好；玩家视角不展示夜序编号。“游戏指示”和获胜文字仅全屏展示，不写入胜负或重置对局。运行 `scripts/test-grimoire-menu-browser.cjs`，检查人数取消、乱序／撤销、备份下载、布局、提示遮挡及小屏。
 
+浏览器全屏与游戏指示遮盖分开：fullscreen 在同一次用户点击中同步关闭菜单并调用原生接口，调用前不得等待异步工作以免丢失用户激活。isFullscreen 读取标准／WebKit 状态，退出接口与实际进入的接口类型匹配；fullscreenchange／webkitfullscreenchange 只更新菜单按钮及安排座位布局，不写入对局或重绘私密资料。请求进行中禁用按钮以防重复操作，Promise 拒绝和旧接口错误事件均恢复操作并提示。原问题是全屏调用后菜单仍显示“进入全屏”；scripts/test-grimoire-fullscreen.cjs 在修复前复现该问题，修复后检查真实 Chrome／WebKit 的进入、退出、浏览器主动退出，以及失败恢复和旧接口回退；UI 测试补充待处理请求和错误事件。
+
 游戏指示准备界面为 `.g-signal-compose`，`signalPanel` 的临时草稿保留预设、自定义文字和三个角色 ID，不写入 storage／undo／history；菜单入口须包装为零参数回调，避免把点击事件当草稿。角色选择复用 `aux.picker`，只选择本剧本角色，返回后保留文字与其他附带位。`showSignal` 只创建显式选择的内容，全屏使用 `.g-signal-dialog.g-signal-player` 与 `#gSignalScreen`，背景须不透明，所有私密面板留在其下层。整屏是单个返回按钮，角色 token 不能嵌套按钮；Escape 在 cancel 事件中返回准备界面，模式清理和玩家视角切换必须清除 `signalReturn`，不能意外重开。手机上用 ID 规则保证 `#gSignalScreen` 至少 100dvh，防止全站按钮最小高度覆盖它。运行 `test-grimoire-signals.cjs` 检查 22 项、三格与重复角色、自定义／留空回退、整屏遮挡、返回草稿、键盘／触屏、窄屏／横屏及对局不变；配合 menu-browser 和 core/UI 回归。
 
 `shortcut` 将 T/N/C/O 转发到 `gPlayerView/gAdvance/gSheet/gNight` 现有按钮，不另写状态变更逻辑。仅处理未被消费的单次字母按键；排除输入／选择／富文本焦点、输入法（含 keyCode 229）、重复、Ctrl/Alt/Meta 及任何打开的原生 dialog。执行前取消名称延迟单击，尊重按钮 hidden/disabled；玩家视角只允许 T 与公开角色表 C，N/O 不得绕过私密操作限制。按钮提供 aria-keyshortcuts 及悬停提示。运行 `test-grimoire-shortcuts.cjs` 和 core/UI，验证真实键盘、大小写、阶段与夜数、取消确认、输入笔记、公开角色表、弹窗／全屏保护及小屏；既有 Escape 路径保持独立。
@@ -131,6 +145,8 @@ B 站图片下载在写入前必须严格解码，不能只检查 PNG/JPEG 文�
 名称单击进入 `.g-seat-dialog` 紧凑玩家卡片，保持 `gSeatName/Role/Alignment` 编辑入口；生死与投票收在 `#gSeatStatus`。提示标记复用 `markers.token/picker`，可传返回回调，不能丢失草稿。可选 v1 座位字段 `noteDraft`（2000 字）和 `notes`（至多 100 条 `{text,phase,round,at}`）在校验旧备份时补空值；与全局 notes 字符串分开。`seatNoteDraft` 不重建圆桌，输入按玩家合并撤销及历史；`seatNoteAdd/Remove`、`seatRemove` 均走 reducer，移除座位必须清除其所有夜序 progress 引用，且保留其他座位身份。缩减人数、替换剧本也须识别只有笔记的占用座位。玩家视角清空卡片正文与标题中的输入框，公开投影不得带出草稿或记录。运行 `test-grimoire-seat-card.cjs` 检查紧凑布局、窄屏／横屏、资料入口、草稿与记录、标记返回、状态、换座、移除与撤销、刷新和隐私；配合 core/UI、seat-browser、aux-browser 与独立面板回归。
 
 分配角色使用 `g-distribution-dialog` 和本次草稿，不在点击圆牌、搜索或随机补齐时修改对局。`distributionCounts` 仅提供基础配置，`fillBag` 保留手动选择、排除未选旅行者、不解析特殊设置能力；不能满足配比时原草稿不变。`distribute` 默认仍要求满人数，显式 `partial:true` 才允许未满人数并随机放置空位；`extraRoles` 只允许已选的剧本外玩家角色，与座位分配一次提交和撤销，不覆盖已有导入资料。备份格式仍为 v1。运行 grimoire 核心／界面测试和 `scripts/test-grimoire-distribution-browser.cjs`，验证重复数量、人数上限、搜索、取消、部分分配、随机补齐、全角色库、撤销及手机布局。
+
+线下抽取复用满人数的 `distribute`，开始前先验证当前存档可保存，再准备随机结果、写入会话进度并保存对局，存档失败撤去暂存进度且不替换内存状态。进度 `botc_grimoire_draw_v1` 仅保存版本、对局指纹和已完成座位数，位于 sessionStorage；不另存角色资料或已揭开状态，不改变 v1 备份。指纹包含 revision、updatedAt、座位 ID 和 roleId，恢复时严格核对并从盖住状态继续。逐人查看不再随机；只有盖回并成功写入进度才前进。展示期间公开视图保持开启，原面板私密 DOM 已清除；`g-offline-draw` 复用不透明全屏 signal 样式，禁止背景透出或内容淡入。Escape、后台、pagehide、意外关闭对话框均盖回，不自动跳过该座位；返回说书人必须明确确认。核心／界面测试覆盖存储失败、重复角色、原存档保留和刷新恢复，`scripts/test-grimoire-offline-draw.cjs` 检查 Chrome／WebKit 的桌面、手机横竖屏与 iPad 尺寸。
 
 批量全角色库复用 `C.roleGroups/roleInfo` 的来源名单，来源多选为并集，搜索与来源为交集。`gBagSelected` 预览保留所有草稿角色，按 ID 显示重复数量，点击移除一张；不得因筛选隐藏而丢弃选择。随机补齐将完整玩家定义传入 `fillBag`，通过可选 `candidateIds` 单独限制新增候选，保留来源外的手选角色且不随机追加它们。未传此选项时保留原 API 行为。预览放在列表滚动区内，窄屏来源单行横向滚动，底部操作固定在弹窗内；验证 320×568 和 844×390 时仍有角色滚动空间。
 
@@ -166,6 +182,8 @@ B 站图片下载在写入前必须严格解码，不能只检查 PNG/JPEG 文�
 
 倒计时模块为 grimoire/timer.js 与 timer.css，在 app.js 前加载并由 GrimoireTimer.create 初始化，作为页面内工具独立于 reducer、history、对局存储及私密内容。运行使用 Date.now 截止时间计算剩余量，不能按回调次数减秒；收起、视角切换不暂停，visibilitychange/focus 校准后台时间，到时清除 interval 且只提示一次。音频仅在用户开始或开启声音时解锁，禁用或不支持音频仍有文字和颜色提示。状态提示固定留出两行，避免输入失焦校验改变计时面板高度导致按钮点击落空。测试 scripts/test-grimoire-timer.cjs 覆盖双浏览器、320 窄屏及 844×390 横屏、暂停续计、收起到时与存档不变；核心界面测试另验证到时音效不重复和静音。
 
+中央倒计时 gTimerCenter 是 gBoard 的独立子节点，不在每次重绘的 gSeats 内；positionCenter 接收圆桌中心及图标高度的逻辑坐标，随普通／手机／缩放虚拟画布定位。HUD 共用 timer 的 remaining/running/finished，不另开 interval；started 区分已使用的计时和尚未开始／重置状态。默认打开，仅布尔显示偏好保存至 botc_grimoire_timer_center_v1，计时期限仍不跨刷新保存。沙漏 SVG 保留同一 DOM，用 CSS 小图案旋转，暂停／隐藏／后台／到时停止，prefers-reduced-motion 时无动画。HUD 设 pointer-events:none，并复用黑色亚光玻璃；不写入对局、历史或私密身份。scripts/test-grimoire-center-timer.cjs 覆盖双引擎、桌面／手机横竖屏／iPad、中央位置、缩放与滚动、暂停到时、偏好和减少动态效果。
+
 计时入口位于 .g-left-tools 内、传奇按钮下方，面板通过 timer.position 跟随入口并限制在视口内；positionLeftTools 在摘要折叠、视角与尺寸变化后统一重定位。左侧栏可在高度不足时滚动，保留伪装按钮的空间；玩家视角隐藏伪装入口后按视口底部计算边界，不能使用隐藏元素的零尺寸裁掉侧栏。
 
 自定义导入页采用 .g-script-custom-scroll 与 .g-script-custom-footer：表单／候选在主区滚动，确认按钮与状态留在底部，不能因最近记录数量或长 JSON 被挤出视口。最近标签的显示与删除保留分开的 button、完整可访问名称，当前项按规范化剧本内容比较（不比较 logo）；官方快捷按钮只切换标签，不改对局。Ctrl／Meta + Enter 走相同载入入口并忽略输入法组合状态；主动载入递增 importJob，防止更早的文件或网址请求覆盖内容。使用 script-picker-browser 验证 10 条长名称记录、桌面／320 窄屏／横屏及原有 URL、文件、多剧本、取消、备份与迟到响应保护。
@@ -174,7 +192,7 @@ B 站图片下载在写入前必须严格解码，不能只检查 PNG/JPEG 文�
 
 提示标记的悬停操作由 reminders.js 的 control 生成，圆牌按钮与翻转／删除按钮为并列节点，不能嵌套 button。桌面悬停、键盘聚焦或触屏点击圆牌显示操作，点击圆牌本身不删除。翻转通过 reminderFlip 更新 reminderDetails 的可选 flipped:true，旧版省略字段仍可读取；图案、文字与纹理共用 .g-reminder-face 旋转 180°，仅对内层图案播放 360ms 动画，坐标与操作按钮不能旋转，减少动态效果时跳过动画。翻转随备份、刷新、换座和撤销保留，公开视角清空标记与操作。
 
-角色表与夜序面板的图标通过 app.js 的 roleWikiIcon 包装为新窗口链接，仅从 CHARS 中同时匹配 ID 与名称后读取本站 ../pages/ 路径，不使用导入剧本提供的网址；未知或改名角色保持 span。链接须保留 _blank、noopener noreferrer、角色名与百科用途的可访问名称，以及键盘聚焦样式，不能拦截标题栏拖动或修改对局。grimoire-ui 检查可信映射与自定义降级，panels-browser 检查固定／浮动图标实际打开新页面、原页面与对局保持不变。
+角色表与夜序面板的图标通过 app.js 的 roleWikiIcon 包装为新窗口链接，玩家卡片的游戏建议也复用 GrimoireCatalog.wikiPage。优先保留 CHARS 中 ID 与名称一致的映射；外部 ID 则仅按标准化名称与能力文本唯一匹配，忽略空白、全半角及常见逗号、句号、分号、冒号，不忽略夜晚星号、数量或加减号。只读取 CHARS 的本站 ../pages/ 路径，不使用导入剧本提供的网址；能力版本不同、同名能力匹配有歧义或未知角色保持普通图标，不改写原始角色定义。链接须保留 _blank、noopener noreferrer、角色名与百科用途的可访问名称，以及键盘聚焦样式，不能拦截标题栏拖动或修改对局。grimoire-ui 检查可信映射与自定义降级，panels-browser 检查固定／浮动图标实际打开新页面、原页面与对局保持不变；test-grimoire-wiki-links.cjs 使用真实的精挑细选v17外部 ID 剧本回归两个面板、桌面／触屏和固定／浮动窗口。
 
 窗口 resize 与圆桌 ResizeObserver 共用 schedulePosition，在一帧内合并排版请求；显式 position（如换布局／角色变更后的 render）会取消待执行帧并立即更新，避免使用过时坐标。scripts/test-grimoire-layout-performance.cjs 覆盖 13／30 人圆桌的密集尺寸事件与浏览器重排次数；不使用受机器负载影响的绝对耗时作为通过条件。玩家改名走 refreshSeatName，只更新对应座位的可见名字及无障碍标签，不能重建圆牌／标记、打断动画或改变其他座位；grimoire-ui 保留节点、提醒状态和撤销回归。
 
@@ -183,3 +201,7 @@ B 站图片下载在写入前必须严格解码，不能只检查 PNG/JPEG 文�
 phoneViewport 只匹配粗指针下宽度不超过 700px，或宽度不超过 1000px 且高度小于 500px 的视口；这些视口默认调用 positionPhoneTable，使用圆桌和独立滚动区域，40px 标记、24px 朝内间距及紧凑控制栏均限定在 g-phone-ui。超过 20 人的圆桌宽度至少为 620px，提示标记较多时也按向内直线所需空间扩展，允许横向平移；玩家视角不使用私密标记数量计算圆桌尺寸。普通手机圆桌为底部控制留出可视区域，短横屏改为左右分区。细指针桌面沿用原坐标计算；test-grimoire-phone-circle.cjs 检查触屏 8／13／15／20／30 人、平移、提醒入口、首中末座位和手选列表，设置 GRIMOIRE_DESKTOP_BASELINE 可与旧构建比较桌面几何信息。平板圆桌的横向半径不再为桌面侧栏预留 400px，底部按控制栏实测高度留空。resize 只调整布局和坐标，不调用 render 重建座位；手选布局由 layoutExplicit 区分。VisualViewport 的 resize／scroll 仅在粗指针且 scale 接近 1 时更新编辑窗口可见高度和上下边界，不改变对局、不移动整个圆桌，也不拦截捏合缩放。浮动面板和 timer 共用可见边界，文本区域须保留节点与光标。运行 scripts/test-grimoire-responsive.cjs（手机、iPad 横竖屏、分屏、浮动面板与布局恢复）和 scripts/test-grimoire-visual-viewport.cjs（模拟键盘缩高与视口平移），配合 panel-resize、seat-card、timer、panels-browser 与 layout-performance 回归；浏览器模拟不等同于实体设备测试。
 
 标记翻转走 reminders.refreshFlip，同步圆桌与玩家卡片中的朝向和 aria-pressed，不重建其他圆牌／标记。反向翻转从当前显示角度继续，停止同一标记已有的动画；其他标记的动画继续运行。grimoire-ui 与 reminder-flip 浏览器回归覆盖连续翻转、双视图一致、撤销与刷新。
+
+圆桌的能力悬浮说明由 app.js 的 setupRoleTooltips 统一委托给 gSeats，只响应鼠标悬停及键盘可见焦点，触屏点击继续原有选角功能。说明读取当前对局能力，用 textContent 输出，固定坐标限制在可见视口内，不跟随每次 pointermove 测量。render、open、滚动、窗口失焦及切换玩家视角时清空说明和 aria-describedby，避免缓存私密角色文字。test-grimoire-role-hover.cjs 检查白色名称、边缘定位、字距、HTML 文本、键盘收起、触屏与隐私。
+
+自由摆放使用 tableShape=free 和独立的 freePositions 编号数组，写入 botc_grimoire_display_v1.freeLayout，不进入对局状态、历史或备份。placeSeats 以画布比例适配视口，按整座圆牌和名称的尺寸约束边界；不改玩家 ID 或顺序。setupSeatPointer 在自由模式下移动位置、在其他模式下保留 swap；pointermove 合并到现有 RAF，仅松手／键盘微调后保存，取消手势恢复拖动前坐标。自由模式下不自动转列表，手机画布大小不随私密标记数变化；新增编号取圆桌默认点，删除及换座保持编号对应的布局。自由模式提示标记沿角色到中央的直线定距排列；不执行避让。test-grimoire-free-layout.cjs 检查桌面／触屏拖动、提示跟随、刷新恢复、窗口适配、键盘、重置、玩家视角和损坏的布局偏好。

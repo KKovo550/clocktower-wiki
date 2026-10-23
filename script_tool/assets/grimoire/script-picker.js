@@ -4,7 +4,7 @@
     const recentKey = 'botc_grimoire_scripts_v1', maxRecentBytes = 2 * 1024 * 1024;
     const normalize = value => String(value || '').replace(/\\/g, '/').toLocaleLowerCase();
     function create(ui) {
-        const { C, G, $, node, button, open, dialog, fetchJSON, newScript, getState, getRevision, toast } = ui;
+        const { C, G, $, node, button, open, dialog, fetchJSON, newScript, getState, getRevision, toast, onViewChange = () => {} } = ui;
         let directoryPromise, recent = [], recentWarning = '', recentBlocked = false;
         const localLoads = new Map(), fileMode = root.location.protocol === 'file:';
         function localData(path, readValue) {
@@ -447,7 +447,7 @@
                     tabButtons[name].tabIndex = name === key ? 0 : -1;
                 } if (key === 'library')
                     loadLibrary(); if (key === 'custom')
-                    say(status.custom, recentWarning); }
+                    say(status.custom, recentWarning); onViewChange(panels[key]); }
             });
             dialog.classList.add('g-script-dialog');
             dialog.dataset.scriptTab = 'official';

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-  <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>在线魔典 - 钟楼资料库</title><meta name="description" content="复用钟楼资料库角色与剧本的单机说书人魔典。围桌分配角色、记录提醒与夜序，支持本地保存和对局备份。"><link rel="stylesheet" href="assets/grimoire/app.css?v=af01eb911a11"><link rel="stylesheet" href="assets/grimoire/aux.css?v=1be9692027c7">
-<link rel="stylesheet" href="assets/grimoire/reminders.css?v=25f67a290e08">
-<link rel="stylesheet" href="assets/grimoire/timer.css?v=233214c5e62b">
+  <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>在线魔典 - 钟楼资料库</title><meta name="description" content="复用钟楼资料库角色与剧本的单机说书人魔典。围桌分配角色、记录提醒与夜序，支持本地保存和对局备份。"><link rel="stylesheet" href="assets/grimoire/app.css?v=d64e3d868011"><link rel="stylesheet" href="assets/grimoire/aux.css?v=341656bac0a1">
+<link rel="stylesheet" href="assets/grimoire/reminders.css?v=b3cffacbc481">
+<link rel="stylesheet" href="assets/grimoire/timer.css?v=925bb61e418b">
 <link rel="preload" as="image" href="theme/life1.png">
 <link rel="preload" as="image" href="theme/death1.png">
 <link rel="preload" as="image" href="theme/bg_night.png">
@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="../assets/product-hierarchy.css?v=bb44d88abe3c">
 <link rel="stylesheet" href="../assets/archive-parchment.css?v=a857d7c52c7c">
 <link rel="stylesheet" href="../assets/site-cache.css?v=a00270771db0">
-<script src="../assets/site-cache.js?v=237c8a660115" data-site-version="478b2bc2c2198ece"></script>
+<script src="../assets/site-cache.js?v=237c8a660115" data-site-version="5c35c89784310f78"></script>
 <meta name="generator" content="Astro v7.3.3"></head>
   <body class="grimoire-page" data-root="../">
     <header class="site-header">
@@ -172,7 +172,7 @@
  <section class="g-summary" id="gSummary" aria-label="本局剧本摘要"><button class="g-summary-logo" id="gSummaryLogo" type="button" aria-label="切换剧本" title="点击切换剧本"></button><div class="g-summary-body" id="gSummaryBody"><h2 id="gTitle">正在载入剧本</h2><div class="g-composition" id="gComposition"></div><div class="g-counts" id="gCounts"></div><p class="g-save g-sr-only" id="gSaveStatus" role="status">正在读取本地资料…</p></div><button class="g-summary-toggle" id="gSummaryToggle" type="button" aria-label="收起对局信息" aria-controls="gSummary" aria-expanded="true" title="收起对局信息">«</button></section>
  <div class="g-view-actions" aria-label="显示方式"><button class="g-button" type="button" id="gPlayerView" aria-keyshortcuts="T" aria-pressed="false" aria-label="切换玩家视角" title="切换玩家视角"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/><path class="g-eye-slash" d="M3 3 21 21"/></svg></button></div>
  <div class="g-side-tools g-left-tools" role="toolbar" aria-label="说书人工具"><button class="g-rail-button" id="gSummaryOpen" type="button" aria-label="展开对局信息" aria-controls="gSummary" aria-expanded="true" hidden>对局</button><button class="g-rail-button" id="gNotes" type="button" aria-controls="gNotesPanel" aria-expanded="false">笔记</button><button class="g-rail-button" id="gFabled" type="button" title="本剧本的传奇与奇遇角色">传奇</button></div>
- <div class="g-side-tools g-right-tools" role="toolbar" aria-label="对局工具"><button class="g-rail-button" id="gMenu" type="button">菜单</button><button class="g-rail-button" id="gSheet" aria-keyshortcuts="C" title="角色列表（C）" type="button">角色</button><button class="g-rail-button" id="gNight" aria-keyshortcuts="O" title="夜晚行动顺序（O）" type="button">夜序</button><button class="g-rail-button" id="gHistory" type="button">记录</button></div>
+ <div class="g-side-tools g-right-tools" role="toolbar" aria-label="对局工具"><button class="g-rail-button" id="gMenu" type="button">菜单</button><button class="g-rail-button" id="gSheet" aria-keyshortcuts="C" title="角色列表（C）" type="button">角色</button><button class="g-rail-button" id="gNight" aria-keyshortcuts="O" title="夜晚行动顺序（O）" type="button">夜序</button><button class="g-rail-button" id="gHistory" title="按昼夜记录玩家行动与复盘" type="button">记录</button></div>
  <button class="g-rail-button g-bluffs" id="gBluffs" type="button" aria-expanded="false" aria-controls="gBluffPanel">伪装</button>
  <section class="g-notes-panel" id="gNotesPanel" aria-labelledby="gNotesTitle" hidden></section>
  <section class="g-aux-panel g-legend-panel" id="gLegendPanel" aria-label="本局传奇与奇遇" hidden></section>
@@ -185,7 +185,7 @@
 </div></main><footer>
   非官方社区资料库。<a href="../about.html">关于本站与来源</a> · 百科内容来源于 <a href="https://clocktower-wiki.gstonegames.com" target="_blank" rel="noopener">钟楼百科</a>；原文、角色及剧本图片等素材的权利归各自权利人所有。本界面不表示任何品牌授权或合作关系。
 </footer>
-<script defer src="assets/script-tool/data.js?v=746bb5b95d47"></script><script defer src="assets/script-tool/core.js?v=f616f5258d43"></script><script defer src="assets/script-tool/drafts.js?v=5efa9e816804"></script><script defer src="assets/grimoire/core.js?v=0e9d883a7278"></script><script defer src="assets/grimoire/script-logo-presets.js?v=affba3a953a9"></script><script defer src="assets/grimoire/role-filters.js?v=754127e47147"></script><script defer src="assets/grimoire/catalog.js?v=e0a764b75798"></script><script defer src="assets/grimoire/aux.js?v=87c1a065cf7c"></script><script defer src="assets/grimoire/reminders.js?v=64002d83631e"></script><script defer src="assets/grimoire/timer.js?v=626b5b8aed48"></script><script defer src="assets/grimoire/script-picker.js?v=5b71166eb9ea"></script><script defer src="assets/grimoire/app.js?v=d465fa0ed7de"></script><script src="../assets/wiki.js?v=da7f6e63e44d"></script><script src="../assets/start-guide.js?v=42f5d0e370c3" defer></script>
+<script defer src="assets/script-tool/data.js?v=746bb5b95d47"></script><script defer src="assets/script-tool/core.js?v=f616f5258d43"></script><script defer src="assets/script-tool/drafts.js?v=5efa9e816804"></script><script defer src="assets/grimoire/core.js?v=1b11dee2933b"></script><script defer src="assets/grimoire/script-logo-presets.js?v=affba3a953a9"></script><script defer src="assets/grimoire/role-filters.js?v=754127e47147"></script><script defer src="assets/grimoire/catalog.js?v=2ba0e6f94022"></script><script defer src="assets/grimoire/aux.js?v=87c1a065cf7c"></script><script defer src="assets/grimoire/reminders.js?v=64002d83631e"></script><script defer src="assets/grimoire/timer.js?v=0ffb990c8230"></script><script defer src="assets/grimoire/script-picker.js?v=c253d2ff9711"></script><script defer src="assets/grimoire/review.js?v=a352e2a94de2"></script><script defer src="assets/grimoire/app.js?v=42ef22353570"></script><script src="../assets/wiki.js?v=da7f6e63e44d"></script><script src="../assets/start-guide.js?v=42f5d0e370c3" defer></script>
 
   </body>
 </html>

@@ -26,9 +26,25 @@
   const roleId=v.kind==='role'?text(v.roleId,160,'标记来源角色',false):'';if(roleId&&!roles.has(roleId))throw Error('提示标记来源不属于本剧本');const detail={kind:v.kind,roleId};if(v.flipped!==undefined&&typeof v.flipped!=='boolean')throw Error('提示标记翻转状态无效');if(v.flipped)detail.flipped=true;return detail;
  }
  function seat(id){return {id,name:'',roleId:'',alive:true,ghostVote:true,alignment:'unknown',reminders:[],reminderDetails:[],noteDraft:'',notes:[]};}
+ function reviewStage(index){return {phase:index%2?'day':'night',round:Math.floor(index/2)+1,entries:[]};}
+ function reviewData(value,phase,round){
+  if(value===undefined)return {nextId:1,stages:Array.from({length:Math.max(1,round*2-(phase==='night'?1:0))},(_,i)=>reviewStage(i))};
+  if(!value||typeof value!=='object'||!Array.isArray(value.stages))throw Error('复盘阶段无效');integer(value.nextId,1,Number.MAX_SAFE_INTEGER,'复盘记录编号');integer(value.stages.length,1,198,'复盘阶段数量');
+  const ids=new Set();let total=0;
+  const participant=p=>{if(!p||typeof p!=='object'||typeof p.seatId!=='string'||!/^seat_\d+$/.test(p.seatId)||p.seatId.length>25)throw Error('复盘玩家无效');integer(p.number,1,30,'复盘座位');text(p.name,40,'复盘玩家名称');text(p.roleId,160,'复盘角色');text(p.roleName,120,'复盘角色名称');if(!['unknown',...teams].includes(p.team))throw Error('复盘角色类型无效');return {seatId:p.seatId,number:p.number,name:p.name,roleId:p.roleId,roleName:p.roleName,team:p.team};};
+  const stages=value.stages.map((stage,i)=>{
+   const expected=reviewStage(i);if(!stage||stage.phase!==expected.phase||stage.round!==expected.round||!Array.isArray(stage.entries)||stage.entries.length>100)throw Error('复盘阶段顺序或记录数量无效');total+=stage.entries.length;if(total>2000)throw Error('本局最多 2000 条复盘记录');
+   return {...expected,entries:stage.entries.map(e=>{
+    if(!e||!['text','action'].includes(e.kind)||!Number.isFinite(e.at)||e.at<0)throw Error('复盘记录无效');integer(e.id,1,value.nextId-1,'复盘记录编号');if(ids.has(e.id))throw Error('复盘记录编号重复');ids.add(e.id);
+    const base={id:e.id,kind:e.kind,at:e.at};if(e.kind==='text')return {...base,text:text(e.text,2000,'复盘文字',false)};
+    if(!Array.isArray(e.targets)||e.targets.length>30||new Set(e.targets.map(p=>p?.seatId)).size!==e.targets.length)throw Error('复盘目标无效');
+    return {...base,actor:e.actor===null?null:participant(e.actor),action:text(e.action,100,'复盘行动',false),targets:e.targets.map(participant),result:text(e.result,2000,'复盘结果')};
+   })};
+  });return {nextId:value.nextId,stages};
+ }
  function create(value,count=8){
   integer(count,5,30,'座位数');const now=Date.now();
-  return {kind,version:1,script:script(value),seats:Array.from({length:count},(_,i)=>seat('seat_'+(i+1))),phase:'setup',round:0,bluffs:[],specials:[],notes:'',progress:[],history:[],revision:0,updatedAt:now};
+  return {kind,version:1,script:script(value),seats:Array.from({length:count},(_,i)=>seat('seat_'+(i+1))),phase:'setup',round:0,bluffs:[],specials:[],notes:'',progress:[],history:[],review:reviewData(undefined,'setup',0),revision:0,updatedAt:now};
  }
  function validate(value){
   if(!value||value.kind!==kind||value.version!==1)throw Error('不是受支持的在线魔典备份');
@@ -54,6 +70,7 @@
   if(!Array.isArray(v.progress)||v.progress.length>99)throw Error('夜间记录无效');const nights=new Set();
   v.progress.forEach(n=>{integer(n.night,1,99,'夜数');if(nights.has(n.night)||!Array.isArray(n.steps)||n.steps.length>30)throw Error('夜间记录重复或无效');nights.add(n.night);const seen=new Set();n.steps.forEach(s=>{if(!ids.has(s.seatId)||seen.has(s.seatId)||!['done','skipped'].includes(s.status))throw Error('行动记录无效');seen.add(s.seatId);});});
   if(!Array.isArray(v.history)||v.history.length>200)throw Error('操作记录无效');v.history.forEach(e=>{text(e.text,300,'操作记录');text(e.type,30,'操作类型');if(!Number.isFinite(e.at)||!['setup','day','night'].includes(e.phase))throw Error('操作记录格式无效');integer(e.round,0,99,'记录天夜数');});
+  v.review=reviewData(v.review,v.phase,v.round);
   if(utf8Size(JSON.stringify(v))>8*1024*1024)throw Error('对局备份超过 8 MB');return v;
  }
  function playable(r){return !['fabled','loric'].includes(r.team);}
@@ -116,7 +133,20 @@
     if(!Array.isArray(action.roleIds)||!action.roleIds.length||action.roleIds.length>s.seats.length||action.partial!==true&&action.roleIds.length!==s.seats.length||action.roleIds.some(id=>!map.has(id)||!playable(map.get(id))))throw Error('所选角色数量无效，且必须属于本局剧本');
     const bag=shuffle(action.roleIds.concat(Array(s.seats.length-action.roleIds.length).fill('')),random);s.seats.forEach((p,i)=>{p.roleId=bag[i];p.reminders=[];p.reminderDetails=[];p.alignment='unknown';clearCurrent(p.id);});message='已随机分配 '+action.roleIds.length+' 个角色'+(action.roleIds.length<s.seats.length?'（其余座位留空）':'');break;
    }
-   case 'advance':if(s.phase==='setup'){s.phase='night';s.round=1;}else if(s.phase==='night')s.phase='day';else{if(s.round>=99)throw Error('最多记录 99 夜');s.phase='night';s.round++;}message=s.phase==='night'?'进入第 '+s.round+' 夜':'进入第 '+s.round+' 天';break;
+   case 'advance':if(s.phase==='setup'){s.phase='night';s.round=1;}else if(s.phase==='night')s.phase='day';else{if(s.round>=99)throw Error('最多记录 99 夜');s.phase='night';s.round++;}while(s.review.stages.length<s.round*2-(s.phase==='night'?1:0))s.review.stages.push(reviewStage(s.review.stages.length));message=s.phase==='night'?'进入第 '+s.round+' 夜':'进入第 '+s.round+' 天';break;
+   case 'reviewStageAdd':if(s.review.stages.length>=198)throw Error('最多记录 99 天夜');s.review.stages.push(reviewStage(s.review.stages.length));message='添加复盘阶段';break;
+   case 'reviewStageRemove':if(s.review.stages.length<=1)throw Error('至少保留第 1 夜');if(s.review.stages.at(-1).entries.length&&!action.force)throw Error('阶段含复盘记录，请先确认删除');s.review.stages.pop();message='删除末尾复盘阶段';break;
+   case 'reviewSave':{
+    integer(action.stageIndex,0,s.review.stages.length-1,'复盘阶段');const stage=s.review.stages[action.stageIndex],index=action.entryId===undefined?-1:stage.entries.findIndex(e=>e.id===action.entryId),old=index<0?null:stage.entries[index];
+    if(action.entryId!==undefined&&!old)throw Error('复盘记录已不存在');if(!old&&(stage.entries.length>=100||s.review.stages.reduce((n,x)=>n+x.entries.length,0)>=2000))throw Error('每阶段最多 100 条，本局最多 2000 条复盘记录');
+    if(!old&&s.review.nextId>=Number.MAX_SAFE_INTEGER)throw Error('复盘记录编号超出范围');const entry={id:old?.id??s.review.nextId++,kind:action.kind,at:old?.at??Date.now()};
+    const snapshot=(id,previous)=>{if(previous?.seatId===id)return previous;const p=s.seats.find(x=>x.id===id);if(!p)throw Error('复盘玩家已不存在，请重新选择');const r=map.get(p.roleId);return {seatId:p.id,number:s.seats.indexOf(p)+1,name:p.name,roleId:p.roleId,roleName:r?.name||'',team:r?.team||'unknown'};};
+    if(entry.kind==='text')entry.text=text(action.text,2000,'复盘文字',false).trim();else if(entry.kind==='action'){
+     entry.actor=action.actorSeatId?snapshot(action.actorSeatId,old?.actor):null;entry.action=text(action.action,100,'复盘行动',false).trim();entry.result=text(action.result??'',2000,'复盘结果').trim();
+     if(!Array.isArray(action.targetSeatIds)||action.targetSeatIds.length>30||new Set(action.targetSeatIds).size!==action.targetSeatIds.length)throw Error('复盘目标无效');entry.targets=action.targetSeatIds.map(id=>snapshot(id,old?.targets?.find(p=>p.seatId===id)));
+    }else throw Error('复盘记录类型无效');if(index<0)stage.entries.push(entry);else stage.entries[index]=entry;message=old?'编辑复盘记录':'添加复盘记录';break;
+   }
+   case 'reviewRemove':{integer(action.stageIndex,0,s.review.stages.length-1,'复盘阶段');const entries=s.review.stages[action.stageIndex].entries,index=entries.findIndex(e=>e.id===action.entryId);if(index<0)throw Error('复盘记录已不存在');entries.splice(index,1);message='删除复盘记录';break;}
    case 'nightMark':{
     if(s.phase!=='night'||!['done','skipped','pending'].includes(action.status))throw Error('请在夜间记录行动');const p=target();if(!nightQueue(s).some(x=>x.seat.id===p.id))throw Error('这个座位没有当前夜的行动');
     let n=s.progress.find(x=>x.night===s.round);if(!n){n={night:s.round,steps:[]};s.progress.push(n);}n.steps=n.steps.filter(x=>x.seatId!==p.id);if(action.status!=='pending')n.steps.push({seatId:p.id,status:action.status});message=name(p)+' 的行动：'+({done:'完成',skipped:'跳过',pending:'撤回'})[action.status];break;
