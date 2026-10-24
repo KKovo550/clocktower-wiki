@@ -1,5 +1,7 @@
 # Astro 维护约定
 
+分享请求的超时必须覆盖响应体消费，不能在仅收到 HTTP 头后就清除计时器。`share-link.js` 的 request 在 15 秒内未收到响应头时终止，整个连接及 body 消费共 45 秒；使用 Promise deadline 和 AbortController，底层连接忽略 abort 时 UI 仍可结束等待。`readLimited` 响应取消，解密与解压另有 30 秒 deadline。阅读阶段显示连接、下载量、解密状态，旧任务不得回填新链接的界面。回归覆盖“收到头但 body 永不结束”、忽略 abort 的连接和解密停住，运行 `scripts/test-grimoire-share-network.cjs` 验证 Chrome/WebKit 手机视图。手机尺寸或使用代理的浏览器验收不等同于真实手机网络可达性，发布时需单独比较服务地址的直连与代理结果。
+
 手机只读链接由 `share-link.js` 负责阶段筛选、先预览再确认、AES-GCM 加密与本机撤销凭据；`share-reader.html` 仅加载分享组件，将已验证的解密快照交给 `replay-share.js`，在无同源权限的 sandbox iframe 内阅读。链接 hash 保存密钥，网络请求不传密钥，服务端只存密文。不得序列化原 game、私人笔记或草稿，也不得给阅读页加载 core/app、导入或编辑入口。阶段筛选必须在 embed 之前，历史身份只取所选端点。手机阅读和互动 HTML 复用同一个 viewer。
 
 `admin/replay-store.mjs` 使用 SQLite Durable Object 的事务 KV、64 KiB 分块保存不可变快照；1/7/30 天到期检查在读路径执行，alarm 清理存储。创建按每日地址哈希限制 10 次/小时、30 次/日、64 MiB/日；读取与撤销不受上传限额影响。仅保存撤销令牌 SHA-256，不向读者返回管理凭据；撤销删除所有密文块。前端上传前保存撤销凭据，写本机记录失败则不上传；网络响应丢失保留 pending 凭据。服务无管理员 OAuth 依赖，原后台权限逻辑不变。生产端点与页面路径变更时同步 `share-link.js`、reader CSP 和 Worker SITE_URL。

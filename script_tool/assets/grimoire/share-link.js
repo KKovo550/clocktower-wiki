@@ -6,7 +6,7 @@
  const un64=s=>Uint8Array.from(atob(s.replaceAll('-','+').replaceAll('_','/')),c=>c.charCodeAt(0));
  const random=n=>b64(crypto.getRandomValues(new Uint8Array(n)));
  function available(){if(!root.crypto?.subtle)throw Error('请使用 HTTPS 网站或本机浏览器打开魔典后生成链接');}
- async function readLimited(stream,limit){const reader=stream.getReader(),parts=[];let size=0;try{while(true){const r=await reader.read();if(r.done)break;size+=r.value.length;if(size>limit)throw Error('复盘内容过大，请减少分享阶段');parts.push(r.value);}}catch(e){await reader.cancel().catch(()=>{});throw e;}const all=new Uint8Array(size);let offset=0;for(const p of parts){all.set(p,offset);offset+=p.length;}return all;}
+ async function readLimited(stream,limit,{signal,onProgress}={}){if(!stream)throw Error('分享服务未返回复盘内容');const reader=stream.getReader(),parts=[];let size=0;const abort=()=>{void reader.cancel().catch(()=>{});},check=()=>{if(signal?.aborted)throw Error('复盘下载已取消');};signal?.addEventListener('abort',abort,{once:true});try{check();while(true){const r=await reader.read();check();if(r.done)break;size+=r.value.length;if(size>limit)throw Error('复盘内容过大，请减少分享阶段');parts.push(r.value);onProgress?.(size);}}catch(e){void reader.cancel().catch(()=>{});throw e;}finally{signal?.removeEventListener('abort',abort);}const all=new Uint8Array(size);let offset=0;for(const p of parts){all.set(p,offset);offset+=p.length;}return all;}
  async function encrypt(data,keyText=random(32)){
   available();let bytes=new TextEncoder().encode(JSON.stringify(data));if(bytes.length>maxPlain)throw Error('复盘和图标超过 32 MiB，请减少阶段或使用互动文件');
   let compressed=0;if(root.CompressionStream){const zip=await readLimited(new Blob([bytes]).stream().pipeThrough(new CompressionStream('gzip')),maxPlain);if(zip.length<bytes.length){bytes=zip;compressed=1;}}
@@ -41,13 +41,16 @@
  function receipts(){const value=JSON.parse(root.localStorage.getItem(storeKey)||'{"version":1,"links":[]}');if(value.version!==1||!Array.isArray(value.links))throw Error('本机分享记录无法读取，请先备份浏览器数据');return value.links;}
  function remember(record){const links=receipts(),i=links.findIndex(x=>x.id===record.id);if(i<0){if(links.length>=100)throw Error('本机分享记录已满，请先清理已过期链接');links.push(record);}else links[i]=record;root.localStorage.setItem(storeKey,JSON.stringify({version:1,links}));}
  function forget(id){root.localStorage.setItem(storeKey,JSON.stringify({version:1,links:receipts().filter(x=>x.id!==id)}));}
- async function request(id,options={}){
-  const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),45000);try{const response=await fetch(endpoint+id,{...options,signal:controller.signal,credentials:'omit',referrerPolicy:'no-referrer',cache:'no-store'});if(!response.ok){let message='分享服务请求失败（'+response.status+'）';try{message=(await response.json()).error||message;}catch{}throw Error(message);}return response;}catch(e){if(e.name==='AbortError')throw Error('连接超时，请检查网络；可在本机分享记录中撤销未确认的链接');throw e;}finally{clearTimeout(timer);}
+ async function request(id,options={},consume=response=>response.json()){
+  const controller=new AbortController();let connectTimer,totalTimer;
+  const timeout=new Promise((_,reject)=>{const stop=message=>{reject(Error(message));controller.abort();};connectTimer=setTimeout(()=>stop('连接分享服务超时。请尝试切换手机流量或其他网络；仍无法打开时，可请分享者发送互动文件或图片。'),15000);totalTimer=setTimeout(()=>stop('复盘下载超时。请重新读取或切换网络；生成结果未确认的链接可在本机分享记录中撤销。'),45000);});
+  const task=async()=>{const response=await fetch(endpoint+id,{...options,signal:controller.signal,credentials:'omit',referrerPolicy:'no-referrer',cache:'no-store'});clearTimeout(connectTimer);if(!response.ok){let message='分享服务请求失败（'+response.status+'）';try{message=(await response.json()).error||message;}catch{}throw Error(message);}return consume(response,controller.signal);};
+  try{return await Promise.race([task(),timeout]);}catch(e){if(e.name==='TypeError'||e.name==='AbortError')throw Error('无法连接分享服务。请尝试切换手机流量或其他网络；也可以请分享者发送互动文件或图片。');throw e;}finally{clearTimeout(connectTimer);clearTimeout(totalTimer);}
  }
  async function publish(data,days){
   if(![1,7,30].includes(days))throw Error('请选择有效期');const encrypted=await encrypt(data),id=random(16),token=random(32),url=readerUrl()+'#v1/'+id+'/'+encrypted.key,record={id,token,url,name:data.name,createdAt:Date.now(),expiresAt:Date.now()+days*86400000,status:'pending'};
   // Keep the revocation credential before any upload, even if its response is lost.
-  remember(record);const response=await request(id,{method:'PUT',headers:{'Content-Type':'application/octet-stream','X-Replay-Days':String(days),Authorization:'Bearer '+token},body:encrypted.bytes}),result=await response.json();record.expiresAt=result.expiresAt;record.status='ready';remember(record);return record;
+  remember(record);const result=await request(id,{method:'PUT',headers:{'Content-Type':'application/octet-stream','X-Replay-Days':String(days),Authorization:'Bearer '+token},body:encrypted.bytes});record.expiresAt=result.expiresAt;record.status='ready';remember(record);return record;
  }
  async function revoke(record){try{await request(record.id,{method:'DELETE',headers:{Authorization:'Bearer '+record.token}});}catch(e){if(!/链接已过期、已撤销或不存在/.test(e.message))throw e;}forget(record.id);}
  async function copy(value,input,status){try{await navigator.clipboard.writeText(value);status.textContent='链接已复制，可发送给朋友。';}catch{input.focus();input.select();status.textContent='请长按或全选上方链接后复制。';}}
@@ -72,8 +75,8 @@
  let readerVersion=0;
  async function loadReader(){
   const status=document.getElementById('shareReaderStatus'),frame=document.getElementById('shareReaderFrame'),retry=document.getElementById('shareReaderRetry'),mine=++readerVersion;
-  frame.hidden=true;frame.removeAttribute('srcdoc');retry.disabled=true;status.textContent='正在读取复盘…';document.title='只读复盘';
-  try{const match=/^#v1\/([A-Za-z0-9_-]{22})\/([A-Za-z0-9_-]{43})$/.exec(root.location.hash);if(!match)throw Error('分享链接不完整，请让分享者重新复制完整链接。');const response=await request(match[1]),bytes=await readLimited(response.body,maxBytes),data=await decrypt(bytes,match[2]);if(mine!==readerVersion)return;frame.srcdoc=root.GrimoireReplayShare.html(data,{online:true});frame.hidden=false;status.textContent='只读复盘 · 包含完整身份 · 不会修改任何对局';document.title=data.name+' · 只读复盘';}catch(e){if(mine===readerVersion)status.textContent='无法打开复盘：'+e.message;}finally{if(mine===readerVersion)retry.disabled=false;}
+  frame.hidden=true;frame.removeAttribute('srcdoc');retry.disabled=true;status.textContent='正在连接分享服务…';document.title='只读复盘';let decodeTimer;
+  try{const match=/^#v1\/([A-Za-z0-9_-]{22})\/([A-Za-z0-9_-]{43})$/.exec(root.location.hash);if(!match)throw Error('分享链接不完整，请让分享者重新复制完整链接。');const bytes=await request(match[1],{},(response,signal)=>{if(mine===readerVersion)status.textContent='正在下载复盘…';return readLimited(response.body,maxBytes,{signal,onProgress:size=>{if(mine===readerVersion)status.textContent='正在下载复盘… '+Math.ceil(size/1024)+' KiB';}});});if(mine!==readerVersion)return;status.textContent='正在解密并整理复盘…';const deadline=new Promise((_,reject)=>{decodeTimer=setTimeout(()=>reject(Error('复盘处理超时，请重新读取；如仍失败，可请分享者减少分享阶段或发送互动文件。')),30000);}),data=await Promise.race([decrypt(bytes,match[2]),deadline]);if(mine!==readerVersion)return;frame.srcdoc=root.GrimoireReplayShare.html(data,{online:true});frame.hidden=false;status.textContent='只读复盘 · 包含完整身份 · 不会修改任何对局';document.title=data.name+' · 只读复盘';}catch(e){if(mine===readerVersion)status.textContent='无法打开复盘：'+e.message;}finally{clearTimeout(decodeTimer);if(mine===readerVersion)retry.disabled=false;}
  }
  root.GrimoireShareLink={encrypt,decrypt,validate,publish,revoke,receipts,show,loadReader};
  if(typeof document!=='undefined'&&document.getElementById('shareReaderFrame')){
