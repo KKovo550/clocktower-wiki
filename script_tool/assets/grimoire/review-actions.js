@@ -4887,6 +4887,12 @@
  // Verified complete wording from imported scripts. Never match by name/ID or strip rule-bearing words.
  // The older Chariot with different traveller and distance rules is intentionally separate.
  const abilityVersions={
+  gambler:['每个夜晚*，你要选择一名玩家并猜测他的角色：如果你猜错了，你会死亡。'],
+  gossip:['每个白天，你可以公开发表一个声明。在当晚，如果该声明是正确的，会有一名玩家死亡。'],
+  qintianjian:['在你的首个夜晚，你会得知离你最近的邪恶玩家位于你的哪一侧（左/右/相同）。如果与你邻近的玩家中有邪恶阵营，你会得知错误信息。'],
+  farmer:['如果你在夜晚死亡，一名存活的善良玩家会变成农夫。'],
+  exorcist:['每个夜晚*，你要选择一名玩家（与上个夜晚不同）：如果你选中了恶魔，他会得知你的角色，但他当晚不会因其自身能力而被唤醒。'],
+  preacher:['每个夜晚，你要选择一名玩家：如果选中了爪牙，他会得知被传教士选中。所有被你选中的爪牙失去能力。'],
   alsaahir:[
    '每个白天限一次，你可以公开猜测谁是爪牙，谁是恶魔。如果你猜对，善良阵营获胜。',
    "'每个白天，你可以公开进行一次谁是爪牙，谁是恶魔的猜测。如果你猜对，善良阵营获胜。"
@@ -4898,7 +4904,26 @@
  };
  const reminderWarnings=new Set(['king','al-hadikhia','shaxing','limao','yishi','gudiao','baojun','jianning','003','030','014','105','060','071','108']);
  const byKey=new Map();for(const profile of profiles){profile.actions=forms[profile.id].map((spec,i)=>Object.freeze({...spec,recordSentence:journalSentence(profile,spec,i),nightReminder:[profile.firstNightReminder?'首夜：'+profile.firstNightReminder:'',profile.otherNightReminder?'其他夜晚：'+profile.otherNightReminder:''].filter(Boolean).join('\n')+(reminderWarnings.has(profile.id)?'\n注：本地夜晚提醒与当前能力描述存在差异，行动表单以当前能力描述为准。':''),key:(profile.script||'tb')+'/'+profile.id+'/'+i,action:profile.name+'：'+spec.label}));Object.freeze(profile.actions);for(const spec of profile.actions)byKey.set(spec.key,{profile,spec});Object.freeze(profile);}Object.freeze(profiles);
- function profileForRole(role){const ability=normalize(role?.ability);return role?profiles.find(p=>p.name===role.name&&p.team===role.team&&[p.ability,...(abilityVersions[p.id]||[])].some(v=>normalize(v)===ability)):undefined;}
+ const nameKey=v=>String(v||'').normalize('NFKC').replace(/\s+/g,''),idKey=v=>String(v||'').normalize('NFKC').toLowerCase().replace(/_gstone$/,'').replace(/[-_\s]/g,'');
+ const byAbility=new Map(),byName=new Map(),byId=new Map();
+ function indexProfile(map,key,profile){if(!key)return;const found=map.get(key)||[];if(!found.includes(profile))found.push(profile);map.set(key,found);}
+ for(const p of profiles){for(const wording of [p.ability,...(abilityVersions[p.id]||[])])indexProfile(byAbility,normalize(wording),p);indexProfile(byName,nameKey(p.name),p);indexProfile(byId,idKey(p.id),p);}
+ function match(role){
+  if(!role)return {reason:'missing'};
+  const team=role.team==='traveler'?'traveller':role.team,eligible=p=>!team||team==='unknown'||p.team===team,name=nameKey(role.name),id=idKey(role.id);
+  const choose=(candidates,matchedBy)=>{
+   let found=candidates.filter(eligible);if(!found.length)return {reason:'unmatched'};
+   if(found.length>1){const named=found.filter(p=>nameKey(p.name)===name);if(named.length)found=named;}
+   if(found.length>1){const identified=found.filter(p=>idKey(p.id)===id);if(identified.length)found=identified;}
+   return found.length===1?{profile:found[0],matchedBy}:{reason:'ambiguous'};
+  };
+  // Explicit ability text is authoritative. Name/ID may disambiguate its matches,
+  // but cannot replace a conflicting definition. No edit-distance rule guessing.
+  if(String(role.ability||'').trim())return choose(byAbility.get(normalize(role.ability))||[],'ability');
+  const named=(byName.get(name)||[]).filter(eligible);if(named.length)return choose(named,'name');
+  return choose(byId.get(id)||[],'id');
+ }
+ function profileForRole(role){return match(role).profile;}
  function iconRoleId(role){const profile=profileForRole(role);return profile?(profile.iconRoleId||profile.id):'';}
  function forRole(role){const actions=profileForRole(role)?.actions||[];return actions.some(s=>s.menuOrder!==undefined)?actions.slice().sort((a,b)=>(a.menuOrder||0)-(b.menuOrder||0)):actions;}
  function get(key){return byKey.get(key)?.spec;}
@@ -4915,7 +4940,7 @@
   if(spec.distinctTargetGroups?.some(indices=>new Set(indices.map(i=>entry.targets[i].seatId)).size!==indices.length))throw Error('这些位置需要不同的玩家');
   if(spec.targetTeams&&entry.targets.some(p=>!spec.targetTeams.includes(p.team)))throw Error('请选择符合能力要求的玩家角色类型');
   if(spec.roleExcludeNames&&[data.selectedRole,...(data.selectedRoles||[])].some(r=>r&&spec.roleExcludeNames.includes(r.name)))throw Error('这项能力不能选择该角色');
-  if(spec.excludeOwnRole&&[data.selectedRole,...(data.selectedRoles||[])].some(r=>r&&r.name===role.name&&r.team===role.team&&normalize(r.ability)===normalize(role.ability)))throw Error('这项能力不能选择自身角色');
+  if(spec.excludeOwnRole&&[data.selectedRole,...(data.selectedRoles||[])].some(r=>r&&profileForRole(r)===known.profile))throw Error('这项能力不能选择自身角色');
   if(spec.excludeTravellers&&entry.targets.some(p=>p.team==='traveller'))throw Error('这项能力不能选择旅行者');
   if(data.texts!==undefined&&(!spec.textSlots||!Array.isArray(data.texts)||data.texts.length!==spec.textSlots.length||data.texts.some(t=>typeof t!=='string'||!t.trim()||t.length>2000)))throw Error('请完整填写能力信息');
   if(spec.resultRequired&&!data.texts&&!String(entry.result||'').trim())throw Error('请填写能力的信息内容');
@@ -4932,5 +4957,5 @@
   if(data.key==='bmr/gambler/0')sentence='赌{targets}是{role}'+(data.choice?'，{choice}。':'。');
   return {sentence,texts:(texts||[]).map(t=>t.trim().replace(/[。；]+$/,'')),detail:entry.result||'',result};
  }
- const api={profiles,forRole,iconRoleId,get,validate,roleSlots,describe};root.GrimoireReviewActions=api;if(typeof module!=='undefined')module.exports=api;
+ const api={profiles,match,forRole,iconRoleId,get,validate,roleSlots,describe};root.GrimoireReviewActions=api;if(typeof module!=='undefined')module.exports=api;
 })(globalThis);
