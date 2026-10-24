@@ -217,12 +217,14 @@
    history.onchange=()=>{historyPreference=history.checked;generatePreview();};table.onchange=names.onchange=summaries.onchange=density.onchange=generatePreview;generatePreview();
   });
  }
- async function embedImage(src,{cancelled=()=>false,fallback=''}={}){
-  const url=safeImage(src);if(!url||cancelled())return '';if(url.startsWith('data:'))return url;
-  const bundled=(await bundledAssets()).get(assetKey(url));if(bundled)return bundled;
-  const im=await loadImage(url,cancelled,fallback);if(!im||cancelled())return '';
-  const canvas=document.createElement('canvas');canvas.width=im.naturalWidth||im.width;canvas.height=im.naturalHeight||im.height;
-  try{canvas.getContext('2d').drawImage(im,0,0);return canvas.toDataURL('image/png');}catch{return '';}finally{canvas.width=canvas.height=0;}
+ async function embedImage(src,{cancelled=()=>false,fallback='',maxEdge=0}={}){
+  const url=safeImage(src);if(!url||cancelled())return '';const compact=Number.isFinite(maxEdge)&&maxEdge>0;
+  if(url.startsWith('data:')&&!compact)return url;
+  const bundled=url.startsWith('data:')?url:(await bundledAssets()).get(assetKey(url));if(bundled&&!compact)return bundled;
+  if(compact&&/^data:image\/gif;/i.test(bundled||''))return bundled;
+  const im=await loadImage(bundled||url,cancelled,fallback);if(!im||cancelled())return cancelled()?'':bundled||'';
+  const canvas=document.createElement('canvas'),width=im.naturalWidth||im.width,height=im.naturalHeight||im.height,scale=compact?Math.min(1,maxEdge/Math.max(width,height)):1;canvas.width=Math.max(1,Math.round(width*scale));canvas.height=Math.max(1,Math.round(height*scale));
+  try{const ctx=canvas.getContext('2d');ctx.imageSmoothingQuality='high';ctx.drawImage(im,0,0,canvas.width,canvas.height);const result=canvas.toDataURL(compact?'image/webp':'image/png',.82);return compact&&bundled&&bundled.length<result.length?bundled:result;}catch{return bundled||'';}finally{canvas.width=canvas.height=0;}
  }
  const api={fragments,snapshot,identityHistory,captureBoard,lines,selectedStages,rangeLabel,information,summaryRuns,imageMetrics,qualityText,plan,render,show,filename,embedImage};root.GrimoireReviewExport=api;if(typeof module!=='undefined'&&module.exports)module.exports=api;
 })(globalThis);

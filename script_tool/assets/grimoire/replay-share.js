@@ -15,12 +15,12 @@
    }stages.push({phase,round,entries,frames,summary:G().stageChanges(state,index)});
   }return {version:1,name:state.script.name,metadata:{players:state.seats.length},stages};
  }
- async function embed(data,cancelled){
+ async function embed(data,cancelled,{compact=false}={}){
   const result=JSON.parse(JSON.stringify(data)),sources=new Map(),assets={},seen=new Map();
   const add=(o,k)=>{if(o[k]){const src=o[k];if(!sources.has(src))sources.set(src,[]);sources.get(src).push([o,k]);}};
   result.skin={token:'theme/token1.png',shroud:'theme/shroud1.png',reminder:'theme/reminder1.png'};for(const k of Object.keys(result.skin))add(result.skin,k);
   for(const stage of result.stages){for(const frame of Object.values(stage.frames)){add(frame,'background');add(frame,'logo');for(const p of frame.players){if(p.role)add(p.role,'image');p.leaves.forEach(l=>add(l,'image'));p.reminders.forEach(m=>add(m,'image'));}}for(const e of stage.entries)for(const r of e.runs){add(r,'image');delete r.fallbackImage;}}
-  let failed=0;const queue=[...sources];await Promise.all(Array.from({length:6},async()=>{while(queue.length&&!cancelled()){const [src,refs]=queue.shift(),uri=await E().embedImage(src,{cancelled});let id='';if(uri&&/^data:image\/(png|jpeg|webp|gif);base64,[a-z\d+/=]+$/i.test(uri)){id=seen.get(uri);if(!id){id='a'+seen.size;seen.set(uri,id);assets[id]=uri;}}else failed++;for(const [o,k]of refs)o[k]=id;}}));
+  let failed=0;const queue=[...sources];await Promise.all(Array.from({length:6},async()=>{while(queue.length&&!cancelled()){const [src,refs]=queue.shift(),maxEdge=compact?(refs.some(([,k])=>k==='background')?960:384):0,uri=await E().embedImage(src,{cancelled,maxEdge});let id='';if(uri&&/^data:image\/(png|jpeg|webp|gif);base64,[a-z\d+/=]+$/i.test(uri)){id=seen.get(uri);if(!id){id='a'+seen.size;seen.set(uri,id);assets[id]=uri;}}else failed++;for(const [o,k]of refs)o[k]=id;}}));
   if(cancelled())return null;result.assets=assets;return {data:result,failed};
  }
  function currentImage(data,index,point,{includeSummary=true}={}){
