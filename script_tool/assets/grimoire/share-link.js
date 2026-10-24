@@ -1,7 +1,7 @@
 /* Encrypted, immutable read-only links. No game storage or editing in the reader. */
 (function(root){
  'use strict';
- const endpoint='https://clocktower-wiki-admin.clocktower-wiki.workers.dev/api/replays/',storeKey='botc_grimoire_share_links_v1',maxBytes=8*1024*1024,maxPlain=32*1024*1024;
+ const endpoint='https://clocktower-replay.pages.dev/api/replays/',storeKey='botc_grimoire_share_links_v1',maxBytes=8*1024*1024,maxPlain=32*1024*1024;
  const b64=bytes=>{let s='';for(let i=0;i<bytes.length;i+=8192)s+=String.fromCharCode(...bytes.subarray(i,i+8192));return btoa(s).replaceAll('+','-').replaceAll('/','_').replace(/=+$/,'');};
  const un64=s=>Uint8Array.from(atob(s.replaceAll('-','+').replaceAll('_','/')),c=>c.charCodeAt(0));
  const random=n=>b64(crypto.getRandomValues(new Uint8Array(n)));

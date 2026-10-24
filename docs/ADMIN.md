@@ -29,6 +29,8 @@ GitHub 注册入口：https://github.com/settings/applications/new 。应用名�
 
 ## 复盘只读分享服务
 
+阅读和生成链接现在优先请求 `https://clocktower-replay.pages.dev/api/replays/:id`。该 Pages 项目由 `admin/share-gateway/` 维护，仅通过 Service Binding 转发分享 API 到原来的 `clocktower-wiki-admin`，不转发后台页面或 OAuth。这样无需自购域名，并保留已有分享的 ID、密钥、到期时间、管理凭据与同一份存储。两个入口的网络可达性需要单独实测；截至本次修复，原 workers.dev 地址直连超时，新 Pages 地址直连正常。
+
 `/api/replays/:id` 与管理接口独立，不需要 GitHub OAuth。`wrangler.jsonc` 已声明 `REPLAY_SHARES` Durable Object 绑定及 `replay-share-v1` SQLite migration，首次部署将创建命名空间，不需手工填写数据库 ID。现有后台域名继续复用。存储方式依据 [Cloudflare SQLite Durable Object 文档](https://developers.cloudflare.com/durable-objects/api/sqlite-storage-api/)，到期清理使用 [Alarms API](https://developers.cloudflare.com/durable-objects/api/alarms/)。
 
 先运行 `npm exec --yes --package=wrangler -- wrangler deploy --dry-run --config admin/wrangler.jsonc` 验证，再部署 Worker 与网站静态资源。Worker 部署沿用上方命令，保留现有 secrets。对应前端是 `script_tool/assets/grimoire/share-reader.html` 和魔典加载的 `share-link.js`；只发前端会得到“分享服务尚未部署”错误。此功能使用 Cloudflare 存储及请求配额，应在该账号控制台观察实际用量。
