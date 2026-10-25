@@ -241,24 +241,19 @@
  }
  function moveFreeSeat(index,x,y){freePositions[index]={x:Math.max(0,Math.min(1,x)),y:Math.max(0,Math.min(1,y))};}
  function commitFreePosition(control,index){position();const v=freeCanvas(),seat=control.closest('.g-seat');moveFreeSeat(index,parseFloat(seat.style.getPropertyValue('--x'))/v.width,parseFloat(seat.style.getPropertyValue('--y'))/v.height);const token=control.querySelector('.g-token');if(token)playMotion(token,[{boxShadow:'0 0 0 2px #ddc58b99,0 3px 8px #0006'},{boxShadow:getComputedStyle(token).boxShadow}],{duration:240});if(!saveDisplayPreferences())toast('座位已移动，但浏览器暂时无法保存布局。');}
- const phoneToolbarAnchors=new Map();
- function phoneToolbar(active){
-  active=active===true;let toolbar=$('gPhoneToolbar');if(active&&!toolbar){toolbar=node('nav',undefined,'g-phone-toolbar g-glass-surface');toolbar.id='gPhoneToolbar';toolbar.setAttribute('aria-label','手机快捷工具');app.append(toolbar);}
-  app.classList.toggle('g-phone-toolbar-ui',active);if(!toolbar)return;toolbar.hidden=!active;
-  for(const selector of ['.g-left-tools','.g-view-actions','.g-right-tools']){const group=app.querySelector(selector);if(active){if(!phoneToolbarAnchors.has(group)){const anchor=document.createComment('phone toolbar return position');group.before(anchor);phoneToolbarAnchors.set(group,anchor);}if(group.parentElement!==toolbar)toolbar.append(group);}else if(phoneToolbarAnchors.has(group)&&group.previousSibling!==phoneToolbarAnchors.get(group))phoneToolbarAnchors.get(group).after(group);}
- }
  function positionLeftTools(){
   const summary=app.querySelector('.g-summary');app.style.setProperty('--g-summary-bottom',(summary.hidden?-8:summary.offsetTop+summary.offsetHeight)+'px');
-  const toolbar=$('gPhoneToolbar');if(toolbar&&!toolbar.hidden){toolbar.style.top=(summary.hidden?8:summary.offsetTop+summary.offsetHeight+8)+'px';const bottom=toolbar.offsetTop+toolbar.offsetHeight;app.style.setProperty('--g-summary-bottom',bottom+'px');app.style.setProperty('--g-side-top',(bottom+8)+'px');app.style.setProperty('--g-legend-top',(bottom+8)+'px');app.querySelector('.g-left-tools').style.maxHeight='none';timer?.position();return;}
   const actions=app.querySelector('.g-view-actions'),bottom=actions.offsetTop+actions.offsetHeight;app.style.setProperty('--g-side-top',((uiWidth()<=700?Math.max(summary.offsetTop+summary.offsetHeight,bottom):bottom)+(uiWidth()<=700?16:12))+'px');
   const leftTools=app.querySelector('.g-left-tools'),bluffs=$('gBluffs');leftTools.style.maxHeight=Math.max(0,(bluffs.hidden?uiHeight():measure(bluffs).top)-measure(leftTools).top-8)+'px';
   const legend=$('gFabled');app.style.setProperty('--g-legend-top',(measure(legend).top-measure(app).top)+'px');
   timer?.position();
  }
- function reminderPlacement(roleRect,dx,dy,markerSize,count,gap=32){
+ function reminderPlacement(roleRect,dx,dy,markerSize,count,gap=32,captions=[]){
   if(isFreeLayout()&&!dx&&!dy)dy=-1;
-  const length=Math.hypot(dx,dy)||1,r=markerSize/2,start=roleRect.width/2+r+gap,available=Math.max(0,length-start-r-8);
-  // Every row follows the exact role-to-table-center ray, independent of nearby controls or markers.
+  const length=Math.hypot(dx,dy)||1,r=markerSize/2;let start=roleRect.width/2+r+gap;
+  // Keep the add control on its inward ray, clear of nameplates on compact phone tables.
+  if(captions.length)for(let d=start;d<=Math.max(start,length-r-8);d+=4){const x=roleRect.left+roleRect.width/2+dx/length*d,y=roleRect.top+roleRect.height/2+dy/length*d;if(captions.every(c=>x+r+2<=c.left||x-r-2>=c.right||y+r+2<=c.top||y-r-2>=c.bottom)){start=d;break;}}
+  const available=Math.max(0,length-start-r-8);
   return {x:dx/length,y:dy/length,start,step:count>1?(isFreeLayout()?markerSize+8:Math.min(markerSize+8,available/(count-1))):0};
  }
  function schedulePosition(){
@@ -266,41 +261,52 @@
   if(!layoutFrame)layoutFrame=root.requestAnimationFrame(()=>{layoutFrame=0;position();});
  }
  const phoneRingCache=new Map();
- function fittedPhoneRing(count,radiusX,radiusY,size,captionWidth){
-  const key=[count,radiusX,radiusY,size,captionWidth].join('/');if(phoneRingCache.has(key))return phoneRingCache.get(key);
+ function fittedPhoneRing(count,radiusX,radiusY,size,captionWidth,centered=false){
+  const key=[count,radiusX,radiusY,size,captionWidth,centered].join('/');if(phoneRingCache.has(key))return phoneRingCache.get(key);
   // Fit the actual token + caption footprint, leaving more room on vertical sides.
   // This is pure geometry: resizing does not repeatedly measure individual seats.
-  const captionSpaces=count===15?[12,22,32,42,52]:[12];
+  const captionSpaces=[12,22,32,42,52];
   for(let attempt=0;attempt<48;attempt++,radiusY+=6)for(const captionSpace of captionSpaces){
    const arc=[0];for(let i=1;i<=180;i++){const a=-Math.PI/2+(i-.5)/180*Math.PI*2;arc.push(arc[i-1]+Math.hypot(radiusX*Math.sin(a)/(size+4),radiusY*Math.cos(a)/(size+captionSpace)));}
-   const angles=Array.from({length:count},(_,i)=>{if(count!==15)return -Math.PI/2+i/count*Math.PI*2;const distance=i/count*arc[180];let k=1;while(arc[k]<distance)k++;return -Math.PI/2+(k-1+(distance-arc[k-1])/(arc[k]-arc[k-1]))/180*Math.PI*2;}),points=angles.map(a=>({x:Math.cos(a)*radiusX,y:Math.sin(a)*radiusY}));
-   const clear=points.every((p,i)=>points.every((q,j)=>{if(i===j)return true;const tokenGap=Math.hypot(p.x-q.x,p.y-q.y),dx=q.x-Math.max(p.x-captionWidth/2,Math.min(p.x+captionWidth/2,q.x)),dy=q.y-Math.max(p.y+size/2,Math.min(p.y+size/2+22,q.y)),labelsClear=Math.abs(p.x-q.x)>=captionWidth+2||Math.abs(p.y-q.y)>=24,lifeTop=q.y-size/2+4,lifeBottom=lifeTop+Math.max(26,Math.min(size*.32,40)),lifeClear=count===15||Math.abs(p.x-q.x)>=(captionWidth+44)/2+2||p.y+size/2+24<=lifeTop||p.y+size/2>=lifeBottom+2;return labelsClear&&lifeClear&&tokenGap>=size+4&&Math.hypot(dx,dy)>=size/2+1;}));
+   const angles=Array.from({length:count},(_,i)=>{const distance=i/count*arc[180];let k=1;while(arc[k]<distance)k++;return -Math.PI/2+(k-1+(distance-arc[k-1])/(arc[k]-arc[k-1]))/180*Math.PI*2;}),points=angles.map(a=>({x:Math.cos(a)*radiusX,y:Math.sin(a)*radiusY}));
+   const clear=points.every((p,i)=>points.every((q,j)=>{if(i===j)return true;const tokenGap=Math.hypot(p.x-q.x,p.y-q.y),dx=q.x-Math.max(p.x-captionWidth/2,Math.min(p.x+captionWidth/2,q.x)),dy=q.y-Math.max(p.y+size/2,Math.min(p.y+size/2+22,q.y)),labelsClear=Math.abs(p.x-q.x)>=captionWidth+2||Math.abs(p.y-q.y)>=24,lifeTop=q.y-size/2+4,lifeBottom=lifeTop+Math.max(26,Math.min(size*.32,40)),lifeClear=Math.abs(p.x-q.x)>=(captionWidth+(centered?Math.min(44,size):44))/2+2||p.y+size/2+24<=lifeTop||p.y+size/2>=lifeBottom+2;return labelsClear&&lifeClear&&tokenGap>=size+4&&Math.hypot(dx,dy)>=size/2+1;}));
    if(clear||attempt===47&&captionSpace===captionSpaces.at(-1)){const result={radiusY,angles};if(phoneRingCache.size>=128)phoneRingCache.delete(phoneRingCache.keys().next().value);phoneRingCache.set(key,result);return result;}
   }
  }
+ function centeredPhoneGeometry(viewWidth,viewHeight,count){
+  const zoom=Math.max(1,scale()),width=Math.max(viewWidth*zoom,count>20?620:0),baseHeight=viewHeight*zoom,referenceCount=Math.max(15,count);
+  let size=Math.round(Math.max(48,Math.min(72,width*.17))),radiusX,radiusY,captionWidth,fitted;
+  // Use the same reference ring for ordinary games; controls and reminders never resize it.
+  do{radiusX=(width-size-20)/2;radiusY=Math.max(64,Math.min(width*.38,baseHeight*.2))*(tableShape==='ellipse'?1.2:1);captionWidth=Math.max(32,Math.round(size*.65));fitted=fittedPhoneRing(referenceCount,radiusX,radiusY,size,captionWidth,true);if(fitted.radiusY<=radiusY+1||size<=24)break;size--;}while(true);
+  fitted=fittedPhoneRing(count,radiusX,fitted.radiusY,size,captionWidth,true);radiusY=fitted.radiusY;
+  const height=Math.max(baseHeight,radiusY*2+size+128);
+  return {width,height,size,radiusX,radiusY,captionWidth,fitted,centerY:height/2};
+ }
  function positionPhoneTable(board,count,phone=true){
   const viewportWidth=board.clientWidth,rect=measure(board),summary=$('gSummary');
-  const toolbar=app.classList.contains('g-phone-toolbar-ui');let size=phone?Math.round(count===15&&toolbar?Math.max(44,Math.min(60,viewportWidth*scale()*.14)):Math.max(count>14?40:46,Math.min(count>14?52:count>10?64:72,viewportWidth*scale()*(count>14?.125:count>10?.15:.18)))):Math.round(Math.max(78,Math.min(128,uiHeight()*scale()*.135))*(count>14?.8:1));
-  const markers=playerView||isFreeLayout()?0:Math.max(0,...state.seats.map(s=>s.reminders.length)),crowded=markers&&state.seats.filter(s=>s.reminders.length===markers).length>1,coreSpace=crowded?Math.max(28,24/(2*Math.sin(Math.PI/count))):28,minRay=size/2+20+24+markers*48+coreSpace,width=Math.max(viewportWidth,count>20?620:0,minRay*2+size+20);
-  const standardPhone=phone&&count===15&&!isFreeLayout(),toolbarBottom=toolbar?$('gPhoneToolbar').offsetTop+$('gPhoneToolbar').offsetHeight+12:0,top=Math.max(toolbarBottom,standardPhone&&summary.hidden?64:116,summary.hidden?0:summary.offsetTop+summary.offsetHeight+44),bottom=24;
-  // A standard phone game fits the viewport; larger or marker-heavy tables can still pan.
+  const centered=app.classList.contains('g-centered-phone-ui');let size=phone?Math.round(Math.max(count>14?40:46,Math.min(count>14?52:count>10?64:72,viewportWidth*scale()*(count>14?.125:count>10?.15:.18)))):Math.round(Math.max(78,Math.min(128,uiHeight()*scale()*.135))*(count>14?.8:1));
+  const markers=playerView||isFreeLayout()?0:Math.max(0,...state.seats.map(s=>s.reminders.length)),crowded=markers&&state.seats.filter(s=>s.reminders.length===markers).length>1,coreSpace=crowded?Math.max(28,24/(2*Math.sin(Math.PI/count))):28,minRay=size/2+20+24+markers*48+coreSpace;let width=Math.max(viewportWidth,count>20?620:0,minRay*2+size+20);
+  const top=Math.max(116,summary.hidden?0:summary.offsetTop+summary.offsetHeight+44),bottom=24;
+  // Short landscape and free layouts retain their scrollable stage.
   const minRadius=Math.max(width*(count>14&&(!phone||count>15)?.65:.38),minRay)*(tableShape==='ellipse'?1.2:1);
   let height,radiusY,radiusX,captionWidth,fitted;
-  const fit=()=>{radiusX=(width-size-(standardPhone&&!toolbar?88:20))/2;height=Math.max(board.clientHeight,top+bottom+size+26+minRadius*2);radiusY=(height-top-bottom-size-26)/2;captionWidth=standardPhone?Math.max(60,Math.round(size*1.25)):count>14?size:size+10;fitted=phone&&!isFreeLayout()?fittedPhoneRing(count,radiusX,radiusY,size,captionWidth):null;if(fitted){radiusY=fitted.radiusY;height=top+bottom+size+26+radiusY*2;}};
-  fit();if(standardPhone&&toolbar&&!markers&&tableShape==='circle'&&scale()===1)while(height>board.clientHeight+1&&size>44){size--;fit();}const centerY=top+size/2+radiusY;
+  const fit=()=>{radiusX=(width-size-20)/2;height=Math.max(board.clientHeight,top+bottom+size+26+minRadius*2);radiusY=(height-top-bottom-size-26)/2;captionWidth=count>14?size:size+10;fitted=phone&&!isFreeLayout()?fittedPhoneRing(count,radiusX,radiusY,size,captionWidth):null;if(fitted){radiusY=fitted.radiusY;height=top+bottom+size+26+radiusY*2;}};
+  let centerY;if(centered)({width,height,size,radiusX,radiusY,captionWidth,fitted,centerY}=centeredPhoneGeometry(viewportWidth,board.clientHeight,count));else{fit();centerY=top+size/2+radiusY;}
+  const oldSceneWidth=parseFloat(board.style.getPropertyValue('--g-phone-width')),oldSceneHeight=parseFloat(board.style.getPropertyValue('--g-phone-height')),oldViewWidth=Number(board.dataset.centerViewWidth),oldViewHeight=Number(board.dataset.centerViewHeight),wasCentered=board.dataset.centered==='true',panX=wasCentered?board.scrollLeft+oldViewWidth/2-oldSceneWidth/2:0,panY=wasCentered?board.scrollTop+oldViewHeight/2-oldSceneHeight/2:0;
   const oldWidth=board.style.getPropertyValue('--g-phone-width'),oldCenter=board.scrollLeft+viewportWidth/2;board.style.setProperty('--token-size',size+'px');board.style.setProperty('--g-phone-width',width+'px');board.style.setProperty('--g-phone-height',height+'px');board.style.setProperty('--g-phone-caption-width',captionWidth+'px');board.dataset.scrollable=String(height>board.clientHeight+1);board.dataset.wide=String(width>board.clientWidth+1);if(oldWidth!==width+'px')board.scrollLeft=Math.max(0,(oldWidth?oldCenter/parseFloat(oldWidth):.5)*width-viewportWidth/2);
+  if(centered){board.scrollLeft=Math.max(0,width/2-viewportWidth/2+panX);board.scrollTop=Math.max(0,height/2-board.clientHeight/2+panY);board.dataset.centerViewWidth=String(viewportWidth);board.dataset.centerViewHeight=String(board.clientHeight);}else if(wasCentered){board.scrollTop=0;board.scrollLeft=Math.max(0,(width-viewportWidth)/2);}board.dataset.centered=String(centered);
   const logoWidth=Math.max(64,Math.min(150,radiusX*.75));$('gCenter').style.left=width/2+'px';$('gCenter').style.setProperty('--g-logo-y',centerY+'px');$('gCenter').style.setProperty('--g-logo-width',logoWidth+'px');$('gCenter').style.setProperty('--g-logo-height',logoWidth*.8+'px');
   timer?.positionCenter({x:width/2,y:centerY,logoHeight:showScriptLogo?logoWidth*.8:0});
   const seats=[...$('gSeats').querySelectorAll('.g-seat')],points=seats.map((n,i)=>{const a=fitted?fitted.angles[i]:-Math.PI/2+i/count*Math.PI*2;return {x:width/2+Math.cos(a)*radiusX,y:centerY+Math.sin(a)*radiusY};});placeSeats(seats,points,width,height,true);
-  const roles=seats.map(n=>measure(n.querySelector('.g-seat-token')));seats.forEach((n,i)=>{const tokens=[...n.querySelectorAll('.g-reminder-item,.g-reminder-add')];if(!tokens.length)return;const seat=measure(n),role=roles[i],ox=role.left-seat.left+role.width/2,oy=role.top-seat.top+role.height/2,dx=rect.left+width/2-board.scrollLeft-role.left-role.width/2,dy=rect.top+centerY-board.scrollTop-role.top-role.height/2,ray=reminderPlacement(role,dx,dy,tokens[0].offsetWidth,tokens.length,24);tokens.forEach((t,j)=>{const d=ray.start+j*ray.step;t.style.setProperty('--marker-x',(ox+ray.x*d)+'px');t.style.setProperty('--marker-y',(oy+ray.y*d)+'px');});});
+  const roles=seats.map(n=>measure(n.querySelector('.g-seat-token'))),captions=centered?seats.map(n=>measure(n.querySelector('.g-seat-caption'))):[];seats.forEach((n,i)=>{const tokens=[...n.querySelectorAll('.g-reminder-item,.g-reminder-add')];if(!tokens.length)return;if(centered)tokens.sort((a,b)=>Number(b.classList.contains('g-reminder-add'))-Number(a.classList.contains('g-reminder-add')));const seat=measure(n),role=roles[i],ox=role.left-seat.left+role.width/2,oy=role.top-seat.top+role.height/2,dx=rect.left+width/2-board.scrollLeft-role.left-role.width/2,dy=rect.top+centerY-board.scrollTop-role.top-role.height/2,ray=reminderPlacement(role,dx,dy,tokens[0].offsetWidth,tokens.length,24,captions);tokens.forEach((t,j)=>{const d=ray.start+j*ray.step;t.style.setProperty('--marker-x',(ox+ray.x*d)+'px');t.style.setProperty('--marker-y',(oy+ray.y*d)+'px');});});
  }
  function position(){
   if(layoutFrame){root.cancelAnimationFrame(layoutFrame);layoutFrame=0;}
   const phone=phoneViewport(),touch=root.matchMedia?.('(pointer:coarse)').matches,zoomCanvas=!phone&&pageZoom>100&&(uiWidth()<1100||uiHeight()<700),virtual=phone||zoomCanvas,phoneBoard=$('gBoard');app.classList.toggle('g-phone-ui',phone);app.classList.toggle('g-tablet-ui',touch&&!phone);app.classList.toggle('g-zoom-table-ui',zoomCanvas);if(virtual&&!listMode&&!phoneBoard.classList.contains('phone-table'))phoneBoard.style.removeProperty('--g-phone-width');phoneBoard.classList.toggle('phone-table',virtual&&!listMode);
   renderStartHint(zoomCanvas&&!listMode);
-  phoneToolbar(phone&&state.seats.length===15&&uiHeight()>=500&&!listMode&&!isFreeLayout());positionLeftTools();positionSidePanels();
+  app.classList.toggle('g-centered-phone-ui',phone&&uiHeight()>=500&&!listMode&&!isFreeLayout());positionLeftTools();positionSidePanels();
   const dockHeight=$('gDock').hidden?0:$('gDock').offsetHeight,bluffHeight=$('gBluffPanel').hidden?0:$('gBluffPanel').offsetHeight;app.style.setProperty('--g-dock-height',dockHeight+'px');app.style.setProperty('--g-bottom-height',Math.max(dockHeight,bluffHeight)+'px');
-  const board=$('gBoard'),width=board.clientWidth,height=board.clientHeight,count=state.seats.length,referenceCaptions=!!(phone&&count===15&&!listMode&&!isFreeLayout());board.classList.toggle('reference-captions',referenceCaptions);state.seats.forEach((seat,i)=>{const label=$('gSeatLabel_'+seat.id);if(label&&label.dataset.referenceCaption!==String(referenceCaptions))seatCaption(label,seat,i,referenceCaptions);});
+  const board=$('gBoard'),width=board.clientWidth,height=board.clientHeight,count=state.seats.length;
   board.classList.toggle('list-mode',listMode);board.classList.toggle('free-layout',isFreeLayout());board.classList.toggle('dense',count>12);board.dataset.layout=listMode?(listColumns===1?'single':listColumns===2?'double':'auto'):tableShape;
   if(virtual&&!listMode){positionPhoneTable(board,count,phone);return;}
   const mobile=width<=700,short=!mobile&&height<600,tablet=!mobile&&!short&&width<(touch?1000:1100);
@@ -327,9 +333,7 @@
    tokens.forEach((t,j)=>{const d=ray.start+j*ray.step;t.style.setProperty('--marker-x',(ox+ray.x*d)+'px');t.style.setProperty('--marker-y',(oy+ray.y*d)+'px');});
   });
  }
- function seatCaption(button,seat,index,reference=phoneViewport()&&state.seats.length===15&&!listMode&&!isFreeLayout()){
-  button.dataset.referenceCaption=String(reference);if(reference)button.replaceChildren(node('span',(index+1)+'.','g-seat-label-number'),node('span',seat.name||'空座位','g-seat-label-player'));else button.textContent=(index+1)+'号'+(seat.name?' · '+seat.name:'');
- }
+ function seatCaption(button,seat,index){button.textContent=(index+1)+'号'+(seat.name?' · '+seat.name:'');}
  function refreshSeatName(id){
   cancelNameClick();const s=state.seats.find(s=>s.id===id),group=$('gSeatToken_'+id)?.closest('.g-seat');if(!s||!group)return;const index=state.seats.indexOf(s),label=(index+1)+' 号 '+(s.name||'未命名'),role=roleOf(s),name=$('gSeatLabel_'+id);
   group.setAttribute('aria-label',label+(role?'，'+role.name:'')+'，'+(s.alive?'存活':'死亡'));seatCaption(name,s,index);name.setAttribute('aria-label','管理 '+label+'，双击快速改名');$('gSeatToken_'+id).setAttribute('aria-label',label+'，'+(role?'修改角色：'+role.name:'选择角色')+(isFreeLayout()?'；拖动或方向键调整位置':''));$('gLife_'+id)?.setAttribute('aria-label',(s.alive?'标记死亡：':'恢复存活：')+label);$('gVote_'+id)?.setAttribute('aria-label',(s.ghostVote?'死亡票可用':'死亡票已使用')+'：'+label);$('gReminderAdd_'+id)?.setAttribute('aria-label','为 '+(index+1)+' 号'+(s.name?' '+s.name:'')+' 添加提示标记');
