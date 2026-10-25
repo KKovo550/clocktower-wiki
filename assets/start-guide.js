@@ -2,7 +2,7 @@
   if (window.clocktowerGuideReady) return;
   window.clocktowerGuideReady = true;
   var dialog, choices, panels, loading, previousFocus, backdropDown = false;
-  function isGuideHash(hash) { return /^#(?:site-guide|guide-(?:roles|scripts|create|nights))$/.test(hash); }
+  function isGuideHash(hash) { return /^#(?:site-guide|guide-(?:roles|scripts|create|nights|grimoire))$/.test(hash); }
   function select(index, focus) {
     choices.forEach(function (choice, position) {
       var selected = position === index;
@@ -17,7 +17,7 @@
     var navigation = guide && guide.querySelector('.guide-choices');
     choices = guide ? Array.from(guide.querySelectorAll('[data-guide-choice]')) : [];
     panels = choices.map(function (choice) { return guide.querySelector('#guide-' + choice.dataset.guideChoice); });
-    if (!navigation || choices.length !== 4 || panels.some(function (panel) { return !panel; }) || typeof element.showModal !== 'function') throw Error('Guide unavailable');
+    if (!navigation || !choices.length || panels.some(function (panel) { return !panel; }) || typeof element.showModal !== 'function') throw Error('Guide unavailable');
     dialog = element;
     navigation.setAttribute('role', 'tablist');
     choices.forEach(function (choice, index) {

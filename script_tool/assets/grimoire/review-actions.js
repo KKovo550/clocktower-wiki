@@ -4290,7 +4290,7 @@
   investigator:[pair('得知了','minion'),roleOnly('得知了（仅记录角色）',['minion'],'得知了爪牙角色{role}。'),direct('得知没有爪牙','得知没有爪牙在场。')],
   chef:[number('得知邪恶邻座对数',30,'得知场上有 {number} 对邻座的邪恶玩家。')],
   empath:[number('得知邻近邪恶玩家数',2,'得知邻近的两名存活玩家中有 {number} 名邪恶玩家。')],
-  fortune_teller:[{...pair('选择两名玩家占卜','demon'),roleTeams:undefined,choices:['有恶魔','没有恶魔'],choiceLabel:'得知的结果',sentence:'选择{targets}占卜，得知其中{choice}。'}],
+  fortune_teller:[{...pair('选择两名玩家占卜','demon'),roleTeams:undefined,choices:['有恶魔','没有恶魔'],choiceLabel:'得知的结果',sentence:'选择{targets}占卜，得知其中{choice}。',reminderTokens:[]},{...one('设置干扰项（选择一名善良玩家）','将{targets}设为占卜师的干扰项。'),targetLabel:'干扰项 · 请选择一名善良玩家',setupAction:true,reminderTokens:['干扰项'],reminderSingleton:true,hint:'由说书人选择一名实际为善良阵营的玩家，可选择占卜师自己。设置干扰项与每夜占卜分别记录，不改变目标阵营。'}],
   undertaker:[{...one('得知被处决玩家的角色','得知今天死于处决的{targets}是{role}。'),roleTeams:any,roleLabel:'得知的角色'},roleOnly('得知了（仅记录角色）',any,'得知今天死于处决的玩家是{role}。')],
   monk:[one('选择保护玩家','选择保护{targets}，当晚恶魔的负面能力对其无效。',true)],
   ravenkeeper:[{...one('死亡后查验玩家','夜晚死亡后选择{targets}，得知其角色为{role}。'),roleTeams:any,roleLabel:'得知的角色'}],
@@ -4884,7 +4884,7 @@
   return concise.replace(/^选择(?=\{)/,'选择了');
  }
  const normalize=v=>String(v||'').normalize('NFKC').replace(/[\s，。；：、,.!！?？:()（）]/g,'');
- // Verified complete wording from imported scripts. Never match by name/ID or strip rule-bearing words.
+ // Verified complete wording from imports; never infer equivalent rules from names or IDs.
  // The older Chariot with different traveller and distance rules is intentionally separate.
  const abilityVersions={
   gambler:['每个夜晚*，你要选择一名玩家并猜测他的角色：如果你猜错了，你会死亡。'],
@@ -4926,11 +4926,81 @@
  function profileForRole(role){return match(role).profile;}
  function iconRoleId(role){const profile=profileForRole(role);return profile?(profile.iconRoleId||profile.id):'';}
  function forRole(role){const actions=profileForRole(role)?.actions||[];return actions.some(s=>s.menuOrder!==undefined)?actions.slice().sort((a,b)=>(a.menuOrder||0)-(b.menuOrder||0)):actions;}
- function get(key){return byKey.get(key)?.spec;}
+ // Recording forms are not a rules engine. Keep v1 available for saved records;
+ // v2 changes only optional exact counts from 0..N to either 0 or N.
+ const generatedCache=new Map(),playableTeams=['townsfolk','outsider','minion','demon','traveller'];
+ const definition=r=>JSON.stringify([r.id,r.name,r.team,r.ability]);
+ function generatedForRole(role,legacy=false){
+  if(!role||!playableTeams.includes(role.team)||typeof role.ability!=='string'||!role.ability.trim()||role.ability.length>10000)return [];
+  const source=definition(role),cacheKey=(legacy?'v1/':'current/')+source;if(generatedCache.has(cacheKey))return generatedCache.get(cacheKey);
+  // A compact stable identifier only; validation still checks the source text.
+  const hashes=[2166136261,2246822507,3266489909,668265263];for(let i=0;i<source.length;i++)for(let j=0;j<hashes.length;j++)hashes[j]=Math.imul(hashes[j]^source.charCodeAt(i),16777619+j*2);
+  const fingerprint=hashes.map(n=>(n>>>0).toString(16).padStart(8,'0')).join(''),text=role.ability.normalize('NFKC').replace(/\s+/g,''),count=v=>({一:1,两:2,二:2,三:3,四:4,五:5,六:6,七:7,八:8,九:9,十:10}[v]||Number(v));let version=1;
+  let spec={label:'记录本局能力',targets:0,maxTargets:30,sentence:'按本局能力记录，涉及{targets}。',targetLabel:'涉及的玩家（可选）'};
+  const selection=text.match(/你(要|可以)选择(除你以外的?)?(至多)?(一|两|二|三|四|五|六|七|八|九|十|\d{1,2})名玩家/),singleSelection=(text.match(/选择/g)||[]).length===1;
+  if(singleSelection&&selection){
+   const n=count(selection[4]),tail=text.slice(selection.index+selection[0].length),guess=/^并猜测(?:他|该玩家|这名玩家|其)的角色(?:[，。；：,;:(]|$)/.test(tail),plain=/^[，。；：,;:(]|^$/.test(tail);
+   if(n>=1&&n<=30&&(plain||guess)){
+    const optional=selection[1]==='可以'||!!selection[3];spec={label:guess?'选择玩家并猜测角色':'选择玩家并记录结果',targets:optional?0:n,...(optional?{maxTargets:n}:{}),excludeSelf:!!selection[2],targetLabel:'能力选择的玩家',sentence:'选择了{targets}。'};
+    if(!legacy&&selection[1]==='可以'&&!selection[3]&&n>1){version=2;spec.targetCounts=Object.freeze([0,n]);}
+    if(guess)Object.assign(spec,{roleTeams:playableTeams.slice(),roleLabel:'猜测的角色',sentence:'选择了{targets}，猜测其角色为{role}。'});
+   }
+  }else if(singleSelection){
+   const picked=text.match(/你(?:要|可以)选择(?:一|1)个(镇民|外来者|爪牙|恶魔|旅行者)?角色/);
+   if(picked&&/^[，。；：,;:(]|^$/.test(text.slice(picked.index+picked[0].length))){const team={镇民:'townsfolk',外来者:'outsider',爪牙:'minion',恶魔:'demon',旅行者:'traveller'}[picked[1]];spec={label:'选择角色并记录结果',targets:0,roleTeams:team?[team]:playableTeams.slice(),roleLabel:'能力选择的角色',sentence:'选择了{role}。'};}
+  }
+  const key='json/v'+version+'/'+fingerprint+'/0';spec=Object.freeze({...spec,key,generated:true,action:'本局能力：'+spec.label,recordSentence:spec.sentence,resultRequired:true,resultLabel:'实际行动／收到的信息／结果（必填）',hint:'依据本局 JSON 生成记录表单。请核对原文中的时机、次数和限制，填写实际结果；不会自动判定能力生效或更改魔典。'});
+  const result=Object.freeze([spec]);if(generatedCache.size>=128)generatedCache.delete(generatedCache.keys().next().value);generatedCache.set(cacheKey,result);return result;
+ }
+ function customForm(role,config){
+  const base=generatedForRole(role)[0];if(!base)return;
+  if(!config||!['none','exact','upto','free'].includes(config.targets)||!Number.isInteger(config.count)||config.count<0||config.count>30||typeof config.excludeSelf!=='boolean'||!['text','number','boolean','role'].includes(config.kind))return;
+  const c=Object.freeze({...config}),mode={none:'n',exact:'e',upto:'u',free:'f'}[c.targets],kind={text:'t',number:'n',boolean:'b',role:'r'}[c.kind],key='json/v3/'+base.key.split('/')[2]+'/'+mode+'-'+c.count+'-'+(c.excludeSelf?1:0)+'-'+kind;
+  const max=c.targets==='none'?0:c.targets==='free'?30:c.count,min=c.targets==='exact'?max:0;
+  const info=c.kind==='number'?{numberLabel:'实际收到的数字',min:0,max:999}:c.kind==='boolean'?{choices:Object.freeze(['是','否']),choiceLabel:'实际收到的信息'}:c.kind==='role'?{roleTeams:Object.freeze(playableTeams.slice()),roleLabel:'实际记录的角色'}:{};
+  const sentence=(max?'选择了{targets}':'按本局能力记录')+(c.kind==='number'?'，得知数字为{number}':c.kind==='boolean'?'，得到的信息为{choice}':c.kind==='role'?'，记录的角色为{role}':'')+'。';
+  return Object.freeze({...base,...info,key,formConfig:c,label:'按自定义表单记录',action:'本局能力：按自定义表单记录',targets:min,maxTargets:max===min?undefined:max,excludeSelf:c.excludeSelf,targetCounts:undefined,roleTeams:info.roleTeams,resultRequired:c.kind==='text',resultLabel:c.kind==='text'?'实际结果（必填）':'补充说明（可选）',sentence,recordSentence:sentence,hint:'由说书人调整的记录表单；只记录，不自动判定能力生效。'});
+ }
+ function get(key,role){
+  const known=byKey.get(key)?.spec;if(known)return known;if(typeof key!=='string')return;
+  if(/^json\/v[12]\//.test(key))return generatedForRole(role,key.startsWith('json/v1/')).find(s=>s.key===key);
+  const custom=key.match(/^json\/v3\/[a-f0-9]{32}\/([neuf])-(\d{1,2})-([01])-([tnbr])$/);if(!custom)return;
+  const spec=customForm(role,{targets:{n:'none',e:'exact',u:'upto',f:'free'}[custom[1]],count:Number(custom[2]),excludeSelf:custom[3]==='1',kind:{t:'text',n:'number',b:'boolean',r:'role'}[custom[4]]});return spec?.key===key?spec:undefined;
+ }
+ function recordingActions(role,includeKey){const curated=forRole(role),actions=curated.length?curated:generatedForRole(role),historical=get(includeKey,role);return historical?.generated&&!actions.some(s=>s.key===includeKey)?[historical,...actions.filter(s=>s.action!==historical.action)]:actions;}
+ const markerPolicies={
+  'tb/poisoner/0':{tokens:[['中毒','poison','dusk']],replaceTargets:true,note:'选中的玩家当晚及次日白天中毒；建议到下个黄昏。只替换该投毒者自己的旧标记。'},
+  'tb/monk/0':{tokens:[['保护','protected','dawn']],replaceTargets:true,note:'保护持续当晚；建议到下个黎明。选择目标不代表已经结算恶魔能力。'},
+  'bmr/devils_advocate/0':{tokens:[['处决不死','protected','dusk']],replaceTargets:true,targetAlive:true,differentPreviousNight:true,note:'选择存活玩家，且与上个夜晚不同；标记表示次日白天的处决保护，不直接更改生死。'},
+  'tb/fortune_teller/0':{tokens:[],note:'只记录查验的两人及实际信息，不把干扰项放到查验目标上。'},
+  'tb/fortune_teller/1':{tokens:[['干扰项',null,'none']],replaceTargets:true,targetAlignment:'good',note:'初始／获得能力时设置一名善良玩家；实际阵营未标记时由说书人确认，可选择自己。'},
+  'experimental/widow/0':{tokens:[['中毒','poison','none']],replaceTargets:true,note:'记录寡妇实际选中的中毒玩家；告知善良玩家寡妇在场是另一条记录。'},
+  'experimental/widow/1':{tokens:[['被知晓',null,'none']],replaceTargets:true,targetAlignment:'good',note:'选择实际获知寡妇在场的善良玩家，不给此人放中毒标记。'},
+  'bmr/pukka/0':{tokens:[['中毒','poison','none']],note:'本条只记录新的中毒目标；上一目标的死亡和恢复健康须分别按实际结算确认。'},
+  'bmr/pukka/1':{tokens:[],note:'分别确认上一目标实际死亡、普卡造成的中毒结束；不会自动清除其他玩家造成的中毒。'},
+  'experimental/lleech/0':{tokens:[['寄生',null,'none'],['中毒','poison','none']],replaceTargets:true,targetAlive:true,note:'首夜选择存活宿主。宿主／中毒提示与之后的击杀分别记录。'},
+  'snv/no_dashii/1':{tokens:[['中毒','poison','none']],replaceTargets:true,note:'按实际镇民邻座核对两名中毒玩家，不从击杀目标推断中毒目标。'},
+  'bmr/sailor/0':{tokens:[],outcomeExpiry:{drunk:'dusk'},targetAlive:true,note:'先记录共饮目标；由说书人决定水手或目标中哪一人实际醉酒，再记录对应结果。'},
+  'bmr/sailor/1':{selectionKey:'bmr/sailor/0',tokens:[['醉酒','drunk','dusk']],replaceTargets:true,note:'仅在确认共饮目标实际醉酒后放置；不会同时把水手也标为醉酒。'},
+  'bmr/sailor/2':{tokens:[['醉酒','drunk','dusk']],replaceTargets:true,placement:'actor',note:'确认水手本人醉酒后，将标记放在行动人自己身上。'},
+  'bmr/innkeeper/0':{tokens:[['不会死亡','protected','dawn']],outcomeExpiry:{drunk:'dusk'},replaceTargets:true,note:'两名目标当晚不会死亡；其中谁醉酒须由说书人另外确认，不给两人同时放醉酒。'},
+  'bmr/innkeeper/1':{selectionKey:'bmr/innkeeper/0',tokens:[['醉酒','drunk','dusk']],replaceTargets:true,note:'只给说书人实际决定醉酒的那一名受保护玩家放标记。'},
+  'snv/witch/0':{tokens:[['被诅咒',null,'dusk']],replaceTargets:true,note:'标记诅咒目标；是否提名、当时存活人数及是否死亡另按实际结算记录。'},
+  'tb/butler/0':{tokens:[['主人',null,'dusk']],replaceTargets:true,note:'只替换这名管家自己的主人标记，不改变目标的投票状态。'}
+ };
+ function recordingGuidance(role,key,context={}){
+  const spec=recordingActions(role,key).find(s=>s.key===key),empty={ability:role?.ability||'',nightReminder:'',tokens:[],placement:'targets',note:'能力版本未匹配，请自由记录并由说书人核对。'};if(!spec)return empty;
+  const first=context.phase==='setup'||(context.round??1)<=1,local=role?.[first?'firstNightReminder':'otherNightReminder'],inherited=spec.nightReminder||'',section=inherited.match(first?/(?:^|\n)首夜：([\s\S]*?)(?=\n其他夜晚：|$)/:/(?:^|\n)其他夜晚：([\s\S]*)$/),nightReminder=local?.trim()?local:section?.[1]||(!/首夜：|其他夜晚：/.test(inherited)?inherited:''),verified=match(role).matchedBy==='ability',policy=verified?markerPolicies[key]:undefined;
+  const raw=policy?.tokens??(Array.isArray(spec.reminderTokens)?spec.reminderTokens:(spec.maxTargets??spec.targets)>0?role?.reminders||[]:[]),fallback=raw.map(t=>Array.isArray(t)?t:[t,null,'none']);
+  const tokens=[...new Map(fallback.filter(t=>typeof t[0]==='string'&&t[0].trim()&&t[0].trim().length<=100).map(([text,effect,expiry])=>[text.trim(),{text:text.trim(),effect:effect||undefined,expiry:expiry||'none'}])).values()];
+  if(!policy&&spec.followups?.some(p=>p.exclusive||p.effect==='death'))tokens.length=0;
+  return {...empty,...policy,ability:role?.ability||'',nightReminder,tokens,placement:policy?.placement||'targets',note:policy?.note||(tokens.length?'未核对的本局标记，请按能力原文与本局夜晚提示手动确认对象、结果和时限。':'按本局能力原文记录实际行动和结果，复杂结算由说书人确认。'),verified:!!policy};
+ }
  function validate(entry){
-  const data=entry.abilityAction,known=byKey.get(data?.key),spec=known?.spec,role=data?.role;
-  if(!spec||!entry.actor||entry.actorGroup!==undefined||entry.action!==spec.action||entry.actor.roleId!==role?.id||entry.actor.roleName!==role?.name||entry.actor.team!==role?.team||!forRole(role).some(s=>s.key===spec.key))throw Error('角色能力行动与角色资料不匹配');
+  const data=entry.abilityAction,known=byKey.get(data?.key),role=data?.role,spec=get(data?.key,role);
+  if(!spec||!entry.actor||entry.actorGroup!==undefined||entry.action!==spec.action||entry.actor.roleId!==role?.id||entry.actor.roleName!==role?.name||entry.actor.team!==role?.team||!recordingActions(role,data.key).some(s=>s.key===spec.key)||spec.generated&&entry.actor.role&&definition(entry.actor.role)!==definition(role))throw Error('角色能力行动与角色资料不匹配');
   if(entry.targets.some(p=>!p?.seatId)||entry.targets.length<spec.targets||entry.targets.length>(spec.maxTargets??spec.targets)||spec.excludeSelf&&entry.targets.some(p=>p.seatId===entry.actor.seatId))throw Error('请选择 '+spec.targets+(spec.maxTargets?' 至 '+spec.maxTargets:'')+' 名符合能力描述的玩家');
+  if(spec.targetCounts&&!spec.targetCounts.includes(entry.targets.length))throw Error('请选择 '+spec.targetCounts.join(' 或 ')+' 名玩家；发动能力时请选满。');
   if(spec.excludeSelfAt?.some(i=>entry.targets[i]?.seatId===entry.actor.seatId))throw Error('该位置不能选择自己');
   if(!spec.allowRepeatedTargets&&new Set(entry.targets.map(p=>p.seatId)).size!==entry.targets.length)throw Error('请选择不同的玩家');
   if(spec.roleTeams){if(!data.selectedRole||!spec.roleTeams.includes(data.selectedRole.team))throw Error('请选择符合能力描述的角色类型');}else if(data.selectedRole!==undefined)throw Error('这项能力不需要角色');
@@ -4940,7 +5010,7 @@
   if(spec.distinctTargetGroups?.some(indices=>new Set(indices.map(i=>entry.targets[i].seatId)).size!==indices.length))throw Error('这些位置需要不同的玩家');
   if(spec.targetTeams&&entry.targets.some(p=>!spec.targetTeams.includes(p.team)))throw Error('请选择符合能力要求的玩家角色类型');
   if(spec.roleExcludeNames&&[data.selectedRole,...(data.selectedRoles||[])].some(r=>r&&spec.roleExcludeNames.includes(r.name)))throw Error('这项能力不能选择该角色');
-  if(spec.excludeOwnRole&&[data.selectedRole,...(data.selectedRoles||[])].some(r=>r&&profileForRole(r)===known.profile))throw Error('这项能力不能选择自身角色');
+  if(spec.excludeOwnRole&&[data.selectedRole,...(data.selectedRoles||[])].some(r=>r&&profileForRole(r)===known?.profile))throw Error('这项能力不能选择自身角色');
   if(spec.excludeTravellers&&entry.targets.some(p=>p.team==='traveller'))throw Error('这项能力不能选择旅行者');
   if(data.texts!==undefined&&(!spec.textSlots||!Array.isArray(data.texts)||data.texts.length!==spec.textSlots.length||data.texts.some(t=>typeof t!=='string'||!t.trim()||t.length>2000)))throw Error('请完整填写能力信息');
   if(spec.resultRequired&&!data.texts&&!String(entry.result||'').trim())throw Error('请填写能力的信息内容');
@@ -4950,12 +5020,12 @@
  }
  function roleSlots(spec,count){if(!spec)return [];if(spec.roleCount){const n=Number(count);return Number.isInteger(n)&&n>=spec.min&&n<=spec.max?Array.from({length:n},(_,i)=>({label:(spec.roleCount.label||'选择角色')+' '+(i+1),teams:spec.roleCount.teams})):[];}return spec.roleSlots||[];}
  function describe(entry){
-  const data=entry.abilityAction,spec=get(data.key),texts=data.texts;
+  const data=entry.abilityAction,spec=get(data.key,data.role),texts=data.texts;
   let sentence=!entry.targets.length&&spec.emptySentence?spec.emptySentence:spec.recordSentence,result=entry.result||'';
   if(spec.textSlots){if(texts)sentence=spec.textSentence;else if(result){sentence=spec.legacySentence;result='';}}
   if(data.key.startsWith('experimental/alsaahir/')&&data.choice)sentence=sentence.replace(/[。；]+$/,'')+'，{choice}。';
   if(data.key==='bmr/gambler/0')sentence='赌{targets}是{role}'+(data.choice?'，{choice}。':'。');
   return {sentence,texts:(texts||[]).map(t=>t.trim().replace(/[。；]+$/,'')),detail:entry.result||'',result};
  }
- const api={profiles,match,forRole,iconRoleId,get,validate,roleSlots,describe};root.GrimoireReviewActions=api;if(typeof module!=='undefined')module.exports=api;
+ const api={profiles,match,forRole,recordingActions,recordingGuidance,customForm,iconRoleId,get,validate,roleSlots,describe};root.GrimoireReviewActions=api;if(typeof module!=='undefined')module.exports=api;
 })(globalThis);

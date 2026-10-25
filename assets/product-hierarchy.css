@@ -119,7 +119,7 @@
 .site-guide,.guide-panel{scroll-margin-top:calc(var(--wiki-header-height,68px) + 20px)}
 .site-guide .home-module-heading{margin-bottom:10px}
 .site-guide-dialog .guide-lead{font-size:13px;color:var(--archive-muted,#665b4c);line-height:1.8;margin:0 0 20px;max-width:65ch}
-.guide-choices{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-bottom:18px}
+.guide-choices{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin-bottom:18px}
 .site-guide-dialog .site-guide .guide-choices a,.site-guide-dialog .site-guide .guide-choices a:visited{display:flex;align-items:center;justify-content:center;min-height:44px;padding:6px 12px;border:1px solid var(--archive-line,#d5c6a9);border-radius:8px;color:var(--archive-muted,#665b4c);background:#faf5e940;font-size:13px;text-decoration:none;box-sizing:border-box}
 .site-guide-dialog .site-guide .guide-choices a:hover{border-color:#aa8954;background:#e8dab938;color:#403629}
 .site-guide-dialog .site-guide .guide-choices a[aria-selected=true]{color:#463522;background:#e5d4af80;border-color:#b69760;font-weight:600;box-shadow:inset 0 -2px 0 #aa8650}
@@ -250,3 +250,5 @@ html.site-guide-open{overflow:hidden}
  .night-viewer:has(#nightPlayers[hidden])>:is(h1,p,.night-import){width:100%;max-width:1600px;margin-inline:auto}
  .night-viewer #nightResult>.night-columns{gap:24px}
 }
+
+.home-feature-updates small{display:block;font-size:12px;line-height:1.8}

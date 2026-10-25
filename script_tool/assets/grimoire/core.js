@@ -3,7 +3,7 @@
  'use strict';
  const kind='clocktower-grimoire',key='botc_grimoire_v1';
  const teams=['townsfolk','outsider','minion','demon','traveller','fabled','loric'];
- const reviewSourceActions=['中毒（因某个玩家的能力中毒了）','醉酒（因某个玩家的能力醉酒了）','因某个玩家而不会死亡','被处决，但不会死亡（因玩家的能力）','因某个玩家的能力而复活'];
+ const reviewSourceActions=['中毒（因某个玩家的能力中毒了）','醉酒（因某个玩家的能力醉酒了）','因某个玩家而不会死亡','被处决，但不会死亡（因玩家的能力）','因某个玩家的能力而复活','因某个玩家的能力而死亡'];
  const reviewReferenceActions=['声称自己的角色','获得了能力','以为自己获得了能力'];
  const reviewActorGroups=['all','townsfolk','minions','good','evil'];
  const copy=v=>JSON.parse(JSON.stringify(v));
@@ -30,8 +30,9 @@
   const result={name:text(value.name||'未命名剧本',200,'剧本名称'),author:text(value.author||'',200,'作者'),roles,rules:text(value.rules||'',40000,'剧本规则')};if(value.logo!==undefined)result.logo=text(value.logo,10000,'剧本图标');return result;
  }
  function reminderDetail(v,roles){
+  if(v?.sourceUnresolved!==undefined&&typeof v.sourceUnresolved!=='boolean')throw Error('标记来源状态无效');
   if(v==null)return null;if(typeof v!=='object'||Array.isArray(v)||!['role','poison','drunk','protected','good','evil','custom'].includes(v.kind))throw Error('提示标记资料无效');
-  const roleId=v.kind==='role'?text(v.roleId,160,'标记来源角色',false):'';if(roleId&&roles&&!roles.has(roleId))throw Error('提示标记来源不属于本剧本');const detail={kind:v.kind,roleId};if(v.flipped!==undefined&&typeof v.flipped!=='boolean')throw Error('提示标记翻转状态无效');if(v.flipped)detail.flipped=true;
+  const roleId=v.kind==='role'?text(v.roleId,160,'标记来源角色',false):'';if(roleId&&roles&&!roles.has(roleId))throw Error('提示标记来源不属于本剧本');const detail={kind:v.kind,roleId,...(v.sourceUnresolved?{sourceUnresolved:true}:{})};if(v.sourceSeatId!==undefined){if(typeof v.sourceSeatId!=='string'||!/^seat_\d+$/.test(v.sourceSeatId)||v.sourceSeatId.length>25)throw Error('标记来源玩家无效');detail.sourceSeatId=v.sourceSeatId;}if(v.effect!==undefined){if(!['poison','drunk','protected'].includes(v.effect))throw Error('标记状态类型无效');detail.effect=v.effect;}if(v.reviewEntryId!==undefined)detail.reviewEntryId=integer(v.reviewEntryId,1,Number.MAX_SAFE_INTEGER-1,'标记来源记录');if(v.flipped!==undefined&&typeof v.flipped!=='boolean')throw Error('提示标记翻转状态无效');if(v.flipped)detail.flipped=true;
   if(v.expiry!==undefined){const e=v.expiry;if(!e||!['dawn','dusk','action'].includes(e.when))throw Error('标记到期条件无效');detail.expiry={when:e.when,stage:integer(e.stage,0,199,'标记到期阶段')};if(e.when==='action'){if(typeof e.seatId!=='string'||!/^seat_\d+$/.test(e.seatId)||e.seatId.length>25)throw Error('标记到期玩家无效');detail.expiry.seatId=e.seatId;if(e.due!==undefined&&typeof e.due!=='boolean')throw Error('标记到期状态无效');if(e.due)detail.expiry.due=true;}}return detail;
  }
  function phaseIndex(s){return s.phase==='setup'?-1:s.round*2-(s.phase==='night'?2:1);}
@@ -76,23 +77,80 @@
   return {source:value.source,at:value.at,revision:integer(value.revision,1,Number.MAX_SAFE_INTEGER,'联动修订号'),seatIds:value.seatIds.slice()};
  }
  const roleDefinition=role;
- const boardActions=['死亡了','复活了','因某个玩家的能力而复活','中毒（简单记录）','中毒（因某个玩家的能力中毒了）','醉酒（简单记录）','醉酒（因某个玩家的能力醉酒了）','恢复健康了','恢复清醒了','角色变化','阵营变化','角色和阵营变化'];
+ const boardActions=['死亡了','因某个玩家的能力而死亡','复活了','因某个玩家的能力而复活','中毒（简单记录）','中毒（因某个玩家的能力中毒了）','醉酒（简单记录）','醉酒（因某个玩家的能力醉酒了）','恢复健康了','恢复清醒了','角色变化','阵营变化','角色和阵营变化'];
  function canLinkReview(entry){return entry.kind==='action'&&!!entry.actor&&!entry.actorGroup&&boardActions.includes(entry.action);}
+ function reminderEffect(label,detail){
+  if(detail?.effect)return detail.effect;if(['poison','drunk','protected'].includes(detail?.kind))return detail.kind;
+  if(!detail||detail.kind==='role')return {中毒:'poison',醉酒:'drunk',保护:'protected',不会死亡:'protected',处决不死:'protected'}[label];
+ }
+ function legacyMarkerOwners(s){
+  const owners=new Map();for(const stage of s.review.stages)for(const e of stage.entries){if(!e.actor||!e.abilityAction||e.boardLink?.source!=='review')continue;const r=s.script.roles.find(r=>['id','name','team','ability'].every(k=>r[k]===e.abilityAction.role[k]))||e.abilityAction.role,plan=root.GrimoireReviewActions.recordingGuidance(r,e.abilityAction.key),subjects=plan.placement==='actor'?[e.actor]:e.targets;
+   for(const p of subjects||[])if(e.boardLink.seatIds.includes(p.seatId))for(const token of plan.tokens){const key=JSON.stringify([p.seatId,r.id,token.text]),set=owners.get(key)||new Set();set.add(e.actor.seatId);owners.set(key,set);}
+  }return owners;
+ }
+ function markerOwner(owners,p,label,detail){if(detail?.sourceSeatId)return detail.sourceSeatId;if(detail?.kind!=='role'||detail.sourceUnresolved)return;const duplicates=p.reminders.filter((t,i)=>t===label&&p.reminderDetails[i]?.kind==='role'&&p.reminderDetails[i]?.roleId===detail.roleId).length;if(duplicates>1)return;const candidates=owners.get(JSON.stringify([p.id,detail.roleId,label]));return candidates?.size===1?[...candidates][0]:undefined;}
+ function resolveLegacyMarkerOwners(s){
+  const owners=legacyMarkerOwners(s);
+  // Resolve before adding new evidence; new records cannot claim an older unknown marker.
+  for(const p of s.seats)for(let i=0;i<p.reminders.length;i++){const detail=p.reminderDetails[i];if(detail?.kind!=='role'||detail.sourceSeatId||detail.sourceUnresolved)continue;const owner=markerOwner(owners,p,p.reminders[i],detail);if(owner)detail.sourceSeatId=owner;else detail.sourceUnresolved=true;}
+  return owners;
+ }
+ function latestReviewChoice(entries,actorSeatId,key,role){
+  const choices=(entries||[]).filter(e=>e.actor?.seatId===actorSeatId&&e.abilityAction?.key===key&&['id','name','team','ability'].every(k=>e.abilityAction.role[k]===role[k])),linked=choices.filter(e=>e.boardLink?.source==='review');
+  // A linked choice reflects board state; log ordering is only a reading preference.
+  return (linked.length?linked:choices).reduce((last,e)=>!last||((linked.length?e.boardLink.revision-last.boardLink.revision:0)||e.id-last.id)>0?e:last,null);
+ }
+ function reviewTargetStatus(s,stageIndex,actorSeatId,key,targetSeatId){
+  const live=stageIndex===(s.phase==='setup'?0:phaseIndex(s)),actor=s.seats.find(p=>p.id===actorSeatId),role=actor&&s.script.roles.find(r=>r.id===actor.roleId),plan=root.GrimoireReviewActions.recordingGuidance(role,key,{phase:s.phase,round:s.round}),p=s.seats.find(p=>p.id===targetSeatId),result={allowed:true,needsAlignmentConfirmation:false,alignment:'unknown',reason:''};
+  if(!live)return result;if(!p)return {...result,allowed:false,reason:'目标玩家已移除。'};
+  if(plan.targetAlive&&!p.alive)return {...result,allowed:false,reason:'请选择存活的玩家。'};
+  if(plan.targetAlignment){result.alignment=p.alignment;if(p.alignment!=='unknown'&&p.alignment!==plan.targetAlignment)return {...result,allowed:false,reason:'该目标已标为邪恶，请选择实际为善良阵营的玩家。'};result.needsAlignmentConfirmation=p.alignment==='unknown';}
+  if(plan.selectionKey){const selected=latestReviewChoice(s.review.stages[stageIndex]?.entries,actorSeatId,plan.selectionKey,role);if(selected&&!selected.targets.some(t=>t.seatId===targetSeatId))return {...result,allowed:false,reason:'请选择这名玩家本夜已记录的'+(plan.selectionKey==='bmr/innkeeper/0'?'受保护目标。':'共饮目标。')};}
+  if(plan.differentPreviousNight&&s.phase==='night'&&s.round>1){const earlier=latestReviewChoice(s.review.stages[stageIndex-2]?.entries,actorSeatId,key,role);if(earlier?.targets.some(t=>t.seatId===targetSeatId))return {...result,allowed:false,reason:'不能连续两夜选择同一玩家，请选择与上个夜晚不同的目标。'};}
+  return result;
+ }
+ function validateReviewTargets(s,entry,action){
+  if(!entry.abilityAction||!entry.actor)return;for(const target of entry.targets){const status=reviewTargetStatus(s,action.stageIndex,entry.actor.seatId,entry.abilityAction.key,target.seatId);if(!status.allowed)throw Error(status.reason);if(action.placeToken&&status.needsAlignmentConfirmation&&action.confirmTargetAlignment!==true)throw Error('目标阵营未标记，请确认其实际为善良阵营后再放置标记。');}
+ }
+ function reviewReminderOptions(role,key){return root.GrimoireReviewActions?.recordingGuidance(role,key).tokens.map(t=>t.text)||[];}
+ function linkReviewReminder(s,entry,action){
+  if(entry.kind!=='action'||!entry.actor||entry.actorGroup||!entry.abilityAction)throw Error('请先选择有目标玩家的角色能力');
+  const spec=root.GrimoireReviewActions.get(entry.abilityAction.key,entry.abilityAction.role),setup=spec?.setupAction&&s.phase==='setup'&&action.stageIndex===0;
+  if(action.stageIndex!==phaseIndex(s)&&!setup)throw Error('过去或未来阶段只能记录，不能放置当前魔典标记');
+  const actor=s.seats.find(p=>p.id===entry.actor.seatId),role=actor&&s.script.roles.find(r=>r.id===actor.roleId),source=entry.abilityAction.role;
+  if(!role||['id','name','team','ability'].some(k=>role[k]!==source[k]))throw Error('当前玩家能力与记录不一致，请仅记录或重新选择');
+  const plan=root.GrimoireReviewActions.recordingGuidance(role,entry.abilityAction.key,{phase:s.phase,round:s.round}),subjects=plan.placement==='actor'?[entry.actor]:entry.targets;if(!subjects.length)throw Error('请选择至少一名标记目标');
+  const token=text(action.tokenText,100,'提示标记',false).trim(),definition=plan.tokens.find(t=>t.text===token);if(!definition)throw Error('请选择本局角色提供的提示标记');
+  const affected=new Set(subjects.map(p=>p.seatId)),owners=resolveLegacyMarkerOwners(s);
+  if(plan.replaceTargets||spec.reminderSingleton)for(const p of s.seats){if(affected.has(p.id))continue;for(let i=p.reminders.length-1;i>=0;i--)if(p.reminders[i]===token&&p.reminderDetails[i]?.kind==='role'&&p.reminderDetails[i]?.roleId===role.id&&markerOwner(owners,p,p.reminders[i],p.reminderDetails[i])===actor.id){p.reminders.splice(i,1);p.reminderDetails.splice(i,1);affected.add(p.id);}}
+  for(const target of subjects){
+   const p=s.seats.find(p=>p.id===target.seatId);if(!p)throw Error('标记目标已不在当前魔典，请仅记录');
+   let i=p.reminders.findIndex((t,i)=>t===token&&p.reminderDetails[i]?.kind==='role'&&p.reminderDetails[i]?.roleId===role.id&&markerOwner(owners,p,t,p.reminderDetails[i])===actor.id);
+   if(i<0){if(p.reminders.length>=20)throw Error('每个座位最多 20 个提醒');i=p.reminders.length;p.reminders.push(token);p.reminderDetails.push({kind:'role',roleId:role.id});}
+   const detail=p.reminderDetails[i];detail.sourceSeatId=actor.id;detail.reviewEntryId=entry.id;const effect=definition.effect||reminderEffect(token,detail);if(effect)detail.effect=effect;delete detail.flipped;
+   const when=action.tokenExpiry??definition.expiry;if(when==='none')delete detail.expiry;else if(when)detail.expiry=expiryFor(s,when,p.id);
+  }
+  entry.boardLink={source:'review',at:Date.now(),revision:s.revision+1,seatIds:[...affected]};
+ }
  function linkReview(s,entry,action){
   if(action.stageIndex!==phaseIndex(s))throw Error('过去或未来阶段只能记录，不能更新当前魔典');
   if(!canLinkReview(entry))throw Error('这项行动不能联动魔典，请仅记录');
   const p=s.seats.find(p=>p.id===entry.actor.seatId),r=p&&s.script.roles.find(r=>r.id===p.roleId);
   if(!p||p.roleId!==entry.actor.roleId||r&&entry.actor.role&&JSON.stringify(reviewRole(r))!==JSON.stringify(entry.actor.role))throw Error('当前玩家身份与记录不一致，请仅记录或重新选择');
   const name=entry.action;
-  if(name==='死亡了')p.alive=false;
+  if(['死亡了','因某个玩家的能力而死亡'].includes(name))p.alive=false;
   else if(['复活了','因某个玩家的能力而复活'].includes(name))p.alive=true;
   else if(name.startsWith('中毒')||name.startsWith('醉酒')){
-   const poison=name.startsWith('中毒'),kind=poison?'poison':'drunk',text=poison?'中毒':'醉酒';let i=p.reminders.findIndex((t,i)=>p.reminderDetails[i]?.kind===kind||!p.reminderDetails[i]&&t===text);
-   if(i<0){if(p.reminders.length>=20)throw Error('每个座位最多 20 个提醒');i=p.reminders.length;p.reminders.push(text);p.reminderDetails.push({kind,roleId:''});}
-   if(action.expiryWhen==='none'&&p.reminderDetails[i]?.expiry)delete p.reminderDetails[i].expiry;
-   if(action.expiryWhen&&action.expiryWhen!=='none')p.reminderDetails[i]={...(p.reminderDetails[i]||{kind,roleId:''}),expiry:expiryFor(s,action.expiryWhen,action.expirySeatId||p.id)};
+   const kind=name.startsWith('中毒')?'poison':'drunk',label=kind==='poison'?'中毒':'醉酒',parent=s.review.stages[action.stageIndex]?.entries.find(e=>e.id===entry.followupOf),source=parent?.actor||entry.source,sourceRole=parent?.abilityAction?.role||source?.role,owners=resolveLegacyMarkerOwners(s);
+   if(parent&&s.review.stages[action.stageIndex].entries.some(e=>{if(e.id<=parent.id||e.actor?.seatId!==source.seatId||e.boardLink?.source!=='review'||!e.abilityAction||e.abilityAction.role.id!==sourceRole?.id)return false;const later=root.GrimoireReviewActions.recordingGuidance(e.abilityAction.role,e.abilityAction.key);return later.replaceTargets&&(e.abilityAction.key===parent.abilityAction?.key||later.tokens.some(t=>t.effect===kind));}))throw Error('该玩家后续已重新选择并更新标记；旧行动只能补记历史结果，不能覆盖当前魔典。');
+   let i=p.reminders.findIndex((t,i)=>reminderEffect(t,p.reminderDetails[i])===kind&&(!source||(p.reminderDetails[i]?.kind==='role'&&p.reminderDetails[i]?.roleId===sourceRole?.id&&markerOwner(owners,p,t,p.reminderDetails[i])===source.seatId)));
+   if(i<0){if(p.reminders.length>=20)throw Error('每个座位最多 20 个提醒');i=p.reminders.length;p.reminders.push(label);p.reminderDetails.push(sourceRole?{kind:'role',roleId:sourceRole.id,sourceSeatId:source.seatId,effect:kind,reviewEntryId:parent?.id||entry.id}:{kind,roleId:''});}
+   const detail=p.reminderDetails[i];if(sourceRole&&detail?.kind==='role'){detail.sourceSeatId=source.seatId;detail.effect=kind;detail.reviewEntryId=parent?.id||entry.id;}if(detail)delete detail.flipped;
+   if(action.expiryWhen==='none'&&detail?.expiry&&!action.preserveExistingExpiry)delete detail.expiry;
+   if(action.expiryWhen&&action.expiryWhen!=='none')p.reminderDetails[i]={...(detail||{kind,roleId:''}),expiry:expiryFor(s,action.expiryWhen,action.expirySeatId||p.id)};
   }else if(['恢复健康了','恢复清醒了'].includes(name)){
-   const kind=name==='恢复健康了'?'poison':'drunk',label=kind==='poison'?'中毒':'醉酒';for(let i=p.reminders.length-1;i>=0;i--)if(p.reminderDetails[i]?.kind===kind||!p.reminderDetails[i]&&p.reminders[i]===label){p.reminders.splice(i,1);p.reminderDetails.splice(i,1);}
+   const kind=name==='恢复健康了'?'poison':'drunk',parent=s.review.stages[action.stageIndex]?.entries.find(e=>e.id===entry.followupOf),source=parent?.actor,owners=resolveLegacyMarkerOwners(s);
+   for(let i=p.reminders.length-1;i>=0;i--)if(reminderEffect(p.reminders[i],p.reminderDetails[i])===kind&&(!source||markerOwner(owners,p,p.reminders[i],p.reminderDetails[i])===source.seatId)){p.reminders.splice(i,1);p.reminderDetails.splice(i,1);}
   }else{
    if(entry.changedRole!==undefined){const role=entry.changedRole,existing=role&&s.script.roles.find(r=>r.id===role.id);if(existing&&JSON.stringify(reviewRole(existing))!==JSON.stringify(role))throw Error('同 ID 角色能力版本不同，不能覆盖本局角色');if(role&&!existing){if(!action.extraRole)throw Error('缺少完整角色定义，请先将此角色加入魔典后再记录');const extra=roleDefinition(action.extraRole);if(JSON.stringify(reviewRole(extra))!==JSON.stringify(role))throw Error('新增角色定义与记录不一致');s.script.roles.push(extra);}p.roleId=role?.id||'';p.reminders=[];p.reminderDetails=[];p.alignment='unknown';for(const n of s.progress)if(n.night===s.round)n.steps=n.steps.filter(x=>x.seatId!==p.id);}
    if(entry.changedAlignment!==undefined)p.alignment=entry.changedAlignment;
@@ -134,7 +192,7 @@
    return {...expected,...(players?{players}:{}),entries:stage.entries.map(e=>{
     if(!e||!['text','action'].includes(e.kind)||!Number.isFinite(e.at)||e.at<0)throw Error('复盘记录无效');integer(e.id,1,value.nextId-1,'复盘记录编号');if(ids.has(e.id))throw Error('复盘记录编号重复');ids.add(e.id);
     const base={id:e.id,kind:e.kind,at:e.at};if(e.kind==='text')return {...base,text:text(e.text,2000,'复盘文字',false)};
-    if(!Array.isArray(e.targets)||e.targets.length>30||new Set(e.targets.map(p=>p?.seatId)).size!==e.targets.length&&!root.GrimoireReviewActions?.get(e.abilityAction?.key)?.allowRepeatedTargets)throw Error('复盘目标无效');
+    if(!Array.isArray(e.targets)||e.targets.length>30||new Set(e.targets.map(p=>p?.seatId)).size!==e.targets.length&&!root.GrimoireReviewActions?.get(e.abilityAction?.key,e.abilityAction?.role)?.allowRepeatedTargets)throw Error('复盘目标无效');
     const entry={...base,actor:e.actor===null?null:participant(e.actor),action:text(e.action,100,'复盘行动',false),targets:e.targets.map(participant),result:text(e.result,2000,'复盘结果')};if(e.votes!==undefined){if(entry.action!=='提名玩家（记录票数）'||entry.targets.length!==1)throw Error('票数只适用于单个玩家的提名记录');entry.votes=integer(e.votes,0,999,'提名票数');}if(e.source!==undefined){if(!reviewSourceActions.includes(entry.action))throw Error('这项复盘行动不使用来源玩家');entry.source=participant(e.source);}
     if(e.actorGroup!==undefined){if(entry.actor!==null||!reviewActorGroups.includes(e.actorGroup))throw Error('复盘群体对象无效');entry.actorGroup=e.actorGroup;if(e.actorGroup==='minions'&&entry.action==='一起决定由谁照顾小怪宝'&&entry.targets.length!==1)throw Error('请选择 1 名照顾小怪宝的玩家');}
     if(e.changedRole!==undefined){if(!['角色变化','角色和阵营变化'].includes(entry.action))throw Error('这项行动不记录角色变化');entry.changedRole=e.changedRole===null?null:reviewRole(e.changedRole);}
@@ -176,14 +234,14 @@
   if(!Array.isArray(v.history)||v.history.length>200)throw Error('操作记录无效');v.history.forEach(e=>{text(e.text,300,'操作记录');text(e.type,30,'操作类型');if(!Number.isFinite(e.at)||!['setup','day','night'].includes(e.phase))throw Error('操作记录格式无效');integer(e.round,0,99,'记录天夜数');});
   v.review=reviewData(v.review,v.phase,v.round);
   if(v.replay!==undefined){if(!v.replay||!Array.isArray(v.replay.stages)||v.replay.stages.length>198)throw Error('回放阶段无效');v.replay={stages:v.replay.stages.map(stage=>{if(stage===null)return null;if(typeof stage?.partial!=='boolean')throw Error('回放快照来源无效');return {start:validateFrame(stage.start),end:validateFrame(stage.end),partial:stage.partial};})};}
-  let highest=Math.max(...v.seats.map(p=>integer(Number(p.id.slice(5)),1,Number.MAX_SAFE_INTEGER-1,'玩家永久编号')));const scan=x=>{if(!x||typeof x!=='object')return;for(const [k,item]of Object.entries(x)){if(k==='seatId'&&typeof item==='string'&&/^seat_\d+$/.test(item))highest=Math.max(highest,integer(Number(item.slice(5)),1,Number.MAX_SAFE_INTEGER-1,'玩家永久编号'));else if(item&&typeof item==='object')scan(item);}};scan(v.review);scan(v.replay);scan(v.seats.map(p=>p.reminderDetails));v.nextSeatId=Math.max(v.nextSeatId===undefined?1:integer(v.nextSeatId,1,Number.MAX_SAFE_INTEGER,'下一玩家编号'),highest+1);
+  let highest=Math.max(...v.seats.map(p=>integer(Number(p.id.slice(5)),1,Number.MAX_SAFE_INTEGER-1,'玩家永久编号')));const scan=x=>{if(!x||typeof x!=='object')return;for(const [k,item]of Object.entries(x)){if((k==='seatId'||k==='sourceSeatId')&&typeof item==='string'&&/^seat_\d+$/.test(item))highest=Math.max(highest,integer(Number(item.slice(5)),1,Number.MAX_SAFE_INTEGER-1,'玩家永久编号'));else if(item&&typeof item==='object')scan(item);}};scan(v.review);scan(v.replay);scan(v.seats.map(p=>p.reminderDetails));v.nextSeatId=Math.max(v.nextSeatId===undefined?1:integer(v.nextSeatId,1,Number.MAX_SAFE_INTEGER,'下一玩家编号'),highest+1);
   if(utf8Size(serialize(v))>8*1024*1024)throw Error('对局备份超过 8 MB');return v;
  }
  function playable(r){return !['fabled','loric'].includes(r.team);}
- const reviewEffects={death:{action:'死亡了',effect:'死亡了',aliases:['死亡了','死亡']},poison:{action:'中毒（简单记录）',effect:'中毒了',aliases:['中毒了','中毒（简单记录）',reviewSourceActions[0]]},drunk:{action:'醉酒（简单记录）',effect:'醉酒了',aliases:['醉酒了','醉酒（简单记录）',reviewSourceActions[1]]},revive:{action:'复活了',effect:'复活了',aliases:['复活了','因某个玩家的能力而复活']},healthy:{action:'恢复健康了',effect:'恢复健康了',aliases:['恢复健康了']},victory:{action:'获胜🎉',effect:'获胜🎉',aliases:['获胜🎉','获胜']},goodPoison:{action:'非旅行者玩家中毒了',effect:'非旅行者玩家中毒了',aliases:['非旅行者玩家中毒了']}};
+ const reviewEffects={death:{action:'死亡了',effect:'死亡了',aliases:['死亡了','死亡','因某个玩家的能力而死亡']},poison:{action:'中毒（简单记录）',effect:'中毒了',aliases:['中毒了','中毒（简单记录）',reviewSourceActions[0]]},drunk:{action:'醉酒（简单记录）',effect:'醉酒了',aliases:['醉酒了','醉酒（简单记录）',reviewSourceActions[1]]},revive:{action:'复活了',effect:'复活了',aliases:['复活了','因某个玩家的能力而复活']},healthy:{action:'恢复健康了',effect:'恢复健康了',aliases:['恢复健康了']},victory:{action:'获胜🎉',effect:'获胜🎉',aliases:['获胜🎉','获胜']},goodPoison:{action:'非旅行者玩家中毒了',effect:'非旅行者玩家中毒了',aliases:['非旅行者玩家中毒了']}};
  function reviewCandidates(s,stageIndex,entryId){
   const entry=s.review?.stages[stageIndex]?.entries.find(e=>e.id===entryId);if(entry?.kind!=='action'||!entry.actor||entry.actorGroup!==undefined||!root.GrimoireReviewActions)return [];
-  const role=entry.abilityAction?.role||s.script.roles.find(r=>r.id===entry.actor.roleId&&r.name===entry.actor.roleName&&r.team===entry.actor.team),specs=root.GrimoireReviewActions.forRole(role),legacy=new Set(['tb/poisoner/0','experimental/widow/0','tb/imp/0']),spec=entry.abilityAction?specs.find(a=>a.key===entry.abilityAction.key&&a.action===entry.action):entry.action==='选择了'&&entry.targets.length===1?specs.find(a=>legacy.has(a.key)):null,candidates=[];
+  const role=entry.abilityAction?.role||s.script.roles.find(r=>r.id===entry.actor.roleId&&r.name===entry.actor.roleName&&r.team===entry.actor.team),specs=root.GrimoireReviewActions.recordingActions(role,entry.abilityAction?.key),legacy=new Set(['tb/poisoner/0','experimental/widow/0','tb/imp/0']),spec=entry.abilityAction?specs.find(a=>a.key===entry.abilityAction.key&&a.action===entry.action):entry.action==='选择了'&&entry.targets.length===1?specs.find(a=>legacy.has(a.key)):null,candidates=[];
   for(const [index,plan]of (spec?.followups||[]).entries()){if(plan.choice&&entry.abilityAction?.choice!==plan.choice)continue;const effect=reviewEffects[plan.effect];if(!effect)continue;const subjects=plan.actorGroup?[null]:plan.targetIndices?plan.targetIndices.map(i=>entry.targets[i]).filter(Boolean):plan.subjects==='actor'?[entry.actor]:plan.subjects==='actorAndTargets'?[entry.actor,...entry.targets]:entry.targets;
    for(const actor of subjects){const key=plan.effect+':'+(plan.actorGroup?'group:'+plan.actorGroup:actor.seatId);if(candidates.some(c=>c.key===key))continue;candidates.push({actor:copy(actor),...(plan.actorGroup?{actorGroup:plan.actorGroup}:{}),action:effect.action,effect:effect.effect,key,group:plan.exclusive?String(index):'',signature:JSON.stringify(entry)});}
   }return candidates;
@@ -241,7 +299,7 @@
    case 'vote':{const p=target();if(typeof action.available!=='boolean')throw Error('投票状态无效');p.ghostVote=action.available;message=name(p)+(p.ghostVote?'恢复投票标记':'使用投票标记');break;}
    case 'cycleStatus':{const p=target();if(p.alive){p.alive=false;p.ghostVote=true;message=name(p)+'标记死亡，死亡票可用';}else if(p.ghostVote){p.ghostVote=false;message=name(p)+'使用死亡票';}else{p.alive=true;p.ghostVote=true;message=name(p)+'恢复存活';}break;}
    case 'alignment':{if(!['unknown','good','evil'].includes(action.alignment))throw Error('阵营标记无效');const p=target();p.alignment=action.alignment;message='修改 '+name(p)+' 的阵营标记';break;}
-   case 'reminderAdd':{const p=target();if(p.reminders.length>=20)throw Error('每个座位最多 20 个提醒');p.reminders.push(text(action.text,100,'提醒内容',false).trim());let detail=reminderDetail(action.detail,map);if(action.expiryWhen&&action.expiryWhen!=='none'){detail||={kind:'custom',roleId:''};detail.expiry=expiryFor(s,action.expiryWhen,action.expirySeatId||p.id);}p.reminderDetails.push(detail);message='为 '+name(p)+' 添加提醒';break;}
+   case 'reminderAdd':{const p=target();if(p.reminders.length>=20)throw Error('每个座位最多 20 个提醒');p.reminders.push(text(action.text,100,'提醒内容',false).trim());let detail=reminderDetail(action.detail,map);if(detail?.kind==='role'&&!detail.sourceSeatId)detail.sourceUnresolved=true;if(action.expiryWhen&&action.expiryWhen!=='none'){detail||={kind:'custom',roleId:''};detail.expiry=expiryFor(s,action.expiryWhen,action.expirySeatId||p.id);}p.reminderDetails.push(detail);message='为 '+name(p)+' 添加提醒';break;}
    case 'reminderExpiry':{const p=target();integer(action.index,0,p.reminders.length-1,'提醒位置');if(action.signature!==JSON.stringify([p.id,action.index,p.reminders[action.index],p.reminderDetails[action.index]]))throw Error('标记已变化，请重新打开设置');const detail=p.reminderDetails[action.index]||{kind:({中毒:'poison',醉酒:'drunk',保护:'protected'})[p.reminders[action.index]]||'custom',roleId:''},expiry=expiryFor(s,action.when,action.expirySeatId||p.id);if(expiry)detail.expiry=expiry;else delete detail.expiry;p.reminderDetails[action.index]=detail;message='设置 '+name(p)+' 的标记到期时间';break;}
    case 'reminderExpireConfirm':{const p=target(),match=timedReminders(s).find(r=>r.seatId===p.id&&r.index===action.index&&r.signature===action.signature);if(!match?.due)throw Error('标记尚未到期或已变化，请重新检查');p.reminders.splice(action.index,1);p.reminderDetails.splice(action.index,1);message='确认清除 '+name(p)+' 已到期的'+match.text;break;}
    case 'reminderActionDone':{const p=target();markExpiryAction(s,p.id);message='确认 '+name(p)+' 已行动，检查状态时限';break;}
@@ -275,7 +333,7 @@
     if(entry.kind==='text')entry.text=text(action.text,2000,'复盘文字',false).trim();else if(entry.kind==='action'){
      entry.actor=action.actorSeatId?snapshot(action.actorSeatId,old?.actor):null;entry.action=text(action.action,100,'复盘行动',false).trim();entry.result=text(action.result??'',2000,'复盘结果').trim();
      if(action.actorGroup!==undefined){if(entry.actor!==null||!reviewActorGroups.includes(action.actorGroup))throw Error('复盘群体对象无效');entry.actorGroup=action.actorGroup;}
-     if(!Array.isArray(action.targetSeatIds)||action.targetSeatIds.length>30||new Set(action.targetSeatIds).size!==action.targetSeatIds.length&&!root.GrimoireReviewActions?.get(action.abilityAction?.key)?.allowRepeatedTargets)throw Error('复盘目标无效');entry.targets=action.targetSeatIds.map(id=>snapshot(id,old?.targets?.find(p=>p.seatId===id)));
+     if(!Array.isArray(action.targetSeatIds)||action.targetSeatIds.length>30||new Set(action.targetSeatIds).size!==action.targetSeatIds.length&&!root.GrimoireReviewActions?.get(action.abilityAction?.key,action.abilityAction?.role)?.allowRepeatedTargets)throw Error('复盘目标无效');entry.targets=action.targetSeatIds.map(id=>snapshot(id,old?.targets?.find(p=>p.seatId===id)));
      if(['提名玩家（记录票数）','提名玩家（不记录票数）'].includes(entry.action)&&entry.targets.length!==1)throw Error('提名记录需要选择 1 名玩家');
      if(entry.actorGroup==='minions'&&entry.action==='一起决定由谁照顾小怪宝'&&entry.targets.length!==1)throw Error('请选择 1 名照顾小怪宝的玩家');
      if(entry.action==='提名说书人（仅用于无神论者在场）'&&entry.targets.length)throw Error('提名说书人不需要玩家目标');
@@ -284,9 +342,9 @@
      if(['角色变化','角色和阵营变化'].includes(entry.action)){if(action.changedRole===undefined)throw Error('请选择变化后的角色，或明确选择空白');entry.changedRole=action.changedRole===null?null:reviewRole(action.changedRole);}else if(action.changedRole!==undefined)throw Error('这项行动不记录角色变化');
      if(reviewReferenceActions.includes(entry.action)){if(action.selectedRole===undefined)throw Error('请选择记录的角色，或明确选择空白');entry.selectedRole=action.selectedRole===null?null:reviewRole(action.selectedRole);}else if(action.selectedRole!==undefined)throw Error('这项行动不记录声称角色或能力角色');
      if(entry.action==='告知玩家：3个不在场角色'&&entry.actor===null&&entry.actorGroup===undefined){if(entry.targets.length!==1)throw Error('请选择一名接收信息的玩家');entry.informedRoles=reviewInformedRoles(action.informedRoles);}else if(action.informedRoles!==undefined)throw Error('这项行动不记录三个不在场角色');
-     if(action.abilityAction!==undefined){entry.abilityAction=reviewAbility(action.abilityAction,entry);const source=entry.actor?.role||(old?.actor?.seatId===entry.actor?.seatId&&old?.abilityAction&&!Object.hasOwn(action.roleOverrides||{},entry.actor?.seatId)?old.abilityAction.role:map.get(entry.actor?.roleId));if(!root.GrimoireReviewActions.forRole(source).some(s=>s.key===entry.abilityAction.key))throw Error('当前角色能力与所选行动不匹配');}
+     if(action.abilityAction!==undefined){entry.abilityAction=reviewAbility(action.abilityAction,entry);const source=entry.actor?.role||(old?.actor?.seatId===entry.actor?.seatId&&old?.abilityAction&&!Object.hasOwn(action.roleOverrides||{},entry.actor?.seatId)?old.abilityAction.role:map.get(entry.actor?.roleId));if(!root.GrimoireReviewActions.recordingActions(source,entry.abilityAction.key).some(s=>s.key===entry.abilityAction.key))throw Error('当前角色能力与所选行动不匹配');}
      if(['阵营变化','角色和阵营变化'].includes(entry.action)){if(!['good','evil'].includes(action.changedAlignment))throw Error('请选择变化后的阵营');entry.changedAlignment=action.changedAlignment;}else if(action.changedAlignment!==undefined)throw Error('这项行动不记录阵营变化');
-    }else throw Error('复盘记录类型无效');if(old?.boardLink)entry.boardLink=copy(old.boardLink);if(action.updateBoard!==undefined&&typeof action.updateBoard!=='boolean')throw Error('联动选项无效');if(action.updateBoard){if(old)throw Error('编辑历史记录仅修改记录，不重复执行状态变化');linkReview(s,entry,action);}if(entry.kind==='action'&&old?.followupOf!==undefined)entry.followupOf=old.followupOf;if(index<0)stage.entries.push(entry);else stage.entries[index]=entry;message=old?'编辑复盘记录':'添加复盘记录';break;
+    }else throw Error('复盘记录类型无效');if(action.confirmTargetAlignment!==undefined&&typeof action.confirmTargetAlignment!=='boolean')throw Error('阵营确认选项无效');if(!old)validateReviewTargets(s,entry,action);if(old?.boardLink)entry.boardLink=copy(old.boardLink);if(action.updateBoard!==undefined&&typeof action.updateBoard!=='boolean')throw Error('联动选项无效');if(action.updateBoard){if(old)throw Error('编辑历史记录仅修改记录，不重复执行状态变化');linkReview(s,entry,action);}if(action.placeToken!==undefined&&typeof action.placeToken!=='boolean')throw Error('标记联动选项无效');if(action.placeToken){if(old)throw Error('编辑历史记录仅修改记录，不重复放置标记');linkReviewReminder(s,entry,action);}if(entry.kind==='action'&&old?.followupOf!==undefined)entry.followupOf=old.followupOf;if(index<0)stage.entries.push(entry);else stage.entries[index]=entry;message=old?'编辑复盘记录':'添加复盘记录';break;
    }
    case 'reviewConfirmEffect':{
     integer(action.stageIndex,0,s.review.stages.length-1,'复盘阶段');const stage=s.review.stages[action.stageIndex],suggestions=reviewSuggestions(s,action.stageIndex,action.entryId),suggestion=action.suggestionKey===undefined?suggestions[0]:suggestions.find(c=>c.key===action.suggestionKey);
@@ -294,7 +352,7 @@
     if(stage.entries.length>=100||s.review.stages.reduce((n,x)=>n+x.entries.length,0)>=2000)throw Error('每阶段最多 100 条，本局最多 2000 条复盘记录');
     if(s.review.nextId>=Number.MAX_SAFE_INTEGER)throw Error('复盘记录编号超出范围');
     const candidates=reviewCandidates(s,action.stageIndex,action.entryId),rank=c=>candidates.findIndex(x=>x.actor?.seatId===c.actor?.seatId&&x.actorGroup===c.actorGroup&&x.action===c.action);let position=stage.entries.findIndex(e=>e.id===action.entryId)+1;while(stage.entries[position]?.followupOf===action.entryId&&rank(stage.entries[position])>=0&&rank(stage.entries[position])<rank(suggestion))position++;
-    const entry={id:s.review.nextId++,kind:'action',at:Date.now(),actor:suggestion.actor,...(suggestion.actorGroup?{actorGroup:suggestion.actorGroup}:{}),action:suggestion.action,targets:[],result:'',followupOf:action.entryId};if(action.updateBoard)linkReview(s,entry,action);stage.entries.splice(position,0,entry);message='确认补记：'+suggestion.effect;break;
+    const entry={id:s.review.nextId++,kind:'action',at:Date.now(),actor:suggestion.actor,...(suggestion.actorGroup?{actorGroup:suggestion.actorGroup}:{}),action:suggestion.action,targets:[],result:'',followupOf:action.entryId};if(action.updateBoard)linkReview(s,entry,{...action,preserveExistingExpiry:true});stage.entries.splice(position,0,entry);message='确认补记：'+suggestion.effect;break;
    }
    case 'reviewBoardChange':{
     if(action.gameId!==s.gameId||action.revision!==s.revision||action.stageIndex!==phaseIndex(s))throw Error('魔典已经变化，请重新检查后记录');
@@ -346,8 +404,18 @@
   const groups=new Map();for(const entry of nightOrder(s,options)){let group=groups.get(entry.role.id);if(!group){group={...entry,seats:[],steps:[]};groups.set(entry.role.id,group);}group.seats.push(...entry.seats);for(const seat of entry.seats)group.steps.push({seat,status:entry.seat?entry.status:'pending'});}
   return [...groups.values()].map(group=>({...group,seat:group.seats.length===1?group.seats[0]:null,status:group.steps.length?(group.steps.every(x=>x.status===group.steps[0].status)?group.steps[0].status:'mixed'):'pending'}));
  }
+ function reviewNightQueue(s){
+  if(!['setup','night'].includes(s.phase))return [];
+  const stageIndex=s.phase==='setup'?0:s.round*2-2,entries=s.review.stages[stageIndex]?.entries||[],versions=new Map();
+  const version=r=>JSON.stringify([r.id,r.name,r.team,r.ability]);
+  return nightOrder(s,{first:s.round<=1}).map(item=>{
+   const source=version(item.role);let signature=versions.get(source);if(!signature){let a=2166136261,b=2246822507;for(let i=0;i<source.length;i++){a=Math.imul(a^source.charCodeAt(i),16777619);b=Math.imul(b^source.charCodeAt(i),16777621);}signature=(a>>>0).toString(16).padStart(8,'0')+(b>>>0).toString(16).padStart(8,'0');versions.set(source,signature);}
+   const recordCount=entries.filter(e=>e.kind==='action'&&e.actor?.seatId===item.seat.id&&e.abilityAction?.role&&version(e.abilityAction.role)===source&&!root.GrimoireReviewActions?.get(e.abilityAction.key,e.abilityAction.role)?.setupAction).length;
+   return {seat:item.seat,role:item.role,order:item.order,stageIndex,recordCount,signature};
+  });
+ }
  function counts(s){const by={townsfolk:0,outsider:0,minion:0,demon:0,traveller:0};s.seats.forEach(p=>{const r=s.script.roles.find(r=>r.id===p.roleId);if(r&&r.team in by)by[r.team]++;});return {alive:s.seats.filter(p=>p.alive).length,eligible:s.seats.filter(p=>p.alive||p.ghostVote).length,assigned:s.seats.filter(p=>p.roleId).length,by};}
  function publicView(s){return {script:{name:s.script.name,author:s.script.author,...(s.script.logo!==undefined?{logo:s.script.logo}:{})},phase:s.phase,round:s.round,seats:s.seats.map(({id,name,alive,ghostVote})=>({id,name,alive,ghostVote})),specials:(s.specials||[]).map(({id,name,team,ability,image})=>({id,name,team,ability,image})),alive:counts(s).alive,eligible:counts(s).eligible};}
  function openStore(storage){let previous=storage.getItem(key);return {read:()=>previous?validate(JSON.parse(previous)):null,save(value){if(storage.getItem(key)!==previous)throw Error('另一页面已更新此魔典，请先备份当前对局，再刷新');const next=serialize(validate(value));storage.setItem(key,next);previous=next;}};}
- const api={kind,key,serialize,packImages,unpackImages,reviewRoster,replayFrame,stageChanges,canLinkReview,timedReminders,reminderIsDue,create,validate,reduce,reviewSuggestion,reviewSuggestions,reviewStageSuggestions,nightOrder,nightQueue,nightActions,counts,publicView,openStore,shuffle,distributionCounts,fillBag};root.ClocktowerGrimoire=api;if(typeof module!=='undefined'&&module.exports)module.exports=api;
+ const api={kind,key,serialize,packImages,unpackImages,reviewRoster,replayFrame,stageChanges,canLinkReview,reviewReminderOptions,reviewTargetStatus,reminderEffect,timedReminders,reminderIsDue,create,validate,reduce,reviewSuggestion,reviewSuggestions,reviewStageSuggestions,nightOrder,nightQueue,nightActions,reviewNightQueue,counts,publicView,openStore,shuffle,distributionCounts,fillBag};root.ClocktowerGrimoire=api;if(typeof module!=='undefined'&&module.exports)module.exports=api;
 })(globalThis);

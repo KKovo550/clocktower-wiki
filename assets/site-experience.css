@@ -320,3 +320,7 @@ dialog::backdrop{background:#15283e66;backdrop-filter:blur(4px)}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.home-visual,[data-reveal]{transform:none!important;opacity:1}.home-visual{transition:none}.motion-ready [data-reveal="pending"]{opacity:1;transform:none}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 @media print{html{scroll-behavior:auto}.site-header::after{display:none}.home-page .home-hero{background:#fff!important;color:#172b46}.home-hero::before,.home-hero::after,.home-visual,.home-actions,.home-shortcuts{display:none}.home-page .home-hero h1,.home-hero h1 em,.home-hero .home-intro>p,.home-hero .home-eyebrow{color:#172b46}[data-reveal]{opacity:1!important;transform:none!important}.content{box-shadow:none;border:0}}
+
+/* Four homepage tools stay balanced on wide and medium screens. */
+@media(min-width:1151px){.home-hero .home-shortcuts{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(min-width:821px) and (max-width:1150px){.home-hero .home-shortcuts{grid-template-columns:repeat(2,minmax(0,1fr))}}
