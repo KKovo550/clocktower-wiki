@@ -164,7 +164,7 @@ function show(i){
     '<h2 class="dt" tabindex="-1">'+esc(s[0]||'(未命名)')+'</h2>'+
     '<div class="dtmeta library-overview">作者：'+esc(s[1]||'佚名')+'<span>'+s[4]+' 个角色'+(s[6]==='url'?' · 暂无 JSON':'')+'</span></div>'+
     (s[7]?'<p class="library-description">'+esc(s[7])+'</p>':'')+
-    librarySourceDetail(s)+'<div class="library-primary-actions"><button class="btn" id="btn-edit-script" type="button">在剧本工具中编辑</button>'+
+    librarySourceDetail(s)+'<div class="library-primary-actions"><button class="btn" id="btn-edit-script" type="button">在剧本工具中编辑</button><button class="btn" id="btn-grimoire-script" type="button">用此剧本开魔典</button>'+
     (s[6]==='json'?'<button class="btn" id="btn-local-json" type="button">下载 JSON</button>':'')+
     (typeof LibraryJourney!=='undefined'?'<button class="btn" id="btn-share-script" type="button">分享此剧本</button>':'')+
     '<details class="library-detail-tools"><summary>复制与导出</summary><div><button type="button" class="btn" id="btn-chars">复制角色名单</button>'+
@@ -196,6 +196,7 @@ function show(i){
     },function(message){jsonButton.disabled=false;alert(message);},[i]);
   };
   if(typeof bindEditorTransfer==='function')bindEditorTransfer(i);
+  if(typeof bindGrimoireTransfer==='function')bindGrimoireTransfer(i);
   if(typeof bindWorkspaceDetail==='function')bindWorkspaceDetail(i);
   document.getElementById('btn-path').onclick=function(){
     copy(JSONBASE+'/'+s[3].replace(/\\/g,'/'),this);};

@@ -60,6 +60,7 @@
       var current = new URL(window.location.href), links = Array.from(sidebar.querySelectorAll('a[href]'));
       function decoded(value) { try { return decodeURIComponent(value); } catch (_) { return value; } }
       var samePage = links.filter(function (link) {
+        if (link.getAttribute('href') === '#') return false;
         var target = new URL(link.href, document.baseURI);
         return target.origin === current.origin && decoded(target.pathname) === decoded(current.pathname);
       });

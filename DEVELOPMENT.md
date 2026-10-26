@@ -11,7 +11,7 @@
 - **查资料**：[角色百科](https://kkovo550.github.io/clocktower-wiki/role_index/角色索引.html)、[相克规则](https://kkovo550.github.io/clocktower-wiki/pages/相克规则.html)与[夜晚行动顺序](https://kkovo550.github.io/clocktower-wiki/pages/夜晚行动顺序一览.html)。
 - **找剧本**：[剧本库](https://kkovo550.github.io/clocktower-wiki/script_lib/剧本库.html)，按名称、作者、角色和分类筛选，查看版本与可用 JSON。
 - **做剧本**：[剧本工具](https://kkovo550.github.io/clocktower-wiki/script_tool/剧本工具.html)，编辑角色、夜序与规则，导出 JSON、PNG 或 SVG。
-- **带团复盘**：[在线魔典](https://kkovo550.github.io/clocktower-wiki/script_tool/在线魔典.html)，管理座位、身份、状态与行动记录；只需夜序时可使用[独立夜序查看器](https://kkovo550.github.io/clocktower-wiki/script_tool/夜序查看器.html)。
+- **带团复盘**：[在线魔典](https://kkovo550.github.io/clocktower-wiki/script_tool/在线魔典.html)，管理座位、身份、状态与行动记录；夜间行动可直接使用魔典内置夜序。
 - **接入数据**：[只读 JSON 接口](docs/API.md)，提供角色、剧本索引、原始剧本 JSON、默认夜序与相克资料。
 
 ## 主要功能

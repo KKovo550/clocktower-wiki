@@ -125,3 +125,34 @@ body{background-attachment:fixed}
 .role-index #roleEmptyReset{display:block;margin:14px 0 0}
 @media(max-width:640px){.role-index .role-condition,.role-index .role-conditions-clear,.role-index #roleEmptyReset{min-height:44px}}
 @media(max-width:640px){.role-index .chip,.role-index button{min-height:34px}.role-index .result-actions{margin-left:0;width:100%}}
+
+/* Reading hierarchy: identity, source, complete ability, then optional references. */
+.role-index .grid{gap:14px;align-items:start;grid-template-columns:repeat(auto-fill,minmax(min(330px,100%),1fr))}
+.role-index .card{padding:16px;gap:13px;border-radius:12px;box-shadow:0 3px 12px #503a1610;align-items:flex-start}
+.role-index .card .nm{font-size:18px;line-height:1.45;font-weight:700}
+.role-index .card .role-name-link{color:var(--fg,#3b3020);text-decoration:none}
+.role-index .card .role-name-link:hover{text-decoration:underline;text-underline-offset:4px;color:var(--link)}
+.role-index .card .role-source{font-size:12px;line-height:1.6;color:var(--muted);margin-top:3px}
+.role-index .card .ab{font-size:15px;line-height:1.85;margin:10px 0 8px;color:#352e24;white-space:pre-line}
+.role-index .card .tm{font-size:12px;padding:2px 7px}
+.role-index .card .more{font-size:14px;line-height:1.8;padding-top:10px;margin-top:8px}
+.role-index .card .more>div+div{margin-top:6px}
+.role-index .card .role-tag-list{display:flex;gap:5px;flex-wrap:wrap;align-items:center}
+.role-index .card .meta{font-size:12px;line-height:1.6;margin-top:6px}
+.role-index .card .expand-card{display:block;min-height:36px;font-size:13px;text-align:left}
+.role-index .wiki-detail{min-height:28px;line-height:28px}
+.role-index .role-view-label{display:flex;gap:8px;align-items:center;font-size:13px}
+.role-index #roleView{font:inherit;padding:7px 10px;border:1px solid #cbbb9e;border-radius:7px;background:#fffdf8;color:#493c29;min-height:36px;max-width:100%}
+.role-index #grid[data-view=list]{grid-template-columns:minmax(0,1fr)}
+.role-index #grid[data-view=list] .card .ab{max-width:75ch}
+.role-index .role-name-link:focus-visible,.role-index #roleView:focus-visible{outline:2px solid #305c7d;outline-offset:3px}
+@media(max-width:640px){
+ .role-index .card{display:grid;grid-template-columns:46px minmax(0,1fr);padding:13px;gap:4px 10px}
+ .role-index .card>.body{display:contents}
+ .role-index .card>img,.role-index .card>.ph{grid-column:1;grid-row:1 / span 2}
+ .role-index .card .h,.role-index .card .role-source{grid-column:2}
+ .role-index .card :is(.ab,.wiki-detail,.meta,.expand-card,.more),.role-index .card .body>.hint{grid-column:1 / -1}
+ .role-index .card .nm{font-size:17px}
+ .role-index .card .ab{font-size:15px;line-height:1.8}
+ .role-index .card .expand-card,.role-index .wiki-detail{min-height:44px;line-height:44px}
+}

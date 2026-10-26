@@ -74,7 +74,7 @@
   }
   information.appendChild(title);
   var meta = element('div', 'role-overview-meta');
-  if (ability.textContent.trim() !== '角色配置') {
+  if (kind) {
     var badge = element('span', 'role-kind'); badge.textContent = kind;
     badge.classList.add(/爪牙|恶魔/.test(kind) ? 'is-evil' : /传奇|奇遇/.test(kind) ? 'is-special' : 'is-good');
     meta.appendChild(badge);

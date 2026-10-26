@@ -23,7 +23,7 @@
   function time(value){return new Date(value).toLocaleString('zh-CN',{month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit'});}
   function render(historyId){
     var list=store.list();
-    openDlg('<h3>我的草稿</h3><p class="tip">保存在当前浏览器。修改自动保存；每份保留最近 5 个恢复点。换设备或清理浏览器前，请逐份导出 JSON。</p>'+
+    openDlg('<h3>编辑草稿</h3><p class="tip">这里是正在编写的剧本，与剧本库的收藏和游玩记录分开保存。修改自动保存到当前浏览器；每份保留最近 5 个恢复点。换设备前请下载“完整备份”，分享角色名单可导出剧本 JSON。</p>'+
       '<div class="draft-actions"><button type="button" class="btn pri" id="draftCheckpoint">保存当前恢复点</button><button type="button" class="btn" id="draftNew">新建空白草稿</button><button type="button" class="btn" onclick="closeDlg()">关闭</button></div>'+
       '<p id="draftNotice" role="status" aria-live="polite"></p><div class="draft-list">'+
       (list.length?list.map(function(entry){return '<article class="draft-row"><div><strong>'+esc(entry.state.n||'未命名剧本')+'</strong>'+(entry.id===CURRENT_DRAFT_ID?'<span class="draft-current">正在编辑</span>':'')+'<p>'+entry.state.sel.length+' 个角色 · '+esc(time(entry.updatedAt))+'</p></div><div class="draft-actions">'+

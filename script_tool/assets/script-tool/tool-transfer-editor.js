@@ -2,7 +2,7 @@
   'use strict';
   const transfer=root.ToolTransfer;if(!transfer)return;
   const anchor=document.getElementById('bNight');if(!anchor)return;
-  for(const [target,label]of [['grimoire','用此剧本开魔典'],['night','独立夜序']]){
+  for(const [target,label]of [['grimoire','用此剧本开魔典']]){
     const button=document.createElement('button');button.type='button';button.className='btn';button.textContent=label;button.id='toolTo_'+target;
     button.onclick=()=>{try{if(!root.sel.length)throw Error('请先添加角色');if(root.save()===false)throw Error('请先处理草稿保存问题，再发送剧本');transfer.send(target,root.exportObj());}catch(error){root.alert(error.message);}};
     anchor.parentNode.append(button);

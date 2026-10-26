@@ -40,7 +40,7 @@ wiki_site/
 ├── assets/                共享脚本、样式、索引和生成媒体
 ├── role_index/            角色检索页面与数据
 ├── script_tool/
-│   ├── 剧本工具.html / 夜序查看器.html
+│   ├── 剧本工具.html
 │   ├── assets/script-tool/ 编辑、制图、导入、夜序模块
 │   ├── icons/             角色图标
 │   └── 魔典/              既有魔典相关资源

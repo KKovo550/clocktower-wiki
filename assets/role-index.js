@@ -107,14 +107,15 @@ function cardHTML(r){
   return '<div class="card'+(expanded[r.id]?' open':'')+'" data-id="'+esc(r.id)+'">'+
     (r.im?'<img src="'+esc(r.im)+'" width="46" height="46" loading="lazy" alt="">'
          :'<div class="ph">'+esc((r.n||'?').slice(0,1))+'</div>')+
-    '<div class="body"><div class="h"><span class="nm">'+hl(r.n,kws)+'</span>'+
-      '<span class="tm '+esc(r.t)+'">'+esc(TEAMCN[r.t]||r.t)+'</span>'+tags+'</div>'+
+    '<div class="body"><div class="h">'+(r.wiki?'<a class="nm role-name-link" href="'+esc(r.wiki)+'">'+hl(r.n,kws)+'</a>':'<span class="nm">'+hl(r.n,kws)+'</span>')+
+      '<span class="tm '+esc(r.t)+'">'+esc(TEAMCN[r.t]||r.t)+'</span></div>'+
+    '<div class="role-source">'+esc((r.sources||['other']).map(sourceLabel).join(' · '))+'</div>'+
     '<div class="ab">'+hl(r.ab,kws)+'</div>'+
     (r.wiki?'<a class="wiki-detail" href="'+esc(r.wiki)+'">百科详情</a>':'<span class="hint">百科暂未收录</span>')+
-    '<div class="meta">'+(night.length?night.join(' · ')+' · ':'')+
-      '技能描述 '+((r.ab||'').length)+' 字</div>'+
+    (night.length?'<div class="meta">夜序 · '+night.join(' · ')+'</div>':'')+
     '<button type="button" class="expand-card" aria-expanded="'+!!expanded[r.id]+'">'+(expanded[r.id]?'收起补充信息':'展开补充信息')+'</button>'+
     '<div class="more">'+
+      (tags?'<div class="role-tag-list"><span class="k">能力关键词：</span>'+tags+'</div>':'')+
       '<div><span class="k">剧本来源：</span>'+esc((r.sources||['other']).map(sourceLabel).join('、'))+'</div>'+
       '<div><span class="k">能力类别：</span>'+esc((r.categories||[]).join('、')||'未归类')+'</div>'+
       (r.fl?('<div><span class="k">风味文本：</span>'+esc(r.fl)+'</div>'):'')+
@@ -158,6 +159,7 @@ function render(){
   Array.prototype.forEach.call(document.querySelectorAll('#grid .card'),function(el){
     el.addEventListener('click',function(e){
       if(e.target.closest && e.target.closest('a'))return;
+      if(window.getSelection&&String(window.getSelection()).trim())return;
       var id=el.getAttribute('data-id');expanded[id]=!expanded[id];
       el.className=expanded[id]?'card open':'card';
       var button=el.querySelector('.expand-card');button.setAttribute('aria-expanded',String(expanded[id]));
@@ -272,4 +274,13 @@ document.querySelectorAll('.role-quick-chips button').forEach(function(button){
     refresh();
   });
 });
+var roleView=$('roleView');
+if(roleView){
+  try{roleView.value=sessionStorage.getItem('clocktower_role_view_v1')==='list'?'list':'cards';}catch(ignore){}
+  function updateRoleView(){
+    $('grid').setAttribute('data-view',roleView.value);
+    try{sessionStorage.setItem('clocktower_role_view_v1',roleView.value);}catch(ignore){}
+  }
+  roleView.addEventListener('change',updateRoleView);updateRoleView();
+}
 drawChips();render();

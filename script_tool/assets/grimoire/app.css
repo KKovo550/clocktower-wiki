@@ -346,12 +346,12 @@
 .grimoire-page .g-app .g-seat:not(.dead) .g-token-order.other{background:linear-gradient(150deg,#a53332,#702322)}
 /* Animate only paint/compositing, never panel bounds or marker coordinates. */
 @media(prefers-reduced-motion:no-preference){
- .grimoire-page .g-app :is(.g-notes-panel,.g-side-panel.g-sheet-dialog,.g-aux-panel,.g-timer-panel):not([hidden]){animation:g-panel-arrive 180ms ease-out both!important}
+ .grimoire-page .g-app :is(.g-notes-panel,.g-side-panel.g-sheet-dialog,.g-aux-panel,.g-timer-panel):not([hidden]){animation:g-panel-arrive 220ms cubic-bezier(.22,.7,.32,1) both!important}
  .grimoire-page .g-app :is(.g-button,.g-rail-button,.g-seat-name,.g-fold){transition:background-color 140ms ease,border-color 140ms ease,color 140ms ease,box-shadow 140ms ease!important}
  .grimoire-page .g-app :is(.g-token,.g-reminder-add){transition:box-shadow 160ms ease,opacity 140ms ease}
- .grimoire-page .g-app :is(.g-dock .g-button,.g-rail-button):active:not(:disabled){translate:0 1px}
+ .grimoire-page .g-app :is(.g-dock .g-button,.g-rail-button):active:not(:disabled){box-shadow:inset 0 2px 7px #0007!important}
 }
-@keyframes g-panel-arrive{from{opacity:.45}to{opacity:1}}
+@keyframes g-panel-arrive{from{opacity:.8}65%{opacity:.97}to{opacity:1}}
 @keyframes g-content-arrive{from{opacity:.55}to{opacity:1}}
 /* Opaque touch surfaces avoid repeatedly blurring a scrolling table. */
 @media(pointer:coarse){.grimoire-page .g-app :is(.g-notes-panel,.g-side-panel.g-sheet-dialog,.g-aux-panel,.g-timer-panel,.g-dock){backdrop-filter:none}}
@@ -704,3 +704,66 @@
 .g-history-correction{display:grid;gap:12px}.g-history-correction label{display:grid;gap:6px}.g-history-correction input,.g-history-correction select,.g-history-correction textarea{width:100%;min-width:0;box-sizing:border-box}.g-history-correction h3{margin:0}
 
 .g-history-preview{padding:10px;border:1px solid var(--g-glass-border,rgba(255,255,255,.15));border-radius:8px;overflow-wrap:anywhere}.g-history-preview ul{margin:0;padding-left:20px}.g-history-preview li{white-space:pre-wrap;margin:4px 0}
+
+.g-setup-warning{border:1px solid #bf7626;border-radius:8px;background:rgba(111,56,8,.25);color:#f1ce80;padding:9px 11px;font-size:12px;text-align:left;overflow-wrap:anywhere}.g-setup-warning ul{margin:6px 0;padding-left:18px;max-height:150px;overflow:auto}.g-setup-warning summary{cursor:pointer}.g-setup-warning .g-hint{color:inherit;margin:5px 0 0}.g-setup-warning[hidden]{display:none}
+
+/* Keep the distribution footer compact; long setup notes must not consume the role list. */
+.g-distribution-dialog .g-bag-footer{gap:8px 14px;padding:9px 0;max-height:45%;overflow:auto;box-sizing:border-box;overscroll-behavior:contain}
+.g-distribution-dialog .g-bag-settings{flex-direction:row;align-items:center;flex-wrap:wrap;gap:8px 16px}
+.g-distribution-dialog #gBagClear{margin-left:0;padding:4px 0}
+.g-distribution-dialog #gBagSetupWarning{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;padding:7px 10px;line-height:1.5}
+.g-distribution-dialog #gBagSetupWarning[hidden]{display:none}
+.g-distribution-dialog #gBagSetupWarning>strong{flex:none}
+.g-distribution-dialog #gBagSetupWarning ul{display:flex;flex:1;flex-wrap:wrap;gap:3px 14px;list-style:none;margin:0;padding:0;max-height:76px;min-width:140px}
+.g-distribution-dialog #gBagSetupWarning li{margin:0}
+.g-distribution-dialog #gBagSetupWarning .g-hint{flex-basis:100%;margin:0;font-size:11px}
+@media(max-width:700px){
+ .g-distribution-dialog .g-bag-footer{grid-template-columns:minmax(0,1fr);gap:6px}
+ .g-distribution-dialog .g-bag-settings{gap:6px 12px}
+ .g-distribution-dialog #gBagClear{margin-left:auto}
+ .g-distribution-dialog .g-bag-actions{display:grid;grid-template-columns:1fr 1.4fr 1fr;gap:6px}
+ .g-distribution-dialog .g-bag-actions .g-button{width:100%;padding:8px 5px;white-space:normal;min-height:40px}
+ .g-distribution-dialog .g-bag-actions #gOfflineStart{grid-column:auto}
+ .g-distribution-dialog #gBagSetupWarning{gap:3px 8px;font-size:11px}
+}
+
+.g-bag-setup-badge{position:absolute;top:3px;left:3px;z-index:3;display:grid;place-items:center;width:22px;height:22px;box-sizing:border-box;border:1px solid #ffe5a0;border-radius:50%;background:#ac510d;color:#fff4cb;font:800 17px/1 system-ui,sans-serif;box-shadow:0 1px 5px #000b;pointer-events:none}
+@media(max-width:700px){.g-bag-setup-badge{width:20px;height:20px;font-size:15px;top:1px;left:1px}}
+
+/* Grimoire finish: charcoal glass, restrained brass accents, unchanged table geometry. */
+.grimoire-page .g-app{--g-glass-fill:rgba(12,17,22,.94);--g-glass-card:rgba(24,30,36,.86);--g-glass-control:rgba(8,13,18,.8);--g-glass-toolbar:rgba(13,19,25,.96);--g-glass-edge:rgba(213,190,137,.2);--g-glass-shadow:0 12px 32px #05090f55,inset 0 1px #ffffff0b;--g-muted:#adb9c4;--g-gold:#ead29a;box-shadow:inset 0 0 120px #07111e48;-webkit-font-smoothing:antialiased}
+.grimoire-page .g-app :is(.g-summary,.g-dock){background:linear-gradient(145deg,#20272cf2,#0d1319f5);border-color:#d5be893d;box-shadow:0 8px 28px #040b164d,inset 0 1px #fff1;border-radius:14px}
+.grimoire-page .g-app .g-summary #gTitle{color:#f0d99f;letter-spacing:.035em;text-shadow:0 1px 3px #0008}
+.grimoire-page .g-app #gCounts{color:#c2ccd2;font-variant-numeric:tabular-nums}
+.grimoire-page .g-app .g-summary-target{opacity:.66}
+.grimoire-page .g-app .g-phase{color:#eed69a;letter-spacing:.04em}
+.grimoire-page .g-app :is(.g-rail-button,.g-view-actions .g-button){background:linear-gradient(155deg,#263038f5,#12191ff5);border-color:#d6c3953d;box-shadow:0 3px 12px #07101c42,inset 0 1px #ffffff12;color:#e3e8e7}
+.grimoire-page .g-app .g-left-tools .g-rail-button{border-radius:0 10px 10px 0}
+.grimoire-page .g-app .g-right-tools .g-rail-button{border-radius:10px 0 0 10px}
+.grimoire-page .g-app .g-rail-button[aria-expanded=true]{background:#393629;border-color:#d7bd78;color:#ffe6ad;box-shadow:inset 3px 0 #d7bd78,0 3px 10px #0005}
+.grimoire-page .g-app .g-dock :is(#gScript,#gAssign){background:linear-gradient(#343e46,#252e36);border-color:#b7c5ce30;color:#e4e9eb;border-radius:9px;box-shadow:inset 0 1px #ffffff09}
+.grimoire-page .g-app .g-dock #gAdvance{background:linear-gradient(135deg,#e4cf9b,#c1a66d);color:#211d15;border-color:#f0dca6;border-radius:9px;box-shadow:inset 0 1px #fff6,0 3px 10px #0003;text-shadow:0 1px #fff3}
+.grimoire-page .g-app .g-seat .g-seat-name{background:linear-gradient(#1d2933f2,#111b24f5);border-color:#ddca965e;color:#f6eedb;box-shadow:0 2px 7px #030a124d,inset 0 1px #ffffff0b;font-weight:600;letter-spacing:.015em}
+.grimoire-page .g-app .g-token-order{border-color:#16212c;box-shadow:0 3px 7px #08101b70,inset 0 1px #ffffff40;font-variant-numeric:tabular-nums;text-shadow:0 1px 2px #0007}
+.grimoire-page .g-app .g-seat:not(.dead) .g-token-order.first{background:linear-gradient(145deg,#336ca2,#193c65)}
+.grimoire-page .g-app .g-seat:not(.dead) .g-token-order.other{background:linear-gradient(145deg,#ac4846,#682c31)}
+.grimoire-page .g-app .g-start-hint{background:#10202cdb;border:0;box-shadow:inset 0 0 0 1px #b8cbd11c;color:#d2dde1;border-radius:8px}
+.grimoire-page .g-app .g-privacy{color:#a1adb6}
+.grimoire-page #gDialog:not(.g-signal-player):not(.g-signal-dialog):not(.g-bluff-reveal){border-color:#d5be893d;box-shadow:0 22px 70px #02060c99,inset 0 1px #ffffff10}
+.grimoire-page #gDialog:not(.g-signal-player):not(.g-signal-dialog):not(.g-bluff-reveal) .g-modal-head{border-bottom-color:#d5be8926}
+@media(hover:hover){.grimoire-page .g-app :is(.g-rail-button,.g-view-actions .g-button):hover{background:#33404a;color:#ffe2a0;border-color:#e7c87f88}.grimoire-page .g-app .g-seat .g-seat-name:hover{background:#2a3a46;border-color:#e4ce92}.grimoire-page .g-app .g-dock :is(#gScript,#gAssign):hover{background:#3a4955;border-color:#d9c58c77}}
+
+.grimoire-page .g-centered-phone-ui .phone-table .g-seat .g-seat-name{padding-inline:2px;letter-spacing:0;font-weight:550;font-size:10px}
+.g-tool-transfer-status{display:flex;flex-wrap:wrap;gap:8px;padding:10px;border:1px solid #d5be8955;border-radius:8px;background:var(--g-glass-card);overflow-wrap:anywhere}
+.g-tool-transfer-status[hidden]{display:none}
+.g-tool-transfer-status .g-hint{flex-basis:100%;margin:0;line-height:1.65}
+.g-tool-transfer-status a.g-button{text-decoration:none}
+
+/* Typography only: retain token artwork, diameter, caption boxes and seat geometry. */
+.grimoire-page .g-token .g-seat-role-arc{font-family:"Songti SC","Noto Serif CJK SC","SimSun",serif;font-weight:700}
+.grimoire-page .g-token .g-seat-role-arc text{fill:#211b17;stroke:#fff5df;stroke-width:.8px}
+.grimoire-page .g-seat-token.is-role-hovered .g-seat-role-arc text{fill:#fff7e8;stroke:#211b17;stroke-width:.8px}
+.grimoire-page .g-reminder-token .g-reminder-caption{font-family:"PingFang SC","Microsoft YaHei",sans-serif;font-weight:650}
+.grimoire-page .g-reminder-caption text{fill:#fff8e9;stroke:#1e1427;stroke-width:1.6px;filter:none}
+.grimoire-page .g-app .g-seat .g-seat-name{font-size:clamp(10px,calc(var(--token-size,112px)*.125),15px);line-height:21px;font-weight:600;letter-spacing:.025em;font-variant-numeric:tabular-nums;text-shadow:0 1px 1px #000b}
+.grimoire-page .g-centered-phone-ui .phone-table .g-seat .g-seat-name{font-size:10.5px;line-height:13px;letter-spacing:0}
