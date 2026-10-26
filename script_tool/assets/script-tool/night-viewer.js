@@ -160,6 +160,14 @@
     draft.selected.forEach(function(role){var night=root.ScriptCore.nightOrder(role,root.SCRIPT_NIGHT_ORDER,draft.nightOverrides);data.push(Object.assign({},role.raw||{},{id:role.id,name:role.n,team:role.t,ability:role.ab,image:role.images||role.iu||role.im||'',firstNight:night.firstNight,otherNight:night.otherNight,firstNightReminder:root.ScriptCore.nightReminder(role,'fr',root.CHARS),otherNightReminder:root.ScriptCore.nightReminder(role,'or',root.CHARS)}));});
     data=data.concat(draft.rules);commit(model.fresh(data,'json'));status('已读取当前草稿，保留该草稿的手动夜序。');
   }catch(error){status('读取失败：'+error.message+'。原有对局未更改。');}};
+  if(root.ToolTransfer){
+    for(const [target,label]of [['editor','编辑此剧本'],['grimoire','用此剧本开魔典']]){const control=button(label,null,()=>{try{if(!session)throw Error('请先载入剧本');root.ToolTransfer.send(target,session.script);}catch(error){status(error.message);}});control.id='nightTo_'+target;el('nightBackup').parentNode.append(control);}
+    root.ToolTransfer.receive('night',(data,name,done)=>{
+      const incoming=validate(model.fresh(data,'json')),box=node('section',undefined,'night-import'),message=node('p','收到「'+name+'」。确认后将重置独立夜序的玩家与行动进度，请先下载已有对局备份。');
+      box.append(message,button('确认载入剧本',null,()=>{try{if(session&&!root.confirm('替换当前独立夜序对局？请确认已有进度已备份。'))return;store.save(incoming);revision++;commit(incoming);done();box.remove();status('已载入 '+name);}catch(error){message.textContent=error.message;}}),button('保留当前夜序',null,()=>{done();box.remove();}));
+      el('nightFromDraft').closest('main').prepend(box);
+    },status);
+  }
   // Corrupt records and cross-tab conflicts are reported without clearing stored data.
   try{store=model.open(root.localStorage,validate);var restored=store.read();if(restored){session=restored;savedSession=JSON.stringify(session);refresh();renderPlayers();el('nightNotes').value=session.notes;el('nightImport').open=false;status('已恢复 '+view.name+' 的第 '+session.night+' 夜。');el('nightSaveStatus').textContent='已恢复此浏览器保存的对局。';}}
   catch(error){el('nightSaveStatus').textContent='无法恢复自动存档：'+error.message+'。已有存档保留，可选择对局备份恢复。';}

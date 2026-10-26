@@ -700,3 +700,7 @@
 .g-review-token-options{display:grid;gap:8px;min-width:0;padding:10px;border:1px solid #cbb77d40;border-radius:6px;background:var(--g-glass-card)}.g-review-token-options[hidden]{display:none!important}.g-review-token-options .g-review-token-toggle{flex-direction:row;align-items:center;justify-content:space-between;gap:10px;margin:0;color:#d8c894}.g-review-token-toggle input{flex:none;width:20px;height:20px;accent-color:#cbb77d}.g-review-token-options label{margin:0}.g-review-token-options .g-hint{margin:0;line-height:1.7}
 .g-centered-phone-ui .phone-table .g-seat .g-reminder-tokens{--reminder-size:32px}
 .g-centered-phone-ui .phone-table .g-seat .g-life-toggle{width:min(44px,var(--token-size))}
+
+.g-history-correction{display:grid;gap:12px}.g-history-correction label{display:grid;gap:6px}.g-history-correction input,.g-history-correction select,.g-history-correction textarea{width:100%;min-width:0;box-sizing:border-box}.g-history-correction h3{margin:0}
+
+.g-history-preview{padding:10px;border:1px solid var(--g-glass-border,rgba(255,255,255,.15));border-radius:8px;overflow-wrap:anywhere}.g-history-preview ul{margin:0;padding-left:20px}.g-history-preview li{white-space:pre-wrap;margin:4px 0}

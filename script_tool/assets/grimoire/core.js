@@ -44,7 +44,7 @@
  function boardFrame(s){return {at:Date.now(),players:s.seats.map(p=>({...participantSnapshot(s,p),alive:p.alive,ghostVote:p.ghostVote,alignment:p.alignment,reminders:copy(p.reminders),reminderDetails:copy(p.reminderDetails)}))};}
  function validateFrame(frame){
   if(!frame||!Number.isFinite(frame.at)||frame.at<0||!Array.isArray(frame.players)||frame.players.length<5||frame.players.length>30)throw Error('回放快照无效');
-  const players=frame.players.map(p=>{const result=reviewParticipant(p);if(typeof p.alive!=='boolean'||typeof p.ghostVote!=='boolean'||!['unknown','good','evil'].includes(p.alignment)||!Array.isArray(p.reminders)||p.reminders.length>20||!Array.isArray(p.reminderDetails)||p.reminderDetails.length!==p.reminders.length)throw Error('回放玩家状态无效');return {...result,alive:p.alive,ghostVote:p.ghostVote,alignment:p.alignment,reminders:p.reminders.map(t=>text(t,100,'回放提醒',false)),reminderDetails:p.reminderDetails.map(d=>reminderDetail(d,null))};});if(new Set(players.map(p=>p.seatId)).size!==players.length||new Set(players.map(p=>p.number)).size!==players.length)throw Error('回放玩家重复');return {at:frame.at,players};
+  const players=frame.players.map(p=>{const result=reviewParticipant(p);if(typeof p.alive!=='boolean'||typeof p.ghostVote!=='boolean'||!['unknown','good','evil'].includes(p.alignment)||!Array.isArray(p.reminders)||p.reminders.length>20||!Array.isArray(p.reminderDetails)||p.reminderDetails.length!==p.reminders.length)throw Error('回放玩家状态无效');return {...result,alive:p.alive,ghostVote:p.ghostVote,alignment:p.alignment,reminders:p.reminders.map(t=>text(t,100,'回放提醒',false)),reminderDetails:p.reminderDetails.map(d=>reminderDetail(d,null))};});if(new Set(players.map(p=>p.seatId)).size!==players.length||new Set(players.map(p=>p.number)).size!==players.length)throw Error('回放玩家重复');if(frame.correctedAt!==undefined&&(!Number.isFinite(frame.correctedAt)||frame.correctedAt<0))throw Error('历史修订时间无效');return {at:frame.at,players,...(frame.correctedAt!==undefined?{correctedAt:frame.correctedAt}:{})};
  }
  function captureReplay(s,opening=false){const index=phaseIndex(s);if(index<0)return;s.replay||={stages:[]};while(s.replay.stages.length<=index)s.replay.stages.push(null);const frame=boardFrame(s);if(!s.replay.stages[index])s.replay.stages[index]={start:frame,end:copy(frame),partial:!opening};else s.replay.stages[index].end=frame;}
  function replayFrame(s,index,point='end'){
@@ -285,11 +285,27 @@
  }
  function reduce(current,action,random){
   const s=validate(current),map=new Map(s.script.roles.map(r=>[r.id,r]));let message='';
-  captureReplay(s);
+  if(action.type!=='replayCorrect')captureReplay(s);
   const target=()=>{const found=s.seats.find(x=>x.id===action.seatId);if(!found)throw Error('找不到这个座位');return found;};
   const name=p=>p.name||((s.seats.indexOf(p)+1)+' 号');
   const clearCurrent=id=>s.progress.forEach(n=>{if(n.night===s.round)n.steps=n.steps.filter(x=>x.seatId!==id);});
   switch(action.type){
+   case 'replayCorrect':{
+    if(action.gameId!==s.gameId||action.revision!==s.revision)throw Error('对局已变化，请重新打开历史魔典后修订');
+    integer(action.stageIndex,0,197,'回放阶段');
+    if(action.stageIndex>=phaseIndex(s))throw Error('只能修订已经结束的历史阶段');
+    if(!['start','end'].includes(action.point))throw Error('回放视点无效');
+    const stage=s.replay?.stages[action.stageIndex];if(!stage)throw Error('此阶段没有完整快照，不能补造历史状态');
+    const frame=stage[action.point],p=frame.players.find(p=>p.seatId===action.seatId);if(!p)throw Error('历史快照中没有此玩家');
+    if(typeof action.alive!=='boolean'||typeof action.ghostVote!=='boolean'||!['unknown','good','evil'].includes(action.alignment))throw Error('历史玩家状态无效');
+    if(!Array.isArray(action.reminders)||action.reminders.length>20)throw Error('最多保留 20 个历史标记');
+    const reminders=action.reminders.map(v=>text(v,100,'历史标记',false).trim());if(reminders.some(v=>!v))throw Error('历史标记不能为空');
+    const used=new Set(),details=reminders.map(v=>{const i=p.reminders.findIndex((old,j)=>old===v&&!used.has(j));if(i<0)return null;used.add(i);return copy(p.reminderDetails[i]);});
+    const identity=action.role===undefined?p:withRole(p,action.role===null?null:roleDefinition(action.role));
+    const revised={...identity,name:text(action.name,40,'历史玩家名称'),alive:action.alive,ghostVote:action.ghostVote,alignment:action.alignment,reminders,reminderDetails:details};
+    frame.players[frame.players.indexOf(p)]=revised;frame.correctedAt=Date.now();validateFrame(frame);
+    message='修订第 '+(Math.floor(action.stageIndex/2)+1)+(action.stageIndex%2?' 天':' 夜')+' · '+(action.point==='start'?'开始':'结束')+' · '+p.number+'号历史魔典';break;
+   }
    case 'name':{const p=target();p.name=text(action.name,40,'玩家名称');message='修改玩家名称';break;}
    case 'seatNoteDraft':{const p=target();p.noteDraft=text(action.text,2000,'玩家笔记草稿');message='更新 '+name(p)+' 的笔记草稿';break;}
    case 'seatNoteAdd':{const p=target();if(p.notes.length>=100)throw Error('每位玩家最多 100 条笔记');const value=text(action.text,2000,'玩家笔记',false).trim();p.notes.push({text:value,phase:s.phase,round:s.round,at:Date.now()});p.noteDraft='';message='为 '+name(p)+' 记下笔记';break;}
@@ -389,7 +405,7 @@
   }
   s.revision++;s.updatedAt=Date.now();const last=s.history.at(-1);
   if(action.type==='nightMark'&&action.status==='done'&&!current.progress.some(n=>n.night===current.round&&n.steps.some(p=>p.seatId===action.seatId&&p.status==='done')))markExpiryAction(s,action.seatId);
-  captureReplay(s,action.type==='advance');
+  if(action.type!=='replayCorrect')captureReplay(s,action.type==='advance');
   if(last&&['notes','name','seatNoteDraft'].includes(action.type)&&last.type===action.type&&last.text===message&&last.phase===s.phase&&last.round===s.round)last.at=s.updatedAt;
   else s.history.push({type:action.type,text:message,at:s.updatedAt,phase:s.phase,round:s.round});s.history=s.history.slice(-200);
   return validate(s);
