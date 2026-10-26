@@ -18,14 +18,15 @@ function personalFor(s){
 function workspaceMatches(s){
  var completeness=document.getElementById('completionFilter').value,personal=document.getElementById('personalFilter').value;
  if(completeness==='missing-json'&&s[6]==='json')return false;
- var pictures=pictureCompleteness(s);
+ var pictures=completeness&&completeness!=='missing-json'?pictureCompleteness(s):null;
  if(completeness==='missing-images'&&pictures.state!=='missing-images')return false;
  if(completeness==='missing-front'&&pictures.front)return false;
  if(completeness==='missing-back'&&pictures.back)return false;
  if(completeness==='ancillary'&&pictures.state!=='ancillary')return false;
  if(completeness==='complete'&&(s[6]!=='json'||!pictures.complete))return false;
  if(completeness==='incomplete'&&s[6]==='json'&&pictures.complete)return false;
- var r=personalFor(s);return !personal||(personal==='any'?(r.favorite||r.want||r.recommended||r.plays.length>0||!!r.note):(personal==='played'?r.plays.length>0:r[personal]===true));
+ if(!personal)return true;
+ var r=personalFor(s);return (personal==='any'?(r.favorite||r.want||r.recommended||r.plays.length>0||!!r.note):(personal==='played'?r.plays.length>0:r[personal]===true));
 }
 function historyFor(i){return (window.LIBRARY_HISTORY||{})[recordKey(baseScripts[i][3])]||[];}
 function deltaText(a,b){
@@ -51,12 +52,23 @@ function persistPersonal(i,r){
  return writePreference('scriptlib-personal',personalRecords);
 }
 function bindWorkspaceDetail(i){
+ var favorite=document.getElementById('libraryQuickFavorite');
+ if(favorite)favorite.onclick=function(){
+  var r=personalFor(baseScripts[i]),previous=personalRecords;r.favorite=!r.favorite;
+  personalRecords=Object.assign(Object.create(null),previous);
+  if(!persistPersonal(i,r)){personalRecords=previous;document.getElementById('libraryQuickStatus').textContent='收藏未保存，请检查浏览器存储后重试。';return;}
+  favorite.textContent=r.favorite?'★ 已收藏':'☆ 收藏';favorite.setAttribute('aria-pressed',String(r.favorite));
+  document.getElementById('personal-favorite').checked=r.favorite;
+  render();document.getElementById('libraryQuickStatus').textContent=r.favorite?'已收藏到此浏览器。':'已取消收藏；备注和游玩记录保留。';
+ };
  var local=document.getElementById('btn-local-json');if(local&&chosenVersions[i]){local.removeAttribute('href');local.textContent='下载此版本 JSON';local.onclick=function(){var original=chosenVersions[i].row.original;if(original)jsonSave(original.t,original.f);};}
  function save(play,remove){
   var r=personalFor(baseScripts[i]);['favorite','want','recommended'].forEach(function(k){r[k]=document.getElementById('personal-'+k).checked;});r.note=document.getElementById('personal-note').value;
   if(play){var date=document.getElementById('personal-date').value;if(!/^\d{4}-\d{2}-\d{2}$/.test(date)){document.getElementById('personal-status').textContent='请先选择游玩日期';return;}r.plays.push({id:Date.now().toString(36)+Math.random().toString(36).slice(2),date:date});r.want=false;}
   if(remove!=null)r.plays.splice(remove,1);
-  var saved=persistPersonal(i,r);render();show(i);document.getElementById('personal-status').textContent=saved?'已保存到此浏览器；可备份个人记录。':'浏览器未允许持久保存，请立即备份个人记录。';
+  var previous=personalRecords;personalRecords=Object.assign(Object.create(null),previous);
+  if(!persistPersonal(i,r)){personalRecords=previous;document.getElementById('personal-status').textContent='保存失败：浏览器存储不可用。已保留本次输入，请重试或复制备注另存。';return;}
+  render();show(i);document.getElementById('personal-status').textContent='已保存到此浏览器；可备份个人记录。';
  }
  document.getElementById('personal-save').onclick=function(){save();};
  document.getElementById('personal-play').onclick=function(){save(true);};
@@ -65,7 +77,7 @@ function bindWorkspaceDetail(i){
  bindVersionDetail(i);
 }
 function bindVersionDetail(i){
- document.getElementById('version-load').onclick=async function(){var revision=detailRevision;try{await loadHistory();if(revision!==detailRevision)return;document.querySelector('.version-editor').outerHTML=versionDetail(i);bindVersionDetail(i);document.getElementById('version-status').textContent=historyFor(i).length?'请选择要使用的版本；仅影响此浏览器的预览、复制与导出。':'该剧本尚无历史更新。';}catch(error){if(revision!==detailRevision)return;document.getElementById('version-status').textContent=error.message;}};
+ document.getElementById('version-load').onclick=async function(){var revision=detailRevision,control=this;control.disabled=true;control.setAttribute('aria-busy','true');document.getElementById('version-status').textContent='正在加载历史版本…';try{await loadHistory();if(revision!==detailRevision)return;document.querySelector('.version-editor').outerHTML=versionDetail(i);bindVersionDetail(i);document.getElementById('version-status').textContent=historyFor(i).length?'请选择要使用的版本；仅影响此浏览器的预览、复制与导出。':'该剧本尚无历史更新。';}catch(error){if(revision!==detailRevision)return;document.getElementById('version-status').textContent='加载失败：'+error.message+'。请重试。';}finally{control.disabled=false;control.removeAttribute('aria-busy');}};
  document.getElementById('version-select').onchange=function(){var id=this.value;useVersion(i,id);writePreference('scriptlib-versions',versionChoices);render();show(i);};
 }
 function loadHistory(){

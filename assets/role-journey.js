@@ -45,7 +45,7 @@
       });host.appendChild(button);
     });
     if(items.length){var clear=document.createElement('button');clear.type='button';clear.className='role-conditions-clear';clear.textContent='清空全部';clear.addEventListener('click',reset);host.appendChild(clear);}
-    if($('n').textContent==='0'&&items.length){var empty=document.createElement('button');empty.type='button';empty.id='roleEmptyReset';empty.className='btn';empty.textContent='清空筛选，查看全部角色';empty.addEventListener('click',reset);$('grid').firstElementChild.appendChild(empty);}
+    if($('n').textContent==='0'&&items.length&&!$('roleEmptyReset')){var empty=document.createElement('button');empty.type='button';empty.id='roleEmptyReset';empty.className='btn';empty.textContent='清空筛选，查看全部角色';empty.addEventListener('click',reset);$('grid').firstElementChild.appendChild(empty);}
   }
   function snapshot(){
     var open={};disclosureIds.forEach(function(id){open[id]=!!($(id)&&$(id).open);});

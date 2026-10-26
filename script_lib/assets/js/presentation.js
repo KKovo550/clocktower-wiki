@@ -40,6 +40,9 @@ var LibraryView=(function(){
   var remaining=active.querySelectorAll('button');(remaining[Math.min(index,remaining.length-1)]||document.getElementById('q')).focus({preventScroll:true});
  });
  if(quickPictures)quickPictures.addEventListener('click',function(){var field=document.getElementById('onlypic');field.checked=!field.checked;render();});
+ var favoriteFilter=document.getElementById('quickFavorites'),applyFilters=document.getElementById('libraryShowResults');
+ if(favoriteFilter)favoriteFilter.addEventListener('click',function(){var field=document.getElementById('personalFilter');field.value=field.value==='favorite'?'':'favorite';currentPage=1;render();});
+ if(applyFilters)applyFilters.addEventListener('click',function(){advanced.open=false;var target=document.getElementById('library-list-title');if(target){target.tabIndex=-1;target.focus({preventScroll:true});target.scrollIntoView({block:'start',behavior:'auto'});}});
  // A capacity check, not a recommendation: setup-changing abilities can change the actual counts.
  var playerSetups={7:[5,0,1,1],8:[5,1,1,1],9:[5,2,1,1],10:[7,0,2,1],11:[7,1,2,1],12:[7,2,2,1],13:[9,0,3,1],14:[9,1,3,1],15:[9,2,3,1]};
  function playerMatches(script){
@@ -52,6 +55,8 @@ var LibraryView=(function(){
   if(summary){summary.textContent=count?count+' 项已启用':'角色、分类、人数';summary.classList.toggle('has-filters',count>0);}
   if(openActive&&count&&advanced)advanced.open=true;
   if(quickPictures)quickPictures.setAttribute('aria-pressed',String(document.getElementById('onlypic').checked));
+  if(favoriteFilter)favoriteFilter.setAttribute('aria-pressed',String(document.getElementById('personalFilter').value==='favorite'));
+  if(applyFilters)applyFilters.textContent='查看结果'+(typeof cur!=='undefined'?' · '+cur.length+' 个剧本':'');
   chips();
  }
  function selected(index){

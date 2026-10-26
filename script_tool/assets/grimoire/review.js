@@ -4,6 +4,22 @@
  function create({getState,getBoard,isPublic,isDirty,getRoles,apply,sidePanel,history,finishGame,returnToNight,continueNight,node,button,field,hint,image,roleLabel,decorateToken,reminderToken,scriptLogo,contentArrive,measure,pointerX,pointerY,open}){
   let draft=null,recentActions=[],recentRoles=[],activeStage=-1,filterQuery='',searchOpen=false,lastSaved=null;const collapsed=new Set();const abilityActions=root.GrimoireReviewActions,isComposing=e=>e.isComposing||e.keyCode===229;
   const G=root.ClocktowerGrimoire,draftKey='botc_grimoire_review_draft_v1';let draftStorageFailed=false,draftRestored=false,recoveryPending=null,recoveryNeedsSave=false,draftBase=null;
+  const recoveryPrefix='botc_grimoire_draft_recovery_v1:';let persistentKey='',persistentRaw=null,draftWrite=0;
+  function persistRaw(raw){
+   if(raw===null&&!persistentKey){root.sessionStorage.removeItem(draftKey);return;}
+   if(!persistentKey||root.localStorage.getItem(persistentKey)!==persistentRaw){persistentKey=recoveryPrefix+(root.crypto?.randomUUID?.()||Date.now()+'-'+Math.random());persistentRaw=null;}
+   if(raw===null){root.sessionStorage.removeItem(draftKey);if(persistentRaw!==null)root.localStorage.removeItem(persistentKey);}
+   else{const savedAt=Date.now();root.sessionStorage.setItem(draftKey,raw);root.sessionStorage.setItem(draftKey+'_owner',persistentKey);root.sessionStorage.setItem(draftKey+'_time',String(savedAt));root.localStorage.setItem(persistentKey,JSON.stringify({savedAt,raw}));}
+   persistentRaw=root.localStorage.getItem(persistentKey);
+   const job=++draftWrite;root.GrimoireRecoveryStore?.write(persistentKey,persistentRaw).catch(()=>{if(job===draftWrite){draftStorageFailed=true;const warning=document.getElementById('gWarning'),warningText=document.getElementById('gWarningText'),retry=document.getElementById('gRetry');if(warning&&warningText){warning.hidden=false;warningText.textContent='草稿恢复副本更新失败，请重试；未提交的内容请先复制或下载备份。';if(retry)retry.hidden=isPublic();}const status=document.getElementById('gReviewValidation');if(status&&!isPublic())status.textContent='草稿增强恢复未完成，请先复制或下载草稿，再重试。';}});
+  }
+  function recoverRaw(){
+   let session=root.sessionStorage.getItem(draftKey);const owner=root.sessionStorage.getItem(draftKey+'_owner'),candidates=[];
+   if(owner?.startsWith(recoveryPrefix)){const record=root.GrimoireRecoveryStore?.records.get(owner);if(record?.value===null&&record.updatedAt>=Number(root.sessionStorage.getItem(draftKey+'_time')||0)){root.sessionStorage.removeItem(draftKey);return null;}try{const owned=JSON.parse(root.localStorage.getItem(owner));if(owned?.raw){persistentKey=owner;persistentRaw=root.localStorage.getItem(owner);return !session||owned.savedAt>Number(root.sessionStorage.getItem(draftKey+'_time')||0)?owned.raw:session;}}catch{}}
+   for(let i=0;i<root.localStorage.length;i++){const key=root.localStorage.key(i);if(!key.startsWith(recoveryPrefix))continue;try{const entry=JSON.parse(root.localStorage.getItem(key)),saved=JSON.parse(entry.raw);if(session?entry.raw===session:saved.gameId===getState().gameId)candidates.push({key,entry});}catch{}}
+   candidates.sort((a,b)=>b.entry.savedAt-a.entry.savedAt);const candidate=candidates[0];if(candidate){persistentKey=candidate.key;persistentRaw=root.localStorage.getItem(candidate.key);}
+   return session||candidate?.entry.raw;
+  }
   const entrySignatures=new WeakMap();
   function entrySignature(entry){
    if(!entry)return null;if(entrySignatures.has(entry))return entrySignatures.get(entry);
@@ -24,13 +40,13 @@
   function persistDraft(){try{
    const state=getState();if(draft&&!draftMatchesCurrent(state))retainDraftForRecovery();
    // A conflicting draft stays byte-for-byte intact until its owner chooses recovery or discard.
-   if(recoveryPending){if(recoveryNeedsSave){root.sessionStorage.setItem(draftKey,serializeDraft(recoveryPending));recoveryNeedsSave=false;draftStorageFailed=false;}return;}
-   if(!draft){root.sessionStorage.removeItem(draftKey);draftBase=null;draftStorageFailed=false;return;}
+   if(recoveryPending){if(recoveryNeedsSave){persistRaw(serializeDraft(recoveryPending));recoveryNeedsSave=false;draftStorageFailed=false;}return;}
+   if(!draft){persistRaw(null);draftBase=null;draftStorageFailed=false;return;}
    const s=getState(),stage=s.review.stages[draft.stageIndex],context={gameName:s.script.name,stage:stage?{phase:stage.phase,round:stage.round}:undefined,players:stage?G.reviewRoster(s,draft.stageIndex).map(p=>({seatId:p.seatId,number:p.number,name:p.name,roleName:p.roleName})):[],...(draft.entryId!==undefined?{entrySignature:draftBase?draftBase.context?.entrySignature:entrySignature(stage.entries.find(e=>e.id===draft.entryId))}:{})};
-   draftBase={gameId:s.gameId,revision:s.revision,context};root.sessionStorage.setItem(draftKey,serializeDraft({version:1,gameId:s.gameId,revision:s.revision,draft,context}));draftStorageFailed=false;
+   draftBase={gameId:s.gameId,revision:s.revision,context};persistRaw(serializeDraft({version:1,gameId:s.gameId,revision:s.revision,draft,context}));draftStorageFailed=false;
   }catch{draftStorageFailed=true;}}
   function restoreDraft(){try{
-   const raw=root.sessionStorage.getItem(draftKey);if(!raw)return;
+   const raw=recoverRaw();if(!raw)return;
    const saved=JSON.parse(JSON.stringify(G.unpackImages(JSON.parse(raw))),(k,v)=>v?.$draftUndefined===true?undefined:v),d=saved.draft,s=getState();
    const valid=saved.version===1&&typeof saved.gameId==='string'&&saved.gameId.length>0&&saved.gameId.length<=160&&Number.isInteger(saved.revision)&&saved.revision>=0&&d&&['action','text'].includes(d.kind)&&['subject','menu','report','details'].includes(d.step)&&Number.isInteger(d.stageIndex)&&d.stageIndex>=0&&Array.isArray(d.targetSeatIds)&&Array.isArray(d.informedRoles)&&Array.isArray(d.abilityRoles)&&Array.isArray(d.abilityTexts)&&typeof d.action==='string'&&typeof d.result==='string'&&typeof d.text==='string';
    if(valid){const stage=s.review.stages[d.stageIndex],sameEntry=d.entryId===undefined||typeof saved.context?.entrySignature==='string'&&saved.context.entrySignature===entrySignature(stage?.entries.find(e=>e.id===d.entryId));if(saved.gameId===s.gameId&&!saved.recoveryRequired&&saved.revision===s.revision&&stage&&sameEntry){draft=d;draftBase={gameId:saved.gameId,revision:saved.revision,context:saved.context};activeStage=d.stageIndex;draftRestored=true;}else recoveryPending=saved;}

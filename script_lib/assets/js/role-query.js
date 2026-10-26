@@ -5,11 +5,13 @@ function canonicalRoleKey(value){
  return roleKey(Object.prototype.hasOwnProperty.call(names,key)?names[key].n:key);
 }
 function libraryRoleMatches(script){
+ var include=roleTerms(document.getElementById('includeRoles').value),exclude=roleTerms(document.getElementById('excludeRoles').value);
+ if(!include.length&&!exclude.length)return true;
  var names=new Set();script[5].forEach(function(i){var c=CHARS[i];if(!c||isLibraryRuleTeam(c[1]))return;
   names.add(roleKey(c[0]));var role=libraryRole(c);if(role)names.add(roleKey(role.n));
  });
  function contains(n){return names.has(n)||names.has(canonicalRoleKey(n));}
- return roleTerms(document.getElementById('includeRoles').value).every(contains)&&!roleTerms(document.getElementById('excludeRoles').value).some(contains);
+ return include.every(contains)&&!exclude.some(contains);
 }
 function applyRoleQuery(){
  var params=new URLSearchParams(location.search);

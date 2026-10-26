@@ -47,7 +47,7 @@
     options=options||{};var backend=options.backend?Promise.resolve(options.backend):root.indexedDB?indexedBackend():Promise.resolve(localBackend(options.storage||root.localStorage)),tail=Promise.resolve(),clock=options.clock||Date.now;
     backend.catch(function(){});
     // Serialize this page's edits. The backend also checks revisions across pages.
-    function enqueue(operation){var job=tail.then(function(){return backend;}).then(operation);tail=job.catch(function(){});return job;}
+    function enqueue(operation){var job=tail.then(function(){return backend;}).then(operation);tail=job.catch(function(){});return job.catch(function(error){if(error&&(error.name==='QuotaExceededError'||error.code===22))throw Error('浏览器存储空间不足，个人角色库未保存。请先导出备份，再清理不需要的资料后重试。');throw error;});}
     function record(db,value,reason,expected){return (async function(){var valueRaw=definition(value),id=root.ScriptCore.identity(valueRaw.id),entry=await db.read(id);
       if(expected!==undefined&&(entry?entry.revision:0)!==expected)throw Error('角色版本已更新，请重新加载后比较');
       if(entry&&stable(entry.versions[entry.versions.length-1].raw)===stable(valueRaw)&&reason!=='restore')return copy(entry);

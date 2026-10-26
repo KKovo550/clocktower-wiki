@@ -5,13 +5,13 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>钟楼剧本库</title>
 <link rel="stylesheet" href="../assets/wiki.css?v=55fefd373894">
-<link rel="stylesheet" href="assets/library.css?v=68c008f5c3aa">
+<link rel="stylesheet" href="assets/library.css?v=98f73f8acd58">
 <link rel="stylesheet" href="../assets/modern-theme.css?v=79a2bf493ee8">
 <link rel="stylesheet" href="../assets/site-experience.css?v=b7d0b8030023">
-<link rel="stylesheet" href="../assets/product-hierarchy.css?v=0e95da827336">
+<link rel="stylesheet" href="../assets/product-hierarchy.css?v=ed305905000f">
 <link rel="stylesheet" href="../assets/archive-parchment.css?v=bb3b58a50453">
 <link rel="stylesheet" href="../assets/site-cache.css?v=a00270771db0">
-<script src="../assets/site-cache.js?v=237c8a660115" data-site-version="e2be03f9927710b8"></script>
+<script src="../assets/site-cache.js?v=237c8a660115" data-site-version="c5114b9d51af8de3"></script>
 <meta name="generator" content="Astro v7.3.3"></head>
   <body data-root="../" class="script-library-page">
     
@@ -171,6 +171,7 @@
 </div>
   <div class="library-quick-filters" aria-label="快捷筛选">
     <button type="button" id="quickPictures" aria-pressed="false">有图片</button>
+    <button type="button" id="quickFavorites" aria-pressed="false">已收藏</button>
     <label>人数初筛 <select id="playerCount" aria-describedby="playerCountHelp"><option value="">不限人数</option><option value="7">7 人</option><option value="8">8 人</option><option value="9">9 人</option><option value="10">10 人</option><option value="11">11 人</option><option value="12">12 人</option><option value="13">13 人</option><option value="14">14 人</option><option value="15">15 人</option></select></label>
     <small id="playerCountHelp">按标准阵营配置检查可选角色数量；特殊规则与实际适用人数请查看剧本。</small>
   </div>
@@ -193,7 +194,7 @@
     <small>分类数量为全库统计；可停留在任意一级，再结合关键词筛选。</small>
   </section>
   <section class="workspace-bar"><select id="completionFilter" aria-label="完整度"><option value="">全部完整度</option><option value="complete">JSON 与正背面齐全</option><option value="missing-json">缺 JSON</option><option value="missing-front">缺正面</option><option value="missing-back">缺背面</option><option value="ancillary">仅附图或未分类</option><option value="missing-images">无原图</option><option value="incomplete">待补全</option></select><select id="personalFilter" aria-label="个人记录"><option value="">全部个人状态</option><option value="any">我的全部记录</option><option value="favorite">已收藏</option><option value="want">想玩</option><option value="played">玩过</option><option value="recommended">推荐</option></select></section>
-  </div></details>
+  <button type="button" class="btn" id="libraryShowResults">查看结果</button></div></details>
   </section>
 
   <div class="library-result-tools"><details class="library-record-tools"><summary>记录、导出与离线使用</summary><div><button class="btn" id="btnExport" title="导出剧本 JSON 与剧本图">导出剧本</button><button class="btn" id="maintenanceOpen">待补全与更新</button><button class="btn" id="personalBackup">备份个人记录</button><label class="btn">恢复个人记录<input id="personalRestore" type="file" accept=".json" hidden></label></div><p class="library-integration-note">收藏与游玩记录保存在当前浏览器。<span>网页版提供剧本图片压缩预览；原尺寸图片不随本站发布。</span></p>  <details id="maintenancePanel"><summary>更新与入库管理</summary><div id="maintenanceBody"></div><p id="maintenanceStatus" role="status"></p></details></details>
@@ -319,7 +320,7 @@
   <textarea id="manualCopyText" readonly aria-label="手动复制的文本"></textarea>
   <button class="btn" id="manualCopyClose">关闭</button>
 </dialog>
-<script src="assets/js/actions.js?v=d03d2d4bb73f"></script>
+<script src="assets/js/actions.js?v=6576e473dd1f"></script>
 <script src="assets/data/catalog.js?v=b599b0413bd4"></script>
 <script src="assets/data/image-previews.js?v=3cfeaca0eed5"></script>
 <script src="assets/js/core.js?v=c09dd15d8e48"></script>
@@ -328,14 +329,14 @@
 <script src="assets/js/categories.js?v=c8e7d0323de9"></script>
 <script src="assets/js/gallery.js?v=4629b9e3bcba"></script>
 <script src="assets/js/viewer.js?v=41a37d5101ba"></script>
-<script src="assets/js/presentation.js?v=55839a2655ff"></script>
+<script src="assets/js/presentation.js?v=94264e6907f3"></script>
 <script src="assets/data/maintenance.js?v=22eeb37c6d02"></script>
-<script src="assets/js/workspace.js?v=6bae3b3e8d7e"></script>
+<script src="assets/js/workspace.js?v=bb15e1456418"></script>
 <script src="assets/data/role-icons.js?v=9dcc43515a91"></script>
-<script src="assets/js/role-query.js?v=2ab50b78f374"></script><script src="assets/js/journey.js?v=14fcd08b4684"></script><script src="assets/js/share.js?v=221fca9cebe4"></script><script src="assets/js/app.js?v=dc0744c58290"></script><script src="../script_tool/assets/script-tool/tool-transfer.js?v=b0285cf94349"></script><script src="assets/js/editor-transfer.js?v=bc8a15f1ddb8"></script>
+<script src="assets/js/role-query.js?v=aa1d17c1556e"></script><script src="assets/js/journey.js?v=14fcd08b4684"></script><script src="assets/js/share.js?v=221fca9cebe4"></script><script src="assets/js/app.js?v=c1b9dd8306c1"></script><script src="../script_tool/assets/script-tool/tool-transfer.js?v=b0285cf94349"></script><script src="assets/js/editor-transfer.js?v=bc8a15f1ddb8"></script>
 <script>LibraryJourney.init(initWorkspace());</script>
 <script src="../assets/wiki.js?v=d926e5e41ef3"></script>
-<script src="../assets/start-guide.js?v=332715687db6" defer></script>
+<script src="../assets/start-guide.js?v=7f3a0ae67cf1" defer></script>
 
   </body>
 </html>

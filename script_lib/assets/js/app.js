@@ -128,7 +128,7 @@ function render(){
   }).join('');
 
   var personal=document.getElementById('personalFilter').value;
-  document.getElementById('list').innerHTML=h||(personal?'<div class="hint library-empty"><strong>这个分类下还没有匹配的剧本</strong><span>可以返回全部剧本，在详情的“我的记录”中收藏、标记想玩或记录游玩；也可以清除其他筛选条件。</span></div>':'<div class="hint">没有匹配的剧本</div>');
+  document.getElementById('list').innerHTML=h||'<div class="hint library-empty" role="status"><strong>'+(personal?'当前个人分类下没有匹配的剧本':'没有找到匹配的剧本')+'</strong><p>'+(personal?'可能尚未添加个人记录，或被其他条件筛掉。清除筛选不会删除收藏、备注或游玩记录。':'试试更短的剧本名，或放宽人数、角色等筛选条件。')+'</p><div class="library-browse-actions">'+(personal?'<button class="btn" data-empty-action="personal">取消个人分类筛选</button>':'')+'<button class="btn" data-empty-action="reset">清除全部筛选</button></div></div>';
   document.getElementById('list').scrollTop=0;
   if(typeof LibraryView!=='undefined')LibraryView.filters(false);
   if(typeof LibraryJourney!=='undefined')LibraryJourney.rendered(signature,previousListScroll);
@@ -142,6 +142,8 @@ function librarySourceDetail(s){
   }).join('')+'</select><p>'+members.length+' 处收录 · '+versions+' 个内容版本。'+(versions>1?'切换后，预览、下载和导入剧本工具均使用所选版本。':'相同内容已合并展示，原文件和各来源图片均保留。')+'</p></section>';
 }
 document.getElementById('list').addEventListener('click',function(e){
+  var recovery=e.target.closest('[data-empty-action]');
+  if(recovery){if(recovery.dataset.emptyAction==='personal'){document.getElementById('personalFilter').value='';currentPage=1;render();}else document.getElementById('filterReset').click();document.getElementById('q').focus();return;}
   var row=e.target.closest('.row');if(!row)return;
   Array.prototype.forEach.call(this.querySelectorAll('.row'),function(r){r.className='row';});
   row.className='row sel';
@@ -163,6 +165,7 @@ function show(i){
   document.getElementById('detail').innerHTML=
     '<h2 class="dt" tabindex="-1">'+esc(s[0]||'(未命名)')+'</h2>'+
     '<div class="dtmeta library-overview">作者：'+esc(s[1]||'佚名')+'<span>'+s[4]+' 个角色'+(s[6]==='url'?' · 暂无 JSON':'')+'</span></div>'+
+    '<div class="library-browse-actions"><button type="button" class="btn" id="libraryQuickFavorite" aria-pressed="'+personalFor(baseScripts[i]).favorite+'">'+(personalFor(baseScripts[i]).favorite?'★ 已收藏':'☆ 收藏')+'</button><button type="button" class="btn" id="librarySimilar">找相似剧本</button></div><p id="libraryQuickStatus" role="status"></p>'+
     (s[7]?'<p class="library-description">'+esc(s[7])+'</p>':'')+
     librarySourceDetail(s)+'<div class="library-primary-actions"><button class="btn" id="btn-edit-script" type="button">在剧本工具中编辑</button><button class="btn" id="btn-grimoire-script" type="button">用此剧本开魔典</button>'+
     (s[6]==='json'?'<button class="btn" id="btn-local-json" type="button">下载 JSON</button>':'')+
@@ -198,6 +201,7 @@ function show(i){
   if(typeof bindEditorTransfer==='function')bindEditorTransfer(i);
   if(typeof bindGrimoireTransfer==='function')bindGrimoireTransfer(i);
   if(typeof bindWorkspaceDetail==='function')bindWorkspaceDetail(i);
+  document.getElementById('librarySimilar').onclick=function(){cmpFromLibrary(i);};
   document.getElementById('btn-path').onclick=function(){
     copy(JSONBASE+'/'+s[3].replace(/\\/g,'/'),this);};
   document.getElementById('btn-one').onclick=function(){
@@ -543,7 +547,8 @@ function cmpRender(){
     .map(function(t){return TEAMCN[t]+' '+tally[t];}).join(' / ');
   var withBig=document.getElementById('cmpBig').checked;
   var sortBy=document.getElementById('cmpSort').value;
-  var rank=cmpRank(cmpMine.chars,{top:10,withBig:withBig,sort:sortBy});
+  var rank=cmpRank(cmpMine.chars,{top:cmpMine.sourceFamily?SCRIPTS.length:10,withBig:withBig,sort:sortBy});
+  if(cmpMine.sourceFamily)rank=rank.filter(function(r){return scriptFamilyKey(SCRIPTS[r.i])!==cmpMine.sourceFamily;}).slice(0,10);
   var unknown=cmpMine.chars.filter(function(c){return c.idOnly||c.unresolved;}).length;
 
   var h='<div class="mine"><b>'+esc(cmpMine.name)+'</b>'+
@@ -594,6 +599,15 @@ function cmpRender(){
   });
 }
 var compareReadRevision=0;
+async function cmpFromLibrary(i){
+  var s=SCRIPTS[i].slice(),revision=++compareReadRevision;
+  s[5]=s[5].slice();s[12]=Object.assign({},s[12]);
+  var candidate={name:s[0],author:s[1],sourceFamily:scriptFamilyKey(s)};
+  cmpMine=null;document.getElementById('cmpMask').className='on';
+  document.getElementById('cmpMy').textContent='正在查找与此版本相似的剧本…';document.getElementById('cmpRes').textContent='';
+  try{await loadComparison();if(revision!==compareReadRevision)return;candidate.chars=comparisonRoster(s);cmpMine=candidate;cmpRender();}
+  catch(error){if(revision!==compareReadRevision)return;document.getElementById('cmpMy').textContent='比对资料加载失败，请关闭后重试。';}
+}
 function cmpRead(file){
   if(!file)return;
   var revision=++compareReadRevision;

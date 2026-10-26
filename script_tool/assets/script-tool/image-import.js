@@ -96,7 +96,7 @@
       '<label>排版<select id="ocrLayout"><option value="poster">双列海报（忽略两侧夜序）</option><option value="full">整张图片</option></select></label>' +
       '<label>识别引擎<select id="ocrEngine"><option value="paddle-browser">PaddleOCR 浏览器识别（无需服务）</option><option value="paddle-gpu">PaddleOCR GPU 加速（试验）</option><option value="browser">原版离线 OCR</option></select></label>' +
       '<button class="btn pri" id="ocrRun">开始识别</button><p id="ocrStatus" role="status" aria-live="polite"></p>' +
-      '<details><summary>识别文字 / 手动粘贴角色名</summary><textarea id="ocrText" placeholder="每行一个角色名，可修改识别文字后重新匹配"></textarea><button class="btn" id="ocrMatch">重新匹配</button></details>' +
+      '<button class="btn" id="ocrManual">手动输入角色名</button><details id="ocrManualDetails"><summary>识别文字 / 手动粘贴角色名</summary><textarea id="ocrText" placeholder="每行一个角色名，可修改识别文字后重新匹配"></textarea><button class="btn" id="ocrMatch">重新匹配</button></details>' +
       '<label>剧本名称<input id="ocrName" placeholder="请填写剧本名称"></label><label>作者<input id="ocrAuthor"></label>' +
       '<button class="btn" id="ocrSearch">按名称搜索剧本库</button><div id="ocrLibrary"></div><button class="btn" id="ocrContinue" hidden>未找到合适版本，继续识别角色</button>' +
       '<label>补选漏识别角色<select id="ocrExtra"></select></label><button class="btn" id="ocrAdd">添加角色</button>' +
@@ -104,6 +104,7 @@
     var body = document.getElementById('dlgBody'), dlg = document.getElementById('dlg'), active = true, disposed=false,worker = null, selected = [], ambiguous=[],busy = false;
     if(inWechat)body.querySelector('h3').after(wechatNotice(false));
     function el(id) { return body.querySelector('#' + id); }
+    el('ocrManual').onclick=function(){el('ocrManualDetails').open=true;el('ocrText').focus();};
     var albumImage=el('ocrImagePreview');
     var catalog = root.CHARS;
     var continueRoles=false,imageRevision=0,paddleController=null,candidateController=null;
@@ -181,6 +182,7 @@
       var list = el('ocrRoles'); list.replaceChildren();
       var pending=ambiguous.filter(function(group){return group.choice===null;}).length;
       var count = document.createElement('p'); count.textContent = '已选 ' + selected.length + ' 个角色'+(pending?' · '+pending+' 个同名角色待选择版本':''); list.appendChild(count);
+      if(!selected.length&&!pending){var help=document.createElement('p');help.className='tip';help.textContent='还没有可导入的角色。可按剧本名称搜索剧本库，或手动输入角色名后点击“重新匹配”；当前剧本不会改变。';list.appendChild(help);}
       ambiguous.forEach(function(group){
         var box=document.createElement('fieldset'),legend=document.createElement('legend'),choose=document.createElement('select'),detail=document.createElement('p');
         box.className='ocr-ambiguity';legend.textContent=group.name+'：请选择版本';choose.setAttribute('aria-label',group.name+'的具体版本');

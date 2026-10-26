@@ -116,7 +116,7 @@ function loadComparison(){
 // Promise<boolean>：只有浏览器确认完成后才返回 true。
 async function copy(text,button){
   if(button.disabled)return false;
-  var label=button.textContent;button.disabled=true;button.textContent='正在复制…';
+  var label=button._copyLabel||button.textContent;button._copyLabel=label;clearTimeout(button._copyTimer);button.disabled=true;button.setAttribute('aria-busy','true');button.textContent='正在复制…';
   var copied=false;
   try{
     if(navigator.clipboard&&navigator.clipboard.writeText){
@@ -131,7 +131,7 @@ async function copy(text,button){
     }
     if(copied){
       button.textContent='已复制 ✓';
-      setTimeout(function(){if(button.textContent==='已复制 ✓')button.textContent=label;},1200);
+      button._copyTimer=setTimeout(function(){if(button.textContent==='已复制 ✓')button.textContent=label;},2000);
     }else{
       button.textContent=label;
       var dialog=document.getElementById('manualCopy'),box=document.getElementById('manualCopyText');
@@ -141,7 +141,7 @@ async function copy(text,button){
       }else{window.prompt('自动复制失败，请手动选择并复制以下文本：',text);}
     }
     return copied;
-  }finally{button.disabled=false;}
+  }finally{button.disabled=false;button.setAttribute('aria-busy','false');}
 }
 document.getElementById('manualCopyClose').onclick=function(){document.getElementById('manualCopy').close();};
 document.getElementById('manualCopy').addEventListener('keydown',function(event){event.stopPropagation();});

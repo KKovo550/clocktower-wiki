@@ -82,6 +82,8 @@
   }
   function open(trigger, hash) {
     if (!trigger) return;
+    // Keep bookmarks to the former night-order tutorial on the hosting route.
+    if (hash === '#guide-nights') hash = '#guide-grimoire';
     trigger.setAttribute('aria-busy', 'true');
     getDialog(trigger).then(function (element) {
       if (!element.open) {

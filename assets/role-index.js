@@ -155,7 +155,8 @@ function render(){
   $('teamStat').innerHTML=TEAMORD.filter(function(t){return tc[t];}).map(function(t){
     return (TEAMCN[t]||t)+' <b>'+tc[t]+'</b>';}).join('　');
   $('grid').innerHTML=list.length?list.map(cardHTML).join('')
-    :'<div class="hint">没有命中的角色，放宽一点条件试试。</div>';
+    :'<div class="hint" role="status"><strong>没有找到匹配的角色</strong><p>试试更短的名称或能力关键词，也可以清除条件后重新浏览。</p><button type="button" class="chip" id="roleEmptyReset">清除全部筛选</button></div>';
+  if($('roleEmptyReset'))$('roleEmptyReset').onclick=function(){$('reset').click();$('q').focus();};
   Array.prototype.forEach.call(document.querySelectorAll('#grid .card'),function(el){
     el.addEventListener('click',function(e){
       if(e.target.closest && e.target.closest('a'))return;
@@ -227,11 +228,14 @@ function drawChips(){
   if(activeKey&&activeHost){Array.prototype.forEach.call(document.querySelectorAll('#'+activeHost+' .chip'),function(el){
     if(el.getAttribute('data-k')===activeKey&&el.focus)el.focus();});}
 }
-function refresh(){drawChips();render();}
+var queryTimer;
+function refresh(){clearTimeout(queryTimer);drawChips();render();}
 function updateQuery(){state.q=normalize($('q').value);refresh();}
-$('q').addEventListener('compositionstart',function(){composing=true;});
+function scheduleQuery(){state.q=normalize($('q').value);clearTimeout(queryTimer);queryTimer=setTimeout(function(){refresh();},120);}
+$('q').addEventListener('compositionstart',function(){composing=true;clearTimeout(queryTimer);});
+$('q').addEventListener('keydown',function(e){if(e.key==='Enter'&&!composing&&!e.isComposing)updateQuery();});
 $('q').addEventListener('compositionend',function(){composing=false;updateQuery();});
-$('q').addEventListener('input',function(){if(!composing)updateQuery();});
+$('q').addEventListener('input',function(){if(!composing)scheduleQuery();});
 $('searchScope').addEventListener('change',function(){state.scope=this.value;refresh();});
 $('wikiOnly').addEventListener('change',function(){state.wiki=this.checked;refresh();});
 $('sort').addEventListener('change',function(){state.sort=this.value;render();});
@@ -256,12 +260,15 @@ $('copyJson').onclick=function(){
   var t=JSON.stringify(filterRoles(),null,1);
   copy(t,this);};
 function copy(text,el){
-  if(!text)return;
-  var done=function(){var o=el.textContent;el.textContent='已复制';$('copyStatus').textContent='已复制当前筛选结果。';$('copyFallback').hidden=true;
-    setTimeout(function(){el.textContent=o;},1200);};
+  if(!text||el.disabled||el._copyPending)return;
+  var label=el._copyLabel||el.textContent;el._copyLabel=label;clearTimeout(el._copyTimer);
+  el._copyPending=true;el.disabled=true;el.setAttribute('aria-busy','true');el.textContent='正在复制…';$('copyStatus').textContent='正在复制…';
+  function finish(){el._copyPending=false;el.disabled=!filterRoles().length;el.setAttribute('aria-busy','false');}
+  var done=function(){el.textContent='已复制';$('copyStatus').textContent='已复制当前筛选结果。';$('copyFallback').hidden=true;finish();
+    el._copyTimer=setTimeout(function(){el.textContent=label;},2000);};
   var fallback=function(){var ta=$('copyFallback');ta.hidden=false;ta.value=text;ta.focus();ta.select();
     var success=false;try{success=document.execCommand('copy')===true;}catch(e){}
-    if(success)done();else $('copyStatus').textContent='自动复制未成功。请复制下方已选中的文本。';};
+    if(success)done();else{el.textContent=label;$('copyStatus').textContent='自动复制未成功。请复制下方已选中的文本。';finish();}};
   if(navigator.clipboard&&navigator.clipboard.writeText){
     try{return navigator.clipboard.writeText(text).then(done,fallback);}catch(e){fallback();}
   }else fallback();
